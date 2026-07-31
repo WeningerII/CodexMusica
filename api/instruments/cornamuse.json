@@ -1,0 +1,514 @@
+{
+  "id": "cornamuse",
+  "name": "Cornamuse (renaissance capped reed with stopped bell)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": -1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -2
+  },
+  "short": "cornamuse",
+  "parts": [
+    {
+      "id": "cornamuse_size",
+      "name": "Consort size",
+      "variants": [
+        {
+          "id": "cornamuse_tenor",
+          "default": true,
+          "name": "Tenor in C",
+          "descriptors": [
+            "tenor",
+            "consort-core",
+            "warm"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "consort"
+          ]
+        },
+        {
+          "id": "cornamuse_soprano",
+          "name": "Soprano in C",
+          "descriptors": [
+            "soprano",
+            "bright",
+            "consort-blend"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "consort"
+          ]
+        },
+        {
+          "id": "cornamuse_alto",
+          "name": "Alto in F",
+          "descriptors": [
+            "alto",
+            "inner-voice",
+            "blended"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "consort"
+          ]
+        },
+        {
+          "id": "cornamuse_bass",
+          "name": "Bass in F",
+          "descriptors": [
+            "bass",
+            "foundation-bass",
+            "deep"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "consort"
+          ]
+        },
+        {
+          "id": "cornamuse_sub_bass",
+          "name": "Sub-bass in C",
+          "descriptors": [
+            "sub-bass",
+            "deep-foundational",
+            "droning"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "consort"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cornamuse_bell_state",
+      "name": "Bell state",
+      "variants": [
+        {
+          "id": "cornamuse_stopped_bell",
+          "default": true,
+          "name": "Stopped bell with lateral vent holes (canonical muted tone)",
+          "descriptors": [
+            "stopped",
+            "muted",
+            "soft-toned"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "quiet",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "cornamuse_damper_removed",
+          "name": "Bell damper removed (markedly louder, less veiled)",
+          "descriptors": [
+            "louder",
+            "open",
+            "bright"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cornamuse_setting",
+      "name": "Consort setting",
+      "variants": [
+        {
+          "id": "cornamuse_whole_consort",
+          "default": true,
+          "name": "Homogeneous cornamuse whole consort",
+          "descriptors": [
+            "consort",
+            "soft-blend",
+            "indoor-volume"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "consort"
+          ]
+        },
+        {
+          "id": "cornamuse_broken_consort_voices",
+          "name": "Broken consort with viols and voices",
+          "descriptors": [
+            "vocal-doubling",
+            "blended",
+            "polyphonic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "choir-blendable"
+          ],
+          "canonical_tags": [
+            "renaissance-polyphony",
+            "consort"
+          ]
+        },
+        {
+          "id": "cornamuse_hip_reconstruction",
+          "name": "Modern conjectural reconstruction (one Praetorius paragraph, no survivals)",
+          "descriptors": [
+            "reconstruction",
+            "historically-informed",
+            "preservationist"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "period-performance",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "revival",
+            "early-music-caution"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cornamuse_body_wood",
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "cornamuse_boxwood",
+          "default": true,
+          "name": "Boxwood (canonical Renaissance European)",
+          "descriptors": [
+            "boxwood-canonical-renaissance-european",
+            "traditional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "cornamuse_maple",
+          "name": "Maple (alternative German)",
+          "descriptors": [
+            "maple-alternative-german",
+            "bright"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "cornamuse_plum",
+          "name": "Plum (darker fruitwood alternative)",
+          "descriptors": [
+            "plum-alternative",
+            "dark-tone"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "cornamuse_size",
+      "name": "Consort size",
+      "variants": [
+        {
+          "id": "cornamuse_tenor",
+          "default": true,
+          "name": "Tenor in C",
+          "descriptors": [
+            "tenor",
+            "consort-core",
+            "warm"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "consort"
+          ]
+        },
+        {
+          "id": "cornamuse_soprano",
+          "name": "Soprano in C",
+          "descriptors": [
+            "soprano",
+            "bright",
+            "consort-blend"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "consort"
+          ]
+        },
+        {
+          "id": "cornamuse_alto",
+          "name": "Alto in F",
+          "descriptors": [
+            "alto",
+            "inner-voice",
+            "blended"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "consort"
+          ]
+        },
+        {
+          "id": "cornamuse_bass",
+          "name": "Bass in F",
+          "descriptors": [
+            "bass",
+            "foundation-bass",
+            "deep"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "consort"
+          ]
+        },
+        {
+          "id": "cornamuse_sub_bass",
+          "name": "Sub-bass in C",
+          "descriptors": [
+            "sub-bass",
+            "deep-foundational",
+            "droning"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "consort"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cornamuse_bell_state",
+      "name": "Bell state",
+      "variants": [
+        {
+          "id": "cornamuse_stopped_bell",
+          "default": true,
+          "name": "Stopped bell with lateral vent holes (canonical muted tone)",
+          "descriptors": [
+            "stopped",
+            "muted",
+            "soft-toned"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "quiet",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "cornamuse_damper_removed",
+          "name": "Bell damper removed (markedly louder, less veiled)",
+          "descriptors": [
+            "louder",
+            "open",
+            "bright"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cornamuse_setting",
+      "name": "Consort setting",
+      "variants": [
+        {
+          "id": "cornamuse_whole_consort",
+          "default": true,
+          "name": "Homogeneous cornamuse whole consort",
+          "descriptors": [
+            "consort",
+            "soft-blend",
+            "indoor-volume"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "consort"
+          ]
+        },
+        {
+          "id": "cornamuse_broken_consort_voices",
+          "name": "Broken consort with viols and voices",
+          "descriptors": [
+            "vocal-doubling",
+            "blended",
+            "polyphonic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "choir-blendable"
+          ],
+          "canonical_tags": [
+            "renaissance-polyphony",
+            "consort"
+          ]
+        },
+        {
+          "id": "cornamuse_hip_reconstruction",
+          "name": "Modern conjectural reconstruction (one Praetorius paragraph, no survivals)",
+          "descriptors": [
+            "reconstruction",
+            "historically-informed",
+            "preservationist"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "period-performance",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "revival",
+            "early-music-caution"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cornamuse_body_wood",
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "cornamuse_boxwood",
+          "default": true,
+          "name": "Boxwood (canonical Renaissance European)",
+          "descriptors": [
+            "boxwood-canonical-renaissance-european",
+            "traditional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "cornamuse_maple",
+          "name": "Maple (alternative German)",
+          "descriptors": [
+            "maple-alternative-german",
+            "bright"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "cornamuse_plum",
+          "name": "Plum (darker fruitwood alternative)",
+          "descriptors": [
+            "plum-alternative",
+            "dark-tone"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance"
+          ]
+        }
+      ]
+    }
+  ]
+}

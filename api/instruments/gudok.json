@@ -1,0 +1,533 @@
+{
+  "id": "gudok",
+  "name": "Gudok (Russian three-string bowed fiddle)",
+  "family": "bowed",
+  "class": "bowed_fiddle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "gudok",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "gudok_form",
+      "name": "Form and era",
+      "variants": [
+        {
+          "id": "gudok_form_novgorod",
+          "default": true,
+          "name": "Novgorod type (one-piece carved pear body, flat back, C-shaped soundholes)",
+          "descriptors": [
+            "flat-backed",
+            "archaic",
+            "woody"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "russian",
+            "medieval"
+          ]
+        },
+        {
+          "id": "gudok_form_village",
+          "name": "Later peasant village gudok (rough farmhouse build)",
+          "descriptors": [
+            "farmhouse-rustic",
+            "spare",
+            "archaic-tone"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "russian",
+            "folk"
+          ]
+        },
+        {
+          "id": "gudok_form_revival",
+          "name": "Modern reconstruction (folk-orchestra / early-music build)",
+          "descriptors": [
+            "reconstructed",
+            "folk-revival",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "russian",
+            "revival"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gudok_bowing",
+      "name": "Bridge and bowing technique",
+      "variants": [
+        {
+          "id": "gudok_bowing_flat_bridge_scrub",
+          "default": true,
+          "name": "Flat bridge, knee-held vertical, all three strings scrubbed at once",
+          "descriptors": [
+            "drone-under-melody",
+            "scrubbing",
+            "droning"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "russian",
+            "medieval"
+          ]
+        },
+        {
+          "id": "gudok_bowing_nail_stopped",
+          "name": "Fingernail against the side of the string (archaic unfretted stopping)",
+          "descriptors": [
+            "archaic",
+            "nasal",
+            "spare"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "archaic"
+          ],
+          "canonical_tags": [
+            "russian",
+            "historical"
+          ]
+        },
+        {
+          "id": "gudok_bowing_raised_bridge",
+          "name": "Revival raised bridge, selective single-string melodic bowing",
+          "descriptors": [
+            "melodic",
+            "clean",
+            "reconstructed"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "revival"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gudok_context",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "gudok_context_skomorokh_dance",
+          "default": true,
+          "name": "Skomorokh dance, wedding and festivity tunes",
+          "descriptors": [
+            "dance-driving",
+            "festive",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "russian-tradition"
+          ],
+          "canonical_tags": [
+            "russian",
+            "dance"
+          ]
+        },
+        {
+          "id": "gudok_context_song",
+          "name": "Narrative song accompaniment (drone under the voice)",
+          "descriptors": [
+            "voice-shadowing",
+            "narrative",
+            "droning"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "russian",
+            "slavic"
+          ]
+        },
+        {
+          "id": "gudok_context_folk_orchestra",
+          "name": "Reconstructed folk-orchestra section (beside gusli and balalaika)",
+          "descriptors": [
+            "blended",
+            "supporting",
+            "folk-revival"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "russian",
+            "revival"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gudok_build",
+      "name": "Body timber and stringing",
+      "variants": [
+        {
+          "id": "gudok_build_maple_gut",
+          "default": true,
+          "name": "Carved maple body, glued softwood soundboard, plain gut strings",
+          "descriptors": [
+            "gut-strung",
+            "warm",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "historical-gut",
+            "russian"
+          ]
+        },
+        {
+          "id": "gudok_build_willow_gut",
+          "name": "Carved willow body, gut strings (lighter, softer-voiced)",
+          "descriptors": [
+            "lighter",
+            "softer",
+            "woody"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "historical-gut",
+            "folk"
+          ]
+        },
+        {
+          "id": "gudok_build_revival_synthetic",
+          "name": "Spruce-topped revival build, synthetic strings",
+          "descriptors": [
+            "stable",
+            "bright",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "synthetic",
+            "revival"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "gudok_form",
+      "name": "Form and era",
+      "variants": [
+        {
+          "id": "gudok_form_novgorod",
+          "default": true,
+          "name": "Novgorod type (one-piece carved pear body, flat back, C-shaped soundholes)",
+          "descriptors": [
+            "flat-backed",
+            "archaic",
+            "woody"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "russian",
+            "medieval"
+          ]
+        },
+        {
+          "id": "gudok_form_village",
+          "name": "Later peasant village gudok (rough farmhouse build)",
+          "descriptors": [
+            "farmhouse-rustic",
+            "spare",
+            "archaic-tone"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "russian",
+            "folk"
+          ]
+        },
+        {
+          "id": "gudok_form_revival",
+          "name": "Modern reconstruction (folk-orchestra / early-music build)",
+          "descriptors": [
+            "reconstructed",
+            "folk-revival",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "russian",
+            "revival"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gudok_bowing",
+      "name": "Bridge and bowing technique",
+      "variants": [
+        {
+          "id": "gudok_bowing_flat_bridge_scrub",
+          "default": true,
+          "name": "Flat bridge, knee-held vertical, all three strings scrubbed at once",
+          "descriptors": [
+            "drone-under-melody",
+            "scrubbing",
+            "droning"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "russian",
+            "medieval"
+          ]
+        },
+        {
+          "id": "gudok_bowing_nail_stopped",
+          "name": "Fingernail against the side of the string (archaic unfretted stopping)",
+          "descriptors": [
+            "archaic",
+            "nasal",
+            "spare"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "archaic"
+          ],
+          "canonical_tags": [
+            "russian",
+            "historical"
+          ]
+        },
+        {
+          "id": "gudok_bowing_raised_bridge",
+          "name": "Revival raised bridge, selective single-string melodic bowing",
+          "descriptors": [
+            "melodic",
+            "clean",
+            "reconstructed"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "revival"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gudok_context",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "gudok_context_skomorokh_dance",
+          "default": true,
+          "name": "Skomorokh dance, wedding and festivity tunes",
+          "descriptors": [
+            "dance-driving",
+            "festive",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "russian-tradition"
+          ],
+          "canonical_tags": [
+            "russian",
+            "dance"
+          ]
+        },
+        {
+          "id": "gudok_context_song",
+          "name": "Narrative song accompaniment (drone under the voice)",
+          "descriptors": [
+            "voice-shadowing",
+            "narrative",
+            "droning"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "russian",
+            "slavic"
+          ]
+        },
+        {
+          "id": "gudok_context_folk_orchestra",
+          "name": "Reconstructed folk-orchestra section (beside gusli and balalaika)",
+          "descriptors": [
+            "blended",
+            "supporting",
+            "folk-revival"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "russian",
+            "revival"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gudok_build",
+      "name": "Body timber and stringing",
+      "variants": [
+        {
+          "id": "gudok_build_maple_gut",
+          "default": true,
+          "name": "Carved maple body, glued softwood soundboard, plain gut strings",
+          "descriptors": [
+            "gut-strung",
+            "warm",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "historical-gut",
+            "russian"
+          ]
+        },
+        {
+          "id": "gudok_build_willow_gut",
+          "name": "Carved willow body, gut strings (lighter, softer-voiced)",
+          "descriptors": [
+            "lighter",
+            "softer",
+            "woody"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "historical-gut",
+            "folk"
+          ]
+        },
+        {
+          "id": "gudok_build_revival_synthetic",
+          "name": "Spruce-topped revival build, synthetic strings",
+          "descriptors": [
+            "stable",
+            "bright",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "synthetic",
+            "revival"
+          ]
+        }
+      ]
+    }
+  ]
+}

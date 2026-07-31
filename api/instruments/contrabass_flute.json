@@ -1,0 +1,328 @@
+{
+  "id": "contrabass_flute",
+  "name": "Contrabass flute (in C, two octaves below concert)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": -2,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "contrabass flute",
+  "parts": [
+    {
+      "id": "contrabass_flute_build",
+      "name": "Build / material",
+      "variants": [
+        {
+          "id": "contrabass_flute_metal",
+          "default": true,
+          "name": "Metal tube (silver / nickel-silver - Kotato & Fukushima, Kingma, Pearl)",
+          "descriptors": [
+            "standard",
+            "projecting",
+            "dense",
+            "nickel-silver"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "metal-context"
+          ],
+          "canonical_tags": [
+            "modern",
+            "concert"
+          ]
+        },
+        {
+          "id": "contrabass_flute_pvc",
+          "name": "PVC tube (Hogenhuis low-flute build)",
+          "descriptors": [
+            "pvc",
+            "lightweight",
+            "mellow"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "contrabass_flute_headjoint",
+      "name": "Headjoint geometry / support",
+      "variants": [
+        {
+          "id": "contrabass_flute_j_fold",
+          "default": true,
+          "name": "J-fold head on tripod stand (played standing, 2.7 m of tube held vertical)",
+          "descriptors": [
+            "standard",
+            "deep",
+            "sustained"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "low-register"
+          ]
+        },
+        {
+          "id": "contrabass_flute_four_head",
+          "name": "Three-section 4-shaped head (blowing section perpendicular to the key plane)",
+          "descriptors": [
+            "specialty",
+            "focused",
+            "projecting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "metal-context"
+          ]
+        },
+        {
+          "id": "contrabass_flute_floor_peg",
+          "name": "Floor-peg support (weight off the arms, freer embouchure)",
+          "descriptors": [
+            "portable",
+            "resonant",
+            "modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "contrabass_flute_context",
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "contrabass_flute_choir",
+          "default": true,
+          "name": "Flute choir / low-flute ensemble bass foundation",
+          "descriptors": [
+            "bass",
+            "blending",
+            "ensemble"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "wind-driven",
+            "bass-foundation"
+          ],
+          "canonical_tags": [
+            "ensemble",
+            "concert"
+          ]
+        },
+        {
+          "id": "contrabass_flute_solo",
+          "name": "Solo / commissioned contemporary repertoire",
+          "descriptors": [
+            "soloistic",
+            "contemporary",
+            "featured"
+          ],
+          "match_tokens": [
+            "soloistic",
+            "wind-driven",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "contemporary",
+            "solo"
+          ]
+        },
+        {
+          "id": "contrabass_flute_session",
+          "name": "Jazz / film session colour",
+          "descriptors": [
+            "atmospheric",
+            "dark",
+            "modern"
+          ],
+          "match_tokens": [
+            "jazz-trained",
+            "wind-driven",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "session",
+            "jazz"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "contrabass_flute_build",
+      "name": "Build / material",
+      "variants": [
+        {
+          "id": "contrabass_flute_metal",
+          "default": true,
+          "name": "Metal tube (silver / nickel-silver - Kotato & Fukushima, Kingma, Pearl)",
+          "descriptors": [
+            "standard",
+            "projecting",
+            "dense",
+            "nickel-silver"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "metal-context"
+          ],
+          "canonical_tags": [
+            "modern",
+            "concert"
+          ]
+        },
+        {
+          "id": "contrabass_flute_pvc",
+          "name": "PVC tube (Hogenhuis low-flute build)",
+          "descriptors": [
+            "pvc",
+            "lightweight",
+            "mellow"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "contrabass_flute_headjoint",
+      "name": "Headjoint geometry / support",
+      "variants": [
+        {
+          "id": "contrabass_flute_j_fold",
+          "default": true,
+          "name": "J-fold head on tripod stand (played standing, 2.7 m of tube held vertical)",
+          "descriptors": [
+            "standard",
+            "deep",
+            "sustained"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "low-register"
+          ]
+        },
+        {
+          "id": "contrabass_flute_four_head",
+          "name": "Three-section 4-shaped head (blowing section perpendicular to the key plane)",
+          "descriptors": [
+            "specialty",
+            "focused",
+            "projecting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "metal-context"
+          ]
+        },
+        {
+          "id": "contrabass_flute_floor_peg",
+          "name": "Floor-peg support (weight off the arms, freer embouchure)",
+          "descriptors": [
+            "portable",
+            "resonant",
+            "modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "contrabass_flute_context",
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "contrabass_flute_choir",
+          "default": true,
+          "name": "Flute choir / low-flute ensemble bass foundation",
+          "descriptors": [
+            "bass",
+            "blending",
+            "ensemble"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "wind-driven",
+            "bass-foundation"
+          ],
+          "canonical_tags": [
+            "ensemble",
+            "concert"
+          ]
+        },
+        {
+          "id": "contrabass_flute_solo",
+          "name": "Solo / commissioned contemporary repertoire",
+          "descriptors": [
+            "soloistic",
+            "contemporary",
+            "featured"
+          ],
+          "match_tokens": [
+            "soloistic",
+            "wind-driven",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "contemporary",
+            "solo"
+          ]
+        },
+        {
+          "id": "contrabass_flute_session",
+          "name": "Jazz / film session colour",
+          "descriptors": [
+            "atmospheric",
+            "dark",
+            "modern"
+          ],
+          "match_tokens": [
+            "jazz-trained",
+            "wind-driven",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "session",
+            "jazz"
+          ]
+        }
+      ]
+    }
+  ]
+}

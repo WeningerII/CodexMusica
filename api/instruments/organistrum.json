@@ -1,0 +1,459 @@
+{
+  "id": "organistrum",
+  "name": "Organistrum (two-player medieval wheel fiddle)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": -1,
+    "range": -1,
+    "articulation": -2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "organistrum",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "organistrum_build",
+      "name": "Build school / player configuration",
+      "variants": [
+        {
+          "id": "organistrum_iberian_two_player",
+          "default": true,
+          "name": "Iberian Romanesque two-player build (Portico de la Gloria profile)",
+          "descriptors": [
+            "two-player",
+            "archaic",
+            "deep-bodied"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "iberian",
+            "medieval"
+          ]
+        },
+        {
+          "id": "organistrum_french_two_player",
+          "name": "Northern French manuscript profile (narrower body, shallow keybox)",
+          "descriptors": [
+            "two-player",
+            "medieval",
+            "focused"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "french",
+            "medieval"
+          ]
+        },
+        {
+          "id": "organistrum_single_player_reconstruction",
+          "name": "Modern single-player reconstruction (one crank hand, symphonia scale)",
+          "descriptors": [
+            "reconstructed",
+            "medieval",
+            "agile"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "revival",
+            "early-music"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "organistrum_role",
+      "name": "Liturgical role",
+      "variants": [
+        {
+          "id": "organistrum_chant_support",
+          "default": true,
+          "name": "Pitch-giving and sustain under plainchant",
+          "descriptors": [
+            "liturgical",
+            "sustaining",
+            "solemn"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "liturgical",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "chant",
+            "sacred"
+          ]
+        },
+        {
+          "id": "organistrum_organum",
+          "name": "Parallel organum drone bed for early polyphony",
+          "descriptors": [
+            "droning",
+            "sacred",
+            "stately"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "sustained-lines",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "organum",
+            "medieval"
+          ]
+        },
+        {
+          "id": "organistrum_teaching",
+          "name": "Singer training and string-division demonstration (pseudo-Odo treatise)",
+          "descriptors": [
+            "monastic",
+            "austere",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "period-performance",
+            "diatonic"
+          ],
+          "canonical_tags": [
+            "monastic",
+            "early-music"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "organistrum_keybox",
+      "name": "Keybox layout",
+      "variants": [
+        {
+          "id": "organistrum_eight_key_diatonic",
+          "default": true,
+          "name": "Eight rotating tangent rods, one diatonic octave",
+          "descriptors": [
+            "diatonic",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "keyed",
+            "diatonic"
+          ],
+          "canonical_tags": [
+            "diatonic",
+            "medieval"
+          ]
+        },
+        {
+          "id": "organistrum_eleven_key_b_molle",
+          "name": "Extended eleven-key box carrying the B molle",
+          "descriptors": [
+            "extended",
+            "diatonic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "keyed",
+            "diatonic"
+          ],
+          "canonical_tags": [
+            "medieval"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "organistrum_drones",
+      "name": "Drone disposition",
+      "variants": [
+        {
+          "id": "organistrum_octave_fifth_drones",
+          "default": true,
+          "name": "Both gut drones at the octave and fifth",
+          "descriptors": [
+            "droning",
+            "grounding"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "friction-driven"
+          ],
+          "canonical_tags": [
+            "drone",
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "organistrum_unison_drone",
+          "name": "One drone retuned in unison with the melody string",
+          "descriptors": [
+            "spare",
+            "focused"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "friction-driven"
+          ],
+          "canonical_tags": [
+            "drone",
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "organistrum_build",
+      "name": "Build school / player configuration",
+      "variants": [
+        {
+          "id": "organistrum_iberian_two_player",
+          "default": true,
+          "name": "Iberian Romanesque two-player build (Portico de la Gloria profile)",
+          "descriptors": [
+            "two-player",
+            "archaic",
+            "deep-bodied"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "iberian",
+            "medieval"
+          ]
+        },
+        {
+          "id": "organistrum_french_two_player",
+          "name": "Northern French manuscript profile (narrower body, shallow keybox)",
+          "descriptors": [
+            "two-player",
+            "medieval",
+            "focused"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "french",
+            "medieval"
+          ]
+        },
+        {
+          "id": "organistrum_single_player_reconstruction",
+          "name": "Modern single-player reconstruction (one crank hand, symphonia scale)",
+          "descriptors": [
+            "reconstructed",
+            "medieval",
+            "agile"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "revival",
+            "early-music"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "organistrum_role",
+      "name": "Liturgical role",
+      "variants": [
+        {
+          "id": "organistrum_chant_support",
+          "default": true,
+          "name": "Pitch-giving and sustain under plainchant",
+          "descriptors": [
+            "liturgical",
+            "sustaining",
+            "solemn"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "liturgical",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "chant",
+            "sacred"
+          ]
+        },
+        {
+          "id": "organistrum_organum",
+          "name": "Parallel organum drone bed for early polyphony",
+          "descriptors": [
+            "droning",
+            "sacred",
+            "stately"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "sustained-lines",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "organum",
+            "medieval"
+          ]
+        },
+        {
+          "id": "organistrum_teaching",
+          "name": "Singer training and string-division demonstration (pseudo-Odo treatise)",
+          "descriptors": [
+            "monastic",
+            "austere",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "period-performance",
+            "diatonic"
+          ],
+          "canonical_tags": [
+            "monastic",
+            "early-music"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "organistrum_keybox",
+      "name": "Keybox layout",
+      "variants": [
+        {
+          "id": "organistrum_eight_key_diatonic",
+          "default": true,
+          "name": "Eight rotating tangent rods, one diatonic octave",
+          "descriptors": [
+            "diatonic",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "keyed",
+            "diatonic"
+          ],
+          "canonical_tags": [
+            "diatonic",
+            "medieval"
+          ]
+        },
+        {
+          "id": "organistrum_eleven_key_b_molle",
+          "name": "Extended eleven-key box carrying the B molle",
+          "descriptors": [
+            "extended",
+            "diatonic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "keyed",
+            "diatonic"
+          ],
+          "canonical_tags": [
+            "medieval"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "organistrum_drones",
+      "name": "Drone disposition",
+      "variants": [
+        {
+          "id": "organistrum_octave_fifth_drones",
+          "default": true,
+          "name": "Both gut drones at the octave and fifth",
+          "descriptors": [
+            "droning",
+            "grounding"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "friction-driven"
+          ],
+          "canonical_tags": [
+            "drone",
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "organistrum_unison_drone",
+          "name": "One drone retuned in unison with the melody string",
+          "descriptors": [
+            "spare",
+            "focused"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "friction-driven"
+          ],
+          "canonical_tags": [
+            "drone",
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ]
+}

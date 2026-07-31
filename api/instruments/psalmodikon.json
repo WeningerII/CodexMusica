@@ -1,0 +1,497 @@
+{
+  "id": "psalmodikon",
+  "name": "Psalmodikon (Nordic single-string hymn zither)",
+  "family": "bowed",
+  "class": "fretboard_zither",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "psalmodikon",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "psalmodikon_form",
+      "name": "National form",
+      "variants": [
+        {
+          "id": "psalmodikon_form_dillner",
+          "default": true,
+          "name": "Swedish Dillner form (fixed numbered frets, siffernoter hymnbook)",
+          "descriptors": [
+            "plain",
+            "accessible",
+            "traditional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretted",
+            "sacred-traditional"
+          ],
+          "canonical_tags": [
+            "swedish",
+            "sacred"
+          ]
+        },
+        {
+          "id": "psalmodikon_form_roverud",
+          "name": "Norwegian Roverud form (C-major frets plus removable transposition sticks)",
+          "descriptors": [
+            "historical",
+            "regional",
+            "plain"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretted",
+            "sacred-traditional"
+          ],
+          "canonical_tags": [
+            "norwegian",
+            "historical"
+          ]
+        },
+        {
+          "id": "psalmodikon_form_american_lutheran",
+          "name": "North American Lutheran emigrant instrument",
+          "descriptors": [
+            "communal",
+            "devotional",
+            "plain"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretted",
+            "devotional"
+          ],
+          "canonical_tags": [
+            "lutheran",
+            "sacred"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "psalmodikon_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "psalmodikon_technique_bowed",
+          "default": true,
+          "name": "Bowed - sustained, organ-substitute line",
+          "descriptors": [
+            "sustained",
+            "singing",
+            "meditative"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "sacred-traditional"
+          ],
+          "canonical_tags": [
+            "sacred",
+            "hymn"
+          ]
+        },
+        {
+          "id": "psalmodikon_technique_plucked",
+          "name": "Plucked - dry, note-by-note drill",
+          "descriptors": [
+            "plucky",
+            "dry",
+            "plain"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fretted",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "psalmodikon_role",
+      "name": "Role",
+      "variants": [
+        {
+          "id": "psalmodikon_role_teaching",
+          "default": true,
+          "name": "Solo melody teaching a hymn tune from numeral notation",
+          "descriptors": [
+            "plain",
+            "melodic",
+            "intimate"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic",
+            "sacred-traditional"
+          ],
+          "canonical_tags": [
+            "sacred",
+            "solo"
+          ]
+        },
+        {
+          "id": "psalmodikon_role_congregation",
+          "name": "Doubling a congregation or schoolroom in unison",
+          "descriptors": [
+            "communal",
+            "hymn-accompaniment",
+            "devotional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "unison",
+            "sacred-traditional"
+          ],
+          "canonical_tags": [
+            "sacred",
+            "hymn",
+            "lutheran"
+          ]
+        },
+        {
+          "id": "psalmodikon_role_home_devotion",
+          "name": "Home devotional playing in the parlour",
+          "descriptors": [
+            "intimate",
+            "meditative",
+            "low-dynamic-level"
+          ],
+          "match_tokens": [
+            "bowed",
+            "devotional",
+            "sustained"
+          ],
+          "canonical_tags": [
+            "sacred",
+            "solo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "psalmodikon_build",
+      "name": "String and construction",
+      "variants": [
+        {
+          "id": "psalmodikon_build_steel_pine",
+          "default": true,
+          "name": "Single steel string on a long pine box",
+          "descriptors": [
+            "bright",
+            "ringing",
+            "plain"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretted",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "traditional",
+            "steel"
+          ]
+        },
+        {
+          "id": "psalmodikon_build_gut",
+          "name": "Gut string (softer, earlier practice)",
+          "descriptors": [
+            "gut-strung",
+            "soft",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "psalmodikon_build_sympathetic",
+          "name": "Added sympathetic strings (later regional builds)",
+          "descriptors": [
+            "ringing",
+            "resonant",
+            "regional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "nordic",
+            "revival"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "psalmodikon_form",
+      "name": "National form",
+      "variants": [
+        {
+          "id": "psalmodikon_form_dillner",
+          "default": true,
+          "name": "Swedish Dillner form (fixed numbered frets, siffernoter hymnbook)",
+          "descriptors": [
+            "plain",
+            "accessible",
+            "traditional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretted",
+            "sacred-traditional"
+          ],
+          "canonical_tags": [
+            "swedish",
+            "sacred"
+          ]
+        },
+        {
+          "id": "psalmodikon_form_roverud",
+          "name": "Norwegian Roverud form (C-major frets plus removable transposition sticks)",
+          "descriptors": [
+            "historical",
+            "regional",
+            "plain"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretted",
+            "sacred-traditional"
+          ],
+          "canonical_tags": [
+            "norwegian",
+            "historical"
+          ]
+        },
+        {
+          "id": "psalmodikon_form_american_lutheran",
+          "name": "North American Lutheran emigrant instrument",
+          "descriptors": [
+            "communal",
+            "devotional",
+            "plain"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretted",
+            "devotional"
+          ],
+          "canonical_tags": [
+            "lutheran",
+            "sacred"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "psalmodikon_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "psalmodikon_technique_bowed",
+          "default": true,
+          "name": "Bowed - sustained, organ-substitute line",
+          "descriptors": [
+            "sustained",
+            "singing",
+            "meditative"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "sacred-traditional"
+          ],
+          "canonical_tags": [
+            "sacred",
+            "hymn"
+          ]
+        },
+        {
+          "id": "psalmodikon_technique_plucked",
+          "name": "Plucked - dry, note-by-note drill",
+          "descriptors": [
+            "plucky",
+            "dry",
+            "plain"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fretted",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "psalmodikon_role",
+      "name": "Role",
+      "variants": [
+        {
+          "id": "psalmodikon_role_teaching",
+          "default": true,
+          "name": "Solo melody teaching a hymn tune from numeral notation",
+          "descriptors": [
+            "plain",
+            "melodic",
+            "intimate"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic",
+            "sacred-traditional"
+          ],
+          "canonical_tags": [
+            "sacred",
+            "solo"
+          ]
+        },
+        {
+          "id": "psalmodikon_role_congregation",
+          "name": "Doubling a congregation or schoolroom in unison",
+          "descriptors": [
+            "communal",
+            "hymn-accompaniment",
+            "devotional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "unison",
+            "sacred-traditional"
+          ],
+          "canonical_tags": [
+            "sacred",
+            "hymn",
+            "lutheran"
+          ]
+        },
+        {
+          "id": "psalmodikon_role_home_devotion",
+          "name": "Home devotional playing in the parlour",
+          "descriptors": [
+            "intimate",
+            "meditative",
+            "low-dynamic-level"
+          ],
+          "match_tokens": [
+            "bowed",
+            "devotional",
+            "sustained"
+          ],
+          "canonical_tags": [
+            "sacred",
+            "solo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "psalmodikon_build",
+      "name": "String and construction",
+      "variants": [
+        {
+          "id": "psalmodikon_build_steel_pine",
+          "default": true,
+          "name": "Single steel string on a long pine box",
+          "descriptors": [
+            "bright",
+            "ringing",
+            "plain"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretted",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "traditional",
+            "steel"
+          ]
+        },
+        {
+          "id": "psalmodikon_build_gut",
+          "name": "Gut string (softer, earlier practice)",
+          "descriptors": [
+            "gut-strung",
+            "soft",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "psalmodikon_build_sympathetic",
+          "name": "Added sympathetic strings (later regional builds)",
+          "descriptors": [
+            "ringing",
+            "resonant",
+            "regional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "nordic",
+            "revival"
+          ]
+        }
+      ]
+    }
+  ]
+}

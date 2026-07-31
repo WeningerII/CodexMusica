@@ -1,0 +1,666 @@
+{
+  "id": "dulcian",
+  "name": "Dulcian (Renaissance curtal / bajón)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "dulcian",
+  "parts": [
+    {
+      "id": "dulcian_size",
+      "name": "Consort size",
+      "variants": [
+        {
+          "id": "dulcian_chorist_fagott",
+          "default": true,
+          "name": "Bass Chorist-Fagott in C (canonical, C2–G4)",
+          "descriptors": [
+            "consort-core",
+            "warm",
+            "foundational"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "renaissance"
+          ]
+        },
+        {
+          "id": "dulcian_descant_bajoncillo",
+          "name": "Descant / alto (Spanish bajoncillo, the museum \"soprano dulcian\")",
+          "descriptors": [
+            "bright",
+            "nasal",
+            "dance-leading"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "iberian"
+          ]
+        },
+        {
+          "id": "dulcian_tenor_piccolo",
+          "name": "Tenor (Fagott piccolo)",
+          "descriptors": [
+            "reedy",
+            "inner-voice",
+            "blended"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "mid-register"
+          ],
+          "canonical_tags": [
+            "renaissance"
+          ]
+        },
+        {
+          "id": "dulcian_doppel_fagott",
+          "name": "Quart-/quint-bass Doppel-Fagott (down to GG)",
+          "descriptors": [
+            "subterranean",
+            "droning",
+            "rare"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "renaissance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dulcian_repertoire",
+      "name": "Repertoire context",
+      "variants": [
+        {
+          "id": "dulcian_wind_band_bass",
+          "default": true,
+          "name": "Bass of the Renaissance wind band (alta capella / Stadtpfeifer)",
+          "descriptors": [
+            "foundational",
+            "outdoor",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "renaissance"
+          ]
+        },
+        {
+          "id": "dulcian_ministriles",
+          "name": "Cathedral ministriles voice-doubling (bajón salaried as an extra chapel singer)",
+          "descriptors": [
+            "voice-doubling",
+            "liturgical",
+            "blended"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "choir-blendable"
+          ],
+          "canonical_tags": [
+            "sacred",
+            "iberian"
+          ]
+        },
+        {
+          "id": "dulcian_continuo_bass",
+          "name": "Early-Baroque continuo bass",
+          "descriptors": [
+            "continuo",
+            "sustained",
+            "foundational"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "baroque-context",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "early-baroque"
+          ]
+        },
+        {
+          "id": "dulcian_diminution_solo",
+          "name": "Virtuoso diminution solo (Selma y Salaverde 1638, Bertoli)",
+          "descriptors": [
+            "virtuoso",
+            "agile",
+            "featured"
+          ],
+          "match_tokens": [
+            "soloistic",
+            "wind-driven",
+            "reed-driven",
+            "baroque-context"
+          ],
+          "canonical_tags": [
+            "early-baroque",
+            "italian"
+          ]
+        },
+        {
+          "id": "dulcian_revival_consort",
+          "name": "Modern early-music revival consort",
+          "descriptors": [
+            "twentieth-century",
+            "preservationist",
+            "historically-informed"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "early-music"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dulcian_regional_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "dulcian_german_italian_maple",
+          "default": true,
+          "name": "German / Italian plain maple billet, perforated bell cap",
+          "descriptors": [
+            "maple-alternative-german",
+            "archaic",
+            "blended"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "germanic"
+          ]
+        },
+        {
+          "id": "dulcian_bajon_spanish",
+          "name": "Spanish bajón (brass banding, decorative bell crown, metal-lined downbore)",
+          "descriptors": [
+            "brass",
+            "projecting",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "sacred-traditional"
+          ],
+          "canonical_tags": [
+            "iberian",
+            "spanish"
+          ]
+        },
+        {
+          "id": "dulcian_small_boxwood",
+          "name": "Small-size boxwood / plum billet (bajoncillo builds)",
+          "descriptors": [
+            "boxwood-canonical-renaissance-european",
+            "plum-alternative",
+            "compact"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "iberian"
+          ]
+        },
+        {
+          "id": "dulcian_modern_workshop",
+          "name": "Modern workshop reproduction",
+          "descriptors": [
+            "modern",
+            "stable",
+            "standard"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "modern-repro",
+            "early-music"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dulcian_pitch_standard",
+      "name": "Pitch standard",
+      "variants": [
+        {
+          "id": "dulcian_chorton",
+          "default": true,
+          "name": "A=466 Chorton (German church pitch)",
+          "descriptors": [
+            "archaic",
+            "historic",
+            "projecting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historic"
+          ]
+        },
+        {
+          "id": "dulcian_a415",
+          "name": "A=415 (low pitch, mixed early-Baroque consort)",
+          "descriptors": [
+            "a-415",
+            "warm",
+            "historically-informed"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "baroque-context",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque"
+          ]
+        },
+        {
+          "id": "dulcian_a440_revival",
+          "name": "A=440 modern revival",
+          "descriptors": [
+            "a-440",
+            "modern",
+            "standard"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dulcian_size",
+      "name": "Consort size",
+      "variants": [
+        {
+          "id": "dulcian_chorist_fagott",
+          "default": true,
+          "name": "Bass Chorist-Fagott in C (canonical, C2–G4)",
+          "descriptors": [
+            "consort-core",
+            "warm",
+            "foundational"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "renaissance"
+          ]
+        },
+        {
+          "id": "dulcian_descant_bajoncillo",
+          "name": "Descant / alto (Spanish bajoncillo, the museum \"soprano dulcian\")",
+          "descriptors": [
+            "bright",
+            "nasal",
+            "dance-leading"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "iberian"
+          ]
+        },
+        {
+          "id": "dulcian_tenor_piccolo",
+          "name": "Tenor (Fagott piccolo)",
+          "descriptors": [
+            "reedy",
+            "inner-voice",
+            "blended"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "mid-register"
+          ],
+          "canonical_tags": [
+            "renaissance"
+          ]
+        },
+        {
+          "id": "dulcian_doppel_fagott",
+          "name": "Quart-/quint-bass Doppel-Fagott (down to GG)",
+          "descriptors": [
+            "subterranean",
+            "droning",
+            "rare"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "renaissance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dulcian_repertoire",
+      "name": "Repertoire context",
+      "variants": [
+        {
+          "id": "dulcian_wind_band_bass",
+          "default": true,
+          "name": "Bass of the Renaissance wind band (alta capella / Stadtpfeifer)",
+          "descriptors": [
+            "foundational",
+            "outdoor",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "renaissance"
+          ]
+        },
+        {
+          "id": "dulcian_ministriles",
+          "name": "Cathedral ministriles voice-doubling (bajón salaried as an extra chapel singer)",
+          "descriptors": [
+            "voice-doubling",
+            "liturgical",
+            "blended"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "choir-blendable"
+          ],
+          "canonical_tags": [
+            "sacred",
+            "iberian"
+          ]
+        },
+        {
+          "id": "dulcian_continuo_bass",
+          "name": "Early-Baroque continuo bass",
+          "descriptors": [
+            "continuo",
+            "sustained",
+            "foundational"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "baroque-context",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "early-baroque"
+          ]
+        },
+        {
+          "id": "dulcian_diminution_solo",
+          "name": "Virtuoso diminution solo (Selma y Salaverde 1638, Bertoli)",
+          "descriptors": [
+            "virtuoso",
+            "agile",
+            "featured"
+          ],
+          "match_tokens": [
+            "soloistic",
+            "wind-driven",
+            "reed-driven",
+            "baroque-context"
+          ],
+          "canonical_tags": [
+            "early-baroque",
+            "italian"
+          ]
+        },
+        {
+          "id": "dulcian_revival_consort",
+          "name": "Modern early-music revival consort",
+          "descriptors": [
+            "twentieth-century",
+            "preservationist",
+            "historically-informed"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "early-music"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dulcian_regional_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "dulcian_german_italian_maple",
+          "default": true,
+          "name": "German / Italian plain maple billet, perforated bell cap",
+          "descriptors": [
+            "maple-alternative-german",
+            "archaic",
+            "blended"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "germanic"
+          ]
+        },
+        {
+          "id": "dulcian_bajon_spanish",
+          "name": "Spanish bajón (brass banding, decorative bell crown, metal-lined downbore)",
+          "descriptors": [
+            "brass",
+            "projecting",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "sacred-traditional"
+          ],
+          "canonical_tags": [
+            "iberian",
+            "spanish"
+          ]
+        },
+        {
+          "id": "dulcian_small_boxwood",
+          "name": "Small-size boxwood / plum billet (bajoncillo builds)",
+          "descriptors": [
+            "boxwood-canonical-renaissance-european",
+            "plum-alternative",
+            "compact"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "iberian"
+          ]
+        },
+        {
+          "id": "dulcian_modern_workshop",
+          "name": "Modern workshop reproduction",
+          "descriptors": [
+            "modern",
+            "stable",
+            "standard"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "modern-repro",
+            "early-music"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dulcian_pitch_standard",
+      "name": "Pitch standard",
+      "variants": [
+        {
+          "id": "dulcian_chorton",
+          "default": true,
+          "name": "A=466 Chorton (German church pitch)",
+          "descriptors": [
+            "archaic",
+            "historic",
+            "projecting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historic"
+          ]
+        },
+        {
+          "id": "dulcian_a415",
+          "name": "A=415 (low pitch, mixed early-Baroque consort)",
+          "descriptors": [
+            "a-415",
+            "warm",
+            "historically-informed"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "baroque-context",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque"
+          ]
+        },
+        {
+          "id": "dulcian_a440_revival",
+          "name": "A=440 modern revival",
+          "descriptors": [
+            "a-440",
+            "modern",
+            "standard"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

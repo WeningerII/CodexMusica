@@ -1,0 +1,382 @@
+{
+  "id": "manzello",
+  "name": "Manzello (Kirk-modified saxello soprano)",
+  "family": "wind",
+  "class": "single_reed_conical",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "manzello",
+  "parts": [
+    {
+      "id": "manzello_form",
+      "name": "Base form / build",
+      "variants": [
+        {
+          "id": "manzello_kirk_modified",
+          "default": true,
+          "name": "Kirk-modified manzello (enlarged flaring bell, added clarinet-style keys)",
+          "descriptors": [
+            "broad",
+            "projecting",
+            "one-handed"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "jazz",
+            "free-jazz"
+          ]
+        },
+        {
+          "id": "manzello_stock_saxello",
+          "name": "Stock H. N. White King Saxello (1920s–30s parent form)",
+          "descriptors": [
+            "nasal",
+            "reedy",
+            "vintage"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "vintage",
+            "pre-war-jazz"
+          ]
+        },
+        {
+          "id": "manzello_modern_saxello_revival",
+          "name": "Modern curved-neck straight soprano (saxello-form revival)",
+          "descriptors": [
+            "modern",
+            "focused",
+            "bright"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "modern",
+            "jazz"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "manzello_playing_mode",
+      "name": "Playing mode",
+      "variants": [
+        {
+          "id": "manzello_single_line",
+          "default": true,
+          "name": "Solo single-line soprano voice",
+          "descriptors": [
+            "lyrical",
+            "featured",
+            "singing"
+          ],
+          "match_tokens": [
+            "soloistic",
+            "melodic-lead",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "manzello_horn_stack",
+          "name": "One horn of a simultaneous two/three-horn stack",
+          "descriptors": [
+            "layered",
+            "self-accompanied",
+            "harmonic"
+          ],
+          "match_tokens": [
+            "harmony",
+            "polyphonic",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "free-jazz",
+            "jazz"
+          ]
+        },
+        {
+          "id": "manzello_one_handed_sustain",
+          "name": "One-handed sustained voice under a tenor lead",
+          "descriptors": [
+            "one-handed",
+            "sustained",
+            "accompanying"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "harmony",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "jazz",
+            "soul"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "manzello_technique",
+      "name": "Technique layer",
+      "variants": [
+        {
+          "id": "manzello_clean_lyrical",
+          "default": true,
+          "name": "Clean lyrical tone",
+          "descriptors": [
+            "clean",
+            "lyrical",
+            "warm"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "melodic-lead",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "manzello_growl_overblow",
+          "name": "Growl and overblow",
+          "descriptors": [
+            "growling",
+            "overblown",
+            "raw"
+          ],
+          "match_tokens": [
+            "low-growl",
+            "honking-attack",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "free-jazz",
+            "soul"
+          ]
+        },
+        {
+          "id": "manzello_circular_breathed",
+          "name": "Circular-breathed continuous line",
+          "descriptors": [
+            "continuous-airflow",
+            "sustained-line",
+            "hypnotic"
+          ],
+          "match_tokens": [
+            "circular-breathing",
+            "continuous-phonation",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "free-jazz",
+            "contemporary"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "manzello_form",
+      "name": "Base form / build",
+      "variants": [
+        {
+          "id": "manzello_kirk_modified",
+          "default": true,
+          "name": "Kirk-modified manzello (enlarged flaring bell, added clarinet-style keys)",
+          "descriptors": [
+            "broad",
+            "projecting",
+            "one-handed"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "jazz",
+            "free-jazz"
+          ]
+        },
+        {
+          "id": "manzello_stock_saxello",
+          "name": "Stock H. N. White King Saxello (1920s–30s parent form)",
+          "descriptors": [
+            "nasal",
+            "reedy",
+            "vintage"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "vintage",
+            "pre-war-jazz"
+          ]
+        },
+        {
+          "id": "manzello_modern_saxello_revival",
+          "name": "Modern curved-neck straight soprano (saxello-form revival)",
+          "descriptors": [
+            "modern",
+            "focused",
+            "bright"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "modern",
+            "jazz"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "manzello_playing_mode",
+      "name": "Playing mode",
+      "variants": [
+        {
+          "id": "manzello_single_line",
+          "default": true,
+          "name": "Solo single-line soprano voice",
+          "descriptors": [
+            "lyrical",
+            "featured",
+            "singing"
+          ],
+          "match_tokens": [
+            "soloistic",
+            "melodic-lead",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "manzello_horn_stack",
+          "name": "One horn of a simultaneous two/three-horn stack",
+          "descriptors": [
+            "layered",
+            "self-accompanied",
+            "harmonic"
+          ],
+          "match_tokens": [
+            "harmony",
+            "polyphonic",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "free-jazz",
+            "jazz"
+          ]
+        },
+        {
+          "id": "manzello_one_handed_sustain",
+          "name": "One-handed sustained voice under a tenor lead",
+          "descriptors": [
+            "one-handed",
+            "sustained",
+            "accompanying"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "harmony",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "jazz",
+            "soul"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "manzello_technique",
+      "name": "Technique layer",
+      "variants": [
+        {
+          "id": "manzello_clean_lyrical",
+          "default": true,
+          "name": "Clean lyrical tone",
+          "descriptors": [
+            "clean",
+            "lyrical",
+            "warm"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "melodic-lead",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "manzello_growl_overblow",
+          "name": "Growl and overblow",
+          "descriptors": [
+            "growling",
+            "overblown",
+            "raw"
+          ],
+          "match_tokens": [
+            "low-growl",
+            "honking-attack",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "free-jazz",
+            "soul"
+          ]
+        },
+        {
+          "id": "manzello_circular_breathed",
+          "name": "Circular-breathed continuous line",
+          "descriptors": [
+            "continuous-airflow",
+            "sustained-line",
+            "hypnotic"
+          ],
+          "match_tokens": [
+            "circular-breathing",
+            "continuous-phonation",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "free-jazz",
+            "contemporary"
+          ]
+        }
+      ]
+    }
+  ]
+}

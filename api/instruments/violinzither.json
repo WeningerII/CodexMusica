@@ -1,0 +1,419 @@
+{
+  "id": "violinzither",
+  "name": "Violinzither (Neuber bowed violin harp)",
+  "family": "bowed",
+  "class": "bowed_box_zither",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "violinzither",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "violinzither_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "violinzither_bowed_and_plucked",
+          "default": true,
+          "name": "Short 55 cm violin bow on the melody rows, left hand plucking the accompaniment sets",
+          "descriptors": [
+            "arco-bowed",
+            "self-accompanied",
+            "parlor"
+          ],
+          "match_tokens": [
+            "bowed",
+            "plucked",
+            "chordal",
+            "box-zither"
+          ]
+        },
+        {
+          "id": "violinzither_bowed_melody",
+          "name": "Bowed melody rows alone",
+          "descriptors": [
+            "single-line",
+            "plain",
+            "sparse"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic-lead",
+            "box-zither"
+          ]
+        },
+        {
+          "id": "violinzither_plucked_accompaniment",
+          "name": "Plucked accompaniment sets alone",
+          "descriptors": [
+            "accompaniment",
+            "supportive",
+            "ringing"
+          ],
+          "match_tokens": [
+            "plucked",
+            "chordal",
+            "box-zither"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "violinzither_scale",
+      "name": "Melody-string layout",
+      "variants": [
+        {
+          "id": "violinzither_diatonic_c",
+          "default": true,
+          "name": "Eighteen melody strings in two alternating rows, diatonic C major, about two and a half octaves",
+          "descriptors": [
+            "two-row-diatonic",
+            "c-major",
+            "production-standard"
+          ],
+          "match_tokens": [
+            "bowed",
+            "diatonic",
+            "box-zither"
+          ],
+          "canonical_tags": [
+            "diatonic"
+          ]
+        },
+        {
+          "id": "violinzither_semichromatic",
+          "name": "Semichromatic model (added accidentals)",
+          "descriptors": [
+            "near-chromatic",
+            "extended"
+          ],
+          "match_tokens": [
+            "bowed",
+            "box-zither",
+            "chromatic"
+          ]
+        },
+        {
+          "id": "violinzither_chromatic",
+          "name": "Fully chromatic model",
+          "descriptors": [
+            "fully-chromatic",
+            "versatile"
+          ],
+          "match_tokens": [
+            "bowed",
+            "box-zither",
+            "chromatic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "violinzither_form",
+      "name": "Maker form",
+      "variants": [
+        {
+          "id": "violinzither_neuber_klingenthal",
+          "default": true,
+          "name": "Neuber's 1925 Klingenthal violinzither (Hopf build, often Kalliope-branded)",
+          "descriptors": [
+            "mass-produced",
+            "vintage",
+            "historical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "box-zither",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "historic",
+            "vintage"
+          ]
+        },
+        {
+          "id": "violinzither_lausmann_concert",
+          "name": "Max Lausmann concert violin harp",
+          "descriptors": [
+            "concert",
+            "larger-bodied",
+            "fuller"
+          ],
+          "match_tokens": [
+            "bowed",
+            "box-zither",
+            "concert"
+          ],
+          "canonical_tags": [
+            "concert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "violinzither_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "violinzither_domestic_parlour",
+          "default": true,
+          "name": "Domestic parlour playing from number tablature",
+          "descriptors": [
+            "parlor",
+            "sentimental",
+            "domestic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "box-zither",
+            "intimate",
+            "student-tier"
+          ],
+          "canonical_tags": [
+            "domestic"
+          ]
+        },
+        {
+          "id": "violinzither_vogtland_folk",
+          "name": "Vogtland folk ensemble part",
+          "descriptors": [
+            "ensemble",
+            "lilting",
+            "regional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "box-zither",
+            "folk-tradition",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "folk",
+            "volksmusik"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "violinzither_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "violinzither_bowed_and_plucked",
+          "default": true,
+          "name": "Short 55 cm violin bow on the melody rows, left hand plucking the accompaniment sets",
+          "descriptors": [
+            "arco-bowed",
+            "self-accompanied",
+            "parlor"
+          ],
+          "match_tokens": [
+            "bowed",
+            "plucked",
+            "chordal",
+            "box-zither"
+          ]
+        },
+        {
+          "id": "violinzither_bowed_melody",
+          "name": "Bowed melody rows alone",
+          "descriptors": [
+            "single-line",
+            "plain",
+            "sparse"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic-lead",
+            "box-zither"
+          ]
+        },
+        {
+          "id": "violinzither_plucked_accompaniment",
+          "name": "Plucked accompaniment sets alone",
+          "descriptors": [
+            "accompaniment",
+            "supportive",
+            "ringing"
+          ],
+          "match_tokens": [
+            "plucked",
+            "chordal",
+            "box-zither"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "violinzither_scale",
+      "name": "Melody-string layout",
+      "variants": [
+        {
+          "id": "violinzither_diatonic_c",
+          "default": true,
+          "name": "Eighteen melody strings in two alternating rows, diatonic C major, about two and a half octaves",
+          "descriptors": [
+            "two-row-diatonic",
+            "c-major",
+            "production-standard"
+          ],
+          "match_tokens": [
+            "bowed",
+            "diatonic",
+            "box-zither"
+          ],
+          "canonical_tags": [
+            "diatonic"
+          ]
+        },
+        {
+          "id": "violinzither_semichromatic",
+          "name": "Semichromatic model (added accidentals)",
+          "descriptors": [
+            "near-chromatic",
+            "extended"
+          ],
+          "match_tokens": [
+            "bowed",
+            "box-zither",
+            "chromatic"
+          ]
+        },
+        {
+          "id": "violinzither_chromatic",
+          "name": "Fully chromatic model",
+          "descriptors": [
+            "fully-chromatic",
+            "versatile"
+          ],
+          "match_tokens": [
+            "bowed",
+            "box-zither",
+            "chromatic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "violinzither_form",
+      "name": "Maker form",
+      "variants": [
+        {
+          "id": "violinzither_neuber_klingenthal",
+          "default": true,
+          "name": "Neuber's 1925 Klingenthal violinzither (Hopf build, often Kalliope-branded)",
+          "descriptors": [
+            "mass-produced",
+            "vintage",
+            "historical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "box-zither",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "historic",
+            "vintage"
+          ]
+        },
+        {
+          "id": "violinzither_lausmann_concert",
+          "name": "Max Lausmann concert violin harp",
+          "descriptors": [
+            "concert",
+            "larger-bodied",
+            "fuller"
+          ],
+          "match_tokens": [
+            "bowed",
+            "box-zither",
+            "concert"
+          ],
+          "canonical_tags": [
+            "concert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "violinzither_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "violinzither_domestic_parlour",
+          "default": true,
+          "name": "Domestic parlour playing from number tablature",
+          "descriptors": [
+            "parlor",
+            "sentimental",
+            "domestic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "box-zither",
+            "intimate",
+            "student-tier"
+          ],
+          "canonical_tags": [
+            "domestic"
+          ]
+        },
+        {
+          "id": "violinzither_vogtland_folk",
+          "name": "Vogtland folk ensemble part",
+          "descriptors": [
+            "ensemble",
+            "lilting",
+            "regional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "box-zither",
+            "folk-tradition",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "folk",
+            "volksmusik"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,382 @@
+{
+  "id": "stritch",
+  "name": "Stritch (straight E♭ alto saxophone)",
+  "family": "wind",
+  "class": "single_reed_conical",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "stritch",
+  "parts": [
+    {
+      "id": "stritch_form",
+      "name": "Body form",
+      "variants": [
+        {
+          "id": "stritch_kirk_straight",
+          "default": true,
+          "name": "Kirk's stritch (straight body, substituted bell, one-handed keywork)",
+          "descriptors": [
+            "straight",
+            "one-handed",
+            "projecting"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "free-jazz",
+            "jazz"
+          ]
+        },
+        {
+          "id": "stritch_stock_straight_alto",
+          "name": "Stock straight E♭ alto (Buescher True Tone, c.1926–28)",
+          "descriptors": [
+            "straight",
+            "vintage",
+            "nasal"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "vintage",
+            "pre-war-jazz"
+          ]
+        },
+        {
+          "id": "stritch_modern_straight_alto",
+          "name": "Modern straight alto (Keilwerth / Rampone & Cazzani)",
+          "descriptors": [
+            "straight",
+            "modern",
+            "focused"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "modern",
+            "alto-saxophone"
+          ]
+        },
+        {
+          "id": "stritch_curved_alto",
+          "name": "Conventional curved alto (reference form)",
+          "descriptors": [
+            "curved",
+            "lyrical",
+            "round"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "ensemble-blend"
+          ],
+          "canonical_tags": [
+            "jazz",
+            "alto-saxophone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stritch_playing_mode",
+      "name": "Playing mode",
+      "variants": [
+        {
+          "id": "stritch_single_line",
+          "default": true,
+          "name": "Single-line solo voice",
+          "descriptors": [
+            "featured",
+            "lyrical",
+            "angular"
+          ],
+          "match_tokens": [
+            "soloistic",
+            "melodic-lead",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "stritch_horn_stack",
+          "name": "Middle voice of a simultaneous multi-horn texture",
+          "descriptors": [
+            "layered",
+            "self-accompanied",
+            "harmonic"
+          ],
+          "match_tokens": [
+            "harmony",
+            "polyphonic",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "free-jazz"
+          ]
+        },
+        {
+          "id": "stritch_ensemble_inner",
+          "name": "Inner voice in a reed section",
+          "descriptors": [
+            "ensemble-blend",
+            "accompanying",
+            "round"
+          ],
+          "match_tokens": [
+            "ensemble-blend",
+            "ensemble",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "jazz",
+            "soul"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stritch_tone",
+      "name": "Tone treatment",
+      "variants": [
+        {
+          "id": "stritch_bebop_clean",
+          "default": true,
+          "name": "Clean bebop alto tone",
+          "descriptors": [
+            "clean",
+            "angular",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "bebop-derived",
+            "jazz-trained",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "bebop",
+            "jazz"
+          ]
+        },
+        {
+          "id": "stritch_growled_free",
+          "name": "Growled / vocalized free-jazz tone",
+          "descriptors": [
+            "growling",
+            "vocal-imitating",
+            "raw"
+          ],
+          "match_tokens": [
+            "low-growl",
+            "avant-garde",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "free-jazz",
+            "noise"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "stritch_form",
+      "name": "Body form",
+      "variants": [
+        {
+          "id": "stritch_kirk_straight",
+          "default": true,
+          "name": "Kirk's stritch (straight body, substituted bell, one-handed keywork)",
+          "descriptors": [
+            "straight",
+            "one-handed",
+            "projecting"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "free-jazz",
+            "jazz"
+          ]
+        },
+        {
+          "id": "stritch_stock_straight_alto",
+          "name": "Stock straight E♭ alto (Buescher True Tone, c.1926–28)",
+          "descriptors": [
+            "straight",
+            "vintage",
+            "nasal"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "vintage",
+            "pre-war-jazz"
+          ]
+        },
+        {
+          "id": "stritch_modern_straight_alto",
+          "name": "Modern straight alto (Keilwerth / Rampone & Cazzani)",
+          "descriptors": [
+            "straight",
+            "modern",
+            "focused"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "modern",
+            "alto-saxophone"
+          ]
+        },
+        {
+          "id": "stritch_curved_alto",
+          "name": "Conventional curved alto (reference form)",
+          "descriptors": [
+            "curved",
+            "lyrical",
+            "round"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "ensemble-blend"
+          ],
+          "canonical_tags": [
+            "jazz",
+            "alto-saxophone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stritch_playing_mode",
+      "name": "Playing mode",
+      "variants": [
+        {
+          "id": "stritch_single_line",
+          "default": true,
+          "name": "Single-line solo voice",
+          "descriptors": [
+            "featured",
+            "lyrical",
+            "angular"
+          ],
+          "match_tokens": [
+            "soloistic",
+            "melodic-lead",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "stritch_horn_stack",
+          "name": "Middle voice of a simultaneous multi-horn texture",
+          "descriptors": [
+            "layered",
+            "self-accompanied",
+            "harmonic"
+          ],
+          "match_tokens": [
+            "harmony",
+            "polyphonic",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "free-jazz"
+          ]
+        },
+        {
+          "id": "stritch_ensemble_inner",
+          "name": "Inner voice in a reed section",
+          "descriptors": [
+            "ensemble-blend",
+            "accompanying",
+            "round"
+          ],
+          "match_tokens": [
+            "ensemble-blend",
+            "ensemble",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "jazz",
+            "soul"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stritch_tone",
+      "name": "Tone treatment",
+      "variants": [
+        {
+          "id": "stritch_bebop_clean",
+          "default": true,
+          "name": "Clean bebop alto tone",
+          "descriptors": [
+            "clean",
+            "angular",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "bebop-derived",
+            "jazz-trained",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "bebop",
+            "jazz"
+          ]
+        },
+        {
+          "id": "stritch_growled_free",
+          "name": "Growled / vocalized free-jazz tone",
+          "descriptors": [
+            "growling",
+            "vocal-imitating",
+            "raw"
+          ],
+          "match_tokens": [
+            "low-growl",
+            "avant-garde",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "free-jazz",
+            "noise"
+          ]
+        }
+      ]
+    }
+  ]
+}

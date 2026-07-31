@@ -1,0 +1,550 @@
+{
+  "id": "khlui",
+  "name": "Khlui (Thai vertical duct flute)",
+  "family": "wind",
+  "class": "duct_flute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "khlui",
+  "parts": [
+    {
+      "id": "khlui_size",
+      "name": "Size / register",
+      "variants": [
+        {
+          "id": "khlui_phiang_aw",
+          "default": true,
+          "name": "Khlui phiang aw (medium, ~44–45 cm — by far the most common)",
+          "descriptors": [
+            "standard",
+            "balanced",
+            "mellow"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "fipple-flute",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "thai",
+            "thai-classical"
+          ]
+        },
+        {
+          "id": "khlui_lip",
+          "name": "Khlui lip / khlui kruat (small, ~36–37 cm, highest, roughly E♭)",
+          "descriptors": [
+            "bright",
+            "high-pitched",
+            "piercing"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "thai",
+            "thai-classical"
+          ]
+        },
+        {
+          "id": "khlui_u",
+          "name": "Khlui u (largest, ~61 cm, lowest)",
+          "descriptors": [
+            "deep",
+            "low-voiced",
+            "mellow"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "thai",
+            "thai-classical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "khlui_context",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "khlui_khrueang_sai",
+          "default": true,
+          "name": "Khrueang sai string ensemble (the sole wind, with saw duang, saw u and jakhe)",
+          "descriptors": [
+            "chamber",
+            "melodic",
+            "classical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ensemble",
+            "melodic-lead"
+          ],
+          "canonical_tags": [
+            "thai",
+            "thai-classical"
+          ]
+        },
+        {
+          "id": "khlui_mahori",
+          "name": "Mahori mixed ensemble (melodic variation and sustained line among the strings)",
+          "descriptors": [
+            "courtly",
+            "ornamented",
+            "blended"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ensemble",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "thai",
+            "mahori"
+          ]
+        },
+        {
+          "id": "khlui_piphat_mai_nuam",
+          "name": "Piphat mai nuam (soft-mallet piphat — khlui phiang aw replaces the pi nai oboe)",
+          "descriptors": [
+            "mellow",
+            "chamber",
+            "classical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ensemble",
+            "sustained"
+          ],
+          "canonical_tags": [
+            "thai",
+            "piphat"
+          ]
+        },
+        {
+          "id": "khlui_solo_recreational",
+          "name": "Unaccompanied solo / recreational playing",
+          "descriptors": [
+            "solo",
+            "lyrical",
+            "intimate"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "solo",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "thai",
+            "solo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "khlui_tuning",
+      "name": "Tuning",
+      "variants": [
+        {
+          "id": "khlui_equiheptatonic",
+          "default": true,
+          "name": "Thai near-equidistant heptatonic (near-equal fingerhole spacing, not Western diatonic)",
+          "descriptors": [
+            "seven-equal-171-cent-steps",
+            "modal",
+            "traditional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "microtonal-bend"
+          ],
+          "canonical_tags": [
+            "thai",
+            "thai-classical",
+            "piphat-mahori"
+          ]
+        },
+        {
+          "id": "khlui_western_tempered",
+          "name": "Western-tempered export instrument (commercially keyed C or B♭)",
+          "descriptors": [
+            "diatonic",
+            "modern",
+            "commercial"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern",
+            "concert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "khlui_build",
+      "name": "Body build & voicing",
+      "variants": [
+        {
+          "id": "khlui_bamboo",
+          "default": true,
+          "name": "Bamboo tube, wooden dak duct block, rattan binding rings, no membrane",
+          "descriptors": [
+            "bamboo",
+            "warm",
+            "breathy"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "bamboo"
+          ],
+          "canonical_tags": [
+            "thai",
+            "bamboo"
+          ]
+        },
+        {
+          "id": "khlui_membrane",
+          "name": "Ru pao lom membrane hole fitted (stretched buzzing membrane, historic reedy edge)",
+          "descriptors": [
+            "buzzing",
+            "reedy",
+            "archaic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "buzzy-tone"
+          ],
+          "canonical_tags": [
+            "thai",
+            "historic"
+          ]
+        },
+        {
+          "id": "khlui_rosewood",
+          "name": "Turned rosewood / hardwood body (denser, more focused)",
+          "descriptors": [
+            "dense",
+            "focused",
+            "rosewood"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "wooden"
+          ],
+          "canonical_tags": [
+            "hardwood",
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "khlui_plastic",
+          "name": "Moulded plastic / PVC (modern student instrument)",
+          "descriptors": [
+            "plastic",
+            "durable",
+            "student"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern",
+            "synthetic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "khlui_size",
+      "name": "Size / register",
+      "variants": [
+        {
+          "id": "khlui_phiang_aw",
+          "default": true,
+          "name": "Khlui phiang aw (medium, ~44–45 cm — by far the most common)",
+          "descriptors": [
+            "standard",
+            "balanced",
+            "mellow"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "fipple-flute",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "thai",
+            "thai-classical"
+          ]
+        },
+        {
+          "id": "khlui_lip",
+          "name": "Khlui lip / khlui kruat (small, ~36–37 cm, highest, roughly E♭)",
+          "descriptors": [
+            "bright",
+            "high-pitched",
+            "piercing"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "thai",
+            "thai-classical"
+          ]
+        },
+        {
+          "id": "khlui_u",
+          "name": "Khlui u (largest, ~61 cm, lowest)",
+          "descriptors": [
+            "deep",
+            "low-voiced",
+            "mellow"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "thai",
+            "thai-classical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "khlui_context",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "khlui_khrueang_sai",
+          "default": true,
+          "name": "Khrueang sai string ensemble (the sole wind, with saw duang, saw u and jakhe)",
+          "descriptors": [
+            "chamber",
+            "melodic",
+            "classical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ensemble",
+            "melodic-lead"
+          ],
+          "canonical_tags": [
+            "thai",
+            "thai-classical"
+          ]
+        },
+        {
+          "id": "khlui_mahori",
+          "name": "Mahori mixed ensemble (melodic variation and sustained line among the strings)",
+          "descriptors": [
+            "courtly",
+            "ornamented",
+            "blended"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ensemble",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "thai",
+            "mahori"
+          ]
+        },
+        {
+          "id": "khlui_piphat_mai_nuam",
+          "name": "Piphat mai nuam (soft-mallet piphat — khlui phiang aw replaces the pi nai oboe)",
+          "descriptors": [
+            "mellow",
+            "chamber",
+            "classical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ensemble",
+            "sustained"
+          ],
+          "canonical_tags": [
+            "thai",
+            "piphat"
+          ]
+        },
+        {
+          "id": "khlui_solo_recreational",
+          "name": "Unaccompanied solo / recreational playing",
+          "descriptors": [
+            "solo",
+            "lyrical",
+            "intimate"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "solo",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "thai",
+            "solo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "khlui_tuning",
+      "name": "Tuning",
+      "variants": [
+        {
+          "id": "khlui_equiheptatonic",
+          "default": true,
+          "name": "Thai near-equidistant heptatonic (near-equal fingerhole spacing, not Western diatonic)",
+          "descriptors": [
+            "seven-equal-171-cent-steps",
+            "modal",
+            "traditional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "microtonal-bend"
+          ],
+          "canonical_tags": [
+            "thai",
+            "thai-classical",
+            "piphat-mahori"
+          ]
+        },
+        {
+          "id": "khlui_western_tempered",
+          "name": "Western-tempered export instrument (commercially keyed C or B♭)",
+          "descriptors": [
+            "diatonic",
+            "modern",
+            "commercial"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern",
+            "concert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "khlui_build",
+      "name": "Body build & voicing",
+      "variants": [
+        {
+          "id": "khlui_bamboo",
+          "default": true,
+          "name": "Bamboo tube, wooden dak duct block, rattan binding rings, no membrane",
+          "descriptors": [
+            "bamboo",
+            "warm",
+            "breathy"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "bamboo"
+          ],
+          "canonical_tags": [
+            "thai",
+            "bamboo"
+          ]
+        },
+        {
+          "id": "khlui_membrane",
+          "name": "Ru pao lom membrane hole fitted (stretched buzzing membrane, historic reedy edge)",
+          "descriptors": [
+            "buzzing",
+            "reedy",
+            "archaic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "buzzy-tone"
+          ],
+          "canonical_tags": [
+            "thai",
+            "historic"
+          ]
+        },
+        {
+          "id": "khlui_rosewood",
+          "name": "Turned rosewood / hardwood body (denser, more focused)",
+          "descriptors": [
+            "dense",
+            "focused",
+            "rosewood"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "wooden"
+          ],
+          "canonical_tags": [
+            "hardwood",
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "khlui_plastic",
+          "name": "Moulded plastic / PVC (modern student instrument)",
+          "descriptors": [
+            "plastic",
+            "durable",
+            "student"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern",
+            "synthetic"
+          ]
+        }
+      ]
+    }
+  ]
+}

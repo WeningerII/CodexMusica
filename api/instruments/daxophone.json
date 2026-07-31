@@ -1,0 +1,456 @@
+{
+  "id": "daxophone",
+  "name": "Daxophone (Reichel bowed friction tongue)",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": 1,
+    "dynamics": 0
+  },
+  "short": "daxophone",
+  "parts": [
+    {
+      "id": "daxophone_tongue",
+      "name": "Tongue (blade) wood and register",
+      "variants": [
+        {
+          "id": "daxophone_dense_hardwood",
+          "default": true,
+          "name": "Dense hardwood tongue - ebony or oak (mellow, vocal)",
+          "descriptors": [
+            "dense-hardwood",
+            "mellow",
+            "vocal"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "bowed",
+            "vocal-imitating",
+            "wood-toned"
+          ]
+        },
+        {
+          "id": "daxophone_light_wood",
+          "name": "Light softwood tongue (bright, shrill, comic)",
+          "descriptors": [
+            "light",
+            "shrill",
+            "comic"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "bowed",
+            "bright-tone",
+            "vocal-imitating"
+          ]
+        },
+        {
+          "id": "daxophone_contrabass_tongue",
+          "name": "Extended contrabass tongue (Jansen build for The Watchers, 2024)",
+          "descriptors": [
+            "contrabass-like",
+            "growling",
+            "commissioned"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "bowed",
+            "low-register",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "film-scoring",
+            "contemporary"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daxophone_dax",
+      "name": "Dax (stopping block) face",
+      "variants": [
+        {
+          "id": "daxophone_dax_unfretted",
+          "default": true,
+          "name": "Unfretted cardboard-covered face (continuous glide - the tonal side)",
+          "descriptors": [
+            "fretless",
+            "portamento-rich",
+            "vocal"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "bowed",
+            "glissando",
+            "vocal-imitating"
+          ]
+        },
+        {
+          "id": "daxophone_dax_fretted",
+          "name": "Fretted face (Reichel's randomly chosen logarithmic fret succession)",
+          "descriptors": [
+            "distinct-pitch",
+            "experimental-tuning",
+            "articulate"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "bowed",
+            "fretted"
+          ]
+        },
+        {
+          "id": "daxophone_no_dax",
+          "name": "Free tongue, unstopped (whole-blade fundamental)",
+          "descriptors": [
+            "open",
+            "broad-blade",
+            "drone"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "bowed",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daxophone_excitation",
+      "name": "Excitation",
+      "variants": [
+        {
+          "id": "daxophone_bass_bow",
+          "default": true,
+          "name": "Bowed at the free end with a double-bass bow",
+          "descriptors": [
+            "double-bass",
+            "speech-like",
+            "singing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "friction-driven",
+            "sustained-tone",
+            "vocal-imitating"
+          ]
+        },
+        {
+          "id": "daxophone_struck_plucked",
+          "name": "Struck or plucked blade (dry woody attack)",
+          "descriptors": [
+            "dry-knock",
+            "clipped",
+            "woody"
+          ],
+          "match_tokens": [
+            "struck",
+            "plucked",
+            "wood-toned"
+          ]
+        },
+        {
+          "id": "daxophone_superball_friction",
+          "name": "Superball mallet or rosined finger dragged on the blade",
+          "descriptors": [
+            "groaning",
+            "friction-driven",
+            "textural"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "rough-tone",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daxophone_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "daxophone_free_improv",
+          "default": true,
+          "name": "Free improvisation (Reichel lineage)",
+          "descriptors": [
+            "exploratory",
+            "speech-mimicry",
+            "playful"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "bowed",
+            "vocal-imitating"
+          ],
+          "canonical_tags": [
+            "free-improvisation",
+            "experimental"
+          ]
+        },
+        {
+          "id": "daxophone_horror_score",
+          "name": "Horror / supernatural film cue (Smile, The Watchers)",
+          "descriptors": [
+            "cinematic",
+            "dread-building",
+            "unsettling"
+          ],
+          "match_tokens": [
+            "bowed",
+            "friction-driven",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "horror-scoring",
+            "film-scoring"
+          ]
+        },
+        {
+          "id": "daxophone_massed_section",
+          "name": "Massed daxophone section as orchestral texture (Korzeniowski)",
+          "descriptors": [
+            "massed",
+            "swirling",
+            "choral"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "friction-driven",
+            "bowed"
+          ],
+          "canonical_tags": [
+            "film-scoring",
+            "contemporary"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "daxophone_tongue",
+      "name": "Tongue (blade) wood and register",
+      "variants": [
+        {
+          "id": "daxophone_dense_hardwood",
+          "default": true,
+          "name": "Dense hardwood tongue - ebony or oak (mellow, vocal)",
+          "descriptors": [
+            "dense-hardwood",
+            "mellow",
+            "vocal"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "bowed",
+            "vocal-imitating",
+            "wood-toned"
+          ]
+        },
+        {
+          "id": "daxophone_light_wood",
+          "name": "Light softwood tongue (bright, shrill, comic)",
+          "descriptors": [
+            "light",
+            "shrill",
+            "comic"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "bowed",
+            "bright-tone",
+            "vocal-imitating"
+          ]
+        },
+        {
+          "id": "daxophone_contrabass_tongue",
+          "name": "Extended contrabass tongue (Jansen build for The Watchers, 2024)",
+          "descriptors": [
+            "contrabass-like",
+            "growling",
+            "commissioned"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "bowed",
+            "low-register",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "film-scoring",
+            "contemporary"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daxophone_dax",
+      "name": "Dax (stopping block) face",
+      "variants": [
+        {
+          "id": "daxophone_dax_unfretted",
+          "default": true,
+          "name": "Unfretted cardboard-covered face (continuous glide - the tonal side)",
+          "descriptors": [
+            "fretless",
+            "portamento-rich",
+            "vocal"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "bowed",
+            "glissando",
+            "vocal-imitating"
+          ]
+        },
+        {
+          "id": "daxophone_dax_fretted",
+          "name": "Fretted face (Reichel's randomly chosen logarithmic fret succession)",
+          "descriptors": [
+            "distinct-pitch",
+            "experimental-tuning",
+            "articulate"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "bowed",
+            "fretted"
+          ]
+        },
+        {
+          "id": "daxophone_no_dax",
+          "name": "Free tongue, unstopped (whole-blade fundamental)",
+          "descriptors": [
+            "open",
+            "broad-blade",
+            "drone"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "bowed",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daxophone_excitation",
+      "name": "Excitation",
+      "variants": [
+        {
+          "id": "daxophone_bass_bow",
+          "default": true,
+          "name": "Bowed at the free end with a double-bass bow",
+          "descriptors": [
+            "double-bass",
+            "speech-like",
+            "singing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "friction-driven",
+            "sustained-tone",
+            "vocal-imitating"
+          ]
+        },
+        {
+          "id": "daxophone_struck_plucked",
+          "name": "Struck or plucked blade (dry woody attack)",
+          "descriptors": [
+            "dry-knock",
+            "clipped",
+            "woody"
+          ],
+          "match_tokens": [
+            "struck",
+            "plucked",
+            "wood-toned"
+          ]
+        },
+        {
+          "id": "daxophone_superball_friction",
+          "name": "Superball mallet or rosined finger dragged on the blade",
+          "descriptors": [
+            "groaning",
+            "friction-driven",
+            "textural"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "rough-tone",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daxophone_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "daxophone_free_improv",
+          "default": true,
+          "name": "Free improvisation (Reichel lineage)",
+          "descriptors": [
+            "exploratory",
+            "speech-mimicry",
+            "playful"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "bowed",
+            "vocal-imitating"
+          ],
+          "canonical_tags": [
+            "free-improvisation",
+            "experimental"
+          ]
+        },
+        {
+          "id": "daxophone_horror_score",
+          "name": "Horror / supernatural film cue (Smile, The Watchers)",
+          "descriptors": [
+            "cinematic",
+            "dread-building",
+            "unsettling"
+          ],
+          "match_tokens": [
+            "bowed",
+            "friction-driven",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "horror-scoring",
+            "film-scoring"
+          ]
+        },
+        {
+          "id": "daxophone_massed_section",
+          "name": "Massed daxophone section as orchestral texture (Korzeniowski)",
+          "descriptors": [
+            "massed",
+            "swirling",
+            "choral"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "friction-driven",
+            "bowed"
+          ],
+          "canonical_tags": [
+            "film-scoring",
+            "contemporary"
+          ]
+        }
+      ]
+    }
+  ]
+}

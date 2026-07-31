@@ -1,0 +1,506 @@
+{
+  "id": "sipsi",
+  "name": "Sipsi (Turkish Teke single-reed cane pipe)",
+  "family": "wind",
+  "class": "single_reed_cylindrical",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 2,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "sipsi",
+  "parts": [
+    {
+      "id": "sipsi_body",
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "sipsi_cane",
+          "default": true,
+          "name": "Cane body, ~20 cm, five fingerholes and a thumb-hole",
+          "descriptors": [
+            "reedy",
+            "buzzy",
+            "rustic"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "turkish",
+            "reed-cane"
+          ]
+        },
+        {
+          "id": "sipsi_bone",
+          "name": "Bone body",
+          "descriptors": [
+            "bone-built",
+            "piercing",
+            "bright"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "bone",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "turkish",
+            "anatolian"
+          ]
+        },
+        {
+          "id": "sipsi_wood",
+          "name": "Turned wood body",
+          "descriptors": [
+            "focused",
+            "resonant",
+            "warm"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "wooden",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "turkish",
+            "wood-body"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sipsi_reed",
+      "name": "Reed (cukcuk) and thread tuning",
+      "variants": [
+        {
+          "id": "sipsi_reed_thread",
+          "default": true,
+          "name": "Cane reed-tube seated by thread wound round its base (standard tuning)",
+          "descriptors": [
+            "buzzy",
+            "archaic",
+            "unstable"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "idioglot",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "reed-cane",
+            "idioglot-reed"
+          ]
+        },
+        {
+          "id": "sipsi_reed_tight",
+          "name": "Tight thread wrap, shallow seating (raised pitch, stiffer blow)",
+          "descriptors": [
+            "bright",
+            "piercing",
+            "sharp"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "reed-driven",
+            "high-pitched"
+          ],
+          "canonical_tags": [
+            "turkish"
+          ]
+        },
+        {
+          "id": "sipsi_reed_synthetic",
+          "name": "Modern synthetic reed",
+          "descriptors": [
+            "stable",
+            "bright",
+            "durable"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "synthetic",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sipsi_breath",
+      "name": "Breath / phrasing",
+      "variants": [
+        {
+          "id": "sipsi_circular",
+          "default": true,
+          "name": "Circular-breathed unbroken line",
+          "descriptors": [
+            "circular-breathed",
+            "continuous",
+            "hypnotic"
+          ],
+          "match_tokens": [
+            "circular-breathing",
+            "reed-driven",
+            "sustained"
+          ],
+          "canonical_tags": [
+            "turkish",
+            "anatolian"
+          ]
+        },
+        {
+          "id": "sipsi_phrased",
+          "name": "Articulated, phrase-broken playing",
+          "descriptors": [
+            "ornamented",
+            "plaintive",
+            "free-rhythm"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "ornamented",
+            "expressive"
+          ],
+          "canonical_tags": [
+            "turkish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sipsi_setting",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "sipsi_zeybek",
+          "default": true,
+          "name": "Teke zeybek in 9/8 with davul",
+          "descriptors": [
+            "dance-driving",
+            "rhythmic",
+            "festive"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "dance-driving",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "turkish",
+            "aegean",
+            "dance"
+          ]
+        },
+        {
+          "id": "sipsi_gurbet",
+          "name": "Free-rhythm gurbet havası opening",
+          "descriptors": [
+            "improvisatory",
+            "unmetered",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "melodic",
+            "microtonal"
+          ],
+          "canonical_tags": [
+            "turkish",
+            "anatolian"
+          ]
+        },
+        {
+          "id": "sipsi_teke_band",
+          "name": "Regional band lead with kabak kemane and bağlama",
+          "descriptors": [
+            "melodic-lead",
+            "folk",
+            "singing"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "ensemble",
+            "melodic-lead"
+          ],
+          "canonical_tags": [
+            "turkish",
+            "folk-band"
+          ]
+        },
+        {
+          "id": "sipsi_bogaz_havasi",
+          "name": "Shadowing the boğaz havası throat-song tradition",
+          "descriptors": [
+            "vocal-paired",
+            "accompanying",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "vocal-accompaniment",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "turkish",
+            "aegean"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sipsi_body",
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "sipsi_cane",
+          "default": true,
+          "name": "Cane body, ~20 cm, five fingerholes and a thumb-hole",
+          "descriptors": [
+            "reedy",
+            "buzzy",
+            "rustic"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "turkish",
+            "reed-cane"
+          ]
+        },
+        {
+          "id": "sipsi_bone",
+          "name": "Bone body",
+          "descriptors": [
+            "bone-built",
+            "piercing",
+            "bright"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "bone",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "turkish",
+            "anatolian"
+          ]
+        },
+        {
+          "id": "sipsi_wood",
+          "name": "Turned wood body",
+          "descriptors": [
+            "focused",
+            "resonant",
+            "warm"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "wooden",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "turkish",
+            "wood-body"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sipsi_reed",
+      "name": "Reed (cukcuk) and thread tuning",
+      "variants": [
+        {
+          "id": "sipsi_reed_thread",
+          "default": true,
+          "name": "Cane reed-tube seated by thread wound round its base (standard tuning)",
+          "descriptors": [
+            "buzzy",
+            "archaic",
+            "unstable"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "idioglot",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "reed-cane",
+            "idioglot-reed"
+          ]
+        },
+        {
+          "id": "sipsi_reed_tight",
+          "name": "Tight thread wrap, shallow seating (raised pitch, stiffer blow)",
+          "descriptors": [
+            "bright",
+            "piercing",
+            "sharp"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "reed-driven",
+            "high-pitched"
+          ],
+          "canonical_tags": [
+            "turkish"
+          ]
+        },
+        {
+          "id": "sipsi_reed_synthetic",
+          "name": "Modern synthetic reed",
+          "descriptors": [
+            "stable",
+            "bright",
+            "durable"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "synthetic",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sipsi_breath",
+      "name": "Breath / phrasing",
+      "variants": [
+        {
+          "id": "sipsi_circular",
+          "default": true,
+          "name": "Circular-breathed unbroken line",
+          "descriptors": [
+            "circular-breathed",
+            "continuous",
+            "hypnotic"
+          ],
+          "match_tokens": [
+            "circular-breathing",
+            "reed-driven",
+            "sustained"
+          ],
+          "canonical_tags": [
+            "turkish",
+            "anatolian"
+          ]
+        },
+        {
+          "id": "sipsi_phrased",
+          "name": "Articulated, phrase-broken playing",
+          "descriptors": [
+            "ornamented",
+            "plaintive",
+            "free-rhythm"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "ornamented",
+            "expressive"
+          ],
+          "canonical_tags": [
+            "turkish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sipsi_setting",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "sipsi_zeybek",
+          "default": true,
+          "name": "Teke zeybek in 9/8 with davul",
+          "descriptors": [
+            "dance-driving",
+            "rhythmic",
+            "festive"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "dance-driving",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "turkish",
+            "aegean",
+            "dance"
+          ]
+        },
+        {
+          "id": "sipsi_gurbet",
+          "name": "Free-rhythm gurbet havası opening",
+          "descriptors": [
+            "improvisatory",
+            "unmetered",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "melodic",
+            "microtonal"
+          ],
+          "canonical_tags": [
+            "turkish",
+            "anatolian"
+          ]
+        },
+        {
+          "id": "sipsi_teke_band",
+          "name": "Regional band lead with kabak kemane and bağlama",
+          "descriptors": [
+            "melodic-lead",
+            "folk",
+            "singing"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "ensemble",
+            "melodic-lead"
+          ],
+          "canonical_tags": [
+            "turkish",
+            "folk-band"
+          ]
+        },
+        {
+          "id": "sipsi_bogaz_havasi",
+          "name": "Shadowing the boğaz havası throat-song tradition",
+          "descriptors": [
+            "vocal-paired",
+            "accompanying",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "vocal-accompaniment",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "turkish",
+            "aegean"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,536 @@
+{
+  "id": "diplica",
+  "name": "Diplica (Baranja single-reed cane pipe)",
+  "family": "wind",
+  "class": "single_reed_cylindrical",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 1,
+    "range": -1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "diplica",
+  "parts": [
+    {
+      "id": "diplica_body",
+      "name": "Pipe material",
+      "variants": [
+        {
+          "id": "diplica_cane",
+          "default": true,
+          "name": "Reed-cane chanter with five fingerholes",
+          "descriptors": [
+            "reedy",
+            "buzzy",
+            "rustic"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "reed-cane"
+          ]
+        },
+        {
+          "id": "diplica_straw",
+          "name": "Straw pipe (improvised, ephemeral)",
+          "descriptors": [
+            "thin",
+            "sharp",
+            "ephemeral"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "high-pitched"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "traditional"
+          ]
+        },
+        {
+          "id": "diplica_goose_quill",
+          "name": "Goose-quill pipe",
+          "descriptors": [
+            "thin",
+            "piercing",
+            "fragile"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "quill",
+            "high-pitched"
+          ],
+          "canonical_tags": [
+            "balkan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diplica_tuning",
+      "name": "Pitch / tuning",
+      "variants": [
+        {
+          "id": "diplica_e",
+          "default": true,
+          "name": "E diatonic (E F♯ G♯ A B C♯) — the standard Baranja pitch",
+          "descriptors": [
+            "diatonic",
+            "traditional",
+            "bright"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "diatonic",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "diatonic",
+            "balkan"
+          ]
+        },
+        {
+          "id": "diplica_d",
+          "name": "D",
+          "descriptors": [
+            "warm",
+            "mellow",
+            "dark-toned"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "diatonic",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "diatonic"
+          ]
+        },
+        {
+          "id": "diplica_c",
+          "name": "C",
+          "descriptors": [
+            "deep-toned",
+            "broad",
+            "mellow"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "diatonic",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "diatonic"
+          ]
+        },
+        {
+          "id": "diplica_f",
+          "name": "F",
+          "descriptors": [
+            "bright",
+            "piercing",
+            "sharp"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "diatonic",
+            "high-pitched"
+          ],
+          "canonical_tags": [
+            "diatonic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diplica_mouthpiece",
+      "name": "Reed and mouthpiece",
+      "variants": [
+        {
+          "id": "diplica_bare_reed",
+          "default": true,
+          "name": "Bare idioglot reed-cane reed taken into the mouth",
+          "descriptors": [
+            "buzzy",
+            "unstable",
+            "archaic"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "idioglot",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "idioglot-reed",
+            "reed-cane"
+          ]
+        },
+        {
+          "id": "diplica_elder_reed",
+          "name": "Elder reed",
+          "descriptors": [
+            "elder-traditional",
+            "warm",
+            "rustic"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "elder",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "idioglot-reed"
+          ]
+        },
+        {
+          "id": "diplica_horn_cap",
+          "name": "Reed housed in a horn mouthpiece cap",
+          "descriptors": [
+            "horn-belled",
+            "loud",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "reed-driven",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "balkan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diplica_setting",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "diplica_kolo",
+          "default": true,
+          "name": "Village kolo dance and shepherd solo",
+          "descriptors": [
+            "dance-driving",
+            "rhythmic",
+            "pastoral"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "dance-driving",
+            "solo"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "dance",
+            "shepherd"
+          ]
+        },
+        {
+          "id": "diplica_becarac",
+          "name": "Bećarac couplet accompaniment",
+          "descriptors": [
+            "vocal-paired",
+            "accompanying",
+            "cyclic"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "vocal-accompaniment",
+            "folk"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "vocal"
+          ]
+        },
+        {
+          "id": "diplica_gajde_substitute",
+          "name": "Bagpipe-substitute lead over a gajde or tambura band",
+          "descriptors": [
+            "melodic-lead",
+            "droning",
+            "folk"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "ensemble",
+            "melodic-lead"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "folk-band"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "diplica_body",
+      "name": "Pipe material",
+      "variants": [
+        {
+          "id": "diplica_cane",
+          "default": true,
+          "name": "Reed-cane chanter with five fingerholes",
+          "descriptors": [
+            "reedy",
+            "buzzy",
+            "rustic"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "reed-cane"
+          ]
+        },
+        {
+          "id": "diplica_straw",
+          "name": "Straw pipe (improvised, ephemeral)",
+          "descriptors": [
+            "thin",
+            "sharp",
+            "ephemeral"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "high-pitched"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "traditional"
+          ]
+        },
+        {
+          "id": "diplica_goose_quill",
+          "name": "Goose-quill pipe",
+          "descriptors": [
+            "thin",
+            "piercing",
+            "fragile"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "quill",
+            "high-pitched"
+          ],
+          "canonical_tags": [
+            "balkan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diplica_tuning",
+      "name": "Pitch / tuning",
+      "variants": [
+        {
+          "id": "diplica_e",
+          "default": true,
+          "name": "E diatonic (E F♯ G♯ A B C♯) — the standard Baranja pitch",
+          "descriptors": [
+            "diatonic",
+            "traditional",
+            "bright"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "diatonic",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "diatonic",
+            "balkan"
+          ]
+        },
+        {
+          "id": "diplica_d",
+          "name": "D",
+          "descriptors": [
+            "warm",
+            "mellow",
+            "dark-toned"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "diatonic",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "diatonic"
+          ]
+        },
+        {
+          "id": "diplica_c",
+          "name": "C",
+          "descriptors": [
+            "deep-toned",
+            "broad",
+            "mellow"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "diatonic",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "diatonic"
+          ]
+        },
+        {
+          "id": "diplica_f",
+          "name": "F",
+          "descriptors": [
+            "bright",
+            "piercing",
+            "sharp"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "diatonic",
+            "high-pitched"
+          ],
+          "canonical_tags": [
+            "diatonic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diplica_mouthpiece",
+      "name": "Reed and mouthpiece",
+      "variants": [
+        {
+          "id": "diplica_bare_reed",
+          "default": true,
+          "name": "Bare idioglot reed-cane reed taken into the mouth",
+          "descriptors": [
+            "buzzy",
+            "unstable",
+            "archaic"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "idioglot",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "idioglot-reed",
+            "reed-cane"
+          ]
+        },
+        {
+          "id": "diplica_elder_reed",
+          "name": "Elder reed",
+          "descriptors": [
+            "elder-traditional",
+            "warm",
+            "rustic"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "elder",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "idioglot-reed"
+          ]
+        },
+        {
+          "id": "diplica_horn_cap",
+          "name": "Reed housed in a horn mouthpiece cap",
+          "descriptors": [
+            "horn-belled",
+            "loud",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "reed-driven",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "balkan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diplica_setting",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "diplica_kolo",
+          "default": true,
+          "name": "Village kolo dance and shepherd solo",
+          "descriptors": [
+            "dance-driving",
+            "rhythmic",
+            "pastoral"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "dance-driving",
+            "solo"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "dance",
+            "shepherd"
+          ]
+        },
+        {
+          "id": "diplica_becarac",
+          "name": "Bećarac couplet accompaniment",
+          "descriptors": [
+            "vocal-paired",
+            "accompanying",
+            "cyclic"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "vocal-accompaniment",
+            "folk"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "vocal"
+          ]
+        },
+        {
+          "id": "diplica_gajde_substitute",
+          "name": "Bagpipe-substitute lead over a gajde or tambura band",
+          "descriptors": [
+            "melodic-lead",
+            "droning",
+            "folk"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "ensemble",
+            "melodic-lead"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "folk-band"
+          ]
+        }
+      ]
+    }
+  ]
+}

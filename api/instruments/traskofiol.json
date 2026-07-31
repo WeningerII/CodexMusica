@@ -1,0 +1,419 @@
+{
+  "id": "traskofiol",
+  "name": "Träskofiol (Swedish clog fiddle)",
+  "family": "bowed",
+  "class": "bowed_fiddle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "traskofiol",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "traskofiol_body",
+      "name": "Body / build",
+      "variants": [
+        {
+          "id": "traskofiol_body_repurposed_clog",
+          "default": true,
+          "name": "Genuine hollowed birch clog with a flat soundboard",
+          "descriptors": [
+            "nasal",
+            "rustic",
+            "woody"
+          ],
+          "match_tokens": [
+            "bowed",
+            "nasal-tone",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "swedish",
+            "traditional"
+          ]
+        },
+        {
+          "id": "traskofiol_body_carved_form",
+          "name": "Purpose-carved clog-form body (competition-grade build)",
+          "descriptors": [
+            "focused",
+            "refined",
+            "nasal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "nasal-tone",
+            "soloistic"
+          ],
+          "canonical_tags": [
+            "swedish",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "traskofiol_role",
+      "name": "Role in the texture",
+      "variants": [
+        {
+          "id": "traskofiol_role_dance_lead",
+          "default": true,
+          "name": "Dance lead in its own right (Skane polska and slangpolska)",
+          "descriptors": [
+            "dance-driving",
+            "driving",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "swedish",
+            "dance"
+          ]
+        },
+        {
+          "id": "traskofiol_role_timbral_double",
+          "name": "Deliberately coarse timbral double under a normal fiddle",
+          "descriptors": [
+            "nasal",
+            "dry",
+            "regional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "nasal-tone",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "swedish",
+            "accompaniment"
+          ]
+        },
+        {
+          "id": "traskofiol_role_chamber_colour",
+          "name": "Chamber-folk colour line",
+          "descriptors": [
+            "distinctive",
+            "lyrical",
+            "intimate"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble-blend",
+            "expressive"
+          ],
+          "canonical_tags": [
+            "modern",
+            "revival"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "traskofiol_strings",
+      "name": "Strings and setup",
+      "variants": [
+        {
+          "id": "traskofiol_strings_steel",
+          "default": true,
+          "name": "Full violin setup with steel strings",
+          "descriptors": [
+            "steel",
+            "projecting",
+            "bright"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "steel",
+            "modern"
+          ]
+        },
+        {
+          "id": "traskofiol_strings_gut_light",
+          "name": "Gut or light strings for a softer rustic voice",
+          "descriptors": [
+            "gut-strung",
+            "soft",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "traskofiol_tuning",
+      "name": "Tuning",
+      "variants": [
+        {
+          "id": "traskofiol_tuning_gdae",
+          "default": true,
+          "name": "Standard GDAE",
+          "descriptors": [
+            "standard",
+            "balanced",
+            "versatile"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "traskofiol_tuning_scordatura",
+          "name": "Swedish scordatura (AEAE / ADAE)",
+          "descriptors": [
+            "scordatura",
+            "droning",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "swedish",
+            "traditional"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "traskofiol_body",
+      "name": "Body / build",
+      "variants": [
+        {
+          "id": "traskofiol_body_repurposed_clog",
+          "default": true,
+          "name": "Genuine hollowed birch clog with a flat soundboard",
+          "descriptors": [
+            "nasal",
+            "rustic",
+            "woody"
+          ],
+          "match_tokens": [
+            "bowed",
+            "nasal-tone",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "swedish",
+            "traditional"
+          ]
+        },
+        {
+          "id": "traskofiol_body_carved_form",
+          "name": "Purpose-carved clog-form body (competition-grade build)",
+          "descriptors": [
+            "focused",
+            "refined",
+            "nasal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "nasal-tone",
+            "soloistic"
+          ],
+          "canonical_tags": [
+            "swedish",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "traskofiol_role",
+      "name": "Role in the texture",
+      "variants": [
+        {
+          "id": "traskofiol_role_dance_lead",
+          "default": true,
+          "name": "Dance lead in its own right (Skane polska and slangpolska)",
+          "descriptors": [
+            "dance-driving",
+            "driving",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "swedish",
+            "dance"
+          ]
+        },
+        {
+          "id": "traskofiol_role_timbral_double",
+          "name": "Deliberately coarse timbral double under a normal fiddle",
+          "descriptors": [
+            "nasal",
+            "dry",
+            "regional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "nasal-tone",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "swedish",
+            "accompaniment"
+          ]
+        },
+        {
+          "id": "traskofiol_role_chamber_colour",
+          "name": "Chamber-folk colour line",
+          "descriptors": [
+            "distinctive",
+            "lyrical",
+            "intimate"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble-blend",
+            "expressive"
+          ],
+          "canonical_tags": [
+            "modern",
+            "revival"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "traskofiol_strings",
+      "name": "Strings and setup",
+      "variants": [
+        {
+          "id": "traskofiol_strings_steel",
+          "default": true,
+          "name": "Full violin setup with steel strings",
+          "descriptors": [
+            "steel",
+            "projecting",
+            "bright"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "steel",
+            "modern"
+          ]
+        },
+        {
+          "id": "traskofiol_strings_gut_light",
+          "name": "Gut or light strings for a softer rustic voice",
+          "descriptors": [
+            "gut-strung",
+            "soft",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "traskofiol_tuning",
+      "name": "Tuning",
+      "variants": [
+        {
+          "id": "traskofiol_tuning_gdae",
+          "default": true,
+          "name": "Standard GDAE",
+          "descriptors": [
+            "standard",
+            "balanced",
+            "versatile"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "traskofiol_tuning_scordatura",
+          "name": "Swedish scordatura (AEAE / ADAE)",
+          "descriptors": [
+            "scordatura",
+            "droning",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "swedish",
+            "traditional"
+          ]
+        }
+      ]
+    }
+  ]
+}

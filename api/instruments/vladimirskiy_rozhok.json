@@ -1,0 +1,508 @@
+{
+  "id": "vladimirskiy_rozhok",
+  "name": "Vladimirskiy rozhok (Russian fingerhole lip-reed shepherd horn)",
+  "family": "wind",
+  "class": "natural_trumpet",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "rozhok",
+  "parts": [
+    {
+      "id": "vladimirskiy_rozhok_voice",
+      "name": "Size / voice",
+      "variants": [
+        {
+          "id": "vladimirskiy_rozhok_polubasok",
+          "default": true,
+          "name": "Polubasok (half-bass, 50-60 cm - the preferred solo voice)",
+          "descriptors": [
+            "soloistic",
+            "mid-register",
+            "balanced"
+          ],
+          "match_tokens": [
+            "lip-buzzed",
+            "solo",
+            "folk-context"
+          ],
+          "canonical_tags": [
+            "russian",
+            "solo-capable"
+          ]
+        },
+        {
+          "id": "vladimirskiy_rozhok_vizgunok",
+          "name": "Vizgunok (squeaker, 32-36 cm - highest voice, octave-paired with the bas)",
+          "descriptors": [
+            "high-pitched",
+            "shrill",
+            "piercing"
+          ],
+          "match_tokens": [
+            "lip-buzzed",
+            "high-register",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "russian",
+            "octave"
+          ]
+        },
+        {
+          "id": "vladimirskiy_rozhok_bas",
+          "name": "Bas / basok (60-83 cm - lowest voice, tuned an octave below the vizgunok)",
+          "descriptors": [
+            "deep-voiced",
+            "broad-toned",
+            "foundational"
+          ],
+          "match_tokens": [
+            "lip-buzzed",
+            "low-register",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "russian",
+            "octave"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vladimirskiy_rozhok_context",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "vladimirskiy_rozhok_rozhechnik_choir",
+          "default": true,
+          "name": "Rozhechnik choir (4-8 horns, heterophonic naigryshi with subordinate podgolosok lines)",
+          "descriptors": [
+            "heterophonic",
+            "ensemble-blend",
+            "vocal-shadowing"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "melodic-lead",
+            "folk-context"
+          ],
+          "canonical_tags": [
+            "russian",
+            "slavic",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "vladimirskiy_rozhok_herding_signal",
+          "name": "Shepherd's signal (calling and driving the herd across open pasture)",
+          "descriptors": [
+            "calling",
+            "far-carrying",
+            "pastoral"
+          ],
+          "match_tokens": [
+            "loud-projection",
+            "outdoor-field",
+            "signal"
+          ],
+          "canonical_tags": [
+            "herding",
+            "shepherd",
+            "signal"
+          ]
+        },
+        {
+          "id": "vladimirskiy_rozhok_solo_naigrysh",
+          "name": "Solo naigrysh (unaccompanied instrumental tune, polubasok idiom)",
+          "descriptors": [
+            "soloistic",
+            "ornamented",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "solo",
+            "melodic-lead",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "russian",
+            "solo-capable"
+          ]
+        },
+        {
+          "id": "vladimirskiy_rozhok_fair_feast",
+          "name": "Fair, wedding and calendar feast (village celebration play)",
+          "descriptors": [
+            "festive",
+            "communal",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "festival",
+            "dance-driving",
+            "folk-context"
+          ],
+          "canonical_tags": [
+            "russian",
+            "wedding",
+            "festival"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vladimirskiy_rozhok_wood",
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "vladimirskiy_rozhok_birch",
+          "default": true,
+          "name": "Birch (common village wood)",
+          "descriptors": [
+            "birch",
+            "bright",
+            "even"
+          ],
+          "match_tokens": [
+            "wooden",
+            "lip-buzzed"
+          ],
+          "canonical_tags": [
+            "wood",
+            "russian"
+          ]
+        },
+        {
+          "id": "vladimirskiy_rozhok_maple",
+          "name": "Maple (denser, firmer-toned)",
+          "descriptors": [
+            "maple",
+            "dense",
+            "projecting"
+          ],
+          "match_tokens": [
+            "maple",
+            "wooden",
+            "lip-buzzed"
+          ],
+          "canonical_tags": [
+            "hardwood"
+          ]
+        },
+        {
+          "id": "vladimirskiy_rozhok_juniper",
+          "name": "Juniper (prized aromatic hardwood - hardest, most ringing)",
+          "descriptors": [
+            "hardwood",
+            "ringing",
+            "dense"
+          ],
+          "match_tokens": [
+            "hardwood",
+            "wooden",
+            "lip-buzzed"
+          ],
+          "canonical_tags": [
+            "wood"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vladimirskiy_rozhok_construction",
+      "name": "Bore construction",
+      "variants": [
+        {
+          "id": "vladimirskiy_rozhok_lathe_turned",
+          "default": true,
+          "name": "Lathe-turned one-piece bore, cup mouthpiece cut into the wood (modern build)",
+          "descriptors": [
+            "hand-lathed",
+            "one-piece",
+            "even"
+          ],
+          "match_tokens": [
+            "wooden",
+            "lip-buzzed"
+          ],
+          "canonical_tags": [
+            "modern",
+            "wood"
+          ]
+        },
+        {
+          "id": "vladimirskiy_rozhok_two_halves_bark",
+          "name": "Two carved halves glued and bound with birch bark (archaic shepherd method)",
+          "descriptors": [
+            "carved",
+            "archaic",
+            "bark-wrapped"
+          ],
+          "match_tokens": [
+            "wooden",
+            "lip-buzzed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "birch-bark",
+            "archaic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "vladimirskiy_rozhok_voice",
+      "name": "Size / voice",
+      "variants": [
+        {
+          "id": "vladimirskiy_rozhok_polubasok",
+          "default": true,
+          "name": "Polubasok (half-bass, 50-60 cm - the preferred solo voice)",
+          "descriptors": [
+            "soloistic",
+            "mid-register",
+            "balanced"
+          ],
+          "match_tokens": [
+            "lip-buzzed",
+            "solo",
+            "folk-context"
+          ],
+          "canonical_tags": [
+            "russian",
+            "solo-capable"
+          ]
+        },
+        {
+          "id": "vladimirskiy_rozhok_vizgunok",
+          "name": "Vizgunok (squeaker, 32-36 cm - highest voice, octave-paired with the bas)",
+          "descriptors": [
+            "high-pitched",
+            "shrill",
+            "piercing"
+          ],
+          "match_tokens": [
+            "lip-buzzed",
+            "high-register",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "russian",
+            "octave"
+          ]
+        },
+        {
+          "id": "vladimirskiy_rozhok_bas",
+          "name": "Bas / basok (60-83 cm - lowest voice, tuned an octave below the vizgunok)",
+          "descriptors": [
+            "deep-voiced",
+            "broad-toned",
+            "foundational"
+          ],
+          "match_tokens": [
+            "lip-buzzed",
+            "low-register",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "russian",
+            "octave"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vladimirskiy_rozhok_context",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "vladimirskiy_rozhok_rozhechnik_choir",
+          "default": true,
+          "name": "Rozhechnik choir (4-8 horns, heterophonic naigryshi with subordinate podgolosok lines)",
+          "descriptors": [
+            "heterophonic",
+            "ensemble-blend",
+            "vocal-shadowing"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "melodic-lead",
+            "folk-context"
+          ],
+          "canonical_tags": [
+            "russian",
+            "slavic",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "vladimirskiy_rozhok_herding_signal",
+          "name": "Shepherd's signal (calling and driving the herd across open pasture)",
+          "descriptors": [
+            "calling",
+            "far-carrying",
+            "pastoral"
+          ],
+          "match_tokens": [
+            "loud-projection",
+            "outdoor-field",
+            "signal"
+          ],
+          "canonical_tags": [
+            "herding",
+            "shepherd",
+            "signal"
+          ]
+        },
+        {
+          "id": "vladimirskiy_rozhok_solo_naigrysh",
+          "name": "Solo naigrysh (unaccompanied instrumental tune, polubasok idiom)",
+          "descriptors": [
+            "soloistic",
+            "ornamented",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "solo",
+            "melodic-lead",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "russian",
+            "solo-capable"
+          ]
+        },
+        {
+          "id": "vladimirskiy_rozhok_fair_feast",
+          "name": "Fair, wedding and calendar feast (village celebration play)",
+          "descriptors": [
+            "festive",
+            "communal",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "festival",
+            "dance-driving",
+            "folk-context"
+          ],
+          "canonical_tags": [
+            "russian",
+            "wedding",
+            "festival"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vladimirskiy_rozhok_wood",
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "vladimirskiy_rozhok_birch",
+          "default": true,
+          "name": "Birch (common village wood)",
+          "descriptors": [
+            "birch",
+            "bright",
+            "even"
+          ],
+          "match_tokens": [
+            "wooden",
+            "lip-buzzed"
+          ],
+          "canonical_tags": [
+            "wood",
+            "russian"
+          ]
+        },
+        {
+          "id": "vladimirskiy_rozhok_maple",
+          "name": "Maple (denser, firmer-toned)",
+          "descriptors": [
+            "maple",
+            "dense",
+            "projecting"
+          ],
+          "match_tokens": [
+            "maple",
+            "wooden",
+            "lip-buzzed"
+          ],
+          "canonical_tags": [
+            "hardwood"
+          ]
+        },
+        {
+          "id": "vladimirskiy_rozhok_juniper",
+          "name": "Juniper (prized aromatic hardwood - hardest, most ringing)",
+          "descriptors": [
+            "hardwood",
+            "ringing",
+            "dense"
+          ],
+          "match_tokens": [
+            "hardwood",
+            "wooden",
+            "lip-buzzed"
+          ],
+          "canonical_tags": [
+            "wood"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vladimirskiy_rozhok_construction",
+      "name": "Bore construction",
+      "variants": [
+        {
+          "id": "vladimirskiy_rozhok_lathe_turned",
+          "default": true,
+          "name": "Lathe-turned one-piece bore, cup mouthpiece cut into the wood (modern build)",
+          "descriptors": [
+            "hand-lathed",
+            "one-piece",
+            "even"
+          ],
+          "match_tokens": [
+            "wooden",
+            "lip-buzzed"
+          ],
+          "canonical_tags": [
+            "modern",
+            "wood"
+          ]
+        },
+        {
+          "id": "vladimirskiy_rozhok_two_halves_bark",
+          "name": "Two carved halves glued and bound with birch bark (archaic shepherd method)",
+          "descriptors": [
+            "carved",
+            "archaic",
+            "bark-wrapped"
+          ],
+          "match_tokens": [
+            "wooden",
+            "lip-buzzed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "birch-bark",
+            "archaic"
+          ]
+        }
+      ]
+    }
+  ]
+}

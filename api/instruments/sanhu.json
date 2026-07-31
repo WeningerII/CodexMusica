@@ -1,0 +1,415 @@
+{
+  "id": "sanhu",
+  "name": "Sanhu (three-string reform erhu)",
+  "family": "bowed",
+  "class": "bowed_spike_fiddle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "sanhu",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "sanhu_box",
+      "name": "Soundbox form",
+      "variants": [
+        {
+          "id": "sanhu_box_hexagonal",
+          "default": true,
+          "name": "Hexagonal python-skin box, slightly larger than an erhu's",
+          "descriptors": [
+            "python-skin",
+            "resonant",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "resonant-membrane",
+            "expressive"
+          ],
+          "canonical_tags": [
+            "reformed",
+            "china"
+          ]
+        },
+        {
+          "id": "sanhu_box_octagonal",
+          "name": "Octagonal box (fuller, rounder)",
+          "descriptors": [
+            "rounded-tone",
+            "warm",
+            "full"
+          ],
+          "match_tokens": [
+            "bowed",
+            "warm-tone",
+            "resonant-membrane"
+          ],
+          "canonical_tags": [
+            "reformed",
+            "modern"
+          ]
+        },
+        {
+          "id": "sanhu_box_double_tube",
+          "name": "Double-tube variant (early 1980s experiment)",
+          "descriptors": [
+            "twentieth-century",
+            "standardized",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "modern",
+            "resonant-membrane"
+          ],
+          "canonical_tags": [
+            "reformed",
+            "twentieth-century"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sanhu_bowing",
+      "name": "Bowing technique",
+      "variants": [
+        {
+          "id": "sanhu_bowing_double_stop",
+          "default": true,
+          "name": "Double-strand bow over the concave bridge, two strings at once",
+          "descriptors": [
+            "double-stops",
+            "expressive",
+            "full"
+          ],
+          "match_tokens": [
+            "bowed",
+            "double-stop",
+            "chordal",
+            "expressive"
+          ],
+          "canonical_tags": [
+            "reformed",
+            "modern"
+          ]
+        },
+        {
+          "id": "sanhu_bowing_single_line",
+          "name": "Single-line melody in erhu fashion",
+          "descriptors": [
+            "lyrical",
+            "ornamented",
+            "melodic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "china",
+            "solo"
+          ]
+        },
+        {
+          "id": "sanhu_bowing_drone",
+          "name": "Melody over a held bass-string drone",
+          "descriptors": [
+            "drone-like",
+            "sustained",
+            "grounding"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "china",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sanhu_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "sanhu_context_solo",
+          "default": true,
+          "name": "Solo concert piece (a-d1-a1, mixed fourths and fifths)",
+          "descriptors": [
+            "virtuosic",
+            "expressive",
+            "concert"
+          ],
+          "match_tokens": [
+            "bowed",
+            "soloistic",
+            "concert"
+          ],
+          "canonical_tags": [
+            "solo",
+            "conservatory"
+          ]
+        },
+        {
+          "id": "sanhu_context_ensemble",
+          "name": "Mixed instrumental ensemble and duo",
+          "descriptors": [
+            "blended",
+            "interlocking",
+            "chamber"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "chamber-fed"
+          ],
+          "canonical_tags": [
+            "chinese-orchestra",
+            "chamber"
+          ]
+        },
+        {
+          "id": "sanhu_context_song_dance",
+          "name": "Song-and-dance accompaniment",
+          "descriptors": [
+            "driving",
+            "rhythmic",
+            "festive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "dance",
+            "china"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sanhu_box",
+      "name": "Soundbox form",
+      "variants": [
+        {
+          "id": "sanhu_box_hexagonal",
+          "default": true,
+          "name": "Hexagonal python-skin box, slightly larger than an erhu's",
+          "descriptors": [
+            "python-skin",
+            "resonant",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "resonant-membrane",
+            "expressive"
+          ],
+          "canonical_tags": [
+            "reformed",
+            "china"
+          ]
+        },
+        {
+          "id": "sanhu_box_octagonal",
+          "name": "Octagonal box (fuller, rounder)",
+          "descriptors": [
+            "rounded-tone",
+            "warm",
+            "full"
+          ],
+          "match_tokens": [
+            "bowed",
+            "warm-tone",
+            "resonant-membrane"
+          ],
+          "canonical_tags": [
+            "reformed",
+            "modern"
+          ]
+        },
+        {
+          "id": "sanhu_box_double_tube",
+          "name": "Double-tube variant (early 1980s experiment)",
+          "descriptors": [
+            "twentieth-century",
+            "standardized",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "modern",
+            "resonant-membrane"
+          ],
+          "canonical_tags": [
+            "reformed",
+            "twentieth-century"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sanhu_bowing",
+      "name": "Bowing technique",
+      "variants": [
+        {
+          "id": "sanhu_bowing_double_stop",
+          "default": true,
+          "name": "Double-strand bow over the concave bridge, two strings at once",
+          "descriptors": [
+            "double-stops",
+            "expressive",
+            "full"
+          ],
+          "match_tokens": [
+            "bowed",
+            "double-stop",
+            "chordal",
+            "expressive"
+          ],
+          "canonical_tags": [
+            "reformed",
+            "modern"
+          ]
+        },
+        {
+          "id": "sanhu_bowing_single_line",
+          "name": "Single-line melody in erhu fashion",
+          "descriptors": [
+            "lyrical",
+            "ornamented",
+            "melodic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "china",
+            "solo"
+          ]
+        },
+        {
+          "id": "sanhu_bowing_drone",
+          "name": "Melody over a held bass-string drone",
+          "descriptors": [
+            "drone-like",
+            "sustained",
+            "grounding"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "china",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sanhu_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "sanhu_context_solo",
+          "default": true,
+          "name": "Solo concert piece (a-d1-a1, mixed fourths and fifths)",
+          "descriptors": [
+            "virtuosic",
+            "expressive",
+            "concert"
+          ],
+          "match_tokens": [
+            "bowed",
+            "soloistic",
+            "concert"
+          ],
+          "canonical_tags": [
+            "solo",
+            "conservatory"
+          ]
+        },
+        {
+          "id": "sanhu_context_ensemble",
+          "name": "Mixed instrumental ensemble and duo",
+          "descriptors": [
+            "blended",
+            "interlocking",
+            "chamber"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "chamber-fed"
+          ],
+          "canonical_tags": [
+            "chinese-orchestra",
+            "chamber"
+          ]
+        },
+        {
+          "id": "sanhu_context_song_dance",
+          "name": "Song-and-dance accompaniment",
+          "descriptors": [
+            "driving",
+            "rhythmic",
+            "festive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "dance",
+            "china"
+          ]
+        }
+      ]
+    }
+  ]
+}

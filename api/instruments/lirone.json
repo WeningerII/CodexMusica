@@ -1,0 +1,425 @@
+{
+  "id": "lirone",
+  "name": "Lirone (bass lira da gamba, chordal continuo)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "lirone",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "lirone_stringing",
+      "name": "String complement",
+      "variants": [
+        {
+          "id": "lirone_stringing_full_fourteen",
+          "default": true,
+          "name": "Full 14–16 re-entrant strings plus off-board drones",
+          "descriptors": [
+            "full-voiced",
+            "chordal",
+            "droning"
+          ],
+          "match_tokens": [
+            "bowed",
+            "chordal",
+            "drone-foundation",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "italian"
+          ]
+        },
+        {
+          "id": "lirone_stringing_lean_nine",
+          "name": "Leaner 9–11 string instrument",
+          "descriptors": [
+            "leaner",
+            "spare",
+            "agile"
+          ],
+          "match_tokens": [
+            "bowed",
+            "chordal",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "renaissance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lirone_continuo",
+      "name": "Continuo pairing",
+      "variants": [
+        {
+          "id": "lirone_continuo_harpsichord_chitarrone",
+          "default": true,
+          "name": "With harpsichord and chitarrone (Cavalieri 1600 prescription)",
+          "descriptors": [
+            "continuo",
+            "blended",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "chordal",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "italian"
+          ]
+        },
+        {
+          "id": "lirone_continuo_organ",
+          "name": "With organ (sacred oratorio continuo)",
+          "descriptors": [
+            "solemn",
+            "sacred",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "sacred"
+          ]
+        },
+        {
+          "id": "lirone_continuo_solo_voice",
+          "name": "Alone under a solo voice (lament, prayer, supernatural scene)",
+          "descriptors": [
+            "mournful",
+            "intimate",
+            "declamatory"
+          ],
+          "match_tokens": [
+            "bowed",
+            "chamber-fed",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "solo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lirone_bowing",
+      "name": "Bow idiom",
+      "variants": [
+        {
+          "id": "lirone_bowing_sustained_pad",
+          "default": true,
+          "name": "Organ-like sustained chordal pad",
+          "descriptors": [
+            "sustained",
+            "chordal",
+            "floating"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "chordal"
+          ],
+          "canonical_tags": [
+            "baroque"
+          ]
+        },
+        {
+          "id": "lirone_bowing_declamatory",
+          "name": "More articulated declamatory support",
+          "descriptors": [
+            "declamatory",
+            "articulated",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "chordal",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lirone_frets",
+      "name": "Fretting and strings",
+      "variants": [
+        {
+          "id": "lirone_frets_gut_tied",
+          "default": true,
+          "name": "Gut-tied movable frets, plain gut strings",
+          "descriptors": [
+            "gut-tied-frets",
+            "movable",
+            "plain-gut"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretted",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut",
+            "period"
+          ]
+        },
+        {
+          "id": "lirone_frets_fretless",
+          "name": "Fretless treatment (modern revival choice)",
+          "descriptors": [
+            "modern-revival",
+            "supple",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "renaissance",
+            "modern"
+          ],
+          "canonical_tags": [
+            "revival",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "lirone_stringing",
+      "name": "String complement",
+      "variants": [
+        {
+          "id": "lirone_stringing_full_fourteen",
+          "default": true,
+          "name": "Full 14–16 re-entrant strings plus off-board drones",
+          "descriptors": [
+            "full-voiced",
+            "chordal",
+            "droning"
+          ],
+          "match_tokens": [
+            "bowed",
+            "chordal",
+            "drone-foundation",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "italian"
+          ]
+        },
+        {
+          "id": "lirone_stringing_lean_nine",
+          "name": "Leaner 9–11 string instrument",
+          "descriptors": [
+            "leaner",
+            "spare",
+            "agile"
+          ],
+          "match_tokens": [
+            "bowed",
+            "chordal",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "renaissance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lirone_continuo",
+      "name": "Continuo pairing",
+      "variants": [
+        {
+          "id": "lirone_continuo_harpsichord_chitarrone",
+          "default": true,
+          "name": "With harpsichord and chitarrone (Cavalieri 1600 prescription)",
+          "descriptors": [
+            "continuo",
+            "blended",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "chordal",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "italian"
+          ]
+        },
+        {
+          "id": "lirone_continuo_organ",
+          "name": "With organ (sacred oratorio continuo)",
+          "descriptors": [
+            "solemn",
+            "sacred",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "sacred"
+          ]
+        },
+        {
+          "id": "lirone_continuo_solo_voice",
+          "name": "Alone under a solo voice (lament, prayer, supernatural scene)",
+          "descriptors": [
+            "mournful",
+            "intimate",
+            "declamatory"
+          ],
+          "match_tokens": [
+            "bowed",
+            "chamber-fed",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "solo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lirone_bowing",
+      "name": "Bow idiom",
+      "variants": [
+        {
+          "id": "lirone_bowing_sustained_pad",
+          "default": true,
+          "name": "Organ-like sustained chordal pad",
+          "descriptors": [
+            "sustained",
+            "chordal",
+            "floating"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "chordal"
+          ],
+          "canonical_tags": [
+            "baroque"
+          ]
+        },
+        {
+          "id": "lirone_bowing_declamatory",
+          "name": "More articulated declamatory support",
+          "descriptors": [
+            "declamatory",
+            "articulated",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "chordal",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lirone_frets",
+      "name": "Fretting and strings",
+      "variants": [
+        {
+          "id": "lirone_frets_gut_tied",
+          "default": true,
+          "name": "Gut-tied movable frets, plain gut strings",
+          "descriptors": [
+            "gut-tied-frets",
+            "movable",
+            "plain-gut"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretted",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut",
+            "period"
+          ]
+        },
+        {
+          "id": "lirone_frets_fretless",
+          "name": "Fretless treatment (modern revival choice)",
+          "descriptors": [
+            "modern-revival",
+            "supple",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "renaissance",
+            "modern"
+          ],
+          "canonical_tags": [
+            "revival",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

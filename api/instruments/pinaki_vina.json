@@ -1,0 +1,381 @@
+{
+  "id": "pinaki_vina",
+  "name": "Pinaki vina (treatise-era Indian bowed stick zither)",
+  "family": "bowed",
+  "class": "stick_zither",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": -1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "pinaki vina",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "pinaki_vina_reading",
+      "name": "Treatise reading",
+      "variants": [
+        {
+          "id": "pinaki_vina_reading_bowed",
+          "default": true,
+          "name": "Bowed reading (Sangita Ratnakara: arched bamboo stave sounded with a small bow)",
+          "descriptors": [
+            "archaic",
+            "ancient",
+            "reconstruction",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "south_asia",
+            "historical"
+          ]
+        },
+        {
+          "id": "pinaki_vina_reading_struck",
+          "name": "Struck / plucked reading of the same treatise passage",
+          "descriptors": [
+            "primeval",
+            "spare",
+            "raw"
+          ],
+          "match_tokens": [
+            "plucked",
+            "period-performance",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "south_asia",
+            "historical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pinaki_vina_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "pinaki_vina_context_ritual_drone",
+          "default": true,
+          "name": "Austere single-string ritual drone",
+          "descriptors": [
+            "austere",
+            "ritual",
+            "droning",
+            "meditative"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "ritual-context"
+          ],
+          "canonical_tags": [
+            "south_asia",
+            "ritual"
+          ]
+        },
+        {
+          "id": "pinaki_vina_context_reconstructed_melody",
+          "name": "Reconstructed melodic playing (early-music revival)",
+          "descriptors": [
+            "reconstructed",
+            "preservationist",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "revival",
+            "historical"
+          ]
+        },
+        {
+          "id": "pinaki_vina_context_demonstration",
+          "name": "Museum and lecture-demonstration voicing",
+          "descriptors": [
+            "measured",
+            "spare",
+            "plain"
+          ],
+          "match_tokens": [
+            "bowed",
+            "solo",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical",
+            "revival"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pinaki_vina_build",
+      "name": "Resonator and string",
+      "variants": [
+        {
+          "id": "pinaki_vina_build_gourd_gut",
+          "default": true,
+          "name": "Gourd resonator, gut string on an arched bamboo stave",
+          "descriptors": [
+            "gourd-bodied",
+            "gut",
+            "hollow",
+            "dry"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "bamboo"
+          ],
+          "canonical_tags": [
+            "south_asia",
+            "historical"
+          ]
+        },
+        {
+          "id": "pinaki_vina_build_coconut",
+          "name": "Coconut-shell resonator (smaller, tighter)",
+          "descriptors": [
+            "coconut-shell",
+            "thin-toned",
+            "bright"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bright-tone",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "south_asia"
+          ]
+        },
+        {
+          "id": "pinaki_vina_build_steel",
+          "name": "Steel string on a modern reconstruction",
+          "descriptors": [
+            "steel",
+            "clean",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "steel-string",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern",
+            "revival"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "pinaki_vina_reading",
+      "name": "Treatise reading",
+      "variants": [
+        {
+          "id": "pinaki_vina_reading_bowed",
+          "default": true,
+          "name": "Bowed reading (Sangita Ratnakara: arched bamboo stave sounded with a small bow)",
+          "descriptors": [
+            "archaic",
+            "ancient",
+            "reconstruction",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "south_asia",
+            "historical"
+          ]
+        },
+        {
+          "id": "pinaki_vina_reading_struck",
+          "name": "Struck / plucked reading of the same treatise passage",
+          "descriptors": [
+            "primeval",
+            "spare",
+            "raw"
+          ],
+          "match_tokens": [
+            "plucked",
+            "period-performance",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "south_asia",
+            "historical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pinaki_vina_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "pinaki_vina_context_ritual_drone",
+          "default": true,
+          "name": "Austere single-string ritual drone",
+          "descriptors": [
+            "austere",
+            "ritual",
+            "droning",
+            "meditative"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "ritual-context"
+          ],
+          "canonical_tags": [
+            "south_asia",
+            "ritual"
+          ]
+        },
+        {
+          "id": "pinaki_vina_context_reconstructed_melody",
+          "name": "Reconstructed melodic playing (early-music revival)",
+          "descriptors": [
+            "reconstructed",
+            "preservationist",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "revival",
+            "historical"
+          ]
+        },
+        {
+          "id": "pinaki_vina_context_demonstration",
+          "name": "Museum and lecture-demonstration voicing",
+          "descriptors": [
+            "measured",
+            "spare",
+            "plain"
+          ],
+          "match_tokens": [
+            "bowed",
+            "solo",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical",
+            "revival"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pinaki_vina_build",
+      "name": "Resonator and string",
+      "variants": [
+        {
+          "id": "pinaki_vina_build_gourd_gut",
+          "default": true,
+          "name": "Gourd resonator, gut string on an arched bamboo stave",
+          "descriptors": [
+            "gourd-bodied",
+            "gut",
+            "hollow",
+            "dry"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "bamboo"
+          ],
+          "canonical_tags": [
+            "south_asia",
+            "historical"
+          ]
+        },
+        {
+          "id": "pinaki_vina_build_coconut",
+          "name": "Coconut-shell resonator (smaller, tighter)",
+          "descriptors": [
+            "coconut-shell",
+            "thin-toned",
+            "bright"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bright-tone",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "south_asia"
+          ]
+        },
+        {
+          "id": "pinaki_vina_build_steel",
+          "name": "Steel string on a modern reconstruction",
+          "descriptors": [
+            "steel",
+            "clean",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "steel-string",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern",
+            "revival"
+          ]
+        }
+      ]
+    }
+  ]
+}

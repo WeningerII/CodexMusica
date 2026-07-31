@@ -1,0 +1,439 @@
+{
+  "id": "huluhu",
+  "name": "Huluhu (Zhuang gourd-bodied fiddle)",
+  "family": "bowed",
+  "class": "bowed_fiddle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -2
+  },
+  "short": "huluhu",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "huluhu_face",
+      "name": "Face material",
+      "variants": [
+        {
+          "id": "huluhu_face_paulownia",
+          "default": true,
+          "name": "Paulownia / tung board face",
+          "descriptors": [
+            "paulownia",
+            "wood-faced",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "wood-toned",
+            "mellow-tone"
+          ],
+          "canonical_tags": [
+            "traditional",
+            "wood"
+          ]
+        },
+        {
+          "id": "huluhu_face_bamboo",
+          "name": "Thin bamboo face",
+          "descriptors": [
+            "bamboo",
+            "dry",
+            "rounded"
+          ],
+          "match_tokens": [
+            "bowed",
+            "wood-toned",
+            "soft-tone"
+          ],
+          "canonical_tags": [
+            "bamboo"
+          ]
+        },
+        {
+          "id": "huluhu_face_sheath",
+          "name": "Aged bamboo-shoot sheath face",
+          "descriptors": [
+            "dry",
+            "muffled",
+            "soft"
+          ],
+          "match_tokens": [
+            "bowed",
+            "soft-tone",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "folk",
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "huluhu_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "huluhu_role_zhuangxi",
+          "default": true,
+          "name": "Second fiddle to the maguhu in Zhuang opera",
+          "descriptors": [
+            "supporting",
+            "blended",
+            "operatic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "accompaniment",
+            "mid-register"
+          ],
+          "canonical_tags": [
+            "opera",
+            "traditional"
+          ]
+        },
+        {
+          "id": "huluhu_role_bayin",
+          "name": "Buyei bayin zuochang seated ensemble",
+          "descriptors": [
+            "ensemble",
+            "chamber",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "ensemble",
+            "folk"
+          ]
+        },
+        {
+          "id": "huluhu_role_lyrical",
+          "name": "Lyrical solo line",
+          "descriptors": [
+            "lyrical",
+            "flowing",
+            "song-like"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic",
+            "soft-tone"
+          ],
+          "canonical_tags": [
+            "solo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "huluhu_tuning",
+      "name": "Tuning",
+      "variants": [
+        {
+          "id": "huluhu_tuning_a_e",
+          "default": true,
+          "name": "a-e1 fifth",
+          "descriptors": [
+            "deep",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "huluhu_tuning_d_a",
+          "name": "d1-a1 fifth (higher setting)",
+          "descriptors": [
+            "brighter",
+            "singing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "mid-register"
+          ],
+          "canonical_tags": [
+            "china"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "huluhu_neck",
+      "name": "Neck material",
+      "variants": [
+        {
+          "id": "huluhu_neck_wood",
+          "default": true,
+          "name": "Hardwood neck",
+          "descriptors": [
+            "hardwood",
+            "stable",
+            "woody"
+          ],
+          "match_tokens": [
+            "bowed",
+            "wood-body"
+          ],
+          "canonical_tags": [
+            "hardwood"
+          ]
+        },
+        {
+          "id": "huluhu_neck_bamboo",
+          "name": "Bamboo neck",
+          "descriptors": [
+            "bamboo",
+            "light",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "wood-toned"
+          ],
+          "canonical_tags": [
+            "bamboo"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "huluhu_face",
+      "name": "Face material",
+      "variants": [
+        {
+          "id": "huluhu_face_paulownia",
+          "default": true,
+          "name": "Paulownia / tung board face",
+          "descriptors": [
+            "paulownia",
+            "wood-faced",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "wood-toned",
+            "mellow-tone"
+          ],
+          "canonical_tags": [
+            "traditional",
+            "wood"
+          ]
+        },
+        {
+          "id": "huluhu_face_bamboo",
+          "name": "Thin bamboo face",
+          "descriptors": [
+            "bamboo",
+            "dry",
+            "rounded"
+          ],
+          "match_tokens": [
+            "bowed",
+            "wood-toned",
+            "soft-tone"
+          ],
+          "canonical_tags": [
+            "bamboo"
+          ]
+        },
+        {
+          "id": "huluhu_face_sheath",
+          "name": "Aged bamboo-shoot sheath face",
+          "descriptors": [
+            "dry",
+            "muffled",
+            "soft"
+          ],
+          "match_tokens": [
+            "bowed",
+            "soft-tone",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "folk",
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "huluhu_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "huluhu_role_zhuangxi",
+          "default": true,
+          "name": "Second fiddle to the maguhu in Zhuang opera",
+          "descriptors": [
+            "supporting",
+            "blended",
+            "operatic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "accompaniment",
+            "mid-register"
+          ],
+          "canonical_tags": [
+            "opera",
+            "traditional"
+          ]
+        },
+        {
+          "id": "huluhu_role_bayin",
+          "name": "Buyei bayin zuochang seated ensemble",
+          "descriptors": [
+            "ensemble",
+            "chamber",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "ensemble",
+            "folk"
+          ]
+        },
+        {
+          "id": "huluhu_role_lyrical",
+          "name": "Lyrical solo line",
+          "descriptors": [
+            "lyrical",
+            "flowing",
+            "song-like"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic",
+            "soft-tone"
+          ],
+          "canonical_tags": [
+            "solo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "huluhu_tuning",
+      "name": "Tuning",
+      "variants": [
+        {
+          "id": "huluhu_tuning_a_e",
+          "default": true,
+          "name": "a-e1 fifth",
+          "descriptors": [
+            "deep",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "huluhu_tuning_d_a",
+          "name": "d1-a1 fifth (higher setting)",
+          "descriptors": [
+            "brighter",
+            "singing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "mid-register"
+          ],
+          "canonical_tags": [
+            "china"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "huluhu_neck",
+      "name": "Neck material",
+      "variants": [
+        {
+          "id": "huluhu_neck_wood",
+          "default": true,
+          "name": "Hardwood neck",
+          "descriptors": [
+            "hardwood",
+            "stable",
+            "woody"
+          ],
+          "match_tokens": [
+            "bowed",
+            "wood-body"
+          ],
+          "canonical_tags": [
+            "hardwood"
+          ]
+        },
+        {
+          "id": "huluhu_neck_bamboo",
+          "name": "Bamboo neck",
+          "descriptors": [
+            "bamboo",
+            "light",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "wood-toned"
+          ],
+          "canonical_tags": [
+            "bamboo"
+          ]
+        }
+      ]
+    }
+  ]
+}

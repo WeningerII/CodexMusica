@@ -1,0 +1,419 @@
+{
+  "id": "dakkari",
+  "name": "Dakkari (Mithila Dom bowed fiddle)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "dakkari",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "dakkari_repertoire",
+      "name": "Repertoire / occasion",
+      "variants": [
+        {
+          "id": "dakkari_repertoire_bibaaha_panchami",
+          "default": true,
+          "name": "Bibaaha Panchami at the Janaki temple, Janakpur",
+          "descriptors": [
+            "temple-festival",
+            "devotional",
+            "festive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "devotional",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "temple",
+            "devotional"
+          ]
+        },
+        {
+          "id": "dakkari_repertoire_door_to_door",
+          "name": "Door-to-door Ramayana narration for gifts",
+          "descriptors": [
+            "wandering-bardic",
+            "narrative",
+            "plain-spoken-narrative"
+          ],
+          "match_tokens": [
+            "bowed",
+            "narrative",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "itinerant",
+            "narrative"
+          ]
+        },
+        {
+          "id": "dakkari_repertoire_sita_lament",
+          "name": "The tragedy of Sita (lament register)",
+          "descriptors": [
+            "plaintive",
+            "melismatic",
+            "solemn"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented",
+            "vocal-accompaniment"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "devotional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dakkari_stringing",
+      "name": "Stringing",
+      "variants": [
+        {
+          "id": "dakkari_stringing_six_string",
+          "default": true,
+          "name": "Full six-string set (melody plus drones)",
+          "descriptors": [
+            "six-string",
+            "resonant",
+            "drone-under-song"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "south-asian"
+          ]
+        },
+        {
+          "id": "dakkari_stringing_melody_only",
+          "name": "Reduced melody-only stringing",
+          "descriptors": [
+            "spare",
+            "dry",
+            "clean"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "south-asian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dakkari_bow",
+      "name": "Bow dressing",
+      "variants": [
+        {
+          "id": "dakkari_bow_pine_tar",
+          "default": true,
+          "name": "Horsetail hair dressed with pine tar (grabby, rough attack)",
+          "descriptors": [
+            "horsehair",
+            "gritty",
+            "coarse"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "horsehair",
+            "traditional"
+          ]
+        },
+        {
+          "id": "dakkari_bow_rosin",
+          "name": "Conventional rosin",
+          "descriptors": [
+            "grippy",
+            "clean",
+            "balanced"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "horsehair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dakkari_body",
+      "name": "Twin goatskin chambers",
+      "variants": [
+        {
+          "id": "dakkari_body_both_tight",
+          "default": true,
+          "name": "Both chambers tightly headed in goatskin",
+          "descriptors": [
+            "goatskin",
+            "nasal",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "resonant-membrane",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "goatskin",
+            "south-asian"
+          ]
+        },
+        {
+          "id": "dakkari_body_lower_slack",
+          "name": "Slacker lower chamber (darker, boxier)",
+          "descriptors": [
+            "goatskin",
+            "warm",
+            "thick-membrane"
+          ],
+          "match_tokens": [
+            "bowed",
+            "resonant-membrane",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "goatskin"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dakkari_repertoire",
+      "name": "Repertoire / occasion",
+      "variants": [
+        {
+          "id": "dakkari_repertoire_bibaaha_panchami",
+          "default": true,
+          "name": "Bibaaha Panchami at the Janaki temple, Janakpur",
+          "descriptors": [
+            "temple-festival",
+            "devotional",
+            "festive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "devotional",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "temple",
+            "devotional"
+          ]
+        },
+        {
+          "id": "dakkari_repertoire_door_to_door",
+          "name": "Door-to-door Ramayana narration for gifts",
+          "descriptors": [
+            "wandering-bardic",
+            "narrative",
+            "plain-spoken-narrative"
+          ],
+          "match_tokens": [
+            "bowed",
+            "narrative",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "itinerant",
+            "narrative"
+          ]
+        },
+        {
+          "id": "dakkari_repertoire_sita_lament",
+          "name": "The tragedy of Sita (lament register)",
+          "descriptors": [
+            "plaintive",
+            "melismatic",
+            "solemn"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented",
+            "vocal-accompaniment"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "devotional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dakkari_stringing",
+      "name": "Stringing",
+      "variants": [
+        {
+          "id": "dakkari_stringing_six_string",
+          "default": true,
+          "name": "Full six-string set (melody plus drones)",
+          "descriptors": [
+            "six-string",
+            "resonant",
+            "drone-under-song"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "south-asian"
+          ]
+        },
+        {
+          "id": "dakkari_stringing_melody_only",
+          "name": "Reduced melody-only stringing",
+          "descriptors": [
+            "spare",
+            "dry",
+            "clean"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "south-asian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dakkari_bow",
+      "name": "Bow dressing",
+      "variants": [
+        {
+          "id": "dakkari_bow_pine_tar",
+          "default": true,
+          "name": "Horsetail hair dressed with pine tar (grabby, rough attack)",
+          "descriptors": [
+            "horsehair",
+            "gritty",
+            "coarse"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "horsehair",
+            "traditional"
+          ]
+        },
+        {
+          "id": "dakkari_bow_rosin",
+          "name": "Conventional rosin",
+          "descriptors": [
+            "grippy",
+            "clean",
+            "balanced"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "horsehair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dakkari_body",
+      "name": "Twin goatskin chambers",
+      "variants": [
+        {
+          "id": "dakkari_body_both_tight",
+          "default": true,
+          "name": "Both chambers tightly headed in goatskin",
+          "descriptors": [
+            "goatskin",
+            "nasal",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "resonant-membrane",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "goatskin",
+            "south-asian"
+          ]
+        },
+        {
+          "id": "dakkari_body_lower_slack",
+          "name": "Slacker lower chamber (darker, boxier)",
+          "descriptors": [
+            "goatskin",
+            "warm",
+            "thick-membrane"
+          ],
+          "match_tokens": [
+            "bowed",
+            "resonant-membrane",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "goatskin"
+          ]
+        }
+      ]
+    }
+  ]
+}

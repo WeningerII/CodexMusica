@@ -1,0 +1,431 @@
+{
+  "id": "taus",
+  "name": "Taus (Sikh peacock-bodied bowed lute)",
+  "family": "bowed",
+  "class": "bowed_lute",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "taus",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "taus_form",
+      "name": "Body form",
+      "variants": [
+        {
+          "id": "taus_form_peacock_carved",
+          "default": true,
+          "name": "Full peacock-carved resonator with fitted plumage",
+          "descriptors": [
+            "carved",
+            "ceremonial",
+            "deep-bodied",
+            "deeper"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "sikh-devotional",
+            "punjab",
+            "traditional"
+          ]
+        },
+        {
+          "id": "taus_form_plain_modern",
+          "name": "Plain modern revival body (no plumage, lighter to handle)",
+          "descriptors": [
+            "plain",
+            "unadorned",
+            "portable",
+            "standardized"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "modern"
+          ],
+          "canonical_tags": [
+            "sikh-devotional",
+            "revival"
+          ]
+        },
+        {
+          "id": "taus_form_large_heirloom",
+          "name": "Large heirloom gurdwara instrument (lowest-voiced)",
+          "descriptors": [
+            "deep-toned",
+            "rounder",
+            "resonant",
+            "stately"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register",
+            "resonant"
+          ],
+          "canonical_tags": [
+            "sikh-devotional",
+            "historical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "taus_context",
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "taus_context_shabad_kirtan",
+          "default": true,
+          "name": "Gurmat Sangeet shabad kirtan accompaniment (Guru Granth Sahib raags)",
+          "descriptors": [
+            "devotional",
+            "liturgical",
+            "vocal-supportive",
+            "measured"
+          ],
+          "match_tokens": [
+            "bowed",
+            "devotional",
+            "sacred-traditional",
+            "shruti-inflected"
+          ],
+          "canonical_tags": [
+            "sikh-devotional",
+            "kirtan"
+          ]
+        },
+        {
+          "id": "taus_context_solo_alap",
+          "name": "Solo raag alap (slow unmetred exposition)",
+          "descriptors": [
+            "improvisatory",
+            "meditative",
+            "free-rhythm",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "solo",
+            "microtonal-bend",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "solo"
+          ]
+        },
+        {
+          "id": "taus_context_revival_ensemble",
+          "name": "Revival ensemble and teaching context",
+          "descriptors": [
+            "preservationist",
+            "ensemble-blend",
+            "twenty-first-century"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "modern"
+          ],
+          "canonical_tags": [
+            "revival",
+            "sikh-devotional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "taus_build",
+      "name": "Belly and stringing",
+      "variants": [
+        {
+          "id": "taus_build_steel_full_taraf",
+          "default": true,
+          "name": "Skin belly, steel melody strings, full tarab bank",
+          "descriptors": [
+            "hide-faced",
+            "steel",
+            "sympathetic-halo",
+            "resonance-saturated"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "shruti-inflected"
+          ],
+          "canonical_tags": [
+            "sikh-devotional",
+            "modern"
+          ]
+        },
+        {
+          "id": "taus_build_gut_historical",
+          "name": "Gut melody strings (pre-modern Sikh canon)",
+          "descriptors": [
+            "gut",
+            "warm",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut",
+            "historical"
+          ]
+        },
+        {
+          "id": "taus_build_reduced_taraf_wood",
+          "name": "Reduced sympathetic bank on a wooden belly",
+          "descriptors": [
+            "wood",
+            "spare",
+            "dry",
+            "clean"
+          ],
+          "match_tokens": [
+            "bowed",
+            "mellow-tone",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "taus_form",
+      "name": "Body form",
+      "variants": [
+        {
+          "id": "taus_form_peacock_carved",
+          "default": true,
+          "name": "Full peacock-carved resonator with fitted plumage",
+          "descriptors": [
+            "carved",
+            "ceremonial",
+            "deep-bodied",
+            "deeper"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "sikh-devotional",
+            "punjab",
+            "traditional"
+          ]
+        },
+        {
+          "id": "taus_form_plain_modern",
+          "name": "Plain modern revival body (no plumage, lighter to handle)",
+          "descriptors": [
+            "plain",
+            "unadorned",
+            "portable",
+            "standardized"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "modern"
+          ],
+          "canonical_tags": [
+            "sikh-devotional",
+            "revival"
+          ]
+        },
+        {
+          "id": "taus_form_large_heirloom",
+          "name": "Large heirloom gurdwara instrument (lowest-voiced)",
+          "descriptors": [
+            "deep-toned",
+            "rounder",
+            "resonant",
+            "stately"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register",
+            "resonant"
+          ],
+          "canonical_tags": [
+            "sikh-devotional",
+            "historical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "taus_context",
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "taus_context_shabad_kirtan",
+          "default": true,
+          "name": "Gurmat Sangeet shabad kirtan accompaniment (Guru Granth Sahib raags)",
+          "descriptors": [
+            "devotional",
+            "liturgical",
+            "vocal-supportive",
+            "measured"
+          ],
+          "match_tokens": [
+            "bowed",
+            "devotional",
+            "sacred-traditional",
+            "shruti-inflected"
+          ],
+          "canonical_tags": [
+            "sikh-devotional",
+            "kirtan"
+          ]
+        },
+        {
+          "id": "taus_context_solo_alap",
+          "name": "Solo raag alap (slow unmetred exposition)",
+          "descriptors": [
+            "improvisatory",
+            "meditative",
+            "free-rhythm",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "solo",
+            "microtonal-bend",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "solo"
+          ]
+        },
+        {
+          "id": "taus_context_revival_ensemble",
+          "name": "Revival ensemble and teaching context",
+          "descriptors": [
+            "preservationist",
+            "ensemble-blend",
+            "twenty-first-century"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "modern"
+          ],
+          "canonical_tags": [
+            "revival",
+            "sikh-devotional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "taus_build",
+      "name": "Belly and stringing",
+      "variants": [
+        {
+          "id": "taus_build_steel_full_taraf",
+          "default": true,
+          "name": "Skin belly, steel melody strings, full tarab bank",
+          "descriptors": [
+            "hide-faced",
+            "steel",
+            "sympathetic-halo",
+            "resonance-saturated"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "shruti-inflected"
+          ],
+          "canonical_tags": [
+            "sikh-devotional",
+            "modern"
+          ]
+        },
+        {
+          "id": "taus_build_gut_historical",
+          "name": "Gut melody strings (pre-modern Sikh canon)",
+          "descriptors": [
+            "gut",
+            "warm",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut",
+            "historical"
+          ]
+        },
+        {
+          "id": "taus_build_reduced_taraf_wood",
+          "name": "Reduced sympathetic bank on a wooden belly",
+          "descriptors": [
+            "wood",
+            "spare",
+            "dry",
+            "clean"
+          ],
+          "match_tokens": [
+            "bowed",
+            "mellow-tone",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

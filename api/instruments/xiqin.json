@@ -1,0 +1,429 @@
+{
+  "id": "xiqin",
+  "name": "Xiqin (Tang-Song ancestral two-string fiddle)",
+  "family": "bowed",
+  "class": "bowed_spike_fiddle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "xiqin",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "xiqin_sounding",
+      "name": "Sounding method",
+      "variants": [
+        {
+          "id": "xiqin_sounding_bamboo_slip",
+          "default": true,
+          "name": "Bamboo slip scraped between the strings (Tang archaic, per Chen Yang's Yueshu)",
+          "descriptors": [
+            "archaic",
+            "raspy",
+            "bamboo-sliver"
+          ],
+          "match_tokens": [
+            "bowed",
+            "scraped",
+            "rough-tone",
+            "archaic"
+          ],
+          "canonical_tags": [
+            "archaic",
+            "china"
+          ]
+        },
+        {
+          "id": "xiqin_sounding_horsehair",
+          "name": "Horsehair bow threaded between the strings (Song onward - the huqin principle)",
+          "descriptors": [
+            "horsehair",
+            "sustaining",
+            "smoother"
+          ],
+          "match_tokens": [
+            "bowed",
+            "horsehair-string",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "historical",
+            "china"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xiqin_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "xiqin_strings_silk",
+          "default": true,
+          "name": "Silk (historical canonical)",
+          "descriptors": [
+            "silk",
+            "pre-modern",
+            "soft-toned"
+          ],
+          "match_tokens": [
+            "bowed",
+            "silk-strung",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical",
+            "period"
+          ]
+        },
+        {
+          "id": "xiqin_strings_modern",
+          "name": "Modern strings on a reconstruction instrument",
+          "descriptors": [
+            "reconstructed",
+            "brighter",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "steel-string",
+            "modern"
+          ],
+          "canonical_tags": [
+            "revival",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xiqin_format",
+      "name": "String format",
+      "variants": [
+        {
+          "id": "xiqin_format_two_string",
+          "default": true,
+          "name": "Two strings over a small resonator, held vertically",
+          "descriptors": [
+            "two-string",
+            "archaic",
+            "measured"
+          ],
+          "match_tokens": [
+            "bowed",
+            "two-string",
+            "archaic"
+          ],
+          "canonical_tags": [
+            "archaic",
+            "china"
+          ]
+        },
+        {
+          "id": "xiqin_format_one_string",
+          "name": "One-string jiqin showpiece (after Xu Yan's broken-string performance)",
+          "descriptors": [
+            "virtuoso",
+            "narrow",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "soloistic"
+          ],
+          "canonical_tags": [
+            "solo",
+            "historical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xiqin_framing",
+      "name": "Framing",
+      "variants": [
+        {
+          "id": "xiqin_framing_court",
+          "default": true,
+          "name": "Tang and Song court-orchestra reconstruction",
+          "descriptors": [
+            "courtly",
+            "reconstructed",
+            "stately"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "court",
+            "historical"
+          ]
+        },
+        {
+          "id": "xiqin_framing_haegeum",
+          "name": "Korean haegeum continuation (the surviving living descendant)",
+          "descriptors": [
+            "traditional",
+            "sustained",
+            "refined"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gugak-tradition",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "east-asia",
+            "traditional"
+          ]
+        },
+        {
+          "id": "xiqin_framing_ancestor",
+          "name": "Speculative folk ancestor of erhu, jinghu, banhu and the morin khuur",
+          "descriptors": [
+            "archaic",
+            "rustic",
+            "folk"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "archaic"
+          ],
+          "canonical_tags": [
+            "archaic",
+            "folk"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "xiqin_sounding",
+      "name": "Sounding method",
+      "variants": [
+        {
+          "id": "xiqin_sounding_bamboo_slip",
+          "default": true,
+          "name": "Bamboo slip scraped between the strings (Tang archaic, per Chen Yang's Yueshu)",
+          "descriptors": [
+            "archaic",
+            "raspy",
+            "bamboo-sliver"
+          ],
+          "match_tokens": [
+            "bowed",
+            "scraped",
+            "rough-tone",
+            "archaic"
+          ],
+          "canonical_tags": [
+            "archaic",
+            "china"
+          ]
+        },
+        {
+          "id": "xiqin_sounding_horsehair",
+          "name": "Horsehair bow threaded between the strings (Song onward - the huqin principle)",
+          "descriptors": [
+            "horsehair",
+            "sustaining",
+            "smoother"
+          ],
+          "match_tokens": [
+            "bowed",
+            "horsehair-string",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "historical",
+            "china"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xiqin_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "xiqin_strings_silk",
+          "default": true,
+          "name": "Silk (historical canonical)",
+          "descriptors": [
+            "silk",
+            "pre-modern",
+            "soft-toned"
+          ],
+          "match_tokens": [
+            "bowed",
+            "silk-strung",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical",
+            "period"
+          ]
+        },
+        {
+          "id": "xiqin_strings_modern",
+          "name": "Modern strings on a reconstruction instrument",
+          "descriptors": [
+            "reconstructed",
+            "brighter",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "steel-string",
+            "modern"
+          ],
+          "canonical_tags": [
+            "revival",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xiqin_format",
+      "name": "String format",
+      "variants": [
+        {
+          "id": "xiqin_format_two_string",
+          "default": true,
+          "name": "Two strings over a small resonator, held vertically",
+          "descriptors": [
+            "two-string",
+            "archaic",
+            "measured"
+          ],
+          "match_tokens": [
+            "bowed",
+            "two-string",
+            "archaic"
+          ],
+          "canonical_tags": [
+            "archaic",
+            "china"
+          ]
+        },
+        {
+          "id": "xiqin_format_one_string",
+          "name": "One-string jiqin showpiece (after Xu Yan's broken-string performance)",
+          "descriptors": [
+            "virtuoso",
+            "narrow",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "soloistic"
+          ],
+          "canonical_tags": [
+            "solo",
+            "historical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xiqin_framing",
+      "name": "Framing",
+      "variants": [
+        {
+          "id": "xiqin_framing_court",
+          "default": true,
+          "name": "Tang and Song court-orchestra reconstruction",
+          "descriptors": [
+            "courtly",
+            "reconstructed",
+            "stately"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "court",
+            "historical"
+          ]
+        },
+        {
+          "id": "xiqin_framing_haegeum",
+          "name": "Korean haegeum continuation (the surviving living descendant)",
+          "descriptors": [
+            "traditional",
+            "sustained",
+            "refined"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gugak-tradition",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "east-asia",
+            "traditional"
+          ]
+        },
+        {
+          "id": "xiqin_framing_ancestor",
+          "name": "Speculative folk ancestor of erhu, jinghu, banhu and the morin khuur",
+          "descriptors": [
+            "archaic",
+            "rustic",
+            "folk"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "archaic"
+          ],
+          "canonical_tags": [
+            "archaic",
+            "folk"
+          ]
+        }
+      ]
+    }
+  ]
+}

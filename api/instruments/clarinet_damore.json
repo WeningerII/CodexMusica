@@ -1,0 +1,410 @@
+{
+  "id": "clarinet_damore",
+  "name": "Clarinette d'amour (bulb-bell clarinet in G)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 2,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "clarinetdamour",
+  "parts": [
+    {
+      "id": "clarinet_damore_pitch",
+      "name": "Pitch",
+      "variants": [
+        {
+          "id": "clarinet_damore_pitch_g",
+          "default": true,
+          "name": "G (standard on surviving examples)",
+          "descriptors": [
+            "mellow",
+            "veiled",
+            "warm"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "single-reed",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "classical-era",
+            "historic"
+          ]
+        },
+        {
+          "id": "clarinet_damore_pitch_ab",
+          "name": "A-flat (higher, brighter survivors)",
+          "descriptors": [
+            "bright",
+            "light-reedy",
+            "agile"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "classical-era",
+            "historic"
+          ]
+        },
+        {
+          "id": "clarinet_damore_pitch_f",
+          "name": "F (lowest form, basset-horn-adjacent)",
+          "descriptors": [
+            "dark",
+            "woody",
+            "inner-voice"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "low-register",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "classical-era",
+            "historic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clarinet_damore_body",
+      "name": "Body form",
+      "variants": [
+        {
+          "id": "clarinet_damore_body_straight",
+          "default": true,
+          "name": "Straight boxwood body with horn mounts and brass keys",
+          "descriptors": [
+            "straight",
+            "focused",
+            "historical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "boxwood",
+            "historic"
+          ]
+        },
+        {
+          "id": "clarinet_damore_body_kinked",
+          "name": "Angled / kinked body with curved metal crook carrying the mouthpiece",
+          "descriptors": [
+            "curved",
+            "brass",
+            "archaic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historic",
+            "classical-era"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clarinet_damore_bell",
+      "name": "Bell (Liebesfuss) form",
+      "variants": [
+        {
+          "id": "clarinet_damore_bell_pear",
+          "default": true,
+          "name": "Pear-shaped Liebesfuss as on the oboe d'amore",
+          "descriptors": [
+            "pear-shaped",
+            "veiled",
+            "muted"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "soft-tone"
+          ],
+          "canonical_tags": [
+            "classical-era",
+            "baroque-leaning"
+          ]
+        },
+        {
+          "id": "clarinet_damore_bell_globular",
+          "name": "Globular bulb bell (rounder, more stifled)",
+          "descriptors": [
+            "rounded",
+            "sweetened",
+            "soft-blend"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "soft-tone"
+          ],
+          "canonical_tags": [
+            "classical-era",
+            "historic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clarinet_damore_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "clarinet_damore_role_obbligato",
+          "default": true,
+          "name": "Solo colour line against a voice in central-European church music",
+          "descriptors": [
+            "aria-partner",
+            "devotional",
+            "colour-instrument"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "liturgical",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "sacred",
+            "austrian-bohemian"
+          ]
+        },
+        {
+          "id": "clarinet_damore_role_harmonie",
+          "name": "Paired inner voices in a Harmonie / church wind band",
+          "descriptors": [
+            "inner-voice",
+            "paired",
+            "blended"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ensemble",
+            "chamber-fed"
+          ],
+          "canonical_tags": [
+            "classical-era",
+            "austrian-bohemian"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "clarinet_damore_pitch",
+      "name": "Pitch",
+      "variants": [
+        {
+          "id": "clarinet_damore_pitch_g",
+          "default": true,
+          "name": "G (standard on surviving examples)",
+          "descriptors": [
+            "mellow",
+            "veiled",
+            "warm"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "single-reed",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "classical-era",
+            "historic"
+          ]
+        },
+        {
+          "id": "clarinet_damore_pitch_ab",
+          "name": "A-flat (higher, brighter survivors)",
+          "descriptors": [
+            "bright",
+            "light-reedy",
+            "agile"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "classical-era",
+            "historic"
+          ]
+        },
+        {
+          "id": "clarinet_damore_pitch_f",
+          "name": "F (lowest form, basset-horn-adjacent)",
+          "descriptors": [
+            "dark",
+            "woody",
+            "inner-voice"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "low-register",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "classical-era",
+            "historic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clarinet_damore_body",
+      "name": "Body form",
+      "variants": [
+        {
+          "id": "clarinet_damore_body_straight",
+          "default": true,
+          "name": "Straight boxwood body with horn mounts and brass keys",
+          "descriptors": [
+            "straight",
+            "focused",
+            "historical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "boxwood",
+            "historic"
+          ]
+        },
+        {
+          "id": "clarinet_damore_body_kinked",
+          "name": "Angled / kinked body with curved metal crook carrying the mouthpiece",
+          "descriptors": [
+            "curved",
+            "brass",
+            "archaic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historic",
+            "classical-era"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clarinet_damore_bell",
+      "name": "Bell (Liebesfuss) form",
+      "variants": [
+        {
+          "id": "clarinet_damore_bell_pear",
+          "default": true,
+          "name": "Pear-shaped Liebesfuss as on the oboe d'amore",
+          "descriptors": [
+            "pear-shaped",
+            "veiled",
+            "muted"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "soft-tone"
+          ],
+          "canonical_tags": [
+            "classical-era",
+            "baroque-leaning"
+          ]
+        },
+        {
+          "id": "clarinet_damore_bell_globular",
+          "name": "Globular bulb bell (rounder, more stifled)",
+          "descriptors": [
+            "rounded",
+            "sweetened",
+            "soft-blend"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "soft-tone"
+          ],
+          "canonical_tags": [
+            "classical-era",
+            "historic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clarinet_damore_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "clarinet_damore_role_obbligato",
+          "default": true,
+          "name": "Solo colour line against a voice in central-European church music",
+          "descriptors": [
+            "aria-partner",
+            "devotional",
+            "colour-instrument"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "liturgical",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "sacred",
+            "austrian-bohemian"
+          ]
+        },
+        {
+          "id": "clarinet_damore_role_harmonie",
+          "name": "Paired inner voices in a Harmonie / church wind band",
+          "descriptors": [
+            "inner-voice",
+            "paired",
+            "blended"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ensemble",
+            "chamber-fed"
+          ],
+          "canonical_tags": [
+            "classical-era",
+            "austrian-bohemian"
+          ]
+        }
+      ]
+    }
+  ]
+}

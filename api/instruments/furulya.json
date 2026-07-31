@@ -1,0 +1,510 @@
+{
+  "id": "furulya",
+  "name": "Furulya (Hungarian shepherd duct flute)",
+  "family": "wind",
+  "class": "duct_flute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "furulya",
+  "parts": [
+    {
+      "id": "furulya_size",
+      "name": "Size / register",
+      "variants": [
+        {
+          "id": "furulya_size_short",
+          "default": true,
+          "name": "Ordinary furulya (~300-600 mm, six front finger holes)",
+          "descriptors": [
+            "bright",
+            "agile",
+            "woody"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "fipple-flute"
+          ],
+          "canonical_tags": [
+            "hungarian",
+            "shepherd"
+          ]
+        },
+        {
+          "id": "furulya_size_hosszu",
+          "name": "Hosszú furulya (~900-1000 mm long flute, five holes, head lifted and arms extended)",
+          "descriptors": [
+            "deep",
+            "slow-speaking",
+            "solemn"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "hungarian",
+            "transylvania"
+          ]
+        },
+        {
+          "id": "furulya_size_small_high",
+          "name": "Small high furulya (shrill, quick dance pipe)",
+          "descriptors": [
+            "shrill",
+            "tiny",
+            "piercing"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "hungarian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "furulya_voicing",
+      "name": "Voicing technique",
+      "variants": [
+        {
+          "id": "furulya_voicing_throat_hum",
+          "default": true,
+          "name": "Simultaneous throat humming under the sounded note (Transylvanian and Somogy signature)",
+          "descriptors": [
+            "thick-tone",
+            "rough-toned",
+            "drone-under-melody"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation",
+            "rough-tone",
+            "duct-flute"
+          ],
+          "canonical_tags": [
+            "hungarian",
+            "transylvania"
+          ]
+        },
+        {
+          "id": "furulya_voicing_plain",
+          "name": "Plain unhummed tone",
+          "descriptors": [
+            "clear",
+            "pure",
+            "plain"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "hungarian"
+          ]
+        },
+        {
+          "id": "furulya_voicing_overblown",
+          "name": "Overblown upper register with breath accents",
+          "descriptors": [
+            "overblown",
+            "bright-edge",
+            "airy"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "overtone-series",
+            "breathy"
+          ],
+          "canonical_tags": [
+            "hungarian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "furulya_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "furulya_context_pastoral",
+          "default": true,
+          "name": "Solo pastoral rubato herding tune",
+          "descriptors": [
+            "rubato",
+            "plaintive",
+            "free-rhythm"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "rubato",
+            "outdoor-field",
+            "solo"
+          ],
+          "canonical_tags": [
+            "shepherd",
+            "herding",
+            "pastoral"
+          ]
+        },
+        {
+          "id": "furulya_context_tanchaz",
+          "name": "Táncház band melody line (with gardon, koboz and violin)",
+          "descriptors": [
+            "dance-driving",
+            "ensemble-blend",
+            "lively"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ensemble",
+            "dance-driving",
+            "hungarian-tradition"
+          ],
+          "canonical_tags": [
+            "hungarian",
+            "dance"
+          ]
+        },
+        {
+          "id": "furulya_context_folk_orchestra",
+          "name": "Hungarian folk-orchestra concert repertoire",
+          "descriptors": [
+            "polished",
+            "virtuoso",
+            "concert"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "concert",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "hungarian",
+            "concert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "furulya_body",
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "furulya_body_elder",
+          "default": true,
+          "name": "Elder with pithed bore (traditional herdsman build)",
+          "descriptors": [
+            "warm",
+            "soft-edged",
+            "traditional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "wooden",
+            "elder"
+          ],
+          "canonical_tags": [
+            "wood-body",
+            "traditional",
+            "hungarian"
+          ]
+        },
+        {
+          "id": "furulya_body_maple",
+          "name": "Turned maple (clearer and more focused)",
+          "descriptors": [
+            "clear",
+            "focused",
+            "woody"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "wooden",
+            "maple"
+          ],
+          "canonical_tags": [
+            "wood-body"
+          ]
+        },
+        {
+          "id": "furulya_body_metal",
+          "name": "Copper or tin tube (rustic metal build)",
+          "descriptors": [
+            "bright",
+            "cutting",
+            "rustic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "metal-context",
+            "metal-bore"
+          ],
+          "canonical_tags": [
+            "metal"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "furulya_size",
+      "name": "Size / register",
+      "variants": [
+        {
+          "id": "furulya_size_short",
+          "default": true,
+          "name": "Ordinary furulya (~300-600 mm, six front finger holes)",
+          "descriptors": [
+            "bright",
+            "agile",
+            "woody"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "fipple-flute"
+          ],
+          "canonical_tags": [
+            "hungarian",
+            "shepherd"
+          ]
+        },
+        {
+          "id": "furulya_size_hosszu",
+          "name": "Hosszú furulya (~900-1000 mm long flute, five holes, head lifted and arms extended)",
+          "descriptors": [
+            "deep",
+            "slow-speaking",
+            "solemn"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "hungarian",
+            "transylvania"
+          ]
+        },
+        {
+          "id": "furulya_size_small_high",
+          "name": "Small high furulya (shrill, quick dance pipe)",
+          "descriptors": [
+            "shrill",
+            "tiny",
+            "piercing"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "hungarian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "furulya_voicing",
+      "name": "Voicing technique",
+      "variants": [
+        {
+          "id": "furulya_voicing_throat_hum",
+          "default": true,
+          "name": "Simultaneous throat humming under the sounded note (Transylvanian and Somogy signature)",
+          "descriptors": [
+            "thick-tone",
+            "rough-toned",
+            "drone-under-melody"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation",
+            "rough-tone",
+            "duct-flute"
+          ],
+          "canonical_tags": [
+            "hungarian",
+            "transylvania"
+          ]
+        },
+        {
+          "id": "furulya_voicing_plain",
+          "name": "Plain unhummed tone",
+          "descriptors": [
+            "clear",
+            "pure",
+            "plain"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "hungarian"
+          ]
+        },
+        {
+          "id": "furulya_voicing_overblown",
+          "name": "Overblown upper register with breath accents",
+          "descriptors": [
+            "overblown",
+            "bright-edge",
+            "airy"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "overtone-series",
+            "breathy"
+          ],
+          "canonical_tags": [
+            "hungarian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "furulya_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "furulya_context_pastoral",
+          "default": true,
+          "name": "Solo pastoral rubato herding tune",
+          "descriptors": [
+            "rubato",
+            "plaintive",
+            "free-rhythm"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "rubato",
+            "outdoor-field",
+            "solo"
+          ],
+          "canonical_tags": [
+            "shepherd",
+            "herding",
+            "pastoral"
+          ]
+        },
+        {
+          "id": "furulya_context_tanchaz",
+          "name": "Táncház band melody line (with gardon, koboz and violin)",
+          "descriptors": [
+            "dance-driving",
+            "ensemble-blend",
+            "lively"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ensemble",
+            "dance-driving",
+            "hungarian-tradition"
+          ],
+          "canonical_tags": [
+            "hungarian",
+            "dance"
+          ]
+        },
+        {
+          "id": "furulya_context_folk_orchestra",
+          "name": "Hungarian folk-orchestra concert repertoire",
+          "descriptors": [
+            "polished",
+            "virtuoso",
+            "concert"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "concert",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "hungarian",
+            "concert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "furulya_body",
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "furulya_body_elder",
+          "default": true,
+          "name": "Elder with pithed bore (traditional herdsman build)",
+          "descriptors": [
+            "warm",
+            "soft-edged",
+            "traditional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "wooden",
+            "elder"
+          ],
+          "canonical_tags": [
+            "wood-body",
+            "traditional",
+            "hungarian"
+          ]
+        },
+        {
+          "id": "furulya_body_maple",
+          "name": "Turned maple (clearer and more focused)",
+          "descriptors": [
+            "clear",
+            "focused",
+            "woody"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "wooden",
+            "maple"
+          ],
+          "canonical_tags": [
+            "wood-body"
+          ]
+        },
+        {
+          "id": "furulya_body_metal",
+          "name": "Copper or tin tube (rustic metal build)",
+          "descriptors": [
+            "bright",
+            "cutting",
+            "rustic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "metal-context",
+            "metal-bore"
+          ],
+          "canonical_tags": [
+            "metal"
+          ]
+        }
+      ]
+    }
+  ]
+}

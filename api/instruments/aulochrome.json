@@ -1,0 +1,406 @@
+{
+  "id": "aulochrome",
+  "name": "Aulochrome (double soprano saxophone)",
+  "family": "wind",
+  "class": "single_reed_conical",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "aulochrome",
+  "parts": [
+    {
+      "id": "aulochrome_texture",
+      "name": "Texture",
+      "variants": [
+        {
+          "id": "aulochrome_two_part_counterpoint",
+          "default": true,
+          "name": "Independent two-part counterpoint",
+          "descriptors": [
+            "contrapuntal",
+            "polyphonic",
+            "layered"
+          ],
+          "match_tokens": [
+            "polyphonic",
+            "contrapuntal",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "contemporary",
+            "free-improvisation"
+          ]
+        },
+        {
+          "id": "aulochrome_locked_unison",
+          "name": "Locked unison (one thickened voice)",
+          "descriptors": [
+            "unison",
+            "thick",
+            "projecting"
+          ],
+          "match_tokens": [
+            "unison",
+            "reed-driven",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "contemporary"
+          ]
+        },
+        {
+          "id": "aulochrome_single_pipe",
+          "name": "One pipe only (plain soprano saxophone)",
+          "descriptors": [
+            "nasal",
+            "reedy",
+            "soprano"
+          ],
+          "match_tokens": [
+            "soloistic",
+            "reed-driven",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aulochrome_tuning",
+      "name": "Tuning offset",
+      "variants": [
+        {
+          "id": "aulochrome_clean_unison",
+          "default": true,
+          "name": "Clean unison / just intervals",
+          "descriptors": [
+            "pure",
+            "stable",
+            "clean"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "aulochrome_slow_beating",
+          "name": "Slow deliberate detune (slow beating)",
+          "descriptors": [
+            "beating",
+            "detuned-pair",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "detuned",
+            "sustained-tone",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "aulochrome_fast_beating",
+          "name": "Fast detune (rough beating)",
+          "descriptors": [
+            "beating",
+            "detuned-tremolo",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "detuned",
+            "reed-driven",
+            "rough-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aulochrome_harmonic_focus",
+      "name": "Harmonic focus",
+      "variants": [
+        {
+          "id": "aulochrome_audible_interval",
+          "default": true,
+          "name": "Playing for the audible interval",
+          "descriptors": [
+            "harmonic",
+            "clear",
+            "polyphonic"
+          ],
+          "match_tokens": [
+            "harmony",
+            "polyphonic",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "contemporary"
+          ]
+        },
+        {
+          "id": "aulochrome_differential_bass",
+          "name": "Playing for the differential / virtual bass tone",
+          "descriptors": [
+            "subharmonic",
+            "sub-bass",
+            "resonant"
+          ],
+          "match_tokens": [
+            "deep-bass",
+            "sustained-tone",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "experimental",
+            "contemporary"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aulochrome_idiom",
+      "name": "Idiom",
+      "variants": [
+        {
+          "id": "aulochrome_contemporary_chamber",
+          "default": true,
+          "name": "Through-composed contemporary chamber writing",
+          "descriptors": [
+            "composed-tradition",
+            "art-music",
+            "featured"
+          ],
+          "match_tokens": [
+            "soloistic",
+            "ensemble",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "contemporary",
+            "chamber"
+          ]
+        },
+        {
+          "id": "aulochrome_free_jazz",
+          "name": "Free-jazz improvisation",
+          "descriptors": [
+            "improvisatory",
+            "angular",
+            "raw"
+          ],
+          "match_tokens": [
+            "improv",
+            "avant-garde",
+            "jazz-trained"
+          ],
+          "canonical_tags": [
+            "free-jazz",
+            "free-improvisation"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "aulochrome_texture",
+      "name": "Texture",
+      "variants": [
+        {
+          "id": "aulochrome_two_part_counterpoint",
+          "default": true,
+          "name": "Independent two-part counterpoint",
+          "descriptors": [
+            "contrapuntal",
+            "polyphonic",
+            "layered"
+          ],
+          "match_tokens": [
+            "polyphonic",
+            "contrapuntal",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "contemporary",
+            "free-improvisation"
+          ]
+        },
+        {
+          "id": "aulochrome_locked_unison",
+          "name": "Locked unison (one thickened voice)",
+          "descriptors": [
+            "unison",
+            "thick",
+            "projecting"
+          ],
+          "match_tokens": [
+            "unison",
+            "reed-driven",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "contemporary"
+          ]
+        },
+        {
+          "id": "aulochrome_single_pipe",
+          "name": "One pipe only (plain soprano saxophone)",
+          "descriptors": [
+            "nasal",
+            "reedy",
+            "soprano"
+          ],
+          "match_tokens": [
+            "soloistic",
+            "reed-driven",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aulochrome_tuning",
+      "name": "Tuning offset",
+      "variants": [
+        {
+          "id": "aulochrome_clean_unison",
+          "default": true,
+          "name": "Clean unison / just intervals",
+          "descriptors": [
+            "pure",
+            "stable",
+            "clean"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "aulochrome_slow_beating",
+          "name": "Slow deliberate detune (slow beating)",
+          "descriptors": [
+            "beating",
+            "detuned-pair",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "detuned",
+            "sustained-tone",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "aulochrome_fast_beating",
+          "name": "Fast detune (rough beating)",
+          "descriptors": [
+            "beating",
+            "detuned-tremolo",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "detuned",
+            "reed-driven",
+            "rough-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aulochrome_harmonic_focus",
+      "name": "Harmonic focus",
+      "variants": [
+        {
+          "id": "aulochrome_audible_interval",
+          "default": true,
+          "name": "Playing for the audible interval",
+          "descriptors": [
+            "harmonic",
+            "clear",
+            "polyphonic"
+          ],
+          "match_tokens": [
+            "harmony",
+            "polyphonic",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "contemporary"
+          ]
+        },
+        {
+          "id": "aulochrome_differential_bass",
+          "name": "Playing for the differential / virtual bass tone",
+          "descriptors": [
+            "subharmonic",
+            "sub-bass",
+            "resonant"
+          ],
+          "match_tokens": [
+            "deep-bass",
+            "sustained-tone",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "experimental",
+            "contemporary"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aulochrome_idiom",
+      "name": "Idiom",
+      "variants": [
+        {
+          "id": "aulochrome_contemporary_chamber",
+          "default": true,
+          "name": "Through-composed contemporary chamber writing",
+          "descriptors": [
+            "composed-tradition",
+            "art-music",
+            "featured"
+          ],
+          "match_tokens": [
+            "soloistic",
+            "ensemble",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "contemporary",
+            "chamber"
+          ]
+        },
+        {
+          "id": "aulochrome_free_jazz",
+          "name": "Free-jazz improvisation",
+          "descriptors": [
+            "improvisatory",
+            "angular",
+            "raw"
+          ],
+          "match_tokens": [
+            "improv",
+            "avant-garde",
+            "jazz-trained"
+          ],
+          "canonical_tags": [
+            "free-jazz",
+            "free-improvisation"
+          ]
+        }
+      ]
+    }
+  ]
+}

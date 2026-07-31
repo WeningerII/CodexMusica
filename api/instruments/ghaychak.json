@@ -1,0 +1,461 @@
+{
+  "id": "ghaychak",
+  "name": "Ghaychak (Baloch double-chambered bowed lute)",
+  "family": "bowed",
+  "class": "bowed_lute",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "ghaychak",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "ghaychak_form",
+      "name": "Form and size",
+      "variants": [
+        {
+          "id": "ghaychak_form_baloch_folk",
+          "default": true,
+          "name": "Baloch folk ghaychak (one carved block, flaring cutaway wings, skinned lower chamber)",
+          "descriptors": [
+            "carved",
+            "hide-faced",
+            "rustic",
+            "nasal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretless",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "folk",
+            "persian",
+            "afghan"
+          ]
+        },
+        {
+          "id": "ghaychak_form_sympathetic_modern",
+          "name": "Modern ghaychak with a full bank of sympathetics",
+          "descriptors": [
+            "sympathetic-halo",
+            "resonance-saturated",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "modern",
+            "persian"
+          ]
+        },
+        {
+          "id": "ghaychak_form_orchestral_family",
+          "name": "Tehran orchestral ghaychak family (soprano to bass, wood-faced)",
+          "descriptors": [
+            "standardized",
+            "conservatory",
+            "blended",
+            "deep-toned"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "persian",
+            "orchestral",
+            "art-music"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ghaychak_context",
+      "name": "Repertoire and playing context",
+      "variants": [
+        {
+          "id": "ghaychak_context_zahirig",
+          "default": true,
+          "name": "Zahirig modal repertoire (Baloch lament-mode exposition)",
+          "descriptors": [
+            "modal",
+            "plaintive",
+            "improvisatory",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "microtonal-bend",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "folk",
+            "persian"
+          ]
+        },
+        {
+          "id": "ghaychak_context_guati_trance",
+          "name": "Guati / damali healing-trance ceremony",
+          "descriptors": [
+            "ostinato",
+            "hypnotic",
+            "trance-building",
+            "ritual"
+          ],
+          "match_tokens": [
+            "bowed",
+            "trance-inducing",
+            "ritual-context",
+            "ostinato"
+          ],
+          "canonical_tags": [
+            "ritual",
+            "trance"
+          ]
+        },
+        {
+          "id": "ghaychak_context_ensemble",
+          "name": "Baloch ensemble line (with donali, suroz and benju)",
+          "descriptors": [
+            "ensemble-blend",
+            "heterophonic",
+            "responsive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "folk",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "ghaychak_context_radif",
+          "name": "Iranian art-music radif line (national-orchestra adoption)",
+          "descriptors": [
+            "refined",
+            "measured",
+            "concert-tuned"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "persian",
+            "art-music"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ghaychak_build",
+      "name": "Face and strings",
+      "variants": [
+        {
+          "id": "ghaychak_build_skin_gut",
+          "default": true,
+          "name": "Goat-skin lower chamber, gut or silk melody strings",
+          "descriptors": [
+            "goatskin",
+            "hide",
+            "gut",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "ghaychak_build_steel_sympathetic",
+          "name": "Steel melody strings over a sympathetic bank",
+          "descriptors": [
+            "steel",
+            "bright",
+            "sympathetic-halo"
+          ],
+          "match_tokens": [
+            "bowed",
+            "steel-string",
+            "sympathetic-resonant"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "ghaychak_build_wooden_face",
+          "name": "Modern wooden soundboard (orchestral build)",
+          "descriptors": [
+            "wood",
+            "projecting",
+            "refined"
+          ],
+          "match_tokens": [
+            "bowed",
+            "resonant",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern",
+            "orchestral"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ghaychak_form",
+      "name": "Form and size",
+      "variants": [
+        {
+          "id": "ghaychak_form_baloch_folk",
+          "default": true,
+          "name": "Baloch folk ghaychak (one carved block, flaring cutaway wings, skinned lower chamber)",
+          "descriptors": [
+            "carved",
+            "hide-faced",
+            "rustic",
+            "nasal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretless",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "folk",
+            "persian",
+            "afghan"
+          ]
+        },
+        {
+          "id": "ghaychak_form_sympathetic_modern",
+          "name": "Modern ghaychak with a full bank of sympathetics",
+          "descriptors": [
+            "sympathetic-halo",
+            "resonance-saturated",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "modern",
+            "persian"
+          ]
+        },
+        {
+          "id": "ghaychak_form_orchestral_family",
+          "name": "Tehran orchestral ghaychak family (soprano to bass, wood-faced)",
+          "descriptors": [
+            "standardized",
+            "conservatory",
+            "blended",
+            "deep-toned"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "persian",
+            "orchestral",
+            "art-music"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ghaychak_context",
+      "name": "Repertoire and playing context",
+      "variants": [
+        {
+          "id": "ghaychak_context_zahirig",
+          "default": true,
+          "name": "Zahirig modal repertoire (Baloch lament-mode exposition)",
+          "descriptors": [
+            "modal",
+            "plaintive",
+            "improvisatory",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "microtonal-bend",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "folk",
+            "persian"
+          ]
+        },
+        {
+          "id": "ghaychak_context_guati_trance",
+          "name": "Guati / damali healing-trance ceremony",
+          "descriptors": [
+            "ostinato",
+            "hypnotic",
+            "trance-building",
+            "ritual"
+          ],
+          "match_tokens": [
+            "bowed",
+            "trance-inducing",
+            "ritual-context",
+            "ostinato"
+          ],
+          "canonical_tags": [
+            "ritual",
+            "trance"
+          ]
+        },
+        {
+          "id": "ghaychak_context_ensemble",
+          "name": "Baloch ensemble line (with donali, suroz and benju)",
+          "descriptors": [
+            "ensemble-blend",
+            "heterophonic",
+            "responsive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "folk",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "ghaychak_context_radif",
+          "name": "Iranian art-music radif line (national-orchestra adoption)",
+          "descriptors": [
+            "refined",
+            "measured",
+            "concert-tuned"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "persian",
+            "art-music"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ghaychak_build",
+      "name": "Face and strings",
+      "variants": [
+        {
+          "id": "ghaychak_build_skin_gut",
+          "default": true,
+          "name": "Goat-skin lower chamber, gut or silk melody strings",
+          "descriptors": [
+            "goatskin",
+            "hide",
+            "gut",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "ghaychak_build_steel_sympathetic",
+          "name": "Steel melody strings over a sympathetic bank",
+          "descriptors": [
+            "steel",
+            "bright",
+            "sympathetic-halo"
+          ],
+          "match_tokens": [
+            "bowed",
+            "steel-string",
+            "sympathetic-resonant"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "ghaychak_build_wooden_face",
+          "name": "Modern wooden soundboard (orchestral build)",
+          "descriptors": [
+            "wood",
+            "projecting",
+            "refined"
+          ],
+          "match_tokens": [
+            "bowed",
+            "resonant",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern",
+            "orchestral"
+          ]
+        }
+      ]
+    }
+  ]
+}

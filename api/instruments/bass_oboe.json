@@ -1,0 +1,446 @@
+{
+  "id": "bass_oboe",
+  "name": "Bass oboe / baritone oboe (hautbois baryton, in C an octave below the oboe)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "bass oboe",
+  "parts": [
+    {
+      "id": "bass_oboe_extension",
+      "name": "Low extension",
+      "variants": [
+        {
+          "id": "bass_oboe_extension_low_b",
+          "default": true,
+          "name": "Standard bell, low B2",
+          "descriptors": [
+            "standard",
+            "hollow",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "double-reed",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "orchestral"
+          ]
+        },
+        {
+          "id": "bass_oboe_extension_low_bb",
+          "name": "Extension joint between lower joint and bell, low B♭2",
+          "descriptors": [
+            "extended-range",
+            "deep",
+            "rare"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "low-register",
+            "extended-range"
+          ],
+          "canonical_tags": [
+            "orchestral"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bass_oboe_context",
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "bass_oboe_context_saturn_solo",
+          "default": true,
+          "name": "Exposed orchestral solo (Holst, The Planets — \"Saturn\")",
+          "descriptors": [
+            "soloistic",
+            "mournful",
+            "hooty"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "soloistic",
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "orchestral",
+            "twentieth-century"
+          ]
+        },
+        {
+          "id": "bass_oboe_context_reed_choir_bass",
+          "name": "Blended bass under the oboes and cor anglais",
+          "descriptors": [
+            "blending",
+            "foundation-bass",
+            "dark"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "wind-driven",
+            "reed-driven",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "orchestral"
+          ]
+        },
+        {
+          "id": "bass_oboe_context_heckelphone_swap",
+          "name": "Standing in for a heckelphone part (Delius, Strauss)",
+          "descriptors": [
+            "blended",
+            "soft",
+            "romantic-orchestra"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "wind-driven",
+            "reed-driven",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "orchestral",
+            "twentieth-century"
+          ]
+        },
+        {
+          "id": "bass_oboe_context_film_colour",
+          "name": "Film / concert-band low colour",
+          "descriptors": [
+            "cinematic",
+            "veiled",
+            "rare"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "cinematic",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "film-scoring"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bass_oboe_support",
+      "name": "Support",
+      "variants": [
+        {
+          "id": "bass_oboe_support_floor_peg",
+          "default": true,
+          "name": "Floor peg (canonical — weight off the hands, settled attack)",
+          "descriptors": [
+            "stable",
+            "standard",
+            "canonical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "low-register"
+          ]
+        },
+        {
+          "id": "bass_oboe_support_neck_strap",
+          "name": "Neck strap / sling (freer posture, quicker attack)",
+          "descriptors": [
+            "responsive",
+            "modern",
+            "agile"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bass_oboe_maker",
+      "name": "Maker",
+      "variants": [
+        {
+          "id": "bass_oboe_maker_loree",
+          "default": true,
+          "name": "Lorée Paris (canonical 1889 reintroduction)",
+          "descriptors": [
+            "loree-paris-canonical-american-school",
+            "canonical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "french",
+            "paris"
+          ]
+        },
+        {
+          "id": "bass_oboe_maker_marigaux_rigoutat",
+          "name": "Marigaux / Rigoutat / Fossati (French modern)",
+          "descriptors": [
+            "marigaux-french",
+            "modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "french"
+          ]
+        },
+        {
+          "id": "bass_oboe_maker_howarth",
+          "name": "Howarth London (British)",
+          "descriptors": [
+            "howarth-london-british",
+            "projecting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "bass_oboe_extension",
+      "name": "Low extension",
+      "variants": [
+        {
+          "id": "bass_oboe_extension_low_b",
+          "default": true,
+          "name": "Standard bell, low B2",
+          "descriptors": [
+            "standard",
+            "hollow",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "double-reed",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "orchestral"
+          ]
+        },
+        {
+          "id": "bass_oboe_extension_low_bb",
+          "name": "Extension joint between lower joint and bell, low B♭2",
+          "descriptors": [
+            "extended-range",
+            "deep",
+            "rare"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "low-register",
+            "extended-range"
+          ],
+          "canonical_tags": [
+            "orchestral"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bass_oboe_context",
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "bass_oboe_context_saturn_solo",
+          "default": true,
+          "name": "Exposed orchestral solo (Holst, The Planets — \"Saturn\")",
+          "descriptors": [
+            "soloistic",
+            "mournful",
+            "hooty"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "soloistic",
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "orchestral",
+            "twentieth-century"
+          ]
+        },
+        {
+          "id": "bass_oboe_context_reed_choir_bass",
+          "name": "Blended bass under the oboes and cor anglais",
+          "descriptors": [
+            "blending",
+            "foundation-bass",
+            "dark"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "wind-driven",
+            "reed-driven",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "orchestral"
+          ]
+        },
+        {
+          "id": "bass_oboe_context_heckelphone_swap",
+          "name": "Standing in for a heckelphone part (Delius, Strauss)",
+          "descriptors": [
+            "blended",
+            "soft",
+            "romantic-orchestra"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "wind-driven",
+            "reed-driven",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "orchestral",
+            "twentieth-century"
+          ]
+        },
+        {
+          "id": "bass_oboe_context_film_colour",
+          "name": "Film / concert-band low colour",
+          "descriptors": [
+            "cinematic",
+            "veiled",
+            "rare"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "cinematic",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "film-scoring"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bass_oboe_support",
+      "name": "Support",
+      "variants": [
+        {
+          "id": "bass_oboe_support_floor_peg",
+          "default": true,
+          "name": "Floor peg (canonical — weight off the hands, settled attack)",
+          "descriptors": [
+            "stable",
+            "standard",
+            "canonical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "low-register"
+          ]
+        },
+        {
+          "id": "bass_oboe_support_neck_strap",
+          "name": "Neck strap / sling (freer posture, quicker attack)",
+          "descriptors": [
+            "responsive",
+            "modern",
+            "agile"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bass_oboe_maker",
+      "name": "Maker",
+      "variants": [
+        {
+          "id": "bass_oboe_maker_loree",
+          "default": true,
+          "name": "Lorée Paris (canonical 1889 reintroduction)",
+          "descriptors": [
+            "loree-paris-canonical-american-school",
+            "canonical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "french",
+            "paris"
+          ]
+        },
+        {
+          "id": "bass_oboe_maker_marigaux_rigoutat",
+          "name": "Marigaux / Rigoutat / Fossati (French modern)",
+          "descriptors": [
+            "marigaux-french",
+            "modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "french"
+          ]
+        },
+        {
+          "id": "bass_oboe_maker_howarth",
+          "name": "Howarth London (British)",
+          "descriptors": [
+            "howarth-london-british",
+            "projecting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ]
+        }
+      ]
+    }
+  ]
+}

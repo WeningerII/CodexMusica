@@ -1,0 +1,432 @@
+{
+  "id": "tenoroon",
+  "name": "Tenoroon (small transposing bassoon in F / G)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "tenoroon",
+  "parts": [
+    {
+      "id": "tenoroon_size",
+      "name": "Pitch / size",
+      "variants": [
+        {
+          "id": "tenoroon_quart_f",
+          "default": true,
+          "name": "Quart-bassoon in F (canonical tenoroon, sounds a fourth higher)",
+          "descriptors": [
+            "warm",
+            "middle-voice",
+            "standard"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "mid-register",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "tenoroon_quint_g",
+          "name": "Quint-bassoon in G (sounds a fifth higher)",
+          "descriptors": [
+            "bright",
+            "smaller",
+            "agile"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "mid-register",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "tenoroon_fagottino_c",
+          "name": "Fagottino in C — non-transposing octave bassoon (the trade's \"soprano bassoon\")",
+          "descriptors": [
+            "treble-extended",
+            "compact",
+            "piercing"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "high-register",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tenoroon_context",
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "tenoroon_band_church",
+          "default": true,
+          "name": "19th-century band and church tenor line",
+          "descriptors": [
+            "wind-band",
+            "middle-voice",
+            "blended"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ensemble",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historic"
+          ]
+        },
+        {
+          "id": "tenoroon_pedagogy",
+          "name": "Beginner pedagogy (roughly ages 9–12 on F, 7–10 on G)",
+          "descriptors": [
+            "pedagogical",
+            "beginner",
+            "student-tier"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "tenoroon_domestic",
+          "name": "Domestic / salon music-making",
+          "descriptors": [
+            "intimate",
+            "chamber",
+            "historic"
+          ],
+          "match_tokens": [
+            "chamber-fed",
+            "wind-driven",
+            "reed-driven",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historic"
+          ]
+        },
+        {
+          "id": "tenoroon_contemporary_colour",
+          "name": "Contemporary chamber colour",
+          "descriptors": [
+            "rare",
+            "specialty",
+            "twentieth-century"
+          ],
+          "match_tokens": [
+            "chamber-fed",
+            "wind-driven",
+            "contemporary-classical"
+          ],
+          "canonical_tags": [
+            "contemporary"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tenoroon_build_era",
+      "name": "Build era",
+      "variants": [
+        {
+          "id": "tenoroon_historic_19c",
+          "default": true,
+          "name": "19th-century historic (4–8 keys, narrow bore, A≈430–435)",
+          "descriptors": [
+            "archaic",
+            "a-432",
+            "quiet"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historic"
+          ]
+        },
+        {
+          "id": "tenoroon_modern_wolf",
+          "name": "Modern Guntram Wolf / Moosmann pedagogical model (A=442, working whisper key)",
+          "descriptors": [
+            "a-442",
+            "modern",
+            "refined"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tenoroon_body_wood",
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "tenoroon_maple_canonical",
+          "default": true,
+          "name": "Maple (canonical wing / butt / long joint / bell)",
+          "descriptors": [
+            "maple",
+            "warm",
+            "standard"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "tenoroon_pear_boxwood",
+          "name": "Pear / boxwood (historic alternative)",
+          "descriptors": [
+            "pearwood",
+            "boxwood-alternative",
+            "archaic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "period-performance"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tenoroon_size",
+      "name": "Pitch / size",
+      "variants": [
+        {
+          "id": "tenoroon_quart_f",
+          "default": true,
+          "name": "Quart-bassoon in F (canonical tenoroon, sounds a fourth higher)",
+          "descriptors": [
+            "warm",
+            "middle-voice",
+            "standard"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "mid-register",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "tenoroon_quint_g",
+          "name": "Quint-bassoon in G (sounds a fifth higher)",
+          "descriptors": [
+            "bright",
+            "smaller",
+            "agile"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "mid-register",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "tenoroon_fagottino_c",
+          "name": "Fagottino in C — non-transposing octave bassoon (the trade's \"soprano bassoon\")",
+          "descriptors": [
+            "treble-extended",
+            "compact",
+            "piercing"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "high-register",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tenoroon_context",
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "tenoroon_band_church",
+          "default": true,
+          "name": "19th-century band and church tenor line",
+          "descriptors": [
+            "wind-band",
+            "middle-voice",
+            "blended"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ensemble",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historic"
+          ]
+        },
+        {
+          "id": "tenoroon_pedagogy",
+          "name": "Beginner pedagogy (roughly ages 9–12 on F, 7–10 on G)",
+          "descriptors": [
+            "pedagogical",
+            "beginner",
+            "student-tier"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "tenoroon_domestic",
+          "name": "Domestic / salon music-making",
+          "descriptors": [
+            "intimate",
+            "chamber",
+            "historic"
+          ],
+          "match_tokens": [
+            "chamber-fed",
+            "wind-driven",
+            "reed-driven",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historic"
+          ]
+        },
+        {
+          "id": "tenoroon_contemporary_colour",
+          "name": "Contemporary chamber colour",
+          "descriptors": [
+            "rare",
+            "specialty",
+            "twentieth-century"
+          ],
+          "match_tokens": [
+            "chamber-fed",
+            "wind-driven",
+            "contemporary-classical"
+          ],
+          "canonical_tags": [
+            "contemporary"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tenoroon_build_era",
+      "name": "Build era",
+      "variants": [
+        {
+          "id": "tenoroon_historic_19c",
+          "default": true,
+          "name": "19th-century historic (4–8 keys, narrow bore, A≈430–435)",
+          "descriptors": [
+            "archaic",
+            "a-432",
+            "quiet"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historic"
+          ]
+        },
+        {
+          "id": "tenoroon_modern_wolf",
+          "name": "Modern Guntram Wolf / Moosmann pedagogical model (A=442, working whisper key)",
+          "descriptors": [
+            "a-442",
+            "modern",
+            "refined"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tenoroon_body_wood",
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "tenoroon_maple_canonical",
+          "default": true,
+          "name": "Maple (canonical wing / butt / long joint / bell)",
+          "descriptors": [
+            "maple",
+            "warm",
+            "standard"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "tenoroon_pear_boxwood",
+          "name": "Pear / boxwood (historic alternative)",
+          "descriptors": [
+            "pearwood",
+            "boxwood-alternative",
+            "archaic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "period-performance"
+          ]
+        }
+      ]
+    }
+  ]
+}

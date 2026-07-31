@@ -1,0 +1,409 @@
+{
+  "id": "qelutviaq",
+  "name": "Qelutviaq (Central Yup'ik one-string fiddle)",
+  "family": "bowed",
+  "class": "bowed_lute",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 0,
+    "range": -2,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "qelutviaq",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "qelutviaq_excitation",
+      "name": "Excitation",
+      "variants": [
+        {
+          "id": "qelutviaq_bowed_drone",
+          "default": true,
+          "name": "Bowed sustained drone",
+          "descriptors": [
+            "droning",
+            "sustained",
+            "rough-tone"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "drone",
+            "traditional"
+          ]
+        },
+        {
+          "id": "qelutviaq_plucked",
+          "name": "Plucked (also attested in the sources)",
+          "descriptors": [
+            "plucked",
+            "dry",
+            "quick-decay"
+          ],
+          "match_tokens": [
+            "plucked",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qelutviaq_string",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "qelutviaq_spruce_root",
+          "default": true,
+          "name": "White or black spruce root (negavgun)",
+          "descriptors": [
+            "spruce",
+            "dull",
+            "quick-decay"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "wood",
+            "traditional"
+          ]
+        },
+        {
+          "id": "qelutviaq_sinew",
+          "name": "Twisted sinew",
+          "descriptors": [
+            "fiber-strung",
+            "soft-toned",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "qelutviaq_trade_wire",
+          "name": "Trade gut or wire (post-contact substitution)",
+          "descriptors": [
+            "brighter",
+            "metallic",
+            "improvised"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "modern",
+            "steel"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qelutviaq_role",
+      "name": "Function under song and dance",
+      "variants": [
+        {
+          "id": "qelutviaq_fixed_drone",
+          "default": true,
+          "name": "Fixed drone under communal song",
+          "descriptors": [
+            "drone-under-song",
+            "droning",
+            "supportive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "folk",
+            "traditional"
+          ]
+        },
+        {
+          "id": "qelutviaq_punctuation",
+          "name": "Rhythmic and tonal punctuation between dance verses",
+          "descriptors": [
+            "rhythmic",
+            "festive",
+            "driving"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "dance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qelutviaq_stringing",
+      "name": "String count",
+      "variants": [
+        {
+          "id": "qelutviaq_one_string",
+          "default": true,
+          "name": "Single string",
+          "descriptors": [
+            "single-string",
+            "spare",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "qelutviaq_two_course",
+          "name": "Two strings / two courses (NMAI 223509 comparanda)",
+          "descriptors": [
+            "two-string",
+            "doubled-courses",
+            "fuller"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "historical",
+            "archaic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "qelutviaq_excitation",
+      "name": "Excitation",
+      "variants": [
+        {
+          "id": "qelutviaq_bowed_drone",
+          "default": true,
+          "name": "Bowed sustained drone",
+          "descriptors": [
+            "droning",
+            "sustained",
+            "rough-tone"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "drone",
+            "traditional"
+          ]
+        },
+        {
+          "id": "qelutviaq_plucked",
+          "name": "Plucked (also attested in the sources)",
+          "descriptors": [
+            "plucked",
+            "dry",
+            "quick-decay"
+          ],
+          "match_tokens": [
+            "plucked",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qelutviaq_string",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "qelutviaq_spruce_root",
+          "default": true,
+          "name": "White or black spruce root (negavgun)",
+          "descriptors": [
+            "spruce",
+            "dull",
+            "quick-decay"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "wood",
+            "traditional"
+          ]
+        },
+        {
+          "id": "qelutviaq_sinew",
+          "name": "Twisted sinew",
+          "descriptors": [
+            "fiber-strung",
+            "soft-toned",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "qelutviaq_trade_wire",
+          "name": "Trade gut or wire (post-contact substitution)",
+          "descriptors": [
+            "brighter",
+            "metallic",
+            "improvised"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "modern",
+            "steel"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qelutviaq_role",
+      "name": "Function under song and dance",
+      "variants": [
+        {
+          "id": "qelutviaq_fixed_drone",
+          "default": true,
+          "name": "Fixed drone under communal song",
+          "descriptors": [
+            "drone-under-song",
+            "droning",
+            "supportive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "folk",
+            "traditional"
+          ]
+        },
+        {
+          "id": "qelutviaq_punctuation",
+          "name": "Rhythmic and tonal punctuation between dance verses",
+          "descriptors": [
+            "rhythmic",
+            "festive",
+            "driving"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "dance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qelutviaq_stringing",
+      "name": "String count",
+      "variants": [
+        {
+          "id": "qelutviaq_one_string",
+          "default": true,
+          "name": "Single string",
+          "descriptors": [
+            "single-string",
+            "spare",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "qelutviaq_two_course",
+          "name": "Two strings / two courses (NMAI 223509 comparanda)",
+          "descriptors": [
+            "two-string",
+            "doubled-courses",
+            "fuller"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "historical",
+            "archaic"
+          ]
+        }
+      ]
+    }
+  ]
+}

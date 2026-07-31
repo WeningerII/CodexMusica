@@ -1,0 +1,512 @@
+{
+  "id": "diple",
+  "name": "Diple (Adriatic double single-reed clarinet)",
+  "family": "wind",
+  "class": "single_reed_double_clarinet",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "diple",
+  "parts": [
+    {
+      "id": "diple_wind",
+      "name": "Wind supply / form",
+      "variants": [
+        {
+          "id": "diple_mouth_blown",
+          "default": true,
+          "name": "Mouth-blown diple (circular-breathed for continuity)",
+          "descriptors": [
+            "circular-breathed",
+            "buzzy",
+            "rustic"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "twin-pipe",
+            "circular-breathing",
+            "mouth-blown"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "slavic"
+          ]
+        },
+        {
+          "id": "diple_mijeh",
+          "name": "Diple s mijehom / mješnica (whole goat or sheep skin bag and blowpipe)",
+          "descriptors": [
+            "droning",
+            "continuous",
+            "goatskin-bag"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "bag-blown",
+            "drone-foundation",
+            "bagpipe"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "goatskin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diple_type",
+      "name": "Regional type / bore layout",
+      "variants": [
+        {
+          "id": "diple_dalmatian",
+          "default": true,
+          "name": "Dalmatian-hinterland diple, six holes on the right bore and two on the left",
+          "descriptors": [
+            "non-tempered-triadic-lock",
+            "hard-edged",
+            "archaic"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "twin-pipe",
+            "harmony"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "slavic"
+          ]
+        },
+        {
+          "id": "diple_istarski_mih",
+          "name": "Istarski mih (both bores fingered, no drone, non-tempered Istrian scale)",
+          "descriptors": [
+            "istrian-diaphonic-two-part-canonical-croatian",
+            "piercing",
+            "paired"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "twin-pipe",
+            "croatian-istrian-tradition"
+          ],
+          "canonical_tags": [
+            "balkan"
+          ]
+        },
+        {
+          "id": "diple_zegar_tuning_holes",
+          "name": "Žegar / Otišić type with extra tuning holes",
+          "descriptors": [
+            "rustic",
+            "archaic",
+            "buzzy"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "twin-pipe",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diple_stock",
+      "name": "Stock wood / carving",
+      "variants": [
+        {
+          "id": "diple_maple",
+          "default": true,
+          "name": "Single maple block with two parallel bores",
+          "descriptors": [
+            "maple-carved-canonical-balkan",
+            "parallel-bore",
+            "resonant"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "maple",
+            "wooden"
+          ],
+          "canonical_tags": [
+            "maple",
+            "wood-body"
+          ]
+        },
+        {
+          "id": "diple_walnut",
+          "name": "Walnut block",
+          "descriptors": [
+            "dark",
+            "warm",
+            "dense"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "wooden",
+            "hardwood"
+          ],
+          "canonical_tags": [
+            "hardwood",
+            "wood-body"
+          ]
+        },
+        {
+          "id": "diple_chestnut_ash",
+          "name": "Chestnut or ash block",
+          "descriptors": [
+            "bright-toned",
+            "dry-toned",
+            "rustic"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "wooden",
+            "hardwood"
+          ],
+          "canonical_tags": [
+            "wood-body"
+          ]
+        },
+        {
+          "id": "diple_carved_head",
+          "name": "Stock crowned with a carved human head (Dalmatian decorative signature)",
+          "descriptors": [
+            "carved-hardwood",
+            "traditional",
+            "archaic"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "wooden",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diple_setting",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "diple_shepherd",
+          "default": true,
+          "name": "Solo shepherd improvisation",
+          "descriptors": [
+            "improvisatory",
+            "pastoral",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "solo",
+            "outdoor"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "shepherd",
+            "pastoral"
+          ]
+        },
+        {
+          "id": "diple_ojkanje",
+          "name": "Accompanying ojkanje, ganga and rera singing",
+          "descriptors": [
+            "vocal-paired",
+            "accompanying",
+            "hard-edged"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "vocal-accompaniment",
+            "harmony"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "vocal"
+          ]
+        },
+        {
+          "id": "diple_kolo",
+          "name": "Village kolo dance lead",
+          "descriptors": [
+            "dance-driving",
+            "rhythmic",
+            "festive"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "dance-driving",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "dance"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "diple_wind",
+      "name": "Wind supply / form",
+      "variants": [
+        {
+          "id": "diple_mouth_blown",
+          "default": true,
+          "name": "Mouth-blown diple (circular-breathed for continuity)",
+          "descriptors": [
+            "circular-breathed",
+            "buzzy",
+            "rustic"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "twin-pipe",
+            "circular-breathing",
+            "mouth-blown"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "slavic"
+          ]
+        },
+        {
+          "id": "diple_mijeh",
+          "name": "Diple s mijehom / mješnica (whole goat or sheep skin bag and blowpipe)",
+          "descriptors": [
+            "droning",
+            "continuous",
+            "goatskin-bag"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "bag-blown",
+            "drone-foundation",
+            "bagpipe"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "goatskin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diple_type",
+      "name": "Regional type / bore layout",
+      "variants": [
+        {
+          "id": "diple_dalmatian",
+          "default": true,
+          "name": "Dalmatian-hinterland diple, six holes on the right bore and two on the left",
+          "descriptors": [
+            "non-tempered-triadic-lock",
+            "hard-edged",
+            "archaic"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "twin-pipe",
+            "harmony"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "slavic"
+          ]
+        },
+        {
+          "id": "diple_istarski_mih",
+          "name": "Istarski mih (both bores fingered, no drone, non-tempered Istrian scale)",
+          "descriptors": [
+            "istrian-diaphonic-two-part-canonical-croatian",
+            "piercing",
+            "paired"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "twin-pipe",
+            "croatian-istrian-tradition"
+          ],
+          "canonical_tags": [
+            "balkan"
+          ]
+        },
+        {
+          "id": "diple_zegar_tuning_holes",
+          "name": "Žegar / Otišić type with extra tuning holes",
+          "descriptors": [
+            "rustic",
+            "archaic",
+            "buzzy"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "twin-pipe",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diple_stock",
+      "name": "Stock wood / carving",
+      "variants": [
+        {
+          "id": "diple_maple",
+          "default": true,
+          "name": "Single maple block with two parallel bores",
+          "descriptors": [
+            "maple-carved-canonical-balkan",
+            "parallel-bore",
+            "resonant"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "maple",
+            "wooden"
+          ],
+          "canonical_tags": [
+            "maple",
+            "wood-body"
+          ]
+        },
+        {
+          "id": "diple_walnut",
+          "name": "Walnut block",
+          "descriptors": [
+            "dark",
+            "warm",
+            "dense"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "wooden",
+            "hardwood"
+          ],
+          "canonical_tags": [
+            "hardwood",
+            "wood-body"
+          ]
+        },
+        {
+          "id": "diple_chestnut_ash",
+          "name": "Chestnut or ash block",
+          "descriptors": [
+            "bright-toned",
+            "dry-toned",
+            "rustic"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "wooden",
+            "hardwood"
+          ],
+          "canonical_tags": [
+            "wood-body"
+          ]
+        },
+        {
+          "id": "diple_carved_head",
+          "name": "Stock crowned with a carved human head (Dalmatian decorative signature)",
+          "descriptors": [
+            "carved-hardwood",
+            "traditional",
+            "archaic"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "wooden",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diple_setting",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "diple_shepherd",
+          "default": true,
+          "name": "Solo shepherd improvisation",
+          "descriptors": [
+            "improvisatory",
+            "pastoral",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "solo",
+            "outdoor"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "shepherd",
+            "pastoral"
+          ]
+        },
+        {
+          "id": "diple_ojkanje",
+          "name": "Accompanying ojkanje, ganga and rera singing",
+          "descriptors": [
+            "vocal-paired",
+            "accompanying",
+            "hard-edged"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "vocal-accompaniment",
+            "harmony"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "vocal"
+          ]
+        },
+        {
+          "id": "diple_kolo",
+          "name": "Village kolo dance lead",
+          "descriptors": [
+            "dance-driving",
+            "rhythmic",
+            "festive"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "dance-driving",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "dance"
+          ]
+        }
+      ]
+    }
+  ]
+}

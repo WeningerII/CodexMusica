@@ -1,0 +1,322 @@
+{
+  "id": "piccolo_heckelphone",
+  "name": "Piccolo heckelphone (wide-bore sopranino double reed in F)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 2,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "piccolo heckelphone",
+  "parts": [
+    {
+      "id": "piccolo_heckelphone_pitch",
+      "name": "Pitch / model",
+      "variants": [
+        {
+          "id": "piccolo_heckelphone_pitch_f",
+          "default": true,
+          "name": "F piccolo heckelphone (sounds a fourth above written, compass b–g♯‴)",
+          "descriptors": [
+            "bright",
+            "projecting",
+            "high-register"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "double-reed",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "germanic",
+            "concert"
+          ]
+        },
+        {
+          "id": "piccolo_heckelphone_pitch_terz_eb",
+          "name": "Terz-heckelphone in high E♭ down to D4 (single 1915 prototype for Strauss)",
+          "descriptors": [
+            "rare",
+            "shrill",
+            "experimental"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "treble-extended",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "experimental",
+            "twentieth-century"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "piccolo_heckelphone_context",
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "piccolo_heckelphone_context_clarino",
+          "default": true,
+          "name": "High clarino / trumpet substitute (Strauss, Brandenburg No. 2, Berlin 1909)",
+          "descriptors": [
+            "clarino-high",
+            "baroque-clarino",
+            "projecting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "high-register",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "concert"
+          ]
+        },
+        {
+          "id": "piccolo_heckelphone_context_orchestral_colour",
+          "name": "Extreme-register orchestral colour",
+          "descriptors": [
+            "piercing",
+            "rare",
+            "twentieth-century"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "wind-driven",
+            "reed-driven",
+            "treble-extended"
+          ],
+          "canonical_tags": [
+            "orchestral",
+            "twentieth-century"
+          ]
+        },
+        {
+          "id": "piccolo_heckelphone_context_musette_swap",
+          "name": "Practical substitution by piccolo oboe / musette",
+          "descriptors": [
+            "bright",
+            "standard",
+            "modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "double-reed",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "piccolo_heckelphone_body_wood",
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "piccolo_heckelphone_body_grenadilla",
+          "default": true,
+          "name": "Grenadilla / African blackwood, wide bore and oversized tone holes (canonical Heckel)",
+          "descriptors": [
+            "grenadilla-african-blackwood-canonical",
+            "large-bore",
+            "powerful"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "conical-bore",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "cites-app-ii",
+            "germanic"
+          ]
+        },
+        {
+          "id": "piccolo_heckelphone_body_palisander",
+          "name": "Palisander rosewood (premium)",
+          "descriptors": [
+            "palisander-rosewood-premium",
+            "warm"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "piccolo_heckelphone_pitch",
+      "name": "Pitch / model",
+      "variants": [
+        {
+          "id": "piccolo_heckelphone_pitch_f",
+          "default": true,
+          "name": "F piccolo heckelphone (sounds a fourth above written, compass b–g♯‴)",
+          "descriptors": [
+            "bright",
+            "projecting",
+            "high-register"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "double-reed",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "germanic",
+            "concert"
+          ]
+        },
+        {
+          "id": "piccolo_heckelphone_pitch_terz_eb",
+          "name": "Terz-heckelphone in high E♭ down to D4 (single 1915 prototype for Strauss)",
+          "descriptors": [
+            "rare",
+            "shrill",
+            "experimental"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "treble-extended",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "experimental",
+            "twentieth-century"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "piccolo_heckelphone_context",
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "piccolo_heckelphone_context_clarino",
+          "default": true,
+          "name": "High clarino / trumpet substitute (Strauss, Brandenburg No. 2, Berlin 1909)",
+          "descriptors": [
+            "clarino-high",
+            "baroque-clarino",
+            "projecting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "high-register",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "concert"
+          ]
+        },
+        {
+          "id": "piccolo_heckelphone_context_orchestral_colour",
+          "name": "Extreme-register orchestral colour",
+          "descriptors": [
+            "piercing",
+            "rare",
+            "twentieth-century"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "wind-driven",
+            "reed-driven",
+            "treble-extended"
+          ],
+          "canonical_tags": [
+            "orchestral",
+            "twentieth-century"
+          ]
+        },
+        {
+          "id": "piccolo_heckelphone_context_musette_swap",
+          "name": "Practical substitution by piccolo oboe / musette",
+          "descriptors": [
+            "bright",
+            "standard",
+            "modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "double-reed",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "piccolo_heckelphone_body_wood",
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "piccolo_heckelphone_body_grenadilla",
+          "default": true,
+          "name": "Grenadilla / African blackwood, wide bore and oversized tone holes (canonical Heckel)",
+          "descriptors": [
+            "grenadilla-african-blackwood-canonical",
+            "large-bore",
+            "powerful"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "conical-bore",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "cites-app-ii",
+            "germanic"
+          ]
+        },
+        {
+          "id": "piccolo_heckelphone_body_palisander",
+          "name": "Palisander rosewood (premium)",
+          "descriptors": [
+            "palisander-rosewood-premium",
+            "warm"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        }
+      ]
+    }
+  ]
+}

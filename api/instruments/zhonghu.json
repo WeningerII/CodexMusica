@@ -1,0 +1,461 @@
+{
+  "id": "zhonghu",
+  "name": "Zhonghu (Chinese alto fiddle)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "zhonghu",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "zhonghu_tuning",
+      "name": "Tuning",
+      "variants": [
+        {
+          "id": "zhonghu_g_d_fifth_below",
+          "default": true,
+          "name": "G3-D4, a fifth below the erhu (modern standard)",
+          "descriptors": [
+            "alto",
+            "warm",
+            "rounded"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "chinese-orchestra",
+            "modern"
+          ]
+        },
+        {
+          "id": "zhonghu_a_e_fourth_below",
+          "name": "A3-E4, a fourth below the erhu",
+          "descriptors": [
+            "alto",
+            "bright-tone",
+            "ensemble-blend"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "chinese-orchestra"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zhonghu_role",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "zhonghu_orchestral_alto",
+          "default": true,
+          "name": "Alto inner voice of the modern Chinese orchestra",
+          "descriptors": [
+            "inner-voice",
+            "pad",
+            "ensemble-blend"
+          ],
+          "match_tokens": [
+            "bowed",
+            "orchestral",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "chinese-orchestra",
+            "orchestral"
+          ]
+        },
+        {
+          "id": "zhonghu_grassland",
+          "name": "Grassland style ('Cao Yuan Shang'), imitating the morin khuur",
+          "descriptors": [
+            "morin",
+            "khuur",
+            "imitative",
+            "sliding"
+          ],
+          "match_tokens": [
+            "bowed",
+            "expressive",
+            "vibrato-rich"
+          ],
+          "canonical_tags": [
+            "china",
+            "mongolian"
+          ]
+        },
+        {
+          "id": "zhonghu_concerto_solo",
+          "name": "Exposed solo cantabile ('Su Wu' concerto, 1962)",
+          "descriptors": [
+            "lyrical",
+            "expressive",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "bowed",
+            "soloistic",
+            "concert"
+          ],
+          "canonical_tags": [
+            "china",
+            "solo",
+            "concert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zhonghu_box",
+      "name": "Soundbox shape",
+      "variants": [
+        {
+          "id": "zhonghu_hexagonal_box",
+          "default": true,
+          "name": "Hexagonal hardwood box (scaled-up erhu, canonical)",
+          "descriptors": [
+            "hardwood",
+            "carved-hardwood-body",
+            "focused"
+          ],
+          "match_tokens": [
+            "bowed",
+            "acoustic-only",
+            "woody"
+          ],
+          "canonical_tags": [
+            "china",
+            "traditional"
+          ]
+        },
+        {
+          "id": "zhonghu_round_box",
+          "name": "Round box (looser skin, boomier)",
+          "descriptors": [
+            "rounded",
+            "boomy",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "mellow-tone",
+            "body-resonance-low-mid"
+          ],
+          "canonical_tags": [
+            "china"
+          ]
+        },
+        {
+          "id": "zhonghu_octagonal_box",
+          "name": "Octagonal box",
+          "descriptors": [
+            "thick",
+            "resonant",
+            "blending"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble-blend",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "china"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zhonghu_membrane",
+      "name": "Resonator skin",
+      "variants": [
+        {
+          "id": "zhonghu_python_skin",
+          "default": true,
+          "name": "Python skin (traditional)",
+          "descriptors": [
+            "python-skin",
+            "snake-skin",
+            "hide"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented",
+            "body-resonance-low-mid"
+          ],
+          "canonical_tags": [
+            "snakeskin",
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "zhonghu_synthetic_membrane",
+          "name": "Synthetic membrane",
+          "descriptors": [
+            "synthetic",
+            "stable",
+            "consistent"
+          ],
+          "match_tokens": [
+            "bowed",
+            "synthetic",
+            "modern"
+          ],
+          "canonical_tags": [
+            "synthetic",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "zhonghu_tuning",
+      "name": "Tuning",
+      "variants": [
+        {
+          "id": "zhonghu_g_d_fifth_below",
+          "default": true,
+          "name": "G3-D4, a fifth below the erhu (modern standard)",
+          "descriptors": [
+            "alto",
+            "warm",
+            "rounded"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "chinese-orchestra",
+            "modern"
+          ]
+        },
+        {
+          "id": "zhonghu_a_e_fourth_below",
+          "name": "A3-E4, a fourth below the erhu",
+          "descriptors": [
+            "alto",
+            "bright-tone",
+            "ensemble-blend"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "chinese-orchestra"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zhonghu_role",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "zhonghu_orchestral_alto",
+          "default": true,
+          "name": "Alto inner voice of the modern Chinese orchestra",
+          "descriptors": [
+            "inner-voice",
+            "pad",
+            "ensemble-blend"
+          ],
+          "match_tokens": [
+            "bowed",
+            "orchestral",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "chinese-orchestra",
+            "orchestral"
+          ]
+        },
+        {
+          "id": "zhonghu_grassland",
+          "name": "Grassland style ('Cao Yuan Shang'), imitating the morin khuur",
+          "descriptors": [
+            "morin",
+            "khuur",
+            "imitative",
+            "sliding"
+          ],
+          "match_tokens": [
+            "bowed",
+            "expressive",
+            "vibrato-rich"
+          ],
+          "canonical_tags": [
+            "china",
+            "mongolian"
+          ]
+        },
+        {
+          "id": "zhonghu_concerto_solo",
+          "name": "Exposed solo cantabile ('Su Wu' concerto, 1962)",
+          "descriptors": [
+            "lyrical",
+            "expressive",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "bowed",
+            "soloistic",
+            "concert"
+          ],
+          "canonical_tags": [
+            "china",
+            "solo",
+            "concert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zhonghu_box",
+      "name": "Soundbox shape",
+      "variants": [
+        {
+          "id": "zhonghu_hexagonal_box",
+          "default": true,
+          "name": "Hexagonal hardwood box (scaled-up erhu, canonical)",
+          "descriptors": [
+            "hardwood",
+            "carved-hardwood-body",
+            "focused"
+          ],
+          "match_tokens": [
+            "bowed",
+            "acoustic-only",
+            "woody"
+          ],
+          "canonical_tags": [
+            "china",
+            "traditional"
+          ]
+        },
+        {
+          "id": "zhonghu_round_box",
+          "name": "Round box (looser skin, boomier)",
+          "descriptors": [
+            "rounded",
+            "boomy",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "mellow-tone",
+            "body-resonance-low-mid"
+          ],
+          "canonical_tags": [
+            "china"
+          ]
+        },
+        {
+          "id": "zhonghu_octagonal_box",
+          "name": "Octagonal box",
+          "descriptors": [
+            "thick",
+            "resonant",
+            "blending"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble-blend",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "china"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zhonghu_membrane",
+      "name": "Resonator skin",
+      "variants": [
+        {
+          "id": "zhonghu_python_skin",
+          "default": true,
+          "name": "Python skin (traditional)",
+          "descriptors": [
+            "python-skin",
+            "snake-skin",
+            "hide"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented",
+            "body-resonance-low-mid"
+          ],
+          "canonical_tags": [
+            "snakeskin",
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "zhonghu_synthetic_membrane",
+          "name": "Synthetic membrane",
+          "descriptors": [
+            "synthetic",
+            "stable",
+            "consistent"
+          ],
+          "match_tokens": [
+            "bowed",
+            "synthetic",
+            "modern"
+          ],
+          "canonical_tags": [
+            "synthetic",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

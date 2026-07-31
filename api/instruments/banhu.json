@@ -1,0 +1,633 @@
+{
+  "id": "banhu",
+  "name": "Banhu (Chinese wooden-faced bowed fiddle)",
+  "family": "bowed",
+  "class": "bowed_spike_fiddle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 2,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "banhu",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "banhu_form",
+      "name": "Regional form / register",
+      "variants": [
+        {
+          "id": "banhu_qinqiang",
+          "default": true,
+          "name": "Qinqiang / Shanxi banhu (large bowl, low and gutty)",
+          "descriptors": [
+            "gutty",
+            "raw",
+            "bowl-resonator"
+          ],
+          "match_tokens": [
+            "bowed",
+            "loud-projection",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "china",
+            "opera",
+            "northern"
+          ]
+        },
+        {
+          "id": "banhu_hebei",
+          "name": "Hebei banhu (small bowl, shrill and bright)",
+          "descriptors": [
+            "shrill",
+            "bright-cutting",
+            "strident"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "china",
+            "opera",
+            "northern"
+          ]
+        },
+        {
+          "id": "banhu_henan",
+          "name": "Henan banhu (70 cm neck, 8.5-9.5 cm face, mellow)",
+          "descriptors": [
+            "mellow",
+            "warm",
+            "rounded"
+          ],
+          "match_tokens": [
+            "bowed",
+            "mellow-tone",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "china",
+            "opera"
+          ]
+        },
+        {
+          "id": "banhu_soprano_orchestral",
+          "name": "Soprano banhu (modern conservatory / orchestral model)",
+          "descriptors": [
+            "soprano",
+            "conservatory",
+            "concert-grade"
+          ],
+          "match_tokens": [
+            "bowed",
+            "high-register",
+            "orchestral"
+          ],
+          "canonical_tags": [
+            "chinese-orchestra",
+            "conservatory"
+          ]
+        },
+        {
+          "id": "banhu_alto_tenor",
+          "name": "Alto / tenor banhu (lower orchestral sizes)",
+          "descriptors": [
+            "alto",
+            "tenor",
+            "thick"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register",
+            "orchestral"
+          ],
+          "canonical_tags": [
+            "chinese-orchestra",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "banhu_role",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "banhu_bangzi_opera",
+          "default": true,
+          "name": "Bangzi clapper-opera lead fiddle (Qinqiang, Hebei / Henan / Shanxi Bangzi)",
+          "descriptors": [
+            "operatic",
+            "voice-following",
+            "heterophonic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "accompaniment",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "chinese-opera",
+            "opera"
+          ]
+        },
+        {
+          "id": "banhu_narrative_song",
+          "name": "Northern narrative-song accompaniment",
+          "descriptors": [
+            "narrative",
+            "vocal-supportive",
+            "supportive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "narrative",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "china",
+            "narrative"
+          ]
+        },
+        {
+          "id": "banhu_solo_virtuoso",
+          "name": "Post-1949 solo concert virtuoso (Liu Mingyuan school)",
+          "descriptors": [
+            "virtuoso",
+            "virtuosic",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "soloistic",
+            "expressive"
+          ],
+          "canonical_tags": [
+            "china",
+            "solo",
+            "concert"
+          ]
+        },
+        {
+          "id": "banhu_orchestra_chair",
+          "name": "Soprano-banhu chair in the modern Chinese orchestra",
+          "descriptors": [
+            "ensemble-lead",
+            "orchestral",
+            "concert-grade"
+          ],
+          "match_tokens": [
+            "bowed",
+            "orchestral",
+            "lead-melody"
+          ],
+          "canonical_tags": [
+            "chinese-orchestra",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "banhu_bowl",
+      "name": "Soundbox bowl (paulownia board face and rigid ox-horn waist-bridge qianjin throughout)",
+      "variants": [
+        {
+          "id": "banhu_coconut_bowl",
+          "default": true,
+          "name": "Coconut-shell bowl + paulownia board face",
+          "descriptors": [
+            "coconut-shell",
+            "wood-faced",
+            "paulownia"
+          ],
+          "match_tokens": [
+            "bowed",
+            "acoustic-only",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "china",
+            "traditional"
+          ]
+        },
+        {
+          "id": "banhu_hardwood_bowl",
+          "name": "Turned hardwood bowl (hongmu / rosewood)",
+          "descriptors": [
+            "hardwood",
+            "carved-hardwood-body",
+            "wood-faced"
+          ],
+          "match_tokens": [
+            "bowed",
+            "acoustic-only",
+            "woody"
+          ],
+          "canonical_tags": [
+            "hardwood",
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "banhu_metal_bowl",
+          "name": "Bamboo or copper bowl (regional builds)",
+          "descriptors": [
+            "metal-body",
+            "copper",
+            "bright-cutting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "acoustic-only",
+            "piercing"
+          ],
+          "canonical_tags": [
+            "china",
+            "traditional"
+          ]
+        },
+        {
+          "id": "banhu_abs_bowl",
+          "name": "Moulded ABS bowl (modern stable / student build)",
+          "descriptors": [
+            "plastic",
+            "stable",
+            "consistent"
+          ],
+          "match_tokens": [
+            "bowed",
+            "synthetic",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern",
+            "synthetic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "banhu_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "banhu_steel_modern",
+          "default": true,
+          "name": "Steel (modern canonical)",
+          "descriptors": [
+            "steel-modern-canonical",
+            "high-tension",
+            "bright-cutting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "banhu_silk_historical",
+          "name": "Silk (pre-modern opera-pit historical)",
+          "descriptors": [
+            "silk-pre-modern-historical",
+            "mellow",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "mellow-tone"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "banhu_form",
+      "name": "Regional form / register",
+      "variants": [
+        {
+          "id": "banhu_qinqiang",
+          "default": true,
+          "name": "Qinqiang / Shanxi banhu (large bowl, low and gutty)",
+          "descriptors": [
+            "gutty",
+            "raw",
+            "bowl-resonator"
+          ],
+          "match_tokens": [
+            "bowed",
+            "loud-projection",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "china",
+            "opera",
+            "northern"
+          ]
+        },
+        {
+          "id": "banhu_hebei",
+          "name": "Hebei banhu (small bowl, shrill and bright)",
+          "descriptors": [
+            "shrill",
+            "bright-cutting",
+            "strident"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "china",
+            "opera",
+            "northern"
+          ]
+        },
+        {
+          "id": "banhu_henan",
+          "name": "Henan banhu (70 cm neck, 8.5-9.5 cm face, mellow)",
+          "descriptors": [
+            "mellow",
+            "warm",
+            "rounded"
+          ],
+          "match_tokens": [
+            "bowed",
+            "mellow-tone",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "china",
+            "opera"
+          ]
+        },
+        {
+          "id": "banhu_soprano_orchestral",
+          "name": "Soprano banhu (modern conservatory / orchestral model)",
+          "descriptors": [
+            "soprano",
+            "conservatory",
+            "concert-grade"
+          ],
+          "match_tokens": [
+            "bowed",
+            "high-register",
+            "orchestral"
+          ],
+          "canonical_tags": [
+            "chinese-orchestra",
+            "conservatory"
+          ]
+        },
+        {
+          "id": "banhu_alto_tenor",
+          "name": "Alto / tenor banhu (lower orchestral sizes)",
+          "descriptors": [
+            "alto",
+            "tenor",
+            "thick"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register",
+            "orchestral"
+          ],
+          "canonical_tags": [
+            "chinese-orchestra",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "banhu_role",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "banhu_bangzi_opera",
+          "default": true,
+          "name": "Bangzi clapper-opera lead fiddle (Qinqiang, Hebei / Henan / Shanxi Bangzi)",
+          "descriptors": [
+            "operatic",
+            "voice-following",
+            "heterophonic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "accompaniment",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "chinese-opera",
+            "opera"
+          ]
+        },
+        {
+          "id": "banhu_narrative_song",
+          "name": "Northern narrative-song accompaniment",
+          "descriptors": [
+            "narrative",
+            "vocal-supportive",
+            "supportive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "narrative",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "china",
+            "narrative"
+          ]
+        },
+        {
+          "id": "banhu_solo_virtuoso",
+          "name": "Post-1949 solo concert virtuoso (Liu Mingyuan school)",
+          "descriptors": [
+            "virtuoso",
+            "virtuosic",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "soloistic",
+            "expressive"
+          ],
+          "canonical_tags": [
+            "china",
+            "solo",
+            "concert"
+          ]
+        },
+        {
+          "id": "banhu_orchestra_chair",
+          "name": "Soprano-banhu chair in the modern Chinese orchestra",
+          "descriptors": [
+            "ensemble-lead",
+            "orchestral",
+            "concert-grade"
+          ],
+          "match_tokens": [
+            "bowed",
+            "orchestral",
+            "lead-melody"
+          ],
+          "canonical_tags": [
+            "chinese-orchestra",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "banhu_bowl",
+      "name": "Soundbox bowl (paulownia board face and rigid ox-horn waist-bridge qianjin throughout)",
+      "variants": [
+        {
+          "id": "banhu_coconut_bowl",
+          "default": true,
+          "name": "Coconut-shell bowl + paulownia board face",
+          "descriptors": [
+            "coconut-shell",
+            "wood-faced",
+            "paulownia"
+          ],
+          "match_tokens": [
+            "bowed",
+            "acoustic-only",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "china",
+            "traditional"
+          ]
+        },
+        {
+          "id": "banhu_hardwood_bowl",
+          "name": "Turned hardwood bowl (hongmu / rosewood)",
+          "descriptors": [
+            "hardwood",
+            "carved-hardwood-body",
+            "wood-faced"
+          ],
+          "match_tokens": [
+            "bowed",
+            "acoustic-only",
+            "woody"
+          ],
+          "canonical_tags": [
+            "hardwood",
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "banhu_metal_bowl",
+          "name": "Bamboo or copper bowl (regional builds)",
+          "descriptors": [
+            "metal-body",
+            "copper",
+            "bright-cutting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "acoustic-only",
+            "piercing"
+          ],
+          "canonical_tags": [
+            "china",
+            "traditional"
+          ]
+        },
+        {
+          "id": "banhu_abs_bowl",
+          "name": "Moulded ABS bowl (modern stable / student build)",
+          "descriptors": [
+            "plastic",
+            "stable",
+            "consistent"
+          ],
+          "match_tokens": [
+            "bowed",
+            "synthetic",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern",
+            "synthetic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "banhu_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "banhu_steel_modern",
+          "default": true,
+          "name": "Steel (modern canonical)",
+          "descriptors": [
+            "steel-modern-canonical",
+            "high-tension",
+            "bright-cutting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "banhu_silk_historical",
+          "name": "Silk (pre-modern opera-pit historical)",
+          "descriptors": [
+            "silk-pre-modern-historical",
+            "mellow",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "mellow-tone"
+          ]
+        }
+      ]
+    }
+  ]
+}

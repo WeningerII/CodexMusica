@@ -1,0 +1,533 @@
+{
+  "id": "datong",
+  "name": "Datong (Hunan flower-drum opera big-tube fiddle)",
+  "family": "bowed",
+  "class": "bowed_spike_fiddle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "datong",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "datong_build",
+      "name": "Build",
+      "variants": [
+        {
+          "id": "datong_build_bamboo_snakeskin",
+          "default": true,
+          "name": "Bamboo body and bamboo neck, snakeskin head (traditional)",
+          "descriptors": [
+            "bamboo-bodied",
+            "snake-skin",
+            "coarse"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "two-string",
+            "resonant-membrane"
+          ],
+          "canonical_tags": [
+            "china",
+            "traditional"
+          ]
+        },
+        {
+          "id": "datong_build_district",
+          "name": "District form (heavier, wider tube of the eastern Hunan districts)",
+          "descriptors": [
+            "thick-tone",
+            "deep",
+            "regional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "wood-body"
+          ],
+          "canonical_tags": [
+            "china",
+            "folk"
+          ]
+        },
+        {
+          "id": "datong_build_reformed",
+          "name": "Reformed solo-spec datong (standardized, wood-reinforced)",
+          "descriptors": [
+            "standardized",
+            "concert",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "soloistic",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "reformed",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "datong_tuning",
+      "name": "Open-string tuning by tune-family",
+      "variants": [
+        {
+          "id": "datong_tuning_chuandiao",
+          "default": true,
+          "name": "Chuandiao tune-family tuning (the main huaguxi plainsong body)",
+          "descriptors": [
+            "operatic",
+            "driving",
+            "supporting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "accompaniment",
+            "open-string"
+          ],
+          "canonical_tags": [
+            "chinese-opera",
+            "china"
+          ]
+        },
+        {
+          "id": "datong_tuning_daluoqiang",
+          "name": "Daluoqiang tune-family tuning (gong-and-drum vocal type)",
+          "descriptors": [
+            "declamatory",
+            "rhythmic",
+            "cutting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "chinese-opera",
+            "china"
+          ]
+        },
+        {
+          "id": "datong_tuning_xiaodiao",
+          "name": "Xiaodiao folk-ditty tuning",
+          "descriptors": [
+            "lyrical",
+            "folk",
+            "brighter"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "folk",
+            "china"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "datong_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "datong_context_huaguxi",
+          "default": true,
+          "name": "Huaguxi flower-drum opera pit (principal accompanying fiddle)",
+          "descriptors": [
+            "operatic",
+            "vocal-supportive",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "accompaniment",
+            "vocal-accompaniment"
+          ],
+          "canonical_tags": [
+            "chinese-opera",
+            "accompaniment"
+          ]
+        },
+        {
+          "id": "datong_context_shasixian",
+          "name": "Changsha shasixian chamber ensemble",
+          "descriptors": [
+            "chamber",
+            "interlocking",
+            "refined"
+          ],
+          "match_tokens": [
+            "bowed",
+            "chamber-fed",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "china",
+            "chamber"
+          ]
+        },
+        {
+          "id": "datong_context_qiyang",
+          "name": "Qiyang xiaodiao folk-ditty accompaniment",
+          "descriptors": [
+            "rustic",
+            "song-accompaniment",
+            "village"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "song-accompaniment"
+          ],
+          "canonical_tags": [
+            "folk",
+            "china"
+          ]
+        },
+        {
+          "id": "datong_context_solo",
+          "name": "Modern solo concert piece",
+          "descriptors": [
+            "virtuosic",
+            "expressive",
+            "concert"
+          ],
+          "match_tokens": [
+            "bowed",
+            "soloistic",
+            "concert"
+          ],
+          "canonical_tags": [
+            "solo",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "datong_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "datong_strings_steel",
+          "default": true,
+          "name": "Steel (modern standard)",
+          "descriptors": [
+            "steel",
+            "brighter",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "steel-string"
+          ],
+          "canonical_tags": [
+            "modern",
+            "steel"
+          ]
+        },
+        {
+          "id": "datong_strings_silk",
+          "name": "Silk (pre-modern historical)",
+          "descriptors": [
+            "silk",
+            "pre-modern",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "silk-strung",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "datong_build",
+      "name": "Build",
+      "variants": [
+        {
+          "id": "datong_build_bamboo_snakeskin",
+          "default": true,
+          "name": "Bamboo body and bamboo neck, snakeskin head (traditional)",
+          "descriptors": [
+            "bamboo-bodied",
+            "snake-skin",
+            "coarse"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "two-string",
+            "resonant-membrane"
+          ],
+          "canonical_tags": [
+            "china",
+            "traditional"
+          ]
+        },
+        {
+          "id": "datong_build_district",
+          "name": "District form (heavier, wider tube of the eastern Hunan districts)",
+          "descriptors": [
+            "thick-tone",
+            "deep",
+            "regional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "wood-body"
+          ],
+          "canonical_tags": [
+            "china",
+            "folk"
+          ]
+        },
+        {
+          "id": "datong_build_reformed",
+          "name": "Reformed solo-spec datong (standardized, wood-reinforced)",
+          "descriptors": [
+            "standardized",
+            "concert",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "soloistic",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "reformed",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "datong_tuning",
+      "name": "Open-string tuning by tune-family",
+      "variants": [
+        {
+          "id": "datong_tuning_chuandiao",
+          "default": true,
+          "name": "Chuandiao tune-family tuning (the main huaguxi plainsong body)",
+          "descriptors": [
+            "operatic",
+            "driving",
+            "supporting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "accompaniment",
+            "open-string"
+          ],
+          "canonical_tags": [
+            "chinese-opera",
+            "china"
+          ]
+        },
+        {
+          "id": "datong_tuning_daluoqiang",
+          "name": "Daluoqiang tune-family tuning (gong-and-drum vocal type)",
+          "descriptors": [
+            "declamatory",
+            "rhythmic",
+            "cutting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "chinese-opera",
+            "china"
+          ]
+        },
+        {
+          "id": "datong_tuning_xiaodiao",
+          "name": "Xiaodiao folk-ditty tuning",
+          "descriptors": [
+            "lyrical",
+            "folk",
+            "brighter"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "folk",
+            "china"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "datong_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "datong_context_huaguxi",
+          "default": true,
+          "name": "Huaguxi flower-drum opera pit (principal accompanying fiddle)",
+          "descriptors": [
+            "operatic",
+            "vocal-supportive",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "accompaniment",
+            "vocal-accompaniment"
+          ],
+          "canonical_tags": [
+            "chinese-opera",
+            "accompaniment"
+          ]
+        },
+        {
+          "id": "datong_context_shasixian",
+          "name": "Changsha shasixian chamber ensemble",
+          "descriptors": [
+            "chamber",
+            "interlocking",
+            "refined"
+          ],
+          "match_tokens": [
+            "bowed",
+            "chamber-fed",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "china",
+            "chamber"
+          ]
+        },
+        {
+          "id": "datong_context_qiyang",
+          "name": "Qiyang xiaodiao folk-ditty accompaniment",
+          "descriptors": [
+            "rustic",
+            "song-accompaniment",
+            "village"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "song-accompaniment"
+          ],
+          "canonical_tags": [
+            "folk",
+            "china"
+          ]
+        },
+        {
+          "id": "datong_context_solo",
+          "name": "Modern solo concert piece",
+          "descriptors": [
+            "virtuosic",
+            "expressive",
+            "concert"
+          ],
+          "match_tokens": [
+            "bowed",
+            "soloistic",
+            "concert"
+          ],
+          "canonical_tags": [
+            "solo",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "datong_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "datong_strings_steel",
+          "default": true,
+          "name": "Steel (modern standard)",
+          "descriptors": [
+            "steel",
+            "brighter",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "steel-string"
+          ],
+          "canonical_tags": [
+            "modern",
+            "steel"
+          ]
+        },
+        {
+          "id": "datong_strings_silk",
+          "name": "Silk (pre-modern historical)",
+          "descriptors": [
+            "silk",
+            "pre-modern",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "silk-strung",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        }
+      ]
+    }
+  ]
+}

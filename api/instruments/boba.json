@@ -1,0 +1,408 @@
+{
+  "id": "boba",
+  "name": "Boba (Ewe Gahu master drum)",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -2,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "boba",
+  "parts": [
+    {
+      "id": "boba_drum_form",
+      "name": "Size / form",
+      "variants": [
+        {
+          "id": "boba_drum_form_gahu_large",
+          "default": true,
+          "name": "Large Gahu boba leaned on a stand (deep bass master voice)",
+          "descriptors": [
+            "deep-bass",
+            "booming",
+            "commanding"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "dance",
+            "lead"
+          ]
+        },
+        {
+          "id": "boba_drum_form_adzrowo_small",
+          "name": "Smaller Adzrowo boba (higher, quieter, more blended)",
+          "descriptors": [
+            "blended",
+            "quiet",
+            "mid-register"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "dance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "boba_ensemble_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "boba_ensemble_role_gahu_lead",
+          "default": true,
+          "name": "Gahu master drum — sectional cues, breaks and endings",
+          "descriptors": [
+            "lead",
+            "call-and-response",
+            "commanding"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "lead-drum",
+            "call-response"
+          ],
+          "canonical_tags": [
+            "lead",
+            "dance"
+          ]
+        },
+        {
+          "id": "boba_ensemble_role_dance_cueing",
+          "name": "Steering dancers and singers through the piece",
+          "descriptors": [
+            "dance-driving",
+            "antiphonal",
+            "festive"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "lead-drum",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "dance"
+          ]
+        },
+        {
+          "id": "boba_ensemble_role_bass_ostinato",
+          "name": "Supporting bass ostinato under another lead drum",
+          "descriptors": [
+            "foundational",
+            "grounding",
+            "supporting-pulse"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ostinato",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "ostinato"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "boba_stroke_technique",
+      "name": "Stroke technique",
+      "variants": [
+        {
+          "id": "boba_stroke_technique_sticks",
+          "default": true,
+          "name": "Two sticks (Gahu)",
+          "descriptors": [
+            "sharp-attack",
+            "projecting",
+            "punchy"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "west-african"
+          ]
+        },
+        {
+          "id": "boba_stroke_technique_bare_hands",
+          "name": "Bare hands (Adzrowo)",
+          "descriptors": [
+            "warm-open-tone",
+            "soft",
+            "blended"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "west-african"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "boba_hide_material",
+      "name": "Shell and hide",
+      "variants": [
+        {
+          "id": "boba_hide_material_antelope_carved",
+          "default": true,
+          "name": "Antelope hide on a single carved log",
+          "descriptors": [
+            "hide",
+            "hollowed-trunk",
+            "deep-voiced"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "membrane",
+            "low-register"
+          ]
+        },
+        {
+          "id": "boba_hide_material_stave_barrel",
+          "name": "Stave-and-hoop cooper's barrel shell",
+          "descriptors": [
+            "woody",
+            "resonant",
+            "durable"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "membrane",
+            "low-register"
+          ]
+        },
+        {
+          "id": "boba_hide_material_goat",
+          "name": "Goat hide (brighter, drier)",
+          "descriptors": [
+            "goat-skin-head",
+            "brighter-crack",
+            "dry"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "membrane"
+          ],
+          "canonical_tags": [
+            "goatskin"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "boba_drum_form",
+      "name": "Size / form",
+      "variants": [
+        {
+          "id": "boba_drum_form_gahu_large",
+          "default": true,
+          "name": "Large Gahu boba leaned on a stand (deep bass master voice)",
+          "descriptors": [
+            "deep-bass",
+            "booming",
+            "commanding"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "dance",
+            "lead"
+          ]
+        },
+        {
+          "id": "boba_drum_form_adzrowo_small",
+          "name": "Smaller Adzrowo boba (higher, quieter, more blended)",
+          "descriptors": [
+            "blended",
+            "quiet",
+            "mid-register"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "dance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "boba_ensemble_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "boba_ensemble_role_gahu_lead",
+          "default": true,
+          "name": "Gahu master drum — sectional cues, breaks and endings",
+          "descriptors": [
+            "lead",
+            "call-and-response",
+            "commanding"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "lead-drum",
+            "call-response"
+          ],
+          "canonical_tags": [
+            "lead",
+            "dance"
+          ]
+        },
+        {
+          "id": "boba_ensemble_role_dance_cueing",
+          "name": "Steering dancers and singers through the piece",
+          "descriptors": [
+            "dance-driving",
+            "antiphonal",
+            "festive"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "lead-drum",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "dance"
+          ]
+        },
+        {
+          "id": "boba_ensemble_role_bass_ostinato",
+          "name": "Supporting bass ostinato under another lead drum",
+          "descriptors": [
+            "foundational",
+            "grounding",
+            "supporting-pulse"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ostinato",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "ostinato"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "boba_stroke_technique",
+      "name": "Stroke technique",
+      "variants": [
+        {
+          "id": "boba_stroke_technique_sticks",
+          "default": true,
+          "name": "Two sticks (Gahu)",
+          "descriptors": [
+            "sharp-attack",
+            "projecting",
+            "punchy"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "west-african"
+          ]
+        },
+        {
+          "id": "boba_stroke_technique_bare_hands",
+          "name": "Bare hands (Adzrowo)",
+          "descriptors": [
+            "warm-open-tone",
+            "soft",
+            "blended"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "west-african"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "boba_hide_material",
+      "name": "Shell and hide",
+      "variants": [
+        {
+          "id": "boba_hide_material_antelope_carved",
+          "default": true,
+          "name": "Antelope hide on a single carved log",
+          "descriptors": [
+            "hide",
+            "hollowed-trunk",
+            "deep-voiced"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "membrane",
+            "low-register"
+          ]
+        },
+        {
+          "id": "boba_hide_material_stave_barrel",
+          "name": "Stave-and-hoop cooper's barrel shell",
+          "descriptors": [
+            "woody",
+            "resonant",
+            "durable"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "membrane",
+            "low-register"
+          ]
+        },
+        {
+          "id": "boba_hide_material_goat",
+          "name": "Goat hide (brighter, drier)",
+          "descriptors": [
+            "goat-skin-head",
+            "brighter-crack",
+            "dry"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "membrane"
+          ],
+          "canonical_tags": [
+            "goatskin"
+          ]
+        }
+      ]
+    }
+  ]
+}

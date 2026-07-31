@@ -1,0 +1,506 @@
+{
+  "id": "keyed_bugle",
+  "name": "Keyed bugle (Royal Kent bugle / clavitube)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "keyed bugle",
+  "parts": [
+    {
+      "id": "keyed_bugle_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "keyed_bugle_american_eb",
+          "default": true,
+          "name": "American E♭ soloist bugle (Boston school — Adams, Graves, E. G. Wright, Sibley)",
+          "descriptors": [
+            "soloistic",
+            "brilliant",
+            "projecting"
+          ],
+          "match_tokens": [
+            "lip-buzzed",
+            "keyed",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "brass-band",
+            "historical"
+          ]
+        },
+        {
+          "id": "keyed_bugle_british_kent",
+          "name": "British / Irish military Royal Kent bugle in C with B♭ crook (Halliday 1810 pattern)",
+          "descriptors": [
+            "valveless",
+            "signal-like",
+            "archaic"
+          ],
+          "match_tokens": [
+            "lip-buzzed",
+            "keyed",
+            "marching"
+          ],
+          "canonical_tags": [
+            "irish",
+            "historical"
+          ]
+        },
+        {
+          "id": "keyed_bugle_clavitube",
+          "name": "Continental clavitube / Klappenhorn (Halary Paris pattern)",
+          "descriptors": [
+            "bright",
+            "singing",
+            "historic"
+          ],
+          "match_tokens": [
+            "lip-buzzed",
+            "keyed",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "french",
+            "paris"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "keyed_bugle_keywork",
+      "name": "Key count / chromatic completeness",
+      "variants": [
+        {
+          "id": "keyed_bugle_twelve_key",
+          "default": true,
+          "name": "Nine to twelve keys (fully chromatic American soloist)",
+          "descriptors": [
+            "chromatic",
+            "even",
+            "veiled"
+          ],
+          "match_tokens": [
+            "keyed",
+            "chromatic"
+          ]
+        },
+        {
+          "id": "keyed_bugle_six_key",
+          "name": "Halliday six-key original (five closed plus one open-standing)",
+          "descriptors": [
+            "diatonic",
+            "brilliant",
+            "archaic"
+          ],
+          "match_tokens": [
+            "keyed",
+            "diatonic"
+          ]
+        },
+        {
+          "id": "keyed_bugle_keys_shut",
+          "name": "Keys held shut — the plain bugle harmonic series only",
+          "descriptors": [
+            "ringing",
+            "signal-like",
+            "cutting"
+          ],
+          "match_tokens": [
+            "keyed",
+            "fanfare"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "keyed_bugle_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "keyed_bugle_theme_variations",
+          "default": true,
+          "name": "Air with florid variations over band (Ned Kendall showpiece)",
+          "descriptors": [
+            "florid",
+            "virtuoso",
+            "ornamental"
+          ],
+          "match_tokens": [
+            "soloistic",
+            "virtuosic",
+            "lip-buzzed"
+          ],
+          "canonical_tags": [
+            "brass-band",
+            "solo"
+          ]
+        },
+        {
+          "id": "keyed_bugle_band_lead",
+          "name": "Melody lead inside a massed brass band (quicksteps, marches, hymn tunes)",
+          "descriptors": [
+            "lead-melody",
+            "projecting",
+            "festive"
+          ],
+          "match_tokens": [
+            "lead-melody",
+            "ensemble",
+            "marching"
+          ],
+          "canonical_tags": [
+            "brass-band",
+            "processional"
+          ]
+        },
+        {
+          "id": "keyed_bugle_field_calls",
+          "name": "Open-harmonic bugle calls and field signals",
+          "descriptors": [
+            "signal-like",
+            "ringing",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "fanfare",
+            "signal",
+            "open-air"
+          ],
+          "canonical_tags": [
+            "ceremonial",
+            "outdoor"
+          ]
+        },
+        {
+          "id": "keyed_bugle_operatic_set",
+          "name": "Operatic arrangement and cotillion set with the town band",
+          "descriptors": [
+            "operatic",
+            "lyrical",
+            "singing"
+          ],
+          "match_tokens": [
+            "melody-lead",
+            "ensemble",
+            "concert"
+          ],
+          "canonical_tags": [
+            "historical",
+            "concert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "keyed_bugle_build",
+      "name": "Material / finish",
+      "variants": [
+        {
+          "id": "keyed_bugle_copper_brass_keys",
+          "default": true,
+          "name": "Copper body with brass keys, mounts and ferrules (working band horn)",
+          "descriptors": [
+            "copper",
+            "warm",
+            "historic"
+          ],
+          "match_tokens": [
+            "keyed",
+            "copper"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        },
+        {
+          "id": "keyed_bugle_german_silver",
+          "name": "All-German-silver body and keywork",
+          "descriptors": [
+            "german-silver",
+            "brighter",
+            "cutting"
+          ],
+          "match_tokens": [
+            "keyed",
+            "brass"
+          ],
+          "canonical_tags": [
+            "historic"
+          ]
+        },
+        {
+          "id": "keyed_bugle_silver_presentation",
+          "name": "Solid-silver or gilt American presentation horn",
+          "descriptors": [
+            "silver",
+            "ringing",
+            "ornate"
+          ],
+          "match_tokens": [
+            "keyed",
+            "soloistic"
+          ],
+          "canonical_tags": [
+            "historical",
+            "solo"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "keyed_bugle_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "keyed_bugle_american_eb",
+          "default": true,
+          "name": "American E♭ soloist bugle (Boston school — Adams, Graves, E. G. Wright, Sibley)",
+          "descriptors": [
+            "soloistic",
+            "brilliant",
+            "projecting"
+          ],
+          "match_tokens": [
+            "lip-buzzed",
+            "keyed",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "brass-band",
+            "historical"
+          ]
+        },
+        {
+          "id": "keyed_bugle_british_kent",
+          "name": "British / Irish military Royal Kent bugle in C with B♭ crook (Halliday 1810 pattern)",
+          "descriptors": [
+            "valveless",
+            "signal-like",
+            "archaic"
+          ],
+          "match_tokens": [
+            "lip-buzzed",
+            "keyed",
+            "marching"
+          ],
+          "canonical_tags": [
+            "irish",
+            "historical"
+          ]
+        },
+        {
+          "id": "keyed_bugle_clavitube",
+          "name": "Continental clavitube / Klappenhorn (Halary Paris pattern)",
+          "descriptors": [
+            "bright",
+            "singing",
+            "historic"
+          ],
+          "match_tokens": [
+            "lip-buzzed",
+            "keyed",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "french",
+            "paris"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "keyed_bugle_keywork",
+      "name": "Key count / chromatic completeness",
+      "variants": [
+        {
+          "id": "keyed_bugle_twelve_key",
+          "default": true,
+          "name": "Nine to twelve keys (fully chromatic American soloist)",
+          "descriptors": [
+            "chromatic",
+            "even",
+            "veiled"
+          ],
+          "match_tokens": [
+            "keyed",
+            "chromatic"
+          ]
+        },
+        {
+          "id": "keyed_bugle_six_key",
+          "name": "Halliday six-key original (five closed plus one open-standing)",
+          "descriptors": [
+            "diatonic",
+            "brilliant",
+            "archaic"
+          ],
+          "match_tokens": [
+            "keyed",
+            "diatonic"
+          ]
+        },
+        {
+          "id": "keyed_bugle_keys_shut",
+          "name": "Keys held shut — the plain bugle harmonic series only",
+          "descriptors": [
+            "ringing",
+            "signal-like",
+            "cutting"
+          ],
+          "match_tokens": [
+            "keyed",
+            "fanfare"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "keyed_bugle_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "keyed_bugle_theme_variations",
+          "default": true,
+          "name": "Air with florid variations over band (Ned Kendall showpiece)",
+          "descriptors": [
+            "florid",
+            "virtuoso",
+            "ornamental"
+          ],
+          "match_tokens": [
+            "soloistic",
+            "virtuosic",
+            "lip-buzzed"
+          ],
+          "canonical_tags": [
+            "brass-band",
+            "solo"
+          ]
+        },
+        {
+          "id": "keyed_bugle_band_lead",
+          "name": "Melody lead inside a massed brass band (quicksteps, marches, hymn tunes)",
+          "descriptors": [
+            "lead-melody",
+            "projecting",
+            "festive"
+          ],
+          "match_tokens": [
+            "lead-melody",
+            "ensemble",
+            "marching"
+          ],
+          "canonical_tags": [
+            "brass-band",
+            "processional"
+          ]
+        },
+        {
+          "id": "keyed_bugle_field_calls",
+          "name": "Open-harmonic bugle calls and field signals",
+          "descriptors": [
+            "signal-like",
+            "ringing",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "fanfare",
+            "signal",
+            "open-air"
+          ],
+          "canonical_tags": [
+            "ceremonial",
+            "outdoor"
+          ]
+        },
+        {
+          "id": "keyed_bugle_operatic_set",
+          "name": "Operatic arrangement and cotillion set with the town band",
+          "descriptors": [
+            "operatic",
+            "lyrical",
+            "singing"
+          ],
+          "match_tokens": [
+            "melody-lead",
+            "ensemble",
+            "concert"
+          ],
+          "canonical_tags": [
+            "historical",
+            "concert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "keyed_bugle_build",
+      "name": "Material / finish",
+      "variants": [
+        {
+          "id": "keyed_bugle_copper_brass_keys",
+          "default": true,
+          "name": "Copper body with brass keys, mounts and ferrules (working band horn)",
+          "descriptors": [
+            "copper",
+            "warm",
+            "historic"
+          ],
+          "match_tokens": [
+            "keyed",
+            "copper"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        },
+        {
+          "id": "keyed_bugle_german_silver",
+          "name": "All-German-silver body and keywork",
+          "descriptors": [
+            "german-silver",
+            "brighter",
+            "cutting"
+          ],
+          "match_tokens": [
+            "keyed",
+            "brass"
+          ],
+          "canonical_tags": [
+            "historic"
+          ]
+        },
+        {
+          "id": "keyed_bugle_silver_presentation",
+          "name": "Solid-silver or gilt American presentation horn",
+          "descriptors": [
+            "silver",
+            "ringing",
+            "ornate"
+          ],
+          "match_tokens": [
+            "keyed",
+            "soloistic"
+          ],
+          "canonical_tags": [
+            "historical",
+            "solo"
+          ]
+        }
+      ]
+    }
+  ]
+}

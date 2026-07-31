@@ -1,0 +1,519 @@
+{
+  "id": "segankuru",
+  "name": "Segankuru (Tswana bowed monochord, a.k.a. segaba / serankure)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "segankuru",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "segankuru_resonator",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "segankuru_resonator_tin",
+          "default": true,
+          "name": "Crushed paraffin tin flattened on the stick end (canonical Botswana build)",
+          "descriptors": [
+            "tin-can",
+            "tinny",
+            "metallic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "african",
+            "traditional"
+          ]
+        },
+        {
+          "id": "segankuru_resonator_mouth",
+          "name": "Mouth-cavity resonance (older bowed-bow practice)",
+          "descriptors": [
+            "overtone-rich",
+            "archaic",
+            "intimate"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "overtone-series"
+          ],
+          "canonical_tags": [
+            "african",
+            "pre-modern"
+          ]
+        },
+        {
+          "id": "segankuru_resonator_box",
+          "name": "Modern wooden box resonator",
+          "descriptors": [
+            "woody",
+            "warm",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "modern",
+            "wood"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "segankuru_string",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "segankuru_string_wire",
+          "default": true,
+          "name": "Twisted wire or bicycle brake cable",
+          "descriptors": [
+            "wire-strung",
+            "cutting",
+            "biting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "metal-string",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "segankuru_string_steel",
+          "name": "Modern steel guitar string",
+          "descriptors": [
+            "steel-strung",
+            "brighter",
+            "ringing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "steel-string"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "segankuru_string_gut",
+          "name": "Gut or sinew (pre-modern)",
+          "descriptors": [
+            "gut-strung",
+            "mellow",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "segankuru_technique",
+      "name": "Pitch technique",
+      "variants": [
+        {
+          "id": "segankuru_technique_finger_stopped",
+          "default": true,
+          "name": "Finger-stopping along the hollowed trough",
+          "descriptors": [
+            "gliding",
+            "expressive",
+            "sliding"
+          ],
+          "match_tokens": [
+            "bowed",
+            "microtonal-bend",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "african"
+          ]
+        },
+        {
+          "id": "segankuru_technique_thumb_tension",
+          "name": "Thumb tension-bending (very wide pitch sweep)",
+          "descriptors": [
+            "pitch-bending",
+            "wide-range",
+            "swooping"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bending",
+            "slide"
+          ],
+          "canonical_tags": [
+            "african"
+          ]
+        },
+        {
+          "id": "segankuru_technique_overtone",
+          "name": "Overtone emphasis, part-strummed and part-bowed",
+          "descriptors": [
+            "overtone-rich",
+            "harmonic-rich",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "bowed",
+            "natural-harmonics",
+            "overtone-series"
+          ],
+          "canonical_tags": [
+            "african"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "segankuru_context",
+      "name": "Repertoire context",
+      "variants": [
+        {
+          "id": "segankuru_context_herding",
+          "default": true,
+          "name": "Lone herdboys' and young men's self-accompanied song",
+          "descriptors": [
+            "lone",
+            "pastoral",
+            "herding"
+          ],
+          "match_tokens": [
+            "bowed",
+            "solo",
+            "vocal-accompaniment"
+          ],
+          "canonical_tags": [
+            "herding",
+            "african"
+          ]
+        },
+        {
+          "id": "segankuru_context_commentary",
+          "name": "Topical and praise commentary song",
+          "descriptors": [
+            "narrative",
+            "declamatory",
+            "conversational"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vocal-accompaniment",
+            "speech-derived"
+          ],
+          "canonical_tags": [
+            "praise-song",
+            "storytelling"
+          ]
+        },
+        {
+          "id": "segankuru_context_setapa",
+          "name": "Setapa / borankana dance and folk-revival stage work",
+          "descriptors": [
+            "danced",
+            "festive",
+            "folk-revival"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "dance",
+            "folkloric-stage"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "segankuru_resonator",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "segankuru_resonator_tin",
+          "default": true,
+          "name": "Crushed paraffin tin flattened on the stick end (canonical Botswana build)",
+          "descriptors": [
+            "tin-can",
+            "tinny",
+            "metallic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "african",
+            "traditional"
+          ]
+        },
+        {
+          "id": "segankuru_resonator_mouth",
+          "name": "Mouth-cavity resonance (older bowed-bow practice)",
+          "descriptors": [
+            "overtone-rich",
+            "archaic",
+            "intimate"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "overtone-series"
+          ],
+          "canonical_tags": [
+            "african",
+            "pre-modern"
+          ]
+        },
+        {
+          "id": "segankuru_resonator_box",
+          "name": "Modern wooden box resonator",
+          "descriptors": [
+            "woody",
+            "warm",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "modern",
+            "wood"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "segankuru_string",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "segankuru_string_wire",
+          "default": true,
+          "name": "Twisted wire or bicycle brake cable",
+          "descriptors": [
+            "wire-strung",
+            "cutting",
+            "biting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "metal-string",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "segankuru_string_steel",
+          "name": "Modern steel guitar string",
+          "descriptors": [
+            "steel-strung",
+            "brighter",
+            "ringing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "steel-string"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "segankuru_string_gut",
+          "name": "Gut or sinew (pre-modern)",
+          "descriptors": [
+            "gut-strung",
+            "mellow",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "segankuru_technique",
+      "name": "Pitch technique",
+      "variants": [
+        {
+          "id": "segankuru_technique_finger_stopped",
+          "default": true,
+          "name": "Finger-stopping along the hollowed trough",
+          "descriptors": [
+            "gliding",
+            "expressive",
+            "sliding"
+          ],
+          "match_tokens": [
+            "bowed",
+            "microtonal-bend",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "african"
+          ]
+        },
+        {
+          "id": "segankuru_technique_thumb_tension",
+          "name": "Thumb tension-bending (very wide pitch sweep)",
+          "descriptors": [
+            "pitch-bending",
+            "wide-range",
+            "swooping"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bending",
+            "slide"
+          ],
+          "canonical_tags": [
+            "african"
+          ]
+        },
+        {
+          "id": "segankuru_technique_overtone",
+          "name": "Overtone emphasis, part-strummed and part-bowed",
+          "descriptors": [
+            "overtone-rich",
+            "harmonic-rich",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "bowed",
+            "natural-harmonics",
+            "overtone-series"
+          ],
+          "canonical_tags": [
+            "african"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "segankuru_context",
+      "name": "Repertoire context",
+      "variants": [
+        {
+          "id": "segankuru_context_herding",
+          "default": true,
+          "name": "Lone herdboys' and young men's self-accompanied song",
+          "descriptors": [
+            "lone",
+            "pastoral",
+            "herding"
+          ],
+          "match_tokens": [
+            "bowed",
+            "solo",
+            "vocal-accompaniment"
+          ],
+          "canonical_tags": [
+            "herding",
+            "african"
+          ]
+        },
+        {
+          "id": "segankuru_context_commentary",
+          "name": "Topical and praise commentary song",
+          "descriptors": [
+            "narrative",
+            "declamatory",
+            "conversational"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vocal-accompaniment",
+            "speech-derived"
+          ],
+          "canonical_tags": [
+            "praise-song",
+            "storytelling"
+          ]
+        },
+        {
+          "id": "segankuru_context_setapa",
+          "name": "Setapa / borankana dance and folk-revival stage work",
+          "descriptors": [
+            "danced",
+            "festive",
+            "folk-revival"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "dance",
+            "folkloric-stage"
+          ]
+        }
+      ]
+    }
+  ]
+}

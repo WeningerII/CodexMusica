@@ -1,0 +1,473 @@
+{
+  "id": "diyin_gehu",
+  "name": "Diyin gehu (Chinese bass gehu)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": -2,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "diyin gehu",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "diyin_gehu_resonating_system",
+      "name": "Resonating system (played standing or from an elevated stool with a double-bass bow)",
+      "variants": [
+        {
+          "id": "diyin_gehu_skin_lever",
+          "default": true,
+          "name": "Skin-and-lever bass gehu (Yang Yusen, c.1956)",
+          "descriptors": [
+            "python-skin",
+            "hide",
+            "hybrid",
+            "deep"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bass-register",
+            "body-resonance-low-mid"
+          ],
+          "canonical_tags": [
+            "chinese-orchestra",
+            "china"
+          ]
+        },
+        {
+          "id": "diyin_gehu_double_bass_substitute",
+          "name": "Western double-bass substitution (mainland orchestral practice)",
+          "descriptors": [
+            "projecting",
+            "stable",
+            "concert-grade"
+          ],
+          "match_tokens": [
+            "bowed",
+            "foundational-bass",
+            "orchestral"
+          ],
+          "canonical_tags": [
+            "modern",
+            "orchestral"
+          ]
+        },
+        {
+          "id": "diyin_gehu_revival",
+          "name": "Hong Kong / Taiwan revival build",
+          "descriptors": [
+            "revival",
+            "contemporary",
+            "blending"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble-blend",
+            "concert"
+          ],
+          "canonical_tags": [
+            "revival",
+            "contemporary"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diyin_gehu_tuning",
+      "name": "Tuning",
+      "variants": [
+        {
+          "id": "diyin_gehu_fourths_standard",
+          "default": true,
+          "name": "E1-A1-D2-G2 in fourths (double-bass tuning, standard)",
+          "descriptors": [
+            "sub-bass",
+            "deep",
+            "foundational"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bass-register",
+            "foundational-bass"
+          ],
+          "canonical_tags": [
+            "chinese-orchestra",
+            "bass"
+          ]
+        },
+        {
+          "id": "diyin_gehu_scordatura_down",
+          "name": "Scordatura down a whole step (darker floor)",
+          "descriptors": [
+            "scordatura",
+            "dark-toned",
+            "deep"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register",
+            "bass-foundation"
+          ],
+          "canonical_tags": [
+            "bass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diyin_gehu_technique",
+      "name": "Bowing / attack",
+      "variants": [
+        {
+          "id": "diyin_gehu_arco_pedal",
+          "default": true,
+          "name": "Sustained arco pedal under the ensemble",
+          "descriptors": [
+            "sustained",
+            "drone-like",
+            "supportive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "foundational-bass"
+          ],
+          "canonical_tags": [
+            "chinese-orchestra",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "diyin_gehu_pizzicato_walking",
+          "name": "Pizzicato walking / plucked foundation",
+          "descriptors": [
+            "walking",
+            "dry",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bass-foundation",
+            "low-register"
+          ]
+        },
+        {
+          "id": "diyin_gehu_octave_below",
+          "name": "Doubling the gehu / cello line an octave below",
+          "descriptors": [
+            "octave-doubled",
+            "bass-heavy",
+            "blending"
+          ],
+          "match_tokens": [
+            "bowed",
+            "doubled",
+            "ensemble-blend"
+          ],
+          "canonical_tags": [
+            "chinese-orchestra"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diyin_gehu_skin_state",
+      "name": "Skin tension / humidity state",
+      "variants": [
+        {
+          "id": "diyin_gehu_skin_taut",
+          "default": true,
+          "name": "Taut and focused (dry, well-conditioned)",
+          "descriptors": [
+            "taut",
+            "focused",
+            "dry"
+          ],
+          "match_tokens": [
+            "bowed",
+            "acoustic-only",
+            "bass-register"
+          ]
+        },
+        {
+          "id": "diyin_gehu_skin_slack",
+          "name": "Slack and buzzing (humid, tension drifted)",
+          "descriptors": [
+            "boomy",
+            "buzzy",
+            "unstable"
+          ],
+          "match_tokens": [
+            "bowed",
+            "buzzy-tone",
+            "body-resonance-low-mid"
+          ]
+        },
+        {
+          "id": "diyin_gehu_skin_synthetic",
+          "name": "Synthetic membrane (humidity-stable)",
+          "descriptors": [
+            "synthetic",
+            "humidity-stable",
+            "consistent"
+          ],
+          "match_tokens": [
+            "bowed",
+            "synthetic",
+            "modern"
+          ],
+          "canonical_tags": [
+            "synthetic",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "diyin_gehu_resonating_system",
+      "name": "Resonating system (played standing or from an elevated stool with a double-bass bow)",
+      "variants": [
+        {
+          "id": "diyin_gehu_skin_lever",
+          "default": true,
+          "name": "Skin-and-lever bass gehu (Yang Yusen, c.1956)",
+          "descriptors": [
+            "python-skin",
+            "hide",
+            "hybrid",
+            "deep"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bass-register",
+            "body-resonance-low-mid"
+          ],
+          "canonical_tags": [
+            "chinese-orchestra",
+            "china"
+          ]
+        },
+        {
+          "id": "diyin_gehu_double_bass_substitute",
+          "name": "Western double-bass substitution (mainland orchestral practice)",
+          "descriptors": [
+            "projecting",
+            "stable",
+            "concert-grade"
+          ],
+          "match_tokens": [
+            "bowed",
+            "foundational-bass",
+            "orchestral"
+          ],
+          "canonical_tags": [
+            "modern",
+            "orchestral"
+          ]
+        },
+        {
+          "id": "diyin_gehu_revival",
+          "name": "Hong Kong / Taiwan revival build",
+          "descriptors": [
+            "revival",
+            "contemporary",
+            "blending"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble-blend",
+            "concert"
+          ],
+          "canonical_tags": [
+            "revival",
+            "contemporary"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diyin_gehu_tuning",
+      "name": "Tuning",
+      "variants": [
+        {
+          "id": "diyin_gehu_fourths_standard",
+          "default": true,
+          "name": "E1-A1-D2-G2 in fourths (double-bass tuning, standard)",
+          "descriptors": [
+            "sub-bass",
+            "deep",
+            "foundational"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bass-register",
+            "foundational-bass"
+          ],
+          "canonical_tags": [
+            "chinese-orchestra",
+            "bass"
+          ]
+        },
+        {
+          "id": "diyin_gehu_scordatura_down",
+          "name": "Scordatura down a whole step (darker floor)",
+          "descriptors": [
+            "scordatura",
+            "dark-toned",
+            "deep"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register",
+            "bass-foundation"
+          ],
+          "canonical_tags": [
+            "bass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diyin_gehu_technique",
+      "name": "Bowing / attack",
+      "variants": [
+        {
+          "id": "diyin_gehu_arco_pedal",
+          "default": true,
+          "name": "Sustained arco pedal under the ensemble",
+          "descriptors": [
+            "sustained",
+            "drone-like",
+            "supportive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "foundational-bass"
+          ],
+          "canonical_tags": [
+            "chinese-orchestra",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "diyin_gehu_pizzicato_walking",
+          "name": "Pizzicato walking / plucked foundation",
+          "descriptors": [
+            "walking",
+            "dry",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bass-foundation",
+            "low-register"
+          ]
+        },
+        {
+          "id": "diyin_gehu_octave_below",
+          "name": "Doubling the gehu / cello line an octave below",
+          "descriptors": [
+            "octave-doubled",
+            "bass-heavy",
+            "blending"
+          ],
+          "match_tokens": [
+            "bowed",
+            "doubled",
+            "ensemble-blend"
+          ],
+          "canonical_tags": [
+            "chinese-orchestra"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diyin_gehu_skin_state",
+      "name": "Skin tension / humidity state",
+      "variants": [
+        {
+          "id": "diyin_gehu_skin_taut",
+          "default": true,
+          "name": "Taut and focused (dry, well-conditioned)",
+          "descriptors": [
+            "taut",
+            "focused",
+            "dry"
+          ],
+          "match_tokens": [
+            "bowed",
+            "acoustic-only",
+            "bass-register"
+          ]
+        },
+        {
+          "id": "diyin_gehu_skin_slack",
+          "name": "Slack and buzzing (humid, tension drifted)",
+          "descriptors": [
+            "boomy",
+            "buzzy",
+            "unstable"
+          ],
+          "match_tokens": [
+            "bowed",
+            "buzzy-tone",
+            "body-resonance-low-mid"
+          ]
+        },
+        {
+          "id": "diyin_gehu_skin_synthetic",
+          "name": "Synthetic membrane (humidity-stable)",
+          "descriptors": [
+            "synthetic",
+            "humidity-stable",
+            "consistent"
+          ],
+          "match_tokens": [
+            "bowed",
+            "synthetic",
+            "modern"
+          ],
+          "canonical_tags": [
+            "synthetic",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,379 @@
+{
+  "id": "byzantine_lyra",
+  "name": "Byzantine lyra (medieval bowed lyra, reconstructed)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "byzantine lyra",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "byzantine_lyra_form",
+      "name": "Body outline / string count",
+      "variants": [
+        {
+          "id": "byzantine_lyra_pear_three",
+          "default": true,
+          "name": "Pear-shaped three-string (Bargello ivory type)",
+          "descriptors": [
+            "archaic",
+            "pear-shaped",
+            "nasal",
+            "foundational"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "nasal-tone"
+          ],
+          "canonical_tags": [
+            "byzantine",
+            "three-string"
+          ]
+        },
+        {
+          "id": "byzantine_lyra_oval_two",
+          "name": "Oval two-string (earlier iconographic type)",
+          "descriptors": [
+            "archaic",
+            "raw",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "byzantine",
+            "two-string"
+          ]
+        },
+        {
+          "id": "byzantine_lyra_elongated_three",
+          "name": "Elongated oval three-string (rebec-precursor form)",
+          "descriptors": [
+            "bright",
+            "focused",
+            "historical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "byzantine",
+            "historical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "byzantine_lyra_idiom",
+      "name": "Idiom / repertoire",
+      "variants": [
+        {
+          "id": "byzantine_lyra_drone_modal",
+          "default": true,
+          "name": "Drone-and-melody modal accompaniment",
+          "descriptors": [
+            "droning",
+            "modal",
+            "song-accompaniment"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "byzantine",
+            "greek"
+          ]
+        },
+        {
+          "id": "byzantine_lyra_free_solo",
+          "name": "Free unmetered solo prelude",
+          "descriptors": [
+            "rubato",
+            "soloistic",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented",
+            "expressive"
+          ],
+          "canonical_tags": [
+            "byzantine",
+            "solo"
+          ]
+        },
+        {
+          "id": "byzantine_lyra_dance",
+          "name": "Dance-tune playing (court and village)",
+          "descriptors": [
+            "driving",
+            "festive",
+            "communal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "byzantine",
+            "dance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "byzantine_lyra_build",
+      "name": "Reconstruction stance",
+      "variants": [
+        {
+          "id": "byzantine_lyra_plain_gut",
+          "default": true,
+          "name": "Archaic reconstruction — plain gut, short arched bow",
+          "descriptors": [
+            "plain-gut",
+            "archaic",
+            "woody"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "gut-strings"
+          ],
+          "canonical_tags": [
+            "historical-gut",
+            "byzantine"
+          ]
+        },
+        {
+          "id": "byzantine_lyra_modern_hybrid",
+          "name": "Modern revival build — wound strings, modern bow",
+          "descriptors": [
+            "contemporary",
+            "projecting",
+            "preservationist"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bright-tone",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "revival",
+            "concert"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "byzantine_lyra_form",
+      "name": "Body outline / string count",
+      "variants": [
+        {
+          "id": "byzantine_lyra_pear_three",
+          "default": true,
+          "name": "Pear-shaped three-string (Bargello ivory type)",
+          "descriptors": [
+            "archaic",
+            "pear-shaped",
+            "nasal",
+            "foundational"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "nasal-tone"
+          ],
+          "canonical_tags": [
+            "byzantine",
+            "three-string"
+          ]
+        },
+        {
+          "id": "byzantine_lyra_oval_two",
+          "name": "Oval two-string (earlier iconographic type)",
+          "descriptors": [
+            "archaic",
+            "raw",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "byzantine",
+            "two-string"
+          ]
+        },
+        {
+          "id": "byzantine_lyra_elongated_three",
+          "name": "Elongated oval three-string (rebec-precursor form)",
+          "descriptors": [
+            "bright",
+            "focused",
+            "historical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "byzantine",
+            "historical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "byzantine_lyra_idiom",
+      "name": "Idiom / repertoire",
+      "variants": [
+        {
+          "id": "byzantine_lyra_drone_modal",
+          "default": true,
+          "name": "Drone-and-melody modal accompaniment",
+          "descriptors": [
+            "droning",
+            "modal",
+            "song-accompaniment"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "byzantine",
+            "greek"
+          ]
+        },
+        {
+          "id": "byzantine_lyra_free_solo",
+          "name": "Free unmetered solo prelude",
+          "descriptors": [
+            "rubato",
+            "soloistic",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented",
+            "expressive"
+          ],
+          "canonical_tags": [
+            "byzantine",
+            "solo"
+          ]
+        },
+        {
+          "id": "byzantine_lyra_dance",
+          "name": "Dance-tune playing (court and village)",
+          "descriptors": [
+            "driving",
+            "festive",
+            "communal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "byzantine",
+            "dance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "byzantine_lyra_build",
+      "name": "Reconstruction stance",
+      "variants": [
+        {
+          "id": "byzantine_lyra_plain_gut",
+          "default": true,
+          "name": "Archaic reconstruction — plain gut, short arched bow",
+          "descriptors": [
+            "plain-gut",
+            "archaic",
+            "woody"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "gut-strings"
+          ],
+          "canonical_tags": [
+            "historical-gut",
+            "byzantine"
+          ]
+        },
+        {
+          "id": "byzantine_lyra_modern_hybrid",
+          "name": "Modern revival build — wound strings, modern bow",
+          "descriptors": [
+            "contemporary",
+            "projecting",
+            "preservationist"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bright-tone",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "revival",
+            "concert"
+          ]
+        }
+      ]
+    }
+  ]
+}

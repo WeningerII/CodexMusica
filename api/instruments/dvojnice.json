@@ -1,0 +1,516 @@
+{
+  "id": "dvojnice",
+  "name": "Dvojnice (Balkan double duct flute)",
+  "family": "wind",
+  "class": "duct_flute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 1,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "dvojnice",
+  "parts": [
+    {
+      "id": "dvojnice_bore_relationship",
+      "name": "Bore relationship / two-part texture",
+      "variants": [
+        {
+          "id": "dvojnice_parallel_thirds",
+          "default": true,
+          "name": "Parallel thirds (left bore do-re-mi, right bore do-re-mi-fa-sol)",
+          "descriptors": [
+            "parallel-thirds-two-voice",
+            "harmonized",
+            "rustic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "twin-pipe",
+            "close-harmony"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "serbian"
+          ]
+        },
+        {
+          "id": "dvojnice_melody_over_drone",
+          "name": "Melody over a held drone (one pipe sustained)",
+          "descriptors": [
+            "drone-under-melody",
+            "droning",
+            "sustained"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "drone-foundation",
+            "twin-pipe"
+          ],
+          "canonical_tags": [
+            "balkan"
+          ]
+        },
+        {
+          "id": "dvojnice_unison_beating",
+          "name": "Both bores in near-unison (beating, thickened single line)",
+          "descriptors": [
+            "unison-doubled",
+            "beating",
+            "thick-tone"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "unison-doubled",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "balkan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dvojnice_hole_layout",
+      "name": "Hole distribution / regional form",
+      "variants": [
+        {
+          "id": "dvojnice_symmetric_three_four",
+          "default": true,
+          "name": "Symmetric 3+4 (three left-hand, four right-hand holes)",
+          "descriptors": [
+            "standard",
+            "rustic",
+            "woody"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "folk"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "serbian"
+          ]
+        },
+        {
+          "id": "dvojnice_drone_pipe",
+          "name": "Drone pipe with only one or two holes",
+          "descriptors": [
+            "drone-only",
+            "archaic",
+            "restricted-compass"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "balkan"
+          ]
+        },
+        {
+          "id": "dvojnice_dvojanka",
+          "name": "Dvojanka / slagarka (Macedonian and Slovak cognate forms)",
+          "descriptors": [
+            "reedy",
+            "bright",
+            "regional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "macedonian-tradition"
+          ],
+          "canonical_tags": [
+            "macedonian",
+            "balkan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dvojnice_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "dvojnice_shepherd_solo",
+          "default": true,
+          "name": "Solo shepherd playing while herding",
+          "descriptors": [
+            "pastoral",
+            "unaccompanied",
+            "plain"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "solo",
+            "outdoor-field"
+          ],
+          "canonical_tags": [
+            "shepherd",
+            "pastoral",
+            "balkan"
+          ]
+        },
+        {
+          "id": "dvojnice_ganga_doubling",
+          "name": "Doubling a two-part vocal line (ganga / ojkanje)",
+          "descriptors": [
+            "vocal-blend",
+            "harmonized",
+            "strident"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "vocal-imitating",
+            "croatian-istrian-tradition",
+            "close-harmony"
+          ],
+          "canonical_tags": [
+            "balkan"
+          ]
+        },
+        {
+          "id": "dvojnice_dance_kolo",
+          "name": "Village dance tunes (kolo)",
+          "descriptors": [
+            "dance-driving",
+            "lively",
+            "festive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "dance-driving",
+            "duct-flute"
+          ],
+          "canonical_tags": [
+            "kolo",
+            "dance",
+            "serbian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dvojnice_body",
+      "name": "Block and decoration",
+      "variants": [
+        {
+          "id": "dvojnice_body_maple_carved",
+          "default": true,
+          "name": "Single maple block, chip-carved decoration (canonical)",
+          "descriptors": [
+            "maple-carved-canonical-balkan",
+            "warm",
+            "traditional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "wooden",
+            "maple"
+          ],
+          "canonical_tags": [
+            "wood-body",
+            "traditional",
+            "balkan"
+          ]
+        },
+        {
+          "id": "dvojnice_body_plum_plain",
+          "name": "Plain undecorated plum or pear block (Bosnian pastoral)",
+          "descriptors": [
+            "dark",
+            "plain",
+            "rustic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "wooden",
+            "hardwood"
+          ],
+          "canonical_tags": [
+            "wood-body"
+          ]
+        },
+        {
+          "id": "dvojnice_body_dalmatian_ornate",
+          "name": "Elaborately carved and inlaid Dalmatian / Croatian build",
+          "descriptors": [
+            "carved-wood",
+            "bright",
+            "ornamental"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "wooden",
+            "duct-flute"
+          ],
+          "canonical_tags": [
+            "wood-body",
+            "balkan"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dvojnice_bore_relationship",
+      "name": "Bore relationship / two-part texture",
+      "variants": [
+        {
+          "id": "dvojnice_parallel_thirds",
+          "default": true,
+          "name": "Parallel thirds (left bore do-re-mi, right bore do-re-mi-fa-sol)",
+          "descriptors": [
+            "parallel-thirds-two-voice",
+            "harmonized",
+            "rustic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "twin-pipe",
+            "close-harmony"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "serbian"
+          ]
+        },
+        {
+          "id": "dvojnice_melody_over_drone",
+          "name": "Melody over a held drone (one pipe sustained)",
+          "descriptors": [
+            "drone-under-melody",
+            "droning",
+            "sustained"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "drone-foundation",
+            "twin-pipe"
+          ],
+          "canonical_tags": [
+            "balkan"
+          ]
+        },
+        {
+          "id": "dvojnice_unison_beating",
+          "name": "Both bores in near-unison (beating, thickened single line)",
+          "descriptors": [
+            "unison-doubled",
+            "beating",
+            "thick-tone"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "unison-doubled",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "balkan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dvojnice_hole_layout",
+      "name": "Hole distribution / regional form",
+      "variants": [
+        {
+          "id": "dvojnice_symmetric_three_four",
+          "default": true,
+          "name": "Symmetric 3+4 (three left-hand, four right-hand holes)",
+          "descriptors": [
+            "standard",
+            "rustic",
+            "woody"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "folk"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "serbian"
+          ]
+        },
+        {
+          "id": "dvojnice_drone_pipe",
+          "name": "Drone pipe with only one or two holes",
+          "descriptors": [
+            "drone-only",
+            "archaic",
+            "restricted-compass"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "balkan"
+          ]
+        },
+        {
+          "id": "dvojnice_dvojanka",
+          "name": "Dvojanka / slagarka (Macedonian and Slovak cognate forms)",
+          "descriptors": [
+            "reedy",
+            "bright",
+            "regional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "macedonian-tradition"
+          ],
+          "canonical_tags": [
+            "macedonian",
+            "balkan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dvojnice_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "dvojnice_shepherd_solo",
+          "default": true,
+          "name": "Solo shepherd playing while herding",
+          "descriptors": [
+            "pastoral",
+            "unaccompanied",
+            "plain"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "solo",
+            "outdoor-field"
+          ],
+          "canonical_tags": [
+            "shepherd",
+            "pastoral",
+            "balkan"
+          ]
+        },
+        {
+          "id": "dvojnice_ganga_doubling",
+          "name": "Doubling a two-part vocal line (ganga / ojkanje)",
+          "descriptors": [
+            "vocal-blend",
+            "harmonized",
+            "strident"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "vocal-imitating",
+            "croatian-istrian-tradition",
+            "close-harmony"
+          ],
+          "canonical_tags": [
+            "balkan"
+          ]
+        },
+        {
+          "id": "dvojnice_dance_kolo",
+          "name": "Village dance tunes (kolo)",
+          "descriptors": [
+            "dance-driving",
+            "lively",
+            "festive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "dance-driving",
+            "duct-flute"
+          ],
+          "canonical_tags": [
+            "kolo",
+            "dance",
+            "serbian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dvojnice_body",
+      "name": "Block and decoration",
+      "variants": [
+        {
+          "id": "dvojnice_body_maple_carved",
+          "default": true,
+          "name": "Single maple block, chip-carved decoration (canonical)",
+          "descriptors": [
+            "maple-carved-canonical-balkan",
+            "warm",
+            "traditional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "wooden",
+            "maple"
+          ],
+          "canonical_tags": [
+            "wood-body",
+            "traditional",
+            "balkan"
+          ]
+        },
+        {
+          "id": "dvojnice_body_plum_plain",
+          "name": "Plain undecorated plum or pear block (Bosnian pastoral)",
+          "descriptors": [
+            "dark",
+            "plain",
+            "rustic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "wooden",
+            "hardwood"
+          ],
+          "canonical_tags": [
+            "wood-body"
+          ]
+        },
+        {
+          "id": "dvojnice_body_dalmatian_ornate",
+          "name": "Elaborately carved and inlaid Dalmatian / Croatian build",
+          "descriptors": [
+            "carved-wood",
+            "bright",
+            "ornamental"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "wooden",
+            "duct-flute"
+          ],
+          "canonical_tags": [
+            "wood-body",
+            "balkan"
+          ]
+        }
+      ]
+    }
+  ]
+}

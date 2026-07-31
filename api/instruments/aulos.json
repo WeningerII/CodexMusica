@@ -1,0 +1,726 @@
+{
+  "id": "aulos",
+  "name": "Aulos (ancient Greek paired double reedpipes)",
+  "family": "wind",
+  "class": "double_reed",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "aulos",
+  "parts": [
+    {
+      "id": "aulos_pipe_relation",
+      "name": "Pipe relationship",
+      "variants": [
+        {
+          "id": "aulos_unison_pair",
+          "default": true,
+          "name": "Unison / near-unison pair (beating heterophony from two reeds)",
+          "descriptors": [
+            "unison-doubled",
+            "paired",
+            "archaic"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "wind-driven",
+            "doubled"
+          ],
+          "canonical_tags": [
+            "greek",
+            "ancient"
+          ]
+        },
+        {
+          "id": "aulos_fourth_apart",
+          "name": "Fourth apart (Louvre aulos pairing)",
+          "descriptors": [
+            "parallel-fourth-fifth-octave-organum",
+            "paired-melody",
+            "archaic"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "wind-driven",
+            "doubled"
+          ],
+          "canonical_tags": [
+            "greek",
+            "high-low-pair"
+          ]
+        },
+        {
+          "id": "aulos_melody_over_drone",
+          "name": "Melody pipe over held drone pipe",
+          "descriptors": [
+            "drone-under-melody",
+            "sustained-drone",
+            "continuous"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "drone-foundation",
+            "drone-like"
+          ],
+          "canonical_tags": [
+            "greek",
+            "drone"
+          ]
+        },
+        {
+          "id": "aulos_parallel_fifths",
+          "name": "Parallel fifths and octaves between pipes",
+          "descriptors": [
+            "fifths-and-octaves",
+            "paired",
+            "projecting"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "wind-driven",
+            "doubled"
+          ],
+          "canonical_tags": [
+            "greek",
+            "ancient"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aulos_build",
+      "name": "Build and materials",
+      "variants": [
+        {
+          "id": "aulos_boxwood_turned",
+          "default": true,
+          "name": "Turned boxwood / sycamore sections (classical Athenian)",
+          "descriptors": [
+            "turned-wood",
+            "mellow",
+            "projecting"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "wind-driven",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "greek",
+            "boxwood"
+          ]
+        },
+        {
+          "id": "aulos_cane_rustic",
+          "name": "Plain river-cane pipes (rustic / pastoral build)",
+          "descriptors": [
+            "cane-piped",
+            "rustic",
+            "archaic"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "rough-tone",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "cane",
+            "pastoral"
+          ]
+        },
+        {
+          "id": "aulos_bone_ivory",
+          "name": "Sectioned bone / ivory pipes (prestige grave-goods build)",
+          "descriptors": [
+            "bone-built",
+            "ivory",
+            "antique"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "bone",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "ancient",
+            "greek"
+          ]
+        },
+        {
+          "id": "aulos_bronze_tibia",
+          "name": "Bronze-sleeved Roman tibia with rotating tone-hole sliders",
+          "descriptors": [
+            "sheet-bronze",
+            "keyed",
+            "ornate"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "bronze",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "ancient",
+            "bronze"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aulos_size",
+      "name": "Size class (Aristoxenian five)",
+      "variants": [
+        {
+          "id": "aulos_teleios",
+          "default": true,
+          "name": "Teleios / Pythic (tenor, the concert size)",
+          "descriptors": [
+            "tenor",
+            "standard",
+            "projecting"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "wind-driven",
+            "tenor-register"
+          ],
+          "canonical_tags": [
+            "greek",
+            "tenor"
+          ]
+        },
+        {
+          "id": "aulos_parthenios",
+          "name": "Parthenios (soprano)",
+          "descriptors": [
+            "high-pitched",
+            "bright",
+            "shrill"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "piercing",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "greek",
+            "soprano"
+          ]
+        },
+        {
+          "id": "aulos_paidikos",
+          "name": "Paidikos (alto)",
+          "descriptors": [
+            "bright",
+            "ensemble-lead",
+            "standard"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "wind-driven",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "greek"
+          ]
+        },
+        {
+          "id": "aulos_kitharisterios",
+          "name": "Kitharistērios (kithara-doubling size)",
+          "descriptors": [
+            "mellow",
+            "ensemble-lead",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "wind-driven",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "greek",
+            "ancient"
+          ]
+        },
+        {
+          "id": "aulos_hyperteleios",
+          "name": "Hyperteleios (bass)",
+          "descriptors": [
+            "deep",
+            "dark",
+            "low-register"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "low-register",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "greek",
+            "bass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aulos_context",
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "aulos_theatre_chorus",
+          "default": true,
+          "name": "Tragic / comic theatre chorus (phorbeiá strapped, circular-breathed)",
+          "descriptors": [
+            "theatrical",
+            "ceremonial",
+            "projecting"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "loud-projection",
+            "circular-breathing"
+          ],
+          "canonical_tags": [
+            "greek",
+            "ancient"
+          ]
+        },
+        {
+          "id": "aulos_symposium",
+          "name": "Symposium aulētris (hired pipe-girl, indoor and intimate)",
+          "descriptors": [
+            "intimate",
+            "ornamented",
+            "ecstatic"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "ornamented",
+            "expressive"
+          ],
+          "canonical_tags": [
+            "greek",
+            "solo"
+          ]
+        },
+        {
+          "id": "aulos_nomos_pythikos",
+          "name": "Nomos Pythikos (solo auletic competition piece)",
+          "descriptors": [
+            "virtuoso-solo",
+            "concert",
+            "ornate"
+          ],
+          "match_tokens": [
+            "soloistic",
+            "reed-driven",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "greek",
+            "solo"
+          ]
+        },
+        {
+          "id": "aulos_threnos",
+          "name": "Funeral thrēnos / lament",
+          "descriptors": [
+            "funeral",
+            "lament-wail",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "funeral",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "greek",
+            "context:funeral-ritual"
+          ]
+        },
+        {
+          "id": "aulos_embaterion",
+          "name": "Sacrifice, procession and Spartan battle-march",
+          "descriptors": [
+            "processional",
+            "marching",
+            "military-tight"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "processional",
+            "marching"
+          ],
+          "canonical_tags": [
+            "greek",
+            "procession",
+            "marching"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "aulos_pipe_relation",
+      "name": "Pipe relationship",
+      "variants": [
+        {
+          "id": "aulos_unison_pair",
+          "default": true,
+          "name": "Unison / near-unison pair (beating heterophony from two reeds)",
+          "descriptors": [
+            "unison-doubled",
+            "paired",
+            "archaic"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "wind-driven",
+            "doubled"
+          ],
+          "canonical_tags": [
+            "greek",
+            "ancient"
+          ]
+        },
+        {
+          "id": "aulos_fourth_apart",
+          "name": "Fourth apart (Louvre aulos pairing)",
+          "descriptors": [
+            "parallel-fourth-fifth-octave-organum",
+            "paired-melody",
+            "archaic"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "wind-driven",
+            "doubled"
+          ],
+          "canonical_tags": [
+            "greek",
+            "high-low-pair"
+          ]
+        },
+        {
+          "id": "aulos_melody_over_drone",
+          "name": "Melody pipe over held drone pipe",
+          "descriptors": [
+            "drone-under-melody",
+            "sustained-drone",
+            "continuous"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "drone-foundation",
+            "drone-like"
+          ],
+          "canonical_tags": [
+            "greek",
+            "drone"
+          ]
+        },
+        {
+          "id": "aulos_parallel_fifths",
+          "name": "Parallel fifths and octaves between pipes",
+          "descriptors": [
+            "fifths-and-octaves",
+            "paired",
+            "projecting"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "wind-driven",
+            "doubled"
+          ],
+          "canonical_tags": [
+            "greek",
+            "ancient"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aulos_build",
+      "name": "Build and materials",
+      "variants": [
+        {
+          "id": "aulos_boxwood_turned",
+          "default": true,
+          "name": "Turned boxwood / sycamore sections (classical Athenian)",
+          "descriptors": [
+            "turned-wood",
+            "mellow",
+            "projecting"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "wind-driven",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "greek",
+            "boxwood"
+          ]
+        },
+        {
+          "id": "aulos_cane_rustic",
+          "name": "Plain river-cane pipes (rustic / pastoral build)",
+          "descriptors": [
+            "cane-piped",
+            "rustic",
+            "archaic"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "rough-tone",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "cane",
+            "pastoral"
+          ]
+        },
+        {
+          "id": "aulos_bone_ivory",
+          "name": "Sectioned bone / ivory pipes (prestige grave-goods build)",
+          "descriptors": [
+            "bone-built",
+            "ivory",
+            "antique"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "bone",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "ancient",
+            "greek"
+          ]
+        },
+        {
+          "id": "aulos_bronze_tibia",
+          "name": "Bronze-sleeved Roman tibia with rotating tone-hole sliders",
+          "descriptors": [
+            "sheet-bronze",
+            "keyed",
+            "ornate"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "bronze",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "ancient",
+            "bronze"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aulos_size",
+      "name": "Size class (Aristoxenian five)",
+      "variants": [
+        {
+          "id": "aulos_teleios",
+          "default": true,
+          "name": "Teleios / Pythic (tenor, the concert size)",
+          "descriptors": [
+            "tenor",
+            "standard",
+            "projecting"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "wind-driven",
+            "tenor-register"
+          ],
+          "canonical_tags": [
+            "greek",
+            "tenor"
+          ]
+        },
+        {
+          "id": "aulos_parthenios",
+          "name": "Parthenios (soprano)",
+          "descriptors": [
+            "high-pitched",
+            "bright",
+            "shrill"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "piercing",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "greek",
+            "soprano"
+          ]
+        },
+        {
+          "id": "aulos_paidikos",
+          "name": "Paidikos (alto)",
+          "descriptors": [
+            "bright",
+            "ensemble-lead",
+            "standard"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "wind-driven",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "greek"
+          ]
+        },
+        {
+          "id": "aulos_kitharisterios",
+          "name": "Kitharistērios (kithara-doubling size)",
+          "descriptors": [
+            "mellow",
+            "ensemble-lead",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "wind-driven",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "greek",
+            "ancient"
+          ]
+        },
+        {
+          "id": "aulos_hyperteleios",
+          "name": "Hyperteleios (bass)",
+          "descriptors": [
+            "deep",
+            "dark",
+            "low-register"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "low-register",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "greek",
+            "bass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aulos_context",
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "aulos_theatre_chorus",
+          "default": true,
+          "name": "Tragic / comic theatre chorus (phorbeiá strapped, circular-breathed)",
+          "descriptors": [
+            "theatrical",
+            "ceremonial",
+            "projecting"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "loud-projection",
+            "circular-breathing"
+          ],
+          "canonical_tags": [
+            "greek",
+            "ancient"
+          ]
+        },
+        {
+          "id": "aulos_symposium",
+          "name": "Symposium aulētris (hired pipe-girl, indoor and intimate)",
+          "descriptors": [
+            "intimate",
+            "ornamented",
+            "ecstatic"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "ornamented",
+            "expressive"
+          ],
+          "canonical_tags": [
+            "greek",
+            "solo"
+          ]
+        },
+        {
+          "id": "aulos_nomos_pythikos",
+          "name": "Nomos Pythikos (solo auletic competition piece)",
+          "descriptors": [
+            "virtuoso-solo",
+            "concert",
+            "ornate"
+          ],
+          "match_tokens": [
+            "soloistic",
+            "reed-driven",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "greek",
+            "solo"
+          ]
+        },
+        {
+          "id": "aulos_threnos",
+          "name": "Funeral thrēnos / lament",
+          "descriptors": [
+            "funeral",
+            "lament-wail",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "funeral",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "greek",
+            "context:funeral-ritual"
+          ]
+        },
+        {
+          "id": "aulos_embaterion",
+          "name": "Sacrifice, procession and Spartan battle-march",
+          "descriptors": [
+            "processional",
+            "marching",
+            "military-tight"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "processional",
+            "marching"
+          ],
+          "canonical_tags": [
+            "greek",
+            "procession",
+            "marching"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "name": "Codex Musica — all recipes",
   "description": "Every tradition with its compressed recording recipe, in one file. For full structured arrangements per tradition, fetch traditions/{id}.json.",
-  "generated": "2026-07-25",
+  "generated": "2026-07-31",
   "count": 1167,
   "items": [
     {
@@ -4124,8 +4124,8 @@
       "id": "nepali_lok",
       "name": "Nepali lok (folk-popular song)",
       "family": "global",
-      "recipe": "classic South Asian early-1950s nepali lok, functional Song, south Asian pop branch, west African groove percussion indonesian jaipongan fújì. thick, breath veiled tone, straight note core, interlocked note trading. dholak, dark folk clay tabla, kerala bamboo alternative south indian maihar gharana canonical 20th century melodic bansuri, gut 3 main playing strings teak modern alternative microtonal sarangi. kolkata dum dum EMI hmv 1928-present major-flagship kolkata hmv dum dum studio. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
-      "recipe_chars": 557
+      "recipe": "classic South Asian early-1950s nepali lok, functional Song, south Asian pop branch, west African groove percussion indonesian jaipongan fújì. thick, breath veiled tone, straight note core, interlocked note trading. dance driving slung madal, dholak, dark folk clay tabla, kerala bamboo alternative south indian maihar gharana canonical 20th century melodic bansuri, gut 3 main playing strings teak modern alternative microtonal sarangi. kolkata dum dum EMI hmv 1928-present major-flagship kolkata hmv dum dum studio. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+      "recipe_chars": 584
     },
     {
       "id": "huangmei_opera_chinese",
@@ -6805,8 +6805,8 @@
       "id": "akan_kete_royal_praise",
       "name": "Akan-Asante kete royal praise music",
       "family": "global",
-      "recipe": "classic West African modern akan-asante kete royal praise music, praise Song, sub saharan African branch, African diasporic wedding, west African groove percussion, indigenous ritual devotional yoruba aso ebi wedding music yoruba dùndún surrogate speech. thick, breath veiled tone, straight note core, interlocked note trading. iroko alternative west African goat skin leather tension cords canonical pressure bend talking drum, iroko west African premium cowhide rope lacing canonical mande dunun, court praise song self accompanied nylon strung seperewa. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 700
+      "recipe": "classic West African modern akan-asante kete royal praise music, praise Song, sub saharan African branch, African diasporic wedding, west African groove percussion, indigenous ritual devotional yoruba aso ebi wedding music yoruba dùndún surrogate speech. thick, breath veiled tone, straight note core, interlocked note trading. free rhythm narrow hardwood shell atumpan, iroko alternative west African goat skin leather tension cords canonical pressure bend talking drum, iroko west African premium cowhide rope lacing canonical mande dunun, court praise song self accompanied nylon strung seperewa. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 743
     },
     {
       "id": "shona_mbira_praise",

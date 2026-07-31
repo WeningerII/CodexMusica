@@ -1,0 +1,481 @@
+{
+  "id": "yehu",
+  "name": "Yehu (Cantonese coconut-shell fiddle)",
+  "family": "bowed",
+  "class": "bowed_fiddle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "yehu",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "yehu_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "yehu_form_cantonese",
+          "default": true,
+          "name": "Large Cantonese yehu (low body voice)",
+          "descriptors": [
+            "hollow",
+            "dark",
+            "full-bodied",
+            "woody"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register",
+            "mellow-tone"
+          ],
+          "canonical_tags": [
+            "cantonese",
+            "guangdong"
+          ]
+        },
+        {
+          "id": "yehu_form_boxian",
+          "name": "Chaozhou boxian (smaller, higher-tuned)",
+          "descriptors": [
+            "dry",
+            "nasal",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "mid-register",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "china",
+            "folk"
+          ]
+        },
+        {
+          "id": "yehu_form_kezaixian",
+          "name": "Minnan / Taiwanese kezaixian (gezaixi opera)",
+          "descriptors": [
+            "operatic",
+            "voice-following",
+            "earthy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "accompaniment",
+            "chinese-traditional"
+          ],
+          "canonical_tags": [
+            "opera",
+            "diaspora"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yehu_setting",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "yehu_setting_wujiatou",
+          "default": true,
+          "name": "Soft-bow five-piece inner voice, an octave under the gaohu",
+          "descriptors": [
+            "inner-voice",
+            "blended",
+            "supporting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "guangdong",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "yehu_setting_xianshi",
+          "name": "Chaozhou xianshi string ensemble",
+          "descriptors": [
+            "chamber",
+            "interlocking",
+            "refined"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "china",
+            "traditional"
+          ]
+        },
+        {
+          "id": "yehu_setting_vocal",
+          "name": "Exposed backing to solo zheng or voice",
+          "descriptors": [
+            "vocal-accompaniment",
+            "intimate",
+            "flowing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vocal-accompaniment",
+            "soft-tone"
+          ],
+          "canonical_tags": [
+            "accompaniment"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yehu_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "yehu_strings_silk",
+          "default": true,
+          "name": "Silk strings (traditionalist, hollow and breathy)",
+          "descriptors": [
+            "silk",
+            "hollow",
+            "breathy",
+            "soft"
+          ],
+          "match_tokens": [
+            "bowed",
+            "silk-strung",
+            "soft-tone"
+          ],
+          "canonical_tags": [
+            "traditional",
+            "historical"
+          ]
+        },
+        {
+          "id": "yehu_strings_steel",
+          "name": "Steel strings (modern stage)",
+          "descriptors": [
+            "steel",
+            "brighter",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "steel-string",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yehu_tuning",
+      "name": "Tuning",
+      "variants": [
+        {
+          "id": "yehu_tuning_g_d",
+          "default": true,
+          "name": "g-d1 (Cantonese low setting)",
+          "descriptors": [
+            "deep",
+            "dark"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "cantonese"
+          ]
+        },
+        {
+          "id": "yehu_tuning_c_g",
+          "name": "c1-g1 (Cantonese upper setting)",
+          "descriptors": [
+            "balanced",
+            "mid-register"
+          ],
+          "match_tokens": [
+            "bowed",
+            "mid-register"
+          ],
+          "canonical_tags": [
+            "guangdong"
+          ]
+        },
+        {
+          "id": "yehu_tuning_a_e",
+          "name": "a-e1 (commonly cited fifth)",
+          "descriptors": [
+            "standard",
+            "singing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "mid-register"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "yehu_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "yehu_form_cantonese",
+          "default": true,
+          "name": "Large Cantonese yehu (low body voice)",
+          "descriptors": [
+            "hollow",
+            "dark",
+            "full-bodied",
+            "woody"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register",
+            "mellow-tone"
+          ],
+          "canonical_tags": [
+            "cantonese",
+            "guangdong"
+          ]
+        },
+        {
+          "id": "yehu_form_boxian",
+          "name": "Chaozhou boxian (smaller, higher-tuned)",
+          "descriptors": [
+            "dry",
+            "nasal",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "mid-register",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "china",
+            "folk"
+          ]
+        },
+        {
+          "id": "yehu_form_kezaixian",
+          "name": "Minnan / Taiwanese kezaixian (gezaixi opera)",
+          "descriptors": [
+            "operatic",
+            "voice-following",
+            "earthy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "accompaniment",
+            "chinese-traditional"
+          ],
+          "canonical_tags": [
+            "opera",
+            "diaspora"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yehu_setting",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "yehu_setting_wujiatou",
+          "default": true,
+          "name": "Soft-bow five-piece inner voice, an octave under the gaohu",
+          "descriptors": [
+            "inner-voice",
+            "blended",
+            "supporting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "guangdong",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "yehu_setting_xianshi",
+          "name": "Chaozhou xianshi string ensemble",
+          "descriptors": [
+            "chamber",
+            "interlocking",
+            "refined"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "china",
+            "traditional"
+          ]
+        },
+        {
+          "id": "yehu_setting_vocal",
+          "name": "Exposed backing to solo zheng or voice",
+          "descriptors": [
+            "vocal-accompaniment",
+            "intimate",
+            "flowing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vocal-accompaniment",
+            "soft-tone"
+          ],
+          "canonical_tags": [
+            "accompaniment"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yehu_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "yehu_strings_silk",
+          "default": true,
+          "name": "Silk strings (traditionalist, hollow and breathy)",
+          "descriptors": [
+            "silk",
+            "hollow",
+            "breathy",
+            "soft"
+          ],
+          "match_tokens": [
+            "bowed",
+            "silk-strung",
+            "soft-tone"
+          ],
+          "canonical_tags": [
+            "traditional",
+            "historical"
+          ]
+        },
+        {
+          "id": "yehu_strings_steel",
+          "name": "Steel strings (modern stage)",
+          "descriptors": [
+            "steel",
+            "brighter",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "steel-string",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yehu_tuning",
+      "name": "Tuning",
+      "variants": [
+        {
+          "id": "yehu_tuning_g_d",
+          "default": true,
+          "name": "g-d1 (Cantonese low setting)",
+          "descriptors": [
+            "deep",
+            "dark"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "cantonese"
+          ]
+        },
+        {
+          "id": "yehu_tuning_c_g",
+          "name": "c1-g1 (Cantonese upper setting)",
+          "descriptors": [
+            "balanced",
+            "mid-register"
+          ],
+          "match_tokens": [
+            "bowed",
+            "mid-register"
+          ],
+          "canonical_tags": [
+            "guangdong"
+          ]
+        },
+        {
+          "id": "yehu_tuning_a_e",
+          "name": "a-e1 (commonly cited fifth)",
+          "descriptors": [
+            "standard",
+            "singing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "mid-register"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        }
+      ]
+    }
+  ]
+}

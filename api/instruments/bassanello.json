@@ -1,0 +1,480 @@
+{
+  "id": "bassanello",
+  "name": "Bassanello (Venetian soft consort double reed)",
+  "family": "wind",
+  "class": "double_reed",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "bassanello",
+  "parts": [
+    {
+      "id": "bassanello_size",
+      "name": "Consort size (Praetorius 1619)",
+      "variants": [
+        {
+          "id": "bassanello_tenor_alt",
+          "default": true,
+          "name": "Tenor / Alt (G to c-prime)",
+          "descriptors": [
+            "tenor",
+            "inner-voice",
+            "consort-core"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "consort"
+          ]
+        },
+        {
+          "id": "bassanello_cant",
+          "name": "Cant (d to g-prime, treble)",
+          "descriptors": [
+            "soprano",
+            "bright",
+            "consort-blend"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "consort"
+          ]
+        },
+        {
+          "id": "bassanello_bass",
+          "name": "Bass (C to e/f)",
+          "descriptors": [
+            "bass",
+            "foundation-bass",
+            "deep"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "low-register",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "consort"
+          ]
+        },
+        {
+          "id": "bassanello_graz_four",
+          "name": "Four-size Graz set (1577-1590 inventory reading)",
+          "descriptors": [
+            "historical",
+            "archaic",
+            "ensemble"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "renaissance",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "historical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bassanello_role",
+      "name": "Consort role",
+      "variants": [
+        {
+          "id": "bassanello_soft_whole_consort",
+          "default": true,
+          "name": "Soft whole consort of bassanelli",
+          "descriptors": [
+            "consort",
+            "soft-blend",
+            "indoor-volume"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "renaissance",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "consort"
+          ]
+        },
+        {
+          "id": "bassanello_broken_consort",
+          "name": "Broken consort doubling voices",
+          "descriptors": [
+            "vocal-doubling",
+            "blended",
+            "polyphonic"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "renaissance",
+            "choir-blendable"
+          ],
+          "canonical_tags": [
+            "renaissance-polyphony",
+            "consort"
+          ]
+        },
+        {
+          "id": "bassanello_hip_reconstruction",
+          "name": "Modern conjectural reconstruction from Praetorius plates (no survivals)",
+          "descriptors": [
+            "reconstruction",
+            "historically-informed",
+            "preservationist"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "period-performance",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "revival",
+            "early-music-caution"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bassanello_bore",
+      "name": "Bore reading (maker interpretation)",
+      "variants": [
+        {
+          "id": "bassanello_narrow_soft",
+          "default": true,
+          "name": "Narrow conical, soft-curtal reading (quiet, veiled)",
+          "descriptors": [
+            "narrow-bore",
+            "soft-toned",
+            "veiled"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "bassanello_wide_shawmlike",
+          "name": "Wider quasi-shawm reading (fuller, more reedy)",
+          "descriptors": [
+            "large-bore",
+            "reedy",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven",
+            "renaissance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bassanello_pitch_standard",
+      "name": "Pitch standard",
+      "variants": [
+        {
+          "id": "bassanello_cammerthon",
+          "default": true,
+          "name": "Praetorius Cammerthon (a fourth below chamber pitch)",
+          "descriptors": [
+            "historically-tuned",
+            "pre-baroque",
+            "archaic"
+          ],
+          "match_tokens": [
+            "renaissance",
+            "period-performance",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "period",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "bassanello_a415",
+          "name": "A=415 modern early-music consort pitch",
+          "descriptors": [
+            "a-415",
+            "historically-tuned"
+          ],
+          "match_tokens": [
+            "period-performance",
+            "renaissance",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "period"
+          ]
+        },
+        {
+          "id": "bassanello_a440",
+          "name": "A=440 modern-pitch practical build",
+          "descriptors": [
+            "a-440",
+            "modern"
+          ],
+          "match_tokens": [
+            "modern",
+            "double-reed",
+            "wind-driven"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "bassanello_size",
+      "name": "Consort size (Praetorius 1619)",
+      "variants": [
+        {
+          "id": "bassanello_tenor_alt",
+          "default": true,
+          "name": "Tenor / Alt (G to c-prime)",
+          "descriptors": [
+            "tenor",
+            "inner-voice",
+            "consort-core"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "consort"
+          ]
+        },
+        {
+          "id": "bassanello_cant",
+          "name": "Cant (d to g-prime, treble)",
+          "descriptors": [
+            "soprano",
+            "bright",
+            "consort-blend"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "consort"
+          ]
+        },
+        {
+          "id": "bassanello_bass",
+          "name": "Bass (C to e/f)",
+          "descriptors": [
+            "bass",
+            "foundation-bass",
+            "deep"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "low-register",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "consort"
+          ]
+        },
+        {
+          "id": "bassanello_graz_four",
+          "name": "Four-size Graz set (1577-1590 inventory reading)",
+          "descriptors": [
+            "historical",
+            "archaic",
+            "ensemble"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "renaissance",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "historical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bassanello_role",
+      "name": "Consort role",
+      "variants": [
+        {
+          "id": "bassanello_soft_whole_consort",
+          "default": true,
+          "name": "Soft whole consort of bassanelli",
+          "descriptors": [
+            "consort",
+            "soft-blend",
+            "indoor-volume"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "renaissance",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "consort"
+          ]
+        },
+        {
+          "id": "bassanello_broken_consort",
+          "name": "Broken consort doubling voices",
+          "descriptors": [
+            "vocal-doubling",
+            "blended",
+            "polyphonic"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "renaissance",
+            "choir-blendable"
+          ],
+          "canonical_tags": [
+            "renaissance-polyphony",
+            "consort"
+          ]
+        },
+        {
+          "id": "bassanello_hip_reconstruction",
+          "name": "Modern conjectural reconstruction from Praetorius plates (no survivals)",
+          "descriptors": [
+            "reconstruction",
+            "historically-informed",
+            "preservationist"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "period-performance",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "revival",
+            "early-music-caution"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bassanello_bore",
+      "name": "Bore reading (maker interpretation)",
+      "variants": [
+        {
+          "id": "bassanello_narrow_soft",
+          "default": true,
+          "name": "Narrow conical, soft-curtal reading (quiet, veiled)",
+          "descriptors": [
+            "narrow-bore",
+            "soft-toned",
+            "veiled"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "bassanello_wide_shawmlike",
+          "name": "Wider quasi-shawm reading (fuller, more reedy)",
+          "descriptors": [
+            "large-bore",
+            "reedy",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven",
+            "renaissance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bassanello_pitch_standard",
+      "name": "Pitch standard",
+      "variants": [
+        {
+          "id": "bassanello_cammerthon",
+          "default": true,
+          "name": "Praetorius Cammerthon (a fourth below chamber pitch)",
+          "descriptors": [
+            "historically-tuned",
+            "pre-baroque",
+            "archaic"
+          ],
+          "match_tokens": [
+            "renaissance",
+            "period-performance",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "period",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "bassanello_a415",
+          "name": "A=415 modern early-music consort pitch",
+          "descriptors": [
+            "a-415",
+            "historically-tuned"
+          ],
+          "match_tokens": [
+            "period-performance",
+            "renaissance",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "period"
+          ]
+        },
+        {
+          "id": "bassanello_a440",
+          "name": "A=440 modern-pitch practical build",
+          "descriptors": [
+            "a-440",
+            "modern"
+          ],
+          "match_tokens": [
+            "modern",
+            "double-reed",
+            "wind-driven"
+          ]
+        }
+      ]
+    }
+  ]
+}

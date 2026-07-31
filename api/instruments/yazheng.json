@@ -1,0 +1,599 @@
+{
+  "id": "yazheng",
+  "name": "Yazheng (Chinese bowed board zither)",
+  "family": "bowed",
+  "class": "zither",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "yazheng",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "yazheng_regional_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "yazheng_northern_yaqin",
+          "default": true,
+          "name": "Northern yaqin 轧琴 (Henan / Shandong / Shanxi / Jilin folk survival)",
+          "descriptors": [
+            "regional",
+            "archaic",
+            "rasping"
+          ],
+          "match_tokens": [
+            "bowed",
+            "zither",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "chinese",
+            "archaic"
+          ]
+        },
+        {
+          "id": "yazheng_wenzhenqin",
+          "name": "Wenzhenqin 文枕琴 of Putian–Xianyou, Fujian (nine strings)",
+          "descriptors": [
+            "distinct-repertoire",
+            "extended-range",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "zither",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "chinese",
+            "traditional"
+          ]
+        },
+        {
+          "id": "yazheng_zhengni",
+          "name": "Zhengni 筝尼 of the Zhuang, Guangxi (seven strings on seven bridges, half-round paulownia body)",
+          "descriptors": [
+            "half-round",
+            "spare",
+            "woody"
+          ],
+          "match_tokens": [
+            "bowed",
+            "zither",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "chinese",
+            "folk"
+          ]
+        },
+        {
+          "id": "yazheng_tang_court",
+          "name": "Tang-dynasty court reconstruction",
+          "descriptors": [
+            "courtly",
+            "reconstructed",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "zither",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "chinese",
+            "historical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yazheng_bow",
+      "name": "Bowing implement",
+      "variants": [
+        {
+          "id": "yazheng_forsythia_rod",
+          "default": true,
+          "name": "Peeled forsythia rod, hardened and pine-rosined",
+          "descriptors": [
+            "raspy",
+            "organic-tone",
+            "dry-attack"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "zither"
+          ],
+          "canonical_tags": [
+            "traditional",
+            "chinese"
+          ]
+        },
+        {
+          "id": "yazheng_bamboo_sorghum_rod",
+          "name": "Bamboo or sorghum-stalk rod (regional substitute)",
+          "descriptors": [
+            "bamboo",
+            "thin",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "chinese",
+            "folk"
+          ]
+        },
+        {
+          "id": "yazheng_horsehair_bow",
+          "name": "Horsehair bow (modern and some regional forms)",
+          "descriptors": [
+            "horsehair",
+            "smoother",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "zither"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yazheng_posture",
+      "name": "Posture / performance context",
+      "variants": [
+        {
+          "id": "yazheng_table_chamber",
+          "default": true,
+          "name": "Laid on a table or across the lap (seated chamber playing)",
+          "descriptors": [
+            "chamber",
+            "intimate",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "zither",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "chinese",
+            "traditional"
+          ]
+        },
+        {
+          "id": "yazheng_held_processional",
+          "name": "Held against the body, standing or walking in procession",
+          "descriptors": [
+            "held",
+            "processional",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "bowed",
+            "processional",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "processional",
+            "chinese"
+          ]
+        },
+        {
+          "id": "yazheng_ritual",
+          "name": "Village ritual and ceremonial use",
+          "descriptors": [
+            "ritual",
+            "ceremonial",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ritual-context",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "ritual",
+            "chinese"
+          ]
+        },
+        {
+          "id": "yazheng_revival_concert",
+          "name": "Heritage-revival concert reconstruction",
+          "descriptors": [
+            "revival-build",
+            "preservationist",
+            "concert"
+          ],
+          "match_tokens": [
+            "bowed",
+            "zither",
+            "soloistic"
+          ],
+          "canonical_tags": [
+            "revival",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yazheng_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "yazheng_silk_historical",
+          "default": true,
+          "name": "Silk over movable bridges (historical canonical)",
+          "descriptors": [
+            "silk-historical",
+            "warm",
+            "reedy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "silk-strung",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical",
+            "chinese"
+          ]
+        },
+        {
+          "id": "yazheng_steel_modern",
+          "name": "Steel / wound metal (modern regional practice)",
+          "descriptors": [
+            "steel-modern-canonical",
+            "bright",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "zither"
+          ],
+          "canonical_tags": [
+            "steel",
+            "modern"
+          ]
+        },
+        {
+          "id": "yazheng_synthetic_modern",
+          "name": "Synthetic (modern alternative)",
+          "descriptors": [
+            "synthetic-modern-alternative",
+            "stable"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "bowed",
+            "zither"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "yazheng_regional_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "yazheng_northern_yaqin",
+          "default": true,
+          "name": "Northern yaqin 轧琴 (Henan / Shandong / Shanxi / Jilin folk survival)",
+          "descriptors": [
+            "regional",
+            "archaic",
+            "rasping"
+          ],
+          "match_tokens": [
+            "bowed",
+            "zither",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "chinese",
+            "archaic"
+          ]
+        },
+        {
+          "id": "yazheng_wenzhenqin",
+          "name": "Wenzhenqin 文枕琴 of Putian–Xianyou, Fujian (nine strings)",
+          "descriptors": [
+            "distinct-repertoire",
+            "extended-range",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "zither",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "chinese",
+            "traditional"
+          ]
+        },
+        {
+          "id": "yazheng_zhengni",
+          "name": "Zhengni 筝尼 of the Zhuang, Guangxi (seven strings on seven bridges, half-round paulownia body)",
+          "descriptors": [
+            "half-round",
+            "spare",
+            "woody"
+          ],
+          "match_tokens": [
+            "bowed",
+            "zither",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "chinese",
+            "folk"
+          ]
+        },
+        {
+          "id": "yazheng_tang_court",
+          "name": "Tang-dynasty court reconstruction",
+          "descriptors": [
+            "courtly",
+            "reconstructed",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "zither",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "chinese",
+            "historical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yazheng_bow",
+      "name": "Bowing implement",
+      "variants": [
+        {
+          "id": "yazheng_forsythia_rod",
+          "default": true,
+          "name": "Peeled forsythia rod, hardened and pine-rosined",
+          "descriptors": [
+            "raspy",
+            "organic-tone",
+            "dry-attack"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "zither"
+          ],
+          "canonical_tags": [
+            "traditional",
+            "chinese"
+          ]
+        },
+        {
+          "id": "yazheng_bamboo_sorghum_rod",
+          "name": "Bamboo or sorghum-stalk rod (regional substitute)",
+          "descriptors": [
+            "bamboo",
+            "thin",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "chinese",
+            "folk"
+          ]
+        },
+        {
+          "id": "yazheng_horsehair_bow",
+          "name": "Horsehair bow (modern and some regional forms)",
+          "descriptors": [
+            "horsehair",
+            "smoother",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "zither"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yazheng_posture",
+      "name": "Posture / performance context",
+      "variants": [
+        {
+          "id": "yazheng_table_chamber",
+          "default": true,
+          "name": "Laid on a table or across the lap (seated chamber playing)",
+          "descriptors": [
+            "chamber",
+            "intimate",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "zither",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "chinese",
+            "traditional"
+          ]
+        },
+        {
+          "id": "yazheng_held_processional",
+          "name": "Held against the body, standing or walking in procession",
+          "descriptors": [
+            "held",
+            "processional",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "bowed",
+            "processional",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "processional",
+            "chinese"
+          ]
+        },
+        {
+          "id": "yazheng_ritual",
+          "name": "Village ritual and ceremonial use",
+          "descriptors": [
+            "ritual",
+            "ceremonial",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ritual-context",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "ritual",
+            "chinese"
+          ]
+        },
+        {
+          "id": "yazheng_revival_concert",
+          "name": "Heritage-revival concert reconstruction",
+          "descriptors": [
+            "revival-build",
+            "preservationist",
+            "concert"
+          ],
+          "match_tokens": [
+            "bowed",
+            "zither",
+            "soloistic"
+          ],
+          "canonical_tags": [
+            "revival",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yazheng_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "yazheng_silk_historical",
+          "default": true,
+          "name": "Silk over movable bridges (historical canonical)",
+          "descriptors": [
+            "silk-historical",
+            "warm",
+            "reedy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "silk-strung",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical",
+            "chinese"
+          ]
+        },
+        {
+          "id": "yazheng_steel_modern",
+          "name": "Steel / wound metal (modern regional practice)",
+          "descriptors": [
+            "steel-modern-canonical",
+            "bright",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "zither"
+          ],
+          "canonical_tags": [
+            "steel",
+            "modern"
+          ]
+        },
+        {
+          "id": "yazheng_synthetic_modern",
+          "name": "Synthetic (modern alternative)",
+          "descriptors": [
+            "synthetic-modern-alternative",
+            "stable"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "bowed",
+            "zither"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,528 @@
+{
+  "id": "shinobue",
+  "name": "Shinobue / takebue (Japanese festival transverse flute)",
+  "family": "wind",
+  "class": "transverse_flute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 2,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "shinobue",
+  "parts": [
+    {
+      "id": "shinobue_family",
+      "name": "Flute family / intonation",
+      "variants": [
+        {
+          "id": "shinobue_family_hayashibue",
+          "default": true,
+          "name": "Hayashi-bue (festival flute, equidistant same-size holes, untempered)",
+          "descriptors": [
+            "festive",
+            "untempered-pitch-drift",
+            "folk"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "folk"
+          ],
+          "canonical_tags": [
+            "matsuri",
+            "japanese"
+          ]
+        },
+        {
+          "id": "shinobue_family_utabue",
+          "name": "Uta-bue (early-Shōwa redesign, Western-comparable intonation)",
+          "descriptors": [
+            "equal-tempered",
+            "melodic",
+            "modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "melodic-lead"
+          ],
+          "canonical_tags": [
+            "japanese",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shinobue_choshi",
+      "name": "Chōshi (pitch number / key)",
+      "variants": [
+        {
+          "id": "shinobue_choshi_hachi_pon",
+          "default": true,
+          "name": "8-pon (bright standard festival key)",
+          "descriptors": [
+            "bright",
+            "standard",
+            "high-pitched"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "very-high"
+          ],
+          "canonical_tags": [
+            "matsuri",
+            "japanese"
+          ]
+        },
+        {
+          "id": "shinobue_choshi_roku_pon",
+          "name": "6-pon (mid, common with shamisen)",
+          "descriptors": [
+            "balanced",
+            "versatile",
+            "melodic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "japanese"
+          ]
+        },
+        {
+          "id": "shinobue_choshi_san_pon",
+          "name": "3-pon (long, low and mellow)",
+          "descriptors": [
+            "mellow",
+            "deep",
+            "warm"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "lower-register"
+          ],
+          "canonical_tags": [
+            "japanese"
+          ]
+        },
+        {
+          "id": "shinobue_choshi_juni_pon",
+          "name": "12-pon (shortest, shrillest)",
+          "descriptors": [
+            "shrill",
+            "piercing",
+            "tiny"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "piercing",
+            "very-high"
+          ],
+          "canonical_tags": [
+            "japanese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shinobue_context",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "shinobue_context_matsuri",
+          "default": true,
+          "name": "Matsuri-bayashi melody over taiko",
+          "descriptors": [
+            "festive",
+            "outdoor",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk",
+            "dance"
+          ],
+          "canonical_tags": [
+            "matsuri",
+            "japanese"
+          ]
+        },
+        {
+          "id": "shinobue_context_shishimai",
+          "name": "Shishimai lion dance / kagura ritual",
+          "descriptors": [
+            "ritual",
+            "ceremonial",
+            "narrative"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ritual-context",
+            "folk"
+          ],
+          "canonical_tags": [
+            "japanese",
+            "ritual"
+          ]
+        },
+        {
+          "id": "shinobue_context_minyo",
+          "name": "Min'yō song accompaniment with shamisen and koto",
+          "descriptors": [
+            "song-accompaniment",
+            "lyrical",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ornamented",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "japanese",
+            "folk"
+          ]
+        },
+        {
+          "id": "shinobue_context_modern_taiko",
+          "name": "Modern taiko-ensemble / crossover lead",
+          "descriptors": [
+            "concert",
+            "contemporary",
+            "projecting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "melodic-lead",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "japanese",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shinobue_bore",
+      "name": "Bore finish & binding",
+      "variants": [
+        {
+          "id": "shinobue_bore_urushi_bark",
+          "default": true,
+          "name": "Shinodake with fukiurushi wiped-lacquer bore and cherry-bark binding",
+          "descriptors": [
+            "lacquered",
+            "bark-wrapped",
+            "traditional"
+          ],
+          "match_tokens": [
+            "bamboo",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "japan"
+          ]
+        },
+        {
+          "id": "shinobue_bore_rattan_plain",
+          "name": "Rattan-bound plain-bore student bamboo",
+          "descriptors": [
+            "rustic",
+            "student",
+            "durable"
+          ],
+          "match_tokens": [
+            "bamboo",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "japan"
+          ]
+        },
+        {
+          "id": "shinobue_bore_resin",
+          "name": "Synthetic-resin-lined or molded modern flute",
+          "descriptors": [
+            "synthetic-resin",
+            "durable",
+            "modern"
+          ],
+          "match_tokens": [
+            "bright-tone",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "shinobue_family",
+      "name": "Flute family / intonation",
+      "variants": [
+        {
+          "id": "shinobue_family_hayashibue",
+          "default": true,
+          "name": "Hayashi-bue (festival flute, equidistant same-size holes, untempered)",
+          "descriptors": [
+            "festive",
+            "untempered-pitch-drift",
+            "folk"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "folk"
+          ],
+          "canonical_tags": [
+            "matsuri",
+            "japanese"
+          ]
+        },
+        {
+          "id": "shinobue_family_utabue",
+          "name": "Uta-bue (early-Shōwa redesign, Western-comparable intonation)",
+          "descriptors": [
+            "equal-tempered",
+            "melodic",
+            "modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "melodic-lead"
+          ],
+          "canonical_tags": [
+            "japanese",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shinobue_choshi",
+      "name": "Chōshi (pitch number / key)",
+      "variants": [
+        {
+          "id": "shinobue_choshi_hachi_pon",
+          "default": true,
+          "name": "8-pon (bright standard festival key)",
+          "descriptors": [
+            "bright",
+            "standard",
+            "high-pitched"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "very-high"
+          ],
+          "canonical_tags": [
+            "matsuri",
+            "japanese"
+          ]
+        },
+        {
+          "id": "shinobue_choshi_roku_pon",
+          "name": "6-pon (mid, common with shamisen)",
+          "descriptors": [
+            "balanced",
+            "versatile",
+            "melodic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "japanese"
+          ]
+        },
+        {
+          "id": "shinobue_choshi_san_pon",
+          "name": "3-pon (long, low and mellow)",
+          "descriptors": [
+            "mellow",
+            "deep",
+            "warm"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "lower-register"
+          ],
+          "canonical_tags": [
+            "japanese"
+          ]
+        },
+        {
+          "id": "shinobue_choshi_juni_pon",
+          "name": "12-pon (shortest, shrillest)",
+          "descriptors": [
+            "shrill",
+            "piercing",
+            "tiny"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "piercing",
+            "very-high"
+          ],
+          "canonical_tags": [
+            "japanese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shinobue_context",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "shinobue_context_matsuri",
+          "default": true,
+          "name": "Matsuri-bayashi melody over taiko",
+          "descriptors": [
+            "festive",
+            "outdoor",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk",
+            "dance"
+          ],
+          "canonical_tags": [
+            "matsuri",
+            "japanese"
+          ]
+        },
+        {
+          "id": "shinobue_context_shishimai",
+          "name": "Shishimai lion dance / kagura ritual",
+          "descriptors": [
+            "ritual",
+            "ceremonial",
+            "narrative"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ritual-context",
+            "folk"
+          ],
+          "canonical_tags": [
+            "japanese",
+            "ritual"
+          ]
+        },
+        {
+          "id": "shinobue_context_minyo",
+          "name": "Min'yō song accompaniment with shamisen and koto",
+          "descriptors": [
+            "song-accompaniment",
+            "lyrical",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ornamented",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "japanese",
+            "folk"
+          ]
+        },
+        {
+          "id": "shinobue_context_modern_taiko",
+          "name": "Modern taiko-ensemble / crossover lead",
+          "descriptors": [
+            "concert",
+            "contemporary",
+            "projecting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "melodic-lead",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "japanese",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shinobue_bore",
+      "name": "Bore finish & binding",
+      "variants": [
+        {
+          "id": "shinobue_bore_urushi_bark",
+          "default": true,
+          "name": "Shinodake with fukiurushi wiped-lacquer bore and cherry-bark binding",
+          "descriptors": [
+            "lacquered",
+            "bark-wrapped",
+            "traditional"
+          ],
+          "match_tokens": [
+            "bamboo",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "japan"
+          ]
+        },
+        {
+          "id": "shinobue_bore_rattan_plain",
+          "name": "Rattan-bound plain-bore student bamboo",
+          "descriptors": [
+            "rustic",
+            "student",
+            "durable"
+          ],
+          "match_tokens": [
+            "bamboo",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "japan"
+          ]
+        },
+        {
+          "id": "shinobue_bore_resin",
+          "name": "Synthetic-resin-lined or molded modern flute",
+          "descriptors": [
+            "synthetic-resin",
+            "durable",
+            "modern"
+          ],
+          "match_tokens": [
+            "bright-tone",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

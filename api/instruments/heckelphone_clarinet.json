@@ -1,0 +1,456 @@
+{
+  "id": "heckelphone_clarinet",
+  "name": "Heckelphone-clarinet (1907 wide-conical wooden alto)",
+  "family": "wind",
+  "class": "single_reed_conical",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "heckelphone-clarinet",
+  "parts": [
+    {
+      "id": "heckelphone_clarinet_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "heckelphone_clarinet_band_third",
+          "default": true,
+          "name": "Third clarinet / alto voice in a military or marching band",
+          "descriptors": [
+            "blending",
+            "supporting",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "marching",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "germanic",
+            "brass-band"
+          ]
+        },
+        {
+          "id": "heckelphone_clarinet_orchestral",
+          "name": "Orchestral inner voice",
+          "descriptors": [
+            "blending",
+            "mellow",
+            "warm"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "orchestral",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "orchestral"
+          ]
+        },
+        {
+          "id": "heckelphone_clarinet_solo",
+          "name": "Exposed solo line (an anachronistic reassignment)",
+          "descriptors": [
+            "singing",
+            "saxophone-like",
+            "rounded"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "solo",
+            "melodic-lead"
+          ],
+          "canonical_tags": [
+            "concert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "heckelphone_clarinet_voicing",
+      "name": "Voicing / doubling",
+      "variants": [
+        {
+          "id": "heckelphone_clarinet_with_clarinets",
+          "default": true,
+          "name": "Doubled against a clarinet choir",
+          "descriptors": [
+            "blending",
+            "warm",
+            "rounded"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "germanic"
+          ]
+        },
+        {
+          "id": "heckelphone_clarinet_with_saxes",
+          "name": "Doubled into the saxophone section",
+          "descriptors": [
+            "saxophone-like",
+            "mellow",
+            "soft"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "conical-bore",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "concert"
+          ]
+        },
+        {
+          "id": "heckelphone_clarinet_alone",
+          "name": "Standing alone as the sole alto-register reed",
+          "descriptors": [
+            "dark-toned",
+            "rounded",
+            "singing"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "melodic-lead",
+            "tenor-register"
+          ],
+          "canonical_tags": [
+            "germanic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "heckelphone_clarinet_bell",
+      "name": "Body and bell",
+      "variants": [
+        {
+          "id": "heckelphone_clarinet_liebesfuss",
+          "default": true,
+          "name": "Red-stained maple body with Liebesfuß love-foot bulb bell",
+          "descriptors": [
+            "dark-toned",
+            "rounded",
+            "mellow"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "dark-reedy",
+            "soft-tone"
+          ],
+          "canonical_tags": [
+            "germanic",
+            "maple"
+          ]
+        },
+        {
+          "id": "heckelphone_clarinet_open_flare",
+          "name": "Open flared bell",
+          "descriptors": [
+            "bright",
+            "focused",
+            "resonant"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "loud-projection",
+            "conical-bore"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "heckelphone_clarinet_register",
+      "name": "Register focus",
+      "variants": [
+        {
+          "id": "heckelphone_clarinet_low",
+          "default": true,
+          "name": "Low D3-region alto-clarinet weight",
+          "descriptors": [
+            "dark-toned",
+            "weighty",
+            "mellow"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "low-register",
+            "dark-reedy"
+          ],
+          "canonical_tags": [
+            "germanic"
+          ]
+        },
+        {
+          "id": "heckelphone_clarinet_middle",
+          "name": "Saxophone-like middle",
+          "descriptors": [
+            "saxophone-like",
+            "singing",
+            "warm"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "melodic-lead",
+            "conical-bore"
+          ],
+          "canonical_tags": [
+            "concert"
+          ]
+        },
+        {
+          "id": "heckelphone_clarinet_upper",
+          "name": "Upper octave (the wide conical bore overblows at the octave)",
+          "descriptors": [
+            "overblown",
+            "bright",
+            "focused"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "high-register",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "concert"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "heckelphone_clarinet_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "heckelphone_clarinet_band_third",
+          "default": true,
+          "name": "Third clarinet / alto voice in a military or marching band",
+          "descriptors": [
+            "blending",
+            "supporting",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "marching",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "germanic",
+            "brass-band"
+          ]
+        },
+        {
+          "id": "heckelphone_clarinet_orchestral",
+          "name": "Orchestral inner voice",
+          "descriptors": [
+            "blending",
+            "mellow",
+            "warm"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "orchestral",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "orchestral"
+          ]
+        },
+        {
+          "id": "heckelphone_clarinet_solo",
+          "name": "Exposed solo line (an anachronistic reassignment)",
+          "descriptors": [
+            "singing",
+            "saxophone-like",
+            "rounded"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "solo",
+            "melodic-lead"
+          ],
+          "canonical_tags": [
+            "concert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "heckelphone_clarinet_voicing",
+      "name": "Voicing / doubling",
+      "variants": [
+        {
+          "id": "heckelphone_clarinet_with_clarinets",
+          "default": true,
+          "name": "Doubled against a clarinet choir",
+          "descriptors": [
+            "blending",
+            "warm",
+            "rounded"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "germanic"
+          ]
+        },
+        {
+          "id": "heckelphone_clarinet_with_saxes",
+          "name": "Doubled into the saxophone section",
+          "descriptors": [
+            "saxophone-like",
+            "mellow",
+            "soft"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "conical-bore",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "concert"
+          ]
+        },
+        {
+          "id": "heckelphone_clarinet_alone",
+          "name": "Standing alone as the sole alto-register reed",
+          "descriptors": [
+            "dark-toned",
+            "rounded",
+            "singing"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "melodic-lead",
+            "tenor-register"
+          ],
+          "canonical_tags": [
+            "germanic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "heckelphone_clarinet_bell",
+      "name": "Body and bell",
+      "variants": [
+        {
+          "id": "heckelphone_clarinet_liebesfuss",
+          "default": true,
+          "name": "Red-stained maple body with Liebesfuß love-foot bulb bell",
+          "descriptors": [
+            "dark-toned",
+            "rounded",
+            "mellow"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "dark-reedy",
+            "soft-tone"
+          ],
+          "canonical_tags": [
+            "germanic",
+            "maple"
+          ]
+        },
+        {
+          "id": "heckelphone_clarinet_open_flare",
+          "name": "Open flared bell",
+          "descriptors": [
+            "bright",
+            "focused",
+            "resonant"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "loud-projection",
+            "conical-bore"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "heckelphone_clarinet_register",
+      "name": "Register focus",
+      "variants": [
+        {
+          "id": "heckelphone_clarinet_low",
+          "default": true,
+          "name": "Low D3-region alto-clarinet weight",
+          "descriptors": [
+            "dark-toned",
+            "weighty",
+            "mellow"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "low-register",
+            "dark-reedy"
+          ],
+          "canonical_tags": [
+            "germanic"
+          ]
+        },
+        {
+          "id": "heckelphone_clarinet_middle",
+          "name": "Saxophone-like middle",
+          "descriptors": [
+            "saxophone-like",
+            "singing",
+            "warm"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "melodic-lead",
+            "conical-bore"
+          ],
+          "canonical_tags": [
+            "concert"
+          ]
+        },
+        {
+          "id": "heckelphone_clarinet_upper",
+          "name": "Upper octave (the wide conical bore overblows at the octave)",
+          "descriptors": [
+            "overblown",
+            "bright",
+            "focused"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "high-register",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "concert"
+          ]
+        }
+      ]
+    }
+  ]
+}

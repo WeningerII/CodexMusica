@@ -1,0 +1,447 @@
+{
+  "id": "sarinda",
+  "name": "Sarinda (South Asian waisted folk bowed lute)",
+  "family": "bowed",
+  "class": "bowed_lute",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "sarinda",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "sarinda_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "sarinda_form_rajasthani",
+          "default": true,
+          "name": "Rajasthani Langa sarinda (deeply incurved waist, skinned lower face)",
+          "descriptors": [
+            "carved",
+            "hide-faced",
+            "vocal",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretless",
+            "vocal-imitating"
+          ],
+          "canonical_tags": [
+            "rajasthani",
+            "south_asia"
+          ]
+        },
+        {
+          "id": "sarinda_form_bengali_baul",
+          "name": "Bengali Baul sarinda",
+          "descriptors": [
+            "rustic",
+            "devotional",
+            "raw"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "devotional"
+          ],
+          "canonical_tags": [
+            "bengal",
+            "devotional"
+          ]
+        },
+        {
+          "id": "sarinda_form_assamese",
+          "name": "Assamese and eastern-Indian form",
+          "descriptors": [
+            "rural",
+            "handmade",
+            "thin-toned"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "assam",
+            "folk"
+          ]
+        },
+        {
+          "id": "sarinda_form_afghan",
+          "name": "Afghan sarinda (northern cognate)",
+          "descriptors": [
+            "archaic",
+            "deep-bodied",
+            "droning"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "afghan",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sarinda_context",
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "sarinda_context_song_accompaniment",
+          "default": true,
+          "name": "Self-accompanied folk song (Langa and village singers)",
+          "descriptors": [
+            "self-accompanied",
+            "vocal-shadowing",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vocal-accompaniment",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "rajasthani",
+            "folk"
+          ]
+        },
+        {
+          "id": "sarinda_context_baul",
+          "name": "Baul mendicant devotional song",
+          "descriptors": [
+            "devotional",
+            "ecstatic",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "devotional",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "bengal",
+            "devotional"
+          ]
+        },
+        {
+          "id": "sarinda_context_tribal_dance",
+          "name": "Santal and tribal dance music",
+          "descriptors": [
+            "communal",
+            "driving",
+            "cyclic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "indigenous",
+            "dance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sarinda_build",
+      "name": "Stringing",
+      "variants": [
+        {
+          "id": "sarinda_build_gut_no_taraf",
+          "default": true,
+          "name": "Gut melody strings, no sympathetics",
+          "descriptors": [
+            "gut",
+            "spare",
+            "dry",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "fretless"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "sarinda_build_sympathetic",
+          "name": "With a bank of sympathetic strings",
+          "descriptors": [
+            "sympathetic-halo",
+            "floating",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "south_asia"
+          ]
+        },
+        {
+          "id": "sarinda_build_steel",
+          "name": "Steel melody strings (modern village build)",
+          "descriptors": [
+            "steel",
+            "bright",
+            "cutting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "steel-string",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sarinda_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "sarinda_form_rajasthani",
+          "default": true,
+          "name": "Rajasthani Langa sarinda (deeply incurved waist, skinned lower face)",
+          "descriptors": [
+            "carved",
+            "hide-faced",
+            "vocal",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretless",
+            "vocal-imitating"
+          ],
+          "canonical_tags": [
+            "rajasthani",
+            "south_asia"
+          ]
+        },
+        {
+          "id": "sarinda_form_bengali_baul",
+          "name": "Bengali Baul sarinda",
+          "descriptors": [
+            "rustic",
+            "devotional",
+            "raw"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "devotional"
+          ],
+          "canonical_tags": [
+            "bengal",
+            "devotional"
+          ]
+        },
+        {
+          "id": "sarinda_form_assamese",
+          "name": "Assamese and eastern-Indian form",
+          "descriptors": [
+            "rural",
+            "handmade",
+            "thin-toned"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "assam",
+            "folk"
+          ]
+        },
+        {
+          "id": "sarinda_form_afghan",
+          "name": "Afghan sarinda (northern cognate)",
+          "descriptors": [
+            "archaic",
+            "deep-bodied",
+            "droning"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "afghan",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sarinda_context",
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "sarinda_context_song_accompaniment",
+          "default": true,
+          "name": "Self-accompanied folk song (Langa and village singers)",
+          "descriptors": [
+            "self-accompanied",
+            "vocal-shadowing",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vocal-accompaniment",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "rajasthani",
+            "folk"
+          ]
+        },
+        {
+          "id": "sarinda_context_baul",
+          "name": "Baul mendicant devotional song",
+          "descriptors": [
+            "devotional",
+            "ecstatic",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "devotional",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "bengal",
+            "devotional"
+          ]
+        },
+        {
+          "id": "sarinda_context_tribal_dance",
+          "name": "Santal and tribal dance music",
+          "descriptors": [
+            "communal",
+            "driving",
+            "cyclic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "indigenous",
+            "dance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sarinda_build",
+      "name": "Stringing",
+      "variants": [
+        {
+          "id": "sarinda_build_gut_no_taraf",
+          "default": true,
+          "name": "Gut melody strings, no sympathetics",
+          "descriptors": [
+            "gut",
+            "spare",
+            "dry",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "fretless"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "sarinda_build_sympathetic",
+          "name": "With a bank of sympathetic strings",
+          "descriptors": [
+            "sympathetic-halo",
+            "floating",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "south_asia"
+          ]
+        },
+        {
+          "id": "sarinda_build_steel",
+          "name": "Steel melody strings (modern village build)",
+          "descriptors": [
+            "steel",
+            "bright",
+            "cutting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "steel-string",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

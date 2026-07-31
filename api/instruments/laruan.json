@@ -1,0 +1,415 @@
+{
+  "id": "laruan",
+  "name": "Laruan (bowed ruan, Chinese-orchestra bass reform instrument)",
+  "family": "bowed",
+  "class": "bowed_lute",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "laruan",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "laruan_size",
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "laruan_size_tenor",
+          "default": true,
+          "name": "Tenor laruan (sits roughly where a cello does)",
+          "descriptors": [
+            "grounding",
+            "sonorous",
+            "deep"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register",
+            "four-string",
+            "orchestral"
+          ],
+          "canonical_tags": [
+            "chinese-orchestra",
+            "china"
+          ]
+        },
+        {
+          "id": "laruan_size_alto",
+          "name": "Alto laruan (inner-voice size)",
+          "descriptors": [
+            "supporting",
+            "warm",
+            "blended"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "chinese-orchestra",
+            "china"
+          ]
+        },
+        {
+          "id": "laruan_size_soprano",
+          "name": "Soprano laruan (smallest of the family)",
+          "descriptors": [
+            "brighter",
+            "thin",
+            "clear"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bright-tone",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "chinese-orchestra",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "laruan_role",
+      "name": "Bass-section role",
+      "variants": [
+        {
+          "id": "laruan_role_pad",
+          "default": true,
+          "name": "Sustained harmonic support under the orchestra",
+          "descriptors": [
+            "sustained",
+            "supporting",
+            "grounding"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "foundational-bass"
+          ],
+          "canonical_tags": [
+            "chinese-orchestra",
+            "accompaniment"
+          ]
+        },
+        {
+          "id": "laruan_role_bassline",
+          "name": "Articulated bass line doubling the daruan and gehu",
+          "descriptors": [
+            "articulated",
+            "rhythmic",
+            "grounding"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bass-register",
+            "orchestral"
+          ],
+          "canonical_tags": [
+            "chinese-orchestra",
+            "china"
+          ]
+        },
+        {
+          "id": "laruan_role_melody",
+          "name": "Simple bass melody in unison with the low plucked section",
+          "descriptors": [
+            "melodic",
+            "measured",
+            "blended"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "chinese-orchestra",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "laruan_period",
+      "name": "Period framing",
+      "variants": [
+        {
+          "id": "laruan_period_midcentury",
+          "default": true,
+          "name": "Mid-century reform-orchestra build (Shanghai National Musical Instrument Factory, 1950s-60s)",
+          "descriptors": [
+            "twentieth-century",
+            "standardized",
+            "folk-orchestra"
+          ],
+          "match_tokens": [
+            "bowed",
+            "orchestral",
+            "modern"
+          ],
+          "canonical_tags": [
+            "reformed",
+            "twentieth-century"
+          ]
+        },
+        {
+          "id": "laruan_period_revival",
+          "name": "Contemporary China National Traditional Orchestra revival",
+          "descriptors": [
+            "concert",
+            "refined",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "orchestral",
+            "concert"
+          ],
+          "canonical_tags": [
+            "revival",
+            "chinese-orchestra"
+          ]
+        },
+        {
+          "id": "laruan_period_carved",
+          "name": "Bone-inlaid dragon or ruyi pegbox (decorated presentation build)",
+          "descriptors": [
+            "ornate",
+            "premium",
+            "handmade"
+          ],
+          "match_tokens": [
+            "bowed",
+            "orchestral",
+            "woody"
+          ],
+          "canonical_tags": [
+            "china",
+            "conservatory"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "laruan_size",
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "laruan_size_tenor",
+          "default": true,
+          "name": "Tenor laruan (sits roughly where a cello does)",
+          "descriptors": [
+            "grounding",
+            "sonorous",
+            "deep"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register",
+            "four-string",
+            "orchestral"
+          ],
+          "canonical_tags": [
+            "chinese-orchestra",
+            "china"
+          ]
+        },
+        {
+          "id": "laruan_size_alto",
+          "name": "Alto laruan (inner-voice size)",
+          "descriptors": [
+            "supporting",
+            "warm",
+            "blended"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "chinese-orchestra",
+            "china"
+          ]
+        },
+        {
+          "id": "laruan_size_soprano",
+          "name": "Soprano laruan (smallest of the family)",
+          "descriptors": [
+            "brighter",
+            "thin",
+            "clear"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bright-tone",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "chinese-orchestra",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "laruan_role",
+      "name": "Bass-section role",
+      "variants": [
+        {
+          "id": "laruan_role_pad",
+          "default": true,
+          "name": "Sustained harmonic support under the orchestra",
+          "descriptors": [
+            "sustained",
+            "supporting",
+            "grounding"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "foundational-bass"
+          ],
+          "canonical_tags": [
+            "chinese-orchestra",
+            "accompaniment"
+          ]
+        },
+        {
+          "id": "laruan_role_bassline",
+          "name": "Articulated bass line doubling the daruan and gehu",
+          "descriptors": [
+            "articulated",
+            "rhythmic",
+            "grounding"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bass-register",
+            "orchestral"
+          ],
+          "canonical_tags": [
+            "chinese-orchestra",
+            "china"
+          ]
+        },
+        {
+          "id": "laruan_role_melody",
+          "name": "Simple bass melody in unison with the low plucked section",
+          "descriptors": [
+            "melodic",
+            "measured",
+            "blended"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "chinese-orchestra",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "laruan_period",
+      "name": "Period framing",
+      "variants": [
+        {
+          "id": "laruan_period_midcentury",
+          "default": true,
+          "name": "Mid-century reform-orchestra build (Shanghai National Musical Instrument Factory, 1950s-60s)",
+          "descriptors": [
+            "twentieth-century",
+            "standardized",
+            "folk-orchestra"
+          ],
+          "match_tokens": [
+            "bowed",
+            "orchestral",
+            "modern"
+          ],
+          "canonical_tags": [
+            "reformed",
+            "twentieth-century"
+          ]
+        },
+        {
+          "id": "laruan_period_revival",
+          "name": "Contemporary China National Traditional Orchestra revival",
+          "descriptors": [
+            "concert",
+            "refined",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "orchestral",
+            "concert"
+          ],
+          "canonical_tags": [
+            "revival",
+            "chinese-orchestra"
+          ]
+        },
+        {
+          "id": "laruan_period_carved",
+          "name": "Bone-inlaid dragon or ruyi pegbox (decorated presentation build)",
+          "descriptors": [
+            "ornate",
+            "premium",
+            "handmade"
+          ],
+          "match_tokens": [
+            "bowed",
+            "orchestral",
+            "woody"
+          ],
+          "canonical_tags": [
+            "china",
+            "conservatory"
+          ]
+        }
+      ]
+    }
+  ]
+}

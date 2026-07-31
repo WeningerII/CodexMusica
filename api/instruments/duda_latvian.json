@@ -1,0 +1,423 @@
+{
+  "id": "duda_latvian",
+  "name": "Dūda (Latvian bowed bladder-fiddle)",
+  "family": "bowed",
+  "class": "bowed",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": -2,
+    "register": -2,
+    "range": -2,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "dūda",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "duda_latvian_stringing",
+      "name": "Board tensioning / string count",
+      "variants": [
+        {
+          "id": "duda_latvian_stringing_three_string",
+          "default": true,
+          "name": "Three gut strings bending the board into a crescent",
+          "descriptors": [
+            "three-string",
+            "drone-bass",
+            "droning"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "bass-register"
+          ],
+          "canonical_tags": [
+            "nordic_baltic",
+            "drone"
+          ]
+        },
+        {
+          "id": "duda_latvian_stringing_two_string",
+          "name": "Two gut strings (slacker board, looser bark)",
+          "descriptors": [
+            "two-string",
+            "spare",
+            "coarse"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "nordic_baltic",
+            "archaic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "duda_latvian_resonator",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "duda_latvian_resonator_pig_bladder",
+          "default": true,
+          "name": "Inflated pig's bladder between board and strings",
+          "descriptors": [
+            "canonical-latvian",
+            "buzzy",
+            "deep-buzz"
+          ],
+          "match_tokens": [
+            "bowed",
+            "buzzing-resonator",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "nordic_baltic",
+            "archaic"
+          ]
+        },
+        {
+          "id": "duda_latvian_resonator_no_bladder",
+          "name": "No bladder (plain spēles musical bow)",
+          "descriptors": [
+            "spare",
+            "dry",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "dry"
+          ],
+          "canonical_tags": [
+            "nordic_baltic",
+            "archaic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "duda_latvian_role",
+      "name": "Role in the dance band",
+      "variants": [
+        {
+          "id": "duda_latvian_role_drone_bass",
+          "default": true,
+          "name": "Drone bass under a melody instrument",
+          "descriptors": [
+            "drone-under-melody",
+            "bass-foundational",
+            "steady-drone"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "foundational-bass"
+          ],
+          "canonical_tags": [
+            "nordic_baltic",
+            "wedding"
+          ]
+        },
+        {
+          "id": "duda_latvian_role_rhythm_scrape",
+          "name": "Percussive dance-rhythm scraping",
+          "descriptors": [
+            "bass-rhythm",
+            "scraping",
+            "driving"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-rhythm",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "nordic_baltic",
+            "dance"
+          ]
+        },
+        {
+          "id": "duda_latvian_role_revival",
+          "name": "Revival-ensemble reconstruction",
+          "descriptors": [
+            "revival-build",
+            "reconstructed",
+            "folk-revival"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-revival",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "revival",
+            "folk-revival"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "duda_latvian_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "duda_latvian_strings_gut",
+          "default": true,
+          "name": "Plain gut (archaic canonical)",
+          "descriptors": [
+            "plain-gut",
+            "gut",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut",
+            "gut"
+          ]
+        },
+        {
+          "id": "duda_latvian_strings_synthetic",
+          "name": "Modern synthetic (revival build)",
+          "descriptors": [
+            "synthetic",
+            "stable",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "modern",
+            "revival"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "duda_latvian_stringing",
+      "name": "Board tensioning / string count",
+      "variants": [
+        {
+          "id": "duda_latvian_stringing_three_string",
+          "default": true,
+          "name": "Three gut strings bending the board into a crescent",
+          "descriptors": [
+            "three-string",
+            "drone-bass",
+            "droning"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "bass-register"
+          ],
+          "canonical_tags": [
+            "nordic_baltic",
+            "drone"
+          ]
+        },
+        {
+          "id": "duda_latvian_stringing_two_string",
+          "name": "Two gut strings (slacker board, looser bark)",
+          "descriptors": [
+            "two-string",
+            "spare",
+            "coarse"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "nordic_baltic",
+            "archaic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "duda_latvian_resonator",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "duda_latvian_resonator_pig_bladder",
+          "default": true,
+          "name": "Inflated pig's bladder between board and strings",
+          "descriptors": [
+            "canonical-latvian",
+            "buzzy",
+            "deep-buzz"
+          ],
+          "match_tokens": [
+            "bowed",
+            "buzzing-resonator",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "nordic_baltic",
+            "archaic"
+          ]
+        },
+        {
+          "id": "duda_latvian_resonator_no_bladder",
+          "name": "No bladder (plain spēles musical bow)",
+          "descriptors": [
+            "spare",
+            "dry",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "dry"
+          ],
+          "canonical_tags": [
+            "nordic_baltic",
+            "archaic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "duda_latvian_role",
+      "name": "Role in the dance band",
+      "variants": [
+        {
+          "id": "duda_latvian_role_drone_bass",
+          "default": true,
+          "name": "Drone bass under a melody instrument",
+          "descriptors": [
+            "drone-under-melody",
+            "bass-foundational",
+            "steady-drone"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "foundational-bass"
+          ],
+          "canonical_tags": [
+            "nordic_baltic",
+            "wedding"
+          ]
+        },
+        {
+          "id": "duda_latvian_role_rhythm_scrape",
+          "name": "Percussive dance-rhythm scraping",
+          "descriptors": [
+            "bass-rhythm",
+            "scraping",
+            "driving"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-rhythm",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "nordic_baltic",
+            "dance"
+          ]
+        },
+        {
+          "id": "duda_latvian_role_revival",
+          "name": "Revival-ensemble reconstruction",
+          "descriptors": [
+            "revival-build",
+            "reconstructed",
+            "folk-revival"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-revival",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "revival",
+            "folk-revival"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "duda_latvian_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "duda_latvian_strings_gut",
+          "default": true,
+          "name": "Plain gut (archaic canonical)",
+          "descriptors": [
+            "plain-gut",
+            "gut",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut",
+            "gut"
+          ]
+        },
+        {
+          "id": "duda_latvian_strings_synthetic",
+          "name": "Modern synthetic (revival build)",
+          "descriptors": [
+            "synthetic",
+            "stable",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "modern",
+            "revival"
+          ]
+        }
+      ]
+    }
+  ]
+}

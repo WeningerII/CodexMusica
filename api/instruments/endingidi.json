@@ -1,0 +1,509 @@
+{
+  "id": "endingidi",
+  "name": "Endingidi (Baganda one-string tube fiddle)",
+  "family": "bowed",
+  "class": "bowed_tube_fiddle",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "endingidi",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "endingidi_body",
+      "name": "Resonator build",
+      "variants": [
+        {
+          "id": "endingidi_body_wood",
+          "default": true,
+          "name": "Hollowed wooden cylinder (canonical Kiganda build, not the Luo orutu tin tube)",
+          "descriptors": [
+            "woody",
+            "warm",
+            "traditional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "east_africa",
+            "african"
+          ]
+        },
+        {
+          "id": "endingidi_body_horn",
+          "name": "Cow-horn resonator",
+          "descriptors": [
+            "nasal",
+            "biting",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "east_africa",
+            "traditional"
+          ]
+        },
+        {
+          "id": "endingidi_body_tin_pvc",
+          "name": "Modern tin or PVC tube",
+          "descriptors": [
+            "tin-can",
+            "tinny",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "endingidi_context",
+      "name": "Repertoire context",
+      "variants": [
+        {
+          "id": "endingidi_context_kadongo_kamu",
+          "default": true,
+          "name": "Kadongo kamu song — voice-doubling and heterophonic ornament",
+          "descriptors": [
+            "vocal-shadowing",
+            "melismatic",
+            "narrative"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "vocal-accompaniment"
+          ],
+          "canonical_tags": [
+            "storytelling",
+            "east_africa"
+          ]
+        },
+        {
+          "id": "endingidi_context_baakisimba",
+          "name": "Baakisimba / nankasa / muwogola dance ensemble with engoma, endongo and amadinda",
+          "descriptors": [
+            "danced",
+            "interlocking",
+            "festive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "dance",
+            "east_africa"
+          ]
+        },
+        {
+          "id": "endingidi_context_fusion",
+          "name": "School-festival ensemble and modern Ugandan afro-fusion lead",
+          "descriptors": [
+            "urban",
+            "projecting",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "lead-melody"
+          ],
+          "canonical_tags": [
+            "fusion",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "endingidi_membrane",
+      "name": "Membrane",
+      "variants": [
+        {
+          "id": "endingidi_membrane_lizard",
+          "default": true,
+          "name": "Monitor-lizard skin pegged to the tube (most typical)",
+          "descriptors": [
+            "lizard-skin",
+            "buzzy",
+            "nasal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "endingidi_membrane_goat",
+          "name": "Goat or sheep skin",
+          "descriptors": [
+            "goatskin",
+            "warm",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "endingidi_membrane_python",
+          "name": "Python hide",
+          "descriptors": [
+            "python-skin",
+            "bright-edged",
+            "thin"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "endingidi_string",
+      "name": "String and bow",
+      "variants": [
+        {
+          "id": "endingidi_string_sisal",
+          "default": true,
+          "name": "Sisal-fibre string with sisal-haired bow",
+          "descriptors": [
+            "fiber-strung",
+            "raspy",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "endingidi_string_gut",
+          "name": "Gut string (historical)",
+          "descriptors": [
+            "gut-strung",
+            "mellow",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "endingidi_string_steel_nylon",
+          "name": "Steel or nylon fishing line with horsehair bow",
+          "descriptors": [
+            "nylon-modern",
+            "brighter",
+            "smoother"
+          ],
+          "match_tokens": [
+            "bowed",
+            "nylon-string"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "endingidi_body",
+      "name": "Resonator build",
+      "variants": [
+        {
+          "id": "endingidi_body_wood",
+          "default": true,
+          "name": "Hollowed wooden cylinder (canonical Kiganda build, not the Luo orutu tin tube)",
+          "descriptors": [
+            "woody",
+            "warm",
+            "traditional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "east_africa",
+            "african"
+          ]
+        },
+        {
+          "id": "endingidi_body_horn",
+          "name": "Cow-horn resonator",
+          "descriptors": [
+            "nasal",
+            "biting",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "east_africa",
+            "traditional"
+          ]
+        },
+        {
+          "id": "endingidi_body_tin_pvc",
+          "name": "Modern tin or PVC tube",
+          "descriptors": [
+            "tin-can",
+            "tinny",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "endingidi_context",
+      "name": "Repertoire context",
+      "variants": [
+        {
+          "id": "endingidi_context_kadongo_kamu",
+          "default": true,
+          "name": "Kadongo kamu song — voice-doubling and heterophonic ornament",
+          "descriptors": [
+            "vocal-shadowing",
+            "melismatic",
+            "narrative"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "vocal-accompaniment"
+          ],
+          "canonical_tags": [
+            "storytelling",
+            "east_africa"
+          ]
+        },
+        {
+          "id": "endingidi_context_baakisimba",
+          "name": "Baakisimba / nankasa / muwogola dance ensemble with engoma, endongo and amadinda",
+          "descriptors": [
+            "danced",
+            "interlocking",
+            "festive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "dance",
+            "east_africa"
+          ]
+        },
+        {
+          "id": "endingidi_context_fusion",
+          "name": "School-festival ensemble and modern Ugandan afro-fusion lead",
+          "descriptors": [
+            "urban",
+            "projecting",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "lead-melody"
+          ],
+          "canonical_tags": [
+            "fusion",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "endingidi_membrane",
+      "name": "Membrane",
+      "variants": [
+        {
+          "id": "endingidi_membrane_lizard",
+          "default": true,
+          "name": "Monitor-lizard skin pegged to the tube (most typical)",
+          "descriptors": [
+            "lizard-skin",
+            "buzzy",
+            "nasal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "endingidi_membrane_goat",
+          "name": "Goat or sheep skin",
+          "descriptors": [
+            "goatskin",
+            "warm",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "endingidi_membrane_python",
+          "name": "Python hide",
+          "descriptors": [
+            "python-skin",
+            "bright-edged",
+            "thin"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "endingidi_string",
+      "name": "String and bow",
+      "variants": [
+        {
+          "id": "endingidi_string_sisal",
+          "default": true,
+          "name": "Sisal-fibre string with sisal-haired bow",
+          "descriptors": [
+            "fiber-strung",
+            "raspy",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "endingidi_string_gut",
+          "name": "Gut string (historical)",
+          "descriptors": [
+            "gut-strung",
+            "mellow",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "endingidi_string_steel_nylon",
+          "name": "Steel or nylon fishing line with horsehair bow",
+          "descriptors": [
+            "nylon-modern",
+            "brighter",
+            "smoother"
+          ],
+          "match_tokens": [
+            "bowed",
+            "nylon-string"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

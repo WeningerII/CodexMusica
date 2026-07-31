@@ -1,0 +1,448 @@
+{
+  "id": "oboe_da_caccia",
+  "name": "Oboe da caccia (curved leather-covered baroque tenor oboe in F)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "oboe da caccia",
+  "parts": [
+    {
+      "id": "oboe_da_caccia_bell",
+      "name": "Bell",
+      "variants": [
+        {
+          "id": "oboe_da_caccia_bell_brass",
+          "default": true,
+          "name": "Flared brass bell (Eichentopf original — hunting-horn timbre)",
+          "descriptors": [
+            "brass-belled",
+            "nasal",
+            "hunting-derived"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "double-reed",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "hunting"
+          ]
+        },
+        {
+          "id": "oboe_da_caccia_bell_wooden",
+          "name": "Wooden flared bell (Gohin-type replica)",
+          "descriptors": [
+            "woody",
+            "mellow",
+            "rounded"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "double-reed",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oboe_da_caccia_repertoire",
+      "name": "Repertoire context",
+      "variants": [
+        {
+          "id": "oboe_da_caccia_rep_obbligato",
+          "default": true,
+          "name": "Paired Leipzig obbligato (St Matthew Passion, \"Ach Golgotha\")",
+          "descriptors": [
+            "plaintive",
+            "devotional",
+            "orchestral-paired"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "late-baroque",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "sacred",
+            "lutheran"
+          ]
+        },
+        {
+          "id": "oboe_da_caccia_rep_ripieno",
+          "name": "Tenor ripieno line in the cantata reed choir",
+          "descriptors": [
+            "blended",
+            "inner-voice",
+            "consort"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "late-baroque",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "lutheran"
+          ]
+        },
+        {
+          "id": "oboe_da_caccia_rep_revival",
+          "name": "Modern early-music revival copy",
+          "descriptors": [
+            "historically-informed",
+            "preservationist",
+            "reconstructed"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "period-performance",
+            "revival"
+          ],
+          "canonical_tags": [
+            "revival",
+            "period"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oboe_da_caccia_pitch",
+      "name": "Pitch standard",
+      "variants": [
+        {
+          "id": "oboe_da_caccia_pitch_a415",
+          "default": true,
+          "name": "A=415 baroque pitch",
+          "descriptors": [
+            "baroque-pitch",
+            "historical",
+            "period"
+          ],
+          "match_tokens": [
+            "period-performance",
+            "baroque-leaning",
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period"
+          ]
+        },
+        {
+          "id": "oboe_da_caccia_pitch_a440",
+          "name": "A=440 modern pitch (mixed modern ensembles)",
+          "descriptors": [
+            "modern",
+            "standard",
+            "stable"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "modern",
+            "orchestral"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oboe_da_caccia_body",
+      "name": "Body and covering",
+      "variants": [
+        {
+          "id": "oboe_da_caccia_body_leather_natural",
+          "default": true,
+          "name": "Curved maple body, natural leather covering (canonical Eichentopf)",
+          "descriptors": [
+            "leather",
+            "curved",
+            "maple"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "maple"
+          ]
+        },
+        {
+          "id": "oboe_da_caccia_body_leather_black",
+          "name": "Black-dyed leather covering (common modern build)",
+          "descriptors": [
+            "leather",
+            "dark",
+            "modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "period"
+          ]
+        },
+        {
+          "id": "oboe_da_caccia_body_boxwood",
+          "name": "Boxwood curved body (alternative period wood)",
+          "descriptors": [
+            "boxwood-canonical-baroque-classical-pre-1850",
+            "period"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "boxwood",
+            "baroque"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "oboe_da_caccia_bell",
+      "name": "Bell",
+      "variants": [
+        {
+          "id": "oboe_da_caccia_bell_brass",
+          "default": true,
+          "name": "Flared brass bell (Eichentopf original — hunting-horn timbre)",
+          "descriptors": [
+            "brass-belled",
+            "nasal",
+            "hunting-derived"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "double-reed",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "hunting"
+          ]
+        },
+        {
+          "id": "oboe_da_caccia_bell_wooden",
+          "name": "Wooden flared bell (Gohin-type replica)",
+          "descriptors": [
+            "woody",
+            "mellow",
+            "rounded"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "double-reed",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oboe_da_caccia_repertoire",
+      "name": "Repertoire context",
+      "variants": [
+        {
+          "id": "oboe_da_caccia_rep_obbligato",
+          "default": true,
+          "name": "Paired Leipzig obbligato (St Matthew Passion, \"Ach Golgotha\")",
+          "descriptors": [
+            "plaintive",
+            "devotional",
+            "orchestral-paired"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "late-baroque",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "sacred",
+            "lutheran"
+          ]
+        },
+        {
+          "id": "oboe_da_caccia_rep_ripieno",
+          "name": "Tenor ripieno line in the cantata reed choir",
+          "descriptors": [
+            "blended",
+            "inner-voice",
+            "consort"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "late-baroque",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "lutheran"
+          ]
+        },
+        {
+          "id": "oboe_da_caccia_rep_revival",
+          "name": "Modern early-music revival copy",
+          "descriptors": [
+            "historically-informed",
+            "preservationist",
+            "reconstructed"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "period-performance",
+            "revival"
+          ],
+          "canonical_tags": [
+            "revival",
+            "period"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oboe_da_caccia_pitch",
+      "name": "Pitch standard",
+      "variants": [
+        {
+          "id": "oboe_da_caccia_pitch_a415",
+          "default": true,
+          "name": "A=415 baroque pitch",
+          "descriptors": [
+            "baroque-pitch",
+            "historical",
+            "period"
+          ],
+          "match_tokens": [
+            "period-performance",
+            "baroque-leaning",
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period"
+          ]
+        },
+        {
+          "id": "oboe_da_caccia_pitch_a440",
+          "name": "A=440 modern pitch (mixed modern ensembles)",
+          "descriptors": [
+            "modern",
+            "standard",
+            "stable"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "modern",
+            "orchestral"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oboe_da_caccia_body",
+      "name": "Body and covering",
+      "variants": [
+        {
+          "id": "oboe_da_caccia_body_leather_natural",
+          "default": true,
+          "name": "Curved maple body, natural leather covering (canonical Eichentopf)",
+          "descriptors": [
+            "leather",
+            "curved",
+            "maple"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "maple"
+          ]
+        },
+        {
+          "id": "oboe_da_caccia_body_leather_black",
+          "name": "Black-dyed leather covering (common modern build)",
+          "descriptors": [
+            "leather",
+            "dark",
+            "modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "period"
+          ]
+        },
+        {
+          "id": "oboe_da_caccia_body_boxwood",
+          "name": "Boxwood curved body (alternative period wood)",
+          "descriptors": [
+            "boxwood-canonical-baroque-classical-pre-1850",
+            "period"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "boxwood",
+            "baroque"
+          ]
+        }
+      ]
+    }
+  ]
+}

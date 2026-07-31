@@ -1,0 +1,427 @@
+{
+  "id": "kingri",
+  "name": "Kingri (Pardhan bowed spike fiddle)",
+  "family": "bowed",
+  "class": "bowed_spike_fiddle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "kingri",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "kingri_context",
+      "name": "Ritual / repertoire context",
+      "variants": [
+        {
+          "id": "kingri_context_persa_pen",
+          "default": true,
+          "name": "Persa Pen clan-deity rite",
+          "descriptors": [
+            "ritual",
+            "ceremonial",
+            "ritual-summoning"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ritual-context",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "ritual"
+          ]
+        },
+        {
+          "id": "kingri_context_gond_epic",
+          "name": "Gond origin-epic and clan-genealogy recitation",
+          "descriptors": [
+            "epic-narration",
+            "bardic",
+            "declamatory"
+          ],
+          "match_tokens": [
+            "bowed",
+            "epic",
+            "narrative"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "epic",
+            "narrative"
+          ]
+        },
+        {
+          "id": "kingri_context_life_cycle",
+          "name": "Marriage and death ceremonies",
+          "descriptors": [
+            "solemn",
+            "plaintive",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ritual-context",
+            "vocal-accompaniment"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "ceremonial"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kingri_stringing",
+      "name": "Stringing",
+      "variants": [
+        {
+          "id": "kingri_stringing_three_string",
+          "default": true,
+          "name": "Three strings (later, standard form)",
+          "descriptors": [
+            "three-string",
+            "resonant",
+            "nasal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "south-asian"
+          ]
+        },
+        {
+          "id": "kingri_stringing_one_string",
+          "name": "Single string (archaic form)",
+          "descriptors": [
+            "single-string",
+            "spare",
+            "raw"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "archaic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kingri_resonator",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "kingri_resonator_clay_pot",
+          "default": true,
+          "name": "Unglazed clay pot headed with goatskin, pierced by a stick neck",
+          "descriptors": [
+            "clay",
+            "earthen",
+            "goatskin",
+            "dry"
+          ],
+          "match_tokens": [
+            "bowed",
+            "resonant-membrane",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "clay",
+            "goatskin",
+            "south-asian"
+          ]
+        },
+        {
+          "id": "kingri_resonator_wooden_box",
+          "name": "Square wooden skin-covered box",
+          "descriptors": [
+            "carved-wood",
+            "skin-topped",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "resonant-membrane",
+            "wood"
+          ],
+          "canonical_tags": [
+            "wood",
+            "goatskin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kingri_bow",
+      "name": "Bow",
+      "variants": [
+        {
+          "id": "kingri_bow_belled",
+          "default": true,
+          "name": "Horsehair bow hung with small bells",
+          "descriptors": [
+            "horsehair",
+            "jingle-studded",
+            "festive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "jingle",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "horsehair",
+            "ritual"
+          ]
+        },
+        {
+          "id": "kingri_bow_plain",
+          "name": "Plain horsehair bow, no jingles",
+          "descriptors": [
+            "horsehair",
+            "dry",
+            "spare"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "horsehair"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kingri_context",
+      "name": "Ritual / repertoire context",
+      "variants": [
+        {
+          "id": "kingri_context_persa_pen",
+          "default": true,
+          "name": "Persa Pen clan-deity rite",
+          "descriptors": [
+            "ritual",
+            "ceremonial",
+            "ritual-summoning"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ritual-context",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "ritual"
+          ]
+        },
+        {
+          "id": "kingri_context_gond_epic",
+          "name": "Gond origin-epic and clan-genealogy recitation",
+          "descriptors": [
+            "epic-narration",
+            "bardic",
+            "declamatory"
+          ],
+          "match_tokens": [
+            "bowed",
+            "epic",
+            "narrative"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "epic",
+            "narrative"
+          ]
+        },
+        {
+          "id": "kingri_context_life_cycle",
+          "name": "Marriage and death ceremonies",
+          "descriptors": [
+            "solemn",
+            "plaintive",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ritual-context",
+            "vocal-accompaniment"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "ceremonial"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kingri_stringing",
+      "name": "Stringing",
+      "variants": [
+        {
+          "id": "kingri_stringing_three_string",
+          "default": true,
+          "name": "Three strings (later, standard form)",
+          "descriptors": [
+            "three-string",
+            "resonant",
+            "nasal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "south-asian"
+          ]
+        },
+        {
+          "id": "kingri_stringing_one_string",
+          "name": "Single string (archaic form)",
+          "descriptors": [
+            "single-string",
+            "spare",
+            "raw"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "archaic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kingri_resonator",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "kingri_resonator_clay_pot",
+          "default": true,
+          "name": "Unglazed clay pot headed with goatskin, pierced by a stick neck",
+          "descriptors": [
+            "clay",
+            "earthen",
+            "goatskin",
+            "dry"
+          ],
+          "match_tokens": [
+            "bowed",
+            "resonant-membrane",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "clay",
+            "goatskin",
+            "south-asian"
+          ]
+        },
+        {
+          "id": "kingri_resonator_wooden_box",
+          "name": "Square wooden skin-covered box",
+          "descriptors": [
+            "carved-wood",
+            "skin-topped",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "resonant-membrane",
+            "wood"
+          ],
+          "canonical_tags": [
+            "wood",
+            "goatskin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kingri_bow",
+      "name": "Bow",
+      "variants": [
+        {
+          "id": "kingri_bow_belled",
+          "default": true,
+          "name": "Horsehair bow hung with small bells",
+          "descriptors": [
+            "horsehair",
+            "jingle-studded",
+            "festive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "jingle",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "horsehair",
+            "ritual"
+          ]
+        },
+        {
+          "id": "kingri_bow_plain",
+          "name": "Plain horsehair bow, no jingles",
+          "descriptors": [
+            "horsehair",
+            "dry",
+            "spare"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "horsehair"
+          ]
+        }
+      ]
+    }
+  ]
+}

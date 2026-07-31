@@ -1,0 +1,377 @@
+{
+  "id": "tar_shehnai",
+  "name": "Tar shehnai (horn-amplified bowed Indian lute)",
+  "family": "bowed",
+  "class": "bowed_lute",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "tar shehnai",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "tar_shehnai_base",
+      "name": "Base instrument",
+      "variants": [
+        {
+          "id": "tar_shehnai_base_esraj",
+          "default": true,
+          "name": "Esraj body fitted with a diaphragm and flared horn",
+          "descriptors": [
+            "reedy",
+            "nasal",
+            "compressed",
+            "cutting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected",
+            "nasal-tone"
+          ],
+          "canonical_tags": [
+            "south_asia",
+            "modern"
+          ]
+        },
+        {
+          "id": "tar_shehnai_base_dilruba",
+          "name": "Dilruba body fitted with a horn (longer neck, wider meend)",
+          "descriptors": [
+            "long-necked",
+            "expressive",
+            "singing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected",
+            "microtonal-bend"
+          ],
+          "canonical_tags": [
+            "south_asia",
+            "punjab"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tar_shehnai_context",
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "tar_shehnai_context_light_classical",
+          "default": true,
+          "name": "Hindustani light-classical obbligato (thumri, dadra)",
+          "descriptors": [
+            "lyrical",
+            "vocal-shadowing",
+            "ornamented",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented",
+            "vocal-imitating"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "art-music"
+          ]
+        },
+        {
+          "id": "tar_shehnai_context_rabindra_sangeet",
+          "name": "Bengali song and Rabindra Sangeet",
+          "descriptors": [
+            "lyrical",
+            "intimate",
+            "vocal-supportive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "accompaniment",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "bengali",
+            "bengal"
+          ]
+        },
+        {
+          "id": "tar_shehnai_context_film_studio",
+          "name": "Film and studio session colour (pre-microphone loudness solution)",
+          "descriptors": [
+            "projecting",
+            "urban",
+            "twentieth-century"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing",
+            "modern"
+          ],
+          "canonical_tags": [
+            "hindi-film-song",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tar_shehnai_horn",
+      "name": "Horn and capture",
+      "variants": [
+        {
+          "id": "tar_shehnai_horn_brass",
+          "default": true,
+          "name": "Brass horn with mica diaphragm, miked at the bell",
+          "descriptors": [
+            "brassy",
+            "honking",
+            "compressed",
+            "nasal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "nasal-tone",
+            "piercing"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "tar_shehnai_horn_aluminium",
+          "name": "Aluminium horn (thinner, more strident)",
+          "descriptors": [
+            "strident",
+            "thin-toned",
+            "metallic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing",
+            "metallic"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "tar_shehnai_horn_body_mic",
+          "name": "Miked at the body with the sympathetics left ringing",
+          "descriptors": [
+            "sympathetic-halo",
+            "shimmering",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "resonant"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tar_shehnai_base",
+      "name": "Base instrument",
+      "variants": [
+        {
+          "id": "tar_shehnai_base_esraj",
+          "default": true,
+          "name": "Esraj body fitted with a diaphragm and flared horn",
+          "descriptors": [
+            "reedy",
+            "nasal",
+            "compressed",
+            "cutting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected",
+            "nasal-tone"
+          ],
+          "canonical_tags": [
+            "south_asia",
+            "modern"
+          ]
+        },
+        {
+          "id": "tar_shehnai_base_dilruba",
+          "name": "Dilruba body fitted with a horn (longer neck, wider meend)",
+          "descriptors": [
+            "long-necked",
+            "expressive",
+            "singing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected",
+            "microtonal-bend"
+          ],
+          "canonical_tags": [
+            "south_asia",
+            "punjab"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tar_shehnai_context",
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "tar_shehnai_context_light_classical",
+          "default": true,
+          "name": "Hindustani light-classical obbligato (thumri, dadra)",
+          "descriptors": [
+            "lyrical",
+            "vocal-shadowing",
+            "ornamented",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented",
+            "vocal-imitating"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "art-music"
+          ]
+        },
+        {
+          "id": "tar_shehnai_context_rabindra_sangeet",
+          "name": "Bengali song and Rabindra Sangeet",
+          "descriptors": [
+            "lyrical",
+            "intimate",
+            "vocal-supportive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "accompaniment",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "bengali",
+            "bengal"
+          ]
+        },
+        {
+          "id": "tar_shehnai_context_film_studio",
+          "name": "Film and studio session colour (pre-microphone loudness solution)",
+          "descriptors": [
+            "projecting",
+            "urban",
+            "twentieth-century"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing",
+            "modern"
+          ],
+          "canonical_tags": [
+            "hindi-film-song",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tar_shehnai_horn",
+      "name": "Horn and capture",
+      "variants": [
+        {
+          "id": "tar_shehnai_horn_brass",
+          "default": true,
+          "name": "Brass horn with mica diaphragm, miked at the bell",
+          "descriptors": [
+            "brassy",
+            "honking",
+            "compressed",
+            "nasal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "nasal-tone",
+            "piercing"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "tar_shehnai_horn_aluminium",
+          "name": "Aluminium horn (thinner, more strident)",
+          "descriptors": [
+            "strident",
+            "thin-toned",
+            "metallic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing",
+            "metallic"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "tar_shehnai_horn_body_mic",
+          "name": "Miked at the body with the sympathetics left ringing",
+          "descriptors": [
+            "sympathetic-halo",
+            "shimmering",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "resonant"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

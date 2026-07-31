@@ -1,0 +1,444 @@
+{
+  "id": "conn_o_sax",
+  "name": "Conn-O-Sax (F saxophone with globular bell)",
+  "family": "wind",
+  "class": "single_reed_conical",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "conn-o-sax",
+  "parts": [
+    {
+      "id": "conn_o_sax_voicing",
+      "name": "Voicing intent",
+      "variants": [
+        {
+          "id": "conn_o_sax_cor_anglais_tone",
+          "default": true,
+          "name": "Covered cor-anglais-like tone",
+          "descriptors": [
+            "veiled",
+            "covered",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "mellow-tone",
+            "melodic-lead",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "vintage",
+            "chamber"
+          ]
+        },
+        {
+          "id": "conn_o_sax_bright_f_sax",
+          "name": "Played as a bright F saxophone",
+          "descriptors": [
+            "bright",
+            "reedy",
+            "projecting"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "conn_o_sax_register",
+      "name": "Register focus",
+      "variants": [
+        {
+          "id": "conn_o_sax_middle_voice",
+          "default": true,
+          "name": "Middle-voice singing line",
+          "descriptors": [
+            "lyrical",
+            "singing",
+            "round"
+          ],
+          "match_tokens": [
+            "mid-register",
+            "melodic-lead",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "conn_o_sax_low_a",
+          "name": "Low A extension",
+          "descriptors": [
+            "deep",
+            "low-register",
+            "husky"
+          ],
+          "match_tokens": [
+            "low-register",
+            "reed-driven",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "conn_o_sax_altissimo",
+          "name": "Altissimo G top",
+          "descriptors": [
+            "high-register",
+            "piercing",
+            "thin"
+          ],
+          "match_tokens": [
+            "high-register",
+            "reed-driven",
+            "soloistic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "conn_o_sax_context",
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "conn_o_sax_vaudeville_pit",
+          "default": true,
+          "name": "Vaudeville / theatre-pit doubling novelty",
+          "descriptors": [
+            "theatrical",
+            "vintage",
+            "featured"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "reed-driven",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "vintage",
+            "pre-war-jazz"
+          ]
+        },
+        {
+          "id": "conn_o_sax_english_horn_stand_in",
+          "name": "Saxophone-family stand-in for the English horn",
+          "descriptors": [
+            "veiled",
+            "ensemble-blend",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "ensemble-blend",
+            "orchestral",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "chamber",
+            "classical"
+          ]
+        },
+        {
+          "id": "conn_o_sax_modern_studio",
+          "name": "Modern chamber / studio colour",
+          "descriptors": [
+            "rare",
+            "atmospheric",
+            "featured"
+          ],
+          "match_tokens": [
+            "studio",
+            "cinematic",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "studio",
+            "contemporary"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "conn_o_sax_fork",
+      "name": "Instrument choice",
+      "variants": [
+        {
+          "id": "conn_o_sax_globular_bell",
+          "default": true,
+          "name": "Conn-O-Sax: straight body, globular heckelphone-style bell",
+          "descriptors": [
+            "covered",
+            "nasal",
+            "rare"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "conical-bore",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "conn_o_sax_mezzo_24m",
+          "name": "Conn F mezzo-soprano (model 24M, alto-shaped body)",
+          "descriptors": [
+            "bright",
+            "alto",
+            "vintage"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "conical-bore"
+          ],
+          "canonical_tags": [
+            "vintage",
+            "alto-saxophone"
+          ]
+        },
+        {
+          "id": "conn_o_sax_cor_anglais",
+          "name": "Actual cor anglais on the line",
+          "descriptors": [
+            "plaintive",
+            "double-reed",
+            "orchestral"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "orchestral",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "conn_o_sax_voicing",
+      "name": "Voicing intent",
+      "variants": [
+        {
+          "id": "conn_o_sax_cor_anglais_tone",
+          "default": true,
+          "name": "Covered cor-anglais-like tone",
+          "descriptors": [
+            "veiled",
+            "covered",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "mellow-tone",
+            "melodic-lead",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "vintage",
+            "chamber"
+          ]
+        },
+        {
+          "id": "conn_o_sax_bright_f_sax",
+          "name": "Played as a bright F saxophone",
+          "descriptors": [
+            "bright",
+            "reedy",
+            "projecting"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "conn_o_sax_register",
+      "name": "Register focus",
+      "variants": [
+        {
+          "id": "conn_o_sax_middle_voice",
+          "default": true,
+          "name": "Middle-voice singing line",
+          "descriptors": [
+            "lyrical",
+            "singing",
+            "round"
+          ],
+          "match_tokens": [
+            "mid-register",
+            "melodic-lead",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "conn_o_sax_low_a",
+          "name": "Low A extension",
+          "descriptors": [
+            "deep",
+            "low-register",
+            "husky"
+          ],
+          "match_tokens": [
+            "low-register",
+            "reed-driven",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "conn_o_sax_altissimo",
+          "name": "Altissimo G top",
+          "descriptors": [
+            "high-register",
+            "piercing",
+            "thin"
+          ],
+          "match_tokens": [
+            "high-register",
+            "reed-driven",
+            "soloistic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "conn_o_sax_context",
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "conn_o_sax_vaudeville_pit",
+          "default": true,
+          "name": "Vaudeville / theatre-pit doubling novelty",
+          "descriptors": [
+            "theatrical",
+            "vintage",
+            "featured"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "reed-driven",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "vintage",
+            "pre-war-jazz"
+          ]
+        },
+        {
+          "id": "conn_o_sax_english_horn_stand_in",
+          "name": "Saxophone-family stand-in for the English horn",
+          "descriptors": [
+            "veiled",
+            "ensemble-blend",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "ensemble-blend",
+            "orchestral",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "chamber",
+            "classical"
+          ]
+        },
+        {
+          "id": "conn_o_sax_modern_studio",
+          "name": "Modern chamber / studio colour",
+          "descriptors": [
+            "rare",
+            "atmospheric",
+            "featured"
+          ],
+          "match_tokens": [
+            "studio",
+            "cinematic",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "studio",
+            "contemporary"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "conn_o_sax_fork",
+      "name": "Instrument choice",
+      "variants": [
+        {
+          "id": "conn_o_sax_globular_bell",
+          "default": true,
+          "name": "Conn-O-Sax: straight body, globular heckelphone-style bell",
+          "descriptors": [
+            "covered",
+            "nasal",
+            "rare"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "conical-bore",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "conn_o_sax_mezzo_24m",
+          "name": "Conn F mezzo-soprano (model 24M, alto-shaped body)",
+          "descriptors": [
+            "bright",
+            "alto",
+            "vintage"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "conical-bore"
+          ],
+          "canonical_tags": [
+            "vintage",
+            "alto-saxophone"
+          ]
+        },
+        {
+          "id": "conn_o_sax_cor_anglais",
+          "name": "Actual cor anglais on the line",
+          "descriptors": [
+            "plaintive",
+            "double-reed",
+            "orchestral"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "orchestral",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ]
+    }
+  ]
+}

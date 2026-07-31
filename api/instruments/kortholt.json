@@ -1,0 +1,438 @@
+{
+  "id": "kortholt",
+  "name": "Kortholt (renaissance capped doubled-bore reed)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": -1,
+    "range": -1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "kortholt",
+  "parts": [
+    {
+      "id": "kortholt_size",
+      "name": "Size / pitch",
+      "variants": [
+        {
+          "id": "kortholt_tenor_c",
+          "default": true,
+          "name": "Tenor in C",
+          "descriptors": [
+            "tenor",
+            "consort-core",
+            "warm-buzzing-tone"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "consort"
+          ]
+        },
+        {
+          "id": "kortholt_alto_f",
+          "name": "Alto in F",
+          "descriptors": [
+            "alto",
+            "inner-voice",
+            "blended"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "consort"
+          ]
+        },
+        {
+          "id": "kortholt_bass",
+          "name": "Bass (keyed low holes, doubled bore)",
+          "descriptors": [
+            "bass",
+            "foundation-bass",
+            "deep"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "consort"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kortholt_reed_mount",
+      "name": "Reed mounting",
+      "variants": [
+        {
+          "id": "kortholt_windcap",
+          "default": true,
+          "name": "Windcap over the double reed (canonical bagpipe-chanter build)",
+          "descriptors": [
+            "buzzing",
+            "soft-toned",
+            "muted"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "kortholt_exposed_reed",
+          "name": "Exposed reed (maker option, louder and lip-controlled)",
+          "descriptors": [
+            "loud",
+            "expressive",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "loud-projection"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kortholt_role",
+      "name": "Consort role",
+      "variants": [
+        {
+          "id": "kortholt_crumhorn_consort_bass",
+          "default": true,
+          "name": "Bass foundation under a crumhorn consort",
+          "descriptors": [
+            "foundation-bass",
+            "consort",
+            "buzzing-homophony"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "bass-foundation"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "consort"
+          ]
+        },
+        {
+          "id": "kortholt_broken_consort_inner",
+          "name": "Inner voice in a broken consort",
+          "descriptors": [
+            "inner-voice",
+            "blended",
+            "polyphonic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "renaissance-polyphony",
+            "consort"
+          ]
+        },
+        {
+          "id": "kortholt_hip_revival",
+          "name": "Modern early-music revival (Moeck-style alto and tenor)",
+          "descriptors": [
+            "twentieth-century",
+            "preservationist",
+            "historically-informed"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "period-performance",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "revival",
+            "early-music-caution"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kortholt_body_wood",
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "kortholt_maple",
+          "default": true,
+          "name": "Maple (canonical German workshop)",
+          "descriptors": [
+            "maple-alternative-german",
+            "traditional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "kortholt_boxwood",
+          "name": "Boxwood (canonical Renaissance European)",
+          "descriptors": [
+            "boxwood-canonical-renaissance-european",
+            "dense"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "kortholt_pearwood",
+          "name": "Pearwood (renaissance alternative)",
+          "descriptors": [
+            "pearwood-renaissance-alternative",
+            "mellow"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kortholt_size",
+      "name": "Size / pitch",
+      "variants": [
+        {
+          "id": "kortholt_tenor_c",
+          "default": true,
+          "name": "Tenor in C",
+          "descriptors": [
+            "tenor",
+            "consort-core",
+            "warm-buzzing-tone"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "consort"
+          ]
+        },
+        {
+          "id": "kortholt_alto_f",
+          "name": "Alto in F",
+          "descriptors": [
+            "alto",
+            "inner-voice",
+            "blended"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "consort"
+          ]
+        },
+        {
+          "id": "kortholt_bass",
+          "name": "Bass (keyed low holes, doubled bore)",
+          "descriptors": [
+            "bass",
+            "foundation-bass",
+            "deep"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "consort"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kortholt_reed_mount",
+      "name": "Reed mounting",
+      "variants": [
+        {
+          "id": "kortholt_windcap",
+          "default": true,
+          "name": "Windcap over the double reed (canonical bagpipe-chanter build)",
+          "descriptors": [
+            "buzzing",
+            "soft-toned",
+            "muted"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "kortholt_exposed_reed",
+          "name": "Exposed reed (maker option, louder and lip-controlled)",
+          "descriptors": [
+            "loud",
+            "expressive",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "loud-projection"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kortholt_role",
+      "name": "Consort role",
+      "variants": [
+        {
+          "id": "kortholt_crumhorn_consort_bass",
+          "default": true,
+          "name": "Bass foundation under a crumhorn consort",
+          "descriptors": [
+            "foundation-bass",
+            "consort",
+            "buzzing-homophony"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "bass-foundation"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "consort"
+          ]
+        },
+        {
+          "id": "kortholt_broken_consort_inner",
+          "name": "Inner voice in a broken consort",
+          "descriptors": [
+            "inner-voice",
+            "blended",
+            "polyphonic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "renaissance-polyphony",
+            "consort"
+          ]
+        },
+        {
+          "id": "kortholt_hip_revival",
+          "name": "Modern early-music revival (Moeck-style alto and tenor)",
+          "descriptors": [
+            "twentieth-century",
+            "preservationist",
+            "historically-informed"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "period-performance",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "revival",
+            "early-music-caution"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kortholt_body_wood",
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "kortholt_maple",
+          "default": true,
+          "name": "Maple (canonical German workshop)",
+          "descriptors": [
+            "maple-alternative-german",
+            "traditional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "kortholt_boxwood",
+          "name": "Boxwood (canonical Renaissance European)",
+          "descriptors": [
+            "boxwood-canonical-renaissance-european",
+            "dense"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "kortholt_pearwood",
+          "name": "Pearwood (renaissance alternative)",
+          "descriptors": [
+            "pearwood-renaissance-alternative",
+            "mellow"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance"
+          ]
+        }
+      ]
+    }
+  ]
+}

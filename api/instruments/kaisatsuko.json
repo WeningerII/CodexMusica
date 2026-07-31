@@ -1,0 +1,413 @@
+{
+  "id": "kaisatsuko",
+  "name": "Kaisatsuko (crank-bowed experimental fiddle)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "kaisatsuko",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "kaisatsuko_wheel",
+      "name": "Wheel surface",
+      "variants": [
+        {
+          "id": "kaisatsuko_bare_nylon",
+          "default": true,
+          "name": "Bare nylon wheel (Yuichi Onoue's own build)",
+          "descriptors": [
+            "nylon",
+            "thin",
+            "friction-driven"
+          ],
+          "match_tokens": [
+            "bowed",
+            "friction-driven",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "experimental",
+            "modern"
+          ]
+        },
+        {
+          "id": "kaisatsuko_rosined_wood",
+          "name": "Rosined wood or leather wheel (hurdy-gurdy practice — harder bite)",
+          "descriptors": [
+            "grippy",
+            "raspy",
+            "full"
+          ],
+          "match_tokens": [
+            "bowed",
+            "friction-driven",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "experimental"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kaisatsuko_crank",
+      "name": "Crank behaviour",
+      "variants": [
+        {
+          "id": "kaisatsuko_steady_drone",
+          "default": true,
+          "name": "Steady crank (unbroken sustain, no bow changes)",
+          "descriptors": [
+            "continuous",
+            "sustained",
+            "droning"
+          ],
+          "match_tokens": [
+            "bowed",
+            "hand-cranked",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "drone",
+            "experimental"
+          ]
+        },
+        {
+          "id": "kaisatsuko_pulsed",
+          "name": "Pulsed / accelerating crank (attack shaped by wheel speed)",
+          "descriptors": [
+            "percussive",
+            "rhythmic",
+            "dry-attack"
+          ],
+          "match_tokens": [
+            "bowed",
+            "crank-driven",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "experimental"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kaisatsuko_tuning",
+      "name": "Two-string tuning",
+      "variants": [
+        {
+          "id": "kaisatsuko_drone_melody",
+          "default": true,
+          "name": "Drone plus stopped melody string (fretless neck, true glissandi)",
+          "descriptors": [
+            "droning",
+            "lead-melodic",
+            "spare"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "glissando-heavy"
+          ],
+          "canonical_tags": [
+            "drone",
+            "experimental"
+          ]
+        },
+        {
+          "id": "kaisatsuko_unison",
+          "name": "Unison pair (beating, thickened single line)",
+          "descriptors": [
+            "unison",
+            "fuller",
+            "buzzy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "friction-driven",
+            "unison"
+          ],
+          "canonical_tags": [
+            "experimental"
+          ]
+        },
+        {
+          "id": "kaisatsuko_fifth",
+          "name": "Open fifth",
+          "descriptors": [
+            "open-fifths",
+            "resonant",
+            "droning"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "drone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kaisatsuko_capture",
+      "name": "Capture",
+      "variants": [
+        {
+          "id": "kaisatsuko_bare_acoustic",
+          "default": true,
+          "name": "Bare acoustic (small output, close-miked)",
+          "descriptors": [
+            "intimate",
+            "thin",
+            "lo-fi"
+          ],
+          "match_tokens": [
+            "bowed",
+            "acoustic-only"
+          ],
+          "canonical_tags": [
+            "experimental"
+          ]
+        },
+        {
+          "id": "kaisatsuko_amplified",
+          "name": "Contact-pickup amplification",
+          "descriptors": [
+            "amplified",
+            "projecting",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "amplified"
+          ],
+          "canonical_tags": [
+            "modern",
+            "experimental"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kaisatsuko_wheel",
+      "name": "Wheel surface",
+      "variants": [
+        {
+          "id": "kaisatsuko_bare_nylon",
+          "default": true,
+          "name": "Bare nylon wheel (Yuichi Onoue's own build)",
+          "descriptors": [
+            "nylon",
+            "thin",
+            "friction-driven"
+          ],
+          "match_tokens": [
+            "bowed",
+            "friction-driven",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "experimental",
+            "modern"
+          ]
+        },
+        {
+          "id": "kaisatsuko_rosined_wood",
+          "name": "Rosined wood or leather wheel (hurdy-gurdy practice — harder bite)",
+          "descriptors": [
+            "grippy",
+            "raspy",
+            "full"
+          ],
+          "match_tokens": [
+            "bowed",
+            "friction-driven",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "experimental"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kaisatsuko_crank",
+      "name": "Crank behaviour",
+      "variants": [
+        {
+          "id": "kaisatsuko_steady_drone",
+          "default": true,
+          "name": "Steady crank (unbroken sustain, no bow changes)",
+          "descriptors": [
+            "continuous",
+            "sustained",
+            "droning"
+          ],
+          "match_tokens": [
+            "bowed",
+            "hand-cranked",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "drone",
+            "experimental"
+          ]
+        },
+        {
+          "id": "kaisatsuko_pulsed",
+          "name": "Pulsed / accelerating crank (attack shaped by wheel speed)",
+          "descriptors": [
+            "percussive",
+            "rhythmic",
+            "dry-attack"
+          ],
+          "match_tokens": [
+            "bowed",
+            "crank-driven",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "experimental"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kaisatsuko_tuning",
+      "name": "Two-string tuning",
+      "variants": [
+        {
+          "id": "kaisatsuko_drone_melody",
+          "default": true,
+          "name": "Drone plus stopped melody string (fretless neck, true glissandi)",
+          "descriptors": [
+            "droning",
+            "lead-melodic",
+            "spare"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "glissando-heavy"
+          ],
+          "canonical_tags": [
+            "drone",
+            "experimental"
+          ]
+        },
+        {
+          "id": "kaisatsuko_unison",
+          "name": "Unison pair (beating, thickened single line)",
+          "descriptors": [
+            "unison",
+            "fuller",
+            "buzzy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "friction-driven",
+            "unison"
+          ],
+          "canonical_tags": [
+            "experimental"
+          ]
+        },
+        {
+          "id": "kaisatsuko_fifth",
+          "name": "Open fifth",
+          "descriptors": [
+            "open-fifths",
+            "resonant",
+            "droning"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "drone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kaisatsuko_capture",
+      "name": "Capture",
+      "variants": [
+        {
+          "id": "kaisatsuko_bare_acoustic",
+          "default": true,
+          "name": "Bare acoustic (small output, close-miked)",
+          "descriptors": [
+            "intimate",
+            "thin",
+            "lo-fi"
+          ],
+          "match_tokens": [
+            "bowed",
+            "acoustic-only"
+          ],
+          "canonical_tags": [
+            "experimental"
+          ]
+        },
+        {
+          "id": "kaisatsuko_amplified",
+          "name": "Contact-pickup amplification",
+          "descriptors": [
+            "amplified",
+            "projecting",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "amplified"
+          ],
+          "canonical_tags": [
+            "modern",
+            "experimental"
+          ]
+        }
+      ]
+    }
+  ]
+}

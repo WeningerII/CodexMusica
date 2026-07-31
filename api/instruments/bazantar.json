@@ -1,0 +1,465 @@
+{
+  "id": "bazantar",
+  "name": "Bazantar (Deutsch sympathetic-string bass)",
+  "family": "bowed",
+  "class": "bass",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": -2,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "bazantar",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "bazantar_excitation",
+      "name": "Excitation / bow technique",
+      "variants": [
+        {
+          "id": "bazantar_sustained_arco",
+          "default": true,
+          "name": "Sustained arco on the low melody strings (sympathetic bank blooming)",
+          "descriptors": [
+            "sustained-drone",
+            "sympathetic-halo",
+            "subterranean"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "drone-foundation",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "drone",
+            "contemporary"
+          ]
+        },
+        {
+          "id": "bazantar_pizzicato",
+          "name": "Pizzicato / thumb-plucked (dry attack over ringing sympathetics)",
+          "descriptors": [
+            "finger-plucked",
+            "resonant",
+            "percussive"
+          ],
+          "match_tokens": [
+            "plucked",
+            "sympathetic-resonant",
+            "low-register"
+          ]
+        },
+        {
+          "id": "bazantar_col_legno_scrape",
+          "name": "Col legno and hair-scrape (extended technique)",
+          "descriptors": [
+            "scraped",
+            "extended-technique",
+            "textural"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "scraped"
+          ],
+          "canonical_tags": [
+            "free-improvisation",
+            "experimental"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bazantar_resonance",
+      "name": "Sympathetic and drone bank",
+      "variants": [
+        {
+          "id": "bazantar_full_bank",
+          "default": true,
+          "name": "All 29 sympathetics plus 4 drones open and ringing",
+          "descriptors": [
+            "sympathetic-halo",
+            "resonance-saturated",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "contemporary"
+          ]
+        },
+        {
+          "id": "bazantar_drones_only",
+          "name": "Drone strings tuned to a modal pedal, sympathetics damped",
+          "descriptors": [
+            "modal",
+            "focused",
+            "drone-under-melody"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "low-register"
+          ]
+        },
+        {
+          "id": "bazantar_fully_damped",
+          "name": "Sympathetics and drones damped (plain acoustic bass voice)",
+          "descriptors": [
+            "damped",
+            "dry",
+            "bass"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register",
+            "acoustic-only"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bazantar_idiom",
+      "name": "Idiom / repertoire",
+      "variants": [
+        {
+          "id": "bazantar_hindustani_fusion",
+          "default": true,
+          "name": "Hindustani-derived slow unfolding on the contrabass (Deutsch idiom)",
+          "descriptors": [
+            "alap-jor-jhala",
+            "meditative",
+            "raga-derived"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "ornamented",
+            "microtonal-bend"
+          ],
+          "canonical_tags": [
+            "hindustani",
+            "fusion"
+          ]
+        },
+        {
+          "id": "bazantar_new_music_solo",
+          "name": "Solo / duo new-music writing",
+          "descriptors": [
+            "exploratory",
+            "through-composed",
+            "soloistic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "soloistic",
+            "contemporary"
+          ],
+          "canonical_tags": [
+            "contemporary",
+            "solo"
+          ]
+        },
+        {
+          "id": "bazantar_film_bed",
+          "name": "Film and library low drone bed",
+          "descriptors": [
+            "cinematic",
+            "dread-building",
+            "atmospheric"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "film-scoring",
+            "dark-ambient"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bazantar_build",
+      "name": "Build / string count",
+      "variants": [
+        {
+          "id": "bazantar_five_string",
+          "default": true,
+          "name": "Five-string acoustic bass carrying the modular graphite sympathetic housing (1997 build)",
+          "descriptors": [
+            "five-string",
+            "modern-build",
+            "boutique"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register",
+            "acoustic-only"
+          ],
+          "canonical_tags": [
+            "five_string"
+          ]
+        },
+        {
+          "id": "bazantar_six_string_claim",
+          "name": "Six-string bass body (as stated in Deutsch's own bio note)",
+          "descriptors": [
+            "six-string",
+            "variant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register",
+            "bass-register"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "bazantar_excitation",
+      "name": "Excitation / bow technique",
+      "variants": [
+        {
+          "id": "bazantar_sustained_arco",
+          "default": true,
+          "name": "Sustained arco on the low melody strings (sympathetic bank blooming)",
+          "descriptors": [
+            "sustained-drone",
+            "sympathetic-halo",
+            "subterranean"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "drone-foundation",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "drone",
+            "contemporary"
+          ]
+        },
+        {
+          "id": "bazantar_pizzicato",
+          "name": "Pizzicato / thumb-plucked (dry attack over ringing sympathetics)",
+          "descriptors": [
+            "finger-plucked",
+            "resonant",
+            "percussive"
+          ],
+          "match_tokens": [
+            "plucked",
+            "sympathetic-resonant",
+            "low-register"
+          ]
+        },
+        {
+          "id": "bazantar_col_legno_scrape",
+          "name": "Col legno and hair-scrape (extended technique)",
+          "descriptors": [
+            "scraped",
+            "extended-technique",
+            "textural"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "scraped"
+          ],
+          "canonical_tags": [
+            "free-improvisation",
+            "experimental"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bazantar_resonance",
+      "name": "Sympathetic and drone bank",
+      "variants": [
+        {
+          "id": "bazantar_full_bank",
+          "default": true,
+          "name": "All 29 sympathetics plus 4 drones open and ringing",
+          "descriptors": [
+            "sympathetic-halo",
+            "resonance-saturated",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "contemporary"
+          ]
+        },
+        {
+          "id": "bazantar_drones_only",
+          "name": "Drone strings tuned to a modal pedal, sympathetics damped",
+          "descriptors": [
+            "modal",
+            "focused",
+            "drone-under-melody"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "low-register"
+          ]
+        },
+        {
+          "id": "bazantar_fully_damped",
+          "name": "Sympathetics and drones damped (plain acoustic bass voice)",
+          "descriptors": [
+            "damped",
+            "dry",
+            "bass"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register",
+            "acoustic-only"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bazantar_idiom",
+      "name": "Idiom / repertoire",
+      "variants": [
+        {
+          "id": "bazantar_hindustani_fusion",
+          "default": true,
+          "name": "Hindustani-derived slow unfolding on the contrabass (Deutsch idiom)",
+          "descriptors": [
+            "alap-jor-jhala",
+            "meditative",
+            "raga-derived"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "ornamented",
+            "microtonal-bend"
+          ],
+          "canonical_tags": [
+            "hindustani",
+            "fusion"
+          ]
+        },
+        {
+          "id": "bazantar_new_music_solo",
+          "name": "Solo / duo new-music writing",
+          "descriptors": [
+            "exploratory",
+            "through-composed",
+            "soloistic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "soloistic",
+            "contemporary"
+          ],
+          "canonical_tags": [
+            "contemporary",
+            "solo"
+          ]
+        },
+        {
+          "id": "bazantar_film_bed",
+          "name": "Film and library low drone bed",
+          "descriptors": [
+            "cinematic",
+            "dread-building",
+            "atmospheric"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "film-scoring",
+            "dark-ambient"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bazantar_build",
+      "name": "Build / string count",
+      "variants": [
+        {
+          "id": "bazantar_five_string",
+          "default": true,
+          "name": "Five-string acoustic bass carrying the modular graphite sympathetic housing (1997 build)",
+          "descriptors": [
+            "five-string",
+            "modern-build",
+            "boutique"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register",
+            "acoustic-only"
+          ],
+          "canonical_tags": [
+            "five_string"
+          ]
+        },
+        {
+          "id": "bazantar_six_string_claim",
+          "name": "Six-string bass body (as stated in Deutsch's own bio note)",
+          "descriptors": [
+            "six-string",
+            "variant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register",
+            "bass-register"
+          ]
+        }
+      ]
+    }
+  ]
+}

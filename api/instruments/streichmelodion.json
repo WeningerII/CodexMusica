@@ -1,0 +1,453 @@
+{
+  "id": "streichmelodion",
+  "name": "Streichmelodion / Breitoline (fretted bowed zither)",
+  "family": "bowed",
+  "class": "fretboard_zither",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "streichmelodion",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "streichmelodion_size",
+      "name": "Size / voice",
+      "variants": [
+        {
+          "id": "streichmelodion_viola_size",
+          "default": true,
+          "name": "Viola-size (Glier factory standard, compass just below a viola)",
+          "descriptors": [
+            "viola-range",
+            "robust",
+            "alto"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretted",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "streichmelodion_cello_size",
+          "name": "Cello-size",
+          "descriptors": [
+            "cello-specific",
+            "deeper",
+            "fuller"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretted",
+            "low-register"
+          ]
+        },
+        {
+          "id": "streichmelodion_bass_size",
+          "name": "Bass-size",
+          "descriptors": [
+            "bass-heavy",
+            "grave",
+            "rare"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretted",
+            "bass-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "streichmelodion_stringing",
+      "name": "Stringing and tuning",
+      "variants": [
+        {
+          "id": "streichmelodion_four_reversed",
+          "default": true,
+          "name": "Four strings in reversed alpine-zither tuning (most commonly e'' a' d' g)",
+          "descriptors": [
+            "distinct-tuning",
+            "alpine",
+            "production-standard"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretted",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "alpine",
+            "four_string"
+          ]
+        },
+        {
+          "id": "streichmelodion_breit_five",
+          "name": "Breit's original five-string disposition (1856)",
+          "descriptors": [
+            "five-string",
+            "wide-compass",
+            "early-period"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretted",
+            "wide-range"
+          ],
+          "canonical_tags": [
+            "five_string",
+            "historical"
+          ]
+        },
+        {
+          "id": "streichmelodion_violin_tuning",
+          "name": "Retuned to violin-family fifths",
+          "descriptors": [
+            "fifths-tuned",
+            "classical",
+            "crossover"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretted",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "streichmelodion_support",
+      "name": "Support / posture",
+      "variants": [
+        {
+          "id": "streichmelodion_lap_and_table",
+          "default": true,
+          "name": "Body on the lap, the neck-to-headstock section resting on a table (canonical)",
+          "descriptors": [
+            "lap-position",
+            "seated",
+            "stable"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretted",
+            "intimate"
+          ]
+        },
+        {
+          "id": "streichmelodion_under_chin",
+          "name": "Held under the chin like a viola",
+          "descriptors": [
+            "under-arm",
+            "viola-range",
+            "portable"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretted",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "streichmelodion_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "streichmelodion_moravian_parlour",
+          "default": true,
+          "name": "Moravian / Austrian domestic parlour playing",
+          "descriptors": [
+            "parlor",
+            "sentimental",
+            "domestic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretted",
+            "folk-tradition",
+            "intimate"
+          ],
+          "canonical_tags": [
+            "domestic",
+            "austrian"
+          ]
+        },
+        {
+          "id": "streichmelodion_zither_ensemble",
+          "name": "Zither-ensemble melody part (Lidl catalogue two-size pairing)",
+          "descriptors": [
+            "ensemble-melodic",
+            "blending",
+            "alpine"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretted",
+            "ensemble",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "stubenmusik",
+            "alpine"
+          ]
+        },
+        {
+          "id": "streichmelodion_curiosity_solo",
+          "name": "Solo curiosity piece (Gruber's frying-pan verdict)",
+          "descriptors": [
+            "coarse",
+            "nasal",
+            "harsh"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "fretted"
+          ],
+          "canonical_tags": [
+            "historic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "streichmelodion_size",
+      "name": "Size / voice",
+      "variants": [
+        {
+          "id": "streichmelodion_viola_size",
+          "default": true,
+          "name": "Viola-size (Glier factory standard, compass just below a viola)",
+          "descriptors": [
+            "viola-range",
+            "robust",
+            "alto"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretted",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "streichmelodion_cello_size",
+          "name": "Cello-size",
+          "descriptors": [
+            "cello-specific",
+            "deeper",
+            "fuller"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretted",
+            "low-register"
+          ]
+        },
+        {
+          "id": "streichmelodion_bass_size",
+          "name": "Bass-size",
+          "descriptors": [
+            "bass-heavy",
+            "grave",
+            "rare"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretted",
+            "bass-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "streichmelodion_stringing",
+      "name": "Stringing and tuning",
+      "variants": [
+        {
+          "id": "streichmelodion_four_reversed",
+          "default": true,
+          "name": "Four strings in reversed alpine-zither tuning (most commonly e'' a' d' g)",
+          "descriptors": [
+            "distinct-tuning",
+            "alpine",
+            "production-standard"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretted",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "alpine",
+            "four_string"
+          ]
+        },
+        {
+          "id": "streichmelodion_breit_five",
+          "name": "Breit's original five-string disposition (1856)",
+          "descriptors": [
+            "five-string",
+            "wide-compass",
+            "early-period"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretted",
+            "wide-range"
+          ],
+          "canonical_tags": [
+            "five_string",
+            "historical"
+          ]
+        },
+        {
+          "id": "streichmelodion_violin_tuning",
+          "name": "Retuned to violin-family fifths",
+          "descriptors": [
+            "fifths-tuned",
+            "classical",
+            "crossover"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretted",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "streichmelodion_support",
+      "name": "Support / posture",
+      "variants": [
+        {
+          "id": "streichmelodion_lap_and_table",
+          "default": true,
+          "name": "Body on the lap, the neck-to-headstock section resting on a table (canonical)",
+          "descriptors": [
+            "lap-position",
+            "seated",
+            "stable"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretted",
+            "intimate"
+          ]
+        },
+        {
+          "id": "streichmelodion_under_chin",
+          "name": "Held under the chin like a viola",
+          "descriptors": [
+            "under-arm",
+            "viola-range",
+            "portable"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretted",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "streichmelodion_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "streichmelodion_moravian_parlour",
+          "default": true,
+          "name": "Moravian / Austrian domestic parlour playing",
+          "descriptors": [
+            "parlor",
+            "sentimental",
+            "domestic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretted",
+            "folk-tradition",
+            "intimate"
+          ],
+          "canonical_tags": [
+            "domestic",
+            "austrian"
+          ]
+        },
+        {
+          "id": "streichmelodion_zither_ensemble",
+          "name": "Zither-ensemble melody part (Lidl catalogue two-size pairing)",
+          "descriptors": [
+            "ensemble-melodic",
+            "blending",
+            "alpine"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretted",
+            "ensemble",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "stubenmusik",
+            "alpine"
+          ]
+        },
+        {
+          "id": "streichmelodion_curiosity_solo",
+          "name": "Solo curiosity piece (Gruber's frying-pan verdict)",
+          "descriptors": [
+            "coarse",
+            "nasal",
+            "harsh"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "fretted"
+          ],
+          "canonical_tags": [
+            "historic"
+          ]
+        }
+      ]
+    }
+  ]
+}

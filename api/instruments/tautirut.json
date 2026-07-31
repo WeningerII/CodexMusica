@@ -1,0 +1,415 @@
+{
+  "id": "tautirut",
+  "name": "Tautirut (Inuit bowed box zither)",
+  "family": "bowed",
+  "class": "drone_box_zither",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "tautirut",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "tautirut_stringing",
+      "name": "String count / form",
+      "variants": [
+        {
+          "id": "tautirut_three_string_drone",
+          "default": true,
+          "name": "Three sinew strings (melody over two open drones)",
+          "descriptors": [
+            "melody-over-drones",
+            "droning",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "box-zither",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "inuit",
+            "arctic"
+          ]
+        },
+        {
+          "id": "tautirut_two_string",
+          "name": "Two strings (melody over a single drone)",
+          "descriptors": [
+            "two-string",
+            "spare",
+            "droning"
+          ],
+          "match_tokens": [
+            "bowed",
+            "box-zither",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "inuit",
+            "arctic"
+          ]
+        },
+        {
+          "id": "tautirut_single_string",
+          "name": "Single-string survivor (Hawkes 1916 museum type)",
+          "descriptors": [
+            "one-melody-string",
+            "archaic",
+            "spare"
+          ],
+          "match_tokens": [
+            "bowed",
+            "box-zither",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "historical",
+            "archaic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tautirut_bow",
+      "name": "Bow hair",
+      "variants": [
+        {
+          "id": "tautirut_baleen_strip",
+          "default": true,
+          "name": "Bowhead baleen strip rosined with spruce gum",
+          "descriptors": [
+            "dry-attack",
+            "breathy",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "arctic",
+            "traditional"
+          ]
+        },
+        {
+          "id": "tautirut_horsehair_bow",
+          "name": "Traded horsehair bow (acculturated build)",
+          "descriptors": [
+            "horsehair",
+            "grippy",
+            "fuller"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "horsehair",
+            "historical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tautirut_drone_interval",
+      "name": "Drone interval",
+      "variants": [
+        {
+          "id": "tautirut_drone_octave",
+          "default": true,
+          "name": "Open drone an octave below the melody floor",
+          "descriptors": [
+            "octave-doubled",
+            "droning",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "drone"
+          ]
+        },
+        {
+          "id": "tautirut_drone_fourth",
+          "name": "Open drone a fourth below the melody floor",
+          "descriptors": [
+            "drone-anchored",
+            "droning",
+            "tight"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "drone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tautirut_body",
+      "name": "Box construction",
+      "variants": [
+        {
+          "id": "tautirut_adzed_birch",
+          "default": true,
+          "name": "Hand-adzed birch or spruce box, square soundhole",
+          "descriptors": [
+            "carved-wood",
+            "woody",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "box-zither"
+          ],
+          "canonical_tags": [
+            "wood",
+            "hardwood"
+          ]
+        },
+        {
+          "id": "tautirut_cigar_box",
+          "name": "Labrador cigar-box build (mid-twentieth-century)",
+          "descriptors": [
+            "box-resonated",
+            "thin",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "box-zither",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "twentieth-century",
+            "historic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tautirut_stringing",
+      "name": "String count / form",
+      "variants": [
+        {
+          "id": "tautirut_three_string_drone",
+          "default": true,
+          "name": "Three sinew strings (melody over two open drones)",
+          "descriptors": [
+            "melody-over-drones",
+            "droning",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "box-zither",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "inuit",
+            "arctic"
+          ]
+        },
+        {
+          "id": "tautirut_two_string",
+          "name": "Two strings (melody over a single drone)",
+          "descriptors": [
+            "two-string",
+            "spare",
+            "droning"
+          ],
+          "match_tokens": [
+            "bowed",
+            "box-zither",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "inuit",
+            "arctic"
+          ]
+        },
+        {
+          "id": "tautirut_single_string",
+          "name": "Single-string survivor (Hawkes 1916 museum type)",
+          "descriptors": [
+            "one-melody-string",
+            "archaic",
+            "spare"
+          ],
+          "match_tokens": [
+            "bowed",
+            "box-zither",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "historical",
+            "archaic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tautirut_bow",
+      "name": "Bow hair",
+      "variants": [
+        {
+          "id": "tautirut_baleen_strip",
+          "default": true,
+          "name": "Bowhead baleen strip rosined with spruce gum",
+          "descriptors": [
+            "dry-attack",
+            "breathy",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "arctic",
+            "traditional"
+          ]
+        },
+        {
+          "id": "tautirut_horsehair_bow",
+          "name": "Traded horsehair bow (acculturated build)",
+          "descriptors": [
+            "horsehair",
+            "grippy",
+            "fuller"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "horsehair",
+            "historical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tautirut_drone_interval",
+      "name": "Drone interval",
+      "variants": [
+        {
+          "id": "tautirut_drone_octave",
+          "default": true,
+          "name": "Open drone an octave below the melody floor",
+          "descriptors": [
+            "octave-doubled",
+            "droning",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "drone"
+          ]
+        },
+        {
+          "id": "tautirut_drone_fourth",
+          "name": "Open drone a fourth below the melody floor",
+          "descriptors": [
+            "drone-anchored",
+            "droning",
+            "tight"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "drone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tautirut_body",
+      "name": "Box construction",
+      "variants": [
+        {
+          "id": "tautirut_adzed_birch",
+          "default": true,
+          "name": "Hand-adzed birch or spruce box, square soundhole",
+          "descriptors": [
+            "carved-wood",
+            "woody",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "box-zither"
+          ],
+          "canonical_tags": [
+            "wood",
+            "hardwood"
+          ]
+        },
+        {
+          "id": "tautirut_cigar_box",
+          "name": "Labrador cigar-box build (mid-twentieth-century)",
+          "descriptors": [
+            "box-resonated",
+            "thin",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "box-zither",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "twentieth-century",
+            "historic"
+          ]
+        }
+      ]
+    }
+  ]
+}

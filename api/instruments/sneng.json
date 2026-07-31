@@ -1,0 +1,576 @@
+{
+  "id": "sneng",
+  "name": "Sneng (Khmer buffalo-horn free reed)",
+  "family": "free_reed",
+  "class": "free_reed",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": -2,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "sneng",
+  "parts": [
+    {
+      "id": "free_reed_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "free_reed_folk_first_position",
+          "default": true,
+          "name": "Folk first-position straight",
+          "descriptors": [
+            "straight",
+            "melodic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "folk",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "folk",
+            "singer-songwriter",
+            "country"
+          ]
+        },
+        {
+          "id": "free_reed_overblow_modern",
+          "name": "Overblow modern bending",
+          "descriptors": [
+            "overblown",
+            "fully-chromatic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "modern"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "sneng_type",
+      "name": "Type / build",
+      "variants": [
+        {
+          "id": "sneng_side_blown",
+          "default": true,
+          "name": "Side-blown ox or buffalo horn, bamboo free reed waxed into a side aperture",
+          "descriptors": [
+            "raucous",
+            "loud",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "wind-driven",
+            "ritual-horn",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "khmer",
+            "southeast-asian"
+          ]
+        },
+        {
+          "id": "sneng_end_blown",
+          "name": "End-blown reedless horn (tip cut off, lip-blown)",
+          "descriptors": [
+            "raw",
+            "archaic",
+            "signalling"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ritual-horn",
+            "signal"
+          ],
+          "canonical_tags": [
+            "khmer",
+            "signal"
+          ]
+        },
+        {
+          "id": "sneng_regional_cognate",
+          "name": "Regional cognate build (kwai, Myanmar / tödiap, Vietnam)",
+          "descriptors": [
+            "traditional",
+            "rustic",
+            "raucous"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "wind-driven",
+            "ritual-horn"
+          ],
+          "canonical_tags": [
+            "southeast-asian",
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sneng_breath",
+      "name": "Breath direction",
+      "variants": [
+        {
+          "id": "sneng_blown",
+          "default": true,
+          "name": "Blown breath",
+          "descriptors": [
+            "bright",
+            "penetrating",
+            "sharp"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "wind-driven",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "khmer"
+          ]
+        },
+        {
+          "id": "sneng_drawn",
+          "name": "Drawn breath (the free reed speaks on the draw as well)",
+          "descriptors": [
+            "soft",
+            "rounded",
+            "nasal"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "wind-driven",
+            "nasal"
+          ],
+          "canonical_tags": [
+            "khmer"
+          ]
+        },
+        {
+          "id": "sneng_alternating",
+          "name": "Alternating blow-and-draw pulse",
+          "descriptors": [
+            "rhythmic",
+            "cyclic",
+            "continuous"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "wind-driven",
+            "sustained"
+          ],
+          "canonical_tags": [
+            "khmer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sneng_stopping",
+      "name": "Hand-stopping pattern",
+      "variants": [
+        {
+          "id": "sneng_fourth_alternation",
+          "default": true,
+          "name": "Alternating the two notes a fourth apart (index at the tip, palm at the wide end)",
+          "descriptors": [
+            "two-pitched",
+            "rhythmic",
+            "calling"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "two-tone",
+            "signal"
+          ],
+          "canonical_tags": [
+            "khmer",
+            "signal"
+          ]
+        },
+        {
+          "id": "sneng_single_held",
+          "name": "Both ends stopped — one held note",
+          "descriptors": [
+            "sustained",
+            "droning",
+            "continuous"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "sustained",
+            "drone-like"
+          ],
+          "canonical_tags": [
+            "khmer"
+          ]
+        },
+        {
+          "id": "sneng_rapid_call",
+          "name": "Rapid stopped rhythmic call figure",
+          "descriptors": [
+            "call-driving",
+            "rhythmic",
+            "declamatory"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "signal",
+            "call-response"
+          ],
+          "canonical_tags": [
+            "signal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sneng_setting",
+      "name": "Function / setting",
+      "variants": [
+        {
+          "id": "sneng_distance_signal",
+          "default": true,
+          "name": "Long-distance signal call across open country",
+          "descriptors": [
+            "outdoor",
+            "distant",
+            "signalling"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "open-air",
+            "signal"
+          ],
+          "canonical_tags": [
+            "khmer",
+            "signal"
+          ]
+        },
+        {
+          "id": "sneng_elephant",
+          "name": "Elephant summons by the mahout riding between villages",
+          "descriptors": [
+            "calling",
+            "herding",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "outdoor-field",
+            "signal"
+          ],
+          "canonical_tags": [
+            "khmer",
+            "southeast-asian"
+          ]
+        },
+        {
+          "id": "sneng_ritual",
+          "name": "Agricultural blessing rite and arak spirit-invocation",
+          "descriptors": [
+            "ceremonial",
+            "ritual",
+            "devotional"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "ritual",
+            "ceremonial"
+          ],
+          "canonical_tags": [
+            "khmer",
+            "ritual"
+          ]
+        },
+        {
+          "id": "sneng_hunting",
+          "name": "Hunter-to-hunter communication in forest country",
+          "descriptors": [
+            "calling",
+            "outdoor",
+            "sharp"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "outdoor-field",
+            "call-response"
+          ],
+          "canonical_tags": [
+            "southeast-asian"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sneng_type",
+      "name": "Type / build",
+      "variants": [
+        {
+          "id": "sneng_side_blown",
+          "default": true,
+          "name": "Side-blown ox or buffalo horn, bamboo free reed waxed into a side aperture",
+          "descriptors": [
+            "raucous",
+            "loud",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "wind-driven",
+            "ritual-horn",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "khmer",
+            "southeast-asian"
+          ]
+        },
+        {
+          "id": "sneng_end_blown",
+          "name": "End-blown reedless horn (tip cut off, lip-blown)",
+          "descriptors": [
+            "raw",
+            "archaic",
+            "signalling"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ritual-horn",
+            "signal"
+          ],
+          "canonical_tags": [
+            "khmer",
+            "signal"
+          ]
+        },
+        {
+          "id": "sneng_regional_cognate",
+          "name": "Regional cognate build (kwai, Myanmar / tödiap, Vietnam)",
+          "descriptors": [
+            "traditional",
+            "rustic",
+            "raucous"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "wind-driven",
+            "ritual-horn"
+          ],
+          "canonical_tags": [
+            "southeast-asian",
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sneng_breath",
+      "name": "Breath direction",
+      "variants": [
+        {
+          "id": "sneng_blown",
+          "default": true,
+          "name": "Blown breath",
+          "descriptors": [
+            "bright",
+            "penetrating",
+            "sharp"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "wind-driven",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "khmer"
+          ]
+        },
+        {
+          "id": "sneng_drawn",
+          "name": "Drawn breath (the free reed speaks on the draw as well)",
+          "descriptors": [
+            "soft",
+            "rounded",
+            "nasal"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "wind-driven",
+            "nasal"
+          ],
+          "canonical_tags": [
+            "khmer"
+          ]
+        },
+        {
+          "id": "sneng_alternating",
+          "name": "Alternating blow-and-draw pulse",
+          "descriptors": [
+            "rhythmic",
+            "cyclic",
+            "continuous"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "wind-driven",
+            "sustained"
+          ],
+          "canonical_tags": [
+            "khmer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sneng_stopping",
+      "name": "Hand-stopping pattern",
+      "variants": [
+        {
+          "id": "sneng_fourth_alternation",
+          "default": true,
+          "name": "Alternating the two notes a fourth apart (index at the tip, palm at the wide end)",
+          "descriptors": [
+            "two-pitched",
+            "rhythmic",
+            "calling"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "two-tone",
+            "signal"
+          ],
+          "canonical_tags": [
+            "khmer",
+            "signal"
+          ]
+        },
+        {
+          "id": "sneng_single_held",
+          "name": "Both ends stopped — one held note",
+          "descriptors": [
+            "sustained",
+            "droning",
+            "continuous"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "sustained",
+            "drone-like"
+          ],
+          "canonical_tags": [
+            "khmer"
+          ]
+        },
+        {
+          "id": "sneng_rapid_call",
+          "name": "Rapid stopped rhythmic call figure",
+          "descriptors": [
+            "call-driving",
+            "rhythmic",
+            "declamatory"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "signal",
+            "call-response"
+          ],
+          "canonical_tags": [
+            "signal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sneng_setting",
+      "name": "Function / setting",
+      "variants": [
+        {
+          "id": "sneng_distance_signal",
+          "default": true,
+          "name": "Long-distance signal call across open country",
+          "descriptors": [
+            "outdoor",
+            "distant",
+            "signalling"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "open-air",
+            "signal"
+          ],
+          "canonical_tags": [
+            "khmer",
+            "signal"
+          ]
+        },
+        {
+          "id": "sneng_elephant",
+          "name": "Elephant summons by the mahout riding between villages",
+          "descriptors": [
+            "calling",
+            "herding",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "outdoor-field",
+            "signal"
+          ],
+          "canonical_tags": [
+            "khmer",
+            "southeast-asian"
+          ]
+        },
+        {
+          "id": "sneng_ritual",
+          "name": "Agricultural blessing rite and arak spirit-invocation",
+          "descriptors": [
+            "ceremonial",
+            "ritual",
+            "devotional"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "ritual",
+            "ceremonial"
+          ],
+          "canonical_tags": [
+            "khmer",
+            "ritual"
+          ]
+        },
+        {
+          "id": "sneng_hunting",
+          "name": "Hunter-to-hunter communication in forest country",
+          "descriptors": [
+            "calling",
+            "outdoor",
+            "sharp"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "outdoor-field",
+            "call-response"
+          ],
+          "canonical_tags": [
+            "southeast-asian"
+          ]
+        }
+      ]
+    }
+  ]
+}

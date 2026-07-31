@@ -1,0 +1,455 @@
+{
+  "id": "lira_da_braccio",
+  "name": "Lira da braccio (Renaissance chordal arm fiddle)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "lira da braccio",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "lira_da_braccio_stringing",
+      "name": "String complement",
+      "variants": [
+        {
+          "id": "lira_da_braccio_stringing_seven",
+          "default": true,
+          "name": "Seven strings — five fingered (d–g–d′–a′–e″) plus two octave bourdons",
+          "descriptors": [
+            "octave-bourdon",
+            "droning",
+            "full-voiced"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "chordal",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "italian"
+          ]
+        },
+        {
+          "id": "lira_da_braccio_stringing_five_no_bourdon",
+          "name": "Reduced five-string without off-board bourdons",
+          "descriptors": [
+            "leaner",
+            "melodic",
+            "spare"
+          ],
+          "match_tokens": [
+            "bowed",
+            "renaissance",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "renaissance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lira_da_braccio_texture",
+      "name": "Texture / function",
+      "variants": [
+        {
+          "id": "lira_da_braccio_texture_improvvisatore",
+          "default": true,
+          "name": "Self-accompanied improvised sung recitation (humanist improvvisatore)",
+          "descriptors": [
+            "improvisatory",
+            "declamatory",
+            "courtly"
+          ],
+          "match_tokens": [
+            "bowed",
+            "chordal",
+            "drone-foundation",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "italian"
+          ]
+        },
+        {
+          "id": "lira_da_braccio_texture_chordal_pad",
+          "name": "Sustained chordal bow-strumming under recitation",
+          "descriptors": [
+            "droning",
+            "chordal",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "chordal",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "accompaniment"
+          ]
+        },
+        {
+          "id": "lira_da_braccio_texture_melodic_doubling",
+          "name": "Melodic doubling of the sung line",
+          "descriptors": [
+            "vocal-shadowing",
+            "singing",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "renaissance"
+          ]
+        },
+        {
+          "id": "lira_da_braccio_texture_theatrical",
+          "name": "Theatrical / intermedio use (Poliziano Orfeo, Apollo scenes)",
+          "descriptors": [
+            "theatrical",
+            "stately",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "italian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lira_da_braccio_bow",
+      "name": "Bridge and bow",
+      "variants": [
+        {
+          "id": "lira_da_braccio_bow_flat_bridge_curved",
+          "default": true,
+          "name": "Flat bridge with long strongly curved Renaissance bow (chord-friendly)",
+          "descriptors": [
+            "flat-bridged",
+            "chordal",
+            "long-bowed"
+          ],
+          "match_tokens": [
+            "bowed",
+            "chordal",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "period"
+          ]
+        },
+        {
+          "id": "lira_da_braccio_bow_straighter_later",
+          "name": "Later straighter bow (more melodic, less chordal)",
+          "descriptors": [
+            "articulate",
+            "melodic",
+            "leaner"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lira_da_braccio_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "lira_da_braccio_strings_plain_gut",
+          "default": true,
+          "name": "Plain gut throughout (period canonical)",
+          "descriptors": [
+            "plain-gut",
+            "low-tension",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "renaissance",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "lira_da_braccio_strings_nylgut",
+          "name": "Aquila Nylgut (modern revival)",
+          "descriptors": [
+            "aquila-nylgut",
+            "gut-emulating",
+            "stable"
+          ],
+          "match_tokens": [
+            "bowed",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "revival",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "lira_da_braccio_stringing",
+      "name": "String complement",
+      "variants": [
+        {
+          "id": "lira_da_braccio_stringing_seven",
+          "default": true,
+          "name": "Seven strings — five fingered (d–g–d′–a′–e″) plus two octave bourdons",
+          "descriptors": [
+            "octave-bourdon",
+            "droning",
+            "full-voiced"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "chordal",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "italian"
+          ]
+        },
+        {
+          "id": "lira_da_braccio_stringing_five_no_bourdon",
+          "name": "Reduced five-string without off-board bourdons",
+          "descriptors": [
+            "leaner",
+            "melodic",
+            "spare"
+          ],
+          "match_tokens": [
+            "bowed",
+            "renaissance",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "renaissance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lira_da_braccio_texture",
+      "name": "Texture / function",
+      "variants": [
+        {
+          "id": "lira_da_braccio_texture_improvvisatore",
+          "default": true,
+          "name": "Self-accompanied improvised sung recitation (humanist improvvisatore)",
+          "descriptors": [
+            "improvisatory",
+            "declamatory",
+            "courtly"
+          ],
+          "match_tokens": [
+            "bowed",
+            "chordal",
+            "drone-foundation",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "italian"
+          ]
+        },
+        {
+          "id": "lira_da_braccio_texture_chordal_pad",
+          "name": "Sustained chordal bow-strumming under recitation",
+          "descriptors": [
+            "droning",
+            "chordal",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "chordal",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "accompaniment"
+          ]
+        },
+        {
+          "id": "lira_da_braccio_texture_melodic_doubling",
+          "name": "Melodic doubling of the sung line",
+          "descriptors": [
+            "vocal-shadowing",
+            "singing",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "renaissance"
+          ]
+        },
+        {
+          "id": "lira_da_braccio_texture_theatrical",
+          "name": "Theatrical / intermedio use (Poliziano Orfeo, Apollo scenes)",
+          "descriptors": [
+            "theatrical",
+            "stately",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "italian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lira_da_braccio_bow",
+      "name": "Bridge and bow",
+      "variants": [
+        {
+          "id": "lira_da_braccio_bow_flat_bridge_curved",
+          "default": true,
+          "name": "Flat bridge with long strongly curved Renaissance bow (chord-friendly)",
+          "descriptors": [
+            "flat-bridged",
+            "chordal",
+            "long-bowed"
+          ],
+          "match_tokens": [
+            "bowed",
+            "chordal",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "period"
+          ]
+        },
+        {
+          "id": "lira_da_braccio_bow_straighter_later",
+          "name": "Later straighter bow (more melodic, less chordal)",
+          "descriptors": [
+            "articulate",
+            "melodic",
+            "leaner"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lira_da_braccio_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "lira_da_braccio_strings_plain_gut",
+          "default": true,
+          "name": "Plain gut throughout (period canonical)",
+          "descriptors": [
+            "plain-gut",
+            "low-tension",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "renaissance",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "lira_da_braccio_strings_nylgut",
+          "name": "Aquila Nylgut (modern revival)",
+          "descriptors": [
+            "aquila-nylgut",
+            "gut-emulating",
+            "stable"
+          ],
+          "match_tokens": [
+            "bowed",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "revival",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

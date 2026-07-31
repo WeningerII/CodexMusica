@@ -1,0 +1,532 @@
+{
+  "id": "gemshorn",
+  "name": "Gemshorn (Renaissance stopped horn vessel flute)",
+  "family": "wind",
+  "class": "duct_flute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 2,
+    "register": 0,
+    "range": -1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -2
+  },
+  "short": "gemshorn",
+  "parts": [
+    {
+      "id": "gemshorn_body",
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "gemshorn_body_chamois_horn",
+          "default": true,
+          "name": "Chamois or goat horn, tip plugged, fipple block fitted at the wide end (historical build)",
+          "descriptors": [
+            "soft",
+            "warm",
+            "historical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "vessel-flute",
+            "duct-flute"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "early-music",
+            "traditional"
+          ]
+        },
+        {
+          "id": "gemshorn_body_ox_horn",
+          "name": "Large ox horn (lower, broader-bodied)",
+          "descriptors": [
+            "broad",
+            "hollow",
+            "deep"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "vessel-flute",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "early-music"
+          ]
+        },
+        {
+          "id": "gemshorn_body_turned_wood",
+          "name": "Turned wood body (modern revival substitute)",
+          "descriptors": [
+            "woody",
+            "stable",
+            "even"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "vessel-flute",
+            "wooden"
+          ],
+          "canonical_tags": [
+            "revival",
+            "modern",
+            "wood-body"
+          ]
+        },
+        {
+          "id": "gemshorn_body_synthetic",
+          "name": "Synthetic horn substitute (modern production)",
+          "descriptors": [
+            "even",
+            "durable",
+            "modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "vessel-flute",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern",
+            "revival",
+            "synthetic-body"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gemshorn_consort",
+      "name": "Size / consort position",
+      "variants": [
+        {
+          "id": "gemshorn_consort_soprano",
+          "default": true,
+          "name": "Single soprano gemshorn",
+          "descriptors": [
+            "sweet",
+            "soft",
+            "intimate"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "vessel-flute",
+            "soloistic"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "solo"
+          ]
+        },
+        {
+          "id": "gemshorn_consort_full",
+          "name": "Full alto / tenor / bass consort",
+          "descriptors": [
+            "consort-blend",
+            "blended",
+            "consort-core"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ensemble",
+            "vessel-flute",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "consort",
+            "early-music"
+          ]
+        },
+        {
+          "id": "gemshorn_consort_bass",
+          "name": "Bass gemshorn (consort foundation voice)",
+          "descriptors": [
+            "deep",
+            "hollow",
+            "foundational"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "vessel-flute",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "consort",
+            "renaissance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gemshorn_repertoire",
+      "name": "Repertoire framing",
+      "variants": [
+        {
+          "id": "gemshorn_repertoire_renaissance",
+          "default": true,
+          "name": "Reconstructed Renaissance dance and chanson consort (after Virdung 1511, Agricola 1529 and Praetorius 1618)",
+          "descriptors": [
+            "historical",
+            "courtly",
+            "historically-informed"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "renaissance",
+            "period-performance",
+            "early-music-context"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "early-music"
+          ]
+        },
+        {
+          "id": "gemshorn_repertoire_neomedieval",
+          "name": "Modern neo-medieval solo",
+          "descriptors": [
+            "atmospheric",
+            "modal",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "vessel-flute",
+            "modern"
+          ],
+          "canonical_tags": [
+            "medieval",
+            "revival",
+            "modern"
+          ]
+        },
+        {
+          "id": "gemshorn_repertoire_early_music_program",
+          "name": "Early-music concert programme alongside recorders and viols",
+          "descriptors": [
+            "blended",
+            "concert",
+            "historical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ensemble",
+            "early-music-context",
+            "concert"
+          ],
+          "canonical_tags": [
+            "early-music",
+            "concert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gemshorn_tuning",
+      "name": "Hole count / tuning",
+      "variants": [
+        {
+          "id": "gemshorn_tuning_historical_diatonic",
+          "default": true,
+          "name": "Historical four-to-six-hole diatonic (octave-to-ninth compass, closed body cannot overblow)",
+          "descriptors": [
+            "restricted-compass",
+            "diatonic",
+            "archaic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "vessel-flute",
+            "diatonic",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "diatonic",
+            "early-music"
+          ]
+        },
+        {
+          "id": "gemshorn_tuning_extended_chromatic",
+          "name": "Modern extended chromatic revival instrument",
+          "descriptors": [
+            "chromatic",
+            "extended",
+            "agile"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "chromatic",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern",
+            "revival",
+            "chromatic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "gemshorn_body",
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "gemshorn_body_chamois_horn",
+          "default": true,
+          "name": "Chamois or goat horn, tip plugged, fipple block fitted at the wide end (historical build)",
+          "descriptors": [
+            "soft",
+            "warm",
+            "historical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "vessel-flute",
+            "duct-flute"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "early-music",
+            "traditional"
+          ]
+        },
+        {
+          "id": "gemshorn_body_ox_horn",
+          "name": "Large ox horn (lower, broader-bodied)",
+          "descriptors": [
+            "broad",
+            "hollow",
+            "deep"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "vessel-flute",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "early-music"
+          ]
+        },
+        {
+          "id": "gemshorn_body_turned_wood",
+          "name": "Turned wood body (modern revival substitute)",
+          "descriptors": [
+            "woody",
+            "stable",
+            "even"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "vessel-flute",
+            "wooden"
+          ],
+          "canonical_tags": [
+            "revival",
+            "modern",
+            "wood-body"
+          ]
+        },
+        {
+          "id": "gemshorn_body_synthetic",
+          "name": "Synthetic horn substitute (modern production)",
+          "descriptors": [
+            "even",
+            "durable",
+            "modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "vessel-flute",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern",
+            "revival",
+            "synthetic-body"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gemshorn_consort",
+      "name": "Size / consort position",
+      "variants": [
+        {
+          "id": "gemshorn_consort_soprano",
+          "default": true,
+          "name": "Single soprano gemshorn",
+          "descriptors": [
+            "sweet",
+            "soft",
+            "intimate"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "vessel-flute",
+            "soloistic"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "solo"
+          ]
+        },
+        {
+          "id": "gemshorn_consort_full",
+          "name": "Full alto / tenor / bass consort",
+          "descriptors": [
+            "consort-blend",
+            "blended",
+            "consort-core"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ensemble",
+            "vessel-flute",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "consort",
+            "early-music"
+          ]
+        },
+        {
+          "id": "gemshorn_consort_bass",
+          "name": "Bass gemshorn (consort foundation voice)",
+          "descriptors": [
+            "deep",
+            "hollow",
+            "foundational"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "vessel-flute",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "consort",
+            "renaissance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gemshorn_repertoire",
+      "name": "Repertoire framing",
+      "variants": [
+        {
+          "id": "gemshorn_repertoire_renaissance",
+          "default": true,
+          "name": "Reconstructed Renaissance dance and chanson consort (after Virdung 1511, Agricola 1529 and Praetorius 1618)",
+          "descriptors": [
+            "historical",
+            "courtly",
+            "historically-informed"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "renaissance",
+            "period-performance",
+            "early-music-context"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "early-music"
+          ]
+        },
+        {
+          "id": "gemshorn_repertoire_neomedieval",
+          "name": "Modern neo-medieval solo",
+          "descriptors": [
+            "atmospheric",
+            "modal",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "vessel-flute",
+            "modern"
+          ],
+          "canonical_tags": [
+            "medieval",
+            "revival",
+            "modern"
+          ]
+        },
+        {
+          "id": "gemshorn_repertoire_early_music_program",
+          "name": "Early-music concert programme alongside recorders and viols",
+          "descriptors": [
+            "blended",
+            "concert",
+            "historical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ensemble",
+            "early-music-context",
+            "concert"
+          ],
+          "canonical_tags": [
+            "early-music",
+            "concert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gemshorn_tuning",
+      "name": "Hole count / tuning",
+      "variants": [
+        {
+          "id": "gemshorn_tuning_historical_diatonic",
+          "default": true,
+          "name": "Historical four-to-six-hole diatonic (octave-to-ninth compass, closed body cannot overblow)",
+          "descriptors": [
+            "restricted-compass",
+            "diatonic",
+            "archaic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "vessel-flute",
+            "diatonic",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "diatonic",
+            "early-music"
+          ]
+        },
+        {
+          "id": "gemshorn_tuning_extended_chromatic",
+          "name": "Modern extended chromatic revival instrument",
+          "descriptors": [
+            "chromatic",
+            "extended",
+            "agile"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "chromatic",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern",
+            "revival",
+            "chromatic"
+          ]
+        }
+      ]
+    }
+  ]
+}

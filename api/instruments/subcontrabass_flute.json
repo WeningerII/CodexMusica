@@ -1,0 +1,294 @@
+{
+  "id": "subcontrabass_flute",
+  "name": "Subcontrabass flute (in G/F or C; the C size is also called double contrabass or octobass flute)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -2,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -2
+  },
+  "short": "subcontrabass flute",
+  "parts": [
+    {
+      "id": "subcontrabass_flute_size",
+      "name": "Size / pitch",
+      "variants": [
+        {
+          "id": "subcontrabass_flute_g",
+          "default": true,
+          "name": "G or F (approx. 4.6-4.9 m of tube, sounds two octaves and a fourth below written, G1-G3)",
+          "descriptors": [
+            "standard",
+            "sub-bass",
+            "deep"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "low-register"
+          ]
+        },
+        {
+          "id": "subcontrabass_flute_c",
+          "name": "C (5.5 m of tube - the double contrabass / octobass flute, down to C1)",
+          "descriptors": [
+            "rare",
+            "extra-deep",
+            "specialty"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "bass-foundation",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "subcontrabass_flute_build",
+      "name": "Build / material",
+      "variants": [
+        {
+          "id": "subcontrabass_flute_metal",
+          "default": true,
+          "name": "Metal (silver / nickel-silver, approx. 15 kg - Kingma, Kotato & Fukushima)",
+          "descriptors": [
+            "dense",
+            "projecting",
+            "massive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "metal-context"
+          ],
+          "canonical_tags": [
+            "modern",
+            "concert"
+          ]
+        },
+        {
+          "id": "subcontrabass_flute_pvc",
+          "name": "Hogenhuis PVC (approx. 7 kg, from 1995 - the build that made the size affordable)",
+          "descriptors": [
+            "pvc",
+            "lightweight",
+            "mellow"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "subcontrabass_flute_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "subcontrabass_flute_pedal",
+          "default": true,
+          "name": "Sustained fundamental pedal under a flute orchestra",
+          "descriptors": [
+            "sustained",
+            "deep",
+            "foundational-bass"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "wind-driven",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "subcontrabass_flute_breath_tone",
+          "name": "Breath-tone / air-sound texture (fundamental barely speaking)",
+          "descriptors": [
+            "breathy",
+            "atmospheric",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "breathy"
+          ],
+          "canonical_tags": [
+            "contemporary"
+          ]
+        },
+        {
+          "id": "subcontrabass_flute_key_percussion",
+          "name": "Key-percussion / slap texture",
+          "descriptors": [
+            "percussive",
+            "experimental",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "wind-driven",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "contemporary",
+            "experimental"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "subcontrabass_flute_size",
+      "name": "Size / pitch",
+      "variants": [
+        {
+          "id": "subcontrabass_flute_g",
+          "default": true,
+          "name": "G or F (approx. 4.6-4.9 m of tube, sounds two octaves and a fourth below written, G1-G3)",
+          "descriptors": [
+            "standard",
+            "sub-bass",
+            "deep"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "low-register"
+          ]
+        },
+        {
+          "id": "subcontrabass_flute_c",
+          "name": "C (5.5 m of tube - the double contrabass / octobass flute, down to C1)",
+          "descriptors": [
+            "rare",
+            "extra-deep",
+            "specialty"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "bass-foundation",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "subcontrabass_flute_build",
+      "name": "Build / material",
+      "variants": [
+        {
+          "id": "subcontrabass_flute_metal",
+          "default": true,
+          "name": "Metal (silver / nickel-silver, approx. 15 kg - Kingma, Kotato & Fukushima)",
+          "descriptors": [
+            "dense",
+            "projecting",
+            "massive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "metal-context"
+          ],
+          "canonical_tags": [
+            "modern",
+            "concert"
+          ]
+        },
+        {
+          "id": "subcontrabass_flute_pvc",
+          "name": "Hogenhuis PVC (approx. 7 kg, from 1995 - the build that made the size affordable)",
+          "descriptors": [
+            "pvc",
+            "lightweight",
+            "mellow"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "subcontrabass_flute_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "subcontrabass_flute_pedal",
+          "default": true,
+          "name": "Sustained fundamental pedal under a flute orchestra",
+          "descriptors": [
+            "sustained",
+            "deep",
+            "foundational-bass"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "wind-driven",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "subcontrabass_flute_breath_tone",
+          "name": "Breath-tone / air-sound texture (fundamental barely speaking)",
+          "descriptors": [
+            "breathy",
+            "atmospheric",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "breathy"
+          ],
+          "canonical_tags": [
+            "contemporary"
+          ]
+        },
+        {
+          "id": "subcontrabass_flute_key_percussion",
+          "name": "Key-percussion / slap texture",
+          "descriptors": [
+            "percussive",
+            "experimental",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "wind-driven",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "contemporary",
+            "experimental"
+          ]
+        }
+      ]
+    }
+  ]
+}

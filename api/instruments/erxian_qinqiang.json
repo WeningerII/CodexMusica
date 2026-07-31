@@ -1,0 +1,383 @@
+{
+  "id": "erxian_qinqiang",
+  "name": "Erxian (Qinqiang wood-topped shrill fiddle)",
+  "family": "bowed",
+  "class": "bowed_tube_fiddle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 2,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "qinqiang erxian",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "erxian_qinqiang_tube",
+      "name": "Bamboo tube section",
+      "variants": [
+        {
+          "id": "erxian_qinqiang_tube_round",
+          "default": true,
+          "name": "Round bamboo tube with thin paulownia face (no skin)",
+          "descriptors": [
+            "bamboo-bodied",
+            "paulownia",
+            "shrill"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing",
+            "wood-body",
+            "two-string"
+          ],
+          "canonical_tags": [
+            "china",
+            "bamboo-tube"
+          ]
+        },
+        {
+          "id": "erxian_qinqiang_tube_square",
+          "name": "Square tube (harder, more focused)",
+          "descriptors": [
+            "focused",
+            "cutting",
+            "dry"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing",
+            "woody"
+          ],
+          "canonical_tags": [
+            "china",
+            "traditional"
+          ]
+        },
+        {
+          "id": "erxian_qinqiang_tube_hexagonal",
+          "name": "Hexagonal tube (thinner, more brilliant)",
+          "descriptors": [
+            "bright-piercing",
+            "thin",
+            "crisp"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "china",
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "erxian_qinqiang_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "erxian_qinqiang_strings_gut",
+          "default": true,
+          "name": "High-tension sheep-gut pixian tuned a1-e2 (played with finger thimbles)",
+          "descriptors": [
+            "sheep-gut",
+            "shrill",
+            "loud"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "piercing",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut",
+            "china"
+          ]
+        },
+        {
+          "id": "erxian_qinqiang_strings_steel",
+          "name": "Modern steel substitution",
+          "descriptors": [
+            "steel",
+            "smoother",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "steel-string",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern",
+            "steel"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "erxian_qinqiang_role",
+      "name": "Role in Qinqiang",
+      "variants": [
+        {
+          "id": "erxian_qinqiang_role_principal",
+          "default": true,
+          "name": "Principal bowed instrument paired with the bangzi clapper (pre-1940s)",
+          "descriptors": [
+            "operatic",
+            "cutting",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing",
+            "accompaniment",
+            "archaic"
+          ],
+          "canonical_tags": [
+            "chinese-opera",
+            "historical"
+          ]
+        },
+        {
+          "id": "erxian_qinqiang_role_colour",
+          "name": "Colour instrument under the banhu lead (post-1940s survival)",
+          "descriptors": [
+            "supporting",
+            "thin",
+            "supportive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "chinese-opera",
+            "china"
+          ]
+        },
+        {
+          "id": "erxian_qinqiang_role_revival",
+          "name": "Period-reconstruction revival of the old hard Qinqiang sound",
+          "descriptors": [
+            "reconstructed",
+            "archaic",
+            "historic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "archaic"
+          ],
+          "canonical_tags": [
+            "revival",
+            "period"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "erxian_qinqiang_tube",
+      "name": "Bamboo tube section",
+      "variants": [
+        {
+          "id": "erxian_qinqiang_tube_round",
+          "default": true,
+          "name": "Round bamboo tube with thin paulownia face (no skin)",
+          "descriptors": [
+            "bamboo-bodied",
+            "paulownia",
+            "shrill"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing",
+            "wood-body",
+            "two-string"
+          ],
+          "canonical_tags": [
+            "china",
+            "bamboo-tube"
+          ]
+        },
+        {
+          "id": "erxian_qinqiang_tube_square",
+          "name": "Square tube (harder, more focused)",
+          "descriptors": [
+            "focused",
+            "cutting",
+            "dry"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing",
+            "woody"
+          ],
+          "canonical_tags": [
+            "china",
+            "traditional"
+          ]
+        },
+        {
+          "id": "erxian_qinqiang_tube_hexagonal",
+          "name": "Hexagonal tube (thinner, more brilliant)",
+          "descriptors": [
+            "bright-piercing",
+            "thin",
+            "crisp"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "china",
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "erxian_qinqiang_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "erxian_qinqiang_strings_gut",
+          "default": true,
+          "name": "High-tension sheep-gut pixian tuned a1-e2 (played with finger thimbles)",
+          "descriptors": [
+            "sheep-gut",
+            "shrill",
+            "loud"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "piercing",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut",
+            "china"
+          ]
+        },
+        {
+          "id": "erxian_qinqiang_strings_steel",
+          "name": "Modern steel substitution",
+          "descriptors": [
+            "steel",
+            "smoother",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "steel-string",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern",
+            "steel"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "erxian_qinqiang_role",
+      "name": "Role in Qinqiang",
+      "variants": [
+        {
+          "id": "erxian_qinqiang_role_principal",
+          "default": true,
+          "name": "Principal bowed instrument paired with the bangzi clapper (pre-1940s)",
+          "descriptors": [
+            "operatic",
+            "cutting",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing",
+            "accompaniment",
+            "archaic"
+          ],
+          "canonical_tags": [
+            "chinese-opera",
+            "historical"
+          ]
+        },
+        {
+          "id": "erxian_qinqiang_role_colour",
+          "name": "Colour instrument under the banhu lead (post-1940s survival)",
+          "descriptors": [
+            "supporting",
+            "thin",
+            "supportive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "chinese-opera",
+            "china"
+          ]
+        },
+        {
+          "id": "erxian_qinqiang_role_revival",
+          "name": "Period-reconstruction revival of the old hard Qinqiang sound",
+          "descriptors": [
+            "reconstructed",
+            "archaic",
+            "historic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "archaic"
+          ],
+          "canonical_tags": [
+            "revival",
+            "period"
+          ]
+        }
+      ]
+    }
+  ]
+}

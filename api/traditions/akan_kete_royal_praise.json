@@ -3,9 +3,9 @@
   "name": "Akan-Asante kete royal praise music",
   "family": "global",
   "lineage": "Akan-Asante royal court-music tradition continuous from pre-colonial Asantehene court-music practice (17th-19th century Asante Empire era) through colonial-period continuous performance into modern Ghanaian Asante cultural-practice; the kete ensemble is the royal-court praise-music ensemble",
-  "recipe": "classic West African modern akan-asante kete royal praise music, praise Song, sub saharan African branch, African diasporic wedding, west African groove percussion, indigenous ritual devotional yoruba aso ebi wedding music yoruba dùndún surrogate speech. thick, breath veiled tone, straight note core, interlocked note trading. iroko alternative west African goat skin leather tension cords canonical pressure bend talking drum, iroko west African premium cowhide rope lacing canonical mande dunun, court praise song self accompanied nylon strung seperewa. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 700,
-  "score": 269.417,
+  "recipe": "classic West African modern akan-asante kete royal praise music, praise Song, sub saharan African branch, African diasporic wedding, west African groove percussion, indigenous ritual devotional yoruba aso ebi wedding music yoruba dùndún surrogate speech. thick, breath veiled tone, straight note core, interlocked note trading. free rhythm narrow hardwood shell atumpan, iroko alternative west African goat skin leather tension cords canonical pressure bend talking drum, iroko west African premium cowhide rope lacing canonical mande dunun, court praise song self accompanied nylon strung seperewa. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 743,
+  "score": 367.925,
   "config": {
     "traditions": [
       "akan_kete_royal_praise",
@@ -50,6 +50,21 @@
           "voice_pitch_organization": 18.813749999999995,
           "voice_processing_chain": 6.0125,
           "voice_multitrack_stack": 2.6
+        }
+      },
+      {
+        "id": "atumpan",
+        "slots": {
+          "atumpan_mode": "atumpan_ayan_speech",
+          "atumpan_interval": "atumpan_narrow_third",
+          "atumpan_stroke": "atumpan_arm_pressure",
+          "atumpan_build": "atumpan_tweneboa_antelope"
+        },
+        "scores": {
+          "atumpan_mode": 37.92124999999999,
+          "atumpan_interval": 22.198749999999997,
+          "atumpan_stroke": 25.473749999999995,
+          "atumpan_build": 12.913749999999999
         }
       },
       {

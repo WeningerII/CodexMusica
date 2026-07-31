@@ -1,0 +1,450 @@
+{
+  "id": "tubax",
+  "name": "Tubax (compact contrabass saxophone)",
+  "family": "wind",
+  "class": "single_reed_conical",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -2,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "tubax",
+  "parts": [
+    {
+      "id": "tubax_size",
+      "name": "Size / pitch",
+      "variants": [
+        {
+          "id": "tubax_eb_contrabass",
+          "default": true,
+          "name": "E♭ contrabass tubax (1999 original, ~114 cm)",
+          "descriptors": [
+            "deep",
+            "focused",
+            "compact"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "low-register",
+            "bass-foundation"
+          ],
+          "canonical_tags": [
+            "germanic",
+            "modern"
+          ]
+        },
+        {
+          "id": "tubax_bb_subcontrabass",
+          "name": "B♭ subcontrabass tubax (~145 cm)",
+          "descriptors": [
+            "sub-bass",
+            "booming",
+            "rumbling"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "deep-bass",
+            "bass-foundation"
+          ],
+          "canonical_tags": [
+            "germanic",
+            "modern"
+          ]
+        },
+        {
+          "id": "tubax_c_subcontrabass",
+          "name": "C subcontrabass tubax",
+          "descriptors": [
+            "sub-bass",
+            "deep",
+            "rare"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "deep-bass",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "germanic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tubax_mouthpiece",
+      "name": "Mouthpiece",
+      "variants": [
+        {
+          "id": "tubax_baritone_mp",
+          "default": true,
+          "name": "Baritone saxophone mouthpiece (agility)",
+          "descriptors": [
+            "agile",
+            "focused",
+            "reedy"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "tubax_bass_mp",
+          "name": "Bass saxophone mouthpiece (breadth)",
+          "descriptors": [
+            "broad",
+            "resonant",
+            "warm"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "wind-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tubax_role",
+      "name": "Playing role",
+      "variants": [
+        {
+          "id": "tubax_pedal_drone",
+          "default": true,
+          "name": "Pedal / drone foundation under a low-reed choir",
+          "descriptors": [
+            "pedal-resonant",
+            "sustained-drone",
+            "foundational"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "bass-foundation",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "contemporary"
+          ]
+        },
+        {
+          "id": "tubax_agile_bassline",
+          "name": "Agile written bass line",
+          "descriptors": [
+            "agile",
+            "articulate",
+            "nimble"
+          ],
+          "match_tokens": [
+            "bass-register",
+            "melodic-lead",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "contemporary",
+            "chamber"
+          ]
+        },
+        {
+          "id": "tubax_extended_solo",
+          "name": "Solo extended technique (growls, multiphonics, subtones)",
+          "descriptors": [
+            "growling",
+            "multiphonic",
+            "overblown"
+          ],
+          "match_tokens": [
+            "low-growl",
+            "avant-garde",
+            "soloistic"
+          ],
+          "canonical_tags": [
+            "free-jazz",
+            "noise",
+            "experimental"
+          ]
+        },
+        {
+          "id": "tubax_studio_drone",
+          "name": "Studio subsonic reed drone",
+          "descriptors": [
+            "sub-bass",
+            "sustained",
+            "atmospheric"
+          ],
+          "match_tokens": [
+            "studio",
+            "cinematic",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "studio",
+            "film-scoring"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tubax_bore_fork",
+      "name": "Instrument choice",
+      "variants": [
+        {
+          "id": "tubax_narrow_bore",
+          "default": true,
+          "name": "Tubax narrow bore (compact and reedy)",
+          "descriptors": [
+            "narrow-bore",
+            "focused",
+            "reedy"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "conical-bore"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "tubax_true_contrabass_sax",
+          "name": "True wide-bore contrabass saxophone",
+          "descriptors": [
+            "woolly",
+            "broad",
+            "hollow"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "conical-bore",
+            "deep-bass"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tubax_size",
+      "name": "Size / pitch",
+      "variants": [
+        {
+          "id": "tubax_eb_contrabass",
+          "default": true,
+          "name": "E♭ contrabass tubax (1999 original, ~114 cm)",
+          "descriptors": [
+            "deep",
+            "focused",
+            "compact"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "low-register",
+            "bass-foundation"
+          ],
+          "canonical_tags": [
+            "germanic",
+            "modern"
+          ]
+        },
+        {
+          "id": "tubax_bb_subcontrabass",
+          "name": "B♭ subcontrabass tubax (~145 cm)",
+          "descriptors": [
+            "sub-bass",
+            "booming",
+            "rumbling"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "deep-bass",
+            "bass-foundation"
+          ],
+          "canonical_tags": [
+            "germanic",
+            "modern"
+          ]
+        },
+        {
+          "id": "tubax_c_subcontrabass",
+          "name": "C subcontrabass tubax",
+          "descriptors": [
+            "sub-bass",
+            "deep",
+            "rare"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "deep-bass",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "germanic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tubax_mouthpiece",
+      "name": "Mouthpiece",
+      "variants": [
+        {
+          "id": "tubax_baritone_mp",
+          "default": true,
+          "name": "Baritone saxophone mouthpiece (agility)",
+          "descriptors": [
+            "agile",
+            "focused",
+            "reedy"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "tubax_bass_mp",
+          "name": "Bass saxophone mouthpiece (breadth)",
+          "descriptors": [
+            "broad",
+            "resonant",
+            "warm"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "wind-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tubax_role",
+      "name": "Playing role",
+      "variants": [
+        {
+          "id": "tubax_pedal_drone",
+          "default": true,
+          "name": "Pedal / drone foundation under a low-reed choir",
+          "descriptors": [
+            "pedal-resonant",
+            "sustained-drone",
+            "foundational"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "bass-foundation",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "contemporary"
+          ]
+        },
+        {
+          "id": "tubax_agile_bassline",
+          "name": "Agile written bass line",
+          "descriptors": [
+            "agile",
+            "articulate",
+            "nimble"
+          ],
+          "match_tokens": [
+            "bass-register",
+            "melodic-lead",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "contemporary",
+            "chamber"
+          ]
+        },
+        {
+          "id": "tubax_extended_solo",
+          "name": "Solo extended technique (growls, multiphonics, subtones)",
+          "descriptors": [
+            "growling",
+            "multiphonic",
+            "overblown"
+          ],
+          "match_tokens": [
+            "low-growl",
+            "avant-garde",
+            "soloistic"
+          ],
+          "canonical_tags": [
+            "free-jazz",
+            "noise",
+            "experimental"
+          ]
+        },
+        {
+          "id": "tubax_studio_drone",
+          "name": "Studio subsonic reed drone",
+          "descriptors": [
+            "sub-bass",
+            "sustained",
+            "atmospheric"
+          ],
+          "match_tokens": [
+            "studio",
+            "cinematic",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "studio",
+            "film-scoring"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tubax_bore_fork",
+      "name": "Instrument choice",
+      "variants": [
+        {
+          "id": "tubax_narrow_bore",
+          "default": true,
+          "name": "Tubax narrow bore (compact and reedy)",
+          "descriptors": [
+            "narrow-bore",
+            "focused",
+            "reedy"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "conical-bore"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "tubax_true_contrabass_sax",
+          "name": "True wide-bore contrabass saxophone",
+          "descriptors": [
+            "woolly",
+            "broad",
+            "hollow"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "conical-bore",
+            "deep-bass"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        }
+      ]
+    }
+  ]
+}

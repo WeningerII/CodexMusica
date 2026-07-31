@@ -1,0 +1,586 @@
+{
+  "id": "sarrusophone",
+  "name": "Sarrusophone (metal-bodied keyed double-reed family)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -2,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "sarrusophone",
+  "parts": [
+    {
+      "id": "sarrusophone_size",
+      "name": "Size",
+      "variants": [
+        {
+          "id": "sarrusophone_size_contrabass_eb",
+          "default": true,
+          "name": "E♭ contrabass (French band standard, doubled-back body)",
+          "descriptors": [
+            "deep-bass",
+            "buzzy",
+            "foundational"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "low-register",
+            "foundational-bass"
+          ],
+          "canonical_tags": [
+            "french",
+            "brass"
+          ]
+        },
+        {
+          "id": "sarrusophone_size_contrabass_cc",
+          "name": "CC contrabass (Conn — the orchestral parts)",
+          "descriptors": [
+            "sub-bass",
+            "broad",
+            "orchestral"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "low-register",
+            "orchestral"
+          ],
+          "canonical_tags": [
+            "orchestral",
+            "brass"
+          ]
+        },
+        {
+          "id": "sarrusophone_size_baritone_eb",
+          "name": "Baritone in E♭",
+          "descriptors": [
+            "reedy",
+            "full",
+            "tenor"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "double-reed",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "french"
+          ]
+        },
+        {
+          "id": "sarrusophone_size_alto_eb",
+          "name": "Alto in E♭ (band inner voice)",
+          "descriptors": [
+            "nasal",
+            "reedy",
+            "alto"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "double-reed",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "french"
+          ]
+        },
+        {
+          "id": "sarrusophone_size_soprano_bb",
+          "name": "Soprano in B♭ (straight-bodied)",
+          "descriptors": [
+            "bright",
+            "cutting",
+            "soprano"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "piercing",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "french"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sarrusophone_context",
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "sarrusophone_context_military_band",
+          "default": true,
+          "name": "French / Italian military band, outdoors",
+          "descriptors": [
+            "outdoor",
+            "marching",
+            "projecting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "outdoor-projection",
+            "marching"
+          ],
+          "canonical_tags": [
+            "marching",
+            "outdoor",
+            "french"
+          ]
+        },
+        {
+          "id": "sarrusophone_context_orchestral",
+          "name": "Orchestral contrabass line (Massenet, Saint-Saëns, Ravel, Stravinsky)",
+          "descriptors": [
+            "orchestral",
+            "foundational",
+            "dark"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "wind-driven",
+            "reed-driven",
+            "foundational-bass"
+          ],
+          "canonical_tags": [
+            "orchestral",
+            "french"
+          ]
+        },
+        {
+          "id": "sarrusophone_context_contrabassoon_swap",
+          "name": "Modern substitution by contrabassoon",
+          "descriptors": [
+            "standard",
+            "modern",
+            "blended"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "wind-driven",
+            "reed-driven",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "orchestral",
+            "modern"
+          ]
+        },
+        {
+          "id": "sarrusophone_context_novelty_jazz",
+          "name": "Early-20th-century novelty / jazz-band use",
+          "descriptors": [
+            "vintage",
+            "gritty",
+            "rare"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "big-band",
+            "metallic-rasp"
+          ],
+          "canonical_tags": [
+            "jazz-age-novelty"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sarrusophone_maker",
+      "name": "Maker school",
+      "variants": [
+        {
+          "id": "sarrusophone_maker_gautrot_couesnon",
+          "default": true,
+          "name": "Gautrot-Marquet / Couesnon Paris (canonical 1856 patent line)",
+          "descriptors": [
+            "rose-brass-warmer-canonical-couesnon",
+            "canonical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "metallic"
+          ],
+          "canonical_tags": [
+            "french",
+            "paris"
+          ]
+        },
+        {
+          "id": "sarrusophone_maker_conn",
+          "name": "C. G. Conn (American CC contrabass)",
+          "descriptors": [
+            "yellow-brass-canonical",
+            "projecting",
+            "vintage"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "metallic",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "brass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sarrusophone_finish",
+      "name": "Body finish",
+      "variants": [
+        {
+          "id": "sarrusophone_finish_lacquered_brass",
+          "default": true,
+          "name": "Raw / lacquered brass (canonical)",
+          "descriptors": [
+            "yellow-brass-canonical",
+            "metallic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "metallic"
+          ],
+          "canonical_tags": [
+            "brass"
+          ]
+        },
+        {
+          "id": "sarrusophone_finish_nickel",
+          "name": "Nickel-plated brass (brighter, harder edge)",
+          "descriptors": [
+            "nickel-plated-brass-brighter",
+            "metallic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "metallic"
+          ],
+          "canonical_tags": [
+            "brass",
+            "metal"
+          ]
+        },
+        {
+          "id": "sarrusophone_finish_silver",
+          "name": "Silver-plated (ceremonial band finish)",
+          "descriptors": [
+            "premium",
+            "ceremonial",
+            "brighter"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "metallic"
+          ],
+          "canonical_tags": [
+            "brass",
+            "ceremonial"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sarrusophone_size",
+      "name": "Size",
+      "variants": [
+        {
+          "id": "sarrusophone_size_contrabass_eb",
+          "default": true,
+          "name": "E♭ contrabass (French band standard, doubled-back body)",
+          "descriptors": [
+            "deep-bass",
+            "buzzy",
+            "foundational"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "low-register",
+            "foundational-bass"
+          ],
+          "canonical_tags": [
+            "french",
+            "brass"
+          ]
+        },
+        {
+          "id": "sarrusophone_size_contrabass_cc",
+          "name": "CC contrabass (Conn — the orchestral parts)",
+          "descriptors": [
+            "sub-bass",
+            "broad",
+            "orchestral"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "low-register",
+            "orchestral"
+          ],
+          "canonical_tags": [
+            "orchestral",
+            "brass"
+          ]
+        },
+        {
+          "id": "sarrusophone_size_baritone_eb",
+          "name": "Baritone in E♭",
+          "descriptors": [
+            "reedy",
+            "full",
+            "tenor"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "double-reed",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "french"
+          ]
+        },
+        {
+          "id": "sarrusophone_size_alto_eb",
+          "name": "Alto in E♭ (band inner voice)",
+          "descriptors": [
+            "nasal",
+            "reedy",
+            "alto"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "double-reed",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "french"
+          ]
+        },
+        {
+          "id": "sarrusophone_size_soprano_bb",
+          "name": "Soprano in B♭ (straight-bodied)",
+          "descriptors": [
+            "bright",
+            "cutting",
+            "soprano"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "piercing",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "french"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sarrusophone_context",
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "sarrusophone_context_military_band",
+          "default": true,
+          "name": "French / Italian military band, outdoors",
+          "descriptors": [
+            "outdoor",
+            "marching",
+            "projecting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "outdoor-projection",
+            "marching"
+          ],
+          "canonical_tags": [
+            "marching",
+            "outdoor",
+            "french"
+          ]
+        },
+        {
+          "id": "sarrusophone_context_orchestral",
+          "name": "Orchestral contrabass line (Massenet, Saint-Saëns, Ravel, Stravinsky)",
+          "descriptors": [
+            "orchestral",
+            "foundational",
+            "dark"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "wind-driven",
+            "reed-driven",
+            "foundational-bass"
+          ],
+          "canonical_tags": [
+            "orchestral",
+            "french"
+          ]
+        },
+        {
+          "id": "sarrusophone_context_contrabassoon_swap",
+          "name": "Modern substitution by contrabassoon",
+          "descriptors": [
+            "standard",
+            "modern",
+            "blended"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "wind-driven",
+            "reed-driven",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "orchestral",
+            "modern"
+          ]
+        },
+        {
+          "id": "sarrusophone_context_novelty_jazz",
+          "name": "Early-20th-century novelty / jazz-band use",
+          "descriptors": [
+            "vintage",
+            "gritty",
+            "rare"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "big-band",
+            "metallic-rasp"
+          ],
+          "canonical_tags": [
+            "jazz-age-novelty"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sarrusophone_maker",
+      "name": "Maker school",
+      "variants": [
+        {
+          "id": "sarrusophone_maker_gautrot_couesnon",
+          "default": true,
+          "name": "Gautrot-Marquet / Couesnon Paris (canonical 1856 patent line)",
+          "descriptors": [
+            "rose-brass-warmer-canonical-couesnon",
+            "canonical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "metallic"
+          ],
+          "canonical_tags": [
+            "french",
+            "paris"
+          ]
+        },
+        {
+          "id": "sarrusophone_maker_conn",
+          "name": "C. G. Conn (American CC contrabass)",
+          "descriptors": [
+            "yellow-brass-canonical",
+            "projecting",
+            "vintage"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "metallic",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "brass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sarrusophone_finish",
+      "name": "Body finish",
+      "variants": [
+        {
+          "id": "sarrusophone_finish_lacquered_brass",
+          "default": true,
+          "name": "Raw / lacquered brass (canonical)",
+          "descriptors": [
+            "yellow-brass-canonical",
+            "metallic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "metallic"
+          ],
+          "canonical_tags": [
+            "brass"
+          ]
+        },
+        {
+          "id": "sarrusophone_finish_nickel",
+          "name": "Nickel-plated brass (brighter, harder edge)",
+          "descriptors": [
+            "nickel-plated-brass-brighter",
+            "metallic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "metallic"
+          ],
+          "canonical_tags": [
+            "brass",
+            "metal"
+          ]
+        },
+        {
+          "id": "sarrusophone_finish_silver",
+          "name": "Silver-plated (ceremonial band finish)",
+          "descriptors": [
+            "premium",
+            "ceremonial",
+            "brighter"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "metallic"
+          ],
+          "canonical_tags": [
+            "brass",
+            "ceremonial"
+          ]
+        }
+      ]
+    }
+  ]
+}

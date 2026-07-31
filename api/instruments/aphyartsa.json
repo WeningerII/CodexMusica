@@ -1,0 +1,449 @@
+{
+  "id": "aphyartsa",
+  "name": "Aphyartsa (Abkhaz two-string bowed lute)",
+  "family": "bowed",
+  "class": "bowed_lute",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "aphyartsa",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "aphyartsa_touch",
+      "name": "Stopping technique",
+      "variants": [
+        {
+          "id": "aphyartsa_touch_nail_side",
+          "default": true,
+          "name": "Fingernail side-stopping against a fingerboardless neck",
+          "descriptors": [
+            "fingernail-stopped",
+            "harmonic-rich",
+            "nasal",
+            "thin-toned"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "overtone-series"
+          ],
+          "canonical_tags": [
+            "caucasus",
+            "traditional"
+          ]
+        },
+        {
+          "id": "aphyartsa_touch_pressed",
+          "name": "Pressed stops (firmer, more definite pitch)",
+          "descriptors": [
+            "singing",
+            "expressive",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "caucasus"
+          ]
+        },
+        {
+          "id": "aphyartsa_touch_open_drone",
+          "name": "Melody over a held open string (drone-and-melody)",
+          "descriptors": [
+            "drone-and-melody",
+            "droning",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "caucasus",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aphyartsa_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "aphyartsa_context_nart_epic",
+          "default": true,
+          "name": "Nart epic recitation (solo bard, self-accompanied)",
+          "descriptors": [
+            "bardic",
+            "declamatory",
+            "heroic",
+            "self-accompanied"
+          ],
+          "match_tokens": [
+            "bowed",
+            "epic",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "caucasus",
+            "epic",
+            "storytelling"
+          ]
+        },
+        {
+          "id": "aphyartsa_context_lament",
+          "name": "Funeral and mourning song",
+          "descriptors": [
+            "mournful",
+            "plaintive",
+            "austere"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "caucasus",
+            "ritual"
+          ]
+        },
+        {
+          "id": "aphyartsa_context_healing_vigil",
+          "name": "Healing vigil sung over a wounded man",
+          "descriptors": [
+            "incantatory",
+            "ritual",
+            "communal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ritual-context",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "caucasus",
+            "ritual"
+          ]
+        },
+        {
+          "id": "aphyartsa_context_paired",
+          "name": "Paired aphyartsas under male vocal polyphony",
+          "descriptors": [
+            "ensemble-blend",
+            "unison",
+            "vocal-supportive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "vocal-accompaniment"
+          ],
+          "canonical_tags": [
+            "caucasus",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aphyartsa_build",
+      "name": "Strings and belly",
+      "variants": [
+        {
+          "id": "aphyartsa_build_horsehair_open_belly",
+          "default": true,
+          "name": "Bundled horsehair strings over an open carved wooden belly",
+          "descriptors": [
+            "horsehair-strung",
+            "carved",
+            "wood",
+            "raw"
+          ],
+          "match_tokens": [
+            "bowed",
+            "horsehair-string",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "caucasus",
+            "traditional"
+          ]
+        },
+        {
+          "id": "aphyartsa_build_skin_belly",
+          "name": "Hide-membrane belly (warmer, more nasal)",
+          "descriptors": [
+            "hide-faced",
+            "hide",
+            "nasal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "nasal-tone"
+          ],
+          "canonical_tags": [
+            "caucasus"
+          ]
+        },
+        {
+          "id": "aphyartsa_build_gut",
+          "name": "Gut strings",
+          "descriptors": [
+            "gut",
+            "warm",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "aphyartsa_touch",
+      "name": "Stopping technique",
+      "variants": [
+        {
+          "id": "aphyartsa_touch_nail_side",
+          "default": true,
+          "name": "Fingernail side-stopping against a fingerboardless neck",
+          "descriptors": [
+            "fingernail-stopped",
+            "harmonic-rich",
+            "nasal",
+            "thin-toned"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "overtone-series"
+          ],
+          "canonical_tags": [
+            "caucasus",
+            "traditional"
+          ]
+        },
+        {
+          "id": "aphyartsa_touch_pressed",
+          "name": "Pressed stops (firmer, more definite pitch)",
+          "descriptors": [
+            "singing",
+            "expressive",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "caucasus"
+          ]
+        },
+        {
+          "id": "aphyartsa_touch_open_drone",
+          "name": "Melody over a held open string (drone-and-melody)",
+          "descriptors": [
+            "drone-and-melody",
+            "droning",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "caucasus",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aphyartsa_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "aphyartsa_context_nart_epic",
+          "default": true,
+          "name": "Nart epic recitation (solo bard, self-accompanied)",
+          "descriptors": [
+            "bardic",
+            "declamatory",
+            "heroic",
+            "self-accompanied"
+          ],
+          "match_tokens": [
+            "bowed",
+            "epic",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "caucasus",
+            "epic",
+            "storytelling"
+          ]
+        },
+        {
+          "id": "aphyartsa_context_lament",
+          "name": "Funeral and mourning song",
+          "descriptors": [
+            "mournful",
+            "plaintive",
+            "austere"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "caucasus",
+            "ritual"
+          ]
+        },
+        {
+          "id": "aphyartsa_context_healing_vigil",
+          "name": "Healing vigil sung over a wounded man",
+          "descriptors": [
+            "incantatory",
+            "ritual",
+            "communal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ritual-context",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "caucasus",
+            "ritual"
+          ]
+        },
+        {
+          "id": "aphyartsa_context_paired",
+          "name": "Paired aphyartsas under male vocal polyphony",
+          "descriptors": [
+            "ensemble-blend",
+            "unison",
+            "vocal-supportive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "vocal-accompaniment"
+          ],
+          "canonical_tags": [
+            "caucasus",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aphyartsa_build",
+      "name": "Strings and belly",
+      "variants": [
+        {
+          "id": "aphyartsa_build_horsehair_open_belly",
+          "default": true,
+          "name": "Bundled horsehair strings over an open carved wooden belly",
+          "descriptors": [
+            "horsehair-strung",
+            "carved",
+            "wood",
+            "raw"
+          ],
+          "match_tokens": [
+            "bowed",
+            "horsehair-string",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "caucasus",
+            "traditional"
+          ]
+        },
+        {
+          "id": "aphyartsa_build_skin_belly",
+          "name": "Hide-membrane belly (warmer, more nasal)",
+          "descriptors": [
+            "hide-faced",
+            "hide",
+            "nasal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "nasal-tone"
+          ],
+          "canonical_tags": [
+            "caucasus"
+          ]
+        },
+        {
+          "id": "aphyartsa_build_gut",
+          "name": "Gut strings",
+          "descriptors": [
+            "gut",
+            "warm",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        }
+      ]
+    }
+  ]
+}

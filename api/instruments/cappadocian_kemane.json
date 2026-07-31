@@ -1,0 +1,455 @@
+{
+  "id": "cappadocian_kemane",
+  "name": "Cappadocian kemane (Anatolian Greek sympathetic-string lyra)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "cappadocian kemane",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "cappadocian_kemane_stringing",
+      "name": "Stringing layout",
+      "variants": [
+        {
+          "id": "cappadocian_kemane_stringing_six_six",
+          "default": true,
+          "name": "Six main + six sympathetic strings (documented historical layout)",
+          "descriptors": [
+            "sympathetic-halo",
+            "ringing",
+            "six-string"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "fingertip"
+          ],
+          "canonical_tags": [
+            "anatolian",
+            "greek"
+          ]
+        },
+        {
+          "id": "cappadocian_kemane_stringing_seven_course",
+          "name": "Seven-course modern reconstruction (Koliavasilis type)",
+          "descriptors": [
+            "seven-course",
+            "reconstructed",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "revival"
+          ],
+          "canonical_tags": [
+            "revival",
+            "contemporary"
+          ]
+        },
+        {
+          "id": "cappadocian_kemane_stringing_no_sympathetics",
+          "name": "Reduced build with sympathetics omitted or damped",
+          "descriptors": [
+            "damped",
+            "dry",
+            "spare"
+          ],
+          "match_tokens": [
+            "bowed",
+            "muted",
+            "fingertip"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cappadocian_kemane_context",
+      "name": "Repertoire context",
+      "variants": [
+        {
+          "id": "cappadocian_kemane_context_revival",
+          "default": true,
+          "name": "Contemporary concert revival",
+          "descriptors": [
+            "concert",
+            "revival",
+            "preservationist"
+          ],
+          "match_tokens": [
+            "bowed",
+            "revival",
+            "sympathetic-resonant"
+          ],
+          "canonical_tags": [
+            "revival",
+            "contemporary"
+          ]
+        },
+        {
+          "id": "cappadocian_kemane_context_village",
+          "name": "Pre-1923 Cappadocian village song and dance",
+          "descriptors": [
+            "village",
+            "communal",
+            "folk"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "anatolian",
+            "greek",
+            "traditional"
+          ]
+        },
+        {
+          "id": "cappadocian_kemane_context_refugee",
+          "name": "Post-exchange performance inside Pontic refugee communities",
+          "descriptors": [
+            "diaspora",
+            "plaintive",
+            "melancholic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented",
+            "vocal-accompaniment"
+          ],
+          "canonical_tags": [
+            "diaspora",
+            "pontic",
+            "greek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cappadocian_kemane_sympathetic_tuning",
+      "name": "Sympathetic-string tuning",
+      "variants": [
+        {
+          "id": "cappadocian_kemane_sympathetic_tuning_unison",
+          "default": true,
+          "name": "Unison with the main strings",
+          "descriptors": [
+            "unison-doubled",
+            "halo",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "ringing"
+          ]
+        },
+        {
+          "id": "cappadocian_kemane_sympathetic_tuning_octave",
+          "name": "Octave above the main strings",
+          "descriptors": [
+            "octave-doubled",
+            "shimmering",
+            "bright"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "ringing"
+          ]
+        },
+        {
+          "id": "cappadocian_kemane_sympathetic_tuning_muted",
+          "name": "Muted or absent (dry melodic tone)",
+          "descriptors": [
+            "muted",
+            "dry",
+            "spare"
+          ],
+          "match_tokens": [
+            "bowed",
+            "muted"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cappadocian_kemane_main_tuning",
+      "name": "Main-string tuning",
+      "variants": [
+        {
+          "id": "cappadocian_kemane_main_tuning_fifths",
+          "default": true,
+          "name": "Mains tuned in fifths",
+          "descriptors": [
+            "fifths-tuned",
+            "singing-tone",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant"
+          ]
+        },
+        {
+          "id": "cappadocian_kemane_main_tuning_fourths",
+          "name": "Mains tuned in fourths",
+          "descriptors": [
+            "drone-and-melody",
+            "droning",
+            "spare"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "cappadocian_kemane_stringing",
+      "name": "Stringing layout",
+      "variants": [
+        {
+          "id": "cappadocian_kemane_stringing_six_six",
+          "default": true,
+          "name": "Six main + six sympathetic strings (documented historical layout)",
+          "descriptors": [
+            "sympathetic-halo",
+            "ringing",
+            "six-string"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "fingertip"
+          ],
+          "canonical_tags": [
+            "anatolian",
+            "greek"
+          ]
+        },
+        {
+          "id": "cappadocian_kemane_stringing_seven_course",
+          "name": "Seven-course modern reconstruction (Koliavasilis type)",
+          "descriptors": [
+            "seven-course",
+            "reconstructed",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "revival"
+          ],
+          "canonical_tags": [
+            "revival",
+            "contemporary"
+          ]
+        },
+        {
+          "id": "cappadocian_kemane_stringing_no_sympathetics",
+          "name": "Reduced build with sympathetics omitted or damped",
+          "descriptors": [
+            "damped",
+            "dry",
+            "spare"
+          ],
+          "match_tokens": [
+            "bowed",
+            "muted",
+            "fingertip"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cappadocian_kemane_context",
+      "name": "Repertoire context",
+      "variants": [
+        {
+          "id": "cappadocian_kemane_context_revival",
+          "default": true,
+          "name": "Contemporary concert revival",
+          "descriptors": [
+            "concert",
+            "revival",
+            "preservationist"
+          ],
+          "match_tokens": [
+            "bowed",
+            "revival",
+            "sympathetic-resonant"
+          ],
+          "canonical_tags": [
+            "revival",
+            "contemporary"
+          ]
+        },
+        {
+          "id": "cappadocian_kemane_context_village",
+          "name": "Pre-1923 Cappadocian village song and dance",
+          "descriptors": [
+            "village",
+            "communal",
+            "folk"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "anatolian",
+            "greek",
+            "traditional"
+          ]
+        },
+        {
+          "id": "cappadocian_kemane_context_refugee",
+          "name": "Post-exchange performance inside Pontic refugee communities",
+          "descriptors": [
+            "diaspora",
+            "plaintive",
+            "melancholic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented",
+            "vocal-accompaniment"
+          ],
+          "canonical_tags": [
+            "diaspora",
+            "pontic",
+            "greek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cappadocian_kemane_sympathetic_tuning",
+      "name": "Sympathetic-string tuning",
+      "variants": [
+        {
+          "id": "cappadocian_kemane_sympathetic_tuning_unison",
+          "default": true,
+          "name": "Unison with the main strings",
+          "descriptors": [
+            "unison-doubled",
+            "halo",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "ringing"
+          ]
+        },
+        {
+          "id": "cappadocian_kemane_sympathetic_tuning_octave",
+          "name": "Octave above the main strings",
+          "descriptors": [
+            "octave-doubled",
+            "shimmering",
+            "bright"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "ringing"
+          ]
+        },
+        {
+          "id": "cappadocian_kemane_sympathetic_tuning_muted",
+          "name": "Muted or absent (dry melodic tone)",
+          "descriptors": [
+            "muted",
+            "dry",
+            "spare"
+          ],
+          "match_tokens": [
+            "bowed",
+            "muted"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cappadocian_kemane_main_tuning",
+      "name": "Main-string tuning",
+      "variants": [
+        {
+          "id": "cappadocian_kemane_main_tuning_fifths",
+          "default": true,
+          "name": "Mains tuned in fifths",
+          "descriptors": [
+            "fifths-tuned",
+            "singing-tone",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant"
+          ]
+        },
+        {
+          "id": "cappadocian_kemane_main_tuning_fourths",
+          "name": "Mains tuned in fourths",
+          "descriptors": [
+            "drone-and-melody",
+            "droning",
+            "spare"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ]
+}

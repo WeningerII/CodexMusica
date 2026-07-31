@@ -1,0 +1,453 @@
+{
+  "id": "salo",
+  "name": "Salo (Lanna northern Thai free-bow spike fiddle)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "salo",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "salo_size",
+      "name": "Size",
+      "variants": [
+        {
+          "id": "salo_medium",
+          "default": true,
+          "name": "Medium salo (standard lead size)",
+          "descriptors": [
+            "lead-voice",
+            "bright",
+            "singing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "lead-melody"
+          ],
+          "canonical_tags": [
+            "thai",
+            "northern"
+          ]
+        },
+        {
+          "id": "salo_small",
+          "name": "Small salo (highest of the three sizes)",
+          "descriptors": [
+            "higher-pitched",
+            "bright-cutting",
+            "agile"
+          ],
+          "match_tokens": [
+            "bowed",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "thai",
+            "northern"
+          ]
+        },
+        {
+          "id": "salo_large",
+          "name": "Large salo (low ensemble part)",
+          "descriptors": [
+            "deep-toned",
+            "round",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "thai",
+            "northern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "salo_stringing",
+      "name": "String count / bow handling",
+      "variants": [
+        {
+          "id": "salo_three_string",
+          "default": true,
+          "name": "Three metal wire strings (a fifth plus a fourth), free bow crossed externally",
+          "descriptors": [
+            "three-string",
+            "wire-strung",
+            "articulate"
+          ],
+          "match_tokens": [
+            "bowed",
+            "metal-strung"
+          ],
+          "canonical_tags": [
+            "thai",
+            "metal"
+          ]
+        },
+        {
+          "id": "salo_two_string",
+          "name": "Two metal wire strings, free bow",
+          "descriptors": [
+            "two-string",
+            "wire-strung",
+            "bright"
+          ],
+          "match_tokens": [
+            "bowed",
+            "metal-strung"
+          ],
+          "canonical_tags": [
+            "thai",
+            "metal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "salo_face",
+      "name": "Resonator face",
+      "variants": [
+        {
+          "id": "salo_wood_plate",
+          "default": true,
+          "name": "Thin wooden plate (tat salo) over an open-backed coconut",
+          "descriptors": [
+            "coconut-shell",
+            "wood-faced",
+            "dry"
+          ],
+          "match_tokens": [
+            "bowed",
+            "wood-toned",
+            "resonator"
+          ],
+          "canonical_tags": [
+            "thai",
+            "wood"
+          ]
+        },
+        {
+          "id": "salo_skin_face",
+          "name": "Skin face (regional variation)",
+          "descriptors": [
+            "resonant-hide",
+            "nasal-toned",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "nasal-tone",
+            "resonator"
+          ],
+          "canonical_tags": [
+            "thai",
+            "natural-skin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "salo_ensemble",
+      "name": "Ensemble slot",
+      "variants": [
+        {
+          "id": "salo_saw_sueng",
+          "default": true,
+          "name": "Lead melody in the salo–saw–sueng northern folk ensemble",
+          "descriptors": [
+            "lead-voice",
+            "heterophonic",
+            "folk-song"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "lead-melody"
+          ],
+          "canonical_tags": [
+            "thai",
+            "northern"
+          ]
+        },
+        {
+          "id": "salo_solo",
+          "name": "Solo Lanna pieces",
+          "descriptors": [
+            "improvisatory",
+            "expressive",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "bowed",
+            "soloistic",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "thai",
+            "solo"
+          ]
+        },
+        {
+          "id": "salo_song_accompaniment",
+          "name": "Accompanying sung Lanna repertoire and khlui-led pieces",
+          "descriptors": [
+            "vocal-supportive",
+            "sustained",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "song-accompaniment",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "thai",
+            "song"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "salo_size",
+      "name": "Size",
+      "variants": [
+        {
+          "id": "salo_medium",
+          "default": true,
+          "name": "Medium salo (standard lead size)",
+          "descriptors": [
+            "lead-voice",
+            "bright",
+            "singing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "lead-melody"
+          ],
+          "canonical_tags": [
+            "thai",
+            "northern"
+          ]
+        },
+        {
+          "id": "salo_small",
+          "name": "Small salo (highest of the three sizes)",
+          "descriptors": [
+            "higher-pitched",
+            "bright-cutting",
+            "agile"
+          ],
+          "match_tokens": [
+            "bowed",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "thai",
+            "northern"
+          ]
+        },
+        {
+          "id": "salo_large",
+          "name": "Large salo (low ensemble part)",
+          "descriptors": [
+            "deep-toned",
+            "round",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "thai",
+            "northern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "salo_stringing",
+      "name": "String count / bow handling",
+      "variants": [
+        {
+          "id": "salo_three_string",
+          "default": true,
+          "name": "Three metal wire strings (a fifth plus a fourth), free bow crossed externally",
+          "descriptors": [
+            "three-string",
+            "wire-strung",
+            "articulate"
+          ],
+          "match_tokens": [
+            "bowed",
+            "metal-strung"
+          ],
+          "canonical_tags": [
+            "thai",
+            "metal"
+          ]
+        },
+        {
+          "id": "salo_two_string",
+          "name": "Two metal wire strings, free bow",
+          "descriptors": [
+            "two-string",
+            "wire-strung",
+            "bright"
+          ],
+          "match_tokens": [
+            "bowed",
+            "metal-strung"
+          ],
+          "canonical_tags": [
+            "thai",
+            "metal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "salo_face",
+      "name": "Resonator face",
+      "variants": [
+        {
+          "id": "salo_wood_plate",
+          "default": true,
+          "name": "Thin wooden plate (tat salo) over an open-backed coconut",
+          "descriptors": [
+            "coconut-shell",
+            "wood-faced",
+            "dry"
+          ],
+          "match_tokens": [
+            "bowed",
+            "wood-toned",
+            "resonator"
+          ],
+          "canonical_tags": [
+            "thai",
+            "wood"
+          ]
+        },
+        {
+          "id": "salo_skin_face",
+          "name": "Skin face (regional variation)",
+          "descriptors": [
+            "resonant-hide",
+            "nasal-toned",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "nasal-tone",
+            "resonator"
+          ],
+          "canonical_tags": [
+            "thai",
+            "natural-skin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "salo_ensemble",
+      "name": "Ensemble slot",
+      "variants": [
+        {
+          "id": "salo_saw_sueng",
+          "default": true,
+          "name": "Lead melody in the salo–saw–sueng northern folk ensemble",
+          "descriptors": [
+            "lead-voice",
+            "heterophonic",
+            "folk-song"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "lead-melody"
+          ],
+          "canonical_tags": [
+            "thai",
+            "northern"
+          ]
+        },
+        {
+          "id": "salo_solo",
+          "name": "Solo Lanna pieces",
+          "descriptors": [
+            "improvisatory",
+            "expressive",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "bowed",
+            "soloistic",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "thai",
+            "solo"
+          ]
+        },
+        {
+          "id": "salo_song_accompaniment",
+          "name": "Accompanying sung Lanna repertoire and khlui-led pieces",
+          "descriptors": [
+            "vocal-supportive",
+            "sustained",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "song-accompaniment",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "thai",
+            "song"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,419 @@
+{
+  "id": "saw_u",
+  "name": "Saw u (Thai low coconut-body fiddle)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "saw u",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "saw_u_membrane",
+      "name": "Membrane",
+      "variants": [
+        {
+          "id": "saw_u_cowhide",
+          "default": true,
+          "name": "Cowhide face at moderate tension (canonical warm oo, bow threaded between the strings)",
+          "descriptors": [
+            "cowhide-canonical",
+            "warm",
+            "round",
+            "threaded-between-strings-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "nasal-tone",
+            "resonator"
+          ],
+          "canonical_tags": [
+            "thai-classical",
+            "natural-skin"
+          ]
+        },
+        {
+          "id": "saw_u_calfskin_tight",
+          "name": "Calfskin, tightly stretched",
+          "descriptors": [
+            "calfskin",
+            "brighter",
+            "focused"
+          ],
+          "match_tokens": [
+            "bowed",
+            "warm-tone",
+            "resonator"
+          ],
+          "canonical_tags": [
+            "thai",
+            "natural-skin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saw_u_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "saw_u_silk",
+          "default": true,
+          "name": "Silk (canonical Thai court)",
+          "descriptors": [
+            "silk-canonical-thai-court",
+            "warm",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "silk-strung",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "thai-classical",
+            "traditional"
+          ]
+        },
+        {
+          "id": "saw_u_steel",
+          "name": "Steel (modern standard)",
+          "descriptors": [
+            "steel-modern",
+            "projecting",
+            "brighter"
+          ],
+          "match_tokens": [
+            "bowed",
+            "metal-string"
+          ],
+          "canonical_tags": [
+            "steel",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saw_u_ensemble",
+      "name": "Ensemble slot",
+      "variants": [
+        {
+          "id": "saw_u_khrueang_sai",
+          "default": true,
+          "name": "Khrueang sai low fiddle (with jakhe, khlui and ching)",
+          "descriptors": [
+            "heterophonic",
+            "ensemble-blend",
+            "deep-toned"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "thai-classical",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "saw_u_pi_phat_mai_nuam",
+          "name": "Pi phat mai nuam / duekdamban (soft-mallet piphat)",
+          "descriptors": [
+            "soft",
+            "blended",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "piphat-mahori",
+            "thai-classical"
+          ]
+        },
+        {
+          "id": "saw_u_duo_saw_duang",
+          "name": "High/low duo with the saw duang",
+          "descriptors": [
+            "heterophonic",
+            "supportive",
+            "round"
+          ],
+          "match_tokens": [
+            "bowed",
+            "duet",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "thai-classical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saw_u_ornament",
+      "name": "Ornament density",
+      "variants": [
+        {
+          "id": "saw_u_heavy_elaboration",
+          "default": true,
+          "name": "Heavy slide-and-turn lower elaboration",
+          "descriptors": [
+            "densely-ornamented",
+            "portamento-rich",
+            "singing-legato"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented",
+            "microtonal-bend"
+          ],
+          "canonical_tags": [
+            "thai-classical"
+          ]
+        },
+        {
+          "id": "saw_u_sparse_sustained",
+          "name": "Sparse sustained lines",
+          "descriptors": [
+            "long-bowed",
+            "sustained-line",
+            "spacious"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "thai-classical"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "saw_u_membrane",
+      "name": "Membrane",
+      "variants": [
+        {
+          "id": "saw_u_cowhide",
+          "default": true,
+          "name": "Cowhide face at moderate tension (canonical warm oo, bow threaded between the strings)",
+          "descriptors": [
+            "cowhide-canonical",
+            "warm",
+            "round",
+            "threaded-between-strings-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "nasal-tone",
+            "resonator"
+          ],
+          "canonical_tags": [
+            "thai-classical",
+            "natural-skin"
+          ]
+        },
+        {
+          "id": "saw_u_calfskin_tight",
+          "name": "Calfskin, tightly stretched",
+          "descriptors": [
+            "calfskin",
+            "brighter",
+            "focused"
+          ],
+          "match_tokens": [
+            "bowed",
+            "warm-tone",
+            "resonator"
+          ],
+          "canonical_tags": [
+            "thai",
+            "natural-skin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saw_u_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "saw_u_silk",
+          "default": true,
+          "name": "Silk (canonical Thai court)",
+          "descriptors": [
+            "silk-canonical-thai-court",
+            "warm",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "silk-strung",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "thai-classical",
+            "traditional"
+          ]
+        },
+        {
+          "id": "saw_u_steel",
+          "name": "Steel (modern standard)",
+          "descriptors": [
+            "steel-modern",
+            "projecting",
+            "brighter"
+          ],
+          "match_tokens": [
+            "bowed",
+            "metal-string"
+          ],
+          "canonical_tags": [
+            "steel",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saw_u_ensemble",
+      "name": "Ensemble slot",
+      "variants": [
+        {
+          "id": "saw_u_khrueang_sai",
+          "default": true,
+          "name": "Khrueang sai low fiddle (with jakhe, khlui and ching)",
+          "descriptors": [
+            "heterophonic",
+            "ensemble-blend",
+            "deep-toned"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "thai-classical",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "saw_u_pi_phat_mai_nuam",
+          "name": "Pi phat mai nuam / duekdamban (soft-mallet piphat)",
+          "descriptors": [
+            "soft",
+            "blended",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "piphat-mahori",
+            "thai-classical"
+          ]
+        },
+        {
+          "id": "saw_u_duo_saw_duang",
+          "name": "High/low duo with the saw duang",
+          "descriptors": [
+            "heterophonic",
+            "supportive",
+            "round"
+          ],
+          "match_tokens": [
+            "bowed",
+            "duet",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "thai-classical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saw_u_ornament",
+      "name": "Ornament density",
+      "variants": [
+        {
+          "id": "saw_u_heavy_elaboration",
+          "default": true,
+          "name": "Heavy slide-and-turn lower elaboration",
+          "descriptors": [
+            "densely-ornamented",
+            "portamento-rich",
+            "singing-legato"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented",
+            "microtonal-bend"
+          ],
+          "canonical_tags": [
+            "thai-classical"
+          ]
+        },
+        {
+          "id": "saw_u_sparse_sustained",
+          "name": "Sparse sustained lines",
+          "descriptors": [
+            "long-bowed",
+            "sustained-line",
+            "spacious"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "thai-classical"
+          ]
+        }
+      ]
+    }
+  ]
+}

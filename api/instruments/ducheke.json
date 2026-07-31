@@ -1,0 +1,687 @@
+{
+  "id": "ducheke",
+  "name": "Ducheke (Nanai one-string bowed tube fiddle)",
+  "family": "bowed",
+  "class": "bowed_tube_fiddle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "ducheke",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "ducheke_body",
+      "name": "Resonator material",
+      "variants": [
+        {
+          "id": "ducheke_body_birch_bark",
+          "default": true,
+          "name": "Birch-bark cylinder, skin membrane at the top, open bottom (canonical Nanai)",
+          "descriptors": [
+            "light",
+            "hollow",
+            "soft",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "hide-soundboard"
+          ],
+          "canonical_tags": [
+            "siberia",
+            "indigenous",
+            "traditional"
+          ]
+        },
+        {
+          "id": "ducheke_body_hollowed_wood",
+          "name": "Hollowed wooden tube (warmer, heavier build)",
+          "descriptors": [
+            "woody",
+            "warm",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "wood-body"
+          ],
+          "canonical_tags": [
+            "siberia",
+            "wood"
+          ]
+        },
+        {
+          "id": "ducheke_body_tin",
+          "name": "Tin tube (twentieth-century substitution)",
+          "descriptors": [
+            "tinny",
+            "metallic",
+            "cutting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "metallic"
+          ],
+          "canonical_tags": [
+            "siberia",
+            "modern"
+          ]
+        },
+        {
+          "id": "ducheke_body_concert",
+          "name": "Standardised concert body (folk-orchestra build)",
+          "descriptors": [
+            "standardized",
+            "concert-grade",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "modern"
+          ],
+          "canonical_tags": [
+            "russian",
+            "orchestral",
+            "soviet-era"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ducheke_strings",
+      "name": "Stringing",
+      "variants": [
+        {
+          "id": "ducheke_strings_horsehair_single",
+          "default": true,
+          "name": "Single strand of horsehair",
+          "descriptors": [
+            "horsehair",
+            "breathy",
+            "raw"
+          ],
+          "match_tokens": [
+            "bowed",
+            "horsehair-string",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "siberia",
+            "traditional"
+          ]
+        },
+        {
+          "id": "ducheke_strings_gut",
+          "name": "Gut string (smoother, warmer)",
+          "descriptors": [
+            "gut",
+            "warm",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        },
+        {
+          "id": "ducheke_strings_metal",
+          "name": "Metal string (louder, more focused)",
+          "descriptors": [
+            "steel",
+            "focused",
+            "cutting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "steel-string",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "ducheke_strings_two_concert",
+          "name": "Modern two-string concert version",
+          "descriptors": [
+            "reconstructed",
+            "standardized",
+            "clean"
+          ],
+          "match_tokens": [
+            "bowed",
+            "two-string",
+            "modern"
+          ],
+          "canonical_tags": [
+            "russian",
+            "modern",
+            "revival"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ducheke_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "ducheke_technique_arco_light",
+          "default": true,
+          "name": "Sustained arco, string touched lightly by the fingertips (no fingerboard contact)",
+          "descriptors": [
+            "sustained",
+            "gliding",
+            "breathy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "pitch-bend"
+          ],
+          "canonical_tags": [
+            "siberia",
+            "traditional"
+          ]
+        },
+        {
+          "id": "ducheke_technique_plucked",
+          "name": "Plucked and finger-stopped (pizzicato)",
+          "descriptors": [
+            "plucked",
+            "dry",
+            "soft"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "soft-toned"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "ducheke_technique_body_percussion",
+          "name": "Body tapping and rhythmic figures struck on the tube",
+          "descriptors": [
+            "percussive",
+            "rhythmic",
+            "dry"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "siberia",
+            "rhythm"
+          ]
+        },
+        {
+          "id": "ducheke_technique_mixed",
+          "name": "Mixed bowing with struck and plucked interjections",
+          "descriptors": [
+            "improvisatory",
+            "expressive",
+            "narrative"
+          ],
+          "match_tokens": [
+            "bowed",
+            "expressive",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "siberia",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ducheke_context",
+      "name": "Role / repertoire",
+      "variants": [
+        {
+          "id": "ducheke_context_voice_substitute",
+          "default": true,
+          "name": "Voice-substitute lament (speaking in place of a mourner)",
+          "descriptors": [
+            "mournful",
+            "vocal-shadowing",
+            "hollow-muted-grief"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vocal-imitating",
+            "melancholic"
+          ],
+          "canonical_tags": [
+            "siberia",
+            "ritual",
+            "indigenous"
+          ]
+        },
+        {
+          "id": "ducheke_context_secular_song",
+          "name": "Secular song and dance-tune accompaniment",
+          "descriptors": [
+            "lilting",
+            "rustic",
+            "festive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "song-accompaniment",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "siberia",
+            "folk"
+          ]
+        },
+        {
+          "id": "ducheke_context_folk_orchestra",
+          "name": "Melody line in a Nanai folk-orchestra texture",
+          "descriptors": [
+            "blended",
+            "notated",
+            "folk-orchestra"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "russian",
+            "orchestral",
+            "soviet-era"
+          ]
+        },
+        {
+          "id": "ducheke_context_revival_solo",
+          "name": "Revivalist concert solo",
+          "descriptors": [
+            "soloistic",
+            "folk-revival",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "solo",
+            "modern"
+          ],
+          "canonical_tags": [
+            "revival",
+            "concert",
+            "siberia"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ducheke_body",
+      "name": "Resonator material",
+      "variants": [
+        {
+          "id": "ducheke_body_birch_bark",
+          "default": true,
+          "name": "Birch-bark cylinder, skin membrane at the top, open bottom (canonical Nanai)",
+          "descriptors": [
+            "light",
+            "hollow",
+            "soft",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "hide-soundboard"
+          ],
+          "canonical_tags": [
+            "siberia",
+            "indigenous",
+            "traditional"
+          ]
+        },
+        {
+          "id": "ducheke_body_hollowed_wood",
+          "name": "Hollowed wooden tube (warmer, heavier build)",
+          "descriptors": [
+            "woody",
+            "warm",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "wood-body"
+          ],
+          "canonical_tags": [
+            "siberia",
+            "wood"
+          ]
+        },
+        {
+          "id": "ducheke_body_tin",
+          "name": "Tin tube (twentieth-century substitution)",
+          "descriptors": [
+            "tinny",
+            "metallic",
+            "cutting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "metallic"
+          ],
+          "canonical_tags": [
+            "siberia",
+            "modern"
+          ]
+        },
+        {
+          "id": "ducheke_body_concert",
+          "name": "Standardised concert body (folk-orchestra build)",
+          "descriptors": [
+            "standardized",
+            "concert-grade",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "modern"
+          ],
+          "canonical_tags": [
+            "russian",
+            "orchestral",
+            "soviet-era"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ducheke_strings",
+      "name": "Stringing",
+      "variants": [
+        {
+          "id": "ducheke_strings_horsehair_single",
+          "default": true,
+          "name": "Single strand of horsehair",
+          "descriptors": [
+            "horsehair",
+            "breathy",
+            "raw"
+          ],
+          "match_tokens": [
+            "bowed",
+            "horsehair-string",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "siberia",
+            "traditional"
+          ]
+        },
+        {
+          "id": "ducheke_strings_gut",
+          "name": "Gut string (smoother, warmer)",
+          "descriptors": [
+            "gut",
+            "warm",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        },
+        {
+          "id": "ducheke_strings_metal",
+          "name": "Metal string (louder, more focused)",
+          "descriptors": [
+            "steel",
+            "focused",
+            "cutting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "steel-string",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "ducheke_strings_two_concert",
+          "name": "Modern two-string concert version",
+          "descriptors": [
+            "reconstructed",
+            "standardized",
+            "clean"
+          ],
+          "match_tokens": [
+            "bowed",
+            "two-string",
+            "modern"
+          ],
+          "canonical_tags": [
+            "russian",
+            "modern",
+            "revival"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ducheke_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "ducheke_technique_arco_light",
+          "default": true,
+          "name": "Sustained arco, string touched lightly by the fingertips (no fingerboard contact)",
+          "descriptors": [
+            "sustained",
+            "gliding",
+            "breathy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "pitch-bend"
+          ],
+          "canonical_tags": [
+            "siberia",
+            "traditional"
+          ]
+        },
+        {
+          "id": "ducheke_technique_plucked",
+          "name": "Plucked and finger-stopped (pizzicato)",
+          "descriptors": [
+            "plucked",
+            "dry",
+            "soft"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "soft-toned"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "ducheke_technique_body_percussion",
+          "name": "Body tapping and rhythmic figures struck on the tube",
+          "descriptors": [
+            "percussive",
+            "rhythmic",
+            "dry"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "siberia",
+            "rhythm"
+          ]
+        },
+        {
+          "id": "ducheke_technique_mixed",
+          "name": "Mixed bowing with struck and plucked interjections",
+          "descriptors": [
+            "improvisatory",
+            "expressive",
+            "narrative"
+          ],
+          "match_tokens": [
+            "bowed",
+            "expressive",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "siberia",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ducheke_context",
+      "name": "Role / repertoire",
+      "variants": [
+        {
+          "id": "ducheke_context_voice_substitute",
+          "default": true,
+          "name": "Voice-substitute lament (speaking in place of a mourner)",
+          "descriptors": [
+            "mournful",
+            "vocal-shadowing",
+            "hollow-muted-grief"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vocal-imitating",
+            "melancholic"
+          ],
+          "canonical_tags": [
+            "siberia",
+            "ritual",
+            "indigenous"
+          ]
+        },
+        {
+          "id": "ducheke_context_secular_song",
+          "name": "Secular song and dance-tune accompaniment",
+          "descriptors": [
+            "lilting",
+            "rustic",
+            "festive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "song-accompaniment",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "siberia",
+            "folk"
+          ]
+        },
+        {
+          "id": "ducheke_context_folk_orchestra",
+          "name": "Melody line in a Nanai folk-orchestra texture",
+          "descriptors": [
+            "blended",
+            "notated",
+            "folk-orchestra"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "russian",
+            "orchestral",
+            "soviet-era"
+          ]
+        },
+        {
+          "id": "ducheke_context_revival_solo",
+          "name": "Revivalist concert solo",
+          "descriptors": [
+            "soloistic",
+            "folk-revival",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "solo",
+            "modern"
+          ],
+          "canonical_tags": [
+            "revival",
+            "concert",
+            "siberia"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,426 @@
+{
+  "id": "heckelphone",
+  "name": "Heckelphone (wide-bore baritone double reed in C)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "heckelphone",
+  "parts": [
+    {
+      "id": "heckelphone_bell",
+      "name": "Bell",
+      "variants": [
+        {
+          "id": "heckelphone_bell_standard",
+          "default": true,
+          "name": "Standard spherical Liebesfuß bell with three side holes",
+          "descriptors": [
+            "penetrating",
+            "full",
+            "projecting"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "wind-driven",
+            "reed-driven",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "orchestral"
+          ]
+        },
+        {
+          "id": "heckelphone_bell_muting",
+          "name": "Interchangeable muting bell (small-ensemble playing)",
+          "descriptors": [
+            "muted",
+            "soft",
+            "intimate"
+          ],
+          "match_tokens": [
+            "chamber-fed",
+            "wind-driven",
+            "reed-driven",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "chamber"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "heckelphone_context",
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "heckelphone_context_strauss_solo",
+          "default": true,
+          "name": "Straussian exposed solo (Salome, Elektra, Eine Alpensinfonie)",
+          "descriptors": [
+            "soloistic",
+            "penetrating",
+            "romantic-orchestra"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "soloistic",
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "orchestral",
+            "twentieth-century"
+          ]
+        },
+        {
+          "id": "heckelphone_context_woodwind_pedal",
+          "name": "Bass pedal under the woodwind choir",
+          "descriptors": [
+            "foundational",
+            "dark",
+            "blended"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "wind-driven",
+            "reed-driven",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "orchestral"
+          ]
+        },
+        {
+          "id": "heckelphone_context_chamber_trio",
+          "name": "Chamber trio (Hindemith, Trio op. 47)",
+          "descriptors": [
+            "chamber",
+            "expressive",
+            "twentieth-century"
+          ],
+          "match_tokens": [
+            "chamber-fed",
+            "wind-driven",
+            "reed-driven",
+            "contemporary-classical"
+          ],
+          "canonical_tags": [
+            "chamber",
+            "twentieth-century"
+          ]
+        },
+        {
+          "id": "heckelphone_context_bass_oboe_swap",
+          "name": "Realising a bass-oboe part on the heckelphone",
+          "descriptors": [
+            "broad",
+            "projecting",
+            "powerful"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "wind-driven",
+            "reed-driven",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "orchestral"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "heckelphone_low_extension",
+      "name": "Bottom-note convention",
+      "variants": [
+        {
+          "id": "heckelphone_low_standard_a2",
+          "default": true,
+          "name": "Standard compass down to A2",
+          "descriptors": [
+            "standard",
+            "deep",
+            "canonical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "low-register"
+          ]
+        },
+        {
+          "id": "heckelphone_low_alpensinfonie_workaround",
+          "name": "Alpensinfonie out-of-range workaround (bell extension / octave transfer)",
+          "descriptors": [
+            "extended-range",
+            "rare",
+            "experimental"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "extended-range",
+            "orchestral"
+          ],
+          "canonical_tags": [
+            "twentieth-century"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "heckelphone_body_wood",
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "heckelphone_body_grenadilla",
+          "default": true,
+          "name": "Grenadilla / African blackwood, three joints (canonical Heckel)",
+          "descriptors": [
+            "grenadilla-african-blackwood-canonical",
+            "standard"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "heckelphone_body_palisander",
+          "name": "Palisander rosewood (premium)",
+          "descriptors": [
+            "palisander-rosewood-premium",
+            "warm"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "heckelphone_bell",
+      "name": "Bell",
+      "variants": [
+        {
+          "id": "heckelphone_bell_standard",
+          "default": true,
+          "name": "Standard spherical Liebesfuß bell with three side holes",
+          "descriptors": [
+            "penetrating",
+            "full",
+            "projecting"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "wind-driven",
+            "reed-driven",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "orchestral"
+          ]
+        },
+        {
+          "id": "heckelphone_bell_muting",
+          "name": "Interchangeable muting bell (small-ensemble playing)",
+          "descriptors": [
+            "muted",
+            "soft",
+            "intimate"
+          ],
+          "match_tokens": [
+            "chamber-fed",
+            "wind-driven",
+            "reed-driven",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "chamber"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "heckelphone_context",
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "heckelphone_context_strauss_solo",
+          "default": true,
+          "name": "Straussian exposed solo (Salome, Elektra, Eine Alpensinfonie)",
+          "descriptors": [
+            "soloistic",
+            "penetrating",
+            "romantic-orchestra"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "soloistic",
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "orchestral",
+            "twentieth-century"
+          ]
+        },
+        {
+          "id": "heckelphone_context_woodwind_pedal",
+          "name": "Bass pedal under the woodwind choir",
+          "descriptors": [
+            "foundational",
+            "dark",
+            "blended"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "wind-driven",
+            "reed-driven",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "orchestral"
+          ]
+        },
+        {
+          "id": "heckelphone_context_chamber_trio",
+          "name": "Chamber trio (Hindemith, Trio op. 47)",
+          "descriptors": [
+            "chamber",
+            "expressive",
+            "twentieth-century"
+          ],
+          "match_tokens": [
+            "chamber-fed",
+            "wind-driven",
+            "reed-driven",
+            "contemporary-classical"
+          ],
+          "canonical_tags": [
+            "chamber",
+            "twentieth-century"
+          ]
+        },
+        {
+          "id": "heckelphone_context_bass_oboe_swap",
+          "name": "Realising a bass-oboe part on the heckelphone",
+          "descriptors": [
+            "broad",
+            "projecting",
+            "powerful"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "wind-driven",
+            "reed-driven",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "orchestral"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "heckelphone_low_extension",
+      "name": "Bottom-note convention",
+      "variants": [
+        {
+          "id": "heckelphone_low_standard_a2",
+          "default": true,
+          "name": "Standard compass down to A2",
+          "descriptors": [
+            "standard",
+            "deep",
+            "canonical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "low-register"
+          ]
+        },
+        {
+          "id": "heckelphone_low_alpensinfonie_workaround",
+          "name": "Alpensinfonie out-of-range workaround (bell extension / octave transfer)",
+          "descriptors": [
+            "extended-range",
+            "rare",
+            "experimental"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "extended-range",
+            "orchestral"
+          ],
+          "canonical_tags": [
+            "twentieth-century"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "heckelphone_body_wood",
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "heckelphone_body_grenadilla",
+          "default": true,
+          "name": "Grenadilla / African blackwood, three joints (canonical Heckel)",
+          "descriptors": [
+            "grenadilla-african-blackwood-canonical",
+            "standard"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "heckelphone_body_palisander",
+          "name": "Palisander rosewood (premium)",
+          "descriptors": [
+            "palisander-rosewood-premium",
+            "warm"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,504 @@
+{
+  "id": "damphu",
+  "name": "Damphu (Tamang frame drum of Nepal)",
+  "family": "percussion",
+  "class": "frame_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "damphu",
+  "parts": [
+    {
+      "id": "damphu_form",
+      "name": "Frame form",
+      "variants": [
+        {
+          "id": "damphu_form_pegged",
+          "default": true,
+          "name": "Traditional pegged wooden frame",
+          "descriptors": [
+            "bent-wood-hoop",
+            "bright",
+            "light"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "hand-struck",
+            "hand-drum"
+          ],
+          "canonical_tags": [
+            "himalayan",
+            "traditional"
+          ]
+        },
+        {
+          "id": "damphu_form_large",
+          "name": "Large deep-framed damphu",
+          "descriptors": [
+            "deep",
+            "low-tension",
+            "booming"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "hand-struck",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "himalayan"
+          ]
+        },
+        {
+          "id": "damphu_form_tunable",
+          "name": "Modern hoop-tensioned frame",
+          "descriptors": [
+            "tunable",
+            "durable",
+            "modern"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "hand-struck",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "damphu_technique",
+      "name": "Hand technique",
+      "variants": [
+        {
+          "id": "damphu_technique_finger_roll",
+          "default": true,
+          "name": "Fingertip strum roll",
+          "descriptors": [
+            "shimmering",
+            "soft-attack",
+            "continuous"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "hand-struck",
+            "hands"
+          ],
+          "canonical_tags": [
+            "dance"
+          ]
+        },
+        {
+          "id": "damphu_technique_palm",
+          "name": "Full-palm open strokes",
+          "descriptors": [
+            "broad",
+            "open",
+            "accented"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "hand-struck",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        },
+        {
+          "id": "damphu_technique_damped",
+          "name": "Damped and pitch-bent by the holding hand",
+          "descriptors": [
+            "damped",
+            "muted",
+            "bent-pitch"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "damped",
+            "muted-stroke"
+          ],
+          "canonical_tags": [
+            "himalayan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "damphu_role",
+      "name": "Playing context / role",
+      "variants": [
+        {
+          "id": "damphu_role_selo",
+          "default": true,
+          "name": "Tamang selo self-accompaniment (singing and dancing)",
+          "descriptors": [
+            "self-accompanied",
+            "danced",
+            "ostinato"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "hand-struck",
+            "song-accompaniment",
+            "ostinato"
+          ],
+          "canonical_tags": [
+            "himalayan",
+            "folk",
+            "dance"
+          ]
+        },
+        {
+          "id": "damphu_role_circle",
+          "name": "Village circle dance / social gathering",
+          "descriptors": [
+            "communal",
+            "dance-driving",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "dance-pulse",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "dance",
+            "folk"
+          ]
+        },
+        {
+          "id": "damphu_role_pop",
+          "name": "Folk-colour layer in an arranged Nepali pop track",
+          "descriptors": [
+            "arranged",
+            "contemporary",
+            "layered"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "hand-struck",
+            "modern"
+          ],
+          "canonical_tags": [
+            "pop",
+            "studio",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "damphu_head",
+      "name": "Head preparation",
+      "variants": [
+        {
+          "id": "damphu_head_warmed",
+          "default": true,
+          "name": "Goat hide warmed at a fire before playing",
+          "descriptors": [
+            "tight",
+            "bright",
+            "traditional"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "goatskin",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "goatskin",
+            "traditional"
+          ]
+        },
+        {
+          "id": "damphu_head_cold",
+          "name": "Untreated cold hide (slack and low)",
+          "descriptors": [
+            "low-tension",
+            "dull",
+            "loose"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "hand-struck",
+            "dry-tone"
+          ],
+          "canonical_tags": [
+            "natural-skin"
+          ]
+        },
+        {
+          "id": "damphu_head_synthetic",
+          "name": "Synthetic head (stable pitch)",
+          "descriptors": [
+            "synthetic-head",
+            "consistent",
+            "stable"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "synthetic",
+            "modern"
+          ],
+          "canonical_tags": [
+            "synthetic",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "damphu_form",
+      "name": "Frame form",
+      "variants": [
+        {
+          "id": "damphu_form_pegged",
+          "default": true,
+          "name": "Traditional pegged wooden frame",
+          "descriptors": [
+            "bent-wood-hoop",
+            "bright",
+            "light"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "hand-struck",
+            "hand-drum"
+          ],
+          "canonical_tags": [
+            "himalayan",
+            "traditional"
+          ]
+        },
+        {
+          "id": "damphu_form_large",
+          "name": "Large deep-framed damphu",
+          "descriptors": [
+            "deep",
+            "low-tension",
+            "booming"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "hand-struck",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "himalayan"
+          ]
+        },
+        {
+          "id": "damphu_form_tunable",
+          "name": "Modern hoop-tensioned frame",
+          "descriptors": [
+            "tunable",
+            "durable",
+            "modern"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "hand-struck",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "damphu_technique",
+      "name": "Hand technique",
+      "variants": [
+        {
+          "id": "damphu_technique_finger_roll",
+          "default": true,
+          "name": "Fingertip strum roll",
+          "descriptors": [
+            "shimmering",
+            "soft-attack",
+            "continuous"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "hand-struck",
+            "hands"
+          ],
+          "canonical_tags": [
+            "dance"
+          ]
+        },
+        {
+          "id": "damphu_technique_palm",
+          "name": "Full-palm open strokes",
+          "descriptors": [
+            "broad",
+            "open",
+            "accented"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "hand-struck",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        },
+        {
+          "id": "damphu_technique_damped",
+          "name": "Damped and pitch-bent by the holding hand",
+          "descriptors": [
+            "damped",
+            "muted",
+            "bent-pitch"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "damped",
+            "muted-stroke"
+          ],
+          "canonical_tags": [
+            "himalayan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "damphu_role",
+      "name": "Playing context / role",
+      "variants": [
+        {
+          "id": "damphu_role_selo",
+          "default": true,
+          "name": "Tamang selo self-accompaniment (singing and dancing)",
+          "descriptors": [
+            "self-accompanied",
+            "danced",
+            "ostinato"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "hand-struck",
+            "song-accompaniment",
+            "ostinato"
+          ],
+          "canonical_tags": [
+            "himalayan",
+            "folk",
+            "dance"
+          ]
+        },
+        {
+          "id": "damphu_role_circle",
+          "name": "Village circle dance / social gathering",
+          "descriptors": [
+            "communal",
+            "dance-driving",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "dance-pulse",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "dance",
+            "folk"
+          ]
+        },
+        {
+          "id": "damphu_role_pop",
+          "name": "Folk-colour layer in an arranged Nepali pop track",
+          "descriptors": [
+            "arranged",
+            "contemporary",
+            "layered"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "hand-struck",
+            "modern"
+          ],
+          "canonical_tags": [
+            "pop",
+            "studio",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "damphu_head",
+      "name": "Head preparation",
+      "variants": [
+        {
+          "id": "damphu_head_warmed",
+          "default": true,
+          "name": "Goat hide warmed at a fire before playing",
+          "descriptors": [
+            "tight",
+            "bright",
+            "traditional"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "goatskin",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "goatskin",
+            "traditional"
+          ]
+        },
+        {
+          "id": "damphu_head_cold",
+          "name": "Untreated cold hide (slack and low)",
+          "descriptors": [
+            "low-tension",
+            "dull",
+            "loose"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "hand-struck",
+            "dry-tone"
+          ],
+          "canonical_tags": [
+            "natural-skin"
+          ]
+        },
+        {
+          "id": "damphu_head_synthetic",
+          "name": "Synthetic head (stable pitch)",
+          "descriptors": [
+            "synthetic-head",
+            "consistent",
+            "stable"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "synthetic",
+            "modern"
+          ],
+          "canonical_tags": [
+            "synthetic",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

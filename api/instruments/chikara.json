@@ -1,0 +1,415 @@
+{
+  "id": "chikara",
+  "name": "Chikara (Bundelkhandi bardic folk fiddle)",
+  "family": "bowed",
+  "class": "bowed_fiddle",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "chikara",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "chikara_form",
+      "name": "Form and string count",
+      "variants": [
+        {
+          "id": "chikara_form_three_string",
+          "default": true,
+          "name": "Three-string Bundelkhandi chikara (hollowed body, hide belly, fretless neck)",
+          "descriptors": [
+            "three-string",
+            "rustic",
+            "hide-faced",
+            "nasal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "fretless"
+          ],
+          "canonical_tags": [
+            "south_asia",
+            "folk"
+          ]
+        },
+        {
+          "id": "chikara_form_two_string",
+          "name": "Two-string village form (sparer, drone-led)",
+          "descriptors": [
+            "two-string",
+            "spare",
+            "droning",
+            "handmade"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "south_asia",
+            "folk"
+          ]
+        },
+        {
+          "id": "chikara_form_hill",
+          "name": "Himalayan hill form (Nepal border districts)",
+          "descriptors": [
+            "rural",
+            "thin-toned",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "himalayan",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chikara_context",
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "chikara_context_alha",
+          "default": true,
+          "name": "Alha epic ballad accompaniment (Bundelkhand bards)",
+          "descriptors": [
+            "bardic",
+            "narrative",
+            "heroic",
+            "declamatory"
+          ],
+          "match_tokens": [
+            "bowed",
+            "epic",
+            "vocal-accompaniment"
+          ],
+          "canonical_tags": [
+            "south_asia",
+            "storytelling",
+            "narrative"
+          ]
+        },
+        {
+          "id": "chikara_context_bhajan",
+          "name": "Village devotional song accompaniment",
+          "descriptors": [
+            "devotional",
+            "vocal-supportive",
+            "measured"
+          ],
+          "match_tokens": [
+            "bowed",
+            "devotional",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "south_asia",
+            "devotional"
+          ]
+        },
+        {
+          "id": "chikara_context_dance_tune",
+          "name": "Solo folk dance tune",
+          "descriptors": [
+            "driving",
+            "festive",
+            "insistent"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "south_asia",
+            "dance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chikara_build",
+      "name": "Strings and stopping",
+      "variants": [
+        {
+          "id": "chikara_build_gut_nail",
+          "default": true,
+          "name": "Gut strings, fingernail stopping on a fingerboardless neck",
+          "descriptors": [
+            "gut",
+            "fingernail-stopped",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "fretless"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "chikara_build_horsehair",
+          "name": "Bundled horsehair strings",
+          "descriptors": [
+            "horsehair-strung",
+            "raw",
+            "buzzy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "horsehair-string",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "chikara_build_steel",
+          "name": "Steel strings, pad stopping",
+          "descriptors": [
+            "steel",
+            "bright",
+            "cutting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "steel-string",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "chikara_form",
+      "name": "Form and string count",
+      "variants": [
+        {
+          "id": "chikara_form_three_string",
+          "default": true,
+          "name": "Three-string Bundelkhandi chikara (hollowed body, hide belly, fretless neck)",
+          "descriptors": [
+            "three-string",
+            "rustic",
+            "hide-faced",
+            "nasal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "fretless"
+          ],
+          "canonical_tags": [
+            "south_asia",
+            "folk"
+          ]
+        },
+        {
+          "id": "chikara_form_two_string",
+          "name": "Two-string village form (sparer, drone-led)",
+          "descriptors": [
+            "two-string",
+            "spare",
+            "droning",
+            "handmade"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "south_asia",
+            "folk"
+          ]
+        },
+        {
+          "id": "chikara_form_hill",
+          "name": "Himalayan hill form (Nepal border districts)",
+          "descriptors": [
+            "rural",
+            "thin-toned",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "himalayan",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chikara_context",
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "chikara_context_alha",
+          "default": true,
+          "name": "Alha epic ballad accompaniment (Bundelkhand bards)",
+          "descriptors": [
+            "bardic",
+            "narrative",
+            "heroic",
+            "declamatory"
+          ],
+          "match_tokens": [
+            "bowed",
+            "epic",
+            "vocal-accompaniment"
+          ],
+          "canonical_tags": [
+            "south_asia",
+            "storytelling",
+            "narrative"
+          ]
+        },
+        {
+          "id": "chikara_context_bhajan",
+          "name": "Village devotional song accompaniment",
+          "descriptors": [
+            "devotional",
+            "vocal-supportive",
+            "measured"
+          ],
+          "match_tokens": [
+            "bowed",
+            "devotional",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "south_asia",
+            "devotional"
+          ]
+        },
+        {
+          "id": "chikara_context_dance_tune",
+          "name": "Solo folk dance tune",
+          "descriptors": [
+            "driving",
+            "festive",
+            "insistent"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "south_asia",
+            "dance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chikara_build",
+      "name": "Strings and stopping",
+      "variants": [
+        {
+          "id": "chikara_build_gut_nail",
+          "default": true,
+          "name": "Gut strings, fingernail stopping on a fingerboardless neck",
+          "descriptors": [
+            "gut",
+            "fingernail-stopped",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "fretless"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "chikara_build_horsehair",
+          "name": "Bundled horsehair strings",
+          "descriptors": [
+            "horsehair-strung",
+            "raw",
+            "buzzy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "horsehair-string",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "chikara_build_steel",
+          "name": "Steel strings, pad stopping",
+          "descriptors": [
+            "steel",
+            "bright",
+            "cutting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "steel-string",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

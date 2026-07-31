@@ -1,0 +1,454 @@
+{
+  "id": "zurla",
+  "name": "Zurla (Macedonian double-reed shawm)",
+  "family": "wind",
+  "class": "double_reed_shawm",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "zurla",
+  "parts": [
+    {
+      "id": "zurla_size",
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "zurla_kaba",
+          "name": "Kaba zurla (largest, lowest)",
+          "descriptors": [
+            "large",
+            "deep-toned",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "macedonian"
+          ]
+        },
+        {
+          "id": "zurla_jarababa",
+          "default": true,
+          "name": "Jarababa zurla (medium, standard tajfa size)",
+          "descriptors": [
+            "medium",
+            "standard",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "macedonian"
+          ]
+        },
+        {
+          "id": "zurla_juri",
+          "name": "Juri zurla (smallest, highest)",
+          "descriptors": [
+            "small",
+            "shrill-high",
+            "piercing"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "piercing",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "macedonian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zurla_role",
+      "name": "Role in the paired tajfa",
+      "variants": [
+        {
+          "id": "zurla_lead",
+          "default": true,
+          "name": "Lead zurladzija (ornamented melody)",
+          "descriptors": [
+            "lead-melody",
+            "ornamented",
+            "virtuosic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "lead-melody",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "macedonian"
+          ]
+        },
+        {
+          "id": "zurla_drone_tonic",
+          "name": "Second zurla holding the tonic as drone",
+          "descriptors": [
+            "sustained-drone",
+            "steady-drone",
+            "drone-foundation"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "drone",
+            "macedonian"
+          ]
+        },
+        {
+          "id": "zurla_drone_fifth",
+          "name": "Second zurla holding the fifth as drone",
+          "descriptors": [
+            "open-fifths",
+            "sustained-drone",
+            "drone-foundation"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "drone",
+            "balkan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zurla_context",
+      "name": "Ensemble context / repertoire",
+      "variants": [
+        {
+          "id": "zurla_tajfa_wedding",
+          "default": true,
+          "name": "Zurladziska tajfa with tapani (wedding / circumcision)",
+          "descriptors": [
+            "celebratory",
+            "wedding",
+            "paired"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed",
+            "wedding-tradition"
+          ],
+          "canonical_tags": [
+            "macedonian",
+            "wedding"
+          ]
+        },
+        {
+          "id": "zurla_cocek_oro",
+          "name": "Cocek and oro dance cycles",
+          "descriptors": [
+            "dance-driving",
+            "dance-rhythm",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "dance-driving",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "dance",
+            "balkan"
+          ]
+        },
+        {
+          "id": "zurla_ederlezi",
+          "name": "Saint's-day and Ederlezi procession",
+          "descriptors": [
+            "processional",
+            "festival",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "processional",
+            "wind-driven",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "festival",
+            "processional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zurla_body_wood",
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "zurla_walnut",
+          "default": true,
+          "name": "Walnut two-section body (canonical Macedonian)",
+          "descriptors": [
+            "walnut-body",
+            "canonical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "macedonian"
+          ]
+        },
+        {
+          "id": "zurla_plum",
+          "name": "Plum / sljiva (Balkan alternative)",
+          "descriptors": [
+            "plum-wood-sljiva-canonical",
+            "regional-alternative"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "balkan"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "zurla_size",
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "zurla_kaba",
+          "name": "Kaba zurla (largest, lowest)",
+          "descriptors": [
+            "large",
+            "deep-toned",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "macedonian"
+          ]
+        },
+        {
+          "id": "zurla_jarababa",
+          "default": true,
+          "name": "Jarababa zurla (medium, standard tajfa size)",
+          "descriptors": [
+            "medium",
+            "standard",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "macedonian"
+          ]
+        },
+        {
+          "id": "zurla_juri",
+          "name": "Juri zurla (smallest, highest)",
+          "descriptors": [
+            "small",
+            "shrill-high",
+            "piercing"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "piercing",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "macedonian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zurla_role",
+      "name": "Role in the paired tajfa",
+      "variants": [
+        {
+          "id": "zurla_lead",
+          "default": true,
+          "name": "Lead zurladzija (ornamented melody)",
+          "descriptors": [
+            "lead-melody",
+            "ornamented",
+            "virtuosic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "lead-melody",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "macedonian"
+          ]
+        },
+        {
+          "id": "zurla_drone_tonic",
+          "name": "Second zurla holding the tonic as drone",
+          "descriptors": [
+            "sustained-drone",
+            "steady-drone",
+            "drone-foundation"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "drone",
+            "macedonian"
+          ]
+        },
+        {
+          "id": "zurla_drone_fifth",
+          "name": "Second zurla holding the fifth as drone",
+          "descriptors": [
+            "open-fifths",
+            "sustained-drone",
+            "drone-foundation"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "drone",
+            "balkan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zurla_context",
+      "name": "Ensemble context / repertoire",
+      "variants": [
+        {
+          "id": "zurla_tajfa_wedding",
+          "default": true,
+          "name": "Zurladziska tajfa with tapani (wedding / circumcision)",
+          "descriptors": [
+            "celebratory",
+            "wedding",
+            "paired"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed",
+            "wedding-tradition"
+          ],
+          "canonical_tags": [
+            "macedonian",
+            "wedding"
+          ]
+        },
+        {
+          "id": "zurla_cocek_oro",
+          "name": "Cocek and oro dance cycles",
+          "descriptors": [
+            "dance-driving",
+            "dance-rhythm",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "dance-driving",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "dance",
+            "balkan"
+          ]
+        },
+        {
+          "id": "zurla_ederlezi",
+          "name": "Saint's-day and Ederlezi procession",
+          "descriptors": [
+            "processional",
+            "festival",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "processional",
+            "wind-driven",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "festival",
+            "processional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zurla_body_wood",
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "zurla_walnut",
+          "default": true,
+          "name": "Walnut two-section body (canonical Macedonian)",
+          "descriptors": [
+            "walnut-body",
+            "canonical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "macedonian"
+          ]
+        },
+        {
+          "id": "zurla_plum",
+          "name": "Plum / sljiva (Balkan alternative)",
+          "descriptors": [
+            "plum-wood-sljiva-canonical",
+            "regional-alternative"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "balkan"
+          ]
+        }
+      ]
+    }
+  ]
+}

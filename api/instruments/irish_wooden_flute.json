@@ -1,0 +1,618 @@
+{
+  "id": "irish_wooden_flute",
+  "name": "Irish flute (simple-system conical wooden transverse flute)",
+  "family": "wind",
+  "class": "transverse_flute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "irish flute",
+  "parts": [
+    {
+      "id": "irish_wooden_flute_pattern",
+      "name": "Instrument type / pattern",
+      "variants": [
+        {
+          "id": "irish_wooden_flute_rudall_rose",
+          "default": true,
+          "name": "Antique Rudall & Rose pattern (dark, pure-toned nineteenth-century English concert flute)",
+          "descriptors": [
+            "dark",
+            "pure",
+            "historical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "irish-trad",
+            "celtic"
+          ]
+        },
+        {
+          "id": "irish_wooden_flute_pratten",
+          "name": "Pratten / Boosey large-bore pattern (big, powerful, session-carrying)",
+          "descriptors": [
+            "powerful",
+            "projecting",
+            "large-bore"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "irish-trad",
+            "celtic"
+          ]
+        },
+        {
+          "id": "irish_wooden_flute_modern_copy",
+          "name": "Modern Irish-maker copy",
+          "descriptors": [
+            "even",
+            "stable",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern",
+            "irish-trad"
+          ]
+        },
+        {
+          "id": "irish_wooden_flute_keyless_folk",
+          "name": "Keyless simple folk flute",
+          "descriptors": [
+            "plain",
+            "light",
+            "rustic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "folk"
+          ],
+          "canonical_tags": [
+            "folk",
+            "irish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "irish_wooden_flute_keys",
+      "name": "Keywork",
+      "variants": [
+        {
+          "id": "irish_wooden_flute_keyless_six",
+          "default": true,
+          "name": "Fully keyless six-hole in D",
+          "descriptors": [
+            "diatonic",
+            "simple",
+            "plain"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "diatonic"
+          ],
+          "canonical_tags": [
+            "irish-trad",
+            "diatonic"
+          ]
+        },
+        {
+          "id": "irish_wooden_flute_four_key",
+          "name": "Four keys (accidentals only)",
+          "descriptors": [
+            "keyed",
+            "flexible",
+            "traditional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "keyed",
+            "transverse-flute"
+          ],
+          "canonical_tags": [
+            "irish-trad"
+          ]
+        },
+        {
+          "id": "irish_wooden_flute_eight_key",
+          "name": "Full eight-key simple system",
+          "descriptors": [
+            "chromatic",
+            "keyed",
+            "concert"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "keyed",
+            "chromatic"
+          ],
+          "canonical_tags": [
+            "chromatic",
+            "concert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "irish_wooden_flute_idiom",
+      "name": "Idiom / role",
+      "variants": [
+        {
+          "id": "irish_wooden_flute_sligo",
+          "default": true,
+          "name": "Hard-driving Sligo session style (breathy, reel-driving unison melody with cuts, taps, rolls and cranns)",
+          "descriptors": [
+            "breathy",
+            "dance-driving",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "dance-driving",
+            "celtic-tradition",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "irish-trad",
+            "celtic_irish_trad",
+            "dance"
+          ]
+        },
+        {
+          "id": "irish_wooden_flute_leitrim",
+          "name": "Sweeter Leitrim / Roscommon phrasing",
+          "descriptors": [
+            "lyrical",
+            "rounded",
+            "measured"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "celtic-tradition",
+            "transverse-flute"
+          ],
+          "canonical_tags": [
+            "irish-trad",
+            "celtic"
+          ]
+        },
+        {
+          "id": "irish_wooden_flute_slow_air",
+          "name": "Solo slow air (free rhythm, glottal and breath articulation)",
+          "descriptors": [
+            "rubato",
+            "ornamented",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "rubato",
+            "ornamented",
+            "solo"
+          ],
+          "canonical_tags": [
+            "irish-trad",
+            "solo"
+          ]
+        },
+        {
+          "id": "irish_wooden_flute_charanga",
+          "name": "Cuban charanga flute line (high-register típico improvisation)",
+          "descriptors": [
+            "improvised",
+            "soaring",
+            "high-register"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "caribbean-traditional",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "irish_wooden_flute_material",
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "irish_wooden_flute_blackwood",
+          "default": true,
+          "name": "African blackwood (canonical modern build)",
+          "descriptors": [
+            "dense",
+            "focused",
+            "woody"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "hardwood-bore",
+            "transverse-flute"
+          ],
+          "canonical_tags": [
+            "cites-app-ii",
+            "hardwood"
+          ]
+        },
+        {
+          "id": "irish_wooden_flute_cocuswood",
+          "name": "Cocuswood (antique nineteenth-century standard)",
+          "descriptors": [
+            "sweet",
+            "warm",
+            "historical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "wooden-bore",
+            "transverse-flute"
+          ],
+          "canonical_tags": [
+            "hardwood"
+          ]
+        },
+        {
+          "id": "irish_wooden_flute_boxwood",
+          "name": "Boxwood or mopane (softer, older pattern)",
+          "descriptors": [
+            "warm",
+            "soft-edged",
+            "woody"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "wooden-bore"
+          ],
+          "canonical_tags": [
+            "boxwood",
+            "wood-body"
+          ]
+        },
+        {
+          "id": "irish_wooden_flute_delrin",
+          "name": "Delrin or PVC (durable modern)",
+          "descriptors": [
+            "even",
+            "durable",
+            "modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "modern",
+            "transverse-flute"
+          ],
+          "canonical_tags": [
+            "synthetic-body",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "irish_wooden_flute_pattern",
+      "name": "Instrument type / pattern",
+      "variants": [
+        {
+          "id": "irish_wooden_flute_rudall_rose",
+          "default": true,
+          "name": "Antique Rudall & Rose pattern (dark, pure-toned nineteenth-century English concert flute)",
+          "descriptors": [
+            "dark",
+            "pure",
+            "historical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "irish-trad",
+            "celtic"
+          ]
+        },
+        {
+          "id": "irish_wooden_flute_pratten",
+          "name": "Pratten / Boosey large-bore pattern (big, powerful, session-carrying)",
+          "descriptors": [
+            "powerful",
+            "projecting",
+            "large-bore"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "irish-trad",
+            "celtic"
+          ]
+        },
+        {
+          "id": "irish_wooden_flute_modern_copy",
+          "name": "Modern Irish-maker copy",
+          "descriptors": [
+            "even",
+            "stable",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern",
+            "irish-trad"
+          ]
+        },
+        {
+          "id": "irish_wooden_flute_keyless_folk",
+          "name": "Keyless simple folk flute",
+          "descriptors": [
+            "plain",
+            "light",
+            "rustic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "folk"
+          ],
+          "canonical_tags": [
+            "folk",
+            "irish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "irish_wooden_flute_keys",
+      "name": "Keywork",
+      "variants": [
+        {
+          "id": "irish_wooden_flute_keyless_six",
+          "default": true,
+          "name": "Fully keyless six-hole in D",
+          "descriptors": [
+            "diatonic",
+            "simple",
+            "plain"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "diatonic"
+          ],
+          "canonical_tags": [
+            "irish-trad",
+            "diatonic"
+          ]
+        },
+        {
+          "id": "irish_wooden_flute_four_key",
+          "name": "Four keys (accidentals only)",
+          "descriptors": [
+            "keyed",
+            "flexible",
+            "traditional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "keyed",
+            "transverse-flute"
+          ],
+          "canonical_tags": [
+            "irish-trad"
+          ]
+        },
+        {
+          "id": "irish_wooden_flute_eight_key",
+          "name": "Full eight-key simple system",
+          "descriptors": [
+            "chromatic",
+            "keyed",
+            "concert"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "keyed",
+            "chromatic"
+          ],
+          "canonical_tags": [
+            "chromatic",
+            "concert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "irish_wooden_flute_idiom",
+      "name": "Idiom / role",
+      "variants": [
+        {
+          "id": "irish_wooden_flute_sligo",
+          "default": true,
+          "name": "Hard-driving Sligo session style (breathy, reel-driving unison melody with cuts, taps, rolls and cranns)",
+          "descriptors": [
+            "breathy",
+            "dance-driving",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "dance-driving",
+            "celtic-tradition",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "irish-trad",
+            "celtic_irish_trad",
+            "dance"
+          ]
+        },
+        {
+          "id": "irish_wooden_flute_leitrim",
+          "name": "Sweeter Leitrim / Roscommon phrasing",
+          "descriptors": [
+            "lyrical",
+            "rounded",
+            "measured"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "celtic-tradition",
+            "transverse-flute"
+          ],
+          "canonical_tags": [
+            "irish-trad",
+            "celtic"
+          ]
+        },
+        {
+          "id": "irish_wooden_flute_slow_air",
+          "name": "Solo slow air (free rhythm, glottal and breath articulation)",
+          "descriptors": [
+            "rubato",
+            "ornamented",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "rubato",
+            "ornamented",
+            "solo"
+          ],
+          "canonical_tags": [
+            "irish-trad",
+            "solo"
+          ]
+        },
+        {
+          "id": "irish_wooden_flute_charanga",
+          "name": "Cuban charanga flute line (high-register típico improvisation)",
+          "descriptors": [
+            "improvised",
+            "soaring",
+            "high-register"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "caribbean-traditional",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "irish_wooden_flute_material",
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "irish_wooden_flute_blackwood",
+          "default": true,
+          "name": "African blackwood (canonical modern build)",
+          "descriptors": [
+            "dense",
+            "focused",
+            "woody"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "hardwood-bore",
+            "transverse-flute"
+          ],
+          "canonical_tags": [
+            "cites-app-ii",
+            "hardwood"
+          ]
+        },
+        {
+          "id": "irish_wooden_flute_cocuswood",
+          "name": "Cocuswood (antique nineteenth-century standard)",
+          "descriptors": [
+            "sweet",
+            "warm",
+            "historical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "wooden-bore",
+            "transverse-flute"
+          ],
+          "canonical_tags": [
+            "hardwood"
+          ]
+        },
+        {
+          "id": "irish_wooden_flute_boxwood",
+          "name": "Boxwood or mopane (softer, older pattern)",
+          "descriptors": [
+            "warm",
+            "soft-edged",
+            "woody"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "wooden-bore"
+          ],
+          "canonical_tags": [
+            "boxwood",
+            "wood-body"
+          ]
+        },
+        {
+          "id": "irish_wooden_flute_delrin",
+          "name": "Delrin or PVC (durable modern)",
+          "descriptors": [
+            "even",
+            "durable",
+            "modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "modern",
+            "transverse-flute"
+          ],
+          "canonical_tags": [
+            "synthetic-body",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

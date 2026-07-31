@@ -1,0 +1,417 @@
+{
+  "id": "liujiaoxian",
+  "name": "Liujiaoxian (hexagonal-box gezaixi lead fiddle)",
+  "family": "bowed",
+  "class": "bowed_spike_fiddle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "liujiaoxian",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "liujiaoxian_body",
+      "name": "Soundbox build",
+      "variants": [
+        {
+          "id": "liujiaoxian_body_rosewood_python",
+          "default": true,
+          "name": "Hexagonal rosewood box with python-skin face",
+          "descriptors": [
+            "rosewood",
+            "python-skin",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bright-tone",
+            "resonant-membrane",
+            "two-string"
+          ],
+          "canonical_tags": [
+            "east-asia",
+            "rosewood"
+          ]
+        },
+        {
+          "id": "liujiaoxian_body_ebony",
+          "name": "Ebony box (denser, darker)",
+          "descriptors": [
+            "ebony",
+            "dense-hardwood",
+            "dark"
+          ],
+          "match_tokens": [
+            "bowed",
+            "warm-tone",
+            "resonant-membrane"
+          ],
+          "canonical_tags": [
+            "east-asia",
+            "hardwood"
+          ]
+        },
+        {
+          "id": "liujiaoxian_body_snakeskin",
+          "name": "Snakeskin face (thinner, more focused)",
+          "descriptors": [
+            "snake-skin",
+            "focused",
+            "crisp"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bright-tone",
+            "resonant-membrane"
+          ],
+          "canonical_tags": [
+            "snakeskin",
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "liujiaoxian_damping",
+      "name": "Sound window and damping",
+      "variants": [
+        {
+          "id": "liujiaoxian_damping_open",
+          "default": true,
+          "name": "No sound window and no mute (the defining bright, clear build)",
+          "descriptors": [
+            "bright",
+            "clear",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bright-tone",
+            "clear"
+          ],
+          "canonical_tags": [
+            "east-asia",
+            "traditional"
+          ]
+        },
+        {
+          "id": "liujiaoxian_damping_muted",
+          "name": "Windowed and muted modification (softened for pit balance)",
+          "descriptors": [
+            "softened",
+            "supporting",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "muted",
+            "mellow-tone"
+          ],
+          "canonical_tags": [
+            "modern",
+            "accompaniment"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "liujiaoxian_repertoire",
+      "name": "Repertoire and role",
+      "variants": [
+        {
+          "id": "liujiaoxian_repertoire_dumadiao",
+          "default": true,
+          "name": "Duma-diao lead (the wartime reformed-tune repertoire of Shao Jianghai and Lin Wenxiang)",
+          "descriptors": [
+            "lyrical",
+            "plaintive",
+            "lead-melodic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "lead-melody",
+            "melancholic",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "east-asia",
+            "opera"
+          ]
+        },
+        {
+          "id": "liujiaoxian_repertoire_gezaixi",
+          "name": "General gezaixi lead fiddle",
+          "descriptors": [
+            "operatic",
+            "ensemble-lead",
+            "cutting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "lead",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "opera",
+            "lead"
+          ]
+        },
+        {
+          "id": "liujiaoxian_repertoire_xiangju",
+          "name": "Fujian xiangju tender and sorrowful passages",
+          "descriptors": [
+            "tender",
+            "mournful",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melancholic",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "china",
+            "opera"
+          ]
+        },
+        {
+          "id": "liujiaoxian_repertoire_second",
+          "name": "Second voice under the kezaixian, jing-erhu fashion",
+          "descriptors": [
+            "supporting",
+            "heterophonic",
+            "blended"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "accompaniment",
+            "east-asia"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "liujiaoxian_body",
+      "name": "Soundbox build",
+      "variants": [
+        {
+          "id": "liujiaoxian_body_rosewood_python",
+          "default": true,
+          "name": "Hexagonal rosewood box with python-skin face",
+          "descriptors": [
+            "rosewood",
+            "python-skin",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bright-tone",
+            "resonant-membrane",
+            "two-string"
+          ],
+          "canonical_tags": [
+            "east-asia",
+            "rosewood"
+          ]
+        },
+        {
+          "id": "liujiaoxian_body_ebony",
+          "name": "Ebony box (denser, darker)",
+          "descriptors": [
+            "ebony",
+            "dense-hardwood",
+            "dark"
+          ],
+          "match_tokens": [
+            "bowed",
+            "warm-tone",
+            "resonant-membrane"
+          ],
+          "canonical_tags": [
+            "east-asia",
+            "hardwood"
+          ]
+        },
+        {
+          "id": "liujiaoxian_body_snakeskin",
+          "name": "Snakeskin face (thinner, more focused)",
+          "descriptors": [
+            "snake-skin",
+            "focused",
+            "crisp"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bright-tone",
+            "resonant-membrane"
+          ],
+          "canonical_tags": [
+            "snakeskin",
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "liujiaoxian_damping",
+      "name": "Sound window and damping",
+      "variants": [
+        {
+          "id": "liujiaoxian_damping_open",
+          "default": true,
+          "name": "No sound window and no mute (the defining bright, clear build)",
+          "descriptors": [
+            "bright",
+            "clear",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bright-tone",
+            "clear"
+          ],
+          "canonical_tags": [
+            "east-asia",
+            "traditional"
+          ]
+        },
+        {
+          "id": "liujiaoxian_damping_muted",
+          "name": "Windowed and muted modification (softened for pit balance)",
+          "descriptors": [
+            "softened",
+            "supporting",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "muted",
+            "mellow-tone"
+          ],
+          "canonical_tags": [
+            "modern",
+            "accompaniment"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "liujiaoxian_repertoire",
+      "name": "Repertoire and role",
+      "variants": [
+        {
+          "id": "liujiaoxian_repertoire_dumadiao",
+          "default": true,
+          "name": "Duma-diao lead (the wartime reformed-tune repertoire of Shao Jianghai and Lin Wenxiang)",
+          "descriptors": [
+            "lyrical",
+            "plaintive",
+            "lead-melodic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "lead-melody",
+            "melancholic",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "east-asia",
+            "opera"
+          ]
+        },
+        {
+          "id": "liujiaoxian_repertoire_gezaixi",
+          "name": "General gezaixi lead fiddle",
+          "descriptors": [
+            "operatic",
+            "ensemble-lead",
+            "cutting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "lead",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "opera",
+            "lead"
+          ]
+        },
+        {
+          "id": "liujiaoxian_repertoire_xiangju",
+          "name": "Fujian xiangju tender and sorrowful passages",
+          "descriptors": [
+            "tender",
+            "mournful",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melancholic",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "china",
+            "opera"
+          ]
+        },
+        {
+          "id": "liujiaoxian_repertoire_second",
+          "name": "Second voice under the kezaixian, jing-erhu fashion",
+          "descriptors": [
+            "supporting",
+            "heterophonic",
+            "blended"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "accompaniment",
+            "east-asia"
+          ]
+        }
+      ]
+    }
+  ]
+}

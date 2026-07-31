@@ -1,0 +1,335 @@
+{
+  "id": "philomel",
+  "name": "Philomel (19th-century Bavarian steel-strung parlour fiddle)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "philomel",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "philomel_stringing",
+      "name": "Stringing",
+      "variants": [
+        {
+          "id": "philomel_stringing_steel_wire",
+          "default": true,
+          "name": "Four steel wire strings (authentic, glassy and shrill)",
+          "descriptors": [
+            "steel-strung",
+            "glassy",
+            "brilliant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "metal-strung",
+            "glassy"
+          ],
+          "canonical_tags": [
+            "steel",
+            "historic"
+          ]
+        },
+        {
+          "id": "philomel_stringing_gut",
+          "name": "Gut stringing (softens the characteristic glassiness)",
+          "descriptors": [
+            "plain-gut",
+            "warm",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "philomel_body",
+      "name": "Body outline",
+      "variants": [
+        {
+          "id": "philomel_body_guitar_incurved",
+          "default": true,
+          "name": "Guitar-incurved corpus, no corner blocks, wavy viol-like shoulder",
+          "descriptors": [
+            "ornate",
+            "historic",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "historic",
+            "small-body"
+          ],
+          "canonical_tags": [
+            "historic",
+            "bavarian"
+          ]
+        },
+        {
+          "id": "philomel_body_violin_corpus",
+          "name": "Conventional violin corpus with corner blocks",
+          "descriptors": [
+            "standard",
+            "projecting",
+            "balanced"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "philomel_context",
+      "name": "Ensemble context",
+      "variants": [
+        {
+          "id": "philomel_context_streichzither_duo",
+          "default": true,
+          "name": "Duo with Streichzither (Bavarian dilettanti milieu)",
+          "descriptors": [
+            "salon",
+            "intimate",
+            "pastoral"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "bavarian",
+            "amateur"
+          ]
+        },
+        {
+          "id": "philomel_context_solo_parlour",
+          "name": "Solo parlour playing",
+          "descriptors": [
+            "salon",
+            "intimate",
+            "delicate"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "chamber-fed"
+          ],
+          "canonical_tags": [
+            "salon",
+            "historic"
+          ]
+        },
+        {
+          "id": "philomel_context_salon_group",
+          "name": "Small salon group with guitar and zither",
+          "descriptors": [
+            "blended",
+            "refined",
+            "stately"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "chamber-fed"
+          ],
+          "canonical_tags": [
+            "salon",
+            "concert"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "philomel_stringing",
+      "name": "Stringing",
+      "variants": [
+        {
+          "id": "philomel_stringing_steel_wire",
+          "default": true,
+          "name": "Four steel wire strings (authentic, glassy and shrill)",
+          "descriptors": [
+            "steel-strung",
+            "glassy",
+            "brilliant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "metal-strung",
+            "glassy"
+          ],
+          "canonical_tags": [
+            "steel",
+            "historic"
+          ]
+        },
+        {
+          "id": "philomel_stringing_gut",
+          "name": "Gut stringing (softens the characteristic glassiness)",
+          "descriptors": [
+            "plain-gut",
+            "warm",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "philomel_body",
+      "name": "Body outline",
+      "variants": [
+        {
+          "id": "philomel_body_guitar_incurved",
+          "default": true,
+          "name": "Guitar-incurved corpus, no corner blocks, wavy viol-like shoulder",
+          "descriptors": [
+            "ornate",
+            "historic",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "historic",
+            "small-body"
+          ],
+          "canonical_tags": [
+            "historic",
+            "bavarian"
+          ]
+        },
+        {
+          "id": "philomel_body_violin_corpus",
+          "name": "Conventional violin corpus with corner blocks",
+          "descriptors": [
+            "standard",
+            "projecting",
+            "balanced"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "philomel_context",
+      "name": "Ensemble context",
+      "variants": [
+        {
+          "id": "philomel_context_streichzither_duo",
+          "default": true,
+          "name": "Duo with Streichzither (Bavarian dilettanti milieu)",
+          "descriptors": [
+            "salon",
+            "intimate",
+            "pastoral"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "bavarian",
+            "amateur"
+          ]
+        },
+        {
+          "id": "philomel_context_solo_parlour",
+          "name": "Solo parlour playing",
+          "descriptors": [
+            "salon",
+            "intimate",
+            "delicate"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "chamber-fed"
+          ],
+          "canonical_tags": [
+            "salon",
+            "historic"
+          ]
+        },
+        {
+          "id": "philomel_context_salon_group",
+          "name": "Small salon group with guitar and zither",
+          "descriptors": [
+            "blended",
+            "refined",
+            "stately"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "chamber-fed"
+          ],
+          "canonical_tags": [
+            "salon",
+            "concert"
+          ]
+        }
+      ]
+    }
+  ]
+}

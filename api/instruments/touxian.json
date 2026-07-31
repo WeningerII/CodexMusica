@@ -1,0 +1,377 @@
+{
+  "id": "touxian",
+  "name": "Touxian (Chaozhou xianshi leading fiddle)",
+  "family": "bowed",
+  "class": "bowed_spike_fiddle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 2,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "touxian",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "touxian_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "touxian_role_xianshi",
+          "default": true,
+          "name": "Xianshi string-ensemble lead (sets tempo and mode for the whole band)",
+          "descriptors": [
+            "ensemble-lead",
+            "high-pitched",
+            "driving"
+          ],
+          "match_tokens": [
+            "bowed",
+            "lead-melody",
+            "high-register",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "china",
+            "lead"
+          ]
+        },
+        {
+          "id": "touxian_role_opera",
+          "name": "Chaozhou opera pit lead",
+          "descriptors": [
+            "operatic",
+            "cutting",
+            "declamatory"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "chinese-opera",
+            "china"
+          ]
+        },
+        {
+          "id": "touxian_role_club",
+          "name": "Teochew diaspora amateur music-club ensemble",
+          "descriptors": [
+            "chamber",
+            "refined",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "bowed",
+            "chamber-fed",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "chamber",
+            "east-asia"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "touxian_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "touxian_strings_steel",
+          "default": true,
+          "name": "Steel (modern standard)",
+          "descriptors": [
+            "steel",
+            "cutting",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "steel-string",
+            "piercing"
+          ],
+          "canonical_tags": [
+            "modern",
+            "steel"
+          ]
+        },
+        {
+          "id": "touxian_strings_silk",
+          "name": "Silk (pre-modern historical)",
+          "descriptors": [
+            "silk",
+            "pre-modern",
+            "warm-nasal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "silk-strung",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "touxian_idiom",
+      "name": "Playing idiom",
+      "variants": [
+        {
+          "id": "touxian_idiom_driving",
+          "default": true,
+          "name": "High driving lead over the slower tihu and yehu",
+          "descriptors": [
+            "driving",
+            "penetrating",
+            "lead-melodic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing",
+            "lead"
+          ],
+          "canonical_tags": [
+            "china",
+            "lead"
+          ]
+        },
+        {
+          "id": "touxian_idiom_ornate",
+          "name": "Dense heterophonic elaboration of the skeleton tune",
+          "descriptors": [
+            "ornamented",
+            "heterophonic",
+            "crisp"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "china",
+            "traditional"
+          ]
+        },
+        {
+          "id": "touxian_idiom_plain",
+          "name": "Plain unornamented outline (holding the band together)",
+          "descriptors": [
+            "measured",
+            "supporting",
+            "clear"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "clear"
+          ],
+          "canonical_tags": [
+            "china",
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "touxian_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "touxian_role_xianshi",
+          "default": true,
+          "name": "Xianshi string-ensemble lead (sets tempo and mode for the whole band)",
+          "descriptors": [
+            "ensemble-lead",
+            "high-pitched",
+            "driving"
+          ],
+          "match_tokens": [
+            "bowed",
+            "lead-melody",
+            "high-register",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "china",
+            "lead"
+          ]
+        },
+        {
+          "id": "touxian_role_opera",
+          "name": "Chaozhou opera pit lead",
+          "descriptors": [
+            "operatic",
+            "cutting",
+            "declamatory"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "chinese-opera",
+            "china"
+          ]
+        },
+        {
+          "id": "touxian_role_club",
+          "name": "Teochew diaspora amateur music-club ensemble",
+          "descriptors": [
+            "chamber",
+            "refined",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "bowed",
+            "chamber-fed",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "chamber",
+            "east-asia"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "touxian_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "touxian_strings_steel",
+          "default": true,
+          "name": "Steel (modern standard)",
+          "descriptors": [
+            "steel",
+            "cutting",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "steel-string",
+            "piercing"
+          ],
+          "canonical_tags": [
+            "modern",
+            "steel"
+          ]
+        },
+        {
+          "id": "touxian_strings_silk",
+          "name": "Silk (pre-modern historical)",
+          "descriptors": [
+            "silk",
+            "pre-modern",
+            "warm-nasal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "silk-strung",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "touxian_idiom",
+      "name": "Playing idiom",
+      "variants": [
+        {
+          "id": "touxian_idiom_driving",
+          "default": true,
+          "name": "High driving lead over the slower tihu and yehu",
+          "descriptors": [
+            "driving",
+            "penetrating",
+            "lead-melodic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing",
+            "lead"
+          ],
+          "canonical_tags": [
+            "china",
+            "lead"
+          ]
+        },
+        {
+          "id": "touxian_idiom_ornate",
+          "name": "Dense heterophonic elaboration of the skeleton tune",
+          "descriptors": [
+            "ornamented",
+            "heterophonic",
+            "crisp"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "china",
+            "traditional"
+          ]
+        },
+        {
+          "id": "touxian_idiom_plain",
+          "name": "Plain unornamented outline (holding the band together)",
+          "descriptors": [
+            "measured",
+            "supporting",
+            "clear"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "clear"
+          ],
+          "canonical_tags": [
+            "china",
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ]
+}

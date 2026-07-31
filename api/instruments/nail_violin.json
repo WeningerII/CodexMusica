@@ -1,0 +1,424 @@
+{
+  "id": "nail_violin",
+  "name": "Nail violin (Nagelgeige)",
+  "family": "percussion",
+  "class": "tuned_percussion",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 2,
+    "register": 1,
+    "range": 1,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "nail violin",
+  "parts": [
+    {
+      "id": "nail_violin_rods",
+      "name": "Sounding rods",
+      "variants": [
+        {
+          "id": "nail_violin_iron_brass",
+          "default": true,
+          "name": "Graduated iron / brass nails around a semicircular soundboard (Wilde 1740)",
+          "descriptors": [
+            "wrought-iron",
+            "bell-like",
+            "sweet"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "bowed",
+            "metallic-ring",
+            "natural-harmonics"
+          ],
+          "canonical_tags": [
+            "friction_idiophone",
+            "historical"
+          ]
+        },
+        {
+          "id": "nail_violin_glass_rods",
+          "name": "Glass rods in place of nails",
+          "descriptors": [
+            "glass",
+            "glassy",
+            "fragile"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "bowed",
+            "glassy"
+          ],
+          "canonical_tags": [
+            "friction_idiophone"
+          ]
+        },
+        {
+          "id": "nail_violin_wooden_rods",
+          "name": "Wooden rods (Stockspiel / Melkharmonica type)",
+          "descriptors": [
+            "wooden",
+            "dry",
+            "soft-toned"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "wood-toned",
+            "soft-toned"
+          ],
+          "canonical_tags": [
+            "friction_idiophone",
+            "historical"
+          ]
+        },
+        {
+          "id": "nail_violin_adiaphonon",
+          "name": "Bowed steel rods (Schuster Adiaphonon, 1818-19)",
+          "descriptors": [
+            "metal-rods",
+            "wide-compass",
+            "historical"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "bowed",
+            "metallic-ring",
+            "wide-range"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nail_violin_excitation",
+      "name": "Excitation",
+      "variants": [
+        {
+          "id": "nail_violin_horsehair_bow",
+          "default": true,
+          "name": "Coarse black-horsehair bow",
+          "descriptors": [
+            "horsehair",
+            "keening",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "bowed",
+            "friction-driven",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "nail_violin_struck",
+          "name": "Struck nails (bell-like attack)",
+          "descriptors": [
+            "bell-like",
+            "fast-decay",
+            "chiming"
+          ],
+          "match_tokens": [
+            "struck",
+            "metallic-ring",
+            "bell"
+          ]
+        },
+        {
+          "id": "nail_violin_rosined_hands",
+          "name": "Rosined gloves or bare fingers and palms (Stockspiel, Array Nail Violin)",
+          "descriptors": [
+            "friction-driven",
+            "hand-held",
+            "intimate"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "hands",
+            "soft"
+          ],
+          "canonical_tags": [
+            "friction_technique"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nail_violin_layout",
+      "name": "Layout / sympathetic extension",
+      "variants": [
+        {
+          "id": "nail_violin_single_chest",
+          "default": true,
+          "name": "Single half-moon sound-chest, about 37 chromatic pins",
+          "descriptors": [
+            "single",
+            "chromatic",
+            "compact"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "bowed",
+            "chromatic"
+          ]
+        },
+        {
+          "id": "nail_violin_terraced_two_chest",
+          "name": "Terraced two-chest layout (diatonic row above, semitones below)",
+          "descriptors": [
+            "two-chambered",
+            "layered",
+            "refined"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "bowed",
+            "chromatic"
+          ]
+        },
+        {
+          "id": "nail_violin_violino_harmonico",
+          "name": "Violino harmonico - about 49 pins plus 15-16 sympathetic strings (Senal, c.1780-90)",
+          "descriptors": [
+            "sympathetic-halo",
+            "resonance-saturated",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "bowed",
+            "sympathetic-resonant"
+          ],
+          "canonical_tags": [
+            "historical",
+            "solo"
+          ]
+        },
+        {
+          "id": "nail_violin_traeger_keyboard",
+          "name": "Treadle-operated keyboard version (Traeger of Bernburg, 1791)",
+          "descriptors": [
+            "keyed",
+            "wheel-treadle",
+            "mechanical"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "keyed",
+            "bowed"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "nail_violin_rods",
+      "name": "Sounding rods",
+      "variants": [
+        {
+          "id": "nail_violin_iron_brass",
+          "default": true,
+          "name": "Graduated iron / brass nails around a semicircular soundboard (Wilde 1740)",
+          "descriptors": [
+            "wrought-iron",
+            "bell-like",
+            "sweet"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "bowed",
+            "metallic-ring",
+            "natural-harmonics"
+          ],
+          "canonical_tags": [
+            "friction_idiophone",
+            "historical"
+          ]
+        },
+        {
+          "id": "nail_violin_glass_rods",
+          "name": "Glass rods in place of nails",
+          "descriptors": [
+            "glass",
+            "glassy",
+            "fragile"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "bowed",
+            "glassy"
+          ],
+          "canonical_tags": [
+            "friction_idiophone"
+          ]
+        },
+        {
+          "id": "nail_violin_wooden_rods",
+          "name": "Wooden rods (Stockspiel / Melkharmonica type)",
+          "descriptors": [
+            "wooden",
+            "dry",
+            "soft-toned"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "wood-toned",
+            "soft-toned"
+          ],
+          "canonical_tags": [
+            "friction_idiophone",
+            "historical"
+          ]
+        },
+        {
+          "id": "nail_violin_adiaphonon",
+          "name": "Bowed steel rods (Schuster Adiaphonon, 1818-19)",
+          "descriptors": [
+            "metal-rods",
+            "wide-compass",
+            "historical"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "bowed",
+            "metallic-ring",
+            "wide-range"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nail_violin_excitation",
+      "name": "Excitation",
+      "variants": [
+        {
+          "id": "nail_violin_horsehair_bow",
+          "default": true,
+          "name": "Coarse black-horsehair bow",
+          "descriptors": [
+            "horsehair",
+            "keening",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "bowed",
+            "friction-driven",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "nail_violin_struck",
+          "name": "Struck nails (bell-like attack)",
+          "descriptors": [
+            "bell-like",
+            "fast-decay",
+            "chiming"
+          ],
+          "match_tokens": [
+            "struck",
+            "metallic-ring",
+            "bell"
+          ]
+        },
+        {
+          "id": "nail_violin_rosined_hands",
+          "name": "Rosined gloves or bare fingers and palms (Stockspiel, Array Nail Violin)",
+          "descriptors": [
+            "friction-driven",
+            "hand-held",
+            "intimate"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "hands",
+            "soft"
+          ],
+          "canonical_tags": [
+            "friction_technique"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nail_violin_layout",
+      "name": "Layout / sympathetic extension",
+      "variants": [
+        {
+          "id": "nail_violin_single_chest",
+          "default": true,
+          "name": "Single half-moon sound-chest, about 37 chromatic pins",
+          "descriptors": [
+            "single",
+            "chromatic",
+            "compact"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "bowed",
+            "chromatic"
+          ]
+        },
+        {
+          "id": "nail_violin_terraced_two_chest",
+          "name": "Terraced two-chest layout (diatonic row above, semitones below)",
+          "descriptors": [
+            "two-chambered",
+            "layered",
+            "refined"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "bowed",
+            "chromatic"
+          ]
+        },
+        {
+          "id": "nail_violin_violino_harmonico",
+          "name": "Violino harmonico - about 49 pins plus 15-16 sympathetic strings (Senal, c.1780-90)",
+          "descriptors": [
+            "sympathetic-halo",
+            "resonance-saturated",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "bowed",
+            "sympathetic-resonant"
+          ],
+          "canonical_tags": [
+            "historical",
+            "solo"
+          ]
+        },
+        {
+          "id": "nail_violin_traeger_keyboard",
+          "name": "Treadle-operated keyboard version (Traeger of Bernburg, 1791)",
+          "descriptors": [
+            "keyed",
+            "wheel-treadle",
+            "mechanical"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "keyed",
+            "bowed"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        }
+      ]
+    }
+  ]
+}

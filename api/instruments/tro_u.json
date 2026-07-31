@@ -1,0 +1,377 @@
+{
+  "id": "tro_u",
+  "name": "Tro u (Khmer low coconut-body spike fiddle)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "tro u",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "tro_u_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "tro_u_metal",
+          "default": true,
+          "name": "Metal strings a fifth apart (mid-20th century onward)",
+          "descriptors": [
+            "steel-modern",
+            "brighter",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "metal-strung"
+          ],
+          "canonical_tags": [
+            "khmer",
+            "metal"
+          ]
+        },
+        {
+          "id": "tro_u_silk",
+          "name": "Silk strings (historical)",
+          "descriptors": [
+            "silk-historical",
+            "warm",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "silk-strung",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "khmer",
+            "historical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tro_u_body",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "tro_u_coconut",
+          "default": true,
+          "name": "Coconut shell faced with skin, bow hair fixed between the strings (canonical)",
+          "descriptors": [
+            "coconut-shell",
+            "nasal-toned",
+            "deep-toned",
+            "threaded-between-strings-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "nasal-tone",
+            "resonator"
+          ],
+          "canonical_tags": [
+            "khmer",
+            "natural-skin"
+          ]
+        },
+        {
+          "id": "tro_u_hardwood",
+          "name": "Hardwood resonator (converting it toward the tro sau)",
+          "descriptors": [
+            "hardwood",
+            "dry",
+            "focused"
+          ],
+          "match_tokens": [
+            "bowed",
+            "wood-body",
+            "resonator"
+          ],
+          "canonical_tags": [
+            "khmer",
+            "hardwood"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tro_u_ensemble",
+      "name": "Ensemble / ritual slot",
+      "variants": [
+        {
+          "id": "tro_u_mahori",
+          "default": true,
+          "name": "Mahori chamber ensemble",
+          "descriptors": [
+            "intimate-chamber",
+            "blended",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "cambodian-tradition"
+          ],
+          "canonical_tags": [
+            "mahori",
+            "khmer"
+          ]
+        },
+        {
+          "id": "tro_u_phleng_kar",
+          "name": "Phleng kar wedding orchestra",
+          "descriptors": [
+            "wedding-context",
+            "vocal-supportive",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "wedding-tradition",
+            "cambodian-tradition"
+          ],
+          "canonical_tags": [
+            "wedding",
+            "khmer"
+          ]
+        },
+        {
+          "id": "tro_u_phleng_arak",
+          "name": "Phleng arak spirit-possession healing rite",
+          "descriptors": [
+            "healing-rite",
+            "trance-inducing",
+            "ritual"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ritual-context",
+            "trance-inducing"
+          ],
+          "canonical_tags": [
+            "shamanic",
+            "khmer"
+          ]
+        },
+        {
+          "id": "tro_u_ayai",
+          "name": "Ayai repartee singing",
+          "descriptors": [
+            "vocal-supportive",
+            "improvisatory",
+            "folk-song"
+          ],
+          "match_tokens": [
+            "bowed",
+            "song-accompaniment",
+            "cambodian-tradition"
+          ],
+          "canonical_tags": [
+            "khmer",
+            "song"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tro_u_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "tro_u_metal",
+          "default": true,
+          "name": "Metal strings a fifth apart (mid-20th century onward)",
+          "descriptors": [
+            "steel-modern",
+            "brighter",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "metal-strung"
+          ],
+          "canonical_tags": [
+            "khmer",
+            "metal"
+          ]
+        },
+        {
+          "id": "tro_u_silk",
+          "name": "Silk strings (historical)",
+          "descriptors": [
+            "silk-historical",
+            "warm",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "silk-strung",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "khmer",
+            "historical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tro_u_body",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "tro_u_coconut",
+          "default": true,
+          "name": "Coconut shell faced with skin, bow hair fixed between the strings (canonical)",
+          "descriptors": [
+            "coconut-shell",
+            "nasal-toned",
+            "deep-toned",
+            "threaded-between-strings-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "nasal-tone",
+            "resonator"
+          ],
+          "canonical_tags": [
+            "khmer",
+            "natural-skin"
+          ]
+        },
+        {
+          "id": "tro_u_hardwood",
+          "name": "Hardwood resonator (converting it toward the tro sau)",
+          "descriptors": [
+            "hardwood",
+            "dry",
+            "focused"
+          ],
+          "match_tokens": [
+            "bowed",
+            "wood-body",
+            "resonator"
+          ],
+          "canonical_tags": [
+            "khmer",
+            "hardwood"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tro_u_ensemble",
+      "name": "Ensemble / ritual slot",
+      "variants": [
+        {
+          "id": "tro_u_mahori",
+          "default": true,
+          "name": "Mahori chamber ensemble",
+          "descriptors": [
+            "intimate-chamber",
+            "blended",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "cambodian-tradition"
+          ],
+          "canonical_tags": [
+            "mahori",
+            "khmer"
+          ]
+        },
+        {
+          "id": "tro_u_phleng_kar",
+          "name": "Phleng kar wedding orchestra",
+          "descriptors": [
+            "wedding-context",
+            "vocal-supportive",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "wedding-tradition",
+            "cambodian-tradition"
+          ],
+          "canonical_tags": [
+            "wedding",
+            "khmer"
+          ]
+        },
+        {
+          "id": "tro_u_phleng_arak",
+          "name": "Phleng arak spirit-possession healing rite",
+          "descriptors": [
+            "healing-rite",
+            "trance-inducing",
+            "ritual"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ritual-context",
+            "trance-inducing"
+          ],
+          "canonical_tags": [
+            "shamanic",
+            "khmer"
+          ]
+        },
+        {
+          "id": "tro_u_ayai",
+          "name": "Ayai repartee singing",
+          "descriptors": [
+            "vocal-supportive",
+            "improvisatory",
+            "folk-song"
+          ],
+          "match_tokens": [
+            "bowed",
+            "song-accompaniment",
+            "cambodian-tradition"
+          ],
+          "canonical_tags": [
+            "khmer",
+            "song"
+          ]
+        }
+      ]
+    }
+  ]
+}

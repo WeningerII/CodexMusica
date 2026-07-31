@@ -1,0 +1,419 @@
+{
+  "id": "ravanahatta",
+  "name": "Ravanahatta (Rajasthani coconut spike fiddle)",
+  "family": "bowed",
+  "class": "bowed_spike_fiddle",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "ravanahatta",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "ravanahatta_form",
+      "name": "Resonator build",
+      "variants": [
+        {
+          "id": "ravanahatta_form_coconut_hide",
+          "default": true,
+          "name": "Halved coconut shell faced with goat hide, pierced by a bamboo neck",
+          "descriptors": [
+            "coconut-shell",
+            "hide-faced",
+            "rustic",
+            "buzzy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "bamboo"
+          ],
+          "canonical_tags": [
+            "rajasthani",
+            "south_asia"
+          ]
+        },
+        {
+          "id": "ravanahatta_form_wooden_bowl",
+          "name": "Turned wooden bowl resonator (heavier, rounder)",
+          "descriptors": [
+            "wood",
+            "rounder",
+            "woody"
+          ],
+          "match_tokens": [
+            "bowed",
+            "warm-tone",
+            "resonant"
+          ],
+          "canonical_tags": [
+            "south_asia"
+          ]
+        },
+        {
+          "id": "ravanahatta_form_srilankan",
+          "name": "Simpler Sri Lankan counterpart (fewer strings, no sympathetics)",
+          "descriptors": [
+            "spare",
+            "archaic",
+            "thin-toned"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ravanahatta_context",
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "ravanahatta_context_pabuji",
+          "default": true,
+          "name": "Bhopa priest-bard overnight Pabuji ki phad epic recitation",
+          "descriptors": [
+            "bardic",
+            "ritual",
+            "narrative",
+            "cyclic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "epic",
+            "ritual-context",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "rajasthani",
+            "storytelling",
+            "ritual"
+          ]
+        },
+        {
+          "id": "ravanahatta_context_bhil_street",
+          "name": "Bhil and street-entertainer repertoire",
+          "descriptors": [
+            "rural",
+            "festive",
+            "handmade"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "rajasthan",
+            "folk"
+          ]
+        },
+        {
+          "id": "ravanahatta_context_fusion",
+          "name": "Modern melodic and fusion playing",
+          "descriptors": [
+            "lyrical",
+            "expressive",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic-lead",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern",
+            "revival"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ravanahatta_build",
+      "name": "Strings and bow",
+      "variants": [
+        {
+          "id": "ravanahatta_build_mixed_jingle_bow",
+          "default": true,
+          "name": "One steel and one horsehair main string, sympathetic row, jingle-bell bamboo bow",
+          "descriptors": [
+            "horsehair-strung",
+            "steel",
+            "jangling",
+            "rattling"
+          ],
+          "match_tokens": [
+            "bowed",
+            "jingle",
+            "rough-tone",
+            "sympathetic-resonant"
+          ],
+          "canonical_tags": [
+            "rajasthani",
+            "traditional"
+          ]
+        },
+        {
+          "id": "ravanahatta_build_plain_bow",
+          "name": "Plain horsehair bow, no bells",
+          "descriptors": [
+            "spare",
+            "dry",
+            "clean"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "ravanahatta_build_full_sympathetic",
+          "name": "Full bank of sympathetic steel strings",
+          "descriptors": [
+            "sympathetic-halo",
+            "shimmering",
+            "resonance-saturated"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "ringing"
+          ],
+          "canonical_tags": [
+            "south_asia"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ravanahatta_form",
+      "name": "Resonator build",
+      "variants": [
+        {
+          "id": "ravanahatta_form_coconut_hide",
+          "default": true,
+          "name": "Halved coconut shell faced with goat hide, pierced by a bamboo neck",
+          "descriptors": [
+            "coconut-shell",
+            "hide-faced",
+            "rustic",
+            "buzzy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "bamboo"
+          ],
+          "canonical_tags": [
+            "rajasthani",
+            "south_asia"
+          ]
+        },
+        {
+          "id": "ravanahatta_form_wooden_bowl",
+          "name": "Turned wooden bowl resonator (heavier, rounder)",
+          "descriptors": [
+            "wood",
+            "rounder",
+            "woody"
+          ],
+          "match_tokens": [
+            "bowed",
+            "warm-tone",
+            "resonant"
+          ],
+          "canonical_tags": [
+            "south_asia"
+          ]
+        },
+        {
+          "id": "ravanahatta_form_srilankan",
+          "name": "Simpler Sri Lankan counterpart (fewer strings, no sympathetics)",
+          "descriptors": [
+            "spare",
+            "archaic",
+            "thin-toned"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ravanahatta_context",
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "ravanahatta_context_pabuji",
+          "default": true,
+          "name": "Bhopa priest-bard overnight Pabuji ki phad epic recitation",
+          "descriptors": [
+            "bardic",
+            "ritual",
+            "narrative",
+            "cyclic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "epic",
+            "ritual-context",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "rajasthani",
+            "storytelling",
+            "ritual"
+          ]
+        },
+        {
+          "id": "ravanahatta_context_bhil_street",
+          "name": "Bhil and street-entertainer repertoire",
+          "descriptors": [
+            "rural",
+            "festive",
+            "handmade"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "rajasthan",
+            "folk"
+          ]
+        },
+        {
+          "id": "ravanahatta_context_fusion",
+          "name": "Modern melodic and fusion playing",
+          "descriptors": [
+            "lyrical",
+            "expressive",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic-lead",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern",
+            "revival"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ravanahatta_build",
+      "name": "Strings and bow",
+      "variants": [
+        {
+          "id": "ravanahatta_build_mixed_jingle_bow",
+          "default": true,
+          "name": "One steel and one horsehair main string, sympathetic row, jingle-bell bamboo bow",
+          "descriptors": [
+            "horsehair-strung",
+            "steel",
+            "jangling",
+            "rattling"
+          ],
+          "match_tokens": [
+            "bowed",
+            "jingle",
+            "rough-tone",
+            "sympathetic-resonant"
+          ],
+          "canonical_tags": [
+            "rajasthani",
+            "traditional"
+          ]
+        },
+        {
+          "id": "ravanahatta_build_plain_bow",
+          "name": "Plain horsehair bow, no bells",
+          "descriptors": [
+            "spare",
+            "dry",
+            "clean"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "ravanahatta_build_full_sympathetic",
+          "name": "Full bank of sympathetic steel strings",
+          "descriptors": [
+            "sympathetic-halo",
+            "shimmering",
+            "resonance-saturated"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "ringing"
+          ],
+          "canonical_tags": [
+            "south_asia"
+          ]
+        }
+      ]
+    }
+  ]
+}

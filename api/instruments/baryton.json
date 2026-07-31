@@ -1,0 +1,607 @@
+{
+  "id": "baryton",
+  "name": "Baryton (bowed viol with plucked sympathetic wires)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "baryton",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "baryton_wire_manual",
+      "name": "Wire manual behind the neck",
+      "variants": [
+        {
+          "id": "baryton_wire_manual_chromatic_twenty",
+          "default": true,
+          "name": "About 20 chromatic wires (Stadlmann / Esterhazy instruments)",
+          "descriptors": [
+            "harp-like",
+            "sympathetic-strings",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "austrian",
+            "classical-era"
+          ]
+        },
+        {
+          "id": "baryton_wire_manual_diatonic_nine",
+          "name": "Nine or ten diatonic wires (small early manual)",
+          "descriptors": [
+            "archaic",
+            "silvery",
+            "spare"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "seventeenth-century",
+            "historical"
+          ]
+        },
+        {
+          "id": "baryton_wire_manual_extended_twenty_seven",
+          "name": "Extended manual up to 27 wires",
+          "descriptors": [
+            "ringing",
+            "sympathetic-halo",
+            "fuller"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "viennese",
+            "classical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "baryton_wire_technique",
+      "name": "Wire technique",
+      "variants": [
+        {
+          "id": "baryton_wire_technique_thumb_pizzicato",
+          "default": true,
+          "name": "Left thumb plucking the wires from behind while bowing",
+          "descriptors": [
+            "harp-like",
+            "virtuoso",
+            "conversational"
+          ],
+          "match_tokens": [
+            "bowed",
+            "plucked",
+            "chordal"
+          ],
+          "canonical_tags": [
+            "austrian",
+            "classical-era"
+          ]
+        },
+        {
+          "id": "baryton_wire_technique_sympathetic_only",
+          "name": "Bowing only - wires left to ring sympathetically",
+          "descriptors": [
+            "sympathetic-halo",
+            "sustained",
+            "veiled"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "period",
+            "historical"
+          ]
+        },
+        {
+          "id": "baryton_wire_technique_alternating",
+          "name": "Alternating bowed melody with plucked harp-like interludes",
+          "descriptors": [
+            "narrative",
+            "harp-like",
+            "featured"
+          ],
+          "match_tokens": [
+            "bowed",
+            "plucked",
+            "soloistic"
+          ],
+          "canonical_tags": [
+            "classical-era",
+            "solo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "baryton_roster",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "baryton_roster_esterhazy_trio",
+          "default": true,
+          "name": "Esterhazy trio with viola and cello (Haydn Hob. XI)",
+          "descriptors": [
+            "blended",
+            "art-music",
+            "composed-tradition"
+          ],
+          "match_tokens": [
+            "bowed",
+            "chamber-fed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "austrian",
+            "chamber"
+          ]
+        },
+        {
+          "id": "baryton_roster_solo_continuo",
+          "name": "Solo with continuo",
+          "descriptors": [
+            "featured",
+            "ornate",
+            "intimate"
+          ],
+          "match_tokens": [
+            "bowed",
+            "soloistic",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "solo",
+            "baroque"
+          ]
+        },
+        {
+          "id": "baryton_roster_octet_cassation",
+          "name": "Octet / cassation with winds and strings",
+          "descriptors": [
+            "festive",
+            "blended",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "austrian",
+            "classical"
+          ]
+        },
+        {
+          "id": "baryton_roster_two_barytons",
+          "name": "Duo for two barytons",
+          "descriptors": [
+            "conversational",
+            "resonant",
+            "harp-like"
+          ],
+          "match_tokens": [
+            "bowed",
+            "chamber-fed",
+            "sympathetic-resonant"
+          ],
+          "canonical_tags": [
+            "chamber",
+            "classical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "baryton_build",
+      "name": "Build of the bowed manual",
+      "variants": [
+        {
+          "id": "baryton_build_viennese_carved_head",
+          "default": true,
+          "name": "Viennese Stadlmann build - six gut melody strings, C-holes, carved head",
+          "descriptors": [
+            "ornate",
+            "carved",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "fretted"
+          ],
+          "canonical_tags": [
+            "viennese",
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "baryton_build_seven_string",
+          "name": "Seven gut melody strings over the fretted board",
+          "descriptors": [
+            "fuller",
+            "deeper",
+            "sonorous"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "historical-gut",
+            "austrian"
+          ]
+        },
+        {
+          "id": "baryton_build_tielke_f_hole",
+          "name": "Hamburg Tielke build with f-holes and lavish inlay",
+          "descriptors": [
+            "ornate",
+            "projecting",
+            "refined"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "germanic",
+            "baroque"
+          ]
+        },
+        {
+          "id": "baryton_build_modern_revival",
+          "name": "Modern revival instrument for the Haydn trios",
+          "descriptors": [
+            "revival",
+            "stable",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "modern",
+            "modern-gut-revival"
+          ],
+          "canonical_tags": [
+            "revival",
+            "hip"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "baryton_wire_manual",
+      "name": "Wire manual behind the neck",
+      "variants": [
+        {
+          "id": "baryton_wire_manual_chromatic_twenty",
+          "default": true,
+          "name": "About 20 chromatic wires (Stadlmann / Esterhazy instruments)",
+          "descriptors": [
+            "harp-like",
+            "sympathetic-strings",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "austrian",
+            "classical-era"
+          ]
+        },
+        {
+          "id": "baryton_wire_manual_diatonic_nine",
+          "name": "Nine or ten diatonic wires (small early manual)",
+          "descriptors": [
+            "archaic",
+            "silvery",
+            "spare"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "seventeenth-century",
+            "historical"
+          ]
+        },
+        {
+          "id": "baryton_wire_manual_extended_twenty_seven",
+          "name": "Extended manual up to 27 wires",
+          "descriptors": [
+            "ringing",
+            "sympathetic-halo",
+            "fuller"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "viennese",
+            "classical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "baryton_wire_technique",
+      "name": "Wire technique",
+      "variants": [
+        {
+          "id": "baryton_wire_technique_thumb_pizzicato",
+          "default": true,
+          "name": "Left thumb plucking the wires from behind while bowing",
+          "descriptors": [
+            "harp-like",
+            "virtuoso",
+            "conversational"
+          ],
+          "match_tokens": [
+            "bowed",
+            "plucked",
+            "chordal"
+          ],
+          "canonical_tags": [
+            "austrian",
+            "classical-era"
+          ]
+        },
+        {
+          "id": "baryton_wire_technique_sympathetic_only",
+          "name": "Bowing only - wires left to ring sympathetically",
+          "descriptors": [
+            "sympathetic-halo",
+            "sustained",
+            "veiled"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "period",
+            "historical"
+          ]
+        },
+        {
+          "id": "baryton_wire_technique_alternating",
+          "name": "Alternating bowed melody with plucked harp-like interludes",
+          "descriptors": [
+            "narrative",
+            "harp-like",
+            "featured"
+          ],
+          "match_tokens": [
+            "bowed",
+            "plucked",
+            "soloistic"
+          ],
+          "canonical_tags": [
+            "classical-era",
+            "solo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "baryton_roster",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "baryton_roster_esterhazy_trio",
+          "default": true,
+          "name": "Esterhazy trio with viola and cello (Haydn Hob. XI)",
+          "descriptors": [
+            "blended",
+            "art-music",
+            "composed-tradition"
+          ],
+          "match_tokens": [
+            "bowed",
+            "chamber-fed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "austrian",
+            "chamber"
+          ]
+        },
+        {
+          "id": "baryton_roster_solo_continuo",
+          "name": "Solo with continuo",
+          "descriptors": [
+            "featured",
+            "ornate",
+            "intimate"
+          ],
+          "match_tokens": [
+            "bowed",
+            "soloistic",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "solo",
+            "baroque"
+          ]
+        },
+        {
+          "id": "baryton_roster_octet_cassation",
+          "name": "Octet / cassation with winds and strings",
+          "descriptors": [
+            "festive",
+            "blended",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "austrian",
+            "classical"
+          ]
+        },
+        {
+          "id": "baryton_roster_two_barytons",
+          "name": "Duo for two barytons",
+          "descriptors": [
+            "conversational",
+            "resonant",
+            "harp-like"
+          ],
+          "match_tokens": [
+            "bowed",
+            "chamber-fed",
+            "sympathetic-resonant"
+          ],
+          "canonical_tags": [
+            "chamber",
+            "classical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "baryton_build",
+      "name": "Build of the bowed manual",
+      "variants": [
+        {
+          "id": "baryton_build_viennese_carved_head",
+          "default": true,
+          "name": "Viennese Stadlmann build - six gut melody strings, C-holes, carved head",
+          "descriptors": [
+            "ornate",
+            "carved",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "fretted"
+          ],
+          "canonical_tags": [
+            "viennese",
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "baryton_build_seven_string",
+          "name": "Seven gut melody strings over the fretted board",
+          "descriptors": [
+            "fuller",
+            "deeper",
+            "sonorous"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "historical-gut",
+            "austrian"
+          ]
+        },
+        {
+          "id": "baryton_build_tielke_f_hole",
+          "name": "Hamburg Tielke build with f-holes and lavish inlay",
+          "descriptors": [
+            "ornate",
+            "projecting",
+            "refined"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "germanic",
+            "baroque"
+          ]
+        },
+        {
+          "id": "baryton_build_modern_revival",
+          "name": "Modern revival instrument for the Haydn trios",
+          "descriptors": [
+            "revival",
+            "stable",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "modern",
+            "modern-gut-revival"
+          ],
+          "canonical_tags": [
+            "revival",
+            "hip"
+          ]
+        }
+      ]
+    }
+  ]
+}

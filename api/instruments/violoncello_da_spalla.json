@@ -1,0 +1,569 @@
+{
+  "id": "violoncello_da_spalla",
+  "name": "Violoncello da spalla (shoulder-borne small cello / viola pomposa)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "cello da spalla",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "violoncello_da_spalla_stringing",
+      "name": "String count and tuning",
+      "variants": [
+        {
+          "id": "violoncello_da_spalla_stringing_four",
+          "default": true,
+          "name": "Four strings C-G-d-a",
+          "descriptors": [
+            "sonorous",
+            "foundational",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "four-string",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period"
+          ]
+        },
+        {
+          "id": "violoncello_da_spalla_stringing_five",
+          "name": "Five strings C-G-d-a-e' (the Suite VI tuning)",
+          "descriptors": [
+            "bright",
+            "agile",
+            "treble-extended"
+          ],
+          "match_tokens": [
+            "bowed",
+            "five-string",
+            "treble-extended"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period"
+          ]
+        },
+        {
+          "id": "violoncello_da_spalla_stringing_viola_pomposa_high_e",
+          "name": "Viola register plus high e″ (c–g–d′–a′–e″, the older viola pomposa reading)",
+          "descriptors": [
+            "five-string",
+            "treble-extended",
+            "leaner"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "violoncello_da_spalla_posture",
+      "name": "Posture and bow hold",
+      "variants": [
+        {
+          "id": "violoncello_da_spalla_posture_shoulder_strap",
+          "default": true,
+          "name": "Shoulder strap across the chest, bowed near-vertically overhand (da braccio)",
+          "descriptors": [
+            "shoulder-held",
+            "projecting",
+            "agile"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "early-music-context"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "revival"
+          ]
+        },
+        {
+          "id": "violoncello_da_spalla_posture_knee_gamba",
+          "name": "Held on the knee, gamba-fashion",
+          "descriptors": [
+            "lap-position",
+            "warm",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "historical"
+          ]
+        },
+        {
+          "id": "violoncello_da_spalla_posture_arm_large_viola",
+          "name": "Cradled on the arm like an oversize viola (viola pomposa manner)",
+          "descriptors": [
+            "courtly",
+            "refined",
+            "singing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "baroque"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "violoncello_da_spalla_body",
+      "name": "Body size / model",
+      "variants": [
+        {
+          "id": "violoncello_da_spalla_body_small_revival",
+          "default": true,
+          "name": "Small revival body ~45-48 cm (Badiarov / Kuijken model)",
+          "descriptors": [
+            "agile",
+            "clear",
+            "reconstructed"
+          ],
+          "match_tokens": [
+            "bowed",
+            "modern-gut-revival",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "revival",
+            "hip"
+          ]
+        },
+        {
+          "id": "violoncello_da_spalla_body_hoffmann_1732",
+          "name": "Hoffmann Leipzig 1732 model copy",
+          "descriptors": [
+            "historical",
+            "warm",
+            "refined"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "germanic"
+          ]
+        },
+        {
+          "id": "violoncello_da_spalla_body_large_eighteen_inch",
+          "name": "Large ~18-inch body",
+          "descriptors": [
+            "deep-bodied",
+            "sonorous",
+            "fuller"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register",
+            "gut-string"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "historical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "violoncello_da_spalla_role",
+      "name": "Repertoire role",
+      "variants": [
+        {
+          "id": "violoncello_da_spalla_role_cantata_obbligato",
+          "default": true,
+          "name": "Bach violoncello piccolo obbligato in the 1724-25 cantatas",
+          "descriptors": [
+            "featured",
+            "lyrical",
+            "devotional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "soloistic",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "sacred"
+          ]
+        },
+        {
+          "id": "violoncello_da_spalla_role_cello_suites",
+          "name": "The Six Suites BWV 1007-1012 (especially the five-string Suite VI)",
+          "descriptors": [
+            "soloistic",
+            "art-music",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "bowed",
+            "soloistic",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "solo"
+          ]
+        },
+        {
+          "id": "violoncello_da_spalla_role_continuo_bass",
+          "name": "Mobile continuo bass line",
+          "descriptors": [
+            "foundational",
+            "continuo",
+            "blended"
+          ],
+          "match_tokens": [
+            "bowed",
+            "foundational-bass",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "chamber"
+          ]
+        },
+        {
+          "id": "violoncello_da_spalla_role_galant_concerto",
+          "name": "Galant solo concerto voice (Graun double concerto, Lidarti, Telemann)",
+          "descriptors": [
+            "virtuosic",
+            "singing",
+            "courtly"
+          ],
+          "match_tokens": [
+            "bowed",
+            "soloistic",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "concert"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "violoncello_da_spalla_stringing",
+      "name": "String count and tuning",
+      "variants": [
+        {
+          "id": "violoncello_da_spalla_stringing_four",
+          "default": true,
+          "name": "Four strings C-G-d-a",
+          "descriptors": [
+            "sonorous",
+            "foundational",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "four-string",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period"
+          ]
+        },
+        {
+          "id": "violoncello_da_spalla_stringing_five",
+          "name": "Five strings C-G-d-a-e' (the Suite VI tuning)",
+          "descriptors": [
+            "bright",
+            "agile",
+            "treble-extended"
+          ],
+          "match_tokens": [
+            "bowed",
+            "five-string",
+            "treble-extended"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period"
+          ]
+        },
+        {
+          "id": "violoncello_da_spalla_stringing_viola_pomposa_high_e",
+          "name": "Viola register plus high e″ (c–g–d′–a′–e″, the older viola pomposa reading)",
+          "descriptors": [
+            "five-string",
+            "treble-extended",
+            "leaner"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "violoncello_da_spalla_posture",
+      "name": "Posture and bow hold",
+      "variants": [
+        {
+          "id": "violoncello_da_spalla_posture_shoulder_strap",
+          "default": true,
+          "name": "Shoulder strap across the chest, bowed near-vertically overhand (da braccio)",
+          "descriptors": [
+            "shoulder-held",
+            "projecting",
+            "agile"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "early-music-context"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "revival"
+          ]
+        },
+        {
+          "id": "violoncello_da_spalla_posture_knee_gamba",
+          "name": "Held on the knee, gamba-fashion",
+          "descriptors": [
+            "lap-position",
+            "warm",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "historical"
+          ]
+        },
+        {
+          "id": "violoncello_da_spalla_posture_arm_large_viola",
+          "name": "Cradled on the arm like an oversize viola (viola pomposa manner)",
+          "descriptors": [
+            "courtly",
+            "refined",
+            "singing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "baroque"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "violoncello_da_spalla_body",
+      "name": "Body size / model",
+      "variants": [
+        {
+          "id": "violoncello_da_spalla_body_small_revival",
+          "default": true,
+          "name": "Small revival body ~45-48 cm (Badiarov / Kuijken model)",
+          "descriptors": [
+            "agile",
+            "clear",
+            "reconstructed"
+          ],
+          "match_tokens": [
+            "bowed",
+            "modern-gut-revival",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "revival",
+            "hip"
+          ]
+        },
+        {
+          "id": "violoncello_da_spalla_body_hoffmann_1732",
+          "name": "Hoffmann Leipzig 1732 model copy",
+          "descriptors": [
+            "historical",
+            "warm",
+            "refined"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "germanic"
+          ]
+        },
+        {
+          "id": "violoncello_da_spalla_body_large_eighteen_inch",
+          "name": "Large ~18-inch body",
+          "descriptors": [
+            "deep-bodied",
+            "sonorous",
+            "fuller"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register",
+            "gut-string"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "historical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "violoncello_da_spalla_role",
+      "name": "Repertoire role",
+      "variants": [
+        {
+          "id": "violoncello_da_spalla_role_cantata_obbligato",
+          "default": true,
+          "name": "Bach violoncello piccolo obbligato in the 1724-25 cantatas",
+          "descriptors": [
+            "featured",
+            "lyrical",
+            "devotional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "soloistic",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "sacred"
+          ]
+        },
+        {
+          "id": "violoncello_da_spalla_role_cello_suites",
+          "name": "The Six Suites BWV 1007-1012 (especially the five-string Suite VI)",
+          "descriptors": [
+            "soloistic",
+            "art-music",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "bowed",
+            "soloistic",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "solo"
+          ]
+        },
+        {
+          "id": "violoncello_da_spalla_role_continuo_bass",
+          "name": "Mobile continuo bass line",
+          "descriptors": [
+            "foundational",
+            "continuo",
+            "blended"
+          ],
+          "match_tokens": [
+            "bowed",
+            "foundational-bass",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "chamber"
+          ]
+        },
+        {
+          "id": "violoncello_da_spalla_role_galant_concerto",
+          "name": "Galant solo concerto voice (Graun double concerto, Lidarti, Telemann)",
+          "descriptors": [
+            "virtuosic",
+            "singing",
+            "courtly"
+          ],
+          "match_tokens": [
+            "bowed",
+            "soloistic",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "concert"
+          ]
+        }
+      ]
+    }
+  ]
+}

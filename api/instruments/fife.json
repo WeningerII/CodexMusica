@@ -1,0 +1,514 @@
+{
+  "id": "fife",
+  "name": "Fife (military transverse pipe)",
+  "family": "wind",
+  "class": "transverse_flute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 2,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "fife",
+  "parts": [
+    {
+      "id": "fife_tradition",
+      "name": "Tradition",
+      "variants": [
+        {
+          "id": "fife_tradition_anglo_american",
+          "default": true,
+          "name": "Anglo-American fife-and-drum corps (Revolutionary / Civil War revival)",
+          "descriptors": [
+            "martial",
+            "military-tight",
+            "shrill"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "marching",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "marching",
+            "traditional"
+          ]
+        },
+        {
+          "id": "fife_tradition_basel",
+          "name": "Swiss Basel Trommeln und Pfeifen",
+          "descriptors": [
+            "crisp",
+            "processional",
+            "carnival"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "processional"
+          ],
+          "canonical_tags": [
+            "traditional",
+            "marching"
+          ]
+        },
+        {
+          "id": "fife_tradition_mississippi_cane",
+          "name": "North Mississippi cane fife-and-drum",
+          "descriptors": [
+            "blues-inflected",
+            "laid-back",
+            "rough-toned"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "blues-inflected",
+            "transverse-flute"
+          ],
+          "canonical_tags": [
+            "traditional",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fife_build",
+      "name": "Material and bore",
+      "variants": [
+        {
+          "id": "fife_build_grenadilla",
+          "default": true,
+          "name": "Grenadilla or boxwood with metal ferrules, cylindrical bore",
+          "descriptors": [
+            "dense",
+            "brilliant",
+            "cutting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "hardwood-bore",
+            "transverse-flute"
+          ],
+          "canonical_tags": [
+            "cites-app-ii",
+            "hardwood"
+          ]
+        },
+        {
+          "id": "fife_build_one_piece_maple",
+          "name": "One-piece maple, conoidal bore (older military B-flat pattern)",
+          "descriptors": [
+            "woody",
+            "archaic",
+            "warm"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "wooden-bore",
+            "maple"
+          ],
+          "canonical_tags": [
+            "wood-body",
+            "traditional"
+          ]
+        },
+        {
+          "id": "fife_build_cane",
+          "name": "Hand-cut cane fife (six burned holes)",
+          "descriptors": [
+            "reedy",
+            "rustic",
+            "soft-edged"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reedy",
+            "folk"
+          ],
+          "canonical_tags": [
+            "cane",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fife_pitch",
+      "name": "Pitch",
+      "variants": [
+        {
+          "id": "fife_pitch_bflat",
+          "default": true,
+          "name": "B-flat (standard military fife, a sixth above the concert flute)",
+          "descriptors": [
+            "shrill",
+            "piercing",
+            "standard"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "very-high"
+          ],
+          "canonical_tags": [
+            "marching",
+            "traditional"
+          ]
+        },
+        {
+          "id": "fife_pitch_aflat",
+          "name": "A-flat (older corps pitch)",
+          "descriptors": [
+            "mellow",
+            "historical",
+            "rounded"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "fife_pitch_c",
+          "name": "C (modern band-compatible)",
+          "descriptors": [
+            "even",
+            "bright",
+            "modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fife_role",
+      "name": "Role",
+      "variants": [
+        {
+          "id": "fife_role_corps_unison",
+          "default": true,
+          "name": "Unison melody over rope-tension snare and bass drum",
+          "descriptors": [
+            "unison-doubled",
+            "martial",
+            "driving"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ensemble",
+            "marching",
+            "unison-doubled"
+          ],
+          "canonical_tags": [
+            "marching",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "fife_role_signal",
+          "name": "Single signalling instrument (camp calls and battlefield signals)",
+          "descriptors": [
+            "far-carrying",
+            "austere",
+            "military-tight"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "signal",
+            "outdoor-field",
+            "solo"
+          ],
+          "canonical_tags": [
+            "solo",
+            "traditional"
+          ]
+        },
+        {
+          "id": "fife_role_blues_lead",
+          "name": "Blues-inflected solo lead over drums (Mississippi picnic tradition)",
+          "descriptors": [
+            "blues-inflected",
+            "improvised",
+            "rough-toned"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "blues-inflected",
+            "improvised",
+            "solo"
+          ],
+          "canonical_tags": [
+            "folk",
+            "traditional"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "fife_tradition",
+      "name": "Tradition",
+      "variants": [
+        {
+          "id": "fife_tradition_anglo_american",
+          "default": true,
+          "name": "Anglo-American fife-and-drum corps (Revolutionary / Civil War revival)",
+          "descriptors": [
+            "martial",
+            "military-tight",
+            "shrill"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "marching",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "marching",
+            "traditional"
+          ]
+        },
+        {
+          "id": "fife_tradition_basel",
+          "name": "Swiss Basel Trommeln und Pfeifen",
+          "descriptors": [
+            "crisp",
+            "processional",
+            "carnival"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "processional"
+          ],
+          "canonical_tags": [
+            "traditional",
+            "marching"
+          ]
+        },
+        {
+          "id": "fife_tradition_mississippi_cane",
+          "name": "North Mississippi cane fife-and-drum",
+          "descriptors": [
+            "blues-inflected",
+            "laid-back",
+            "rough-toned"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "blues-inflected",
+            "transverse-flute"
+          ],
+          "canonical_tags": [
+            "traditional",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fife_build",
+      "name": "Material and bore",
+      "variants": [
+        {
+          "id": "fife_build_grenadilla",
+          "default": true,
+          "name": "Grenadilla or boxwood with metal ferrules, cylindrical bore",
+          "descriptors": [
+            "dense",
+            "brilliant",
+            "cutting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "hardwood-bore",
+            "transverse-flute"
+          ],
+          "canonical_tags": [
+            "cites-app-ii",
+            "hardwood"
+          ]
+        },
+        {
+          "id": "fife_build_one_piece_maple",
+          "name": "One-piece maple, conoidal bore (older military B-flat pattern)",
+          "descriptors": [
+            "woody",
+            "archaic",
+            "warm"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "wooden-bore",
+            "maple"
+          ],
+          "canonical_tags": [
+            "wood-body",
+            "traditional"
+          ]
+        },
+        {
+          "id": "fife_build_cane",
+          "name": "Hand-cut cane fife (six burned holes)",
+          "descriptors": [
+            "reedy",
+            "rustic",
+            "soft-edged"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reedy",
+            "folk"
+          ],
+          "canonical_tags": [
+            "cane",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fife_pitch",
+      "name": "Pitch",
+      "variants": [
+        {
+          "id": "fife_pitch_bflat",
+          "default": true,
+          "name": "B-flat (standard military fife, a sixth above the concert flute)",
+          "descriptors": [
+            "shrill",
+            "piercing",
+            "standard"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "very-high"
+          ],
+          "canonical_tags": [
+            "marching",
+            "traditional"
+          ]
+        },
+        {
+          "id": "fife_pitch_aflat",
+          "name": "A-flat (older corps pitch)",
+          "descriptors": [
+            "mellow",
+            "historical",
+            "rounded"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "fife_pitch_c",
+          "name": "C (modern band-compatible)",
+          "descriptors": [
+            "even",
+            "bright",
+            "modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fife_role",
+      "name": "Role",
+      "variants": [
+        {
+          "id": "fife_role_corps_unison",
+          "default": true,
+          "name": "Unison melody over rope-tension snare and bass drum",
+          "descriptors": [
+            "unison-doubled",
+            "martial",
+            "driving"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ensemble",
+            "marching",
+            "unison-doubled"
+          ],
+          "canonical_tags": [
+            "marching",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "fife_role_signal",
+          "name": "Single signalling instrument (camp calls and battlefield signals)",
+          "descriptors": [
+            "far-carrying",
+            "austere",
+            "military-tight"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "signal",
+            "outdoor-field",
+            "solo"
+          ],
+          "canonical_tags": [
+            "solo",
+            "traditional"
+          ]
+        },
+        {
+          "id": "fife_role_blues_lead",
+          "name": "Blues-inflected solo lead over drums (Mississippi picnic tradition)",
+          "descriptors": [
+            "blues-inflected",
+            "improvised",
+            "rough-toned"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "blues-inflected",
+            "improvised",
+            "solo"
+          ],
+          "canonical_tags": [
+            "folk",
+            "traditional"
+          ]
+        }
+      ]
+    }
+  ]
+}

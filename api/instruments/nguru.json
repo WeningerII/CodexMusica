@@ -1,0 +1,554 @@
+{
+  "id": "nguru",
+  "name": "Nguru (Maori semi-enclosed flute)",
+  "family": "wind",
+  "class": "flute",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": -1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -2
+  },
+  "short": "nguru",
+  "parts": [
+    {
+      "id": "nguru_material",
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "nguru_whale_tooth",
+          "default": true,
+          "name": "Niho pāraoa — sperm-whale tooth (the prestige form, held by tohunga and rangatira)",
+          "descriptors": [
+            "bone",
+            "dense",
+            "bright",
+            "sacred"
+          ],
+          "match_tokens": [
+            "wind",
+            "taonga-puoro",
+            "maori-tradition",
+            "bone"
+          ],
+          "canonical_tags": [
+            "maori",
+            "polynesian",
+            "cites-app-i"
+          ]
+        },
+        {
+          "id": "nguru_wood",
+          "name": "Carved hardwood (tōtara / matai)",
+          "descriptors": [
+            "woody",
+            "warm",
+            "carved"
+          ],
+          "match_tokens": [
+            "wind",
+            "taonga-puoro",
+            "maori-tradition",
+            "wooden"
+          ],
+          "canonical_tags": [
+            "maori",
+            "wood"
+          ]
+        },
+        {
+          "id": "nguru_bone",
+          "name": "Bird or whale bone",
+          "descriptors": [
+            "bone",
+            "dry",
+            "bright-edged"
+          ],
+          "match_tokens": [
+            "wind",
+            "taonga-puoro",
+            "bone"
+          ],
+          "canonical_tags": [
+            "maori"
+          ]
+        },
+        {
+          "id": "nguru_stone",
+          "name": "Stone / soapstone",
+          "descriptors": [
+            "dense",
+            "brittle",
+            "archaic"
+          ],
+          "match_tokens": [
+            "wind",
+            "taonga-puoro",
+            "stone"
+          ],
+          "canonical_tags": [
+            "maori"
+          ]
+        },
+        {
+          "id": "nguru_gourd",
+          "name": "Dried gourd (hue)",
+          "descriptors": [
+            "gourd",
+            "hollow-toned",
+            "quiet"
+          ],
+          "match_tokens": [
+            "wind",
+            "taonga-puoro",
+            "breathy"
+          ],
+          "canonical_tags": [
+            "maori"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nguru_technique",
+      "name": "Blowing technique",
+      "variants": [
+        {
+          "id": "nguru_mouth_cross_blown",
+          "default": true,
+          "name": "Mouth cross-blown over the wide open end (the usual practice, as for the kōauau)",
+          "descriptors": [
+            "standard",
+            "rounded",
+            "veiled"
+          ],
+          "match_tokens": [
+            "wind",
+            "blown",
+            "taonga-puoro",
+            "maori-tradition"
+          ],
+          "canonical_tags": [
+            "maori"
+          ]
+        },
+        {
+          "id": "nguru_nose_blown",
+          "name": "Nose-blown, one nostril stopped, across the opening or the upturned snout (tapu, prestige)",
+          "descriptors": [
+            "breathy",
+            "soft",
+            "sacred",
+            "quiet"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "nose-blown",
+            "breathy"
+          ],
+          "canonical_tags": [
+            "maori",
+            "polynesian",
+            "sacred"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nguru_context",
+      "name": "Performance context / voicing",
+      "variants": [
+        {
+          "id": "nguru_calming_lament",
+          "default": true,
+          "name": "Close-range calming and restorative work, lullaby and lament",
+          "descriptors": [
+            "intimate",
+            "gentle",
+            "plaintive",
+            "meditative"
+          ],
+          "match_tokens": [
+            "wind",
+            "solo",
+            "gentle",
+            "taonga-puoro"
+          ],
+          "canonical_tags": [
+            "maori",
+            "solo",
+            "lullaby"
+          ]
+        },
+        {
+          "id": "nguru_breath_speech",
+          "name": "Heavily breath-inflected, speech-like phrasing",
+          "descriptors": [
+            "breathy",
+            "narrative",
+            "expressive"
+          ],
+          "match_tokens": [
+            "wind",
+            "breathy",
+            "narrative"
+          ],
+          "canonical_tags": [
+            "maori",
+            "ritual"
+          ]
+        },
+        {
+          "id": "nguru_taonga_puoro_ensemble",
+          "name": "Contemporary taonga pūoro ensemble, film and concert work",
+          "descriptors": [
+            "contemporary",
+            "revival",
+            "ensemble"
+          ],
+          "match_tokens": [
+            "wind",
+            "ensemble",
+            "taonga-puoro"
+          ],
+          "canonical_tags": [
+            "maori",
+            "revival",
+            "concert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nguru_size",
+      "name": "Size",
+      "variants": [
+        {
+          "id": "nguru_medium",
+          "default": true,
+          "name": "Medium (~10 cm — rounded and full)",
+          "descriptors": [
+            "balanced",
+            "rounded",
+            "mellow"
+          ],
+          "match_tokens": [
+            "wind",
+            "taonga-puoro",
+            "maori-tradition"
+          ],
+          "canonical_tags": [
+            "maori"
+          ]
+        },
+        {
+          "id": "nguru_small",
+          "name": "Small (~5 cm — thin and high; the only practical nose-blown size)",
+          "descriptors": [
+            "high-pitched",
+            "airy",
+            "quiet"
+          ],
+          "match_tokens": [
+            "wind",
+            "taonga-puoro",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "maori"
+          ]
+        },
+        {
+          "id": "nguru_large",
+          "name": "Large (~15 cm — lower and fuller)",
+          "descriptors": [
+            "deep",
+            "full",
+            "resonant"
+          ],
+          "match_tokens": [
+            "wind",
+            "taonga-puoro",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "maori"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "nguru_material",
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "nguru_whale_tooth",
+          "default": true,
+          "name": "Niho pāraoa — sperm-whale tooth (the prestige form, held by tohunga and rangatira)",
+          "descriptors": [
+            "bone",
+            "dense",
+            "bright",
+            "sacred"
+          ],
+          "match_tokens": [
+            "wind",
+            "taonga-puoro",
+            "maori-tradition",
+            "bone"
+          ],
+          "canonical_tags": [
+            "maori",
+            "polynesian",
+            "cites-app-i"
+          ]
+        },
+        {
+          "id": "nguru_wood",
+          "name": "Carved hardwood (tōtara / matai)",
+          "descriptors": [
+            "woody",
+            "warm",
+            "carved"
+          ],
+          "match_tokens": [
+            "wind",
+            "taonga-puoro",
+            "maori-tradition",
+            "wooden"
+          ],
+          "canonical_tags": [
+            "maori",
+            "wood"
+          ]
+        },
+        {
+          "id": "nguru_bone",
+          "name": "Bird or whale bone",
+          "descriptors": [
+            "bone",
+            "dry",
+            "bright-edged"
+          ],
+          "match_tokens": [
+            "wind",
+            "taonga-puoro",
+            "bone"
+          ],
+          "canonical_tags": [
+            "maori"
+          ]
+        },
+        {
+          "id": "nguru_stone",
+          "name": "Stone / soapstone",
+          "descriptors": [
+            "dense",
+            "brittle",
+            "archaic"
+          ],
+          "match_tokens": [
+            "wind",
+            "taonga-puoro",
+            "stone"
+          ],
+          "canonical_tags": [
+            "maori"
+          ]
+        },
+        {
+          "id": "nguru_gourd",
+          "name": "Dried gourd (hue)",
+          "descriptors": [
+            "gourd",
+            "hollow-toned",
+            "quiet"
+          ],
+          "match_tokens": [
+            "wind",
+            "taonga-puoro",
+            "breathy"
+          ],
+          "canonical_tags": [
+            "maori"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nguru_technique",
+      "name": "Blowing technique",
+      "variants": [
+        {
+          "id": "nguru_mouth_cross_blown",
+          "default": true,
+          "name": "Mouth cross-blown over the wide open end (the usual practice, as for the kōauau)",
+          "descriptors": [
+            "standard",
+            "rounded",
+            "veiled"
+          ],
+          "match_tokens": [
+            "wind",
+            "blown",
+            "taonga-puoro",
+            "maori-tradition"
+          ],
+          "canonical_tags": [
+            "maori"
+          ]
+        },
+        {
+          "id": "nguru_nose_blown",
+          "name": "Nose-blown, one nostril stopped, across the opening or the upturned snout (tapu, prestige)",
+          "descriptors": [
+            "breathy",
+            "soft",
+            "sacred",
+            "quiet"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "nose-blown",
+            "breathy"
+          ],
+          "canonical_tags": [
+            "maori",
+            "polynesian",
+            "sacred"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nguru_context",
+      "name": "Performance context / voicing",
+      "variants": [
+        {
+          "id": "nguru_calming_lament",
+          "default": true,
+          "name": "Close-range calming and restorative work, lullaby and lament",
+          "descriptors": [
+            "intimate",
+            "gentle",
+            "plaintive",
+            "meditative"
+          ],
+          "match_tokens": [
+            "wind",
+            "solo",
+            "gentle",
+            "taonga-puoro"
+          ],
+          "canonical_tags": [
+            "maori",
+            "solo",
+            "lullaby"
+          ]
+        },
+        {
+          "id": "nguru_breath_speech",
+          "name": "Heavily breath-inflected, speech-like phrasing",
+          "descriptors": [
+            "breathy",
+            "narrative",
+            "expressive"
+          ],
+          "match_tokens": [
+            "wind",
+            "breathy",
+            "narrative"
+          ],
+          "canonical_tags": [
+            "maori",
+            "ritual"
+          ]
+        },
+        {
+          "id": "nguru_taonga_puoro_ensemble",
+          "name": "Contemporary taonga pūoro ensemble, film and concert work",
+          "descriptors": [
+            "contemporary",
+            "revival",
+            "ensemble"
+          ],
+          "match_tokens": [
+            "wind",
+            "ensemble",
+            "taonga-puoro"
+          ],
+          "canonical_tags": [
+            "maori",
+            "revival",
+            "concert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nguru_size",
+      "name": "Size",
+      "variants": [
+        {
+          "id": "nguru_medium",
+          "default": true,
+          "name": "Medium (~10 cm — rounded and full)",
+          "descriptors": [
+            "balanced",
+            "rounded",
+            "mellow"
+          ],
+          "match_tokens": [
+            "wind",
+            "taonga-puoro",
+            "maori-tradition"
+          ],
+          "canonical_tags": [
+            "maori"
+          ]
+        },
+        {
+          "id": "nguru_small",
+          "name": "Small (~5 cm — thin and high; the only practical nose-blown size)",
+          "descriptors": [
+            "high-pitched",
+            "airy",
+            "quiet"
+          ],
+          "match_tokens": [
+            "wind",
+            "taonga-puoro",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "maori"
+          ]
+        },
+        {
+          "id": "nguru_large",
+          "name": "Large (~15 cm — lower and fuller)",
+          "descriptors": [
+            "deep",
+            "full",
+            "resonant"
+          ],
+          "match_tokens": [
+            "wind",
+            "taonga-puoro",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "maori"
+          ]
+        }
+      ]
+    }
+  ]
+}

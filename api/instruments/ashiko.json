@@ -1,0 +1,496 @@
+{
+  "id": "ashiko",
+  "name": "Ashiko (West African / diaspora conical hand drum)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "ashiko",
+  "parts": [
+    {
+      "id": "ashiko_shell",
+      "name": "Shell construction",
+      "variants": [
+        {
+          "id": "ashiko_shell_staved",
+          "default": true,
+          "name": "Staved / segmented glued shell (most instruments in circulation)",
+          "descriptors": [
+            "modern",
+            "even",
+            "projecting"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "ashiko_shell_carved_log",
+          "name": "Single carved hardwood log (older method)",
+          "descriptors": [
+            "traditional",
+            "natural-material-resonance",
+            "authentic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "traditional",
+            "west_africa"
+          ]
+        },
+        {
+          "id": "ashiko_shell_synthetic",
+          "name": "Synthetic / fibreglass shell",
+          "descriptors": [
+            "synthetic",
+            "durable",
+            "projecting"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "percussive-attack",
+            "hands"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ashiko_head",
+      "name": "Head skin",
+      "variants": [
+        {
+          "id": "ashiko_head_goat",
+          "default": true,
+          "name": "Goat-skin (bright slap, in imitation of the djembe)",
+          "descriptors": [
+            "goatskin",
+            "crisp",
+            "bright"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "ashiko_head_cowhide",
+          "name": "Calfskin / cowhide (thicker, slower attack, darker)",
+          "descriptors": [
+            "hide",
+            "dark",
+            "softer"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "ashiko_head_synthetic",
+          "name": "Synthetic head (weather-stable)",
+          "descriptors": [
+            "synthetic",
+            "stable",
+            "consistent"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "percussive-attack",
+            "hands"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ashiko_tension",
+      "name": "Rope tension",
+      "variants": [
+        {
+          "id": "ashiko_tension_high",
+          "default": true,
+          "name": "High mali-weave tension (cutting, djembe-adjacent voice)",
+          "descriptors": [
+            "snappy",
+            "treble-extended",
+            "crisp"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "ashiko_tension_low",
+          "name": "Low tension (open, conga-adjacent roundness)",
+          "descriptors": [
+            "rounded",
+            "warm",
+            "open"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "hand-drum"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ashiko_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "ashiko_role_mid_accompaniment",
+          "default": true,
+          "name": "Mid-register accompaniment beside djembe and dunun",
+          "descriptors": [
+            "foundational",
+            "interlocking",
+            "communal"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "west_africa",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "ashiko_role_lead",
+          "name": "Lead / solo voice over dunun",
+          "descriptors": [
+            "lead",
+            "virtuoso",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "west_africa",
+            "dance"
+          ]
+        },
+        {
+          "id": "ashiko_role_tiered_set",
+          "name": "Tiered set of two-three sizes, one drummer",
+          "descriptors": [
+            "layered",
+            "melodic",
+            "versatile"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "tuned-drums"
+          ],
+          "canonical_tags": [
+            "modern",
+            "concert"
+          ]
+        },
+        {
+          "id": "ashiko_role_diaspora_circle",
+          "name": "Diaspora community drum circle (US / Caribbean)",
+          "descriptors": [
+            "communal",
+            "celebratory",
+            "modern"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "diaspora",
+            "world-percussion"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ashiko_shell",
+      "name": "Shell construction",
+      "variants": [
+        {
+          "id": "ashiko_shell_staved",
+          "default": true,
+          "name": "Staved / segmented glued shell (most instruments in circulation)",
+          "descriptors": [
+            "modern",
+            "even",
+            "projecting"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "ashiko_shell_carved_log",
+          "name": "Single carved hardwood log (older method)",
+          "descriptors": [
+            "traditional",
+            "natural-material-resonance",
+            "authentic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "traditional",
+            "west_africa"
+          ]
+        },
+        {
+          "id": "ashiko_shell_synthetic",
+          "name": "Synthetic / fibreglass shell",
+          "descriptors": [
+            "synthetic",
+            "durable",
+            "projecting"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "percussive-attack",
+            "hands"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ashiko_head",
+      "name": "Head skin",
+      "variants": [
+        {
+          "id": "ashiko_head_goat",
+          "default": true,
+          "name": "Goat-skin (bright slap, in imitation of the djembe)",
+          "descriptors": [
+            "goatskin",
+            "crisp",
+            "bright"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "ashiko_head_cowhide",
+          "name": "Calfskin / cowhide (thicker, slower attack, darker)",
+          "descriptors": [
+            "hide",
+            "dark",
+            "softer"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "ashiko_head_synthetic",
+          "name": "Synthetic head (weather-stable)",
+          "descriptors": [
+            "synthetic",
+            "stable",
+            "consistent"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "percussive-attack",
+            "hands"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ashiko_tension",
+      "name": "Rope tension",
+      "variants": [
+        {
+          "id": "ashiko_tension_high",
+          "default": true,
+          "name": "High mali-weave tension (cutting, djembe-adjacent voice)",
+          "descriptors": [
+            "snappy",
+            "treble-extended",
+            "crisp"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "ashiko_tension_low",
+          "name": "Low tension (open, conga-adjacent roundness)",
+          "descriptors": [
+            "rounded",
+            "warm",
+            "open"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "hand-drum"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ashiko_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "ashiko_role_mid_accompaniment",
+          "default": true,
+          "name": "Mid-register accompaniment beside djembe and dunun",
+          "descriptors": [
+            "foundational",
+            "interlocking",
+            "communal"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "west_africa",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "ashiko_role_lead",
+          "name": "Lead / solo voice over dunun",
+          "descriptors": [
+            "lead",
+            "virtuoso",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "west_africa",
+            "dance"
+          ]
+        },
+        {
+          "id": "ashiko_role_tiered_set",
+          "name": "Tiered set of two-three sizes, one drummer",
+          "descriptors": [
+            "layered",
+            "melodic",
+            "versatile"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "tuned-drums"
+          ],
+          "canonical_tags": [
+            "modern",
+            "concert"
+          ]
+        },
+        {
+          "id": "ashiko_role_diaspora_circle",
+          "name": "Diaspora community drum circle (US / Caribbean)",
+          "descriptors": [
+            "communal",
+            "celebratory",
+            "modern"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "diaspora",
+            "world-percussion"
+          ]
+        }
+      ]
+    }
+  ]
+}

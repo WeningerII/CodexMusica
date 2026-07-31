@@ -1,0 +1,475 @@
+{
+  "id": "lokanga_bara",
+  "name": "Lokanga bara (Malagasy three-string fiddle)",
+  "family": "bowed",
+  "class": "bowed_lute",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "lokanga",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "lokanga_bara_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "lokanga_bara_form_bara",
+          "default": true,
+          "name": "Bara lokanga (Albizia-carved body, three strings, evolved from the jejy)",
+          "descriptors": [
+            "woody",
+            "rustic",
+            "traditional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "madagascar",
+            "african"
+          ]
+        },
+        {
+          "id": "lokanga_bara_form_antandroy",
+          "name": "Antandroy lokanga (Androy beko country)",
+          "descriptors": [
+            "dry",
+            "nasal",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "madagascar"
+          ]
+        },
+        {
+          "id": "lokanga_bara_form_bazaha",
+          "name": "Lokanga bazaha (imported European violin used in the identical role)",
+          "descriptors": [
+            "smoother",
+            "projecting",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "madagascar",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lokanga_bara_context",
+      "name": "Repertoire context",
+      "variants": [
+        {
+          "id": "lokanga_bara_context_beko",
+          "default": true,
+          "name": "Beko — Antandroy polyphonic ceremonial and funerary song accompaniment",
+          "descriptors": [
+            "ceremonial",
+            "mournful",
+            "heterophonic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vocal-accompaniment",
+            "polyphonic"
+          ],
+          "canonical_tags": [
+            "context:funeral-ritual",
+            "madagascar"
+          ]
+        },
+        {
+          "id": "lokanga_bara_context_festive",
+          "name": "Festive circumcision and celebration repertoire with dancers",
+          "descriptors": [
+            "festive",
+            "danced",
+            "celebratory"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "celebration",
+            "dance"
+          ]
+        },
+        {
+          "id": "lokanga_bara_context_work",
+          "name": "Cattle and work songs",
+          "descriptors": [
+            "pastoral",
+            "herding",
+            "unhurried"
+          ],
+          "match_tokens": [
+            "bowed",
+            "work-song"
+          ],
+          "canonical_tags": [
+            "herding",
+            "work-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lokanga_bara_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "lokanga_bara_strings_gut",
+          "default": true,
+          "name": "Goat-gut strings, bow rosined with dried tree resin",
+          "descriptors": [
+            "gut-strung",
+            "warm",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "lokanga_bara_strings_fiber",
+          "name": "Vegetable / sisal fibre strings",
+          "descriptors": [
+            "fiber-strung",
+            "dry",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "lokanga_bara_strings_nylon_steel",
+          "name": "Modern nylon or steel strings",
+          "descriptors": [
+            "nylon-modern",
+            "brighter",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "nylon-string"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lokanga_bara_texture",
+      "name": "Texture across the three strings",
+      "variants": [
+        {
+          "id": "lokanga_bara_texture_drone",
+          "default": true,
+          "name": "Open drone string under stopped melody",
+          "descriptors": [
+            "droning",
+            "hypnotic",
+            "supporting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "open-string"
+          ],
+          "canonical_tags": [
+            "madagascar"
+          ]
+        },
+        {
+          "id": "lokanga_bara_texture_doubling",
+          "name": "Melodic doubling of the sung line",
+          "descriptors": [
+            "doubling",
+            "vocal-shadowing",
+            "unison"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vocal-imitating",
+            "vocal-support"
+          ],
+          "canonical_tags": [
+            "madagascar"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "lokanga_bara_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "lokanga_bara_form_bara",
+          "default": true,
+          "name": "Bara lokanga (Albizia-carved body, three strings, evolved from the jejy)",
+          "descriptors": [
+            "woody",
+            "rustic",
+            "traditional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "madagascar",
+            "african"
+          ]
+        },
+        {
+          "id": "lokanga_bara_form_antandroy",
+          "name": "Antandroy lokanga (Androy beko country)",
+          "descriptors": [
+            "dry",
+            "nasal",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "madagascar"
+          ]
+        },
+        {
+          "id": "lokanga_bara_form_bazaha",
+          "name": "Lokanga bazaha (imported European violin used in the identical role)",
+          "descriptors": [
+            "smoother",
+            "projecting",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "madagascar",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lokanga_bara_context",
+      "name": "Repertoire context",
+      "variants": [
+        {
+          "id": "lokanga_bara_context_beko",
+          "default": true,
+          "name": "Beko — Antandroy polyphonic ceremonial and funerary song accompaniment",
+          "descriptors": [
+            "ceremonial",
+            "mournful",
+            "heterophonic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vocal-accompaniment",
+            "polyphonic"
+          ],
+          "canonical_tags": [
+            "context:funeral-ritual",
+            "madagascar"
+          ]
+        },
+        {
+          "id": "lokanga_bara_context_festive",
+          "name": "Festive circumcision and celebration repertoire with dancers",
+          "descriptors": [
+            "festive",
+            "danced",
+            "celebratory"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "celebration",
+            "dance"
+          ]
+        },
+        {
+          "id": "lokanga_bara_context_work",
+          "name": "Cattle and work songs",
+          "descriptors": [
+            "pastoral",
+            "herding",
+            "unhurried"
+          ],
+          "match_tokens": [
+            "bowed",
+            "work-song"
+          ],
+          "canonical_tags": [
+            "herding",
+            "work-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lokanga_bara_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "lokanga_bara_strings_gut",
+          "default": true,
+          "name": "Goat-gut strings, bow rosined with dried tree resin",
+          "descriptors": [
+            "gut-strung",
+            "warm",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "lokanga_bara_strings_fiber",
+          "name": "Vegetable / sisal fibre strings",
+          "descriptors": [
+            "fiber-strung",
+            "dry",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "lokanga_bara_strings_nylon_steel",
+          "name": "Modern nylon or steel strings",
+          "descriptors": [
+            "nylon-modern",
+            "brighter",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "nylon-string"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lokanga_bara_texture",
+      "name": "Texture across the three strings",
+      "variants": [
+        {
+          "id": "lokanga_bara_texture_drone",
+          "default": true,
+          "name": "Open drone string under stopped melody",
+          "descriptors": [
+            "droning",
+            "hypnotic",
+            "supporting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "open-string"
+          ],
+          "canonical_tags": [
+            "madagascar"
+          ]
+        },
+        {
+          "id": "lokanga_bara_texture_doubling",
+          "name": "Melodic doubling of the sung line",
+          "descriptors": [
+            "doubling",
+            "vocal-shadowing",
+            "unison"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vocal-imitating",
+            "vocal-support"
+          ],
+          "canonical_tags": [
+            "madagascar"
+          ]
+        }
+      ]
+    }
+  ]
+}

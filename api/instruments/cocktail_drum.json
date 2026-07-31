@@ -1,0 +1,412 @@
+{
+  "id": "cocktail_drum",
+  "name": "Cocktail drum (stand-up single-shell kit)",
+  "family": "percussion",
+  "class": "drum_kit",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": -1,
+    "register": -1,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "cocktail drum",
+  "parts": [
+    {
+      "id": "cocktail_drum_pedal",
+      "name": "Pedal configuration",
+      "variants": [
+        {
+          "id": "cocktail_drum_pedal_bottom",
+          "default": true,
+          "name": "Bass pedal on the lower head (one shell, two voices)",
+          "descriptors": [
+            "thin",
+            "low-fundamental-tuning",
+            "compact",
+            "all-purpose"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "rhythm-section-pocket",
+            "small-kit"
+          ],
+          "canonical_tags": [
+            "mid-century",
+            "jazz"
+          ]
+        },
+        {
+          "id": "cocktail_drum_no_pedal",
+          "name": "No pedal, played standing with sticks or hands",
+          "descriptors": [
+            "portable",
+            "one-man-band",
+            "lightweight"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "busking"
+          ],
+          "canonical_tags": [
+            "solo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cocktail_drum_snare",
+      "name": "Snare unit",
+      "variants": [
+        {
+          "id": "cocktail_drum_unsnared",
+          "default": true,
+          "name": "Unsnared top head (tom-like, long tubular resonance)",
+          "descriptors": [
+            "low-fundamental-tuning",
+            "undamped-resonance",
+            "ringing",
+            "warm"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "rhythm-section-pocket"
+          ],
+          "canonical_tags": [
+            "jazz",
+            "vintage"
+          ]
+        },
+        {
+          "id": "cocktail_drum_snared_top",
+          "name": "Snare unit on the top head (kit-like backbeat)",
+          "descriptors": [
+            "snappy",
+            "crisp",
+            "backbeat",
+            "articulate"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "rhythm-section-pocket"
+          ],
+          "canonical_tags": [
+            "rockabilly",
+            "revival"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cocktail_drum_bottom_head",
+      "name": "Bottom-head treatment",
+      "variants": [
+        {
+          "id": "cocktail_drum_reso_closed",
+          "default": true,
+          "name": "Closed resonant bottom head (fuller, tubbier kick)",
+          "descriptors": [
+            "full",
+            "resonant",
+            "low-mid-thick"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "cocktail_drum_open_bottom",
+          "name": "Open / removed bottom head (dry, fast decay)",
+          "descriptors": [
+            "dry",
+            "controlled-decay",
+            "focused",
+            "punchy"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "rhythm-section-pocket"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cocktail_drum_era",
+      "name": "Era and playing context",
+      "variants": [
+        {
+          "id": "cocktail_drum_lounge_vintage",
+          "default": true,
+          "name": "Mid-century lounge (mahogany shell, calfskin, brushes)",
+          "descriptors": [
+            "mahogany",
+            "calfskin",
+            "brushes",
+            "low-dynamic-level"
+          ],
+          "match_tokens": [
+            "brushed",
+            "jazz-trained",
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "mid-century",
+            "jazz"
+          ]
+        },
+        {
+          "id": "cocktail_drum_rockabilly_revival",
+          "name": "Rockabilly / psychobilly revival (maple-birch, Mylar, sticks)",
+          "descriptors": [
+            "maple",
+            "birch",
+            "rockabilly",
+            "driving"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "rock-context"
+          ],
+          "canonical_tags": [
+            "rockabilly",
+            "revival",
+            "western-swing"
+          ]
+        },
+        {
+          "id": "cocktail_drum_busker_rig",
+          "name": "Busking / one-man-band rig with clamp-on auxiliary",
+          "descriptors": [
+            "portable",
+            "one-man-band",
+            "compact"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "busking",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "solo",
+            "americana"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "cocktail_drum_pedal",
+      "name": "Pedal configuration",
+      "variants": [
+        {
+          "id": "cocktail_drum_pedal_bottom",
+          "default": true,
+          "name": "Bass pedal on the lower head (one shell, two voices)",
+          "descriptors": [
+            "thin",
+            "low-fundamental-tuning",
+            "compact",
+            "all-purpose"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "rhythm-section-pocket",
+            "small-kit"
+          ],
+          "canonical_tags": [
+            "mid-century",
+            "jazz"
+          ]
+        },
+        {
+          "id": "cocktail_drum_no_pedal",
+          "name": "No pedal, played standing with sticks or hands",
+          "descriptors": [
+            "portable",
+            "one-man-band",
+            "lightweight"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "busking"
+          ],
+          "canonical_tags": [
+            "solo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cocktail_drum_snare",
+      "name": "Snare unit",
+      "variants": [
+        {
+          "id": "cocktail_drum_unsnared",
+          "default": true,
+          "name": "Unsnared top head (tom-like, long tubular resonance)",
+          "descriptors": [
+            "low-fundamental-tuning",
+            "undamped-resonance",
+            "ringing",
+            "warm"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "rhythm-section-pocket"
+          ],
+          "canonical_tags": [
+            "jazz",
+            "vintage"
+          ]
+        },
+        {
+          "id": "cocktail_drum_snared_top",
+          "name": "Snare unit on the top head (kit-like backbeat)",
+          "descriptors": [
+            "snappy",
+            "crisp",
+            "backbeat",
+            "articulate"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "rhythm-section-pocket"
+          ],
+          "canonical_tags": [
+            "rockabilly",
+            "revival"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cocktail_drum_bottom_head",
+      "name": "Bottom-head treatment",
+      "variants": [
+        {
+          "id": "cocktail_drum_reso_closed",
+          "default": true,
+          "name": "Closed resonant bottom head (fuller, tubbier kick)",
+          "descriptors": [
+            "full",
+            "resonant",
+            "low-mid-thick"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "cocktail_drum_open_bottom",
+          "name": "Open / removed bottom head (dry, fast decay)",
+          "descriptors": [
+            "dry",
+            "controlled-decay",
+            "focused",
+            "punchy"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "rhythm-section-pocket"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cocktail_drum_era",
+      "name": "Era and playing context",
+      "variants": [
+        {
+          "id": "cocktail_drum_lounge_vintage",
+          "default": true,
+          "name": "Mid-century lounge (mahogany shell, calfskin, brushes)",
+          "descriptors": [
+            "mahogany",
+            "calfskin",
+            "brushes",
+            "low-dynamic-level"
+          ],
+          "match_tokens": [
+            "brushed",
+            "jazz-trained",
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "mid-century",
+            "jazz"
+          ]
+        },
+        {
+          "id": "cocktail_drum_rockabilly_revival",
+          "name": "Rockabilly / psychobilly revival (maple-birch, Mylar, sticks)",
+          "descriptors": [
+            "maple",
+            "birch",
+            "rockabilly",
+            "driving"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "rock-context"
+          ],
+          "canonical_tags": [
+            "rockabilly",
+            "revival",
+            "western-swing"
+          ]
+        },
+        {
+          "id": "cocktail_drum_busker_rig",
+          "name": "Busking / one-man-band rig with clamp-on auxiliary",
+          "descriptors": [
+            "portable",
+            "one-man-band",
+            "compact"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "busking",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "solo",
+            "americana"
+          ]
+        }
+      ]
+    }
+  ]
+}

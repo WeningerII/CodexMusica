@@ -1,0 +1,495 @@
+{
+  "id": "sihu",
+  "name": "Sihu (Mongolian four-string fiddle)",
+  "family": "bowed",
+  "class": "bowed_fiddle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "sihu",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "sihu_size",
+      "name": "Size and tuning",
+      "variants": [
+        {
+          "id": "sihu_size_treble",
+          "default": true,
+          "name": "Treble sihu, D-D-A-A",
+          "descriptors": [
+            "bright",
+            "soloistic",
+            "singing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "high-register",
+            "virtuosic"
+          ],
+          "canonical_tags": [
+            "mongolian",
+            "solo"
+          ]
+        },
+        {
+          "id": "sihu_size_middle",
+          "name": "Middle sihu, G-G-D-D",
+          "descriptors": [
+            "balanced",
+            "warm",
+            "full"
+          ],
+          "match_tokens": [
+            "bowed",
+            "mid-register",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "mongolian",
+            "traditional"
+          ]
+        },
+        {
+          "id": "sihu_size_bass",
+          "name": "Bass sihu (dasihu / holboo sihu), C-C-G-G",
+          "descriptors": [
+            "deep",
+            "dark",
+            "full-bodied"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bass-register",
+            "dark-toned"
+          ],
+          "canonical_tags": [
+            "mongolian",
+            "narrative"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sihu_role",
+      "name": "Repertoire role",
+      "variants": [
+        {
+          "id": "sihu_role_mongol_solo",
+          "default": true,
+          "name": "Mongolian solo and virtuoso repertoire",
+          "descriptors": [
+            "virtuosic",
+            "soloistic",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "solo",
+            "virtuosic"
+          ],
+          "canonical_tags": [
+            "mongolian",
+            "solo"
+          ]
+        },
+        {
+          "id": "sihu_role_ulger",
+          "name": "Ulger and holboo narrative accompaniment",
+          "descriptors": [
+            "narrative",
+            "declamatory",
+            "supporting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "narrative",
+            "song-accompaniment"
+          ],
+          "canonical_tags": [
+            "storytelling",
+            "mongolian"
+          ]
+        },
+        {
+          "id": "sihu_role_quyi",
+          "name": "Han quyi pit (errentai, Jingyun dagu, shadow theatre)",
+          "descriptors": [
+            "ensemble",
+            "operatic",
+            "voice-following"
+          ],
+          "match_tokens": [
+            "bowed",
+            "accompaniment",
+            "chinese-traditional"
+          ],
+          "canonical_tags": [
+            "china",
+            "accompaniment"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sihu_body",
+      "name": "Soundbox and membrane",
+      "variants": [
+        {
+          "id": "sihu_body_wood_python",
+          "default": true,
+          "name": "Hardwood box, python-skin face",
+          "descriptors": [
+            "hardwood",
+            "python-skin",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "wood-body",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "hardwood",
+            "snakeskin"
+          ]
+        },
+        {
+          "id": "sihu_body_bronze",
+          "name": "Bronze box, hexagonal or octagonal",
+          "descriptors": [
+            "bronze",
+            "metallic",
+            "ringing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "metallic",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "bronze"
+          ]
+        },
+        {
+          "id": "sihu_body_hide",
+          "name": "Ox- or sheep-skin face",
+          "descriptors": [
+            "leather",
+            "soft",
+            "muffled"
+          ],
+          "match_tokens": [
+            "bowed",
+            "soft-tone",
+            "mellow-tone"
+          ],
+          "canonical_tags": [
+            "natural-skin",
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sihu_technique",
+      "name": "Left-hand idiom",
+      "variants": [
+        {
+          "id": "sihu_technique_mongol",
+          "default": true,
+          "name": "Second-joint stopping, slides and left-hand pizzicato",
+          "descriptors": [
+            "sliding",
+            "portamento-rich",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented",
+            "glissando"
+          ],
+          "canonical_tags": [
+            "mongolian",
+            "technique"
+          ]
+        },
+        {
+          "id": "sihu_technique_plain",
+          "name": "Plain Han accompaniment fingering",
+          "descriptors": [
+            "restrained",
+            "stable",
+            "blended"
+          ],
+          "match_tokens": [
+            "bowed",
+            "accompaniment",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "china"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sihu_size",
+      "name": "Size and tuning",
+      "variants": [
+        {
+          "id": "sihu_size_treble",
+          "default": true,
+          "name": "Treble sihu, D-D-A-A",
+          "descriptors": [
+            "bright",
+            "soloistic",
+            "singing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "high-register",
+            "virtuosic"
+          ],
+          "canonical_tags": [
+            "mongolian",
+            "solo"
+          ]
+        },
+        {
+          "id": "sihu_size_middle",
+          "name": "Middle sihu, G-G-D-D",
+          "descriptors": [
+            "balanced",
+            "warm",
+            "full"
+          ],
+          "match_tokens": [
+            "bowed",
+            "mid-register",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "mongolian",
+            "traditional"
+          ]
+        },
+        {
+          "id": "sihu_size_bass",
+          "name": "Bass sihu (dasihu / holboo sihu), C-C-G-G",
+          "descriptors": [
+            "deep",
+            "dark",
+            "full-bodied"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bass-register",
+            "dark-toned"
+          ],
+          "canonical_tags": [
+            "mongolian",
+            "narrative"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sihu_role",
+      "name": "Repertoire role",
+      "variants": [
+        {
+          "id": "sihu_role_mongol_solo",
+          "default": true,
+          "name": "Mongolian solo and virtuoso repertoire",
+          "descriptors": [
+            "virtuosic",
+            "soloistic",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "solo",
+            "virtuosic"
+          ],
+          "canonical_tags": [
+            "mongolian",
+            "solo"
+          ]
+        },
+        {
+          "id": "sihu_role_ulger",
+          "name": "Ulger and holboo narrative accompaniment",
+          "descriptors": [
+            "narrative",
+            "declamatory",
+            "supporting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "narrative",
+            "song-accompaniment"
+          ],
+          "canonical_tags": [
+            "storytelling",
+            "mongolian"
+          ]
+        },
+        {
+          "id": "sihu_role_quyi",
+          "name": "Han quyi pit (errentai, Jingyun dagu, shadow theatre)",
+          "descriptors": [
+            "ensemble",
+            "operatic",
+            "voice-following"
+          ],
+          "match_tokens": [
+            "bowed",
+            "accompaniment",
+            "chinese-traditional"
+          ],
+          "canonical_tags": [
+            "china",
+            "accompaniment"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sihu_body",
+      "name": "Soundbox and membrane",
+      "variants": [
+        {
+          "id": "sihu_body_wood_python",
+          "default": true,
+          "name": "Hardwood box, python-skin face",
+          "descriptors": [
+            "hardwood",
+            "python-skin",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "wood-body",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "hardwood",
+            "snakeskin"
+          ]
+        },
+        {
+          "id": "sihu_body_bronze",
+          "name": "Bronze box, hexagonal or octagonal",
+          "descriptors": [
+            "bronze",
+            "metallic",
+            "ringing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "metallic",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "bronze"
+          ]
+        },
+        {
+          "id": "sihu_body_hide",
+          "name": "Ox- or sheep-skin face",
+          "descriptors": [
+            "leather",
+            "soft",
+            "muffled"
+          ],
+          "match_tokens": [
+            "bowed",
+            "soft-tone",
+            "mellow-tone"
+          ],
+          "canonical_tags": [
+            "natural-skin",
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sihu_technique",
+      "name": "Left-hand idiom",
+      "variants": [
+        {
+          "id": "sihu_technique_mongol",
+          "default": true,
+          "name": "Second-joint stopping, slides and left-hand pizzicato",
+          "descriptors": [
+            "sliding",
+            "portamento-rich",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented",
+            "glissando"
+          ],
+          "canonical_tags": [
+            "mongolian",
+            "technique"
+          ]
+        },
+        {
+          "id": "sihu_technique_plain",
+          "name": "Plain Han accompaniment fingering",
+          "descriptors": [
+            "restrained",
+            "stable",
+            "blended"
+          ],
+          "match_tokens": [
+            "bowed",
+            "accompaniment",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "china"
+          ]
+        }
+      ]
+    }
+  ]
+}

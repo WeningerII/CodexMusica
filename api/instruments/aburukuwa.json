@@ -1,0 +1,394 @@
+{
+  "id": "aburukuwa",
+  "name": "Aburukuwa (Asante high-pitched pegged drum)",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 1,
+    "range": -2,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "aburukuwa",
+  "parts": [
+    {
+      "id": "aburukuwa_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "aburukuwa_kete_ostinato",
+          "default": true,
+          "name": "Kete high-register ostinato (soprano voice of the ensemble)",
+          "descriptors": [
+            "ostinato",
+            "locked",
+            "high-pitched",
+            "timekeeping"
+          ],
+          "match_tokens": [
+            "struck",
+            "sticks",
+            "ostinato",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "asante",
+            "kete",
+            "ghana"
+          ]
+        },
+        {
+          "id": "aburukuwa_adowa",
+          "name": "Adowa dance-drumming",
+          "descriptors": [
+            "dance-driving",
+            "interlocking",
+            "festive"
+          ],
+          "match_tokens": [
+            "struck",
+            "sticks",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "akan",
+            "ghana",
+            "dance"
+          ]
+        },
+        {
+          "id": "aburukuwa_funeral_trio",
+          "name": "Funerary / processional trio (kwadum, apentemma, aburukuwa)",
+          "descriptors": [
+            "processional",
+            "solemn",
+            "sparse",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "struck",
+            "sticks",
+            "processional"
+          ],
+          "canonical_tags": [
+            "akan",
+            "processional",
+            "ceremonial"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aburukuwa_stroke",
+      "name": "Beater & stroke",
+      "variants": [
+        {
+          "id": "aburukuwa_nkonta_sticks",
+          "default": true,
+          "name": "Curved nkonta sticks (canonical)",
+          "descriptors": [
+            "cracking",
+            "sharp-attack",
+            "cutting"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-struck",
+            "piercing"
+          ],
+          "canonical_tags": [
+            "akan",
+            "traditional"
+          ]
+        },
+        {
+          "id": "aburukuwa_straight_sticks",
+          "name": "Straight sticks",
+          "descriptors": [
+            "dry",
+            "clipped",
+            "woody"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-struck",
+            "dry-tone"
+          ],
+          "canonical_tags": [
+            "akan"
+          ]
+        },
+        {
+          "id": "aburukuwa_hand_strokes",
+          "name": "Occasional bare-hand strokes",
+          "descriptors": [
+            "muted",
+            "warm",
+            "supporting"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "muted"
+          ],
+          "canonical_tags": [
+            "akan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aburukuwa_head",
+      "name": "Head hide & peg tension",
+      "variants": [
+        {
+          "id": "aburukuwa_duiker_tight",
+          "default": true,
+          "name": "Thin duiker / antelope hide, pegs driven hard",
+          "descriptors": [
+            "piercing",
+            "cracking",
+            "tight",
+            "bright"
+          ],
+          "match_tokens": [
+            "struck",
+            "hide-head",
+            "piercing"
+          ],
+          "canonical_tags": [
+            "akan",
+            "traditional"
+          ]
+        },
+        {
+          "id": "aburukuwa_goat_hide",
+          "name": "Goat hide (mid-weight)",
+          "descriptors": [
+            "crisp",
+            "snappy",
+            "regional"
+          ],
+          "match_tokens": [
+            "struck",
+            "hide-head",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "ghana"
+          ]
+        },
+        {
+          "id": "aburukuwa_cow_slack",
+          "name": "Cow hide, slacker pegs (heat-tuned)",
+          "descriptors": [
+            "woody",
+            "dark",
+            "warm"
+          ],
+          "match_tokens": [
+            "struck",
+            "hide-head",
+            "woody"
+          ],
+          "canonical_tags": [
+            "ghana"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "aburukuwa_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "aburukuwa_kete_ostinato",
+          "default": true,
+          "name": "Kete high-register ostinato (soprano voice of the ensemble)",
+          "descriptors": [
+            "ostinato",
+            "locked",
+            "high-pitched",
+            "timekeeping"
+          ],
+          "match_tokens": [
+            "struck",
+            "sticks",
+            "ostinato",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "asante",
+            "kete",
+            "ghana"
+          ]
+        },
+        {
+          "id": "aburukuwa_adowa",
+          "name": "Adowa dance-drumming",
+          "descriptors": [
+            "dance-driving",
+            "interlocking",
+            "festive"
+          ],
+          "match_tokens": [
+            "struck",
+            "sticks",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "akan",
+            "ghana",
+            "dance"
+          ]
+        },
+        {
+          "id": "aburukuwa_funeral_trio",
+          "name": "Funerary / processional trio (kwadum, apentemma, aburukuwa)",
+          "descriptors": [
+            "processional",
+            "solemn",
+            "sparse",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "struck",
+            "sticks",
+            "processional"
+          ],
+          "canonical_tags": [
+            "akan",
+            "processional",
+            "ceremonial"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aburukuwa_stroke",
+      "name": "Beater & stroke",
+      "variants": [
+        {
+          "id": "aburukuwa_nkonta_sticks",
+          "default": true,
+          "name": "Curved nkonta sticks (canonical)",
+          "descriptors": [
+            "cracking",
+            "sharp-attack",
+            "cutting"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-struck",
+            "piercing"
+          ],
+          "canonical_tags": [
+            "akan",
+            "traditional"
+          ]
+        },
+        {
+          "id": "aburukuwa_straight_sticks",
+          "name": "Straight sticks",
+          "descriptors": [
+            "dry",
+            "clipped",
+            "woody"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-struck",
+            "dry-tone"
+          ],
+          "canonical_tags": [
+            "akan"
+          ]
+        },
+        {
+          "id": "aburukuwa_hand_strokes",
+          "name": "Occasional bare-hand strokes",
+          "descriptors": [
+            "muted",
+            "warm",
+            "supporting"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "muted"
+          ],
+          "canonical_tags": [
+            "akan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aburukuwa_head",
+      "name": "Head hide & peg tension",
+      "variants": [
+        {
+          "id": "aburukuwa_duiker_tight",
+          "default": true,
+          "name": "Thin duiker / antelope hide, pegs driven hard",
+          "descriptors": [
+            "piercing",
+            "cracking",
+            "tight",
+            "bright"
+          ],
+          "match_tokens": [
+            "struck",
+            "hide-head",
+            "piercing"
+          ],
+          "canonical_tags": [
+            "akan",
+            "traditional"
+          ]
+        },
+        {
+          "id": "aburukuwa_goat_hide",
+          "name": "Goat hide (mid-weight)",
+          "descriptors": [
+            "crisp",
+            "snappy",
+            "regional"
+          ],
+          "match_tokens": [
+            "struck",
+            "hide-head",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "ghana"
+          ]
+        },
+        {
+          "id": "aburukuwa_cow_slack",
+          "name": "Cow hide, slacker pegs (heat-tuned)",
+          "descriptors": [
+            "woody",
+            "dark",
+            "warm"
+          ],
+          "match_tokens": [
+            "struck",
+            "hide-head",
+            "woody"
+          ],
+          "canonical_tags": [
+            "ghana"
+          ]
+        }
+      ]
+    }
+  ]
+}

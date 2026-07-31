@@ -1,0 +1,492 @@
+{
+  "id": "jazzophone",
+  "name": "Jazzophone (saxophone-shaped double-bell B-flat trumpet)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "jazzophone",
+  "parts": [
+    {
+      "id": "jazzophone_bell_routing",
+      "name": "Bell routing",
+      "variants": [
+        {
+          "id": "jazzophone_open_bell",
+          "default": true,
+          "name": "Open bell (fourth valve up - bright, direct trumpet tone)",
+          "descriptors": [
+            "bright",
+            "direct",
+            "cutting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "brass",
+            "lead"
+          ],
+          "canonical_tags": [
+            "jazz-age-novelty",
+            "1920s"
+          ]
+        },
+        {
+          "id": "jazzophone_muted_bell",
+          "name": "Muted bell (inverted fourth valve diverts the air into the built-in Harmon-type mute)",
+          "descriptors": [
+            "metallic",
+            "nasal",
+            "muffled"
+          ],
+          "match_tokens": [
+            "muted",
+            "wind-driven",
+            "brass"
+          ],
+          "canonical_tags": [
+            "muted",
+            "jazz-age-novelty"
+          ]
+        },
+        {
+          "id": "jazzophone_bell_switching",
+          "name": "Mid-phrase bell switching (fourth valve flipped as an articulation)",
+          "descriptors": [
+            "alternating",
+            "contrasting",
+            "theatrical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "brass",
+            "effect-color"
+          ],
+          "canonical_tags": [
+            "jazz-age-novelty"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jazzophone_wah_technique",
+      "name": "Mute-trigger technique",
+      "variants": [
+        {
+          "id": "jazzophone_rhythmic_wah",
+          "default": true,
+          "name": "Rhythmic trigger wah (plunger-style chorus with both hands free)",
+          "descriptors": [
+            "wah-modulated",
+            "rhythmic",
+            "speech-mimicking"
+          ],
+          "match_tokens": [
+            "muted",
+            "wind-driven",
+            "jazz-trained"
+          ],
+          "canonical_tags": [
+            "early-jazz",
+            "jazz-age-novelty"
+          ]
+        },
+        {
+          "id": "jazzophone_static_closed",
+          "name": "Static closed mute (stem shut throughout - cool, distant tone)",
+          "descriptors": [
+            "muted",
+            "distant",
+            "cool"
+          ],
+          "match_tokens": [
+            "muted",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "muted",
+            "jazz"
+          ]
+        },
+        {
+          "id": "jazzophone_slow_open",
+          "name": "Slow expressive opening of the stem across a held note",
+          "descriptors": [
+            "expressive",
+            "veiled",
+            "swelling"
+          ],
+          "match_tokens": [
+            "muted",
+            "sustained-tone",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "jazzophone_growl_chorus",
+          "name": "Growl chorus (Ellington-era plunger idiom over the muted bell)",
+          "descriptors": [
+            "growling",
+            "raspy",
+            "edgy"
+          ],
+          "match_tokens": [
+            "muted",
+            "wind-driven",
+            "jazz-trained"
+          ],
+          "canonical_tags": [
+            "early-jazz",
+            "pre-war-jazz"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jazzophone_finish",
+      "name": "Finish",
+      "variants": [
+        {
+          "id": "jazzophone_silver_plated",
+          "default": true,
+          "name": "Silver-plated brass (most common trade finish)",
+          "descriptors": [
+            "silver",
+            "bright-edged",
+            "commercial"
+          ],
+          "match_tokens": [
+            "brass",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "vintage",
+            "1920s"
+          ]
+        },
+        {
+          "id": "jazzophone_gold_plated",
+          "name": "Gold-plated presentation model",
+          "descriptors": [
+            "golden",
+            "warm",
+            "rare"
+          ],
+          "match_tokens": [
+            "brass",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "jazzophone_lacquered_brass",
+          "name": "Lacquered or bare brass (plainest grade)",
+          "descriptors": [
+            "lacquered",
+            "brass",
+            "plain"
+          ],
+          "match_tokens": [
+            "brass",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jazzophone_maker_lineage",
+      "name": "Maker / school",
+      "variants": [
+        {
+          "id": "jazzophone_graslitz",
+          "default": true,
+          "name": "Graslitz / Kraslice build (Adolf Meinlschmidt, Johann Michl & Sohn - D.R.G.M. marked)",
+          "descriptors": [
+            "commercial",
+            "vintage",
+            "bright"
+          ],
+          "match_tokens": [
+            "brass",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "germanic",
+            "austrian-bohemian",
+            "1920s"
+          ]
+        },
+        {
+          "id": "jazzophone_markneukirchen",
+          "name": "Markneukirchen build (Heinrich Moritz Schuster, listed at RM 150 in a 1930 catalog)",
+          "descriptors": [
+            "commercial",
+            "vintage",
+            "even"
+          ],
+          "match_tokens": [
+            "brass",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "germanic",
+            "1920s"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "jazzophone_bell_routing",
+      "name": "Bell routing",
+      "variants": [
+        {
+          "id": "jazzophone_open_bell",
+          "default": true,
+          "name": "Open bell (fourth valve up - bright, direct trumpet tone)",
+          "descriptors": [
+            "bright",
+            "direct",
+            "cutting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "brass",
+            "lead"
+          ],
+          "canonical_tags": [
+            "jazz-age-novelty",
+            "1920s"
+          ]
+        },
+        {
+          "id": "jazzophone_muted_bell",
+          "name": "Muted bell (inverted fourth valve diverts the air into the built-in Harmon-type mute)",
+          "descriptors": [
+            "metallic",
+            "nasal",
+            "muffled"
+          ],
+          "match_tokens": [
+            "muted",
+            "wind-driven",
+            "brass"
+          ],
+          "canonical_tags": [
+            "muted",
+            "jazz-age-novelty"
+          ]
+        },
+        {
+          "id": "jazzophone_bell_switching",
+          "name": "Mid-phrase bell switching (fourth valve flipped as an articulation)",
+          "descriptors": [
+            "alternating",
+            "contrasting",
+            "theatrical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "brass",
+            "effect-color"
+          ],
+          "canonical_tags": [
+            "jazz-age-novelty"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jazzophone_wah_technique",
+      "name": "Mute-trigger technique",
+      "variants": [
+        {
+          "id": "jazzophone_rhythmic_wah",
+          "default": true,
+          "name": "Rhythmic trigger wah (plunger-style chorus with both hands free)",
+          "descriptors": [
+            "wah-modulated",
+            "rhythmic",
+            "speech-mimicking"
+          ],
+          "match_tokens": [
+            "muted",
+            "wind-driven",
+            "jazz-trained"
+          ],
+          "canonical_tags": [
+            "early-jazz",
+            "jazz-age-novelty"
+          ]
+        },
+        {
+          "id": "jazzophone_static_closed",
+          "name": "Static closed mute (stem shut throughout - cool, distant tone)",
+          "descriptors": [
+            "muted",
+            "distant",
+            "cool"
+          ],
+          "match_tokens": [
+            "muted",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "muted",
+            "jazz"
+          ]
+        },
+        {
+          "id": "jazzophone_slow_open",
+          "name": "Slow expressive opening of the stem across a held note",
+          "descriptors": [
+            "expressive",
+            "veiled",
+            "swelling"
+          ],
+          "match_tokens": [
+            "muted",
+            "sustained-tone",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "jazzophone_growl_chorus",
+          "name": "Growl chorus (Ellington-era plunger idiom over the muted bell)",
+          "descriptors": [
+            "growling",
+            "raspy",
+            "edgy"
+          ],
+          "match_tokens": [
+            "muted",
+            "wind-driven",
+            "jazz-trained"
+          ],
+          "canonical_tags": [
+            "early-jazz",
+            "pre-war-jazz"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jazzophone_finish",
+      "name": "Finish",
+      "variants": [
+        {
+          "id": "jazzophone_silver_plated",
+          "default": true,
+          "name": "Silver-plated brass (most common trade finish)",
+          "descriptors": [
+            "silver",
+            "bright-edged",
+            "commercial"
+          ],
+          "match_tokens": [
+            "brass",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "vintage",
+            "1920s"
+          ]
+        },
+        {
+          "id": "jazzophone_gold_plated",
+          "name": "Gold-plated presentation model",
+          "descriptors": [
+            "golden",
+            "warm",
+            "rare"
+          ],
+          "match_tokens": [
+            "brass",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "jazzophone_lacquered_brass",
+          "name": "Lacquered or bare brass (plainest grade)",
+          "descriptors": [
+            "lacquered",
+            "brass",
+            "plain"
+          ],
+          "match_tokens": [
+            "brass",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jazzophone_maker_lineage",
+      "name": "Maker / school",
+      "variants": [
+        {
+          "id": "jazzophone_graslitz",
+          "default": true,
+          "name": "Graslitz / Kraslice build (Adolf Meinlschmidt, Johann Michl & Sohn - D.R.G.M. marked)",
+          "descriptors": [
+            "commercial",
+            "vintage",
+            "bright"
+          ],
+          "match_tokens": [
+            "brass",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "germanic",
+            "austrian-bohemian",
+            "1920s"
+          ]
+        },
+        {
+          "id": "jazzophone_markneukirchen",
+          "name": "Markneukirchen build (Heinrich Moritz Schuster, listed at RM 150 in a 1930 catalog)",
+          "descriptors": [
+            "commercial",
+            "vintage",
+            "even"
+          ],
+          "match_tokens": [
+            "brass",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "germanic",
+            "1920s"
+          ]
+        }
+      ]
+    }
+  ]
+}

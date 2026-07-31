@@ -1,0 +1,430 @@
+{
+  "id": "octavin",
+  "name": "Octavin (German doubled-back conical single reed)",
+  "family": "wind",
+  "class": "single_reed_conical",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "octavin",
+  "parts": [
+    {
+      "id": "octavin_pitch",
+      "name": "Pitch",
+      "variants": [
+        {
+          "id": "octavin_bb",
+          "default": true,
+          "name": "B♭ octavin (most common surviving)",
+          "descriptors": [
+            "standard",
+            "nasal",
+            "reedy"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "conical-bore"
+          ],
+          "canonical_tags": [
+            "germanic",
+            "historical"
+          ]
+        },
+        {
+          "id": "octavin_c",
+          "name": "C octavin",
+          "descriptors": [
+            "bright",
+            "versatile"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "conical-bore"
+          ],
+          "canonical_tags": [
+            "germanic",
+            "historical"
+          ]
+        },
+        {
+          "id": "octavin_f",
+          "name": "F octavin (higher)",
+          "descriptors": [
+            "high-register",
+            "piercing",
+            "thin"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "high-pitched",
+            "conical-bore"
+          ],
+          "canonical_tags": [
+            "germanic",
+            "historical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "octavin_voicing",
+      "name": "Voicing",
+      "variants": [
+        {
+          "id": "octavin_nasal_period",
+          "default": true,
+          "name": "Nasal period tone (as contemporaries described it)",
+          "descriptors": [
+            "nasal",
+            "reedy",
+            "archaic"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical",
+            "germanic"
+          ]
+        },
+        {
+          "id": "octavin_smoothed_soprano",
+          "name": "Smoothed soprano-saxophone-like tone",
+          "descriptors": [
+            "mellow",
+            "round",
+            "warm"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "conical-bore"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "octavin_context",
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "octavin_salon",
+          "default": true,
+          "name": "Salon-ensemble melody voice",
+          "descriptors": [
+            "salon",
+            "parlor",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "melodic-lead",
+            "ensemble",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "salon",
+            "historical"
+          ]
+        },
+        {
+          "id": "octavin_military_band",
+          "name": "Military-band inner voice",
+          "descriptors": [
+            "martial",
+            "outdoor",
+            "projecting"
+          ],
+          "match_tokens": [
+            "ensemble-blend",
+            "loud-projection",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "processional",
+            "germanic"
+          ]
+        },
+        {
+          "id": "octavin_museum_revival",
+          "name": "Museum-revival solo curiosity",
+          "descriptors": [
+            "rare",
+            "historical",
+            "featured"
+          ],
+          "match_tokens": [
+            "soloistic",
+            "period-performance",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "historical",
+            "contemporary"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "octavin_build",
+      "name": "Body and keywork",
+      "variants": [
+        {
+          "id": "octavin_rosewood_nickel",
+          "default": true,
+          "name": "Rosewood / palisander body, nickel keywork",
+          "descriptors": [
+            "rosewood",
+            "dense",
+            "warm"
+          ],
+          "match_tokens": [
+            "wooden",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "rosewood",
+            "historical"
+          ]
+        },
+        {
+          "id": "octavin_blackwood_brass",
+          "name": "Blackwood-look body, brass keywork",
+          "descriptors": [
+            "grenadilla",
+            "dark",
+            "focused"
+          ],
+          "match_tokens": [
+            "wooden",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "hardwood",
+            "brass"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "octavin_pitch",
+      "name": "Pitch",
+      "variants": [
+        {
+          "id": "octavin_bb",
+          "default": true,
+          "name": "B♭ octavin (most common surviving)",
+          "descriptors": [
+            "standard",
+            "nasal",
+            "reedy"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "conical-bore"
+          ],
+          "canonical_tags": [
+            "germanic",
+            "historical"
+          ]
+        },
+        {
+          "id": "octavin_c",
+          "name": "C octavin",
+          "descriptors": [
+            "bright",
+            "versatile"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "conical-bore"
+          ],
+          "canonical_tags": [
+            "germanic",
+            "historical"
+          ]
+        },
+        {
+          "id": "octavin_f",
+          "name": "F octavin (higher)",
+          "descriptors": [
+            "high-register",
+            "piercing",
+            "thin"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "high-pitched",
+            "conical-bore"
+          ],
+          "canonical_tags": [
+            "germanic",
+            "historical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "octavin_voicing",
+      "name": "Voicing",
+      "variants": [
+        {
+          "id": "octavin_nasal_period",
+          "default": true,
+          "name": "Nasal period tone (as contemporaries described it)",
+          "descriptors": [
+            "nasal",
+            "reedy",
+            "archaic"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical",
+            "germanic"
+          ]
+        },
+        {
+          "id": "octavin_smoothed_soprano",
+          "name": "Smoothed soprano-saxophone-like tone",
+          "descriptors": [
+            "mellow",
+            "round",
+            "warm"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "conical-bore"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "octavin_context",
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "octavin_salon",
+          "default": true,
+          "name": "Salon-ensemble melody voice",
+          "descriptors": [
+            "salon",
+            "parlor",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "melodic-lead",
+            "ensemble",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "salon",
+            "historical"
+          ]
+        },
+        {
+          "id": "octavin_military_band",
+          "name": "Military-band inner voice",
+          "descriptors": [
+            "martial",
+            "outdoor",
+            "projecting"
+          ],
+          "match_tokens": [
+            "ensemble-blend",
+            "loud-projection",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "processional",
+            "germanic"
+          ]
+        },
+        {
+          "id": "octavin_museum_revival",
+          "name": "Museum-revival solo curiosity",
+          "descriptors": [
+            "rare",
+            "historical",
+            "featured"
+          ],
+          "match_tokens": [
+            "soloistic",
+            "period-performance",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "historical",
+            "contemporary"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "octavin_build",
+      "name": "Body and keywork",
+      "variants": [
+        {
+          "id": "octavin_rosewood_nickel",
+          "default": true,
+          "name": "Rosewood / palisander body, nickel keywork",
+          "descriptors": [
+            "rosewood",
+            "dense",
+            "warm"
+          ],
+          "match_tokens": [
+            "wooden",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "rosewood",
+            "historical"
+          ]
+        },
+        {
+          "id": "octavin_blackwood_brass",
+          "name": "Blackwood-look body, brass keywork",
+          "descriptors": [
+            "grenadilla",
+            "dark",
+            "focused"
+          ],
+          "match_tokens": [
+            "wooden",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "hardwood",
+            "brass"
+          ]
+        }
+      ]
+    }
+  ]
+}

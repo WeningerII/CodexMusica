@@ -1,0 +1,464 @@
+{
+  "id": "koudi",
+  "name": "Koudi (Chinese miniature centre-blown transverse flute)",
+  "family": "wind",
+  "class": "transverse_flute",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 2,
+    "register": 2,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "koudi",
+  "parts": [
+    {
+      "id": "koudi_size",
+      "name": "Size / register class",
+      "variants": [
+        {
+          "id": "koudi_size_gaoyin",
+          "default": true,
+          "name": "Gaoyin koudi (5-6 cm soprano, thumb-stopped open ends only)",
+          "descriptors": [
+            "tiny",
+            "shrill",
+            "high-pitched"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "very-high"
+          ],
+          "canonical_tags": [
+            "china",
+            "east-asia"
+          ]
+        },
+        {
+          "id": "koudi_size_zhongyin",
+          "name": "Zhongyin koudi (8-9 cm alto with 2-4 added front holes)",
+          "descriptors": [
+            "mellow",
+            "melodic",
+            "balanced"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "high-whistle"
+          ],
+          "canonical_tags": [
+            "china",
+            "east-asia"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "koudi_holes",
+      "name": "Hole layout / pitch system",
+      "variants": [
+        {
+          "id": "koudi_holes_two_glide",
+          "default": true,
+          "name": "Original two-hole gliding design (Yu Xunfa, 1971)",
+          "descriptors": [
+            "sliding",
+            "glissando",
+            "virtuosic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "microtonal-bend"
+          ],
+          "canonical_tags": [
+            "china",
+            "modern"
+          ]
+        },
+        {
+          "id": "koudi_holes_five",
+          "name": "Five-hole professional model",
+          "descriptors": [
+            "extended",
+            "stable",
+            "concert"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "china",
+            "concert"
+          ]
+        },
+        {
+          "id": "koudi_holes_seven",
+          "name": "Seven-hole semi-chromatic model",
+          "descriptors": [
+            "near-chromatic",
+            "modern",
+            "versatile"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "chromatic"
+          ],
+          "canonical_tags": [
+            "china",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "koudi_idiom",
+      "name": "Playing idiom / repertoire",
+      "variants": [
+        {
+          "id": "koudi_idiom_birdsong",
+          "default": true,
+          "name": "Birdsong / skylark mimicry showpiece (Ciocarlia lineage)",
+          "descriptors": [
+            "imitative",
+            "birdsong",
+            "virtuosic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "glissando",
+            "solo"
+          ],
+          "canonical_tags": [
+            "china",
+            "solo"
+          ]
+        },
+        {
+          "id": "koudi_idiom_orchestral",
+          "name": "Upper-register colour line in the Chinese orchestra",
+          "descriptors": [
+            "treble-extended",
+            "blended",
+            "concert"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ensemble",
+            "treble-extended"
+          ],
+          "canonical_tags": [
+            "china",
+            "orchestral"
+          ]
+        },
+        {
+          "id": "koudi_idiom_encore",
+          "name": "Virtuoso solo encore / cadenza",
+          "descriptors": [
+            "virtuoso",
+            "soloistic",
+            "expressive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "solo",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "china",
+            "solo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "koudi_material",
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "koudi_material_bamboo",
+          "default": true,
+          "name": "Bamboo tube, both ends open (canonical)",
+          "descriptors": [
+            "bamboo",
+            "warm",
+            "traditional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "china"
+          ]
+        },
+        {
+          "id": "koudi_material_hardwood",
+          "name": "Turned hardwood (denser, more focused)",
+          "descriptors": [
+            "hardwood",
+            "focused",
+            "dense"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "china",
+            "hardwood"
+          ]
+        },
+        {
+          "id": "koudi_material_pvc",
+          "name": "PVC / resin (durable modern)",
+          "descriptors": [
+            "pvc",
+            "durable",
+            "modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "koudi_size",
+      "name": "Size / register class",
+      "variants": [
+        {
+          "id": "koudi_size_gaoyin",
+          "default": true,
+          "name": "Gaoyin koudi (5-6 cm soprano, thumb-stopped open ends only)",
+          "descriptors": [
+            "tiny",
+            "shrill",
+            "high-pitched"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "very-high"
+          ],
+          "canonical_tags": [
+            "china",
+            "east-asia"
+          ]
+        },
+        {
+          "id": "koudi_size_zhongyin",
+          "name": "Zhongyin koudi (8-9 cm alto with 2-4 added front holes)",
+          "descriptors": [
+            "mellow",
+            "melodic",
+            "balanced"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "high-whistle"
+          ],
+          "canonical_tags": [
+            "china",
+            "east-asia"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "koudi_holes",
+      "name": "Hole layout / pitch system",
+      "variants": [
+        {
+          "id": "koudi_holes_two_glide",
+          "default": true,
+          "name": "Original two-hole gliding design (Yu Xunfa, 1971)",
+          "descriptors": [
+            "sliding",
+            "glissando",
+            "virtuosic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "microtonal-bend"
+          ],
+          "canonical_tags": [
+            "china",
+            "modern"
+          ]
+        },
+        {
+          "id": "koudi_holes_five",
+          "name": "Five-hole professional model",
+          "descriptors": [
+            "extended",
+            "stable",
+            "concert"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "china",
+            "concert"
+          ]
+        },
+        {
+          "id": "koudi_holes_seven",
+          "name": "Seven-hole semi-chromatic model",
+          "descriptors": [
+            "near-chromatic",
+            "modern",
+            "versatile"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "chromatic"
+          ],
+          "canonical_tags": [
+            "china",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "koudi_idiom",
+      "name": "Playing idiom / repertoire",
+      "variants": [
+        {
+          "id": "koudi_idiom_birdsong",
+          "default": true,
+          "name": "Birdsong / skylark mimicry showpiece (Ciocarlia lineage)",
+          "descriptors": [
+            "imitative",
+            "birdsong",
+            "virtuosic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "glissando",
+            "solo"
+          ],
+          "canonical_tags": [
+            "china",
+            "solo"
+          ]
+        },
+        {
+          "id": "koudi_idiom_orchestral",
+          "name": "Upper-register colour line in the Chinese orchestra",
+          "descriptors": [
+            "treble-extended",
+            "blended",
+            "concert"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ensemble",
+            "treble-extended"
+          ],
+          "canonical_tags": [
+            "china",
+            "orchestral"
+          ]
+        },
+        {
+          "id": "koudi_idiom_encore",
+          "name": "Virtuoso solo encore / cadenza",
+          "descriptors": [
+            "virtuoso",
+            "soloistic",
+            "expressive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "solo",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "china",
+            "solo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "koudi_material",
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "koudi_material_bamboo",
+          "default": true,
+          "name": "Bamboo tube, both ends open (canonical)",
+          "descriptors": [
+            "bamboo",
+            "warm",
+            "traditional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "china"
+          ]
+        },
+        {
+          "id": "koudi_material_hardwood",
+          "name": "Turned hardwood (denser, more focused)",
+          "descriptors": [
+            "hardwood",
+            "focused",
+            "dense"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "china",
+            "hardwood"
+          ]
+        },
+        {
+          "id": "koudi_material_pvc",
+          "name": "PVC / resin (durable modern)",
+          "descriptors": [
+            "pvc",
+            "durable",
+            "modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

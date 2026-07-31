@@ -1,0 +1,559 @@
+{
+  "id": "division_viol",
+  "name": "Division viol (English bass viol for divisions on a ground)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "division viol",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "division_viol_size",
+      "name": "Body size / string length",
+      "variants": [
+        {
+          "id": "division_viol_size_division",
+          "default": true,
+          "name": "Division proportion (~76 cm string, Simpson's 30-inch)",
+          "descriptors": [
+            "agile",
+            "clear",
+            "soloistic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period"
+          ]
+        },
+        {
+          "id": "division_viol_size_consort_bass",
+          "name": "Consort-bass proportion (~78-80 cm string)",
+          "descriptors": [
+            "deep-bodied",
+            "foundational",
+            "sonorous"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "consort",
+            "period"
+          ]
+        },
+        {
+          "id": "division_viol_size_lyra_small",
+          "name": "Lyra proportion (~72 cm string, small and chord-friendly)",
+          "descriptors": [
+            "light",
+            "chordal",
+            "agile"
+          ],
+          "match_tokens": [
+            "bowed",
+            "chordal",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "period"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "division_viol_style",
+      "name": "Division style",
+      "variants": [
+        {
+          "id": "division_viol_style_running",
+          "default": true,
+          "name": "Continuous fast running divisions (Simpson's extempore manner)",
+          "descriptors": [
+            "virtuoso",
+            "improvisatory",
+            "driving"
+          ],
+          "match_tokens": [
+            "bowed",
+            "improvised",
+            "virtuosic"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "solo"
+          ]
+        },
+        {
+          "id": "division_viol_style_descant",
+          "name": "Slow descant / breaking the ground",
+          "descriptors": [
+            "lyrical",
+            "ornate",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque"
+          ]
+        },
+        {
+          "id": "division_viol_style_graded",
+          "name": "Graded set - ground, then descant, then florid divisions",
+          "descriptors": [
+            "narrative",
+            "composed-tradition",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented",
+            "soloistic"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "solo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "division_viol_ground",
+      "name": "Ground and accompaniment",
+      "variants": [
+        {
+          "id": "division_viol_ground_organ_second_viol",
+          "default": true,
+          "name": "Chamber organ with a second bass viol holding the ground",
+          "descriptors": [
+            "sustained",
+            "foundational",
+            "devotional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "chamber"
+          ]
+        },
+        {
+          "id": "division_viol_ground_harpsichord",
+          "name": "Harpsichord continuo alone",
+          "descriptors": [
+            "articulate",
+            "bright",
+            "continuo"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "chamber-fed"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "chamber"
+          ]
+        },
+        {
+          "id": "division_viol_ground_theorbo",
+          "name": "Theorbo continuo",
+          "descriptors": [
+            "warm",
+            "resonant",
+            "plucked-lyricism"
+          ],
+          "match_tokens": [
+            "bowed",
+            "plucked",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "baroque"
+          ]
+        },
+        {
+          "id": "division_viol_ground_unaccompanied",
+          "name": "Unaccompanied - the ground implied in the player's own line",
+          "descriptors": [
+            "spare",
+            "soloistic",
+            "declamatory"
+          ],
+          "match_tokens": [
+            "bowed",
+            "soloistic",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "solo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "division_viol_setup",
+      "name": "Stringing and bridge",
+      "variants": [
+        {
+          "id": "division_viol_setup_plain_gut_round",
+          "default": true,
+          "name": "All plain gut over a rounded bridge (single-line agility)",
+          "descriptors": [
+            "gut",
+            "short-sustain",
+            "low-tension"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "division_viol_setup_silver_wound",
+          "name": "Silver-wound lowest strings under gut trebles",
+          "descriptors": [
+            "silver-wound",
+            "fuller",
+            "deeper"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "historical-gut",
+            "wound-gut"
+          ]
+        },
+        {
+          "id": "division_viol_setup_flat_bridge",
+          "name": "Flatter bridge and lighter gauge (chord-capable, lyra-leaning)",
+          "descriptors": [
+            "light-gauge",
+            "chordal",
+            "agile"
+          ],
+          "match_tokens": [
+            "bowed",
+            "chordal",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "division_viol_size",
+      "name": "Body size / string length",
+      "variants": [
+        {
+          "id": "division_viol_size_division",
+          "default": true,
+          "name": "Division proportion (~76 cm string, Simpson's 30-inch)",
+          "descriptors": [
+            "agile",
+            "clear",
+            "soloistic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period"
+          ]
+        },
+        {
+          "id": "division_viol_size_consort_bass",
+          "name": "Consort-bass proportion (~78-80 cm string)",
+          "descriptors": [
+            "deep-bodied",
+            "foundational",
+            "sonorous"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "consort",
+            "period"
+          ]
+        },
+        {
+          "id": "division_viol_size_lyra_small",
+          "name": "Lyra proportion (~72 cm string, small and chord-friendly)",
+          "descriptors": [
+            "light",
+            "chordal",
+            "agile"
+          ],
+          "match_tokens": [
+            "bowed",
+            "chordal",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "period"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "division_viol_style",
+      "name": "Division style",
+      "variants": [
+        {
+          "id": "division_viol_style_running",
+          "default": true,
+          "name": "Continuous fast running divisions (Simpson's extempore manner)",
+          "descriptors": [
+            "virtuoso",
+            "improvisatory",
+            "driving"
+          ],
+          "match_tokens": [
+            "bowed",
+            "improvised",
+            "virtuosic"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "solo"
+          ]
+        },
+        {
+          "id": "division_viol_style_descant",
+          "name": "Slow descant / breaking the ground",
+          "descriptors": [
+            "lyrical",
+            "ornate",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque"
+          ]
+        },
+        {
+          "id": "division_viol_style_graded",
+          "name": "Graded set - ground, then descant, then florid divisions",
+          "descriptors": [
+            "narrative",
+            "composed-tradition",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented",
+            "soloistic"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "solo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "division_viol_ground",
+      "name": "Ground and accompaniment",
+      "variants": [
+        {
+          "id": "division_viol_ground_organ_second_viol",
+          "default": true,
+          "name": "Chamber organ with a second bass viol holding the ground",
+          "descriptors": [
+            "sustained",
+            "foundational",
+            "devotional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "chamber"
+          ]
+        },
+        {
+          "id": "division_viol_ground_harpsichord",
+          "name": "Harpsichord continuo alone",
+          "descriptors": [
+            "articulate",
+            "bright",
+            "continuo"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "chamber-fed"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "chamber"
+          ]
+        },
+        {
+          "id": "division_viol_ground_theorbo",
+          "name": "Theorbo continuo",
+          "descriptors": [
+            "warm",
+            "resonant",
+            "plucked-lyricism"
+          ],
+          "match_tokens": [
+            "bowed",
+            "plucked",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "baroque"
+          ]
+        },
+        {
+          "id": "division_viol_ground_unaccompanied",
+          "name": "Unaccompanied - the ground implied in the player's own line",
+          "descriptors": [
+            "spare",
+            "soloistic",
+            "declamatory"
+          ],
+          "match_tokens": [
+            "bowed",
+            "soloistic",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "solo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "division_viol_setup",
+      "name": "Stringing and bridge",
+      "variants": [
+        {
+          "id": "division_viol_setup_plain_gut_round",
+          "default": true,
+          "name": "All plain gut over a rounded bridge (single-line agility)",
+          "descriptors": [
+            "gut",
+            "short-sustain",
+            "low-tension"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "division_viol_setup_silver_wound",
+          "name": "Silver-wound lowest strings under gut trebles",
+          "descriptors": [
+            "silver-wound",
+            "fuller",
+            "deeper"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "historical-gut",
+            "wound-gut"
+          ]
+        },
+        {
+          "id": "division_viol_setup_flat_bridge",
+          "name": "Flatter bridge and lighter gauge (chord-capable, lyra-leaning)",
+          "descriptors": [
+            "light-gauge",
+            "chordal",
+            "agile"
+          ],
+          "match_tokens": [
+            "bowed",
+            "chordal",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ]
+}

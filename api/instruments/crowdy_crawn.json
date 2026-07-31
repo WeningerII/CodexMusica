@@ -1,0 +1,380 @@
+{
+  "id": "crowdy_crawn",
+  "name": "Crowdy-crawn (Cornish revival frame drum)",
+  "family": "percussion",
+  "class": "frame_drum",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "crowdy-crawn",
+  "parts": [
+    {
+      "id": "crowdy_crawn_build",
+      "name": "Build / framing",
+      "variants": [
+        {
+          "id": "crowdy_crawn_riddle_hoop",
+          "default": true,
+          "name": "Deep riddle-hoop build (winnowing sieve pressed into service)",
+          "descriptors": [
+            "rustic",
+            "bent-wood-hoop",
+            "low-tension"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "british_isles",
+            "folk"
+          ]
+        },
+        {
+          "id": "crowdy_crawn_revival_shallow",
+          "name": "Shallow revival drum (bodhrán-proportioned workshop build)",
+          "descriptors": [
+            "revival",
+            "wood-framed",
+            "brighter"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "folk-revival",
+            "celtic"
+          ]
+        },
+        {
+          "id": "crowdy_crawn_concert_tuned",
+          "name": "Tuned modern revival build (stage-projected)",
+          "descriptors": [
+            "revivalist",
+            "concert-projected",
+            "stage"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "modern",
+            "revival"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "crowdy_crawn_skin",
+      "name": "Skin material",
+      "variants": [
+        {
+          "id": "crowdy_crawn_sheepskin",
+          "default": true,
+          "name": "Sheep-skin head (the historical riddle head — slack, low, dull)",
+          "descriptors": [
+            "hide",
+            "low-tension",
+            "dull"
+          ],
+          "match_tokens": [
+            "struck",
+            "hide-head",
+            "frame-drum"
+          ],
+          "canonical_tags": [
+            "natural-skin",
+            "traditional"
+          ]
+        },
+        {
+          "id": "crowdy_crawn_goatskin",
+          "name": "Goatskin head (revival practice — tighter and brighter)",
+          "descriptors": [
+            "goatskin-head",
+            "tighter-skin",
+            "brighter"
+          ],
+          "match_tokens": [
+            "struck",
+            "goatskin",
+            "frame-drum"
+          ],
+          "canonical_tags": [
+            "natural-skin",
+            "goatskin"
+          ]
+        },
+        {
+          "id": "crowdy_crawn_synthetic",
+          "name": "Synthetic head (modern weather-stable)",
+          "descriptors": [
+            "synthetic-heads",
+            "weatherproof",
+            "consistent"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum"
+          ],
+          "canonical_tags": [
+            "synthetic",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "crowdy_crawn_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "crowdy_crawn_bare_hand",
+          "default": true,
+          "name": "Bare hand, rear hand behind the skin bending pitch",
+          "descriptors": [
+            "pitch-bending",
+            "expressive",
+            "bent-pitch"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "frame-drum"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "crowdy_crawn_tipper",
+          "name": "Double-ended tipper (beater)",
+          "descriptors": [
+            "driving",
+            "sharp-attack",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "struck",
+            "beater-struck",
+            "frame-drum"
+          ],
+          "canonical_tags": [
+            "celtic"
+          ]
+        },
+        {
+          "id": "crowdy_crawn_knuckle_palm",
+          "name": "Knuckle-and-palm rap (loose dance pulse)",
+          "descriptors": [
+            "dance-driving",
+            "steady-pulse",
+            "communal"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "dance-pulse"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "crowdy_crawn_build",
+      "name": "Build / framing",
+      "variants": [
+        {
+          "id": "crowdy_crawn_riddle_hoop",
+          "default": true,
+          "name": "Deep riddle-hoop build (winnowing sieve pressed into service)",
+          "descriptors": [
+            "rustic",
+            "bent-wood-hoop",
+            "low-tension"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "british_isles",
+            "folk"
+          ]
+        },
+        {
+          "id": "crowdy_crawn_revival_shallow",
+          "name": "Shallow revival drum (bodhrán-proportioned workshop build)",
+          "descriptors": [
+            "revival",
+            "wood-framed",
+            "brighter"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "folk-revival",
+            "celtic"
+          ]
+        },
+        {
+          "id": "crowdy_crawn_concert_tuned",
+          "name": "Tuned modern revival build (stage-projected)",
+          "descriptors": [
+            "revivalist",
+            "concert-projected",
+            "stage"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "modern",
+            "revival"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "crowdy_crawn_skin",
+      "name": "Skin material",
+      "variants": [
+        {
+          "id": "crowdy_crawn_sheepskin",
+          "default": true,
+          "name": "Sheep-skin head (the historical riddle head — slack, low, dull)",
+          "descriptors": [
+            "hide",
+            "low-tension",
+            "dull"
+          ],
+          "match_tokens": [
+            "struck",
+            "hide-head",
+            "frame-drum"
+          ],
+          "canonical_tags": [
+            "natural-skin",
+            "traditional"
+          ]
+        },
+        {
+          "id": "crowdy_crawn_goatskin",
+          "name": "Goatskin head (revival practice — tighter and brighter)",
+          "descriptors": [
+            "goatskin-head",
+            "tighter-skin",
+            "brighter"
+          ],
+          "match_tokens": [
+            "struck",
+            "goatskin",
+            "frame-drum"
+          ],
+          "canonical_tags": [
+            "natural-skin",
+            "goatskin"
+          ]
+        },
+        {
+          "id": "crowdy_crawn_synthetic",
+          "name": "Synthetic head (modern weather-stable)",
+          "descriptors": [
+            "synthetic-heads",
+            "weatherproof",
+            "consistent"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum"
+          ],
+          "canonical_tags": [
+            "synthetic",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "crowdy_crawn_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "crowdy_crawn_bare_hand",
+          "default": true,
+          "name": "Bare hand, rear hand behind the skin bending pitch",
+          "descriptors": [
+            "pitch-bending",
+            "expressive",
+            "bent-pitch"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "frame-drum"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "crowdy_crawn_tipper",
+          "name": "Double-ended tipper (beater)",
+          "descriptors": [
+            "driving",
+            "sharp-attack",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "struck",
+            "beater-struck",
+            "frame-drum"
+          ],
+          "canonical_tags": [
+            "celtic"
+          ]
+        },
+        {
+          "id": "crowdy_crawn_knuckle_palm",
+          "name": "Knuckle-and-palm rap (loose dance pulse)",
+          "descriptors": [
+            "dance-driving",
+            "steady-pulse",
+            "communal"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "dance-pulse"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        }
+      ]
+    }
+  ]
+}

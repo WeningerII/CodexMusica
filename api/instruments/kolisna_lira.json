@@ -1,0 +1,429 @@
+{
+  "id": "kolisna_lira",
+  "name": "Kolisna lira (Ukrainian lirnyk wheel lyre)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "kolisna lira",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "kolisna_lira_strings",
+      "name": "String layout",
+      "variants": [
+        {
+          "id": "kolisna_lira_three_string",
+          "default": true,
+          "name": "Three strings - keybox melody over bas and pidbasok drones (canonical)",
+          "descriptors": [
+            "traditional",
+            "droning",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "ukrainian",
+            "archaic"
+          ]
+        },
+        {
+          "id": "kolisna_lira_extended",
+          "name": "Extended four-to-six string layout",
+          "descriptors": [
+            "extended",
+            "full",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "ukrainian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kolisna_lira_repertoire",
+      "name": "Repertoire mode",
+      "variants": [
+        {
+          "id": "kolisna_lira_psalmy_kanty",
+          "default": true,
+          "name": "Psalmy and kanty - the devotional core",
+          "descriptors": [
+            "devotional",
+            "sacred",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "devotional",
+            "song-accompaniment",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "devotional",
+            "ukrainian"
+          ]
+        },
+        {
+          "id": "kolisna_lira_duma",
+          "name": "Duma epic declamation",
+          "descriptors": [
+            "epic",
+            "declamatory",
+            "oral-history"
+          ],
+          "match_tokens": [
+            "bowed",
+            "declaimed",
+            "epic",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "kobzar",
+            "epic"
+          ]
+        },
+        {
+          "id": "kolisna_lira_fair_dance",
+          "name": "Fair and village dance tunes, satirical songs",
+          "descriptors": [
+            "dance-driving",
+            "festive",
+            "communal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "dance",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kolisna_lira_frame",
+      "name": "Performance frame (tsekh guild practice)",
+      "variants": [
+        {
+          "id": "kolisna_lira_solo_lirnyk",
+          "default": true,
+          "name": "Solo blind lirnyk, self-accompanied",
+          "descriptors": [
+            "song-accompaniment",
+            "intimate",
+            "narrative"
+          ],
+          "match_tokens": [
+            "bowed",
+            "self-accompanying",
+            "song-accompaniment"
+          ],
+          "canonical_tags": [
+            "self-accompanied",
+            "ukrainian"
+          ]
+        },
+        {
+          "id": "kolisna_lira_paired_kobzar",
+          "name": "Paired with a kobzar / bandurist as guild practice allowed",
+          "descriptors": [
+            "communal",
+            "ensemble",
+            "supportive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "kobzar",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kolisna_lira_stance",
+      "name": "Reconstruction stance",
+      "variants": [
+        {
+          "id": "kolisna_lira_village_model",
+          "default": true,
+          "name": "Pre-repression village instrument",
+          "descriptors": [
+            "archaic",
+            "rustic",
+            "preservationist"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "archaic",
+            "ukrainian"
+          ]
+        },
+        {
+          "id": "kolisna_lira_concert_revival",
+          "name": "Contemporary revival concert instrument",
+          "descriptors": [
+            "revival",
+            "concert",
+            "stable"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "revival",
+            "concert"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kolisna_lira_strings",
+      "name": "String layout",
+      "variants": [
+        {
+          "id": "kolisna_lira_three_string",
+          "default": true,
+          "name": "Three strings - keybox melody over bas and pidbasok drones (canonical)",
+          "descriptors": [
+            "traditional",
+            "droning",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "ukrainian",
+            "archaic"
+          ]
+        },
+        {
+          "id": "kolisna_lira_extended",
+          "name": "Extended four-to-six string layout",
+          "descriptors": [
+            "extended",
+            "full",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "ukrainian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kolisna_lira_repertoire",
+      "name": "Repertoire mode",
+      "variants": [
+        {
+          "id": "kolisna_lira_psalmy_kanty",
+          "default": true,
+          "name": "Psalmy and kanty - the devotional core",
+          "descriptors": [
+            "devotional",
+            "sacred",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "devotional",
+            "song-accompaniment",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "devotional",
+            "ukrainian"
+          ]
+        },
+        {
+          "id": "kolisna_lira_duma",
+          "name": "Duma epic declamation",
+          "descriptors": [
+            "epic",
+            "declamatory",
+            "oral-history"
+          ],
+          "match_tokens": [
+            "bowed",
+            "declaimed",
+            "epic",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "kobzar",
+            "epic"
+          ]
+        },
+        {
+          "id": "kolisna_lira_fair_dance",
+          "name": "Fair and village dance tunes, satirical songs",
+          "descriptors": [
+            "dance-driving",
+            "festive",
+            "communal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "dance",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kolisna_lira_frame",
+      "name": "Performance frame (tsekh guild practice)",
+      "variants": [
+        {
+          "id": "kolisna_lira_solo_lirnyk",
+          "default": true,
+          "name": "Solo blind lirnyk, self-accompanied",
+          "descriptors": [
+            "song-accompaniment",
+            "intimate",
+            "narrative"
+          ],
+          "match_tokens": [
+            "bowed",
+            "self-accompanying",
+            "song-accompaniment"
+          ],
+          "canonical_tags": [
+            "self-accompanied",
+            "ukrainian"
+          ]
+        },
+        {
+          "id": "kolisna_lira_paired_kobzar",
+          "name": "Paired with a kobzar / bandurist as guild practice allowed",
+          "descriptors": [
+            "communal",
+            "ensemble",
+            "supportive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "kobzar",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kolisna_lira_stance",
+      "name": "Reconstruction stance",
+      "variants": [
+        {
+          "id": "kolisna_lira_village_model",
+          "default": true,
+          "name": "Pre-repression village instrument",
+          "descriptors": [
+            "archaic",
+            "rustic",
+            "preservationist"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "archaic",
+            "ukrainian"
+          ]
+        },
+        {
+          "id": "kolisna_lira_concert_revival",
+          "name": "Contemporary revival concert instrument",
+          "descriptors": [
+            "revival",
+            "concert",
+            "stable"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "revival",
+            "concert"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,508 @@
+{
+  "id": "kpanlogo",
+  "name": "Kpanlogo (Ga peg-tuned hand drum)",
+  "family": "percussion",
+  "class": "single_headed_hand_drum",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": 0,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "kpanlogo",
+  "parts": [
+    {
+      "id": "kpanlogo_seat",
+      "name": "Ensemble seat",
+      "variants": [
+        {
+          "id": "kpanlogo_master",
+          "default": true,
+          "name": "Master drum (improvising lead)",
+          "descriptors": [
+            "improvising",
+            "lead-voice",
+            "syncopated",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "lead-voice"
+          ],
+          "canonical_tags": [
+            "ghana",
+            "west-african"
+          ]
+        },
+        {
+          "id": "kpanlogo_male_support",
+          "name": "'Male voice' support part",
+          "descriptors": [
+            "supporting",
+            "steady-pulse",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "interlocking"
+          ],
+          "canonical_tags": [
+            "ghana",
+            "west-african"
+          ]
+        },
+        {
+          "id": "kpanlogo_female_support",
+          "name": "'Female voice' support part (higher)",
+          "descriptors": [
+            "high-pitched",
+            "supporting",
+            "timekeeping"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "pulse"
+          ],
+          "canonical_tags": [
+            "ghana",
+            "west-african"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kpanlogo_set",
+      "name": "Set size",
+      "variants": [
+        {
+          "id": "kpanlogo_three_set",
+          "default": true,
+          "name": "Three-drum set (male, female, master)",
+          "descriptors": [
+            "ensemble",
+            "interlocking",
+            "paired"
+          ],
+          "match_tokens": [
+            "struck",
+            "ensemble",
+            "interlocking"
+          ],
+          "canonical_tags": [
+            "ghana",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "kpanlogo_single_drum",
+          "name": "Single drum",
+          "descriptors": [
+            "sparse",
+            "dry",
+            "communal"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "hand-drum"
+          ],
+          "canonical_tags": [
+            "ghana"
+          ]
+        },
+        {
+          "id": "kpanlogo_graded_six",
+          "name": "Graded set of up to six drums (melodic runs)",
+          "descriptors": [
+            "melodic",
+            "wide",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "world-percussion",
+            "concert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kpanlogo_head",
+      "name": "Head hide & peg tension",
+      "variants": [
+        {
+          "id": "kpanlogo_antelope_tight",
+          "default": true,
+          "name": "Antelope / duiker hide, pegs driven tight (cutting slap)",
+          "descriptors": [
+            "cutting",
+            "crisp",
+            "dry",
+            "snappy"
+          ],
+          "match_tokens": [
+            "struck",
+            "hide-head",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "ghana",
+            "traditional"
+          ]
+        },
+        {
+          "id": "kpanlogo_cowhide_slack",
+          "name": "Cowhide, slacker pegs (fat low voice)",
+          "descriptors": [
+            "deep-toned",
+            "warm",
+            "booming"
+          ],
+          "match_tokens": [
+            "struck",
+            "hide-head",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "ghana"
+          ]
+        },
+        {
+          "id": "kpanlogo_goat",
+          "name": "Goat hide (mid-weight)",
+          "descriptors": [
+            "bright",
+            "crisp",
+            "regional"
+          ],
+          "match_tokens": [
+            "struck",
+            "hide-head",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "ghana"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kpanlogo_idiom",
+      "name": "Repertoire & idiom",
+      "variants": [
+        {
+          "id": "kpanlogo_traditional_nono_fao",
+          "default": true,
+          "name": "Traditional kpanlogo with nono bell and fao rattle timeline",
+          "descriptors": [
+            "interlocking",
+            "dance-driving",
+            "celebratory"
+          ],
+          "match_tokens": [
+            "struck",
+            "timeline",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "ghana",
+            "dance"
+          ]
+        },
+        {
+          "id": "kpanlogo_highlife_pop",
+          "name": "Highlife / Afrobeat kit context",
+          "descriptors": [
+            "urban",
+            "contemporary",
+            "driving"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "rhythm-section-pocket"
+          ],
+          "canonical_tags": [
+            "highlife",
+            "afrobeat"
+          ]
+        },
+        {
+          "id": "kpanlogo_world_pedagogy",
+          "name": "World-music workshop / concert drum circle",
+          "descriptors": [
+            "pedagogical",
+            "contemporary",
+            "communal"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "concert"
+          ],
+          "canonical_tags": [
+            "world-percussion",
+            "concert"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kpanlogo_seat",
+      "name": "Ensemble seat",
+      "variants": [
+        {
+          "id": "kpanlogo_master",
+          "default": true,
+          "name": "Master drum (improvising lead)",
+          "descriptors": [
+            "improvising",
+            "lead-voice",
+            "syncopated",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "lead-voice"
+          ],
+          "canonical_tags": [
+            "ghana",
+            "west-african"
+          ]
+        },
+        {
+          "id": "kpanlogo_male_support",
+          "name": "'Male voice' support part",
+          "descriptors": [
+            "supporting",
+            "steady-pulse",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "interlocking"
+          ],
+          "canonical_tags": [
+            "ghana",
+            "west-african"
+          ]
+        },
+        {
+          "id": "kpanlogo_female_support",
+          "name": "'Female voice' support part (higher)",
+          "descriptors": [
+            "high-pitched",
+            "supporting",
+            "timekeeping"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "pulse"
+          ],
+          "canonical_tags": [
+            "ghana",
+            "west-african"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kpanlogo_set",
+      "name": "Set size",
+      "variants": [
+        {
+          "id": "kpanlogo_three_set",
+          "default": true,
+          "name": "Three-drum set (male, female, master)",
+          "descriptors": [
+            "ensemble",
+            "interlocking",
+            "paired"
+          ],
+          "match_tokens": [
+            "struck",
+            "ensemble",
+            "interlocking"
+          ],
+          "canonical_tags": [
+            "ghana",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "kpanlogo_single_drum",
+          "name": "Single drum",
+          "descriptors": [
+            "sparse",
+            "dry",
+            "communal"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "hand-drum"
+          ],
+          "canonical_tags": [
+            "ghana"
+          ]
+        },
+        {
+          "id": "kpanlogo_graded_six",
+          "name": "Graded set of up to six drums (melodic runs)",
+          "descriptors": [
+            "melodic",
+            "wide",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "world-percussion",
+            "concert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kpanlogo_head",
+      "name": "Head hide & peg tension",
+      "variants": [
+        {
+          "id": "kpanlogo_antelope_tight",
+          "default": true,
+          "name": "Antelope / duiker hide, pegs driven tight (cutting slap)",
+          "descriptors": [
+            "cutting",
+            "crisp",
+            "dry",
+            "snappy"
+          ],
+          "match_tokens": [
+            "struck",
+            "hide-head",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "ghana",
+            "traditional"
+          ]
+        },
+        {
+          "id": "kpanlogo_cowhide_slack",
+          "name": "Cowhide, slacker pegs (fat low voice)",
+          "descriptors": [
+            "deep-toned",
+            "warm",
+            "booming"
+          ],
+          "match_tokens": [
+            "struck",
+            "hide-head",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "ghana"
+          ]
+        },
+        {
+          "id": "kpanlogo_goat",
+          "name": "Goat hide (mid-weight)",
+          "descriptors": [
+            "bright",
+            "crisp",
+            "regional"
+          ],
+          "match_tokens": [
+            "struck",
+            "hide-head",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "ghana"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kpanlogo_idiom",
+      "name": "Repertoire & idiom",
+      "variants": [
+        {
+          "id": "kpanlogo_traditional_nono_fao",
+          "default": true,
+          "name": "Traditional kpanlogo with nono bell and fao rattle timeline",
+          "descriptors": [
+            "interlocking",
+            "dance-driving",
+            "celebratory"
+          ],
+          "match_tokens": [
+            "struck",
+            "timeline",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "ghana",
+            "dance"
+          ]
+        },
+        {
+          "id": "kpanlogo_highlife_pop",
+          "name": "Highlife / Afrobeat kit context",
+          "descriptors": [
+            "urban",
+            "contemporary",
+            "driving"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "rhythm-section-pocket"
+          ],
+          "canonical_tags": [
+            "highlife",
+            "afrobeat"
+          ]
+        },
+        {
+          "id": "kpanlogo_world_pedagogy",
+          "name": "World-music workshop / concert drum circle",
+          "descriptors": [
+            "pedagogical",
+            "contemporary",
+            "communal"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "concert"
+          ],
+          "canonical_tags": [
+            "world-percussion",
+            "concert"
+          ]
+        }
+      ]
+    }
+  ]
+}

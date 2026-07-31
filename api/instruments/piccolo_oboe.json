@@ -1,0 +1,458 @@
+{
+  "id": "piccolo_oboe",
+  "name": "Piccolo oboe (musette — sopranino oboe in E♭/F)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 2,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "piccolo oboe",
+  "parts": [
+    {
+      "id": "piccolo_oboe_pitch",
+      "name": "Pitch / transposition",
+      "variants": [
+        {
+          "id": "piccolo_oboe_pitch_eb",
+          "default": true,
+          "name": "E♭ musette (Marigaux / Patricola — sounds a minor third above written)",
+          "descriptors": [
+            "bright",
+            "piercing",
+            "shrill"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "double-reed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "french"
+          ]
+        },
+        {
+          "id": "piccolo_oboe_pitch_f",
+          "name": "F piccolo oboe (Lorée — sounds a perfect fourth above written)",
+          "descriptors": [
+            "brighter",
+            "focused",
+            "high-register"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "double-reed",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "french",
+            "paris"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "piccolo_oboe_context",
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "piccolo_oboe_context_band_topline",
+          "default": true,
+          "name": "Marching / wind-band top line doubling piccolo and E♭ clarinet",
+          "descriptors": [
+            "cutting",
+            "outdoor",
+            "wind-band"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "loud-projection",
+            "marching"
+          ],
+          "canonical_tags": [
+            "marching",
+            "outdoor"
+          ]
+        },
+        {
+          "id": "piccolo_oboe_context_contemporary_solo",
+          "name": "Contemporary concert solo (Maderna, Solo for Oboe Instruments)",
+          "descriptors": [
+            "twentieth-century",
+            "soloistic",
+            "extended-techniques"
+          ],
+          "match_tokens": [
+            "contemporary-classical",
+            "wind-driven",
+            "reed-driven",
+            "soloistic"
+          ],
+          "canonical_tags": [
+            "contemporary",
+            "avant"
+          ]
+        },
+        {
+          "id": "piccolo_oboe_context_reed_choir",
+          "name": "Double-reed ensemble top voice",
+          "descriptors": [
+            "blended",
+            "ensemble",
+            "treble-extended"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ensemble",
+            "chamber-fed"
+          ],
+          "canonical_tags": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "piccolo_oboe_context_film_colour",
+          "name": "Film / library scoring colour line",
+          "descriptors": [
+            "cinematic",
+            "rare",
+            "bright"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "cinematic",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "film-scoring",
+            "cinematic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "piccolo_oboe_reed",
+      "name": "Reed scrape",
+      "variants": [
+        {
+          "id": "piccolo_oboe_reed_short_scrape",
+          "default": true,
+          "name": "Narrow French short scrape on a very short staple",
+          "descriptors": [
+            "focused",
+            "french",
+            "bright"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "double-reed",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "piccolo_oboe_reed_american_scrape",
+          "name": "Broader American scrape (warmer, steadier top octave)",
+          "descriptors": [
+            "low-overtone-rich",
+            "stable",
+            "singing"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "double-reed",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "piccolo_oboe_body_wood",
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "piccolo_oboe_body_grenadilla",
+          "default": true,
+          "name": "Grenadilla / African blackwood (canonical modern)",
+          "descriptors": [
+            "grenadilla-african-blackwood-canonical",
+            "standard"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "piccolo_oboe_body_violetwood",
+          "name": "Violetwood / rosewood (warmer premium)",
+          "descriptors": [
+            "violetwood-premium-loree",
+            "warm"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "piccolo_oboe_body_composite",
+          "name": "Composite resin (climate-stable modern)",
+          "descriptors": [
+            "composite-resin-modern-climate-stable-buffet-greenline-style",
+            "durable"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "piccolo_oboe_pitch",
+      "name": "Pitch / transposition",
+      "variants": [
+        {
+          "id": "piccolo_oboe_pitch_eb",
+          "default": true,
+          "name": "E♭ musette (Marigaux / Patricola — sounds a minor third above written)",
+          "descriptors": [
+            "bright",
+            "piercing",
+            "shrill"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "double-reed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "french"
+          ]
+        },
+        {
+          "id": "piccolo_oboe_pitch_f",
+          "name": "F piccolo oboe (Lorée — sounds a perfect fourth above written)",
+          "descriptors": [
+            "brighter",
+            "focused",
+            "high-register"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "double-reed",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "french",
+            "paris"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "piccolo_oboe_context",
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "piccolo_oboe_context_band_topline",
+          "default": true,
+          "name": "Marching / wind-band top line doubling piccolo and E♭ clarinet",
+          "descriptors": [
+            "cutting",
+            "outdoor",
+            "wind-band"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "loud-projection",
+            "marching"
+          ],
+          "canonical_tags": [
+            "marching",
+            "outdoor"
+          ]
+        },
+        {
+          "id": "piccolo_oboe_context_contemporary_solo",
+          "name": "Contemporary concert solo (Maderna, Solo for Oboe Instruments)",
+          "descriptors": [
+            "twentieth-century",
+            "soloistic",
+            "extended-techniques"
+          ],
+          "match_tokens": [
+            "contemporary-classical",
+            "wind-driven",
+            "reed-driven",
+            "soloistic"
+          ],
+          "canonical_tags": [
+            "contemporary",
+            "avant"
+          ]
+        },
+        {
+          "id": "piccolo_oboe_context_reed_choir",
+          "name": "Double-reed ensemble top voice",
+          "descriptors": [
+            "blended",
+            "ensemble",
+            "treble-extended"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ensemble",
+            "chamber-fed"
+          ],
+          "canonical_tags": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "piccolo_oboe_context_film_colour",
+          "name": "Film / library scoring colour line",
+          "descriptors": [
+            "cinematic",
+            "rare",
+            "bright"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "cinematic",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "film-scoring",
+            "cinematic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "piccolo_oboe_reed",
+      "name": "Reed scrape",
+      "variants": [
+        {
+          "id": "piccolo_oboe_reed_short_scrape",
+          "default": true,
+          "name": "Narrow French short scrape on a very short staple",
+          "descriptors": [
+            "focused",
+            "french",
+            "bright"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "double-reed",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "piccolo_oboe_reed_american_scrape",
+          "name": "Broader American scrape (warmer, steadier top octave)",
+          "descriptors": [
+            "low-overtone-rich",
+            "stable",
+            "singing"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "double-reed",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "piccolo_oboe_body_wood",
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "piccolo_oboe_body_grenadilla",
+          "default": true,
+          "name": "Grenadilla / African blackwood (canonical modern)",
+          "descriptors": [
+            "grenadilla-african-blackwood-canonical",
+            "standard"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "piccolo_oboe_body_violetwood",
+          "name": "Violetwood / rosewood (warmer premium)",
+          "descriptors": [
+            "violetwood-premium-loree",
+            "warm"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "piccolo_oboe_body_composite",
+          "name": "Composite resin (climate-stable modern)",
+          "descriptors": [
+            "composite-resin-modern-climate-stable-buffet-greenline-style",
+            "durable"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

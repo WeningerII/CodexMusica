@@ -1,0 +1,497 @@
+{
+  "id": "cornstalk_fiddle",
+  "name": "Cornstalk fiddle (rural American idiochord toy)",
+  "family": "bowed",
+  "class": "tube_zither",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 1,
+    "polyphony": -1,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -2,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -2
+  },
+  "short": "cornstalk fiddle",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "cornstalk_fiddle_stalk",
+      "name": "Stalk stock and state",
+      "variants": [
+        {
+          "id": "cornstalk_fiddle_stalk_green_maize",
+          "default": true,
+          "name": "Green maize stalk, cut fresh",
+          "descriptors": [
+            "fresh",
+            "sappy",
+            "soft"
+          ],
+          "match_tokens": [
+            "idiochord",
+            "rough-tone",
+            "acoustic-only"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "cornstalk_fiddle_stalk_cured_maize",
+          "name": "Cured / dried maize stalk (harder rind, brittler)",
+          "descriptors": [
+            "dry",
+            "brittle",
+            "rustic"
+          ],
+          "match_tokens": [
+            "idiochord",
+            "rough-tone",
+            "buzzing"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "cornstalk_fiddle_stalk_sorghum_cane",
+          "name": "Sorghum or sugar-cane stalk (heavier-walled substitute)",
+          "descriptors": [
+            "cane",
+            "woody",
+            "coarse"
+          ],
+          "match_tokens": [
+            "idiochord",
+            "rough-tone",
+            "acoustic-only"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cornstalk_fiddle_strips",
+      "name": "Idiochord strips and bridging",
+      "variants": [
+        {
+          "id": "cornstalk_fiddle_strips_two_bridged",
+          "default": true,
+          "name": "Two rind strips raised on splinter bridges (drone plus rubbed strip)",
+          "descriptors": [
+            "two-string",
+            "archaic",
+            "buzzy"
+          ],
+          "match_tokens": [
+            "idiochord",
+            "buzzing",
+            "rough-tone",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "idiochord"
+          ]
+        },
+        {
+          "id": "cornstalk_fiddle_strips_single",
+          "name": "Single rind strip (one-note rasp)",
+          "descriptors": [
+            "single-string",
+            "coarse",
+            "thin"
+          ],
+          "match_tokens": [
+            "idiochord",
+            "one-string",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "idiochord"
+          ]
+        },
+        {
+          "id": "cornstalk_fiddle_strips_slid_bridges",
+          "name": "Bridges slid under the strips while playing (pitch-bent)",
+          "descriptors": [
+            "movable",
+            "sliding",
+            "bent-pitch"
+          ],
+          "match_tokens": [
+            "idiochord",
+            "glissando-heavy",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "idiochord"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cornstalk_fiddle_excitation",
+      "name": "Excitation",
+      "variants": [
+        {
+          "id": "cornstalk_fiddle_excitation_second_stalk",
+          "default": true,
+          "name": "Rubbed with a second stalk prepared the same way",
+          "descriptors": [
+            "rasping",
+            "rustic",
+            "coarse"
+          ],
+          "match_tokens": [
+            "bowed",
+            "scraped",
+            "rough-tone",
+            "rasping"
+          ]
+        },
+        {
+          "id": "cornstalk_fiddle_excitation_plain_stick",
+          "name": "Scraped with a plain stick or shoestring bow",
+          "descriptors": [
+            "dry-stick",
+            "dry",
+            "grating"
+          ],
+          "match_tokens": [
+            "bowed",
+            "scraped",
+            "rasping"
+          ]
+        },
+        {
+          "id": "cornstalk_fiddle_excitation_plucked",
+          "name": "Plucked / flicked with the thumb",
+          "descriptors": [
+            "plucked",
+            "soft",
+            "archaic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "idiochord",
+            "soft"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cornstalk_fiddle_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "cornstalk_fiddle_context_child_play",
+          "default": true,
+          "name": "Child-made play-pretty, no fixed repertoire",
+          "descriptors": [
+            "toy-charm",
+            "naive",
+            "playful"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "soft",
+            "rough-tone",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "cornstalk_fiddle_context_play_party",
+          "name": "Corn-shucking and play-party noise-making",
+          "descriptors": [
+            "rustic",
+            "driving",
+            "coarse"
+          ],
+          "match_tokens": [
+            "rough-tone",
+            "dance-rhythm",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "dance",
+            "old-time"
+          ]
+        },
+        {
+          "id": "cornstalk_fiddle_context_revival_demo",
+          "name": "Folk-revival demonstration / homemade-instrument documentation",
+          "descriptors": [
+            "archaic",
+            "preservationist",
+            "handmade"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "folk-tradition",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "revival"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "cornstalk_fiddle_stalk",
+      "name": "Stalk stock and state",
+      "variants": [
+        {
+          "id": "cornstalk_fiddle_stalk_green_maize",
+          "default": true,
+          "name": "Green maize stalk, cut fresh",
+          "descriptors": [
+            "fresh",
+            "sappy",
+            "soft"
+          ],
+          "match_tokens": [
+            "idiochord",
+            "rough-tone",
+            "acoustic-only"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "cornstalk_fiddle_stalk_cured_maize",
+          "name": "Cured / dried maize stalk (harder rind, brittler)",
+          "descriptors": [
+            "dry",
+            "brittle",
+            "rustic"
+          ],
+          "match_tokens": [
+            "idiochord",
+            "rough-tone",
+            "buzzing"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "cornstalk_fiddle_stalk_sorghum_cane",
+          "name": "Sorghum or sugar-cane stalk (heavier-walled substitute)",
+          "descriptors": [
+            "cane",
+            "woody",
+            "coarse"
+          ],
+          "match_tokens": [
+            "idiochord",
+            "rough-tone",
+            "acoustic-only"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cornstalk_fiddle_strips",
+      "name": "Idiochord strips and bridging",
+      "variants": [
+        {
+          "id": "cornstalk_fiddle_strips_two_bridged",
+          "default": true,
+          "name": "Two rind strips raised on splinter bridges (drone plus rubbed strip)",
+          "descriptors": [
+            "two-string",
+            "archaic",
+            "buzzy"
+          ],
+          "match_tokens": [
+            "idiochord",
+            "buzzing",
+            "rough-tone",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "idiochord"
+          ]
+        },
+        {
+          "id": "cornstalk_fiddle_strips_single",
+          "name": "Single rind strip (one-note rasp)",
+          "descriptors": [
+            "single-string",
+            "coarse",
+            "thin"
+          ],
+          "match_tokens": [
+            "idiochord",
+            "one-string",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "idiochord"
+          ]
+        },
+        {
+          "id": "cornstalk_fiddle_strips_slid_bridges",
+          "name": "Bridges slid under the strips while playing (pitch-bent)",
+          "descriptors": [
+            "movable",
+            "sliding",
+            "bent-pitch"
+          ],
+          "match_tokens": [
+            "idiochord",
+            "glissando-heavy",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "idiochord"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cornstalk_fiddle_excitation",
+      "name": "Excitation",
+      "variants": [
+        {
+          "id": "cornstalk_fiddle_excitation_second_stalk",
+          "default": true,
+          "name": "Rubbed with a second stalk prepared the same way",
+          "descriptors": [
+            "rasping",
+            "rustic",
+            "coarse"
+          ],
+          "match_tokens": [
+            "bowed",
+            "scraped",
+            "rough-tone",
+            "rasping"
+          ]
+        },
+        {
+          "id": "cornstalk_fiddle_excitation_plain_stick",
+          "name": "Scraped with a plain stick or shoestring bow",
+          "descriptors": [
+            "dry-stick",
+            "dry",
+            "grating"
+          ],
+          "match_tokens": [
+            "bowed",
+            "scraped",
+            "rasping"
+          ]
+        },
+        {
+          "id": "cornstalk_fiddle_excitation_plucked",
+          "name": "Plucked / flicked with the thumb",
+          "descriptors": [
+            "plucked",
+            "soft",
+            "archaic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "idiochord",
+            "soft"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cornstalk_fiddle_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "cornstalk_fiddle_context_child_play",
+          "default": true,
+          "name": "Child-made play-pretty, no fixed repertoire",
+          "descriptors": [
+            "toy-charm",
+            "naive",
+            "playful"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "soft",
+            "rough-tone",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "cornstalk_fiddle_context_play_party",
+          "name": "Corn-shucking and play-party noise-making",
+          "descriptors": [
+            "rustic",
+            "driving",
+            "coarse"
+          ],
+          "match_tokens": [
+            "rough-tone",
+            "dance-rhythm",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "dance",
+            "old-time"
+          ]
+        },
+        {
+          "id": "cornstalk_fiddle_context_revival_demo",
+          "name": "Folk-revival demonstration / homemade-instrument documentation",
+          "descriptors": [
+            "archaic",
+            "preservationist",
+            "handmade"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "folk-tradition",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "revival"
+          ]
+        }
+      ]
+    }
+  ]
+}

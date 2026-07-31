@@ -1,0 +1,517 @@
+{
+  "id": "zhuihu",
+  "name": "Zhuihu (Henan fretless bowed lute)",
+  "family": "bowed",
+  "class": "bowed_lute",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "zhuihu",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "zhuihu_genre",
+      "name": "Genre and role",
+      "variants": [
+        {
+          "id": "zhuihu_genre_quju",
+          "default": true,
+          "name": "Henan quju opera accompaniment",
+          "descriptors": [
+            "operatic",
+            "voice-following",
+            "heterophonic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "accompaniment",
+            "chinese-traditional"
+          ],
+          "canonical_tags": [
+            "chinese-opera",
+            "accompaniment"
+          ]
+        },
+        {
+          "id": "zhuihu_genre_zhuizi",
+          "name": "Henan zhuizi narrative duo",
+          "descriptors": [
+            "narrative",
+            "declamatory",
+            "speech-like"
+          ],
+          "match_tokens": [
+            "bowed",
+            "narrative",
+            "speech-derived"
+          ],
+          "canonical_tags": [
+            "storytelling",
+            "narrative"
+          ]
+        },
+        {
+          "id": "zhuihu_genre_qinshu",
+          "name": "Shandong qinshu and Lu opera",
+          "descriptors": [
+            "ensemble",
+            "supporting",
+            "song-accompaniment"
+          ],
+          "match_tokens": [
+            "bowed",
+            "song-accompaniment",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "china",
+            "folk"
+          ]
+        },
+        {
+          "id": "zhuihu_genre_solo",
+          "name": "Concert solo (Henan Xiaoqu)",
+          "descriptors": [
+            "soloistic",
+            "virtuosic",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "solo",
+            "virtuosic"
+          ],
+          "canonical_tags": [
+            "solo",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zhuihu_technique",
+      "name": "Left-hand idiom",
+      "variants": [
+        {
+          "id": "zhuihu_technique_portamento",
+          "default": true,
+          "name": "Unbroken board-length portamento",
+          "descriptors": [
+            "portamento-rich",
+            "swooping",
+            "sliding"
+          ],
+          "match_tokens": [
+            "bowed",
+            "glissando-heavy",
+            "fretless"
+          ],
+          "canonical_tags": [
+            "technique"
+          ]
+        },
+        {
+          "id": "zhuihu_technique_restrained",
+          "name": "Restrained heterophonic shadowing of the singer",
+          "descriptors": [
+            "restrained",
+            "blended",
+            "supporting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "accompaniment",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "accompaniment"
+          ]
+        },
+        {
+          "id": "zhuihu_technique_vocal",
+          "name": "Speech-imitating inflection with slapped accents",
+          "descriptors": [
+            "vocal-imitating",
+            "speech-like",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "speech-derived",
+            "vocal"
+          ],
+          "canonical_tags": [
+            "technique"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zhuihu_body",
+      "name": "Soundbox material",
+      "variants": [
+        {
+          "id": "zhuihu_body_copper",
+          "default": true,
+          "name": "Sheet-copper drum, python-skin face (modern standard)",
+          "descriptors": [
+            "copper",
+            "python-skin",
+            "cutting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "metallic",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "modern",
+            "snakeskin"
+          ]
+        },
+        {
+          "id": "zhuihu_body_wood",
+          "name": "Hardwood drum (older build)",
+          "descriptors": [
+            "hardwood",
+            "woody",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "wood-body",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "traditional",
+            "hardwood"
+          ]
+        },
+        {
+          "id": "zhuihu_body_bamboo",
+          "name": "Bamboo drum (historical)",
+          "descriptors": [
+            "bamboo",
+            "dry",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "wood-toned",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "historical",
+            "bamboo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zhuihu_tuning",
+      "name": "Tuning",
+      "variants": [
+        {
+          "id": "zhuihu_tuning_fourth",
+          "default": true,
+          "name": "a-d1 fourth (standard)",
+          "descriptors": [
+            "standard",
+            "balanced"
+          ],
+          "match_tokens": [
+            "bowed",
+            "mid-register"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "zhuihu_tuning_fifth",
+          "name": "Fifth tuning for opera keys",
+          "descriptors": [
+            "open-string",
+            "brighter"
+          ],
+          "match_tokens": [
+            "bowed",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "chinese-opera"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "zhuihu_genre",
+      "name": "Genre and role",
+      "variants": [
+        {
+          "id": "zhuihu_genre_quju",
+          "default": true,
+          "name": "Henan quju opera accompaniment",
+          "descriptors": [
+            "operatic",
+            "voice-following",
+            "heterophonic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "accompaniment",
+            "chinese-traditional"
+          ],
+          "canonical_tags": [
+            "chinese-opera",
+            "accompaniment"
+          ]
+        },
+        {
+          "id": "zhuihu_genre_zhuizi",
+          "name": "Henan zhuizi narrative duo",
+          "descriptors": [
+            "narrative",
+            "declamatory",
+            "speech-like"
+          ],
+          "match_tokens": [
+            "bowed",
+            "narrative",
+            "speech-derived"
+          ],
+          "canonical_tags": [
+            "storytelling",
+            "narrative"
+          ]
+        },
+        {
+          "id": "zhuihu_genre_qinshu",
+          "name": "Shandong qinshu and Lu opera",
+          "descriptors": [
+            "ensemble",
+            "supporting",
+            "song-accompaniment"
+          ],
+          "match_tokens": [
+            "bowed",
+            "song-accompaniment",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "china",
+            "folk"
+          ]
+        },
+        {
+          "id": "zhuihu_genre_solo",
+          "name": "Concert solo (Henan Xiaoqu)",
+          "descriptors": [
+            "soloistic",
+            "virtuosic",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "solo",
+            "virtuosic"
+          ],
+          "canonical_tags": [
+            "solo",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zhuihu_technique",
+      "name": "Left-hand idiom",
+      "variants": [
+        {
+          "id": "zhuihu_technique_portamento",
+          "default": true,
+          "name": "Unbroken board-length portamento",
+          "descriptors": [
+            "portamento-rich",
+            "swooping",
+            "sliding"
+          ],
+          "match_tokens": [
+            "bowed",
+            "glissando-heavy",
+            "fretless"
+          ],
+          "canonical_tags": [
+            "technique"
+          ]
+        },
+        {
+          "id": "zhuihu_technique_restrained",
+          "name": "Restrained heterophonic shadowing of the singer",
+          "descriptors": [
+            "restrained",
+            "blended",
+            "supporting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "accompaniment",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "accompaniment"
+          ]
+        },
+        {
+          "id": "zhuihu_technique_vocal",
+          "name": "Speech-imitating inflection with slapped accents",
+          "descriptors": [
+            "vocal-imitating",
+            "speech-like",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "speech-derived",
+            "vocal"
+          ],
+          "canonical_tags": [
+            "technique"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zhuihu_body",
+      "name": "Soundbox material",
+      "variants": [
+        {
+          "id": "zhuihu_body_copper",
+          "default": true,
+          "name": "Sheet-copper drum, python-skin face (modern standard)",
+          "descriptors": [
+            "copper",
+            "python-skin",
+            "cutting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "metallic",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "modern",
+            "snakeskin"
+          ]
+        },
+        {
+          "id": "zhuihu_body_wood",
+          "name": "Hardwood drum (older build)",
+          "descriptors": [
+            "hardwood",
+            "woody",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "wood-body",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "traditional",
+            "hardwood"
+          ]
+        },
+        {
+          "id": "zhuihu_body_bamboo",
+          "name": "Bamboo drum (historical)",
+          "descriptors": [
+            "bamboo",
+            "dry",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "wood-toned",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "historical",
+            "bamboo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zhuihu_tuning",
+      "name": "Tuning",
+      "variants": [
+        {
+          "id": "zhuihu_tuning_fourth",
+          "default": true,
+          "name": "a-d1 fourth (standard)",
+          "descriptors": [
+            "standard",
+            "balanced"
+          ],
+          "match_tokens": [
+            "bowed",
+            "mid-register"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "zhuihu_tuning_fifth",
+          "name": "Fifth tuning for opera keys",
+          "descriptors": [
+            "open-string",
+            "brighter"
+          ],
+          "match_tokens": [
+            "bowed",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "chinese-opera"
+          ]
+        }
+      ]
+    }
+  ]
+}

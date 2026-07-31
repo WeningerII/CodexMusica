@@ -1,0 +1,459 @@
+{
+  "id": "dan_ho",
+  "name": "Đàn hồ (northern Vietnamese low fiddle family)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "đàn hồ",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "dan_ho_size",
+      "name": "Size within the family",
+      "variants": [
+        {
+          "id": "dan_ho_alto",
+          "default": true,
+          "name": "Hồ (alto — an enlarged đàn nhị)",
+          "descriptors": [
+            "alto",
+            "warm",
+            "round"
+          ],
+          "match_tokens": [
+            "bowed",
+            "mid-register"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "northern"
+          ]
+        },
+        {
+          "id": "dan_ho_trung",
+          "name": "Hồ trung (tenor)",
+          "descriptors": [
+            "tenor-register",
+            "thick",
+            "deep-toned"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "northern"
+          ]
+        },
+        {
+          "id": "dan_ho_dai",
+          "name": "Hồ đại (bass, roughly 16–20 semitones below the đàn nhị)",
+          "descriptors": [
+            "bass",
+            "deep-voiced",
+            "muted"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bass-register",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "northern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dan_ho_resonator",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "dan_ho_wood_body",
+          "default": true,
+          "name": "Turned wooden resonator (northern build, bow fixed between the strings)",
+          "descriptors": [
+            "wooden-body",
+            "thick",
+            "contemplative",
+            "threaded-between-strings-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "wood-body"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "wood"
+          ]
+        },
+        {
+          "id": "dan_ho_coconut_body",
+          "name": "Coconut shell (sliding it toward the đàn gáo)",
+          "descriptors": [
+            "coconut-shell",
+            "nasal-toned",
+            "round"
+          ],
+          "match_tokens": [
+            "bowed",
+            "nasal-tone",
+            "resonator"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "southern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dan_ho_function",
+      "name": "Idiomatic function",
+      "variants": [
+        {
+          "id": "dan_ho_vocal_double",
+          "default": true,
+          "name": "Doubling middle and low male and middle female voices",
+          "descriptors": [
+            "vocal-doubling",
+            "supportive",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vocal-accompaniment",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "accompaniment"
+          ]
+        },
+        {
+          "id": "dan_ho_bass_line",
+          "name": "Bass line beneath a đàn nhị lead",
+          "descriptors": [
+            "bass-foundation",
+            "long-bowed",
+            "grounded"
+          ],
+          "match_tokens": [
+            "bowed",
+            "foundational-bass",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dan_ho_genre",
+      "name": "Genre setting",
+      "variants": [
+        {
+          "id": "dan_ho_cheo",
+          "default": true,
+          "name": "Chèo and tuồng theatre orchestra",
+          "descriptors": [
+            "theatrical",
+            "ensemble-blend",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "northern"
+          ]
+        },
+        {
+          "id": "dan_ho_nha_nhac",
+          "name": "Nhã nhạc court and phường bát âm ceremonial band",
+          "descriptors": [
+            "court-ceremonial",
+            "refined",
+            "solemn"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained",
+            "ceremonial"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "court"
+          ]
+        },
+        {
+          "id": "dan_ho_xam",
+          "name": "Hát xẩm with mouth-drum and clappers",
+          "descriptors": [
+            "rough-toned",
+            "village-rooted",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "song-accompaniment",
+            "street"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "street"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dan_ho_size",
+      "name": "Size within the family",
+      "variants": [
+        {
+          "id": "dan_ho_alto",
+          "default": true,
+          "name": "Hồ (alto — an enlarged đàn nhị)",
+          "descriptors": [
+            "alto",
+            "warm",
+            "round"
+          ],
+          "match_tokens": [
+            "bowed",
+            "mid-register"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "northern"
+          ]
+        },
+        {
+          "id": "dan_ho_trung",
+          "name": "Hồ trung (tenor)",
+          "descriptors": [
+            "tenor-register",
+            "thick",
+            "deep-toned"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "northern"
+          ]
+        },
+        {
+          "id": "dan_ho_dai",
+          "name": "Hồ đại (bass, roughly 16–20 semitones below the đàn nhị)",
+          "descriptors": [
+            "bass",
+            "deep-voiced",
+            "muted"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bass-register",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "northern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dan_ho_resonator",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "dan_ho_wood_body",
+          "default": true,
+          "name": "Turned wooden resonator (northern build, bow fixed between the strings)",
+          "descriptors": [
+            "wooden-body",
+            "thick",
+            "contemplative",
+            "threaded-between-strings-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "wood-body"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "wood"
+          ]
+        },
+        {
+          "id": "dan_ho_coconut_body",
+          "name": "Coconut shell (sliding it toward the đàn gáo)",
+          "descriptors": [
+            "coconut-shell",
+            "nasal-toned",
+            "round"
+          ],
+          "match_tokens": [
+            "bowed",
+            "nasal-tone",
+            "resonator"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "southern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dan_ho_function",
+      "name": "Idiomatic function",
+      "variants": [
+        {
+          "id": "dan_ho_vocal_double",
+          "default": true,
+          "name": "Doubling middle and low male and middle female voices",
+          "descriptors": [
+            "vocal-doubling",
+            "supportive",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vocal-accompaniment",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "accompaniment"
+          ]
+        },
+        {
+          "id": "dan_ho_bass_line",
+          "name": "Bass line beneath a đàn nhị lead",
+          "descriptors": [
+            "bass-foundation",
+            "long-bowed",
+            "grounded"
+          ],
+          "match_tokens": [
+            "bowed",
+            "foundational-bass",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dan_ho_genre",
+      "name": "Genre setting",
+      "variants": [
+        {
+          "id": "dan_ho_cheo",
+          "default": true,
+          "name": "Chèo and tuồng theatre orchestra",
+          "descriptors": [
+            "theatrical",
+            "ensemble-blend",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "northern"
+          ]
+        },
+        {
+          "id": "dan_ho_nha_nhac",
+          "name": "Nhã nhạc court and phường bát âm ceremonial band",
+          "descriptors": [
+            "court-ceremonial",
+            "refined",
+            "solemn"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained",
+            "ceremonial"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "court"
+          ]
+        },
+        {
+          "id": "dan_ho_xam",
+          "name": "Hát xẩm with mouth-drum and clappers",
+          "descriptors": [
+            "rough-toned",
+            "village-rooted",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "song-accompaniment",
+            "street"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "street"
+          ]
+        }
+      ]
+    }
+  ]
+}

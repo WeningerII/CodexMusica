@@ -1,0 +1,500 @@
+{
+  "id": "dayereh",
+  "name": "Dāyereh (Persian small jingle frame drum)",
+  "family": "percussion",
+  "class": "frame_drum",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "dāyereh",
+  "parts": [
+    {
+      "id": "dayereh_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "dayereh_form_iranian",
+          "default": true,
+          "name": "Iranian dāyereh (small light hoop, finger-led)",
+          "descriptors": [
+            "small-frame",
+            "snappy",
+            "folk"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "persian",
+            "folk"
+          ]
+        },
+        {
+          "id": "dayereh_form_doira",
+          "name": "Central Asian doira / doyra (larger, dense ring load, maqom usul)",
+          "descriptors": [
+            "large-frame",
+            "dense",
+            "art-music"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "ostinato"
+          ],
+          "canonical_tags": [
+            "central-asian",
+            "classical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dayereh_jingles",
+      "name": "Jingle system",
+      "variants": [
+        {
+          "id": "dayereh_jingles_brass_rings",
+          "default": true,
+          "name": "Loose brass rings on the inner hoop (canonical Iranian)",
+          "descriptors": [
+            "brass",
+            "shimmering",
+            "traditional"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "metallic"
+          ],
+          "canonical_tags": [
+            "persian",
+            "metal"
+          ]
+        },
+        {
+          "id": "dayereh_jingles_steel_rings",
+          "name": "Steel rings (brighter, denser wash)",
+          "descriptors": [
+            "steel",
+            "brighter",
+            "ringing"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "metallic"
+          ],
+          "canonical_tags": [
+            "metal",
+            "modern"
+          ]
+        },
+        {
+          "id": "dayereh_jingles_frame_cymbals",
+          "name": "Paired cymbals set in frame slots (riq-ward regional form)",
+          "descriptors": [
+            "metallic",
+            "crisp",
+            "regional"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "metallic"
+          ],
+          "canonical_tags": [
+            "middle-eastern"
+          ]
+        },
+        {
+          "id": "dayereh_jingles_none",
+          "name": "Bare hoop, no jingles (dry tār-ward voice)",
+          "descriptors": [
+            "dry",
+            "clean",
+            "focused"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dayereh_head",
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "dayereh_head_goat_skin",
+          "default": true,
+          "name": "Goat-skin (canonical — warm and full)",
+          "descriptors": [
+            "goatskin",
+            "warm",
+            "traditional"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "dayereh_head_fish_skin",
+          "name": "Fish-skin (thin, bright, fast response)",
+          "descriptors": [
+            "bright",
+            "responsive",
+            "treble-extended"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "dayereh_head_synthetic",
+          "name": "Synthetic head (humidity-stable, touring)",
+          "descriptors": [
+            "synthetic",
+            "stable",
+            "modern"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "struck",
+            "frame-drum"
+          ],
+          "canonical_tags": [
+            "synthetic",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dayereh_technique",
+      "name": "Playing technique / context",
+      "variants": [
+        {
+          "id": "dayereh_technique_dance_pulse",
+          "default": true,
+          "name": "Fingertip snaps and rolls as dance timekeeper (motrebi / folk)",
+          "descriptors": [
+            "dance-driving",
+            "celebratory",
+            "urban"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "dance",
+            "folk"
+          ]
+        },
+        {
+          "id": "dayereh_technique_shake_tremolo",
+          "name": "Sustained shake tremolo for jingle wash",
+          "descriptors": [
+            "shimmering",
+            "sustained",
+            "atmospheric"
+          ],
+          "match_tokens": [
+            "shaken",
+            "metallic",
+            "tremolo"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "dayereh_technique_usul",
+          "name": "Doira usul cycles under shashmaqom art song",
+          "descriptors": [
+            "ornamented",
+            "art-music",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "struck",
+            "ostinato",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "central-asian",
+            "classical"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dayereh_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "dayereh_form_iranian",
+          "default": true,
+          "name": "Iranian dāyereh (small light hoop, finger-led)",
+          "descriptors": [
+            "small-frame",
+            "snappy",
+            "folk"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "persian",
+            "folk"
+          ]
+        },
+        {
+          "id": "dayereh_form_doira",
+          "name": "Central Asian doira / doyra (larger, dense ring load, maqom usul)",
+          "descriptors": [
+            "large-frame",
+            "dense",
+            "art-music"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "ostinato"
+          ],
+          "canonical_tags": [
+            "central-asian",
+            "classical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dayereh_jingles",
+      "name": "Jingle system",
+      "variants": [
+        {
+          "id": "dayereh_jingles_brass_rings",
+          "default": true,
+          "name": "Loose brass rings on the inner hoop (canonical Iranian)",
+          "descriptors": [
+            "brass",
+            "shimmering",
+            "traditional"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "metallic"
+          ],
+          "canonical_tags": [
+            "persian",
+            "metal"
+          ]
+        },
+        {
+          "id": "dayereh_jingles_steel_rings",
+          "name": "Steel rings (brighter, denser wash)",
+          "descriptors": [
+            "steel",
+            "brighter",
+            "ringing"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "metallic"
+          ],
+          "canonical_tags": [
+            "metal",
+            "modern"
+          ]
+        },
+        {
+          "id": "dayereh_jingles_frame_cymbals",
+          "name": "Paired cymbals set in frame slots (riq-ward regional form)",
+          "descriptors": [
+            "metallic",
+            "crisp",
+            "regional"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "metallic"
+          ],
+          "canonical_tags": [
+            "middle-eastern"
+          ]
+        },
+        {
+          "id": "dayereh_jingles_none",
+          "name": "Bare hoop, no jingles (dry tār-ward voice)",
+          "descriptors": [
+            "dry",
+            "clean",
+            "focused"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dayereh_head",
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "dayereh_head_goat_skin",
+          "default": true,
+          "name": "Goat-skin (canonical — warm and full)",
+          "descriptors": [
+            "goatskin",
+            "warm",
+            "traditional"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "dayereh_head_fish_skin",
+          "name": "Fish-skin (thin, bright, fast response)",
+          "descriptors": [
+            "bright",
+            "responsive",
+            "treble-extended"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "dayereh_head_synthetic",
+          "name": "Synthetic head (humidity-stable, touring)",
+          "descriptors": [
+            "synthetic",
+            "stable",
+            "modern"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "struck",
+            "frame-drum"
+          ],
+          "canonical_tags": [
+            "synthetic",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dayereh_technique",
+      "name": "Playing technique / context",
+      "variants": [
+        {
+          "id": "dayereh_technique_dance_pulse",
+          "default": true,
+          "name": "Fingertip snaps and rolls as dance timekeeper (motrebi / folk)",
+          "descriptors": [
+            "dance-driving",
+            "celebratory",
+            "urban"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "dance",
+            "folk"
+          ]
+        },
+        {
+          "id": "dayereh_technique_shake_tremolo",
+          "name": "Sustained shake tremolo for jingle wash",
+          "descriptors": [
+            "shimmering",
+            "sustained",
+            "atmospheric"
+          ],
+          "match_tokens": [
+            "shaken",
+            "metallic",
+            "tremolo"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "dayereh_technique_usul",
+          "name": "Doira usul cycles under shashmaqom art song",
+          "descriptors": [
+            "ornamented",
+            "art-music",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "struck",
+            "ostinato",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "central-asian",
+            "classical"
+          ]
+        }
+      ]
+    }
+  ]
+}

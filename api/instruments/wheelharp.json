@@ -1,0 +1,455 @@
+{
+  "id": "wheelharp",
+  "name": "Wheelharp (Antiquity Music keyboard bowed-string)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "wheelharp",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "wheelharp_wheel_speed",
+      "name": "Wheel speed (treadle governed)",
+      "variants": [
+        {
+          "id": "wheelharp_singing_fast",
+          "default": true,
+          "name": "Fast wheel - full singing sustain",
+          "descriptors": [
+            "singing-tone",
+            "full-bodied",
+            "organ-like"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "keyed",
+            "resonant"
+          ]
+        },
+        {
+          "id": "wheelharp_slow_breathy",
+          "name": "Slow wheel - grainy, breathy attack",
+          "descriptors": [
+            "grainy",
+            "breathy",
+            "fragile"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "wheelharp_treadle_swells",
+          "name": "Treadle-driven swells under a held chord",
+          "descriptors": [
+            "swelling",
+            "dynamic",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "expressive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wheelharp_articulation",
+      "name": "Keyboard articulation",
+      "variants": [
+        {
+          "id": "wheelharp_held_chords",
+          "default": true,
+          "name": "Sustained held chords (string-section bed)",
+          "descriptors": [
+            "sustained-drone",
+            "chordal",
+            "enveloping"
+          ],
+          "match_tokens": [
+            "bowed",
+            "chordal",
+            "sustained-tone",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "wheelharp_detached_lines",
+          "name": "Detached keyboard articulation (harpsichord-like phrasing)",
+          "descriptors": [
+            "staccato",
+            "articulate",
+            "harpsichord-like-shimmer"
+          ],
+          "match_tokens": [
+            "bowed",
+            "keyed",
+            "articulated"
+          ]
+        },
+        {
+          "id": "wheelharp_tremolo_figuration",
+          "name": "Reiterated tremolo / bariolage figuration",
+          "descriptors": [
+            "rapid-tremolo",
+            "urgent",
+            "driving-pulse"
+          ],
+          "match_tokens": [
+            "bowed",
+            "tremolo",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wheelharp_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "wheelharp_solo_continuo",
+          "default": true,
+          "name": "Solo / continuo sustain voice",
+          "descriptors": [
+            "soloistic",
+            "continuo",
+            "lead-instrument-elevated"
+          ],
+          "match_tokens": [
+            "bowed",
+            "soloistic",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "solo",
+            "concert"
+          ]
+        },
+        {
+          "id": "wheelharp_string_blend",
+          "name": "Blended into a written string section",
+          "descriptors": [
+            "blending",
+            "orchestral-color",
+            "unison-doubled"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "orchestral"
+          ],
+          "canonical_tags": [
+            "contemporary"
+          ]
+        },
+        {
+          "id": "wheelharp_ambient_bed",
+          "name": "Ambient / media sustain bed",
+          "descriptors": [
+            "atmospheric",
+            "floating",
+            "production-texture"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "ambient"
+          ],
+          "canonical_tags": [
+            "ambient",
+            "film-scoring"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wheelharp_lineage",
+      "name": "Mechanism lineage",
+      "variants": [
+        {
+          "id": "wheelharp_motor_wheel",
+          "default": true,
+          "name": "Motor-driven spinning wheel, treadle-governed (2013 Antiquity build)",
+          "descriptors": [
+            "great-wheel",
+            "wheel-treadle",
+            "modern-build"
+          ],
+          "match_tokens": [
+            "bowed",
+            "friction-driven",
+            "keyed"
+          ],
+          "canonical_tags": [
+            "modern",
+            "contemporary"
+          ]
+        },
+        {
+          "id": "wheelharp_geigenwerk_reading",
+          "name": "Played as a Geigenwerk surrogate (early-keyboard repertoire)",
+          "descriptors": [
+            "period-evocation",
+            "early-period",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "friction-driven",
+            "early-music-context",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "early-music"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "wheelharp_wheel_speed",
+      "name": "Wheel speed (treadle governed)",
+      "variants": [
+        {
+          "id": "wheelharp_singing_fast",
+          "default": true,
+          "name": "Fast wheel - full singing sustain",
+          "descriptors": [
+            "singing-tone",
+            "full-bodied",
+            "organ-like"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "keyed",
+            "resonant"
+          ]
+        },
+        {
+          "id": "wheelharp_slow_breathy",
+          "name": "Slow wheel - grainy, breathy attack",
+          "descriptors": [
+            "grainy",
+            "breathy",
+            "fragile"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "wheelharp_treadle_swells",
+          "name": "Treadle-driven swells under a held chord",
+          "descriptors": [
+            "swelling",
+            "dynamic",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "expressive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wheelharp_articulation",
+      "name": "Keyboard articulation",
+      "variants": [
+        {
+          "id": "wheelharp_held_chords",
+          "default": true,
+          "name": "Sustained held chords (string-section bed)",
+          "descriptors": [
+            "sustained-drone",
+            "chordal",
+            "enveloping"
+          ],
+          "match_tokens": [
+            "bowed",
+            "chordal",
+            "sustained-tone",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "wheelharp_detached_lines",
+          "name": "Detached keyboard articulation (harpsichord-like phrasing)",
+          "descriptors": [
+            "staccato",
+            "articulate",
+            "harpsichord-like-shimmer"
+          ],
+          "match_tokens": [
+            "bowed",
+            "keyed",
+            "articulated"
+          ]
+        },
+        {
+          "id": "wheelharp_tremolo_figuration",
+          "name": "Reiterated tremolo / bariolage figuration",
+          "descriptors": [
+            "rapid-tremolo",
+            "urgent",
+            "driving-pulse"
+          ],
+          "match_tokens": [
+            "bowed",
+            "tremolo",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wheelharp_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "wheelharp_solo_continuo",
+          "default": true,
+          "name": "Solo / continuo sustain voice",
+          "descriptors": [
+            "soloistic",
+            "continuo",
+            "lead-instrument-elevated"
+          ],
+          "match_tokens": [
+            "bowed",
+            "soloistic",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "solo",
+            "concert"
+          ]
+        },
+        {
+          "id": "wheelharp_string_blend",
+          "name": "Blended into a written string section",
+          "descriptors": [
+            "blending",
+            "orchestral-color",
+            "unison-doubled"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "orchestral"
+          ],
+          "canonical_tags": [
+            "contemporary"
+          ]
+        },
+        {
+          "id": "wheelharp_ambient_bed",
+          "name": "Ambient / media sustain bed",
+          "descriptors": [
+            "atmospheric",
+            "floating",
+            "production-texture"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "ambient"
+          ],
+          "canonical_tags": [
+            "ambient",
+            "film-scoring"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wheelharp_lineage",
+      "name": "Mechanism lineage",
+      "variants": [
+        {
+          "id": "wheelharp_motor_wheel",
+          "default": true,
+          "name": "Motor-driven spinning wheel, treadle-governed (2013 Antiquity build)",
+          "descriptors": [
+            "great-wheel",
+            "wheel-treadle",
+            "modern-build"
+          ],
+          "match_tokens": [
+            "bowed",
+            "friction-driven",
+            "keyed"
+          ],
+          "canonical_tags": [
+            "modern",
+            "contemporary"
+          ]
+        },
+        {
+          "id": "wheelharp_geigenwerk_reading",
+          "name": "Played as a Geigenwerk surrogate (early-keyboard repertoire)",
+          "descriptors": [
+            "period-evocation",
+            "early-period",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "friction-driven",
+            "early-music-context",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "early-music"
+          ]
+        }
+      ]
+    }
+  ]
+}

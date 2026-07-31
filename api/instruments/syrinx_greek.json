@@ -1,0 +1,496 @@
+{
+  "id": "syrinx_greek",
+  "name": "Syrinx (ancient Greek panpipe)",
+  "family": "wind",
+  "class": "raft_panpipe",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 1,
+    "range": -1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "syrinx",
+  "parts": [
+    {
+      "id": "syrinx_greek_form",
+      "name": "Form / cut",
+      "variants": [
+        {
+          "id": "syrinx_greek_level_wax",
+          "default": true,
+          "name": "Level-cut raft (equal outer tube lengths, pitch set by internal wax plugs)",
+          "descriptors": [
+            "archaic",
+            "hollow-toned",
+            "pastoral"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "panpipe",
+            "breathy-tone"
+          ],
+          "canonical_tags": [
+            "greek",
+            "ancient"
+          ]
+        },
+        {
+          "id": "syrinx_greek_stepped_raft",
+          "name": "Stepped graduated raft (staircase-cut tubes, wider Mediterranean form)",
+          "descriptors": [
+            "rustic",
+            "breathy",
+            "archaic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "panpipe",
+            "breathy-tone"
+          ],
+          "canonical_tags": [
+            "mediterranean",
+            "traditional"
+          ]
+        },
+        {
+          "id": "syrinx_greek_bundled_round",
+          "name": "Bundled round panpipe (tubes lashed in a ring rather than a flat raft)",
+          "descriptors": [
+            "archaic",
+            "hollow-toned",
+            "rustic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "panpipe"
+          ],
+          "canonical_tags": [
+            "ancient",
+            "archaic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "syrinx_greek_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "syrinx_greek_pastoral_air",
+          "default": true,
+          "name": "Sustained pastoral air (head-tilt glissando, breath vibrato)",
+          "descriptors": [
+            "pastoral",
+            "plaintive",
+            "glissando"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathy-tone",
+            "melodic-lead"
+          ],
+          "canonical_tags": [
+            "greek",
+            "pastoral"
+          ]
+        },
+        {
+          "id": "syrinx_greek_tongued_leaps",
+          "name": "Tongued staccato leaps across pipes (dance and herding calls)",
+          "descriptors": [
+            "driving",
+            "staccato",
+            "rustic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "panpipe",
+            "dance-pulse"
+          ],
+          "canonical_tags": [
+            "dance",
+            "technique"
+          ]
+        },
+        {
+          "id": "syrinx_greek_overblown_twelfth",
+          "name": "Overblown twelfths in the upper register (stopped pipes, thin and whistling)",
+          "descriptors": [
+            "overblown",
+            "airy",
+            "soaring"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "overtone-series",
+            "breathy"
+          ],
+          "canonical_tags": [
+            "technique"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "syrinx_greek_context",
+      "name": "Ensemble role / context",
+      "variants": [
+        {
+          "id": "syrinx_greek_solo_shepherd",
+          "default": true,
+          "name": "Solitary shepherd's solo, open-air and unaccompanied",
+          "descriptors": [
+            "pastoral",
+            "sparse",
+            "unaccompanied"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "melodic-lead",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "pastoral",
+            "shepherd"
+          ]
+        },
+        {
+          "id": "syrinx_greek_satyric_revel",
+          "name": "Satyric / Dionysiac revel with frame drum and krotala",
+          "descriptors": [
+            "festive",
+            "ritual",
+            "driving"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "dance-pulse",
+            "ritual-context"
+          ],
+          "canonical_tags": [
+            "greek",
+            "ritual"
+          ]
+        },
+        {
+          "id": "syrinx_greek_bucolic_song",
+          "name": "Bucolic song — answering or doubling a solo voice",
+          "descriptors": [
+            "plaintive",
+            "call-and-answer",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "melodic-lead",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "greek",
+            "solo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "syrinx_greek_pipe_material",
+      "name": "Pipe material / stopping",
+      "variants": [
+        {
+          "id": "syrinx_greek_cane",
+          "default": true,
+          "name": "Mediterranean cane (Arundo donax), wax-plugged at the node",
+          "descriptors": [
+            "cane",
+            "breathy",
+            "warm"
+          ],
+          "match_tokens": [
+            "panpipe",
+            "breathy-tone"
+          ],
+          "canonical_tags": [
+            "reed"
+          ]
+        },
+        {
+          "id": "syrinx_greek_boxwood",
+          "name": "Boxwood or other hardwood bores",
+          "descriptors": [
+            "wooden",
+            "mellow",
+            "dark"
+          ],
+          "match_tokens": [
+            "panpipe",
+            "wooden"
+          ],
+          "canonical_tags": [
+            "wood"
+          ]
+        },
+        {
+          "id": "syrinx_greek_bone_clay",
+          "name": "Bone or fired-clay tubes (archaeological type)",
+          "descriptors": [
+            "bone",
+            "ceramic",
+            "hollow-toned"
+          ],
+          "match_tokens": [
+            "panpipe",
+            "bone"
+          ],
+          "canonical_tags": [
+            "archaic",
+            "ancient"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "syrinx_greek_form",
+      "name": "Form / cut",
+      "variants": [
+        {
+          "id": "syrinx_greek_level_wax",
+          "default": true,
+          "name": "Level-cut raft (equal outer tube lengths, pitch set by internal wax plugs)",
+          "descriptors": [
+            "archaic",
+            "hollow-toned",
+            "pastoral"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "panpipe",
+            "breathy-tone"
+          ],
+          "canonical_tags": [
+            "greek",
+            "ancient"
+          ]
+        },
+        {
+          "id": "syrinx_greek_stepped_raft",
+          "name": "Stepped graduated raft (staircase-cut tubes, wider Mediterranean form)",
+          "descriptors": [
+            "rustic",
+            "breathy",
+            "archaic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "panpipe",
+            "breathy-tone"
+          ],
+          "canonical_tags": [
+            "mediterranean",
+            "traditional"
+          ]
+        },
+        {
+          "id": "syrinx_greek_bundled_round",
+          "name": "Bundled round panpipe (tubes lashed in a ring rather than a flat raft)",
+          "descriptors": [
+            "archaic",
+            "hollow-toned",
+            "rustic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "panpipe"
+          ],
+          "canonical_tags": [
+            "ancient",
+            "archaic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "syrinx_greek_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "syrinx_greek_pastoral_air",
+          "default": true,
+          "name": "Sustained pastoral air (head-tilt glissando, breath vibrato)",
+          "descriptors": [
+            "pastoral",
+            "plaintive",
+            "glissando"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathy-tone",
+            "melodic-lead"
+          ],
+          "canonical_tags": [
+            "greek",
+            "pastoral"
+          ]
+        },
+        {
+          "id": "syrinx_greek_tongued_leaps",
+          "name": "Tongued staccato leaps across pipes (dance and herding calls)",
+          "descriptors": [
+            "driving",
+            "staccato",
+            "rustic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "panpipe",
+            "dance-pulse"
+          ],
+          "canonical_tags": [
+            "dance",
+            "technique"
+          ]
+        },
+        {
+          "id": "syrinx_greek_overblown_twelfth",
+          "name": "Overblown twelfths in the upper register (stopped pipes, thin and whistling)",
+          "descriptors": [
+            "overblown",
+            "airy",
+            "soaring"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "overtone-series",
+            "breathy"
+          ],
+          "canonical_tags": [
+            "technique"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "syrinx_greek_context",
+      "name": "Ensemble role / context",
+      "variants": [
+        {
+          "id": "syrinx_greek_solo_shepherd",
+          "default": true,
+          "name": "Solitary shepherd's solo, open-air and unaccompanied",
+          "descriptors": [
+            "pastoral",
+            "sparse",
+            "unaccompanied"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "melodic-lead",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "pastoral",
+            "shepherd"
+          ]
+        },
+        {
+          "id": "syrinx_greek_satyric_revel",
+          "name": "Satyric / Dionysiac revel with frame drum and krotala",
+          "descriptors": [
+            "festive",
+            "ritual",
+            "driving"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "dance-pulse",
+            "ritual-context"
+          ],
+          "canonical_tags": [
+            "greek",
+            "ritual"
+          ]
+        },
+        {
+          "id": "syrinx_greek_bucolic_song",
+          "name": "Bucolic song — answering or doubling a solo voice",
+          "descriptors": [
+            "plaintive",
+            "call-and-answer",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "melodic-lead",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "greek",
+            "solo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "syrinx_greek_pipe_material",
+      "name": "Pipe material / stopping",
+      "variants": [
+        {
+          "id": "syrinx_greek_cane",
+          "default": true,
+          "name": "Mediterranean cane (Arundo donax), wax-plugged at the node",
+          "descriptors": [
+            "cane",
+            "breathy",
+            "warm"
+          ],
+          "match_tokens": [
+            "panpipe",
+            "breathy-tone"
+          ],
+          "canonical_tags": [
+            "reed"
+          ]
+        },
+        {
+          "id": "syrinx_greek_boxwood",
+          "name": "Boxwood or other hardwood bores",
+          "descriptors": [
+            "wooden",
+            "mellow",
+            "dark"
+          ],
+          "match_tokens": [
+            "panpipe",
+            "wooden"
+          ],
+          "canonical_tags": [
+            "wood"
+          ]
+        },
+        {
+          "id": "syrinx_greek_bone_clay",
+          "name": "Bone or fired-clay tubes (archaeological type)",
+          "descriptors": [
+            "bone",
+            "ceramic",
+            "hollow-toned"
+          ],
+          "match_tokens": [
+            "panpipe",
+            "bone"
+          ],
+          "canonical_tags": [
+            "archaic",
+            "ancient"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,580 @@
+{
+  "id": "parai",
+  "name": "Parai (Tamil stick-beaten frame drum)",
+  "family": "percussion",
+  "class": "frame_drum",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": -1,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "parai",
+  "parts": [
+    {
+      "id": "parai_context",
+      "name": "Repertoire / context",
+      "variants": [
+        {
+          "id": "parai_context_festival_rally",
+          "default": true,
+          "name": "Festival, wedding and protest-rally drumming (reclaimed practice)",
+          "descriptors": [
+            "defiant",
+            "communal",
+            "driving"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-struck",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "folk",
+            "modern"
+          ]
+        },
+        {
+          "id": "parai_context_funeral",
+          "name": "Funeral procession (the caste-imposed historical duty)",
+          "descriptors": [
+            "processional",
+            "solemn",
+            "mournful"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-struck",
+            "processional"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "ritual",
+            "processional"
+          ]
+        },
+        {
+          "id": "parai_context_attam",
+          "name": "Staged parai attam / thappattam with dance choreography",
+          "descriptors": [
+            "staged",
+            "choreographed",
+            "theatrical"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-struck",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "dance",
+            "stage",
+            "revival"
+          ]
+        },
+        {
+          "id": "parai_context_announcement",
+          "name": "Announcement and battle-rally signalling (historical martial role)",
+          "descriptors": [
+            "martial",
+            "declamatory",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-struck",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "parai_ensemble",
+      "name": "Ensemble scale",
+      "variants": [
+        {
+          "id": "parai_ensemble_troupe",
+          "default": true,
+          "name": "Massed troupe unison (the characteristic modern parai sound)",
+          "descriptors": [
+            "massed",
+            "communal",
+            "relentless"
+          ],
+          "match_tokens": [
+            "struck",
+            "ensemble",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "parai_ensemble_call_response",
+          "name": "Troupe call-and-response between lead drum and block",
+          "descriptors": [
+            "call-and-response",
+            "interlocking",
+            "communal"
+          ],
+          "match_tokens": [
+            "struck",
+            "ensemble",
+            "call-response"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "parai_ensemble_solo",
+          "name": "Solo / small-group lead",
+          "descriptors": [
+            "soloistic",
+            "articulate",
+            "improvised"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-struck",
+            "soloistic"
+          ],
+          "canonical_tags": [
+            "solo",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "parai_beaters",
+      "name": "Beater balance",
+      "variants": [
+        {
+          "id": "parai_beaters_interlocked",
+          "default": true,
+          "name": "Interlocked asymmetric pair (thin sunddu kucchi over thick adi kucchi)",
+          "descriptors": [
+            "interlocking",
+            "snappy",
+            "driving"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-struck",
+            "sticks"
+          ],
+          "canonical_tags": [
+            "south-asian"
+          ]
+        },
+        {
+          "id": "parai_beaters_sunddu_lead",
+          "name": "Sunddu kucchi lead (long thin stick, high cracking articulation)",
+          "descriptors": [
+            "cutting",
+            "high-pitched",
+            "articulate"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-struck",
+            "sharp-attack"
+          ],
+          "canonical_tags": [
+            "south-asian"
+          ]
+        },
+        {
+          "id": "parai_beaters_adi_lead",
+          "name": "Adi kucchi lead (short thick stick, heavy low pulse)",
+          "descriptors": [
+            "thumpy",
+            "steady-pulse",
+            "deep-toned"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-struck",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "south-asian"
+          ]
+        },
+        {
+          "id": "parai_beaters_hand_damped",
+          "name": "Hand damping against the head (choked, dry strokes)",
+          "descriptors": [
+            "muted",
+            "dry",
+            "clipped"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-and-stick",
+            "muted"
+          ],
+          "canonical_tags": [
+            "south-asian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "parai_head",
+      "name": "Head and frame",
+      "variants": [
+        {
+          "id": "parai_head_neem_cowhide",
+          "default": true,
+          "name": "Resin-fixed cow-hide on a three-arc neem frame, held taut (canonical Tamil)",
+          "descriptors": [
+            "taut",
+            "snappy",
+            "traditional",
+            "hide"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "hide-head"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "natural-skin"
+          ]
+        },
+        {
+          "id": "parai_head_low_tension",
+          "name": "Cold low-tension head (fat, thuddy, short decay)",
+          "descriptors": [
+            "low-tension",
+            "thumpy",
+            "dry"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "south-asian"
+          ]
+        },
+        {
+          "id": "parai_head_synthetic",
+          "name": "Synthetic head (weatherproof modern troupe build)",
+          "descriptors": [
+            "synthetic-head",
+            "weatherproof",
+            "durable"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "synthetic"
+          ],
+          "canonical_tags": [
+            "modern",
+            "synthetic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "parai_context",
+      "name": "Repertoire / context",
+      "variants": [
+        {
+          "id": "parai_context_festival_rally",
+          "default": true,
+          "name": "Festival, wedding and protest-rally drumming (reclaimed practice)",
+          "descriptors": [
+            "defiant",
+            "communal",
+            "driving"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-struck",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "folk",
+            "modern"
+          ]
+        },
+        {
+          "id": "parai_context_funeral",
+          "name": "Funeral procession (the caste-imposed historical duty)",
+          "descriptors": [
+            "processional",
+            "solemn",
+            "mournful"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-struck",
+            "processional"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "ritual",
+            "processional"
+          ]
+        },
+        {
+          "id": "parai_context_attam",
+          "name": "Staged parai attam / thappattam with dance choreography",
+          "descriptors": [
+            "staged",
+            "choreographed",
+            "theatrical"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-struck",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "dance",
+            "stage",
+            "revival"
+          ]
+        },
+        {
+          "id": "parai_context_announcement",
+          "name": "Announcement and battle-rally signalling (historical martial role)",
+          "descriptors": [
+            "martial",
+            "declamatory",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-struck",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "parai_ensemble",
+      "name": "Ensemble scale",
+      "variants": [
+        {
+          "id": "parai_ensemble_troupe",
+          "default": true,
+          "name": "Massed troupe unison (the characteristic modern parai sound)",
+          "descriptors": [
+            "massed",
+            "communal",
+            "relentless"
+          ],
+          "match_tokens": [
+            "struck",
+            "ensemble",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "parai_ensemble_call_response",
+          "name": "Troupe call-and-response between lead drum and block",
+          "descriptors": [
+            "call-and-response",
+            "interlocking",
+            "communal"
+          ],
+          "match_tokens": [
+            "struck",
+            "ensemble",
+            "call-response"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "parai_ensemble_solo",
+          "name": "Solo / small-group lead",
+          "descriptors": [
+            "soloistic",
+            "articulate",
+            "improvised"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-struck",
+            "soloistic"
+          ],
+          "canonical_tags": [
+            "solo",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "parai_beaters",
+      "name": "Beater balance",
+      "variants": [
+        {
+          "id": "parai_beaters_interlocked",
+          "default": true,
+          "name": "Interlocked asymmetric pair (thin sunddu kucchi over thick adi kucchi)",
+          "descriptors": [
+            "interlocking",
+            "snappy",
+            "driving"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-struck",
+            "sticks"
+          ],
+          "canonical_tags": [
+            "south-asian"
+          ]
+        },
+        {
+          "id": "parai_beaters_sunddu_lead",
+          "name": "Sunddu kucchi lead (long thin stick, high cracking articulation)",
+          "descriptors": [
+            "cutting",
+            "high-pitched",
+            "articulate"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-struck",
+            "sharp-attack"
+          ],
+          "canonical_tags": [
+            "south-asian"
+          ]
+        },
+        {
+          "id": "parai_beaters_adi_lead",
+          "name": "Adi kucchi lead (short thick stick, heavy low pulse)",
+          "descriptors": [
+            "thumpy",
+            "steady-pulse",
+            "deep-toned"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-struck",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "south-asian"
+          ]
+        },
+        {
+          "id": "parai_beaters_hand_damped",
+          "name": "Hand damping against the head (choked, dry strokes)",
+          "descriptors": [
+            "muted",
+            "dry",
+            "clipped"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-and-stick",
+            "muted"
+          ],
+          "canonical_tags": [
+            "south-asian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "parai_head",
+      "name": "Head and frame",
+      "variants": [
+        {
+          "id": "parai_head_neem_cowhide",
+          "default": true,
+          "name": "Resin-fixed cow-hide on a three-arc neem frame, held taut (canonical Tamil)",
+          "descriptors": [
+            "taut",
+            "snappy",
+            "traditional",
+            "hide"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "hide-head"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "natural-skin"
+          ]
+        },
+        {
+          "id": "parai_head_low_tension",
+          "name": "Cold low-tension head (fat, thuddy, short decay)",
+          "descriptors": [
+            "low-tension",
+            "thumpy",
+            "dry"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "south-asian"
+          ]
+        },
+        {
+          "id": "parai_head_synthetic",
+          "name": "Synthetic head (weatherproof modern troupe build)",
+          "descriptors": [
+            "synthetic-head",
+            "weatherproof",
+            "durable"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "synthetic"
+          ],
+          "canonical_tags": [
+            "modern",
+            "synthetic"
+          ]
+        }
+      ]
+    }
+  ]
+}

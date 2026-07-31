@@ -1,0 +1,474 @@
+{
+  "id": "keyed_trumpet",
+  "name": "Keyed trumpet (Klappentrompete / tromba a chiavi)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "keyed trumpet",
+  "parts": [
+    {
+      "id": "keyed_trumpet_form",
+      "name": "Regional form / period",
+      "variants": [
+        {
+          "id": "keyed_trumpet_viennese_weidinger",
+          "default": true,
+          "name": "Viennese Weidinger concerto instrument (c. 1793–1820 — natural trumpet with five drilled keys)",
+          "descriptors": [
+            "soloistic",
+            "noble",
+            "historic"
+          ],
+          "match_tokens": [
+            "lip-buzzed",
+            "keyed",
+            "soloistic"
+          ],
+          "canonical_tags": [
+            "viennese",
+            "classical-era"
+          ]
+        },
+        {
+          "id": "keyed_trumpet_italian_tromba_chiavi",
+          "name": "Italian tromba a chiavi, five right-hand keys (Beni / Masserenti / Apparuti, 1820s–60s)",
+          "descriptors": [
+            "operatic",
+            "projecting",
+            "band"
+          ],
+          "match_tokens": [
+            "lip-buzzed",
+            "keyed",
+            "orchestral"
+          ],
+          "canonical_tags": [
+            "italian",
+            "opera"
+          ]
+        },
+        {
+          "id": "keyed_trumpet_modern_repro",
+          "name": "Modern reproduction for period-instrument concerto performance",
+          "descriptors": [
+            "secure",
+            "stable",
+            "period-correct"
+          ],
+          "match_tokens": [
+            "keyed",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "modern-repro",
+            "revival"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "keyed_trumpet_pitch",
+      "name": "Nominal pitch / crook",
+      "variants": [
+        {
+          "id": "keyed_trumpet_eb",
+          "default": true,
+          "name": "E♭ (the Haydn Hob. VIIe:1 instrument)",
+          "descriptors": [
+            "brilliant",
+            "standard",
+            "soloistic"
+          ],
+          "match_tokens": [
+            "keyed",
+            "high-register"
+          ]
+        },
+        {
+          "id": "keyed_trumpet_g",
+          "name": "G",
+          "descriptors": [
+            "bright",
+            "cutting",
+            "historic"
+          ],
+          "match_tokens": [
+            "keyed",
+            "high-register"
+          ]
+        },
+        {
+          "id": "keyed_trumpet_low_crook",
+          "name": "Lower crooked body (F / E / D)",
+          "descriptors": [
+            "darker",
+            "full",
+            "veiled"
+          ],
+          "match_tokens": [
+            "keyed",
+            "mid-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "keyed_trumpet_keywork",
+      "name": "Key count / touchpiece layout",
+      "variants": [
+        {
+          "id": "keyed_trumpet_five_right_hand",
+          "default": true,
+          "name": "Five keys clustered under the right hand (the surviving standard layout)",
+          "descriptors": [
+            "balanced",
+            "chromatic",
+            "historic"
+          ],
+          "match_tokens": [
+            "keyed",
+            "chromatic"
+          ]
+        },
+        {
+          "id": "keyed_trumpet_four_key",
+          "name": "Four keys (more open-horn brilliance, more compromised accidentals)",
+          "descriptors": [
+            "brilliant",
+            "archaic",
+            "diatonic"
+          ],
+          "match_tokens": [
+            "keyed",
+            "diatonic"
+          ]
+        },
+        {
+          "id": "keyed_trumpet_six_key",
+          "name": "Six or more keys (evener chromaticism, more muffled notes)",
+          "descriptors": [
+            "chromatic",
+            "even",
+            "veiled"
+          ],
+          "match_tokens": [
+            "keyed",
+            "chromatic"
+          ]
+        },
+        {
+          "id": "keyed_trumpet_opposite_side",
+          "name": "Touchpieces on the tubing opposite the bell (Masserenti exception)",
+          "descriptors": [
+            "rare",
+            "historic",
+            "veiled"
+          ],
+          "match_tokens": [
+            "keyed",
+            "historic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "keyed_trumpet_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "keyed_trumpet_classical_concerto",
+          "default": true,
+          "name": "Classical concerto solo against orchestra (Haydn 1796, Hummel 1803)",
+          "descriptors": [
+            "soloistic",
+            "florid",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "soloistic",
+            "orchestral",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical-era",
+            "solo"
+          ]
+        },
+        {
+          "id": "keyed_trumpet_opera_section",
+          "name": "Section trumpet in an Italian opera orchestra (Bellini, early Verdi)",
+          "descriptors": [
+            "operatic",
+            "section-blend",
+            "projecting"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "ensemble",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "italian",
+            "opera"
+          ]
+        },
+        {
+          "id": "keyed_trumpet_banda",
+          "name": "Outdoor banda sul palco lead",
+          "descriptors": [
+            "outdoor",
+            "blaring",
+            "festive"
+          ],
+          "match_tokens": [
+            "open-air",
+            "lead-melody",
+            "march"
+          ],
+          "canonical_tags": [
+            "italian",
+            "outdoor"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "keyed_trumpet_form",
+      "name": "Regional form / period",
+      "variants": [
+        {
+          "id": "keyed_trumpet_viennese_weidinger",
+          "default": true,
+          "name": "Viennese Weidinger concerto instrument (c. 1793–1820 — natural trumpet with five drilled keys)",
+          "descriptors": [
+            "soloistic",
+            "noble",
+            "historic"
+          ],
+          "match_tokens": [
+            "lip-buzzed",
+            "keyed",
+            "soloistic"
+          ],
+          "canonical_tags": [
+            "viennese",
+            "classical-era"
+          ]
+        },
+        {
+          "id": "keyed_trumpet_italian_tromba_chiavi",
+          "name": "Italian tromba a chiavi, five right-hand keys (Beni / Masserenti / Apparuti, 1820s–60s)",
+          "descriptors": [
+            "operatic",
+            "projecting",
+            "band"
+          ],
+          "match_tokens": [
+            "lip-buzzed",
+            "keyed",
+            "orchestral"
+          ],
+          "canonical_tags": [
+            "italian",
+            "opera"
+          ]
+        },
+        {
+          "id": "keyed_trumpet_modern_repro",
+          "name": "Modern reproduction for period-instrument concerto performance",
+          "descriptors": [
+            "secure",
+            "stable",
+            "period-correct"
+          ],
+          "match_tokens": [
+            "keyed",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "modern-repro",
+            "revival"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "keyed_trumpet_pitch",
+      "name": "Nominal pitch / crook",
+      "variants": [
+        {
+          "id": "keyed_trumpet_eb",
+          "default": true,
+          "name": "E♭ (the Haydn Hob. VIIe:1 instrument)",
+          "descriptors": [
+            "brilliant",
+            "standard",
+            "soloistic"
+          ],
+          "match_tokens": [
+            "keyed",
+            "high-register"
+          ]
+        },
+        {
+          "id": "keyed_trumpet_g",
+          "name": "G",
+          "descriptors": [
+            "bright",
+            "cutting",
+            "historic"
+          ],
+          "match_tokens": [
+            "keyed",
+            "high-register"
+          ]
+        },
+        {
+          "id": "keyed_trumpet_low_crook",
+          "name": "Lower crooked body (F / E / D)",
+          "descriptors": [
+            "darker",
+            "full",
+            "veiled"
+          ],
+          "match_tokens": [
+            "keyed",
+            "mid-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "keyed_trumpet_keywork",
+      "name": "Key count / touchpiece layout",
+      "variants": [
+        {
+          "id": "keyed_trumpet_five_right_hand",
+          "default": true,
+          "name": "Five keys clustered under the right hand (the surviving standard layout)",
+          "descriptors": [
+            "balanced",
+            "chromatic",
+            "historic"
+          ],
+          "match_tokens": [
+            "keyed",
+            "chromatic"
+          ]
+        },
+        {
+          "id": "keyed_trumpet_four_key",
+          "name": "Four keys (more open-horn brilliance, more compromised accidentals)",
+          "descriptors": [
+            "brilliant",
+            "archaic",
+            "diatonic"
+          ],
+          "match_tokens": [
+            "keyed",
+            "diatonic"
+          ]
+        },
+        {
+          "id": "keyed_trumpet_six_key",
+          "name": "Six or more keys (evener chromaticism, more muffled notes)",
+          "descriptors": [
+            "chromatic",
+            "even",
+            "veiled"
+          ],
+          "match_tokens": [
+            "keyed",
+            "chromatic"
+          ]
+        },
+        {
+          "id": "keyed_trumpet_opposite_side",
+          "name": "Touchpieces on the tubing opposite the bell (Masserenti exception)",
+          "descriptors": [
+            "rare",
+            "historic",
+            "veiled"
+          ],
+          "match_tokens": [
+            "keyed",
+            "historic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "keyed_trumpet_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "keyed_trumpet_classical_concerto",
+          "default": true,
+          "name": "Classical concerto solo against orchestra (Haydn 1796, Hummel 1803)",
+          "descriptors": [
+            "soloistic",
+            "florid",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "soloistic",
+            "orchestral",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical-era",
+            "solo"
+          ]
+        },
+        {
+          "id": "keyed_trumpet_opera_section",
+          "name": "Section trumpet in an Italian opera orchestra (Bellini, early Verdi)",
+          "descriptors": [
+            "operatic",
+            "section-blend",
+            "projecting"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "ensemble",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "italian",
+            "opera"
+          ]
+        },
+        {
+          "id": "keyed_trumpet_banda",
+          "name": "Outdoor banda sul palco lead",
+          "descriptors": [
+            "outdoor",
+            "blaring",
+            "festive"
+          ],
+          "match_tokens": [
+            "open-air",
+            "lead-melody",
+            "march"
+          ],
+          "canonical_tags": [
+            "italian",
+            "outdoor"
+          ]
+        }
+      ]
+    }
+  ]
+}

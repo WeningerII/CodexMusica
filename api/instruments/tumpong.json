@@ -1,0 +1,434 @@
+{
+  "id": "tumpong",
+  "name": "Tumpong (Maguindanaon half-length lip-valley flute)",
+  "family": "wind",
+  "class": "end_blown_flute",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "tumpong",
+  "parts": [
+    {
+      "id": "tumpong_form",
+      "name": "Ethnic form",
+      "variants": [
+        {
+          "id": "tumpong_maguindanaon",
+          "default": true,
+          "name": "Maguindanaon tumpong (roughly half the palendag length, the everyday flute of the three)",
+          "descriptors": [
+            "traditional",
+            "mid-register",
+            "breathy"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "end-blown",
+            "bamboo",
+            "breathy-tone"
+          ],
+          "canonical_tags": [
+            "philippines",
+            "mindanao"
+          ]
+        },
+        {
+          "id": "tumpong_maranao_insi",
+          "name": "Maranao insi / inci (parallel Lanao form)",
+          "descriptors": [
+            "regional",
+            "distinctive",
+            "traditional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "end-blown",
+            "bamboo"
+          ],
+          "canonical_tags": [
+            "philippines",
+            "mindanao"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tumpong_holes",
+      "name": "Fingerhole layout",
+      "variants": [
+        {
+          "id": "tumpong_five_hole",
+          "default": true,
+          "name": "Five fingerholes (Maguindanaon standard form)",
+          "descriptors": [
+            "standard",
+            "traditional",
+            "modal"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "end-blown",
+            "bamboo"
+          ],
+          "canonical_tags": [
+            "mindanao"
+          ]
+        },
+        {
+          "id": "tumpong_six_hole",
+          "name": "Six fingerholes (extended, wider available scale)",
+          "descriptors": [
+            "extended",
+            "versatile",
+            "melodic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "end-blown",
+            "bamboo"
+          ],
+          "canonical_tags": [
+            "mindanao"
+          ]
+        },
+        {
+          "id": "tumpong_three_plus_one",
+          "name": "Three front holes and one thumb hole (palendag layout)",
+          "descriptors": [
+            "archaic",
+            "regional",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "end-blown",
+            "bamboo"
+          ],
+          "canonical_tags": [
+            "mindanao"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tumpong_delivery",
+      "name": "Attack character",
+      "variants": [
+        {
+          "id": "tumpong_soft_conversational",
+          "default": true,
+          "name": "Soft-spoken conversational tone (easy attack, close range)",
+          "descriptors": [
+            "intimate",
+            "soft",
+            "conversational",
+            "gentle"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathy-tone",
+            "gentle"
+          ],
+          "canonical_tags": [
+            "solo"
+          ]
+        },
+        {
+          "id": "tumpong_bright_projecting",
+          "name": "Bright projecting delivery",
+          "descriptors": [
+            "bright",
+            "projecting",
+            "articulate"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "bright-tone",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "concert"
+          ]
+        },
+        {
+          "id": "tumpong_breath_heavy",
+          "name": "Breath-heavy palendag-style wailing (bent pitches, audible air)",
+          "descriptors": [
+            "wailing",
+            "breathy",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathy-tone",
+            "microtonal-bend"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tumpong_context",
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "tumpong_evening_solo",
+          "default": true,
+          "name": "Solo evening piece at a family gathering",
+          "descriptors": [
+            "intimate",
+            "solo",
+            "narrative",
+            "unaccompanied"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "solo",
+            "breathy-tone"
+          ],
+          "canonical_tags": [
+            "philippines",
+            "mindanao",
+            "solo"
+          ]
+        },
+        {
+          "id": "tumpong_kulintang_melodic",
+          "name": "Melodic line over a kulintang / agung ensemble",
+          "descriptors": [
+            "melodic",
+            "ensemble",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ensemble",
+            "melodic-lead"
+          ],
+          "canonical_tags": [
+            "mindanao",
+            "contemporary"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tumpong_form",
+      "name": "Ethnic form",
+      "variants": [
+        {
+          "id": "tumpong_maguindanaon",
+          "default": true,
+          "name": "Maguindanaon tumpong (roughly half the palendag length, the everyday flute of the three)",
+          "descriptors": [
+            "traditional",
+            "mid-register",
+            "breathy"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "end-blown",
+            "bamboo",
+            "breathy-tone"
+          ],
+          "canonical_tags": [
+            "philippines",
+            "mindanao"
+          ]
+        },
+        {
+          "id": "tumpong_maranao_insi",
+          "name": "Maranao insi / inci (parallel Lanao form)",
+          "descriptors": [
+            "regional",
+            "distinctive",
+            "traditional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "end-blown",
+            "bamboo"
+          ],
+          "canonical_tags": [
+            "philippines",
+            "mindanao"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tumpong_holes",
+      "name": "Fingerhole layout",
+      "variants": [
+        {
+          "id": "tumpong_five_hole",
+          "default": true,
+          "name": "Five fingerholes (Maguindanaon standard form)",
+          "descriptors": [
+            "standard",
+            "traditional",
+            "modal"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "end-blown",
+            "bamboo"
+          ],
+          "canonical_tags": [
+            "mindanao"
+          ]
+        },
+        {
+          "id": "tumpong_six_hole",
+          "name": "Six fingerholes (extended, wider available scale)",
+          "descriptors": [
+            "extended",
+            "versatile",
+            "melodic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "end-blown",
+            "bamboo"
+          ],
+          "canonical_tags": [
+            "mindanao"
+          ]
+        },
+        {
+          "id": "tumpong_three_plus_one",
+          "name": "Three front holes and one thumb hole (palendag layout)",
+          "descriptors": [
+            "archaic",
+            "regional",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "end-blown",
+            "bamboo"
+          ],
+          "canonical_tags": [
+            "mindanao"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tumpong_delivery",
+      "name": "Attack character",
+      "variants": [
+        {
+          "id": "tumpong_soft_conversational",
+          "default": true,
+          "name": "Soft-spoken conversational tone (easy attack, close range)",
+          "descriptors": [
+            "intimate",
+            "soft",
+            "conversational",
+            "gentle"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathy-tone",
+            "gentle"
+          ],
+          "canonical_tags": [
+            "solo"
+          ]
+        },
+        {
+          "id": "tumpong_bright_projecting",
+          "name": "Bright projecting delivery",
+          "descriptors": [
+            "bright",
+            "projecting",
+            "articulate"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "bright-tone",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "concert"
+          ]
+        },
+        {
+          "id": "tumpong_breath_heavy",
+          "name": "Breath-heavy palendag-style wailing (bent pitches, audible air)",
+          "descriptors": [
+            "wailing",
+            "breathy",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathy-tone",
+            "microtonal-bend"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tumpong_context",
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "tumpong_evening_solo",
+          "default": true,
+          "name": "Solo evening piece at a family gathering",
+          "descriptors": [
+            "intimate",
+            "solo",
+            "narrative",
+            "unaccompanied"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "solo",
+            "breathy-tone"
+          ],
+          "canonical_tags": [
+            "philippines",
+            "mindanao",
+            "solo"
+          ]
+        },
+        {
+          "id": "tumpong_kulintang_melodic",
+          "name": "Melodic line over a kulintang / agung ensemble",
+          "descriptors": [
+            "melodic",
+            "ensemble",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ensemble",
+            "melodic-lead"
+          ],
+          "canonical_tags": [
+            "mindanao",
+            "contemporary"
+          ]
+        }
+      ]
+    }
+  ]
+}

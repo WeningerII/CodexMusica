@@ -1,0 +1,522 @@
+{
+  "id": "chalumeau",
+  "name": "Chalumeau (baroque keyed single-reed pipe)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "chalumeau",
+  "parts": [
+    {
+      "id": "chalumeau_size",
+      "name": "Consort size",
+      "variants": [
+        {
+          "id": "chalumeau_size_soprano",
+          "default": true,
+          "name": "Soprano chalumeau (Denner-workshop model, obbligato voice)",
+          "descriptors": [
+            "bright-reedy",
+            "plaintive",
+            "agile"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period"
+          ]
+        },
+        {
+          "id": "chalumeau_size_alto",
+          "name": "Alto chalumeau (Telemann's upper concerto voice)",
+          "descriptors": [
+            "warm",
+            "reedy",
+            "blended"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "consort"
+          ]
+        },
+        {
+          "id": "chalumeau_size_tenor",
+          "name": "Tenor chalumeau (hollow-toned partner voice)",
+          "descriptors": [
+            "woody",
+            "hollow",
+            "singing"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "single-reed",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "consort"
+          ]
+        },
+        {
+          "id": "chalumeau_size_bass",
+          "name": "Bass chalumeau (lowest of the four sizes)",
+          "descriptors": [
+            "deep",
+            "foundational",
+            "dark"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "low-register",
+            "foundational-bass"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "consort"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chalumeau_reed",
+      "name": "Reed mounting",
+      "variants": [
+        {
+          "id": "chalumeau_reed_upper_lip",
+          "default": true,
+          "name": "Reed uppermost, vibrating against the upper lip (18th-century originals)",
+          "descriptors": [
+            "archaic",
+            "historically-informed",
+            "reedy"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "period-performance",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "historic"
+          ]
+        },
+        {
+          "id": "chalumeau_reed_lower_lip",
+          "name": "Reed below, against the lower lip (modern reconstruction practice)",
+          "descriptors": [
+            "modern-revival",
+            "stable",
+            "focused"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "revival",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chalumeau_context",
+      "name": "Ensemble role / repertoire",
+      "variants": [
+        {
+          "id": "chalumeau_context_vocal_obbligato",
+          "default": true,
+          "name": "Obbligato shadowing a solo voice (Vivaldi Juditha triumphans, Fux)",
+          "descriptors": [
+            "aria-partner",
+            "devotional",
+            "intimate"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "baroque-leaning",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "sacred",
+            "viennese"
+          ]
+        },
+        {
+          "id": "chalumeau_context_paired",
+          "name": "Paired chalumeaux in parallel thirds (Telemann concerto for two)",
+          "descriptors": [
+            "paired",
+            "blended",
+            "pastorale"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "chamber-fed",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "chamber"
+          ]
+        },
+        {
+          "id": "chalumeau_context_pastoral_bass",
+          "name": "Continuo-supported pastoral bass line",
+          "descriptors": [
+            "pastoral",
+            "continuo",
+            "accompanying"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "low-register",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chalumeau_body_wood",
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "chalumeau_body_boxwood",
+          "default": true,
+          "name": "Boxwood with horn mounts (canonical Denner-workshop build)",
+          "descriptors": [
+            "boxwood-canonical-baroque-classical-pre-1850",
+            "warm",
+            "historical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "boxwood",
+            "baroque"
+          ]
+        },
+        {
+          "id": "chalumeau_body_pearwood",
+          "name": "Pearwood / fruitwood (softer-voiced alternative)",
+          "descriptors": [
+            "pearwood",
+            "mellow",
+            "soft-blend"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque"
+          ]
+        },
+        {
+          "id": "chalumeau_body_ebony",
+          "name": "Ebony with ivory mounts (dense, premium)",
+          "descriptors": [
+            "ebony",
+            "focused",
+            "projecting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "historic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "chalumeau_size",
+      "name": "Consort size",
+      "variants": [
+        {
+          "id": "chalumeau_size_soprano",
+          "default": true,
+          "name": "Soprano chalumeau (Denner-workshop model, obbligato voice)",
+          "descriptors": [
+            "bright-reedy",
+            "plaintive",
+            "agile"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period"
+          ]
+        },
+        {
+          "id": "chalumeau_size_alto",
+          "name": "Alto chalumeau (Telemann's upper concerto voice)",
+          "descriptors": [
+            "warm",
+            "reedy",
+            "blended"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "consort"
+          ]
+        },
+        {
+          "id": "chalumeau_size_tenor",
+          "name": "Tenor chalumeau (hollow-toned partner voice)",
+          "descriptors": [
+            "woody",
+            "hollow",
+            "singing"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "single-reed",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "consort"
+          ]
+        },
+        {
+          "id": "chalumeau_size_bass",
+          "name": "Bass chalumeau (lowest of the four sizes)",
+          "descriptors": [
+            "deep",
+            "foundational",
+            "dark"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "low-register",
+            "foundational-bass"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "consort"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chalumeau_reed",
+      "name": "Reed mounting",
+      "variants": [
+        {
+          "id": "chalumeau_reed_upper_lip",
+          "default": true,
+          "name": "Reed uppermost, vibrating against the upper lip (18th-century originals)",
+          "descriptors": [
+            "archaic",
+            "historically-informed",
+            "reedy"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "period-performance",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "historic"
+          ]
+        },
+        {
+          "id": "chalumeau_reed_lower_lip",
+          "name": "Reed below, against the lower lip (modern reconstruction practice)",
+          "descriptors": [
+            "modern-revival",
+            "stable",
+            "focused"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "revival",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chalumeau_context",
+      "name": "Ensemble role / repertoire",
+      "variants": [
+        {
+          "id": "chalumeau_context_vocal_obbligato",
+          "default": true,
+          "name": "Obbligato shadowing a solo voice (Vivaldi Juditha triumphans, Fux)",
+          "descriptors": [
+            "aria-partner",
+            "devotional",
+            "intimate"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "baroque-leaning",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "sacred",
+            "viennese"
+          ]
+        },
+        {
+          "id": "chalumeau_context_paired",
+          "name": "Paired chalumeaux in parallel thirds (Telemann concerto for two)",
+          "descriptors": [
+            "paired",
+            "blended",
+            "pastorale"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "chamber-fed",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "chamber"
+          ]
+        },
+        {
+          "id": "chalumeau_context_pastoral_bass",
+          "name": "Continuo-supported pastoral bass line",
+          "descriptors": [
+            "pastoral",
+            "continuo",
+            "accompanying"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "low-register",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chalumeau_body_wood",
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "chalumeau_body_boxwood",
+          "default": true,
+          "name": "Boxwood with horn mounts (canonical Denner-workshop build)",
+          "descriptors": [
+            "boxwood-canonical-baroque-classical-pre-1850",
+            "warm",
+            "historical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "boxwood",
+            "baroque"
+          ]
+        },
+        {
+          "id": "chalumeau_body_pearwood",
+          "name": "Pearwood / fruitwood (softer-voiced alternative)",
+          "descriptors": [
+            "pearwood",
+            "mellow",
+            "soft-blend"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque"
+          ]
+        },
+        {
+          "id": "chalumeau_body_ebony",
+          "name": "Ebony with ivory mounts (dense, premium)",
+          "descriptors": [
+            "ebony",
+            "focused",
+            "projecting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "historic"
+          ]
+        }
+      ]
+    }
+  ]
+}

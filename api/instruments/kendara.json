@@ -1,0 +1,413 @@
+{
+  "id": "kendara",
+  "name": "Kendara (Odishan mendicant bowed spike lute)",
+  "family": "bowed",
+  "class": "bowed_spike_fiddle",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "kendara",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "kendara_form",
+      "name": "Resonator and string count",
+      "variants": [
+        {
+          "id": "kendara_form_gourd_single",
+          "default": true,
+          "name": "Half-gourd bowl with hide belly, long bamboo neck, single string",
+          "descriptors": [
+            "gourd-bodied",
+            "hide-faced",
+            "single-string",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "bamboo"
+          ],
+          "canonical_tags": [
+            "south_asia",
+            "folk"
+          ]
+        },
+        {
+          "id": "kendara_form_wooden_bowl",
+          "name": "Carved wooden bowl (fuller, less buzzy)",
+          "descriptors": [
+            "wood",
+            "woody",
+            "rounder"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "south_asia"
+          ]
+        },
+        {
+          "id": "kendara_form_two_string",
+          "name": "Two-string form (drone plus melody)",
+          "descriptors": [
+            "two-string",
+            "droning",
+            "drone-and-melody"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "south_asia",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kendara_context",
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "kendara_context_kendara_gita",
+          "default": true,
+          "name": "Kendara gita: self-accompanied Odia devotional narrative",
+          "descriptors": [
+            "self-accompanied",
+            "devotional",
+            "narrative",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "devotional",
+            "vocal-accompaniment"
+          ],
+          "canonical_tags": [
+            "south_asia",
+            "devotional",
+            "storytelling"
+          ]
+        },
+        {
+          "id": "kendara_context_tribal",
+          "name": "Tribal and village ensemble music",
+          "descriptors": [
+            "communal",
+            "rural",
+            "cyclic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "indigenous",
+            "folk"
+          ]
+        },
+        {
+          "id": "kendara_context_stage_folk",
+          "name": "Staged folk-troupe performance",
+          "descriptors": [
+            "preservationist",
+            "festive",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "modern"
+          ],
+          "canonical_tags": [
+            "revival",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kendara_build",
+      "name": "String and bow",
+      "variants": [
+        {
+          "id": "kendara_build_gut_bell_bow",
+          "default": true,
+          "name": "Gut string, bamboo bow hung with small bells",
+          "descriptors": [
+            "gut",
+            "jangling",
+            "rattling",
+            "dry"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "jingle"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "kendara_build_steel_plain_bow",
+          "name": "Steel string, plain horsehair bow",
+          "descriptors": [
+            "steel",
+            "bright",
+            "cutting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "steel-string",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "kendara_build_horsehair",
+          "name": "Bundled horsehair string",
+          "descriptors": [
+            "horsehair-strung",
+            "raw",
+            "buzzy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "horsehair-string",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kendara_form",
+      "name": "Resonator and string count",
+      "variants": [
+        {
+          "id": "kendara_form_gourd_single",
+          "default": true,
+          "name": "Half-gourd bowl with hide belly, long bamboo neck, single string",
+          "descriptors": [
+            "gourd-bodied",
+            "hide-faced",
+            "single-string",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "bamboo"
+          ],
+          "canonical_tags": [
+            "south_asia",
+            "folk"
+          ]
+        },
+        {
+          "id": "kendara_form_wooden_bowl",
+          "name": "Carved wooden bowl (fuller, less buzzy)",
+          "descriptors": [
+            "wood",
+            "woody",
+            "rounder"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "south_asia"
+          ]
+        },
+        {
+          "id": "kendara_form_two_string",
+          "name": "Two-string form (drone plus melody)",
+          "descriptors": [
+            "two-string",
+            "droning",
+            "drone-and-melody"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "south_asia",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kendara_context",
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "kendara_context_kendara_gita",
+          "default": true,
+          "name": "Kendara gita: self-accompanied Odia devotional narrative",
+          "descriptors": [
+            "self-accompanied",
+            "devotional",
+            "narrative",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "devotional",
+            "vocal-accompaniment"
+          ],
+          "canonical_tags": [
+            "south_asia",
+            "devotional",
+            "storytelling"
+          ]
+        },
+        {
+          "id": "kendara_context_tribal",
+          "name": "Tribal and village ensemble music",
+          "descriptors": [
+            "communal",
+            "rural",
+            "cyclic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "indigenous",
+            "folk"
+          ]
+        },
+        {
+          "id": "kendara_context_stage_folk",
+          "name": "Staged folk-troupe performance",
+          "descriptors": [
+            "preservationist",
+            "festive",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "modern"
+          ],
+          "canonical_tags": [
+            "revival",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kendara_build",
+      "name": "String and bow",
+      "variants": [
+        {
+          "id": "kendara_build_gut_bell_bow",
+          "default": true,
+          "name": "Gut string, bamboo bow hung with small bells",
+          "descriptors": [
+            "gut",
+            "jangling",
+            "rattling",
+            "dry"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "jingle"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "kendara_build_steel_plain_bow",
+          "name": "Steel string, plain horsehair bow",
+          "descriptors": [
+            "steel",
+            "bright",
+            "cutting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "steel-string",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "kendara_build_horsehair",
+          "name": "Bundled horsehair string",
+          "descriptors": [
+            "horsehair-strung",
+            "raw",
+            "buzzy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "horsehair-string",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        }
+      ]
+    }
+  ]
+}

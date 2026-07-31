@@ -1,0 +1,451 @@
+{
+  "id": "daguangxian",
+  "name": "Daguangxian (Minnan wood-topped lament fiddle)",
+  "family": "bowed",
+  "class": "bowed_spike_fiddle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "daguangxian",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "daguangxian_body",
+      "name": "Soundbox body material",
+      "variants": [
+        {
+          "id": "daguangxian_body_pandanus",
+          "default": true,
+          "name": "Pandanus (lin-tau screw-pine) trunk hollowed, Taiwan paulownia soundboard",
+          "descriptors": [
+            "raspy",
+            "robust",
+            "wutong-paulownia"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "wood-body",
+            "two-string"
+          ],
+          "canonical_tags": [
+            "east-asia",
+            "folk"
+          ]
+        },
+        {
+          "id": "daguangxian_body_agave",
+          "name": "Agave (longshelan) trunk body",
+          "descriptors": [
+            "coarse",
+            "dry",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "woody"
+          ],
+          "canonical_tags": [
+            "east-asia",
+            "folk"
+          ]
+        },
+        {
+          "id": "daguangxian_body_palm",
+          "name": "Palm-wood body (heavier, darker rasp)",
+          "descriptors": [
+            "palm-wood",
+            "dark",
+            "thick-tone"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "wood-body"
+          ],
+          "canonical_tags": [
+            "east-asia",
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daguangxian_strings",
+      "name": "String set",
+      "variants": [
+        {
+          "id": "daguangxian_strings_steel",
+          "default": true,
+          "name": "Steel pair tuned a pure fifth (modern standard)",
+          "descriptors": [
+            "steel",
+            "projecting",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "steel-string",
+            "two-string"
+          ],
+          "canonical_tags": [
+            "modern",
+            "steel"
+          ]
+        },
+        {
+          "id": "daguangxian_strings_silk",
+          "name": "All-silk (archaic, breathier)",
+          "descriptors": [
+            "silk",
+            "pre-modern",
+            "soft-toned"
+          ],
+          "match_tokens": [
+            "bowed",
+            "silk-strung",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical",
+            "traditional"
+          ]
+        },
+        {
+          "id": "daguangxian_strings_mixed",
+          "name": "Mixed steel outer / silk inner",
+          "descriptors": [
+            "hybrid",
+            "warm-nasal",
+            "traditional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "silk-strung",
+            "steel-string"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daguangxian_idiom",
+      "name": "Repertoire and role",
+      "variants": [
+        {
+          "id": "daguangxian_idiom_khautiau",
+          "default": true,
+          "name": "Gezaixi khau-tiau lament tunes (sustained crying bow)",
+          "descriptors": [
+            "mournful",
+            "wailing",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "melancholic",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "opera",
+            "east-asia"
+          ]
+        },
+        {
+          "id": "daguangxian_idiom_shuochang",
+          "name": "Xiamen daguangxian shuochang storytelling accompaniment",
+          "descriptors": [
+            "narrative",
+            "storytelling",
+            "declamatory"
+          ],
+          "match_tokens": [
+            "bowed",
+            "narrative",
+            "song-accompaniment"
+          ],
+          "canonical_tags": [
+            "china",
+            "storytelling"
+          ]
+        },
+        {
+          "id": "daguangxian_idiom_duo_lead",
+          "name": "Lead voice in the older daguangxian + Taiwan yueqin duo",
+          "descriptors": [
+            "lead-melodic",
+            "driving",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "lead-melody",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "folk",
+            "lead"
+          ]
+        },
+        {
+          "id": "daguangxian_idiom_second_fiddle",
+          "name": "Second fiddle under the kezaixian in the si-tua-kiann civil ensemble",
+          "descriptors": [
+            "supporting",
+            "heterophonic",
+            "accompanying"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "east-asia",
+            "accompaniment"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "daguangxian_body",
+      "name": "Soundbox body material",
+      "variants": [
+        {
+          "id": "daguangxian_body_pandanus",
+          "default": true,
+          "name": "Pandanus (lin-tau screw-pine) trunk hollowed, Taiwan paulownia soundboard",
+          "descriptors": [
+            "raspy",
+            "robust",
+            "wutong-paulownia"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "wood-body",
+            "two-string"
+          ],
+          "canonical_tags": [
+            "east-asia",
+            "folk"
+          ]
+        },
+        {
+          "id": "daguangxian_body_agave",
+          "name": "Agave (longshelan) trunk body",
+          "descriptors": [
+            "coarse",
+            "dry",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "woody"
+          ],
+          "canonical_tags": [
+            "east-asia",
+            "folk"
+          ]
+        },
+        {
+          "id": "daguangxian_body_palm",
+          "name": "Palm-wood body (heavier, darker rasp)",
+          "descriptors": [
+            "palm-wood",
+            "dark",
+            "thick-tone"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "wood-body"
+          ],
+          "canonical_tags": [
+            "east-asia",
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daguangxian_strings",
+      "name": "String set",
+      "variants": [
+        {
+          "id": "daguangxian_strings_steel",
+          "default": true,
+          "name": "Steel pair tuned a pure fifth (modern standard)",
+          "descriptors": [
+            "steel",
+            "projecting",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "steel-string",
+            "two-string"
+          ],
+          "canonical_tags": [
+            "modern",
+            "steel"
+          ]
+        },
+        {
+          "id": "daguangxian_strings_silk",
+          "name": "All-silk (archaic, breathier)",
+          "descriptors": [
+            "silk",
+            "pre-modern",
+            "soft-toned"
+          ],
+          "match_tokens": [
+            "bowed",
+            "silk-strung",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical",
+            "traditional"
+          ]
+        },
+        {
+          "id": "daguangxian_strings_mixed",
+          "name": "Mixed steel outer / silk inner",
+          "descriptors": [
+            "hybrid",
+            "warm-nasal",
+            "traditional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "silk-strung",
+            "steel-string"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daguangxian_idiom",
+      "name": "Repertoire and role",
+      "variants": [
+        {
+          "id": "daguangxian_idiom_khautiau",
+          "default": true,
+          "name": "Gezaixi khau-tiau lament tunes (sustained crying bow)",
+          "descriptors": [
+            "mournful",
+            "wailing",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "melancholic",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "opera",
+            "east-asia"
+          ]
+        },
+        {
+          "id": "daguangxian_idiom_shuochang",
+          "name": "Xiamen daguangxian shuochang storytelling accompaniment",
+          "descriptors": [
+            "narrative",
+            "storytelling",
+            "declamatory"
+          ],
+          "match_tokens": [
+            "bowed",
+            "narrative",
+            "song-accompaniment"
+          ],
+          "canonical_tags": [
+            "china",
+            "storytelling"
+          ]
+        },
+        {
+          "id": "daguangxian_idiom_duo_lead",
+          "name": "Lead voice in the older daguangxian + Taiwan yueqin duo",
+          "descriptors": [
+            "lead-melodic",
+            "driving",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "lead-melody",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "folk",
+            "lead"
+          ]
+        },
+        {
+          "id": "daguangxian_idiom_second_fiddle",
+          "name": "Second fiddle under the kezaixian in the si-tua-kiann civil ensemble",
+          "descriptors": [
+            "supporting",
+            "heterophonic",
+            "accompanying"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "east-asia",
+            "accompaniment"
+          ]
+        }
+      ]
+    }
+  ]
+}

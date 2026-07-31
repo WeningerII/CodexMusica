@@ -1,0 +1,548 @@
+{
+  "id": "pibgorn",
+  "name": "Pibgorn (Welsh windcapped single-reed hornpipe)",
+  "family": "wind",
+  "class": "single_reed_hornpipe",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 1,
+    "range": -1,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "pibgorn",
+  "parts": [
+    {
+      "id": "pibgorn_form",
+      "name": "Form / wind supply",
+      "variants": [
+        {
+          "id": "pibgorn_mouth_blown",
+          "default": true,
+          "name": "Mouth-blown pibgorn (lips on the horn windcap, reed untouched)",
+          "descriptors": [
+            "pastoral",
+            "buzzy",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "mouth-blown",
+            "idioglot"
+          ],
+          "canonical_tags": [
+            "welsh",
+            "british_isles"
+          ]
+        },
+        {
+          "id": "pibgorn_pibau_cyrn",
+          "name": "Bagged pibau cyrn / pibau cwd (bag-fed, shoulder drone under the chanter)",
+          "descriptors": [
+            "droning",
+            "continuous",
+            "sustained-drone"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "bag-blown",
+            "drone-foundation",
+            "bagpipe"
+          ],
+          "canonical_tags": [
+            "welsh",
+            "british_isles"
+          ]
+        },
+        {
+          "id": "pibgorn_stock_and_horn",
+          "name": "Scottish stock-and-horn cognate build",
+          "descriptors": [
+            "archaic",
+            "rustic",
+            "raw"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "celtic",
+            "british_isles"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pibgorn_build",
+      "name": "Body and horn material",
+      "variants": [
+        {
+          "id": "pibgorn_elder_cowhorn",
+          "default": true,
+          "name": "Elder pipe with cow-horn windcap and cow-horn bell",
+          "descriptors": [
+            "elder-traditional",
+            "horn-belled",
+            "buzzy"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "elder",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "welsh",
+            "wood-body"
+          ]
+        },
+        {
+          "id": "pibgorn_bone",
+          "name": "Ungulate leg-bone body (Museum of Welsh Life type)",
+          "descriptors": [
+            "bone-built",
+            "archaic",
+            "raw"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "bone",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "welsh"
+          ]
+        },
+        {
+          "id": "pibgorn_hardwood",
+          "name": "Turned fruitwood or exotic hardwood revival body",
+          "descriptors": [
+            "carved-hardwood",
+            "focused",
+            "bright-toned"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "hardwood",
+            "wooden"
+          ],
+          "canonical_tags": [
+            "welsh",
+            "revival"
+          ]
+        },
+        {
+          "id": "pibgorn_plastic",
+          "name": "Moulded plastic revival body",
+          "descriptors": [
+            "plastic",
+            "stable",
+            "durable"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "synthetic",
+            "durable"
+          ],
+          "canonical_tags": [
+            "revival",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pibgorn_reed",
+      "name": "Reed (cal / calaf)",
+      "variants": [
+        {
+          "id": "pibgorn_reed_elder",
+          "default": true,
+          "name": "Idioglot elder or Arundo reed cut in the bagpipe-drone form",
+          "descriptors": [
+            "buzzy",
+            "unstable",
+            "archaic"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "idioglot",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "reed-cane",
+            "idioglot-reed"
+          ]
+        },
+        {
+          "id": "pibgorn_reed_synthetic",
+          "name": "Modern synthetic reed",
+          "descriptors": [
+            "stable",
+            "bright",
+            "durable"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "synthetic",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pibgorn_setting",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "pibgorn_dance",
+          "default": true,
+          "name": "Parish and shepherds' dance tune (solo lead)",
+          "descriptors": [
+            "dance-driving",
+            "rhythmic",
+            "festive"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "dance",
+            "folk"
+          ],
+          "canonical_tags": [
+            "welsh",
+            "dance"
+          ]
+        },
+        {
+          "id": "pibgorn_pastoral",
+          "name": "Pastoral shepherd's air",
+          "descriptors": [
+            "pastoral",
+            "plaintive",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "outdoor",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "welsh",
+            "pastoral",
+            "shepherd"
+          ]
+        },
+        {
+          "id": "pibgorn_competition",
+          "name": "Anglesey prize-playing / eisteddfod competition set",
+          "descriptors": [
+            "proud",
+            "declamatory",
+            "concert"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "solo",
+            "staged"
+          ],
+          "canonical_tags": [
+            "welsh",
+            "revival"
+          ]
+        },
+        {
+          "id": "pibgorn_ensemble",
+          "name": "Paired pibgyrn, or lead over a bagpipe / crwth drone bed",
+          "descriptors": [
+            "paired",
+            "droning",
+            "accompanying"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "ensemble",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "welsh",
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "pibgorn_form",
+      "name": "Form / wind supply",
+      "variants": [
+        {
+          "id": "pibgorn_mouth_blown",
+          "default": true,
+          "name": "Mouth-blown pibgorn (lips on the horn windcap, reed untouched)",
+          "descriptors": [
+            "pastoral",
+            "buzzy",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "mouth-blown",
+            "idioglot"
+          ],
+          "canonical_tags": [
+            "welsh",
+            "british_isles"
+          ]
+        },
+        {
+          "id": "pibgorn_pibau_cyrn",
+          "name": "Bagged pibau cyrn / pibau cwd (bag-fed, shoulder drone under the chanter)",
+          "descriptors": [
+            "droning",
+            "continuous",
+            "sustained-drone"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "bag-blown",
+            "drone-foundation",
+            "bagpipe"
+          ],
+          "canonical_tags": [
+            "welsh",
+            "british_isles"
+          ]
+        },
+        {
+          "id": "pibgorn_stock_and_horn",
+          "name": "Scottish stock-and-horn cognate build",
+          "descriptors": [
+            "archaic",
+            "rustic",
+            "raw"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "celtic",
+            "british_isles"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pibgorn_build",
+      "name": "Body and horn material",
+      "variants": [
+        {
+          "id": "pibgorn_elder_cowhorn",
+          "default": true,
+          "name": "Elder pipe with cow-horn windcap and cow-horn bell",
+          "descriptors": [
+            "elder-traditional",
+            "horn-belled",
+            "buzzy"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "elder",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "welsh",
+            "wood-body"
+          ]
+        },
+        {
+          "id": "pibgorn_bone",
+          "name": "Ungulate leg-bone body (Museum of Welsh Life type)",
+          "descriptors": [
+            "bone-built",
+            "archaic",
+            "raw"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "bone",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "welsh"
+          ]
+        },
+        {
+          "id": "pibgorn_hardwood",
+          "name": "Turned fruitwood or exotic hardwood revival body",
+          "descriptors": [
+            "carved-hardwood",
+            "focused",
+            "bright-toned"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "hardwood",
+            "wooden"
+          ],
+          "canonical_tags": [
+            "welsh",
+            "revival"
+          ]
+        },
+        {
+          "id": "pibgorn_plastic",
+          "name": "Moulded plastic revival body",
+          "descriptors": [
+            "plastic",
+            "stable",
+            "durable"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "synthetic",
+            "durable"
+          ],
+          "canonical_tags": [
+            "revival",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pibgorn_reed",
+      "name": "Reed (cal / calaf)",
+      "variants": [
+        {
+          "id": "pibgorn_reed_elder",
+          "default": true,
+          "name": "Idioglot elder or Arundo reed cut in the bagpipe-drone form",
+          "descriptors": [
+            "buzzy",
+            "unstable",
+            "archaic"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "idioglot",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "reed-cane",
+            "idioglot-reed"
+          ]
+        },
+        {
+          "id": "pibgorn_reed_synthetic",
+          "name": "Modern synthetic reed",
+          "descriptors": [
+            "stable",
+            "bright",
+            "durable"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "synthetic",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pibgorn_setting",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "pibgorn_dance",
+          "default": true,
+          "name": "Parish and shepherds' dance tune (solo lead)",
+          "descriptors": [
+            "dance-driving",
+            "rhythmic",
+            "festive"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "dance",
+            "folk"
+          ],
+          "canonical_tags": [
+            "welsh",
+            "dance"
+          ]
+        },
+        {
+          "id": "pibgorn_pastoral",
+          "name": "Pastoral shepherd's air",
+          "descriptors": [
+            "pastoral",
+            "plaintive",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "outdoor",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "welsh",
+            "pastoral",
+            "shepherd"
+          ]
+        },
+        {
+          "id": "pibgorn_competition",
+          "name": "Anglesey prize-playing / eisteddfod competition set",
+          "descriptors": [
+            "proud",
+            "declamatory",
+            "concert"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "solo",
+            "staged"
+          ],
+          "canonical_tags": [
+            "welsh",
+            "revival"
+          ]
+        },
+        {
+          "id": "pibgorn_ensemble",
+          "name": "Paired pibgyrn, or lead over a bagpipe / crwth drone bed",
+          "descriptors": [
+            "paired",
+            "droning",
+            "accompanying"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "ensemble",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "welsh",
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ]
+}
