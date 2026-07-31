@@ -1,0 +1,431 @@
+{
+  "id": "ukelin",
+  "name": "Ukelin (American bowed parlour zither)",
+  "family": "bowed",
+  "class": "bowed_box_zither",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 1,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "ukelin",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "ukelin_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "ukelin_bowed_and_plucked",
+          "default": true,
+          "name": "Bowed melody strings with left-hand plucked bass and chord groups (as designed)",
+          "descriptors": [
+            "arco-bowed",
+            "self-accompanied",
+            "parlor"
+          ],
+          "match_tokens": [
+            "bowed",
+            "plucked",
+            "chordal",
+            "box-zither"
+          ]
+        },
+        {
+          "id": "ukelin_bowed_melody_only",
+          "name": "Bowed melody alone (bare single line)",
+          "descriptors": [
+            "single-line",
+            "thin",
+            "sparse"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic-lead",
+            "box-zither"
+          ]
+        },
+        {
+          "id": "ukelin_chord_groups_only",
+          "name": "Plucked / strummed chord groups only (autoharp-like accompaniment)",
+          "descriptors": [
+            "strummed",
+            "supportive",
+            "ringing"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "chordal",
+            "box-zither"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ukelin_tuning",
+      "name": "Tuning",
+      "variants": [
+        {
+          "id": "ukelin_c_major_stock",
+          "default": true,
+          "name": "Stock C-major diatonic factory tuning (chromatically incapable)",
+          "descriptors": [
+            "c-major",
+            "production-standard",
+            "limited-compass"
+          ],
+          "match_tokens": [
+            "bowed",
+            "diatonic",
+            "box-zither"
+          ],
+          "canonical_tags": [
+            "diatonic"
+          ]
+        },
+        {
+          "id": "ukelin_retuned_semichromatic",
+          "name": "Retuned toward a semichromatic or modal set",
+          "descriptors": [
+            "scordatura",
+            "near-chromatic",
+            "modal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "box-zither",
+            "modal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ukelin_delivery",
+      "name": "Player and delivery",
+      "variants": [
+        {
+          "id": "ukelin_amateur_tab",
+          "default": true,
+          "name": "Naive amateur working from the numbered tablature booklet (parlour hymns and popular song)",
+          "descriptors": [
+            "naive",
+            "student",
+            "domestic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "box-zither",
+            "lo-fi",
+            "student-tier"
+          ],
+          "canonical_tags": [
+            "domestic",
+            "americana"
+          ]
+        },
+        {
+          "id": "ukelin_skilled_modern",
+          "name": "Skilled modern player (controlled bow, clean intonation)",
+          "descriptors": [
+            "controlled",
+            "clean",
+            "revivalist"
+          ],
+          "match_tokens": [
+            "bowed",
+            "box-zither",
+            "melodic-lead"
+          ],
+          "canonical_tags": [
+            "revival"
+          ]
+        },
+        {
+          "id": "ukelin_scraped_texture",
+          "name": "Detuned scraped texture (sound-design use)",
+          "descriptors": [
+            "scraped",
+            "eerie",
+            "worn"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "box-zither"
+          ],
+          "canonical_tags": [
+            "dark-ambient",
+            "experimental"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ukelin_trade_form",
+      "name": "Trade form / maker",
+      "variants": [
+        {
+          "id": "ukelin_oscar_schmidt",
+          "default": true,
+          "name": "Phonoharp / Oscar Schmidt ukelin (16 melody + 16 bass strings)",
+          "descriptors": [
+            "mass-produced",
+            "production-standard",
+            "vintage"
+          ],
+          "match_tokens": [
+            "bowed",
+            "box-zither",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "americana",
+            "vintage"
+          ]
+        },
+        {
+          "id": "ukelin_marxochime_violin_uke",
+          "name": "Marxochime Colony violin-uke (Henry Charles Marx)",
+          "descriptors": [
+            "regional-variant",
+            "small-batch",
+            "boutique"
+          ],
+          "match_tokens": [
+            "bowed",
+            "box-zither",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "americana"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ukelin_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "ukelin_bowed_and_plucked",
+          "default": true,
+          "name": "Bowed melody strings with left-hand plucked bass and chord groups (as designed)",
+          "descriptors": [
+            "arco-bowed",
+            "self-accompanied",
+            "parlor"
+          ],
+          "match_tokens": [
+            "bowed",
+            "plucked",
+            "chordal",
+            "box-zither"
+          ]
+        },
+        {
+          "id": "ukelin_bowed_melody_only",
+          "name": "Bowed melody alone (bare single line)",
+          "descriptors": [
+            "single-line",
+            "thin",
+            "sparse"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic-lead",
+            "box-zither"
+          ]
+        },
+        {
+          "id": "ukelin_chord_groups_only",
+          "name": "Plucked / strummed chord groups only (autoharp-like accompaniment)",
+          "descriptors": [
+            "strummed",
+            "supportive",
+            "ringing"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "chordal",
+            "box-zither"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ukelin_tuning",
+      "name": "Tuning",
+      "variants": [
+        {
+          "id": "ukelin_c_major_stock",
+          "default": true,
+          "name": "Stock C-major diatonic factory tuning (chromatically incapable)",
+          "descriptors": [
+            "c-major",
+            "production-standard",
+            "limited-compass"
+          ],
+          "match_tokens": [
+            "bowed",
+            "diatonic",
+            "box-zither"
+          ],
+          "canonical_tags": [
+            "diatonic"
+          ]
+        },
+        {
+          "id": "ukelin_retuned_semichromatic",
+          "name": "Retuned toward a semichromatic or modal set",
+          "descriptors": [
+            "scordatura",
+            "near-chromatic",
+            "modal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "box-zither",
+            "modal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ukelin_delivery",
+      "name": "Player and delivery",
+      "variants": [
+        {
+          "id": "ukelin_amateur_tab",
+          "default": true,
+          "name": "Naive amateur working from the numbered tablature booklet (parlour hymns and popular song)",
+          "descriptors": [
+            "naive",
+            "student",
+            "domestic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "box-zither",
+            "lo-fi",
+            "student-tier"
+          ],
+          "canonical_tags": [
+            "domestic",
+            "americana"
+          ]
+        },
+        {
+          "id": "ukelin_skilled_modern",
+          "name": "Skilled modern player (controlled bow, clean intonation)",
+          "descriptors": [
+            "controlled",
+            "clean",
+            "revivalist"
+          ],
+          "match_tokens": [
+            "bowed",
+            "box-zither",
+            "melodic-lead"
+          ],
+          "canonical_tags": [
+            "revival"
+          ]
+        },
+        {
+          "id": "ukelin_scraped_texture",
+          "name": "Detuned scraped texture (sound-design use)",
+          "descriptors": [
+            "scraped",
+            "eerie",
+            "worn"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "box-zither"
+          ],
+          "canonical_tags": [
+            "dark-ambient",
+            "experimental"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ukelin_trade_form",
+      "name": "Trade form / maker",
+      "variants": [
+        {
+          "id": "ukelin_oscar_schmidt",
+          "default": true,
+          "name": "Phonoharp / Oscar Schmidt ukelin (16 melody + 16 bass strings)",
+          "descriptors": [
+            "mass-produced",
+            "production-standard",
+            "vintage"
+          ],
+          "match_tokens": [
+            "bowed",
+            "box-zither",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "americana",
+            "vintage"
+          ]
+        },
+        {
+          "id": "ukelin_marxochime_violin_uke",
+          "name": "Marxochime Colony violin-uke (Henry Charles Marx)",
+          "descriptors": [
+            "regional-variant",
+            "small-batch",
+            "boutique"
+          ],
+          "match_tokens": [
+            "bowed",
+            "box-zither",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "americana"
+          ]
+        }
+      ]
+    }
+  ]
+}

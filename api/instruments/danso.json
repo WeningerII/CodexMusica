@@ -1,0 +1,454 @@
+{
+  "id": "danso",
+  "name": "Danso (Korean notched vertical bamboo flute)",
+  "family": "wind",
+  "class": "flute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "danso",
+  "parts": [
+    {
+      "id": "danso_material",
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "danso_material_ojuk",
+          "default": true,
+          "name": "Ojuk black bamboo (deep resonant formal tone)",
+          "descriptors": [
+            "black-bamboo",
+            "resonant",
+            "refined"
+          ],
+          "match_tokens": [
+            "end-blown",
+            "gugak-tradition"
+          ],
+          "canonical_tags": [
+            "korean"
+          ]
+        },
+        {
+          "id": "danso_material_hwangjuk",
+          "name": "Hwangjuk yellow bamboo (clearer, brighter)",
+          "descriptors": [
+            "pale-bamboo",
+            "bright",
+            "clean"
+          ],
+          "match_tokens": [
+            "end-blown",
+            "gugak-tradition"
+          ],
+          "canonical_tags": [
+            "korean"
+          ]
+        },
+        {
+          "id": "danso_material_plastic",
+          "name": "Plastic classroom danso (post-1980s curriculum standard)",
+          "descriptors": [
+            "plastic",
+            "durable",
+            "student"
+          ],
+          "match_tokens": [
+            "end-blown",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "korean",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "danso_tuning",
+      "name": "Tuning system",
+      "variants": [
+        {
+          "id": "danso_tuning_jeongak",
+          "default": true,
+          "name": "Jeongak court tuning",
+          "descriptors": [
+            "slow",
+            "sustained",
+            "modal"
+          ],
+          "match_tokens": [
+            "end-blown",
+            "jeongak"
+          ],
+          "canonical_tags": [
+            "korean"
+          ]
+        },
+        {
+          "id": "danso_tuning_minsogak",
+          "name": "Folk / minsogak tuning",
+          "descriptors": [
+            "agile",
+            "ornamented",
+            "earthy"
+          ],
+          "match_tokens": [
+            "end-blown",
+            "minsogak"
+          ],
+          "canonical_tags": [
+            "korean",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "danso_setting",
+      "name": "Ensemble setting",
+      "variants": [
+        {
+          "id": "danso_setting_saengso",
+          "default": true,
+          "name": "Saengso byeongju - duet with saenghwang mouth organ",
+          "descriptors": [
+            "intimate",
+            "interlocking",
+            "courtly"
+          ],
+          "match_tokens": [
+            "end-blown",
+            "chamber-fed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "korean",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "danso_setting_julpungnyu",
+          "name": "Julpungnyu string-chamber ensemble",
+          "descriptors": [
+            "blended",
+            "supportive",
+            "refined"
+          ],
+          "match_tokens": [
+            "end-blown",
+            "chamber-fed",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "korean",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "danso_setting_solo",
+          "name": "Solo jeongak line (Yeongsanhoesang)",
+          "descriptors": [
+            "soloistic",
+            "lyrical",
+            "meditative"
+          ],
+          "match_tokens": [
+            "end-blown",
+            "solo",
+            "jeongak"
+          ],
+          "canonical_tags": [
+            "korean",
+            "solo"
+          ]
+        },
+        {
+          "id": "danso_setting_classroom",
+          "name": "School classroom unison (fifth/sixth grade)",
+          "descriptors": [
+            "accessible",
+            "student-friendly",
+            "consistent"
+          ],
+          "match_tokens": [
+            "end-blown",
+            "ensemble",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "korean",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "danso_ornament",
+      "name": "Ornament weighting",
+      "variants": [
+        {
+          "id": "danso_ornament_yoseong",
+          "default": true,
+          "name": "Heavy yoseong vibrato and chuseong rising ornament (court inflection)",
+          "descriptors": [
+            "deep-vibrato",
+            "ornamented",
+            "courtly"
+          ],
+          "match_tokens": [
+            "end-blown",
+            "ornamented",
+            "microtonal-bend"
+          ],
+          "canonical_tags": [
+            "korean"
+          ]
+        },
+        {
+          "id": "danso_ornament_plain",
+          "name": "Plain unornamented tone",
+          "descriptors": [
+            "clean",
+            "consistent",
+            "student-friendly"
+          ],
+          "match_tokens": [
+            "end-blown",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "korean",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "danso_material",
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "danso_material_ojuk",
+          "default": true,
+          "name": "Ojuk black bamboo (deep resonant formal tone)",
+          "descriptors": [
+            "black-bamboo",
+            "resonant",
+            "refined"
+          ],
+          "match_tokens": [
+            "end-blown",
+            "gugak-tradition"
+          ],
+          "canonical_tags": [
+            "korean"
+          ]
+        },
+        {
+          "id": "danso_material_hwangjuk",
+          "name": "Hwangjuk yellow bamboo (clearer, brighter)",
+          "descriptors": [
+            "pale-bamboo",
+            "bright",
+            "clean"
+          ],
+          "match_tokens": [
+            "end-blown",
+            "gugak-tradition"
+          ],
+          "canonical_tags": [
+            "korean"
+          ]
+        },
+        {
+          "id": "danso_material_plastic",
+          "name": "Plastic classroom danso (post-1980s curriculum standard)",
+          "descriptors": [
+            "plastic",
+            "durable",
+            "student"
+          ],
+          "match_tokens": [
+            "end-blown",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "korean",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "danso_tuning",
+      "name": "Tuning system",
+      "variants": [
+        {
+          "id": "danso_tuning_jeongak",
+          "default": true,
+          "name": "Jeongak court tuning",
+          "descriptors": [
+            "slow",
+            "sustained",
+            "modal"
+          ],
+          "match_tokens": [
+            "end-blown",
+            "jeongak"
+          ],
+          "canonical_tags": [
+            "korean"
+          ]
+        },
+        {
+          "id": "danso_tuning_minsogak",
+          "name": "Folk / minsogak tuning",
+          "descriptors": [
+            "agile",
+            "ornamented",
+            "earthy"
+          ],
+          "match_tokens": [
+            "end-blown",
+            "minsogak"
+          ],
+          "canonical_tags": [
+            "korean",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "danso_setting",
+      "name": "Ensemble setting",
+      "variants": [
+        {
+          "id": "danso_setting_saengso",
+          "default": true,
+          "name": "Saengso byeongju - duet with saenghwang mouth organ",
+          "descriptors": [
+            "intimate",
+            "interlocking",
+            "courtly"
+          ],
+          "match_tokens": [
+            "end-blown",
+            "chamber-fed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "korean",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "danso_setting_julpungnyu",
+          "name": "Julpungnyu string-chamber ensemble",
+          "descriptors": [
+            "blended",
+            "supportive",
+            "refined"
+          ],
+          "match_tokens": [
+            "end-blown",
+            "chamber-fed",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "korean",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "danso_setting_solo",
+          "name": "Solo jeongak line (Yeongsanhoesang)",
+          "descriptors": [
+            "soloistic",
+            "lyrical",
+            "meditative"
+          ],
+          "match_tokens": [
+            "end-blown",
+            "solo",
+            "jeongak"
+          ],
+          "canonical_tags": [
+            "korean",
+            "solo"
+          ]
+        },
+        {
+          "id": "danso_setting_classroom",
+          "name": "School classroom unison (fifth/sixth grade)",
+          "descriptors": [
+            "accessible",
+            "student-friendly",
+            "consistent"
+          ],
+          "match_tokens": [
+            "end-blown",
+            "ensemble",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "korean",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "danso_ornament",
+      "name": "Ornament weighting",
+      "variants": [
+        {
+          "id": "danso_ornament_yoseong",
+          "default": true,
+          "name": "Heavy yoseong vibrato and chuseong rising ornament (court inflection)",
+          "descriptors": [
+            "deep-vibrato",
+            "ornamented",
+            "courtly"
+          ],
+          "match_tokens": [
+            "end-blown",
+            "ornamented",
+            "microtonal-bend"
+          ],
+          "canonical_tags": [
+            "korean"
+          ]
+        },
+        {
+          "id": "danso_ornament_plain",
+          "name": "Plain unornamented tone",
+          "descriptors": [
+            "clean",
+            "consistent",
+            "student-friendly"
+          ],
+          "match_tokens": [
+            "end-blown",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "korean",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

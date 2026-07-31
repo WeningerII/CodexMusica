@@ -1,0 +1,417 @@
+{
+  "id": "kezaixian",
+  "name": "Kezaixian (Taiwanese coconut-shell lead fiddle)",
+  "family": "bowed",
+  "class": "bowed_spike_fiddle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "kezaixian",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "kezaixian_shell",
+      "name": "Coconut shell and face",
+      "variants": [
+        {
+          "id": "kezaixian_shell_thin",
+          "default": true,
+          "name": "Thin-walled small shell with tung-wood soundboard (banhu-like, bright)",
+          "descriptors": [
+            "coconut-shell",
+            "bright-piercing",
+            "cutting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bright-tone",
+            "wood-body",
+            "two-string"
+          ],
+          "canonical_tags": [
+            "east-asia",
+            "folk"
+          ]
+        },
+        {
+          "id": "kezaixian_shell_large",
+          "name": "Larger, deeper shell (rounder, closer to the yehu)",
+          "descriptors": [
+            "rounded-tone",
+            "warm",
+            "deep"
+          ],
+          "match_tokens": [
+            "bowed",
+            "mellow-tone",
+            "wood-body"
+          ],
+          "canonical_tags": [
+            "east-asia",
+            "traditional"
+          ]
+        },
+        {
+          "id": "kezaixian_shell_thick",
+          "name": "Thicker-walled shell (darker, less shrill)",
+          "descriptors": [
+            "dark",
+            "focused",
+            "thick-tone"
+          ],
+          "match_tokens": [
+            "bowed",
+            "warm-tone",
+            "woody"
+          ],
+          "canonical_tags": [
+            "traditional",
+            "east-asia"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kezaixian_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "kezaixian_strings_steel",
+          "default": true,
+          "name": "Steel pair tuned a pure fifth (modern standard)",
+          "descriptors": [
+            "steel",
+            "projecting",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "steel-string",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "modern",
+            "steel"
+          ]
+        },
+        {
+          "id": "kezaixian_strings_silk",
+          "name": "Silk (pre-modern historical)",
+          "descriptors": [
+            "silk",
+            "pre-modern",
+            "soft-toned"
+          ],
+          "match_tokens": [
+            "bowed",
+            "silk-strung",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical",
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kezaixian_context",
+      "name": "Genre and role",
+      "variants": [
+        {
+          "id": "kezaixian_context_gezaixi",
+          "default": true,
+          "name": "Gezaixi civil-ensemble lead fiddle",
+          "descriptors": [
+            "ensemble-lead",
+            "operatic",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "bowed",
+            "lead-melody",
+            "accompaniment",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "opera",
+            "east-asia"
+          ]
+        },
+        {
+          "id": "kezaixian_context_luantan",
+          "name": "Luantan opera civil ensemble",
+          "descriptors": [
+            "operatic",
+            "driving",
+            "cutting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "opera",
+            "east-asia"
+          ]
+        },
+        {
+          "id": "kezaixian_context_budaixi",
+          "name": "Budaixi glove-puppet theatre accompaniment",
+          "descriptors": [
+            "brisk",
+            "declamatory",
+            "festive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "accompaniment",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "folk",
+            "east-asia"
+          ]
+        },
+        {
+          "id": "kezaixian_context_duo",
+          "name": "Classic duo paired with the daguangxian",
+          "descriptors": [
+            "interlocking",
+            "lead-melodic",
+            "heterophonic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "lead",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "lead",
+            "folk"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kezaixian_shell",
+      "name": "Coconut shell and face",
+      "variants": [
+        {
+          "id": "kezaixian_shell_thin",
+          "default": true,
+          "name": "Thin-walled small shell with tung-wood soundboard (banhu-like, bright)",
+          "descriptors": [
+            "coconut-shell",
+            "bright-piercing",
+            "cutting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bright-tone",
+            "wood-body",
+            "two-string"
+          ],
+          "canonical_tags": [
+            "east-asia",
+            "folk"
+          ]
+        },
+        {
+          "id": "kezaixian_shell_large",
+          "name": "Larger, deeper shell (rounder, closer to the yehu)",
+          "descriptors": [
+            "rounded-tone",
+            "warm",
+            "deep"
+          ],
+          "match_tokens": [
+            "bowed",
+            "mellow-tone",
+            "wood-body"
+          ],
+          "canonical_tags": [
+            "east-asia",
+            "traditional"
+          ]
+        },
+        {
+          "id": "kezaixian_shell_thick",
+          "name": "Thicker-walled shell (darker, less shrill)",
+          "descriptors": [
+            "dark",
+            "focused",
+            "thick-tone"
+          ],
+          "match_tokens": [
+            "bowed",
+            "warm-tone",
+            "woody"
+          ],
+          "canonical_tags": [
+            "traditional",
+            "east-asia"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kezaixian_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "kezaixian_strings_steel",
+          "default": true,
+          "name": "Steel pair tuned a pure fifth (modern standard)",
+          "descriptors": [
+            "steel",
+            "projecting",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "steel-string",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "modern",
+            "steel"
+          ]
+        },
+        {
+          "id": "kezaixian_strings_silk",
+          "name": "Silk (pre-modern historical)",
+          "descriptors": [
+            "silk",
+            "pre-modern",
+            "soft-toned"
+          ],
+          "match_tokens": [
+            "bowed",
+            "silk-strung",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical",
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kezaixian_context",
+      "name": "Genre and role",
+      "variants": [
+        {
+          "id": "kezaixian_context_gezaixi",
+          "default": true,
+          "name": "Gezaixi civil-ensemble lead fiddle",
+          "descriptors": [
+            "ensemble-lead",
+            "operatic",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "bowed",
+            "lead-melody",
+            "accompaniment",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "opera",
+            "east-asia"
+          ]
+        },
+        {
+          "id": "kezaixian_context_luantan",
+          "name": "Luantan opera civil ensemble",
+          "descriptors": [
+            "operatic",
+            "driving",
+            "cutting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "opera",
+            "east-asia"
+          ]
+        },
+        {
+          "id": "kezaixian_context_budaixi",
+          "name": "Budaixi glove-puppet theatre accompaniment",
+          "descriptors": [
+            "brisk",
+            "declamatory",
+            "festive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "accompaniment",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "folk",
+            "east-asia"
+          ]
+        },
+        {
+          "id": "kezaixian_context_duo",
+          "name": "Classic duo paired with the daguangxian",
+          "descriptors": [
+            "interlocking",
+            "lead-melodic",
+            "heterophonic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "lead",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "lead",
+            "folk"
+          ]
+        }
+      ]
+    }
+  ]
+}

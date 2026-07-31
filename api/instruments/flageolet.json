@@ -1,0 +1,422 @@
+{
+  "id": "flageolet",
+  "name": "Flageolet (French / English duct flute)",
+  "family": "wind",
+  "class": "duct_flute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 2,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "flageolet",
+  "parts": [
+    {
+      "id": "flageolet_national_form",
+      "name": "National form",
+      "variants": [
+        {
+          "id": "flageolet_french",
+          "default": true,
+          "name": "French flageolet (four front holes, two thumb holes behind; sponge chamber in the head)",
+          "descriptors": [
+            "bright",
+            "birdsong",
+            "piercing"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "fipple-flute",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "french",
+            "bal-folk"
+          ]
+        },
+        {
+          "id": "flageolet_english_bainbridge",
+          "name": "English flageolet (Bainbridge improved pattern 1803, six front holes — effectively a keyed whistle)",
+          "descriptors": [
+            "even",
+            "clear",
+            "refined"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "fipple-flute",
+            "keyed"
+          ],
+          "canonical_tags": [
+            "early-romantic"
+          ]
+        },
+        {
+          "id": "flageolet_double_triple",
+          "name": "Double or triple flageolet (self-harmonizing parlour instrument)",
+          "descriptors": [
+            "harmonized",
+            "unison-doubled",
+            "parallel-thirds-two-voice"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "close-harmony",
+            "doubled"
+          ],
+          "canonical_tags": [
+            "early-romantic"
+          ]
+        },
+        {
+          "id": "flageolet_oiseau",
+          "name": "Flageolet d'oiseau (tiny bird flageolet for teaching caged birds tunes)",
+          "descriptors": [
+            "tiny",
+            "shrill",
+            "birdsong"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "very-high"
+          ],
+          "canonical_tags": [
+            "french"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "flageolet_keywork",
+      "name": "Keywork / build",
+      "variants": [
+        {
+          "id": "flageolet_keyless_boxwood",
+          "default": true,
+          "name": "Plain keyless boxwood (period dance instrument)",
+          "descriptors": [
+            "woody",
+            "warm",
+            "simple"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "wooden-bore",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "boxwood",
+            "french"
+          ]
+        },
+        {
+          "id": "flageolet_keyed_victorian",
+          "name": "Ivory-mounted keyed Victorian parlour instrument",
+          "descriptors": [
+            "keyed",
+            "refined",
+            "chromatic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "keyed",
+            "chromatic"
+          ],
+          "canonical_tags": [
+            "early-romantic",
+            "modern-repro"
+          ]
+        },
+        {
+          "id": "flageolet_modern_revival",
+          "name": "Modern ebonite or hardwood revival build",
+          "descriptors": [
+            "stable",
+            "even",
+            "modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "hardwood-bore",
+            "modern"
+          ],
+          "canonical_tags": [
+            "revival",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "flageolet_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "flageolet_bal_dance",
+          "default": true,
+          "name": "Quadrille and bal dance melody with fiddle and hurdy-gurdy",
+          "descriptors": [
+            "dance-driving",
+            "lilting",
+            "festive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "dance-driving",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "bal-folk",
+            "french",
+            "dance"
+          ]
+        },
+        {
+          "id": "flageolet_parlour_duet",
+          "name": "Domestic parlour solo or duet",
+          "descriptors": [
+            "intimate",
+            "parlor",
+            "light"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duet",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "early-romantic"
+          ]
+        },
+        {
+          "id": "flageolet_bird_teaching",
+          "name": "Bird-teaching tune drilling",
+          "descriptors": [
+            "cyclic",
+            "tiny",
+            "birdsong"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "very-high",
+            "duct-flute"
+          ],
+          "canonical_tags": [
+            "french"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "flageolet_national_form",
+      "name": "National form",
+      "variants": [
+        {
+          "id": "flageolet_french",
+          "default": true,
+          "name": "French flageolet (four front holes, two thumb holes behind; sponge chamber in the head)",
+          "descriptors": [
+            "bright",
+            "birdsong",
+            "piercing"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "fipple-flute",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "french",
+            "bal-folk"
+          ]
+        },
+        {
+          "id": "flageolet_english_bainbridge",
+          "name": "English flageolet (Bainbridge improved pattern 1803, six front holes — effectively a keyed whistle)",
+          "descriptors": [
+            "even",
+            "clear",
+            "refined"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "fipple-flute",
+            "keyed"
+          ],
+          "canonical_tags": [
+            "early-romantic"
+          ]
+        },
+        {
+          "id": "flageolet_double_triple",
+          "name": "Double or triple flageolet (self-harmonizing parlour instrument)",
+          "descriptors": [
+            "harmonized",
+            "unison-doubled",
+            "parallel-thirds-two-voice"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "close-harmony",
+            "doubled"
+          ],
+          "canonical_tags": [
+            "early-romantic"
+          ]
+        },
+        {
+          "id": "flageolet_oiseau",
+          "name": "Flageolet d'oiseau (tiny bird flageolet for teaching caged birds tunes)",
+          "descriptors": [
+            "tiny",
+            "shrill",
+            "birdsong"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "very-high"
+          ],
+          "canonical_tags": [
+            "french"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "flageolet_keywork",
+      "name": "Keywork / build",
+      "variants": [
+        {
+          "id": "flageolet_keyless_boxwood",
+          "default": true,
+          "name": "Plain keyless boxwood (period dance instrument)",
+          "descriptors": [
+            "woody",
+            "warm",
+            "simple"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "wooden-bore",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "boxwood",
+            "french"
+          ]
+        },
+        {
+          "id": "flageolet_keyed_victorian",
+          "name": "Ivory-mounted keyed Victorian parlour instrument",
+          "descriptors": [
+            "keyed",
+            "refined",
+            "chromatic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "keyed",
+            "chromatic"
+          ],
+          "canonical_tags": [
+            "early-romantic",
+            "modern-repro"
+          ]
+        },
+        {
+          "id": "flageolet_modern_revival",
+          "name": "Modern ebonite or hardwood revival build",
+          "descriptors": [
+            "stable",
+            "even",
+            "modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "hardwood-bore",
+            "modern"
+          ],
+          "canonical_tags": [
+            "revival",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "flageolet_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "flageolet_bal_dance",
+          "default": true,
+          "name": "Quadrille and bal dance melody with fiddle and hurdy-gurdy",
+          "descriptors": [
+            "dance-driving",
+            "lilting",
+            "festive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "dance-driving",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "bal-folk",
+            "french",
+            "dance"
+          ]
+        },
+        {
+          "id": "flageolet_parlour_duet",
+          "name": "Domestic parlour solo or duet",
+          "descriptors": [
+            "intimate",
+            "parlor",
+            "light"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duet",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "early-romantic"
+          ]
+        },
+        {
+          "id": "flageolet_bird_teaching",
+          "name": "Bird-teaching tune drilling",
+          "descriptors": [
+            "cyclic",
+            "tiny",
+            "birdsong"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "very-high",
+            "duct-flute"
+          ],
+          "canonical_tags": [
+            "french"
+          ]
+        }
+      ]
+    }
+  ]
+}

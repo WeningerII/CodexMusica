@@ -1,0 +1,413 @@
+{
+  "id": "jing_erhu",
+  "name": "Jing erhu (Beijing-opera companion fiddle)",
+  "family": "bowed",
+  "class": "bowed_spike_fiddle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "jing erhu",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "jing_erhu_skin",
+      "name": "Head skin",
+      "variants": [
+        {
+          "id": "jing_erhu_skin_thin_snake",
+          "default": true,
+          "name": "Thin black oily snakeskin (correct spec, blends under the jinghu)",
+          "descriptors": [
+            "snake-skin",
+            "focused",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "resonant-membrane",
+            "mellow-tone"
+          ],
+          "canonical_tags": [
+            "jingju",
+            "snakeskin"
+          ]
+        },
+        {
+          "id": "jing_erhu_skin_thick_snake",
+          "name": "Thicker snakeskin (darker, slower speaking)",
+          "descriptors": [
+            "dark",
+            "thick-tone",
+            "supporting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "resonant-membrane",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "beijing-opera",
+            "natural-skin"
+          ]
+        },
+        {
+          "id": "jing_erhu_skin_python",
+          "name": "Python skin (erhu-like fullness, wrong for the idiom)",
+          "descriptors": [
+            "python-skin",
+            "resonant",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "resonant-membrane",
+            "expressive"
+          ],
+          "canonical_tags": [
+            "snakeskin",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jing_erhu_role_type",
+      "name": "Role-type accompaniment",
+      "variants": [
+        {
+          "id": "jing_erhu_role_qingyi",
+          "default": true,
+          "name": "Qingyi (the original 1923-24 Mei Lanfang troupe use)",
+          "descriptors": [
+            "vocal-supportive",
+            "lyrical",
+            "refined"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vocal-accompaniment",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "jingju",
+            "beijing-opera"
+          ]
+        },
+        {
+          "id": "jing_erhu_role_xiaosheng",
+          "name": "Xiaosheng (young-male role)",
+          "descriptors": [
+            "brighter",
+            "crisp",
+            "supporting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vocal-accompaniment",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "jingju",
+            "accompaniment"
+          ]
+        },
+        {
+          "id": "jing_erhu_role_laosheng",
+          "name": "Laosheng (older-male role)",
+          "descriptors": [
+            "stately",
+            "measured",
+            "dark"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vocal-accompaniment",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "jingju",
+            "beijing-opera"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jing_erhu_texture",
+      "name": "Line against the jinghu",
+      "variants": [
+        {
+          "id": "jing_erhu_texture_shadow",
+          "default": true,
+          "name": "Close shadowing, filling and warming the jinghu an octave below",
+          "descriptors": [
+            "heterophonic",
+            "blended",
+            "supporting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "mellow-tone"
+          ],
+          "canonical_tags": [
+            "jingju",
+            "accompaniment"
+          ]
+        },
+        {
+          "id": "jing_erhu_texture_divergent",
+          "name": "Wider heterophonic divergence with independent passing figures",
+          "descriptors": [
+            "ornamented",
+            "interlocking",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "beijing-opera",
+            "china"
+          ]
+        },
+        {
+          "id": "jing_erhu_texture_pad",
+          "name": "Sustained warming pad under the jinghu line",
+          "descriptors": [
+            "sustained",
+            "drone-like",
+            "supportive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "jingju",
+            "accompaniment"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "jing_erhu_skin",
+      "name": "Head skin",
+      "variants": [
+        {
+          "id": "jing_erhu_skin_thin_snake",
+          "default": true,
+          "name": "Thin black oily snakeskin (correct spec, blends under the jinghu)",
+          "descriptors": [
+            "snake-skin",
+            "focused",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "resonant-membrane",
+            "mellow-tone"
+          ],
+          "canonical_tags": [
+            "jingju",
+            "snakeskin"
+          ]
+        },
+        {
+          "id": "jing_erhu_skin_thick_snake",
+          "name": "Thicker snakeskin (darker, slower speaking)",
+          "descriptors": [
+            "dark",
+            "thick-tone",
+            "supporting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "resonant-membrane",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "beijing-opera",
+            "natural-skin"
+          ]
+        },
+        {
+          "id": "jing_erhu_skin_python",
+          "name": "Python skin (erhu-like fullness, wrong for the idiom)",
+          "descriptors": [
+            "python-skin",
+            "resonant",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "resonant-membrane",
+            "expressive"
+          ],
+          "canonical_tags": [
+            "snakeskin",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jing_erhu_role_type",
+      "name": "Role-type accompaniment",
+      "variants": [
+        {
+          "id": "jing_erhu_role_qingyi",
+          "default": true,
+          "name": "Qingyi (the original 1923-24 Mei Lanfang troupe use)",
+          "descriptors": [
+            "vocal-supportive",
+            "lyrical",
+            "refined"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vocal-accompaniment",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "jingju",
+            "beijing-opera"
+          ]
+        },
+        {
+          "id": "jing_erhu_role_xiaosheng",
+          "name": "Xiaosheng (young-male role)",
+          "descriptors": [
+            "brighter",
+            "crisp",
+            "supporting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vocal-accompaniment",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "jingju",
+            "accompaniment"
+          ]
+        },
+        {
+          "id": "jing_erhu_role_laosheng",
+          "name": "Laosheng (older-male role)",
+          "descriptors": [
+            "stately",
+            "measured",
+            "dark"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vocal-accompaniment",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "jingju",
+            "beijing-opera"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jing_erhu_texture",
+      "name": "Line against the jinghu",
+      "variants": [
+        {
+          "id": "jing_erhu_texture_shadow",
+          "default": true,
+          "name": "Close shadowing, filling and warming the jinghu an octave below",
+          "descriptors": [
+            "heterophonic",
+            "blended",
+            "supporting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "mellow-tone"
+          ],
+          "canonical_tags": [
+            "jingju",
+            "accompaniment"
+          ]
+        },
+        {
+          "id": "jing_erhu_texture_divergent",
+          "name": "Wider heterophonic divergence with independent passing figures",
+          "descriptors": [
+            "ornamented",
+            "interlocking",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "beijing-opera",
+            "china"
+          ]
+        },
+        {
+          "id": "jing_erhu_texture_pad",
+          "name": "Sustained warming pad under the jinghu line",
+          "descriptors": [
+            "sustained",
+            "drone-like",
+            "supportive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "jingju",
+            "accompaniment"
+          ]
+        }
+      ]
+    }
+  ]
+}

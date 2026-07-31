@@ -1,0 +1,428 @@
+{
+  "id": "bougarabou",
+  "name": "Bougarabou (Jola tuned drum set of the Casamance)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": -2,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "bougarabou",
+  "parts": [
+    {
+      "id": "bougarabou_set",
+      "name": "Set size",
+      "variants": [
+        {
+          "id": "bougarabou_set_three",
+          "default": true,
+          "name": "Three-drum tuned set (standard modern practice)",
+          "descriptors": [
+            "tuned",
+            "melodic",
+            "foundational"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "tuned-drums"
+          ],
+          "canonical_tags": [
+            "senegalese",
+            "west_africa"
+          ]
+        },
+        {
+          "id": "bougarabou_set_four",
+          "name": "Four-drum set (widest bass-to-lead spread)",
+          "descriptors": [
+            "deep",
+            "wide-ranging",
+            "versatile"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "tuned-drums",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "senegalese",
+            "concert"
+          ]
+        },
+        {
+          "id": "bougarabou_set_single_archaic",
+          "name": "Single drum (older Jola practice)",
+          "descriptors": [
+            "archaic",
+            "pre-modern",
+            "sparse"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "folk-tradition",
+            "hand-drum"
+          ],
+          "canonical_tags": [
+            "traditional",
+            "west_africa"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bougarabou_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "bougarabou_technique_two_hand",
+          "default": true,
+          "name": "Two-hand set playing across the drums (post-1940s)",
+          "descriptors": [
+            "modern-revival",
+            "virtuoso",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "polyrhythmic"
+          ],
+          "canonical_tags": [
+            "senegalese",
+            "dance"
+          ]
+        },
+        {
+          "id": "bougarabou_technique_hand_and_stick",
+          "name": "One hand plus one stick on a single drum (older practice)",
+          "descriptors": [
+            "archaic",
+            "traditional",
+            "sparse"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-and-stick",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bougarabou_siwang",
+      "name": "Siwang bracelets",
+      "variants": [
+        {
+          "id": "bougarabou_siwang_worn",
+          "default": true,
+          "name": "Siwang bracelets worn — metallic jingle on every stroke",
+          "descriptors": [
+            "metallic-overtones",
+            "snappier",
+            "traditional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "jingle"
+          ],
+          "canonical_tags": [
+            "senegalese",
+            "traditional"
+          ]
+        },
+        {
+          "id": "bougarabou_siwang_none",
+          "name": "No bracelets — bare drum tone",
+          "descriptors": [
+            "dry",
+            "clean",
+            "focused"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "hand-drum"
+          ],
+          "canonical_tags": [
+            "concert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bougarabou_head",
+      "name": "Head material and tuning",
+      "variants": [
+        {
+          "id": "bougarabou_head_cowhide_fire",
+          "default": true,
+          "name": "Cowhide heads, fire-warmed fixed tuning (canonical Jola)",
+          "descriptors": [
+            "hide",
+            "deep",
+            "warm"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "traditional",
+            "west_africa"
+          ]
+        },
+        {
+          "id": "bougarabou_head_cowhide_roped",
+          "name": "Cowhide with rope / key tuning (modern export rig)",
+          "descriptors": [
+            "stable",
+            "consistent",
+            "modern"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "tuned-drums",
+            "hands"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "bougarabou_head_goat",
+          "name": "Goat-skin heads (brighter hybrid)",
+          "descriptors": [
+            "goatskin",
+            "bright",
+            "crisp"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "bougarabou_set",
+      "name": "Set size",
+      "variants": [
+        {
+          "id": "bougarabou_set_three",
+          "default": true,
+          "name": "Three-drum tuned set (standard modern practice)",
+          "descriptors": [
+            "tuned",
+            "melodic",
+            "foundational"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "tuned-drums"
+          ],
+          "canonical_tags": [
+            "senegalese",
+            "west_africa"
+          ]
+        },
+        {
+          "id": "bougarabou_set_four",
+          "name": "Four-drum set (widest bass-to-lead spread)",
+          "descriptors": [
+            "deep",
+            "wide-ranging",
+            "versatile"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "tuned-drums",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "senegalese",
+            "concert"
+          ]
+        },
+        {
+          "id": "bougarabou_set_single_archaic",
+          "name": "Single drum (older Jola practice)",
+          "descriptors": [
+            "archaic",
+            "pre-modern",
+            "sparse"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "folk-tradition",
+            "hand-drum"
+          ],
+          "canonical_tags": [
+            "traditional",
+            "west_africa"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bougarabou_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "bougarabou_technique_two_hand",
+          "default": true,
+          "name": "Two-hand set playing across the drums (post-1940s)",
+          "descriptors": [
+            "modern-revival",
+            "virtuoso",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "polyrhythmic"
+          ],
+          "canonical_tags": [
+            "senegalese",
+            "dance"
+          ]
+        },
+        {
+          "id": "bougarabou_technique_hand_and_stick",
+          "name": "One hand plus one stick on a single drum (older practice)",
+          "descriptors": [
+            "archaic",
+            "traditional",
+            "sparse"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-and-stick",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bougarabou_siwang",
+      "name": "Siwang bracelets",
+      "variants": [
+        {
+          "id": "bougarabou_siwang_worn",
+          "default": true,
+          "name": "Siwang bracelets worn — metallic jingle on every stroke",
+          "descriptors": [
+            "metallic-overtones",
+            "snappier",
+            "traditional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "jingle"
+          ],
+          "canonical_tags": [
+            "senegalese",
+            "traditional"
+          ]
+        },
+        {
+          "id": "bougarabou_siwang_none",
+          "name": "No bracelets — bare drum tone",
+          "descriptors": [
+            "dry",
+            "clean",
+            "focused"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "hand-drum"
+          ],
+          "canonical_tags": [
+            "concert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bougarabou_head",
+      "name": "Head material and tuning",
+      "variants": [
+        {
+          "id": "bougarabou_head_cowhide_fire",
+          "default": true,
+          "name": "Cowhide heads, fire-warmed fixed tuning (canonical Jola)",
+          "descriptors": [
+            "hide",
+            "deep",
+            "warm"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "traditional",
+            "west_africa"
+          ]
+        },
+        {
+          "id": "bougarabou_head_cowhide_roped",
+          "name": "Cowhide with rope / key tuning (modern export rig)",
+          "descriptors": [
+            "stable",
+            "consistent",
+            "modern"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "tuned-drums",
+            "hands"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "bougarabou_head_goat",
+          "name": "Goat-skin heads (brighter hybrid)",
+          "descriptors": [
+            "goatskin",
+            "bright",
+            "crisp"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

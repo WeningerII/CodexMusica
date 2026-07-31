@@ -1,0 +1,440 @@
+{
+  "id": "hun",
+  "name": "Hun (Korean ritual clay vessel flute)",
+  "family": "wind",
+  "class": "globular vessel flute (aerophone)",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": -1,
+    "range": -1,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -2
+  },
+  "short": "hun",
+  "parts": [
+    {
+      "id": "hun_shape",
+      "name": "Vessel shape",
+      "variants": [
+        {
+          "id": "hun_shape_egg",
+          "default": true,
+          "name": "Egg-shaped vessel (Akhak gwebeom standard, five holes)",
+          "descriptors": [
+            "archaic",
+            "hollow",
+            "earthen"
+          ],
+          "match_tokens": [
+            "wind",
+            "blown",
+            "vessel-flute"
+          ],
+          "canonical_tags": [
+            "korean",
+            "ritual"
+          ]
+        },
+        {
+          "id": "hun_shape_ball",
+          "name": "Ball / spherical vessel",
+          "descriptors": [
+            "rounded",
+            "dark",
+            "resonant"
+          ],
+          "match_tokens": [
+            "wind",
+            "blown",
+            "vessel-flute"
+          ],
+          "canonical_tags": [
+            "korean",
+            "ritual"
+          ]
+        },
+        {
+          "id": "hun_shape_hemisphere",
+          "name": "Hemispherical flat-bottomed vessel",
+          "descriptors": [
+            "broad",
+            "muted",
+            "hollow"
+          ],
+          "match_tokens": [
+            "wind",
+            "blown",
+            "vessel-flute",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "korean",
+            "ritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hun_body",
+      "name": "Clay body & firing",
+      "variants": [
+        {
+          "id": "hun_body_baked_clay",
+          "default": true,
+          "name": "Unglazed baked clay (the 'earth' material of the pal-eum eight)",
+          "descriptors": [
+            "earthen",
+            "hollow",
+            "warm"
+          ],
+          "match_tokens": [
+            "wind",
+            "clay",
+            "fired"
+          ],
+          "canonical_tags": [
+            "korean",
+            "terracotta"
+          ]
+        },
+        {
+          "id": "hun_body_glazed",
+          "name": "Glazed ceramic body",
+          "descriptors": [
+            "clear",
+            "ringing",
+            "resonant"
+          ],
+          "match_tokens": [
+            "wind",
+            "porcelain",
+            "glazed"
+          ],
+          "canonical_tags": [
+            "korean",
+            "porcelain"
+          ]
+        },
+        {
+          "id": "hun_body_low_fired",
+          "name": "Coarse low-fired body (breathier, darker)",
+          "descriptors": [
+            "dry",
+            "breathy",
+            "dark"
+          ],
+          "match_tokens": [
+            "wind",
+            "clay",
+            "fired"
+          ],
+          "canonical_tags": [
+            "korean",
+            "archaic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hun_placement",
+      "name": "Ritual orchestra placement",
+      "variants": [
+        {
+          "id": "hun_placement_deungga",
+          "default": true,
+          "name": "Deungga terrace orchestra (Munmyo jeryeak)",
+          "descriptors": [
+            "ceremonial",
+            "ritual",
+            "courtly"
+          ],
+          "match_tokens": [
+            "wind",
+            "ensemble",
+            "ritual-context"
+          ],
+          "canonical_tags": [
+            "korean",
+            "ritual"
+          ]
+        },
+        {
+          "id": "hun_placement_heonga",
+          "name": "Heon-ga courtyard orchestra",
+          "descriptors": [
+            "outdoor",
+            "massed",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "wind",
+            "ensemble",
+            "ritual-context"
+          ],
+          "canonical_tags": [
+            "korean",
+            "processional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hun_treatment",
+      "name": "Treatment",
+      "variants": [
+        {
+          "id": "hun_treatment_archaic_unison",
+          "default": true,
+          "name": "Strict archaic near-unison aak line (spring/autumn Confucian rite)",
+          "descriptors": [
+            "slow",
+            "sustained",
+            "heterophonic"
+          ],
+          "match_tokens": [
+            "wind",
+            "ensemble",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "korean",
+            "ritual"
+          ]
+        },
+        {
+          "id": "hun_treatment_modern_solo",
+          "name": "Modern re-scored solo / atmospheric use",
+          "descriptors": [
+            "mournful",
+            "desolate",
+            "haunting"
+          ],
+          "match_tokens": [
+            "wind",
+            "blown",
+            "atmospheric"
+          ],
+          "canonical_tags": [
+            "modern",
+            "cinematic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "hun_shape",
+      "name": "Vessel shape",
+      "variants": [
+        {
+          "id": "hun_shape_egg",
+          "default": true,
+          "name": "Egg-shaped vessel (Akhak gwebeom standard, five holes)",
+          "descriptors": [
+            "archaic",
+            "hollow",
+            "earthen"
+          ],
+          "match_tokens": [
+            "wind",
+            "blown",
+            "vessel-flute"
+          ],
+          "canonical_tags": [
+            "korean",
+            "ritual"
+          ]
+        },
+        {
+          "id": "hun_shape_ball",
+          "name": "Ball / spherical vessel",
+          "descriptors": [
+            "rounded",
+            "dark",
+            "resonant"
+          ],
+          "match_tokens": [
+            "wind",
+            "blown",
+            "vessel-flute"
+          ],
+          "canonical_tags": [
+            "korean",
+            "ritual"
+          ]
+        },
+        {
+          "id": "hun_shape_hemisphere",
+          "name": "Hemispherical flat-bottomed vessel",
+          "descriptors": [
+            "broad",
+            "muted",
+            "hollow"
+          ],
+          "match_tokens": [
+            "wind",
+            "blown",
+            "vessel-flute",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "korean",
+            "ritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hun_body",
+      "name": "Clay body & firing",
+      "variants": [
+        {
+          "id": "hun_body_baked_clay",
+          "default": true,
+          "name": "Unglazed baked clay (the 'earth' material of the pal-eum eight)",
+          "descriptors": [
+            "earthen",
+            "hollow",
+            "warm"
+          ],
+          "match_tokens": [
+            "wind",
+            "clay",
+            "fired"
+          ],
+          "canonical_tags": [
+            "korean",
+            "terracotta"
+          ]
+        },
+        {
+          "id": "hun_body_glazed",
+          "name": "Glazed ceramic body",
+          "descriptors": [
+            "clear",
+            "ringing",
+            "resonant"
+          ],
+          "match_tokens": [
+            "wind",
+            "porcelain",
+            "glazed"
+          ],
+          "canonical_tags": [
+            "korean",
+            "porcelain"
+          ]
+        },
+        {
+          "id": "hun_body_low_fired",
+          "name": "Coarse low-fired body (breathier, darker)",
+          "descriptors": [
+            "dry",
+            "breathy",
+            "dark"
+          ],
+          "match_tokens": [
+            "wind",
+            "clay",
+            "fired"
+          ],
+          "canonical_tags": [
+            "korean",
+            "archaic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hun_placement",
+      "name": "Ritual orchestra placement",
+      "variants": [
+        {
+          "id": "hun_placement_deungga",
+          "default": true,
+          "name": "Deungga terrace orchestra (Munmyo jeryeak)",
+          "descriptors": [
+            "ceremonial",
+            "ritual",
+            "courtly"
+          ],
+          "match_tokens": [
+            "wind",
+            "ensemble",
+            "ritual-context"
+          ],
+          "canonical_tags": [
+            "korean",
+            "ritual"
+          ]
+        },
+        {
+          "id": "hun_placement_heonga",
+          "name": "Heon-ga courtyard orchestra",
+          "descriptors": [
+            "outdoor",
+            "massed",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "wind",
+            "ensemble",
+            "ritual-context"
+          ],
+          "canonical_tags": [
+            "korean",
+            "processional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hun_treatment",
+      "name": "Treatment",
+      "variants": [
+        {
+          "id": "hun_treatment_archaic_unison",
+          "default": true,
+          "name": "Strict archaic near-unison aak line (spring/autumn Confucian rite)",
+          "descriptors": [
+            "slow",
+            "sustained",
+            "heterophonic"
+          ],
+          "match_tokens": [
+            "wind",
+            "ensemble",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "korean",
+            "ritual"
+          ]
+        },
+        {
+          "id": "hun_treatment_modern_solo",
+          "name": "Modern re-scored solo / atmospheric use",
+          "descriptors": [
+            "mournful",
+            "desolate",
+            "haunting"
+          ],
+          "match_tokens": [
+            "wind",
+            "blown",
+            "atmospheric"
+          ],
+          "canonical_tags": [
+            "modern",
+            "cinematic"
+          ]
+        }
+      ]
+    }
+  ]
+}

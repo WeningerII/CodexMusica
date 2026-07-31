@@ -1,0 +1,472 @@
+{
+  "id": "hocchiku",
+  "name": "Hocchiku (jinashi root-end bamboo shakuhachi)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "hocchiku",
+  "parts": [
+    {
+      "id": "hocchiku_length",
+      "name": "Length / register",
+      "variants": [
+        {
+          "id": "hocchiku_length_watazumi",
+          "default": true,
+          "name": "Long wide Watazumi-style pipe (c. 60-70 cm and up)",
+          "descriptors": [
+            "deep",
+            "cavernous",
+            "breathy"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "zen",
+            "japanese"
+          ]
+        },
+        {
+          "id": "hocchiku_length_standard",
+          "name": "Standard-ish stalk (c. 50-55 cm, near 1.8-2.1 shaku)",
+          "descriptors": [
+            "versatile",
+            "centered",
+            "meditative"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "end-blown"
+          ],
+          "canonical_tags": [
+            "japanese",
+            "honkyoku"
+          ]
+        },
+        {
+          "id": "hocchiku_length_bass",
+          "name": "Extreme bass stalk (3 shaku and beyond)",
+          "descriptors": [
+            "subterranean",
+            "dark",
+            "husky"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "zen",
+            "japanese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hocchiku_finish",
+      "name": "Bamboo treatment",
+      "variants": [
+        {
+          "id": "hocchiku_finish_raw_root",
+          "default": true,
+          "name": "Raw untreated madake root-end stalk, uninlaid utaguchi",
+          "descriptors": [
+            "rustic",
+            "natural-material-resonance",
+            "organic-tone"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "zen",
+            "japanese"
+          ]
+        },
+        {
+          "id": "hocchiku_finish_light_jinashi",
+          "name": "Lightly finished jinashi (bore cleaned, still no ji paste)",
+          "descriptors": [
+            "seasoned",
+            "focused",
+            "refined"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "end-blown"
+          ],
+          "canonical_tags": [
+            "japanese"
+          ]
+        },
+        {
+          "id": "hocchiku_finish_nobekan",
+          "name": "One-piece jinashi nobekan (uncut, no centre joint)",
+          "descriptors": [
+            "archaic",
+            "authentic",
+            "traditional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "japanese",
+            "historical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hocchiku_intent",
+      "name": "Practice intent",
+      "variants": [
+        {
+          "id": "hocchiku_intent_suizen",
+          "default": true,
+          "name": "Suizen - blowing-Zen breath practice, not performance",
+          "descriptors": [
+            "meditative",
+            "contemplative",
+            "unmetered"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "solo"
+          ],
+          "canonical_tags": [
+            "zen",
+            "japanese"
+          ]
+        },
+        {
+          "id": "hocchiku_intent_honkyoku",
+          "name": "Performed honkyoku solo repertoire",
+          "descriptors": [
+            "soloistic",
+            "traditional",
+            "expressive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "solo"
+          ],
+          "canonical_tags": [
+            "honkyoku",
+            "japanese"
+          ]
+        },
+        {
+          "id": "hocchiku_intent_ambient",
+          "name": "Modern ambient / atmospheric colour",
+          "descriptors": [
+            "atmospheric",
+            "contemporary",
+            "intimate"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathy-tone",
+            "atmospheric"
+          ],
+          "canonical_tags": [
+            "modern",
+            "cinematic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hocchiku_tone",
+      "name": "Tonal target",
+      "variants": [
+        {
+          "id": "hocchiku_tone_muraiki",
+          "default": true,
+          "name": "Muraiki-heavy breath-noise tone",
+          "descriptors": [
+            "breathy",
+            "textural",
+            "husky"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "zen",
+            "japanese"
+          ]
+        },
+        {
+          "id": "hocchiku_tone_focused",
+          "name": "Cleaner focused tone",
+          "descriptors": [
+            "focused",
+            "centered",
+            "pure"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "honkyoku",
+            "japanese"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "hocchiku_length",
+      "name": "Length / register",
+      "variants": [
+        {
+          "id": "hocchiku_length_watazumi",
+          "default": true,
+          "name": "Long wide Watazumi-style pipe (c. 60-70 cm and up)",
+          "descriptors": [
+            "deep",
+            "cavernous",
+            "breathy"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "zen",
+            "japanese"
+          ]
+        },
+        {
+          "id": "hocchiku_length_standard",
+          "name": "Standard-ish stalk (c. 50-55 cm, near 1.8-2.1 shaku)",
+          "descriptors": [
+            "versatile",
+            "centered",
+            "meditative"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "end-blown"
+          ],
+          "canonical_tags": [
+            "japanese",
+            "honkyoku"
+          ]
+        },
+        {
+          "id": "hocchiku_length_bass",
+          "name": "Extreme bass stalk (3 shaku and beyond)",
+          "descriptors": [
+            "subterranean",
+            "dark",
+            "husky"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "zen",
+            "japanese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hocchiku_finish",
+      "name": "Bamboo treatment",
+      "variants": [
+        {
+          "id": "hocchiku_finish_raw_root",
+          "default": true,
+          "name": "Raw untreated madake root-end stalk, uninlaid utaguchi",
+          "descriptors": [
+            "rustic",
+            "natural-material-resonance",
+            "organic-tone"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "zen",
+            "japanese"
+          ]
+        },
+        {
+          "id": "hocchiku_finish_light_jinashi",
+          "name": "Lightly finished jinashi (bore cleaned, still no ji paste)",
+          "descriptors": [
+            "seasoned",
+            "focused",
+            "refined"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "end-blown"
+          ],
+          "canonical_tags": [
+            "japanese"
+          ]
+        },
+        {
+          "id": "hocchiku_finish_nobekan",
+          "name": "One-piece jinashi nobekan (uncut, no centre joint)",
+          "descriptors": [
+            "archaic",
+            "authentic",
+            "traditional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "japanese",
+            "historical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hocchiku_intent",
+      "name": "Practice intent",
+      "variants": [
+        {
+          "id": "hocchiku_intent_suizen",
+          "default": true,
+          "name": "Suizen - blowing-Zen breath practice, not performance",
+          "descriptors": [
+            "meditative",
+            "contemplative",
+            "unmetered"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "solo"
+          ],
+          "canonical_tags": [
+            "zen",
+            "japanese"
+          ]
+        },
+        {
+          "id": "hocchiku_intent_honkyoku",
+          "name": "Performed honkyoku solo repertoire",
+          "descriptors": [
+            "soloistic",
+            "traditional",
+            "expressive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "solo"
+          ],
+          "canonical_tags": [
+            "honkyoku",
+            "japanese"
+          ]
+        },
+        {
+          "id": "hocchiku_intent_ambient",
+          "name": "Modern ambient / atmospheric colour",
+          "descriptors": [
+            "atmospheric",
+            "contemporary",
+            "intimate"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathy-tone",
+            "atmospheric"
+          ],
+          "canonical_tags": [
+            "modern",
+            "cinematic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hocchiku_tone",
+      "name": "Tonal target",
+      "variants": [
+        {
+          "id": "hocchiku_tone_muraiki",
+          "default": true,
+          "name": "Muraiki-heavy breath-noise tone",
+          "descriptors": [
+            "breathy",
+            "textural",
+            "husky"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "zen",
+            "japanese"
+          ]
+        },
+        {
+          "id": "hocchiku_tone_focused",
+          "name": "Cleaner focused tone",
+          "descriptors": [
+            "focused",
+            "centered",
+            "pure"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "honkyoku",
+            "japanese"
+          ]
+        }
+      ]
+    }
+  ]
+}

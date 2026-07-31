@@ -1,0 +1,423 @@
+{
+  "id": "lijerica",
+  "name": "Lijerica (Dalmatian bowed lira)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "lijerica",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "lijerica_mode",
+      "name": "Performance mode",
+      "variants": [
+        {
+          "id": "lijerica_dance_caller",
+          "default": true,
+          "name": "Solo dance-caller (stamped foot-beat, called figures)",
+          "descriptors": [
+            "driving",
+            "communal",
+            "percussive",
+            "foundational"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "dance",
+            "folk"
+          ]
+        },
+        {
+          "id": "lijerica_listening",
+          "name": "Clean listening performance (no stamp, no calls)",
+          "descriptors": [
+            "focused",
+            "lyrical",
+            "concert"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic",
+            "expressive"
+          ],
+          "canonical_tags": [
+            "concert",
+            "revival"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lijerica_repertoire",
+      "name": "Repertoire and function",
+      "variants": [
+        {
+          "id": "lijerica_lindjo",
+          "default": true,
+          "name": "Linđo round dance (Dubrovnik littoral)",
+          "descriptors": [
+            "high-tempo",
+            "driving",
+            "festive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-rhythm",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "dance"
+          ]
+        },
+        {
+          "id": "lijerica_poskocica_kolo",
+          "name": "Poskočica and kolo",
+          "descriptors": [
+            "rhythmic",
+            "communal",
+            "traditional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "folk"
+          ]
+        },
+        {
+          "id": "lijerica_wedding_processional",
+          "name": "Wedding and processional playing",
+          "descriptors": [
+            "processional",
+            "celebratory",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "wedding",
+            "processional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lijerica_drone",
+      "name": "Drone weight",
+      "variants": [
+        {
+          "id": "lijerica_continuous_drone",
+          "default": true,
+          "name": "Heavy continuous adjacent-string drone",
+          "descriptors": [
+            "droning",
+            "earthy",
+            "foundational"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "double-stop"
+          ],
+          "canonical_tags": [
+            "drone"
+          ]
+        },
+        {
+          "id": "lijerica_intermittent_drone",
+          "name": "Intermittent drone, melody forward",
+          "descriptors": [
+            "articulate",
+            "lyrical",
+            "focused"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic",
+            "expressive"
+          ],
+          "canonical_tags": [
+            "melodic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lijerica_region",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "lijerica_konavle_peljesac",
+          "default": true,
+          "name": "Konavle / Pelješac mainland form (maple)",
+          "descriptors": [
+            "bright",
+            "focused",
+            "maple"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "maple"
+          ]
+        },
+        {
+          "id": "lijerica_island",
+          "name": "Island form — Korčula, Mljet, Lastovo (sycamore or walnut)",
+          "descriptors": [
+            "mellow",
+            "resonant",
+            "regional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "wood"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "lijerica_mode",
+      "name": "Performance mode",
+      "variants": [
+        {
+          "id": "lijerica_dance_caller",
+          "default": true,
+          "name": "Solo dance-caller (stamped foot-beat, called figures)",
+          "descriptors": [
+            "driving",
+            "communal",
+            "percussive",
+            "foundational"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "dance",
+            "folk"
+          ]
+        },
+        {
+          "id": "lijerica_listening",
+          "name": "Clean listening performance (no stamp, no calls)",
+          "descriptors": [
+            "focused",
+            "lyrical",
+            "concert"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic",
+            "expressive"
+          ],
+          "canonical_tags": [
+            "concert",
+            "revival"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lijerica_repertoire",
+      "name": "Repertoire and function",
+      "variants": [
+        {
+          "id": "lijerica_lindjo",
+          "default": true,
+          "name": "Linđo round dance (Dubrovnik littoral)",
+          "descriptors": [
+            "high-tempo",
+            "driving",
+            "festive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-rhythm",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "dance"
+          ]
+        },
+        {
+          "id": "lijerica_poskocica_kolo",
+          "name": "Poskočica and kolo",
+          "descriptors": [
+            "rhythmic",
+            "communal",
+            "traditional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "folk"
+          ]
+        },
+        {
+          "id": "lijerica_wedding_processional",
+          "name": "Wedding and processional playing",
+          "descriptors": [
+            "processional",
+            "celebratory",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "wedding",
+            "processional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lijerica_drone",
+      "name": "Drone weight",
+      "variants": [
+        {
+          "id": "lijerica_continuous_drone",
+          "default": true,
+          "name": "Heavy continuous adjacent-string drone",
+          "descriptors": [
+            "droning",
+            "earthy",
+            "foundational"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "double-stop"
+          ],
+          "canonical_tags": [
+            "drone"
+          ]
+        },
+        {
+          "id": "lijerica_intermittent_drone",
+          "name": "Intermittent drone, melody forward",
+          "descriptors": [
+            "articulate",
+            "lyrical",
+            "focused"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic",
+            "expressive"
+          ],
+          "canonical_tags": [
+            "melodic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lijerica_region",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "lijerica_konavle_peljesac",
+          "default": true,
+          "name": "Konavle / Pelješac mainland form (maple)",
+          "descriptors": [
+            "bright",
+            "focused",
+            "maple"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "maple"
+          ]
+        },
+        {
+          "id": "lijerica_island",
+          "name": "Island form — Korčula, Mljet, Lastovo (sycamore or walnut)",
+          "descriptors": [
+            "mellow",
+            "resonant",
+            "regional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "wood"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,438 @@
+{
+  "id": "madal",
+  "name": "Mādal (Nepali double-headed hand drum)",
+  "family": "percussion",
+  "class": "double_headed_drum",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": -1,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "madal",
+  "parts": [
+    {
+      "id": "madal_role",
+      "name": "Playing context / role",
+      "variants": [
+        {
+          "id": "madal_role_dohori",
+          "default": true,
+          "name": "Lok dohori / lok geet timekeeper",
+          "descriptors": [
+            "timekeeping",
+            "folk",
+            "lilting"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "folk-pulse",
+            "timekeeper",
+            "two-headed-drum"
+          ],
+          "canonical_tags": [
+            "himalayan",
+            "folk"
+          ]
+        },
+        {
+          "id": "madal_role_jhyaure",
+          "name": "Folk-dance accompaniment (jhyaure cycle)",
+          "descriptors": [
+            "dance-driving",
+            "lilting",
+            "festive"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "dance-pulse",
+            "dance"
+          ],
+          "canonical_tags": [
+            "himalayan",
+            "dance",
+            "folk"
+          ]
+        },
+        {
+          "id": "madal_role_pop_hook",
+          "name": "Signature hook under a Nepali pop arrangement",
+          "descriptors": [
+            "sparse",
+            "layered",
+            "modern"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "groove",
+            "modern"
+          ],
+          "canonical_tags": [
+            "pop",
+            "modern",
+            "studio"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "madal_posture",
+      "name": "Posture and mounting",
+      "variants": [
+        {
+          "id": "madal_posture_patuka",
+          "default": true,
+          "name": "Waist-slung on a patuka sash (standing, singing, dancing)",
+          "descriptors": [
+            "slung",
+            "open-ringing",
+            "loose"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "dance",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "himalayan",
+            "dance"
+          ]
+        },
+        {
+          "id": "madal_posture_seated",
+          "name": "Seated cross-legged, drum across the lap",
+          "descriptors": [
+            "seated",
+            "controlled",
+            "sharp-attack"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "hands",
+            "sharp-attack"
+          ],
+          "canonical_tags": [
+            "studio"
+          ]
+        },
+        {
+          "id": "madal_posture_stand",
+          "name": "Stand-mounted studio position",
+          "descriptors": [
+            "controlled",
+            "even",
+            "modern"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "hands",
+            "modern"
+          ],
+          "canonical_tags": [
+            "studio",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "madal_paste",
+      "name": "Head tuning paste",
+      "variants": [
+        {
+          "id": "madal_paste_khari",
+          "default": true,
+          "name": "Black khari paste applied to both head centres",
+          "descriptors": [
+            "tuned",
+            "ringing",
+            "traditional"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "tuned-attack",
+            "two-headed-drum"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "madal_paste_bare",
+          "name": "Bare dry heads (no paste)",
+          "descriptors": [
+            "dry",
+            "slapped",
+            "loose"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "dry-tone",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "natural-skin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "madal_shell",
+      "name": "Shell build",
+      "variants": [
+        {
+          "id": "madal_shell_hardwood",
+          "default": true,
+          "name": "Hollowed hardwood shell, leather-laced heads of unequal diameter",
+          "descriptors": [
+            "hollow",
+            "woody",
+            "hardwood-shell"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "woody",
+            "wood-shell"
+          ],
+          "canonical_tags": [
+            "hardwood",
+            "wood"
+          ]
+        },
+        {
+          "id": "madal_shell_composite",
+          "name": "Fibreglass / composite touring shell",
+          "descriptors": [
+            "composite",
+            "weatherproof",
+            "cutting"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "synthetic",
+            "modern"
+          ],
+          "canonical_tags": [
+            "synthetic",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "madal_role",
+      "name": "Playing context / role",
+      "variants": [
+        {
+          "id": "madal_role_dohori",
+          "default": true,
+          "name": "Lok dohori / lok geet timekeeper",
+          "descriptors": [
+            "timekeeping",
+            "folk",
+            "lilting"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "folk-pulse",
+            "timekeeper",
+            "two-headed-drum"
+          ],
+          "canonical_tags": [
+            "himalayan",
+            "folk"
+          ]
+        },
+        {
+          "id": "madal_role_jhyaure",
+          "name": "Folk-dance accompaniment (jhyaure cycle)",
+          "descriptors": [
+            "dance-driving",
+            "lilting",
+            "festive"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "dance-pulse",
+            "dance"
+          ],
+          "canonical_tags": [
+            "himalayan",
+            "dance",
+            "folk"
+          ]
+        },
+        {
+          "id": "madal_role_pop_hook",
+          "name": "Signature hook under a Nepali pop arrangement",
+          "descriptors": [
+            "sparse",
+            "layered",
+            "modern"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "groove",
+            "modern"
+          ],
+          "canonical_tags": [
+            "pop",
+            "modern",
+            "studio"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "madal_posture",
+      "name": "Posture and mounting",
+      "variants": [
+        {
+          "id": "madal_posture_patuka",
+          "default": true,
+          "name": "Waist-slung on a patuka sash (standing, singing, dancing)",
+          "descriptors": [
+            "slung",
+            "open-ringing",
+            "loose"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "dance",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "himalayan",
+            "dance"
+          ]
+        },
+        {
+          "id": "madal_posture_seated",
+          "name": "Seated cross-legged, drum across the lap",
+          "descriptors": [
+            "seated",
+            "controlled",
+            "sharp-attack"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "hands",
+            "sharp-attack"
+          ],
+          "canonical_tags": [
+            "studio"
+          ]
+        },
+        {
+          "id": "madal_posture_stand",
+          "name": "Stand-mounted studio position",
+          "descriptors": [
+            "controlled",
+            "even",
+            "modern"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "hands",
+            "modern"
+          ],
+          "canonical_tags": [
+            "studio",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "madal_paste",
+      "name": "Head tuning paste",
+      "variants": [
+        {
+          "id": "madal_paste_khari",
+          "default": true,
+          "name": "Black khari paste applied to both head centres",
+          "descriptors": [
+            "tuned",
+            "ringing",
+            "traditional"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "tuned-attack",
+            "two-headed-drum"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "madal_paste_bare",
+          "name": "Bare dry heads (no paste)",
+          "descriptors": [
+            "dry",
+            "slapped",
+            "loose"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "dry-tone",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "natural-skin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "madal_shell",
+      "name": "Shell build",
+      "variants": [
+        {
+          "id": "madal_shell_hardwood",
+          "default": true,
+          "name": "Hollowed hardwood shell, leather-laced heads of unequal diameter",
+          "descriptors": [
+            "hollow",
+            "woody",
+            "hardwood-shell"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "woody",
+            "wood-shell"
+          ],
+          "canonical_tags": [
+            "hardwood",
+            "wood"
+          ]
+        },
+        {
+          "id": "madal_shell_composite",
+          "name": "Fibreglass / composite touring shell",
+          "descriptors": [
+            "composite",
+            "weatherproof",
+            "cutting"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "synthetic",
+            "modern"
+          ],
+          "canonical_tags": [
+            "synthetic",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

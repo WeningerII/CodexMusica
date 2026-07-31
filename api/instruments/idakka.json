@@ -1,0 +1,576 @@
+{
+  "id": "idakka",
+  "name": "Idakka (Kerala hourglass pressure drum)",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "idakka",
+  "parts": [
+    {
+      "id": "idakka_repertoire",
+      "name": "Repertoire / context",
+      "variants": [
+        {
+          "id": "idakka_repertoire_sopanam",
+          "default": true,
+          "name": "Sopana Sangeetham at the sanctum steps (paired with the chengila gong)",
+          "descriptors": [
+            "devotional",
+            "intimate",
+            "vocal-supportive"
+          ],
+          "match_tokens": [
+            "struck",
+            "devotional",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "devotional",
+            "sacred"
+          ]
+        },
+        {
+          "id": "idakka_repertoire_puja",
+          "name": "Solo temple puja (deva vadyam, played alone before the deity)",
+          "descriptors": [
+            "liturgical",
+            "meditative",
+            "solemn"
+          ],
+          "match_tokens": [
+            "struck",
+            "ritual-context",
+            "devotional"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "ritual",
+            "sacred"
+          ]
+        },
+        {
+          "id": "idakka_repertoire_panchavadyam",
+          "name": "Panchavadyam ensemble voice (one of the five instruments)",
+          "descriptors": [
+            "ensemble",
+            "processional",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "struck",
+            "ensemble",
+            "processional"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "ensemble",
+            "processional"
+          ]
+        },
+        {
+          "id": "idakka_repertoire_dance",
+          "name": "Mohiniyattam / Krishnanattam and the Kathakali female-character slot (replacing chenda)",
+          "descriptors": [
+            "narrative",
+            "gesture-tracking",
+            "theatrical"
+          ],
+          "match_tokens": [
+            "struck",
+            "dance-driving",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "dance",
+            "stage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "idakka_bend",
+      "name": "Squeeze / pitch-bend depth",
+      "variants": [
+        {
+          "id": "idakka_bend_melodic",
+          "default": true,
+          "name": "Full melodic squeeze (continuous bending across roughly an octave)",
+          "descriptors": [
+            "melodic",
+            "pitch-bending",
+            "singing"
+          ],
+          "match_tokens": [
+            "struck",
+            "microtonal-bend",
+            "melodic-lead"
+          ],
+          "canonical_tags": [
+            "south-asian"
+          ]
+        },
+        {
+          "id": "idakka_bend_inflected",
+          "name": "Narrow inflection around a centre pitch (ornamental bend only)",
+          "descriptors": [
+            "ornamented",
+            "expressive",
+            "subtle"
+          ],
+          "match_tokens": [
+            "struck",
+            "microtonal-bend",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "south-asian"
+          ]
+        },
+        {
+          "id": "idakka_bend_static",
+          "name": "Near-static lacing tension (fixed drone-like pulse)",
+          "descriptors": [
+            "droning",
+            "steady-pulse",
+            "hypnotic"
+          ],
+          "match_tokens": [
+            "struck",
+            "drone-foundation",
+            "steady-pulse"
+          ],
+          "canonical_tags": [
+            "south-asian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "idakka_stroke",
+      "name": "Striking attack",
+      "variants": [
+        {
+          "id": "idakka_stroke_curved_light",
+          "default": true,
+          "name": "Light touch of the thin curved-end stick (canonical)",
+          "descriptors": [
+            "soft-attack",
+            "singing",
+            "traditional"
+          ],
+          "match_tokens": [
+            "struck",
+            "sticks",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "traditional"
+          ]
+        },
+        {
+          "id": "idakka_stroke_edge_weighted",
+          "name": "Harder edge-weighted stroke (more snare rattle and grain)",
+          "descriptors": [
+            "sharp-attack",
+            "buzzy",
+            "cutting"
+          ],
+          "match_tokens": [
+            "struck",
+            "sticks",
+            "rattle-buzz"
+          ],
+          "canonical_tags": [
+            "south-asian"
+          ]
+        },
+        {
+          "id": "idakka_stroke_damped",
+          "name": "Damped strokes with the striking hand riding the head",
+          "descriptors": [
+            "muted",
+            "dry",
+            "clipped"
+          ],
+          "match_tokens": [
+            "struck",
+            "sticks",
+            "muted"
+          ],
+          "canonical_tags": [
+            "south-asian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "idakka_build",
+      "name": "Heads, snares and shell",
+      "variants": [
+        {
+          "id": "idakka_build_harmonic_canonical",
+          "default": true,
+          "name": "Jackwood waisted shell, wide hide heads on wooden rings, jeevakol snares tuned into the harmonic regime (canonical Kerala)",
+          "descriptors": [
+            "ringing",
+            "overtone-rich",
+            "traditional"
+          ],
+          "match_tokens": [
+            "struck",
+            "woody",
+            "hide-head"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "natural-skin"
+          ]
+        },
+        {
+          "id": "idakka_build_slack_snare",
+          "name": "Slackened jeevakol snare setting (buzzier, indefinite pitch)",
+          "descriptors": [
+            "buzzy",
+            "low-tension",
+            "earthy"
+          ],
+          "match_tokens": [
+            "struck",
+            "rattle-buzz",
+            "buzzy-tone"
+          ],
+          "canonical_tags": [
+            "south-asian"
+          ]
+        },
+        {
+          "id": "idakka_build_podippukal",
+          "name": "Full woollen podippukal dressing on the lacing (64 balls, ceremonial)",
+          "descriptors": [
+            "ceremonial",
+            "damped-attack-onset",
+            "traditional"
+          ],
+          "match_tokens": [
+            "struck",
+            "ritual-context",
+            "woody"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "ceremonial"
+          ]
+        },
+        {
+          "id": "idakka_build_synthetic",
+          "name": "Synthetic heads (modern durable build)",
+          "descriptors": [
+            "synthetic-head",
+            "durable",
+            "consistent"
+          ],
+          "match_tokens": [
+            "struck",
+            "synthetic"
+          ],
+          "canonical_tags": [
+            "modern",
+            "synthetic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "idakka_repertoire",
+      "name": "Repertoire / context",
+      "variants": [
+        {
+          "id": "idakka_repertoire_sopanam",
+          "default": true,
+          "name": "Sopana Sangeetham at the sanctum steps (paired with the chengila gong)",
+          "descriptors": [
+            "devotional",
+            "intimate",
+            "vocal-supportive"
+          ],
+          "match_tokens": [
+            "struck",
+            "devotional",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "devotional",
+            "sacred"
+          ]
+        },
+        {
+          "id": "idakka_repertoire_puja",
+          "name": "Solo temple puja (deva vadyam, played alone before the deity)",
+          "descriptors": [
+            "liturgical",
+            "meditative",
+            "solemn"
+          ],
+          "match_tokens": [
+            "struck",
+            "ritual-context",
+            "devotional"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "ritual",
+            "sacred"
+          ]
+        },
+        {
+          "id": "idakka_repertoire_panchavadyam",
+          "name": "Panchavadyam ensemble voice (one of the five instruments)",
+          "descriptors": [
+            "ensemble",
+            "processional",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "struck",
+            "ensemble",
+            "processional"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "ensemble",
+            "processional"
+          ]
+        },
+        {
+          "id": "idakka_repertoire_dance",
+          "name": "Mohiniyattam / Krishnanattam and the Kathakali female-character slot (replacing chenda)",
+          "descriptors": [
+            "narrative",
+            "gesture-tracking",
+            "theatrical"
+          ],
+          "match_tokens": [
+            "struck",
+            "dance-driving",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "dance",
+            "stage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "idakka_bend",
+      "name": "Squeeze / pitch-bend depth",
+      "variants": [
+        {
+          "id": "idakka_bend_melodic",
+          "default": true,
+          "name": "Full melodic squeeze (continuous bending across roughly an octave)",
+          "descriptors": [
+            "melodic",
+            "pitch-bending",
+            "singing"
+          ],
+          "match_tokens": [
+            "struck",
+            "microtonal-bend",
+            "melodic-lead"
+          ],
+          "canonical_tags": [
+            "south-asian"
+          ]
+        },
+        {
+          "id": "idakka_bend_inflected",
+          "name": "Narrow inflection around a centre pitch (ornamental bend only)",
+          "descriptors": [
+            "ornamented",
+            "expressive",
+            "subtle"
+          ],
+          "match_tokens": [
+            "struck",
+            "microtonal-bend",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "south-asian"
+          ]
+        },
+        {
+          "id": "idakka_bend_static",
+          "name": "Near-static lacing tension (fixed drone-like pulse)",
+          "descriptors": [
+            "droning",
+            "steady-pulse",
+            "hypnotic"
+          ],
+          "match_tokens": [
+            "struck",
+            "drone-foundation",
+            "steady-pulse"
+          ],
+          "canonical_tags": [
+            "south-asian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "idakka_stroke",
+      "name": "Striking attack",
+      "variants": [
+        {
+          "id": "idakka_stroke_curved_light",
+          "default": true,
+          "name": "Light touch of the thin curved-end stick (canonical)",
+          "descriptors": [
+            "soft-attack",
+            "singing",
+            "traditional"
+          ],
+          "match_tokens": [
+            "struck",
+            "sticks",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "traditional"
+          ]
+        },
+        {
+          "id": "idakka_stroke_edge_weighted",
+          "name": "Harder edge-weighted stroke (more snare rattle and grain)",
+          "descriptors": [
+            "sharp-attack",
+            "buzzy",
+            "cutting"
+          ],
+          "match_tokens": [
+            "struck",
+            "sticks",
+            "rattle-buzz"
+          ],
+          "canonical_tags": [
+            "south-asian"
+          ]
+        },
+        {
+          "id": "idakka_stroke_damped",
+          "name": "Damped strokes with the striking hand riding the head",
+          "descriptors": [
+            "muted",
+            "dry",
+            "clipped"
+          ],
+          "match_tokens": [
+            "struck",
+            "sticks",
+            "muted"
+          ],
+          "canonical_tags": [
+            "south-asian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "idakka_build",
+      "name": "Heads, snares and shell",
+      "variants": [
+        {
+          "id": "idakka_build_harmonic_canonical",
+          "default": true,
+          "name": "Jackwood waisted shell, wide hide heads on wooden rings, jeevakol snares tuned into the harmonic regime (canonical Kerala)",
+          "descriptors": [
+            "ringing",
+            "overtone-rich",
+            "traditional"
+          ],
+          "match_tokens": [
+            "struck",
+            "woody",
+            "hide-head"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "natural-skin"
+          ]
+        },
+        {
+          "id": "idakka_build_slack_snare",
+          "name": "Slackened jeevakol snare setting (buzzier, indefinite pitch)",
+          "descriptors": [
+            "buzzy",
+            "low-tension",
+            "earthy"
+          ],
+          "match_tokens": [
+            "struck",
+            "rattle-buzz",
+            "buzzy-tone"
+          ],
+          "canonical_tags": [
+            "south-asian"
+          ]
+        },
+        {
+          "id": "idakka_build_podippukal",
+          "name": "Full woollen podippukal dressing on the lacing (64 balls, ceremonial)",
+          "descriptors": [
+            "ceremonial",
+            "damped-attack-onset",
+            "traditional"
+          ],
+          "match_tokens": [
+            "struck",
+            "ritual-context",
+            "woody"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "ceremonial"
+          ]
+        },
+        {
+          "id": "idakka_build_synthetic",
+          "name": "Synthetic heads (modern durable build)",
+          "descriptors": [
+            "synthetic-head",
+            "durable",
+            "consistent"
+          ],
+          "match_tokens": [
+            "struck",
+            "synthetic"
+          ],
+          "canonical_tags": [
+            "modern",
+            "synthetic"
+          ]
+        }
+      ]
+    }
+  ]
+}

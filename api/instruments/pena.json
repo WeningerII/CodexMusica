@@ -1,0 +1,419 @@
+{
+  "id": "pena",
+  "name": "Pena (Meitei single-string bowed spike lute)",
+  "family": "bowed",
+  "class": "bowed_spike_fiddle",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 1,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "pena",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "pena_form",
+      "name": "Resonator build",
+      "variants": [
+        {
+          "id": "pena_form_gourd_hide",
+          "default": true,
+          "name": "Dried gourd shell faced with hide, pierced by a bamboo rod",
+          "descriptors": [
+            "gourd-bodied",
+            "hide-faced",
+            "thin-toned",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "bamboo"
+          ],
+          "canonical_tags": [
+            "manipuri",
+            "indigenous"
+          ]
+        },
+        {
+          "id": "pena_form_coconut",
+          "name": "Coconut-shell resonator (tighter, brighter)",
+          "descriptors": [
+            "coconut-shell",
+            "bright",
+            "dry"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "manipuri"
+          ]
+        },
+        {
+          "id": "pena_form_carved_wood",
+          "name": "Hollowed wooden shell (fuller, warmer)",
+          "descriptors": [
+            "wood",
+            "woody",
+            "rounder"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "manipuri"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pena_context",
+      "name": "Ritual and repertoire context",
+      "variants": [
+        {
+          "id": "pena_context_lai_haraoba",
+          "default": true,
+          "name": "Lai Haraoba deity invocation by the pena khongba",
+          "descriptors": [
+            "invocatory",
+            "ritual",
+            "incantatory",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ritual-context",
+            "sacred-traditional"
+          ],
+          "canonical_tags": [
+            "manipuri",
+            "ritual",
+            "indigenous"
+          ]
+        },
+        {
+          "id": "pena_context_moirang_parva",
+          "name": "Khamba-Thoibi / Moirang Parva ballad narration",
+          "descriptors": [
+            "narrative",
+            "bardic",
+            "self-accompanied"
+          ],
+          "match_tokens": [
+            "bowed",
+            "epic",
+            "vocal-accompaniment"
+          ],
+          "canonical_tags": [
+            "manipuri",
+            "storytelling",
+            "narrative"
+          ]
+        },
+        {
+          "id": "pena_context_stage_revival",
+          "name": "Stage revival and preservation performance",
+          "descriptors": [
+            "preservationist",
+            "concert-tuned",
+            "twenty-first-century"
+          ],
+          "match_tokens": [
+            "bowed",
+            "solo",
+            "modern"
+          ],
+          "canonical_tags": [
+            "manipuri",
+            "revival"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pena_build",
+      "name": "String, bow and touch",
+      "variants": [
+        {
+          "id": "pena_build_horsehair_bell_bow",
+          "default": true,
+          "name": "Twisted-horsehair string, bell-hung cheijing bow, nail-touched harmonics",
+          "descriptors": [
+            "horsehair-strung",
+            "jangling",
+            "flute-like",
+            "harmonic-rich"
+          ],
+          "match_tokens": [
+            "bowed",
+            "horsehair-string",
+            "jingle",
+            "overtone-series"
+          ],
+          "canonical_tags": [
+            "manipuri",
+            "traditional"
+          ]
+        },
+        {
+          "id": "pena_build_plain_bow",
+          "name": "Plain cheijing bow without bells",
+          "descriptors": [
+            "spare",
+            "dry",
+            "thin-toned"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "manipuri",
+            "traditional"
+          ]
+        },
+        {
+          "id": "pena_build_pressed_stop",
+          "name": "Firmly stopped string (fuller, more definite pitch)",
+          "descriptors": [
+            "singing",
+            "full",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic-lead",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "manipuri"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "pena_form",
+      "name": "Resonator build",
+      "variants": [
+        {
+          "id": "pena_form_gourd_hide",
+          "default": true,
+          "name": "Dried gourd shell faced with hide, pierced by a bamboo rod",
+          "descriptors": [
+            "gourd-bodied",
+            "hide-faced",
+            "thin-toned",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "bamboo"
+          ],
+          "canonical_tags": [
+            "manipuri",
+            "indigenous"
+          ]
+        },
+        {
+          "id": "pena_form_coconut",
+          "name": "Coconut-shell resonator (tighter, brighter)",
+          "descriptors": [
+            "coconut-shell",
+            "bright",
+            "dry"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "manipuri"
+          ]
+        },
+        {
+          "id": "pena_form_carved_wood",
+          "name": "Hollowed wooden shell (fuller, warmer)",
+          "descriptors": [
+            "wood",
+            "woody",
+            "rounder"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "manipuri"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pena_context",
+      "name": "Ritual and repertoire context",
+      "variants": [
+        {
+          "id": "pena_context_lai_haraoba",
+          "default": true,
+          "name": "Lai Haraoba deity invocation by the pena khongba",
+          "descriptors": [
+            "invocatory",
+            "ritual",
+            "incantatory",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ritual-context",
+            "sacred-traditional"
+          ],
+          "canonical_tags": [
+            "manipuri",
+            "ritual",
+            "indigenous"
+          ]
+        },
+        {
+          "id": "pena_context_moirang_parva",
+          "name": "Khamba-Thoibi / Moirang Parva ballad narration",
+          "descriptors": [
+            "narrative",
+            "bardic",
+            "self-accompanied"
+          ],
+          "match_tokens": [
+            "bowed",
+            "epic",
+            "vocal-accompaniment"
+          ],
+          "canonical_tags": [
+            "manipuri",
+            "storytelling",
+            "narrative"
+          ]
+        },
+        {
+          "id": "pena_context_stage_revival",
+          "name": "Stage revival and preservation performance",
+          "descriptors": [
+            "preservationist",
+            "concert-tuned",
+            "twenty-first-century"
+          ],
+          "match_tokens": [
+            "bowed",
+            "solo",
+            "modern"
+          ],
+          "canonical_tags": [
+            "manipuri",
+            "revival"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pena_build",
+      "name": "String, bow and touch",
+      "variants": [
+        {
+          "id": "pena_build_horsehair_bell_bow",
+          "default": true,
+          "name": "Twisted-horsehair string, bell-hung cheijing bow, nail-touched harmonics",
+          "descriptors": [
+            "horsehair-strung",
+            "jangling",
+            "flute-like",
+            "harmonic-rich"
+          ],
+          "match_tokens": [
+            "bowed",
+            "horsehair-string",
+            "jingle",
+            "overtone-series"
+          ],
+          "canonical_tags": [
+            "manipuri",
+            "traditional"
+          ]
+        },
+        {
+          "id": "pena_build_plain_bow",
+          "name": "Plain cheijing bow without bells",
+          "descriptors": [
+            "spare",
+            "dry",
+            "thin-toned"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "manipuri",
+            "traditional"
+          ]
+        },
+        {
+          "id": "pena_build_pressed_stop",
+          "name": "Firmly stopped string (fuller, more definite pitch)",
+          "descriptors": [
+            "singing",
+            "full",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic-lead",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "manipuri"
+          ]
+        }
+      ]
+    }
+  ]
+}

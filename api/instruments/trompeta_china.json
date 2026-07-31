@@ -1,0 +1,476 @@
+{
+  "id": "trompeta_china",
+  "name": "Trompeta china / corneta china (Cuban carnival shawm)",
+  "family": "wind",
+  "class": "double_reed_shawm",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 2,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "trompeta china",
+  "parts": [
+    {
+      "id": "trompeta_china_body",
+      "name": "Body hardwood",
+      "variants": [
+        {
+          "id": "trompeta_china_acana",
+          "default": true,
+          "name": "Acana (canonical Santiago build)",
+          "descriptors": [
+            "dense-hardwood",
+            "canonical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "cuba"
+          ]
+        },
+        {
+          "id": "trompeta_china_baria",
+          "name": "Baria (local alternative)",
+          "descriptors": [
+            "hardwood",
+            "regional-alternative"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "cuba"
+          ]
+        },
+        {
+          "id": "trompeta_china_ebony",
+          "name": "Ebony (premium)",
+          "descriptors": [
+            "ebony-hardwood",
+            "premium"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "cuba"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trompeta_china_bell",
+      "name": "Bell metal and solder",
+      "variants": [
+        {
+          "id": "trompeta_china_copper_bell",
+          "default": true,
+          "name": "Copper bell with bronze solder (standard local build)",
+          "descriptors": [
+            "copper-belled",
+            "metal-belled",
+            "standard"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "cuba"
+          ]
+        },
+        {
+          "id": "trompeta_china_bronze_bell",
+          "name": "Bronze bell",
+          "descriptors": [
+            "metal-belled",
+            "bronze",
+            "loud-brassy"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "cuba"
+          ]
+        },
+        {
+          "id": "trompeta_china_silver_solder",
+          "name": "Silver-soldered joints (local mark of a fine instrument)",
+          "descriptors": [
+            "silver",
+            "premium",
+            "projecting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "cuba"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trompeta_china_reed",
+      "name": "Reed material",
+      "variants": [
+        {
+          "id": "trompeta_china_yarey",
+          "default": true,
+          "name": "Yarey palm-leaf reed (canonical Cuban)",
+          "descriptors": [
+            "plant-reed",
+            "canonical",
+            "distinct-construction"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "cuba"
+          ]
+        },
+        {
+          "id": "trompeta_china_cane",
+          "name": "Cane reed (inherited Chinese suona practice)",
+          "descriptors": [
+            "cane-reed",
+            "archaic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "china"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trompeta_china_role",
+      "name": "Role in the conga santiaguera",
+      "variants": [
+        {
+          "id": "trompeta_china_arrollar",
+          "default": true,
+          "name": "Opening call that launches the conga (arrollar)",
+          "descriptors": [
+            "call",
+            "celebratory",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "carnival",
+            "wind-driven",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "cuba",
+            "carnival"
+          ]
+        },
+        {
+          "id": "trompeta_china_over_percussion",
+          "name": "Riding above the tumbadoras, bocues, galletas and campanas",
+          "descriptors": [
+            "cutting",
+            "processional",
+            "carnival-rhythm"
+          ],
+          "match_tokens": [
+            "carnival",
+            "processional",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "carnival",
+            "caribbean"
+          ]
+        },
+        {
+          "id": "trompeta_china_comparsa_chorus",
+          "name": "Comparsa-chorus paraphrase with speech-imitating inflection",
+          "descriptors": [
+            "speech-mimicking",
+            "imitative",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed",
+            "carnival"
+          ],
+          "canonical_tags": [
+            "cuba"
+          ]
+        },
+        {
+          "id": "trompeta_china_havana",
+          "name": "Havana-style adoption (outside the Santiago carnival)",
+          "descriptors": [
+            "urban",
+            "regional-variant",
+            "revival"
+          ],
+          "match_tokens": [
+            "carnival",
+            "wind-driven",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "cuba"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "trompeta_china_body",
+      "name": "Body hardwood",
+      "variants": [
+        {
+          "id": "trompeta_china_acana",
+          "default": true,
+          "name": "Acana (canonical Santiago build)",
+          "descriptors": [
+            "dense-hardwood",
+            "canonical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "cuba"
+          ]
+        },
+        {
+          "id": "trompeta_china_baria",
+          "name": "Baria (local alternative)",
+          "descriptors": [
+            "hardwood",
+            "regional-alternative"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "cuba"
+          ]
+        },
+        {
+          "id": "trompeta_china_ebony",
+          "name": "Ebony (premium)",
+          "descriptors": [
+            "ebony-hardwood",
+            "premium"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "cuba"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trompeta_china_bell",
+      "name": "Bell metal and solder",
+      "variants": [
+        {
+          "id": "trompeta_china_copper_bell",
+          "default": true,
+          "name": "Copper bell with bronze solder (standard local build)",
+          "descriptors": [
+            "copper-belled",
+            "metal-belled",
+            "standard"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "cuba"
+          ]
+        },
+        {
+          "id": "trompeta_china_bronze_bell",
+          "name": "Bronze bell",
+          "descriptors": [
+            "metal-belled",
+            "bronze",
+            "loud-brassy"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "cuba"
+          ]
+        },
+        {
+          "id": "trompeta_china_silver_solder",
+          "name": "Silver-soldered joints (local mark of a fine instrument)",
+          "descriptors": [
+            "silver",
+            "premium",
+            "projecting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "cuba"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trompeta_china_reed",
+      "name": "Reed material",
+      "variants": [
+        {
+          "id": "trompeta_china_yarey",
+          "default": true,
+          "name": "Yarey palm-leaf reed (canonical Cuban)",
+          "descriptors": [
+            "plant-reed",
+            "canonical",
+            "distinct-construction"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "cuba"
+          ]
+        },
+        {
+          "id": "trompeta_china_cane",
+          "name": "Cane reed (inherited Chinese suona practice)",
+          "descriptors": [
+            "cane-reed",
+            "archaic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "china"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trompeta_china_role",
+      "name": "Role in the conga santiaguera",
+      "variants": [
+        {
+          "id": "trompeta_china_arrollar",
+          "default": true,
+          "name": "Opening call that launches the conga (arrollar)",
+          "descriptors": [
+            "call",
+            "celebratory",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "carnival",
+            "wind-driven",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "cuba",
+            "carnival"
+          ]
+        },
+        {
+          "id": "trompeta_china_over_percussion",
+          "name": "Riding above the tumbadoras, bocues, galletas and campanas",
+          "descriptors": [
+            "cutting",
+            "processional",
+            "carnival-rhythm"
+          ],
+          "match_tokens": [
+            "carnival",
+            "processional",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "carnival",
+            "caribbean"
+          ]
+        },
+        {
+          "id": "trompeta_china_comparsa_chorus",
+          "name": "Comparsa-chorus paraphrase with speech-imitating inflection",
+          "descriptors": [
+            "speech-mimicking",
+            "imitative",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed",
+            "carnival"
+          ],
+          "canonical_tags": [
+            "cuba"
+          ]
+        },
+        {
+          "id": "trompeta_china_havana",
+          "name": "Havana-style adoption (outside the Santiago carnival)",
+          "descriptors": [
+            "urban",
+            "regional-variant",
+            "revival"
+          ],
+          "match_tokens": [
+            "carnival",
+            "wind-driven",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "cuba"
+          ]
+        }
+      ]
+    }
+  ]
+}

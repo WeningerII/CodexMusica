@@ -1,0 +1,493 @@
+{
+  "id": "tenor_violin",
+  "name": "Tenor violin (historical five-part tenor, F–c–g–d′)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "tenor violin",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "tenor_violin_tuning",
+      "name": "Tuning / referent",
+      "variants": [
+        {
+          "id": "tenor_violin_tuning_historical_f",
+          "default": true,
+          "name": "Historical F–c–g–d′ (a fifth below the viola, a fifth above the cello)",
+          "descriptors": [
+            "historical-canonical",
+            "deep",
+            "singing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "renaissance",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "historical"
+          ]
+        },
+        {
+          "id": "tenor_violin_tuning_viola_tenore",
+          "name": "Viola tenore at viola pitch (c–g–d′–a′, Stradivari 1690 Medici)",
+          "descriptors": [
+            "larger-bodied",
+            "courtly",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "italian"
+          ]
+        },
+        {
+          "id": "tenor_violin_tuning_hutchins_octave",
+          "name": "Hutchins New Violin Family tenor (G–d–a–e′, octave below the violin, 1971)",
+          "descriptors": [
+            "twentieth-century",
+            "reconstructed",
+            "even"
+          ],
+          "match_tokens": [
+            "bowed",
+            "modern",
+            "concert"
+          ],
+          "canonical_tags": [
+            "twentieth-century",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tenor_violin_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "tenor_violin_role_taille_five_part",
+          "default": true,
+          "name": "Inner taille / quinte line of a five-part French band (24 Violons du Roi)",
+          "descriptors": [
+            "consort",
+            "blended",
+            "stately"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "orchestral",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "french"
+          ]
+        },
+        {
+          "id": "tenor_violin_role_consort_tenor",
+          "name": "Tenor voice of an Italian or German string consort",
+          "descriptors": [
+            "consort",
+            "solemn",
+            "blended"
+          ],
+          "match_tokens": [
+            "bowed",
+            "renaissance",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "early-music"
+          ]
+        },
+        {
+          "id": "tenor_violin_role_solo_tenor",
+          "name": "Solo tenor voice (octet and revival writing)",
+          "descriptors": [
+            "soloistic",
+            "singing",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "soloistic",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern",
+            "revival"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tenor_violin_hold",
+      "name": "Hold / support",
+      "variants": [
+        {
+          "id": "tenor_violin_hold_between_knees",
+          "default": true,
+          "name": "Gamba-style between the knees (large body, short neck)",
+          "descriptors": [
+            "stately",
+            "deep",
+            "historical-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "historical"
+          ]
+        },
+        {
+          "id": "tenor_violin_hold_strap_cradled",
+          "name": "Cradled on a strap across the body",
+          "descriptors": [
+            "agile",
+            "portable",
+            "robust"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "period"
+          ]
+        },
+        {
+          "id": "tenor_violin_hold_endpin_floor",
+          "name": "Resting on the ground / endpin (modern octet setup)",
+          "descriptors": [
+            "modern",
+            "stable",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "modern",
+            "concert"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tenor_violin_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "tenor_violin_strings_plain_wound_gut",
+          "default": true,
+          "name": "Plain gut trebles with silver-wound gut basses (period canonical)",
+          "descriptors": [
+            "plain-gut",
+            "silver-wound",
+            "low-tension"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "pre-1700-period"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "tenor_violin_strings_synthetic",
+          "name": "Synthetic core (modern octet build)",
+          "descriptors": [
+            "synthetic",
+            "stable",
+            "modern"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "bowed",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tenor_violin_tuning",
+      "name": "Tuning / referent",
+      "variants": [
+        {
+          "id": "tenor_violin_tuning_historical_f",
+          "default": true,
+          "name": "Historical F–c–g–d′ (a fifth below the viola, a fifth above the cello)",
+          "descriptors": [
+            "historical-canonical",
+            "deep",
+            "singing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "renaissance",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "historical"
+          ]
+        },
+        {
+          "id": "tenor_violin_tuning_viola_tenore",
+          "name": "Viola tenore at viola pitch (c–g–d′–a′, Stradivari 1690 Medici)",
+          "descriptors": [
+            "larger-bodied",
+            "courtly",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "italian"
+          ]
+        },
+        {
+          "id": "tenor_violin_tuning_hutchins_octave",
+          "name": "Hutchins New Violin Family tenor (G–d–a–e′, octave below the violin, 1971)",
+          "descriptors": [
+            "twentieth-century",
+            "reconstructed",
+            "even"
+          ],
+          "match_tokens": [
+            "bowed",
+            "modern",
+            "concert"
+          ],
+          "canonical_tags": [
+            "twentieth-century",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tenor_violin_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "tenor_violin_role_taille_five_part",
+          "default": true,
+          "name": "Inner taille / quinte line of a five-part French band (24 Violons du Roi)",
+          "descriptors": [
+            "consort",
+            "blended",
+            "stately"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "orchestral",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "french"
+          ]
+        },
+        {
+          "id": "tenor_violin_role_consort_tenor",
+          "name": "Tenor voice of an Italian or German string consort",
+          "descriptors": [
+            "consort",
+            "solemn",
+            "blended"
+          ],
+          "match_tokens": [
+            "bowed",
+            "renaissance",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "early-music"
+          ]
+        },
+        {
+          "id": "tenor_violin_role_solo_tenor",
+          "name": "Solo tenor voice (octet and revival writing)",
+          "descriptors": [
+            "soloistic",
+            "singing",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "soloistic",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern",
+            "revival"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tenor_violin_hold",
+      "name": "Hold / support",
+      "variants": [
+        {
+          "id": "tenor_violin_hold_between_knees",
+          "default": true,
+          "name": "Gamba-style between the knees (large body, short neck)",
+          "descriptors": [
+            "stately",
+            "deep",
+            "historical-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "historical"
+          ]
+        },
+        {
+          "id": "tenor_violin_hold_strap_cradled",
+          "name": "Cradled on a strap across the body",
+          "descriptors": [
+            "agile",
+            "portable",
+            "robust"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "period"
+          ]
+        },
+        {
+          "id": "tenor_violin_hold_endpin_floor",
+          "name": "Resting on the ground / endpin (modern octet setup)",
+          "descriptors": [
+            "modern",
+            "stable",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "modern",
+            "concert"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tenor_violin_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "tenor_violin_strings_plain_wound_gut",
+          "default": true,
+          "name": "Plain gut trebles with silver-wound gut basses (period canonical)",
+          "descriptors": [
+            "plain-gut",
+            "silver-wound",
+            "low-tension"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "pre-1700-period"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "tenor_violin_strings_synthetic",
+          "name": "Synthetic core (modern octet build)",
+          "descriptors": [
+            "synthetic",
+            "stable",
+            "modern"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "bowed",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

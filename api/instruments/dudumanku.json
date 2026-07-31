@@ -1,0 +1,539 @@
+{
+  "id": "dudumanku",
+  "name": "Dudumanku (Oroch one-string bowed spike fiddle)",
+  "family": "bowed",
+  "class": "bowed_spike_fiddle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "dudumanku",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "dudumanku_body",
+      "name": "Resonator material",
+      "variants": [
+        {
+          "id": "dudumanku_body_birch_bark",
+          "default": true,
+          "name": "Birch-bark cylinder (canonical Oroch)",
+          "descriptors": [
+            "light",
+            "hollow",
+            "soft",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "siberia",
+            "indigenous",
+            "traditional"
+          ]
+        },
+        {
+          "id": "dudumanku_body_hollowed_wood",
+          "name": "Hollowed wooden cylinder",
+          "descriptors": [
+            "woody",
+            "warm",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "wood-body"
+          ],
+          "canonical_tags": [
+            "siberia",
+            "wood"
+          ]
+        },
+        {
+          "id": "dudumanku_body_tin",
+          "name": "Tin cylinder (later substitution)",
+          "descriptors": [
+            "tinny",
+            "metallic",
+            "cutting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "metallic"
+          ],
+          "canonical_tags": [
+            "siberia",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dudumanku_context",
+      "name": "Function",
+      "variants": [
+        {
+          "id": "dudumanku_context_funeral",
+          "default": true,
+          "name": "Funeral and memorial rite — voice-substitute for grief",
+          "descriptors": [
+            "mournful",
+            "keening",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vocal-imitating",
+            "ritual-context"
+          ],
+          "canonical_tags": [
+            "context:funeral-ritual",
+            "ritual",
+            "siberia"
+          ]
+        },
+        {
+          "id": "dudumanku_context_song",
+          "name": "Song accompaniment (lyric and sound-imitative repertoire)",
+          "descriptors": [
+            "vocal-shadowing",
+            "imitative",
+            "intimate"
+          ],
+          "match_tokens": [
+            "bowed",
+            "song-accompaniment",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "siberia",
+            "folk"
+          ]
+        },
+        {
+          "id": "dudumanku_context_dance",
+          "name": "Dance accompaniment",
+          "descriptors": [
+            "driving",
+            "rhythmic",
+            "festive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "siberia",
+            "dance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dudumanku_bowing",
+      "name": "Bowing and articulation",
+      "variants": [
+        {
+          "id": "dudumanku_bowing_moaning_descents",
+          "default": true,
+          "name": "Long descending glides with stepwise moaning motifs",
+          "descriptors": [
+            "gliding",
+            "wailing",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "glissando-heavy",
+            "melancholic"
+          ],
+          "canonical_tags": [
+            "siberia",
+            "ritual"
+          ]
+        },
+        {
+          "id": "dudumanku_bowing_short_strokes",
+          "name": "Short rhythmic dance strokes",
+          "descriptors": [
+            "percussive",
+            "rhythmic",
+            "driving"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "siberia",
+            "dance"
+          ]
+        },
+        {
+          "id": "dudumanku_bowing_plain_melodic",
+          "name": "Plain sustained melodic line",
+          "descriptors": [
+            "sustained",
+            "soloistic",
+            "clean"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "siberia",
+            "solo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dudumanku_tuning",
+      "name": "Pitching",
+      "variants": [
+        {
+          "id": "dudumanku_tuning_alto",
+          "default": true,
+          "name": "Alto / viola-range pitching (as reported)",
+          "descriptors": [
+            "alto",
+            "warm",
+            "hollow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "siberia",
+            "traditional"
+          ]
+        },
+        {
+          "id": "dudumanku_tuning_to_singer",
+          "name": "Tuned to the singer's tessitura",
+          "descriptors": [
+            "vocal-shadowing",
+            "intimate",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vocal-imitating",
+            "song-accompaniment"
+          ],
+          "canonical_tags": [
+            "siberia",
+            "folk"
+          ]
+        },
+        {
+          "id": "dudumanku_tuning_high",
+          "name": "Higher, lighter pitching",
+          "descriptors": [
+            "thin",
+            "light",
+            "cutting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "high-register",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "siberia"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dudumanku_body",
+      "name": "Resonator material",
+      "variants": [
+        {
+          "id": "dudumanku_body_birch_bark",
+          "default": true,
+          "name": "Birch-bark cylinder (canonical Oroch)",
+          "descriptors": [
+            "light",
+            "hollow",
+            "soft",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "siberia",
+            "indigenous",
+            "traditional"
+          ]
+        },
+        {
+          "id": "dudumanku_body_hollowed_wood",
+          "name": "Hollowed wooden cylinder",
+          "descriptors": [
+            "woody",
+            "warm",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "wood-body"
+          ],
+          "canonical_tags": [
+            "siberia",
+            "wood"
+          ]
+        },
+        {
+          "id": "dudumanku_body_tin",
+          "name": "Tin cylinder (later substitution)",
+          "descriptors": [
+            "tinny",
+            "metallic",
+            "cutting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "metallic"
+          ],
+          "canonical_tags": [
+            "siberia",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dudumanku_context",
+      "name": "Function",
+      "variants": [
+        {
+          "id": "dudumanku_context_funeral",
+          "default": true,
+          "name": "Funeral and memorial rite — voice-substitute for grief",
+          "descriptors": [
+            "mournful",
+            "keening",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vocal-imitating",
+            "ritual-context"
+          ],
+          "canonical_tags": [
+            "context:funeral-ritual",
+            "ritual",
+            "siberia"
+          ]
+        },
+        {
+          "id": "dudumanku_context_song",
+          "name": "Song accompaniment (lyric and sound-imitative repertoire)",
+          "descriptors": [
+            "vocal-shadowing",
+            "imitative",
+            "intimate"
+          ],
+          "match_tokens": [
+            "bowed",
+            "song-accompaniment",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "siberia",
+            "folk"
+          ]
+        },
+        {
+          "id": "dudumanku_context_dance",
+          "name": "Dance accompaniment",
+          "descriptors": [
+            "driving",
+            "rhythmic",
+            "festive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "siberia",
+            "dance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dudumanku_bowing",
+      "name": "Bowing and articulation",
+      "variants": [
+        {
+          "id": "dudumanku_bowing_moaning_descents",
+          "default": true,
+          "name": "Long descending glides with stepwise moaning motifs",
+          "descriptors": [
+            "gliding",
+            "wailing",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "glissando-heavy",
+            "melancholic"
+          ],
+          "canonical_tags": [
+            "siberia",
+            "ritual"
+          ]
+        },
+        {
+          "id": "dudumanku_bowing_short_strokes",
+          "name": "Short rhythmic dance strokes",
+          "descriptors": [
+            "percussive",
+            "rhythmic",
+            "driving"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "siberia",
+            "dance"
+          ]
+        },
+        {
+          "id": "dudumanku_bowing_plain_melodic",
+          "name": "Plain sustained melodic line",
+          "descriptors": [
+            "sustained",
+            "soloistic",
+            "clean"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "siberia",
+            "solo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dudumanku_tuning",
+      "name": "Pitching",
+      "variants": [
+        {
+          "id": "dudumanku_tuning_alto",
+          "default": true,
+          "name": "Alto / viola-range pitching (as reported)",
+          "descriptors": [
+            "alto",
+            "warm",
+            "hollow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "siberia",
+            "traditional"
+          ]
+        },
+        {
+          "id": "dudumanku_tuning_to_singer",
+          "name": "Tuned to the singer's tessitura",
+          "descriptors": [
+            "vocal-shadowing",
+            "intimate",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vocal-imitating",
+            "song-accompaniment"
+          ],
+          "canonical_tags": [
+            "siberia",
+            "folk"
+          ]
+        },
+        {
+          "id": "dudumanku_tuning_high",
+          "name": "Higher, lighter pitching",
+          "descriptors": [
+            "thin",
+            "light",
+            "cutting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "high-register",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "siberia"
+          ]
+        }
+      ]
+    }
+  ]
+}

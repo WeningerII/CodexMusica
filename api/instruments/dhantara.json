@@ -1,0 +1,429 @@
+{
+  "id": "dhantara",
+  "name": "Dhantara (Gaddi folk sarangi)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "dhantara",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "dhantara_stringing",
+      "name": "Stringing",
+      "variants": [
+        {
+          "id": "dhantara_stringing_three_no_taraf",
+          "default": true,
+          "name": "Three melody strings, no sympathetics (defining folk form)",
+          "descriptors": [
+            "three-string",
+            "dry",
+            "spare",
+            "nasal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "himalayan"
+          ]
+        },
+        {
+          "id": "dhantara_stringing_with_taraf",
+          "name": "Sympathetic strings added (slid toward a true sarangi)",
+          "descriptors": [
+            "halo",
+            "resonant",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "shruti-inflected"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "hindustani"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dhantara_role",
+      "name": "Accompaniment role",
+      "variants": [
+        {
+          "id": "dhantara_role_shadow_singer",
+          "default": true,
+          "name": "Heterophonic shadowing of the Musada / Ainchhali singer",
+          "descriptors": [
+            "vocal-accompaniment",
+            "heterophonic",
+            "pastoral"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vocal-accompaniment",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "pastoral",
+            "accompaniment"
+          ]
+        },
+        {
+          "id": "dhantara_role_interludes",
+          "name": "Instrumental interludes between sung verses",
+          "descriptors": [
+            "lyrical",
+            "ornamented",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "folk"
+          ]
+        },
+        {
+          "id": "dhantara_role_devotional",
+          "name": "Devotional and narrative hill song",
+          "descriptors": [
+            "devotional",
+            "narrative",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "devotional",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "devotional",
+            "himalayan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dhantara_strings",
+      "name": "Melody string material",
+      "variants": [
+        {
+          "id": "dhantara_strings_gut",
+          "default": true,
+          "name": "Gut melody strings on a slack skin belly",
+          "descriptors": [
+            "plain-gut",
+            "gut",
+            "warm",
+            "short-sustain"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "historical-gut",
+            "gut"
+          ]
+        },
+        {
+          "id": "dhantara_strings_steel",
+          "name": "Steel melody strings on a tight belly",
+          "descriptors": [
+            "steel",
+            "bright",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "steel",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dhantara_dress",
+      "name": "Ceremonial dressing",
+      "variants": [
+        {
+          "id": "dhantara_dress_flowered",
+          "default": true,
+          "name": "Decked with flowers (standard performance practice)",
+          "descriptors": [
+            "ornate",
+            "ritual-cloth",
+            "festive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "ceremonial"
+          ]
+        },
+        {
+          "id": "dhantara_dress_plain",
+          "name": "Plain, undressed instrument",
+          "descriptors": [
+            "spare",
+            "rustic",
+            "dry"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "south-asian"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dhantara_stringing",
+      "name": "Stringing",
+      "variants": [
+        {
+          "id": "dhantara_stringing_three_no_taraf",
+          "default": true,
+          "name": "Three melody strings, no sympathetics (defining folk form)",
+          "descriptors": [
+            "three-string",
+            "dry",
+            "spare",
+            "nasal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "himalayan"
+          ]
+        },
+        {
+          "id": "dhantara_stringing_with_taraf",
+          "name": "Sympathetic strings added (slid toward a true sarangi)",
+          "descriptors": [
+            "halo",
+            "resonant",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "shruti-inflected"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "hindustani"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dhantara_role",
+      "name": "Accompaniment role",
+      "variants": [
+        {
+          "id": "dhantara_role_shadow_singer",
+          "default": true,
+          "name": "Heterophonic shadowing of the Musada / Ainchhali singer",
+          "descriptors": [
+            "vocal-accompaniment",
+            "heterophonic",
+            "pastoral"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vocal-accompaniment",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "pastoral",
+            "accompaniment"
+          ]
+        },
+        {
+          "id": "dhantara_role_interludes",
+          "name": "Instrumental interludes between sung verses",
+          "descriptors": [
+            "lyrical",
+            "ornamented",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "folk"
+          ]
+        },
+        {
+          "id": "dhantara_role_devotional",
+          "name": "Devotional and narrative hill song",
+          "descriptors": [
+            "devotional",
+            "narrative",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "devotional",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "devotional",
+            "himalayan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dhantara_strings",
+      "name": "Melody string material",
+      "variants": [
+        {
+          "id": "dhantara_strings_gut",
+          "default": true,
+          "name": "Gut melody strings on a slack skin belly",
+          "descriptors": [
+            "plain-gut",
+            "gut",
+            "warm",
+            "short-sustain"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "historical-gut",
+            "gut"
+          ]
+        },
+        {
+          "id": "dhantara_strings_steel",
+          "name": "Steel melody strings on a tight belly",
+          "descriptors": [
+            "steel",
+            "bright",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "steel",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dhantara_dress",
+      "name": "Ceremonial dressing",
+      "variants": [
+        {
+          "id": "dhantara_dress_flowered",
+          "default": true,
+          "name": "Decked with flowers (standard performance practice)",
+          "descriptors": [
+            "ornate",
+            "ritual-cloth",
+            "festive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "ceremonial"
+          ]
+        },
+        {
+          "id": "dhantara_dress_plain",
+          "name": "Plain, undressed instrument",
+          "descriptors": [
+            "spare",
+            "rustic",
+            "dry"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "south-asian"
+          ]
+        }
+      ]
+    }
+  ]
+}

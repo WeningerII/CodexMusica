@@ -1,0 +1,430 @@
+{
+  "id": "shvi",
+  "name": "Shvi (Armenian apricot-wood duct flute)",
+  "family": "wind",
+  "class": "duct_flute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "shvi",
+  "parts": [
+    {
+      "id": "shvi_size_key",
+      "name": "Size / key",
+      "variants": [
+        {
+          "id": "shvi_size_d_shepherd",
+          "default": true,
+          "name": "Small shvi in D (bright shepherd instrument, up to ~45 cm)",
+          "descriptors": [
+            "bright",
+            "piercing",
+            "high-pitched"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "fipple-flute",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "armenian",
+            "shepherd"
+          ]
+        },
+        {
+          "id": "shvi_size_a",
+          "name": "Shvi in A (mid-register ensemble instrument)",
+          "descriptors": [
+            "balanced",
+            "mid-register",
+            "singing"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "armenian"
+          ]
+        },
+        {
+          "id": "shvi_size_tav",
+          "name": "Tav shvi (larger, lower-pitched)",
+          "descriptors": [
+            "deep",
+            "mellow",
+            "broad"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "lower-register"
+          ],
+          "canonical_tags": [
+            "armenian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shvi_context",
+      "name": "Playing context / idiom",
+      "variants": [
+        {
+          "id": "shvi_context_pastoral",
+          "default": true,
+          "name": "Unaccompanied rubato pastoral solo",
+          "descriptors": [
+            "rubato",
+            "plaintive",
+            "free-rhythm"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "rubato",
+            "solo"
+          ],
+          "canonical_tags": [
+            "armenian",
+            "pastoral",
+            "shepherd"
+          ]
+        },
+        {
+          "id": "shvi_context_ensemble_dam",
+          "name": "Melody over dhol and a held dam drone (with duduk, zurna and kanun)",
+          "descriptors": [
+            "ensemble-blend",
+            "lead-carrying",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ensemble",
+            "drone-foundation",
+            "melodic-lead"
+          ],
+          "canonical_tags": [
+            "armenian",
+            "caucasus"
+          ]
+        },
+        {
+          "id": "shvi_context_dance",
+          "name": "Driving dance repertoire (shurjpar, kochari)",
+          "descriptors": [
+            "dance-driving",
+            "propulsive",
+            "festive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "dance-driving",
+            "dance-pulse"
+          ],
+          "canonical_tags": [
+            "armenian",
+            "dance"
+          ]
+        },
+        {
+          "id": "shvi_context_lyric",
+          "name": "Ornamented lyric melody with liturgical inflection",
+          "descriptors": [
+            "melismatic",
+            "lyrical",
+            "devotional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ornamented",
+            "melismatic",
+            "devotional"
+          ],
+          "canonical_tags": [
+            "armenian",
+            "sacred-traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shvi_body",
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "shvi_body_apricot",
+          "default": true,
+          "name": "Apricot wood (canonical Armenian)",
+          "descriptors": [
+            "warm",
+            "rounded",
+            "singing"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "wooden",
+            "duct-flute"
+          ],
+          "canonical_tags": [
+            "armenian",
+            "wood-body",
+            "traditional"
+          ]
+        },
+        {
+          "id": "shvi_body_boxwood_ebony",
+          "name": "Boxwood or ebony (dense, brighter and more focused)",
+          "descriptors": [
+            "dense",
+            "focused",
+            "brilliant"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "hardwood-bore",
+            "duct-flute"
+          ],
+          "canonical_tags": [
+            "boxwood",
+            "hardwood"
+          ]
+        },
+        {
+          "id": "shvi_body_reed",
+          "name": "Reed or bamboo tube (rustic shepherd build)",
+          "descriptors": [
+            "reedy",
+            "rustic",
+            "light"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reedy",
+            "bamboo"
+          ],
+          "canonical_tags": [
+            "reed-cane",
+            "shepherd"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "shvi_size_key",
+      "name": "Size / key",
+      "variants": [
+        {
+          "id": "shvi_size_d_shepherd",
+          "default": true,
+          "name": "Small shvi in D (bright shepherd instrument, up to ~45 cm)",
+          "descriptors": [
+            "bright",
+            "piercing",
+            "high-pitched"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "fipple-flute",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "armenian",
+            "shepherd"
+          ]
+        },
+        {
+          "id": "shvi_size_a",
+          "name": "Shvi in A (mid-register ensemble instrument)",
+          "descriptors": [
+            "balanced",
+            "mid-register",
+            "singing"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "armenian"
+          ]
+        },
+        {
+          "id": "shvi_size_tav",
+          "name": "Tav shvi (larger, lower-pitched)",
+          "descriptors": [
+            "deep",
+            "mellow",
+            "broad"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "lower-register"
+          ],
+          "canonical_tags": [
+            "armenian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shvi_context",
+      "name": "Playing context / idiom",
+      "variants": [
+        {
+          "id": "shvi_context_pastoral",
+          "default": true,
+          "name": "Unaccompanied rubato pastoral solo",
+          "descriptors": [
+            "rubato",
+            "plaintive",
+            "free-rhythm"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "rubato",
+            "solo"
+          ],
+          "canonical_tags": [
+            "armenian",
+            "pastoral",
+            "shepherd"
+          ]
+        },
+        {
+          "id": "shvi_context_ensemble_dam",
+          "name": "Melody over dhol and a held dam drone (with duduk, zurna and kanun)",
+          "descriptors": [
+            "ensemble-blend",
+            "lead-carrying",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ensemble",
+            "drone-foundation",
+            "melodic-lead"
+          ],
+          "canonical_tags": [
+            "armenian",
+            "caucasus"
+          ]
+        },
+        {
+          "id": "shvi_context_dance",
+          "name": "Driving dance repertoire (shurjpar, kochari)",
+          "descriptors": [
+            "dance-driving",
+            "propulsive",
+            "festive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "dance-driving",
+            "dance-pulse"
+          ],
+          "canonical_tags": [
+            "armenian",
+            "dance"
+          ]
+        },
+        {
+          "id": "shvi_context_lyric",
+          "name": "Ornamented lyric melody with liturgical inflection",
+          "descriptors": [
+            "melismatic",
+            "lyrical",
+            "devotional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ornamented",
+            "melismatic",
+            "devotional"
+          ],
+          "canonical_tags": [
+            "armenian",
+            "sacred-traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shvi_body",
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "shvi_body_apricot",
+          "default": true,
+          "name": "Apricot wood (canonical Armenian)",
+          "descriptors": [
+            "warm",
+            "rounded",
+            "singing"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "wooden",
+            "duct-flute"
+          ],
+          "canonical_tags": [
+            "armenian",
+            "wood-body",
+            "traditional"
+          ]
+        },
+        {
+          "id": "shvi_body_boxwood_ebony",
+          "name": "Boxwood or ebony (dense, brighter and more focused)",
+          "descriptors": [
+            "dense",
+            "focused",
+            "brilliant"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "hardwood-bore",
+            "duct-flute"
+          ],
+          "canonical_tags": [
+            "boxwood",
+            "hardwood"
+          ]
+        },
+        {
+          "id": "shvi_body_reed",
+          "name": "Reed or bamboo tube (rustic shepherd build)",
+          "descriptors": [
+            "reedy",
+            "rustic",
+            "light"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reedy",
+            "bamboo"
+          ],
+          "canonical_tags": [
+            "reed-cane",
+            "shepherd"
+          ]
+        }
+      ]
+    }
+  ]
+}

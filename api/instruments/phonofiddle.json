@@ -1,0 +1,577 @@
+{
+  "id": "phonofiddle",
+  "name": "Phonofiddle (horn-and-diaphragm bowed fiddle)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "phonofiddle",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "phonofiddle_diaphragm",
+      "name": "Diaphragm / reproducer",
+      "variants": [
+        {
+          "id": "phonofiddle_mica",
+          "default": true,
+          "name": "Mica (isinglass) sheet diaphragm - the cheap one-string Stroviols type",
+          "descriptors": [
+            "papery-hiss",
+            "soft-toned",
+            "nasal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "nasal-tone",
+            "lo-fi"
+          ]
+        },
+        {
+          "id": "phonofiddle_metal_cone",
+          "name": "Corrugated conical metal diaphragm (Stroh's 1901 patent)",
+          "descriptors": [
+            "metal-cone-resonators",
+            "cutting",
+            "metallic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "metallic",
+            "bright-cutting",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "phonofiddle_flat_metal",
+          "name": "Flat metal diaphragm (Stroh's original 1899 patent)",
+          "descriptors": [
+            "flat",
+            "thin-toned",
+            "early-period"
+          ],
+          "match_tokens": [
+            "bowed",
+            "metallic",
+            "nasal-tone"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        },
+        {
+          "id": "phonofiddle_aluminium",
+          "name": "Aluminium diaphragm (harder, more strident)",
+          "descriptors": [
+            "aluminum",
+            "strident",
+            "edgy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "metallic",
+            "piercing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phonofiddle_horn",
+      "name": "Horn configuration",
+      "variants": [
+        {
+          "id": "phonofiddle_single_horn",
+          "default": true,
+          "name": "Single large horn aimed away from the player",
+          "descriptors": [
+            "single",
+            "focused",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "loud-projection",
+            "metallic"
+          ]
+        },
+        {
+          "id": "phonofiddle_twin_horn",
+          "name": "Main horn plus small monitor horn angled back to the player",
+          "descriptors": [
+            "horn-like",
+            "self-contained",
+            "asymmetric"
+          ],
+          "match_tokens": [
+            "bowed",
+            "loud-projection",
+            "metallic"
+          ]
+        },
+        {
+          "id": "phonofiddle_multi_horn",
+          "name": "Multiple flared horns (show model)",
+          "descriptors": [
+            "horn-belled",
+            "loud",
+            "entertainment"
+          ],
+          "match_tokens": [
+            "bowed",
+            "loud-projection",
+            "metallic-ring"
+          ]
+        },
+        {
+          "id": "phonofiddle_small_brass_horn",
+          "name": "Small nickel-plated brass horn (compact catalogue model)",
+          "descriptors": [
+            "brass",
+            "nasal",
+            "compact"
+          ],
+          "match_tokens": [
+            "bowed",
+            "loud-projection",
+            "metallic"
+          ],
+          "canonical_tags": [
+            "metal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phonofiddle_string",
+      "name": "String and tuning",
+      "variants": [
+        {
+          "id": "phonofiddle_string_steel",
+          "default": true,
+          "name": "Steel string at violin pitch",
+          "descriptors": [
+            "steel",
+            "bright",
+            "cutting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "metal-string",
+            "bright-tone"
+          ]
+        },
+        {
+          "id": "phonofiddle_string_gut",
+          "name": "Gut string (softer, earlier fitting)",
+          "descriptors": [
+            "gut",
+            "warm",
+            "soft"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "phonofiddle_string_tuned_to_piece",
+          "name": "Retuned to the tonic of the piece rather than a fixed violin pitch",
+          "descriptors": [
+            "scordatura",
+            "sliding",
+            "melodic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "lead-melody",
+            "one-string",
+            "glissando-heavy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phonofiddle_role",
+      "name": "Role and capture",
+      "variants": [
+        {
+          "id": "phonofiddle_acoustic_recording",
+          "default": true,
+          "name": "Acoustic-era studio fiddle aimed into the recording horn",
+          "descriptors": [
+            "pre-1900",
+            "focused",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "loud-projection",
+            "lo-fi"
+          ],
+          "canonical_tags": [
+            "historic",
+            "vintage"
+          ]
+        },
+        {
+          "id": "phonofiddle_music_hall_novelty",
+          "name": "Music-hall / trad-jazz novelty turn (Temperance Seven lineage)",
+          "descriptors": [
+            "comic",
+            "honky-tonk",
+            "period-evocation"
+          ],
+          "match_tokens": [
+            "bowed",
+            "nasal-tone",
+            "lo-fi"
+          ],
+          "canonical_tags": [
+            "vintage",
+            "british_isles"
+          ]
+        },
+        {
+          "id": "phonofiddle_busking",
+          "name": "Street busking over a small pitch",
+          "descriptors": [
+            "loud",
+            "cutting",
+            "entertainment"
+          ],
+          "match_tokens": [
+            "bowed",
+            "busking",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "entertainment",
+            "solo"
+          ]
+        },
+        {
+          "id": "phonofiddle_straight_fiddle",
+          "name": "Straight fiddle lines, modern close-mic",
+          "descriptors": [
+            "straight",
+            "close-mic-intimate",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic-lead",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "phonofiddle_diaphragm",
+      "name": "Diaphragm / reproducer",
+      "variants": [
+        {
+          "id": "phonofiddle_mica",
+          "default": true,
+          "name": "Mica (isinglass) sheet diaphragm - the cheap one-string Stroviols type",
+          "descriptors": [
+            "papery-hiss",
+            "soft-toned",
+            "nasal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "nasal-tone",
+            "lo-fi"
+          ]
+        },
+        {
+          "id": "phonofiddle_metal_cone",
+          "name": "Corrugated conical metal diaphragm (Stroh's 1901 patent)",
+          "descriptors": [
+            "metal-cone-resonators",
+            "cutting",
+            "metallic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "metallic",
+            "bright-cutting",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "phonofiddle_flat_metal",
+          "name": "Flat metal diaphragm (Stroh's original 1899 patent)",
+          "descriptors": [
+            "flat",
+            "thin-toned",
+            "early-period"
+          ],
+          "match_tokens": [
+            "bowed",
+            "metallic",
+            "nasal-tone"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        },
+        {
+          "id": "phonofiddle_aluminium",
+          "name": "Aluminium diaphragm (harder, more strident)",
+          "descriptors": [
+            "aluminum",
+            "strident",
+            "edgy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "metallic",
+            "piercing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phonofiddle_horn",
+      "name": "Horn configuration",
+      "variants": [
+        {
+          "id": "phonofiddle_single_horn",
+          "default": true,
+          "name": "Single large horn aimed away from the player",
+          "descriptors": [
+            "single",
+            "focused",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "loud-projection",
+            "metallic"
+          ]
+        },
+        {
+          "id": "phonofiddle_twin_horn",
+          "name": "Main horn plus small monitor horn angled back to the player",
+          "descriptors": [
+            "horn-like",
+            "self-contained",
+            "asymmetric"
+          ],
+          "match_tokens": [
+            "bowed",
+            "loud-projection",
+            "metallic"
+          ]
+        },
+        {
+          "id": "phonofiddle_multi_horn",
+          "name": "Multiple flared horns (show model)",
+          "descriptors": [
+            "horn-belled",
+            "loud",
+            "entertainment"
+          ],
+          "match_tokens": [
+            "bowed",
+            "loud-projection",
+            "metallic-ring"
+          ]
+        },
+        {
+          "id": "phonofiddle_small_brass_horn",
+          "name": "Small nickel-plated brass horn (compact catalogue model)",
+          "descriptors": [
+            "brass",
+            "nasal",
+            "compact"
+          ],
+          "match_tokens": [
+            "bowed",
+            "loud-projection",
+            "metallic"
+          ],
+          "canonical_tags": [
+            "metal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phonofiddle_string",
+      "name": "String and tuning",
+      "variants": [
+        {
+          "id": "phonofiddle_string_steel",
+          "default": true,
+          "name": "Steel string at violin pitch",
+          "descriptors": [
+            "steel",
+            "bright",
+            "cutting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "metal-string",
+            "bright-tone"
+          ]
+        },
+        {
+          "id": "phonofiddle_string_gut",
+          "name": "Gut string (softer, earlier fitting)",
+          "descriptors": [
+            "gut",
+            "warm",
+            "soft"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "phonofiddle_string_tuned_to_piece",
+          "name": "Retuned to the tonic of the piece rather than a fixed violin pitch",
+          "descriptors": [
+            "scordatura",
+            "sliding",
+            "melodic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "lead-melody",
+            "one-string",
+            "glissando-heavy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phonofiddle_role",
+      "name": "Role and capture",
+      "variants": [
+        {
+          "id": "phonofiddle_acoustic_recording",
+          "default": true,
+          "name": "Acoustic-era studio fiddle aimed into the recording horn",
+          "descriptors": [
+            "pre-1900",
+            "focused",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "loud-projection",
+            "lo-fi"
+          ],
+          "canonical_tags": [
+            "historic",
+            "vintage"
+          ]
+        },
+        {
+          "id": "phonofiddle_music_hall_novelty",
+          "name": "Music-hall / trad-jazz novelty turn (Temperance Seven lineage)",
+          "descriptors": [
+            "comic",
+            "honky-tonk",
+            "period-evocation"
+          ],
+          "match_tokens": [
+            "bowed",
+            "nasal-tone",
+            "lo-fi"
+          ],
+          "canonical_tags": [
+            "vintage",
+            "british_isles"
+          ]
+        },
+        {
+          "id": "phonofiddle_busking",
+          "name": "Street busking over a small pitch",
+          "descriptors": [
+            "loud",
+            "cutting",
+            "entertainment"
+          ],
+          "match_tokens": [
+            "bowed",
+            "busking",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "entertainment",
+            "solo"
+          ]
+        },
+        {
+          "id": "phonofiddle_straight_fiddle",
+          "name": "Straight fiddle lines, modern close-mic",
+          "descriptors": [
+            "straight",
+            "close-mic-intimate",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic-lead",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

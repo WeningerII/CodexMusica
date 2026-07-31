@@ -1,0 +1,486 @@
+{
+  "id": "atsimevu",
+  "name": "Atsimevu (Ewe master drum)",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "atsimevu",
+  "parts": [
+    {
+      "id": "atsimevu_drum_form",
+      "name": "Drum form / shell build",
+      "variants": [
+        {
+          "id": "atsimevu_drum_form_carved_log",
+          "default": true,
+          "name": "Carved solid-log body, tilted on the vudetsi stand",
+          "descriptors": [
+            "hollowed-trunk",
+            "deep-voiced",
+            "resonant"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "west-african",
+            "ghana"
+          ]
+        },
+        {
+          "id": "atsimevu_drum_form_stave_hooped",
+          "name": "Stave-built hooped barrel body",
+          "descriptors": [
+            "woody",
+            "durable",
+            "body-rich"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "woody"
+          ],
+          "canonical_tags": [
+            "west-african",
+            "ghana"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "atsimevu_stroke_technique",
+      "name": "Stroke technique",
+      "variants": [
+        {
+          "id": "atsimevu_stroke_technique_two_sticks",
+          "default": true,
+          "name": "Two wooden sticks (standard calling voice)",
+          "descriptors": [
+            "cracking",
+            "projecting",
+            "commanding"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "west-african"
+          ]
+        },
+        {
+          "id": "atsimevu_stroke_technique_palm_and_stick",
+          "name": "Alternating palm and stick on the head",
+          "descriptors": [
+            "expressive",
+            "conversational",
+            "warm-open-tone"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "sticks"
+          ],
+          "canonical_tags": [
+            "west-african"
+          ]
+        },
+        {
+          "id": "atsimevu_stroke_technique_shell_and_hand",
+          "name": "Stick on the shell against palm on the head",
+          "descriptors": [
+            "woody",
+            "dry",
+            "articulate"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "sticks",
+            "woody"
+          ],
+          "canonical_tags": [
+            "west-african"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "atsimevu_ensemble_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "atsimevu_ensemble_role_agbekor_lead",
+          "default": true,
+          "name": "Agbekor / Atsiagbekor calling lead",
+          "descriptors": [
+            "lead",
+            "martial",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "lead-drum",
+            "call-response"
+          ],
+          "canonical_tags": [
+            "lead",
+            "ceremonial"
+          ]
+        },
+        {
+          "id": "atsimevu_ensemble_role_adzogbo_lead",
+          "name": "Adzogbo / Adzohu ritual lead",
+          "descriptors": [
+            "ritual",
+            "narrative",
+            "commanding"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "lead-drum",
+            "ritual-context"
+          ],
+          "canonical_tags": [
+            "lead",
+            "ritual"
+          ]
+        },
+        {
+          "id": "atsimevu_ensemble_role_kidi_dialogue",
+          "name": "Drum dialogue with kidi (call answered phrase by phrase)",
+          "descriptors": [
+            "call-and-response",
+            "antiphonal",
+            "conversational"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "call-response",
+            "interlocking"
+          ],
+          "canonical_tags": [
+            "lead"
+          ]
+        },
+        {
+          "id": "atsimevu_ensemble_role_locked_support",
+          "name": "Locked in under a second lead drum",
+          "descriptors": [
+            "supporting",
+            "steady-groove",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ostinato",
+            "interlocking"
+          ],
+          "canonical_tags": [
+            "ostinato"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "atsimevu_hide_material",
+      "name": "Head hide and peg tension",
+      "variants": [
+        {
+          "id": "atsimevu_hide_material_goat_slack",
+          "default": true,
+          "name": "Goat hide roped to eight conical pegs, slack low-tuned lead",
+          "descriptors": [
+            "goat-skin-head",
+            "rope-tensioned",
+            "warm-open-tone",
+            "deep-voiced"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "membrane",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "goatskin"
+          ]
+        },
+        {
+          "id": "atsimevu_hide_material_antelope_dark",
+          "name": "Antelope or sheep hide (darker, more body)",
+          "descriptors": [
+            "hide",
+            "darker",
+            "body-rich"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "membrane",
+            "low-register"
+          ]
+        },
+        {
+          "id": "atsimevu_hide_material_pegs_tight",
+          "name": "Pegs hammered tight for a cutting call voice",
+          "descriptors": [
+            "tight",
+            "cutting",
+            "sharp-attack"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "membrane",
+            "loud-projection"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "atsimevu_drum_form",
+      "name": "Drum form / shell build",
+      "variants": [
+        {
+          "id": "atsimevu_drum_form_carved_log",
+          "default": true,
+          "name": "Carved solid-log body, tilted on the vudetsi stand",
+          "descriptors": [
+            "hollowed-trunk",
+            "deep-voiced",
+            "resonant"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "west-african",
+            "ghana"
+          ]
+        },
+        {
+          "id": "atsimevu_drum_form_stave_hooped",
+          "name": "Stave-built hooped barrel body",
+          "descriptors": [
+            "woody",
+            "durable",
+            "body-rich"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "woody"
+          ],
+          "canonical_tags": [
+            "west-african",
+            "ghana"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "atsimevu_stroke_technique",
+      "name": "Stroke technique",
+      "variants": [
+        {
+          "id": "atsimevu_stroke_technique_two_sticks",
+          "default": true,
+          "name": "Two wooden sticks (standard calling voice)",
+          "descriptors": [
+            "cracking",
+            "projecting",
+            "commanding"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "west-african"
+          ]
+        },
+        {
+          "id": "atsimevu_stroke_technique_palm_and_stick",
+          "name": "Alternating palm and stick on the head",
+          "descriptors": [
+            "expressive",
+            "conversational",
+            "warm-open-tone"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "sticks"
+          ],
+          "canonical_tags": [
+            "west-african"
+          ]
+        },
+        {
+          "id": "atsimevu_stroke_technique_shell_and_hand",
+          "name": "Stick on the shell against palm on the head",
+          "descriptors": [
+            "woody",
+            "dry",
+            "articulate"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "sticks",
+            "woody"
+          ],
+          "canonical_tags": [
+            "west-african"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "atsimevu_ensemble_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "atsimevu_ensemble_role_agbekor_lead",
+          "default": true,
+          "name": "Agbekor / Atsiagbekor calling lead",
+          "descriptors": [
+            "lead",
+            "martial",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "lead-drum",
+            "call-response"
+          ],
+          "canonical_tags": [
+            "lead",
+            "ceremonial"
+          ]
+        },
+        {
+          "id": "atsimevu_ensemble_role_adzogbo_lead",
+          "name": "Adzogbo / Adzohu ritual lead",
+          "descriptors": [
+            "ritual",
+            "narrative",
+            "commanding"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "lead-drum",
+            "ritual-context"
+          ],
+          "canonical_tags": [
+            "lead",
+            "ritual"
+          ]
+        },
+        {
+          "id": "atsimevu_ensemble_role_kidi_dialogue",
+          "name": "Drum dialogue with kidi (call answered phrase by phrase)",
+          "descriptors": [
+            "call-and-response",
+            "antiphonal",
+            "conversational"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "call-response",
+            "interlocking"
+          ],
+          "canonical_tags": [
+            "lead"
+          ]
+        },
+        {
+          "id": "atsimevu_ensemble_role_locked_support",
+          "name": "Locked in under a second lead drum",
+          "descriptors": [
+            "supporting",
+            "steady-groove",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ostinato",
+            "interlocking"
+          ],
+          "canonical_tags": [
+            "ostinato"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "atsimevu_hide_material",
+      "name": "Head hide and peg tension",
+      "variants": [
+        {
+          "id": "atsimevu_hide_material_goat_slack",
+          "default": true,
+          "name": "Goat hide roped to eight conical pegs, slack low-tuned lead",
+          "descriptors": [
+            "goat-skin-head",
+            "rope-tensioned",
+            "warm-open-tone",
+            "deep-voiced"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "membrane",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "goatskin"
+          ]
+        },
+        {
+          "id": "atsimevu_hide_material_antelope_dark",
+          "name": "Antelope or sheep hide (darker, more body)",
+          "descriptors": [
+            "hide",
+            "darker",
+            "body-rich"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "membrane",
+            "low-register"
+          ]
+        },
+        {
+          "id": "atsimevu_hide_material_pegs_tight",
+          "name": "Pegs hammered tight for a cutting call voice",
+          "descriptors": [
+            "tight",
+            "cutting",
+            "sharp-attack"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "membrane",
+            "loud-projection"
+          ]
+        }
+      ]
+    }
+  ]
+}

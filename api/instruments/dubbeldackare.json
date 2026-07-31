@@ -1,0 +1,455 @@
+{
+  "id": "dubbeldackare",
+  "name": "Dubbeldäckare (Swedish two-tier-pegbox sympathetic violin)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "dubbeldackare",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "dubbeldackare_sympathetics",
+      "name": "Sympathetic count",
+      "variants": [
+        {
+          "id": "dubbeldackare_sympathetics_eight",
+          "default": true,
+          "name": "Eight sympathetics in the lower peg row (the dominant historic Swedish build)",
+          "descriptors": [
+            "sympathetic-halo",
+            "ringing",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "swedish",
+            "historical"
+          ]
+        },
+        {
+          "id": "dubbeldackare_sympathetics_six",
+          "name": "Six sympathetics",
+          "descriptors": [
+            "sympathetic-halo",
+            "balanced",
+            "regional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant"
+          ],
+          "canonical_tags": [
+            "swedish",
+            "historical"
+          ]
+        },
+        {
+          "id": "dubbeldackare_sympathetics_four",
+          "name": "Four sympathetics (leanest surviving type)",
+          "descriptors": [
+            "sympathetic-halo",
+            "subtle",
+            "spare"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant"
+          ],
+          "canonical_tags": [
+            "swedish",
+            "historical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dubbeldackare_setup",
+      "name": "Period setup",
+      "variants": [
+        {
+          "id": "dubbeldackare_setup_gut_transitional",
+          "default": true,
+          "name": "Gut playing strings and transitional 18th-century bow",
+          "descriptors": [
+            "gut-strung",
+            "warm",
+            "period"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "gut-string"
+          ],
+          "canonical_tags": [
+            "historical-gut",
+            "period"
+          ]
+        },
+        {
+          "id": "dubbeldackare_setup_modern",
+          "name": "Modern steel / synthetic strings and modern bow",
+          "descriptors": [
+            "modern",
+            "stable",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dubbeldackare_sympathetic_tuning",
+      "name": "Sympathetic tuning",
+      "variants": [
+        {
+          "id": "dubbeldackare_sympathetic_tuning_diatonic",
+          "default": true,
+          "name": "Fixed diatonic scale across the lower row",
+          "descriptors": [
+            "resonant",
+            "consistent",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "period"
+          ]
+        },
+        {
+          "id": "dubbeldackare_sympathetic_tuning_per_key",
+          "name": "Retuned to the key of each tune",
+          "descriptors": [
+            "scordatura",
+            "ringing",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "swedish",
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dubbeldackare_role",
+      "name": "Role / repertoire",
+      "variants": [
+        {
+          "id": "dubbeldackare_role_solo_lat",
+          "default": true,
+          "name": "Solo Swedish latar (polska, vals)",
+          "descriptors": [
+            "dance-driving",
+            "ornamented",
+            "soloistic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "swedish",
+            "dance"
+          ]
+        },
+        {
+          "id": "dubbeldackare_role_dance_band",
+          "name": "Member of an 18th-century dance band",
+          "descriptors": [
+            "ensemble-blend",
+            "festive",
+            "driving"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "period",
+            "dance"
+          ]
+        },
+        {
+          "id": "dubbeldackare_role_art_music",
+          "name": "Domestic 18th-century art music",
+          "descriptors": [
+            "classical",
+            "refined",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "period",
+            "chamber"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dubbeldackare_sympathetics",
+      "name": "Sympathetic count",
+      "variants": [
+        {
+          "id": "dubbeldackare_sympathetics_eight",
+          "default": true,
+          "name": "Eight sympathetics in the lower peg row (the dominant historic Swedish build)",
+          "descriptors": [
+            "sympathetic-halo",
+            "ringing",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "swedish",
+            "historical"
+          ]
+        },
+        {
+          "id": "dubbeldackare_sympathetics_six",
+          "name": "Six sympathetics",
+          "descriptors": [
+            "sympathetic-halo",
+            "balanced",
+            "regional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant"
+          ],
+          "canonical_tags": [
+            "swedish",
+            "historical"
+          ]
+        },
+        {
+          "id": "dubbeldackare_sympathetics_four",
+          "name": "Four sympathetics (leanest surviving type)",
+          "descriptors": [
+            "sympathetic-halo",
+            "subtle",
+            "spare"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant"
+          ],
+          "canonical_tags": [
+            "swedish",
+            "historical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dubbeldackare_setup",
+      "name": "Period setup",
+      "variants": [
+        {
+          "id": "dubbeldackare_setup_gut_transitional",
+          "default": true,
+          "name": "Gut playing strings and transitional 18th-century bow",
+          "descriptors": [
+            "gut-strung",
+            "warm",
+            "period"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "gut-string"
+          ],
+          "canonical_tags": [
+            "historical-gut",
+            "period"
+          ]
+        },
+        {
+          "id": "dubbeldackare_setup_modern",
+          "name": "Modern steel / synthetic strings and modern bow",
+          "descriptors": [
+            "modern",
+            "stable",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dubbeldackare_sympathetic_tuning",
+      "name": "Sympathetic tuning",
+      "variants": [
+        {
+          "id": "dubbeldackare_sympathetic_tuning_diatonic",
+          "default": true,
+          "name": "Fixed diatonic scale across the lower row",
+          "descriptors": [
+            "resonant",
+            "consistent",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "period"
+          ]
+        },
+        {
+          "id": "dubbeldackare_sympathetic_tuning_per_key",
+          "name": "Retuned to the key of each tune",
+          "descriptors": [
+            "scordatura",
+            "ringing",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "swedish",
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dubbeldackare_role",
+      "name": "Role / repertoire",
+      "variants": [
+        {
+          "id": "dubbeldackare_role_solo_lat",
+          "default": true,
+          "name": "Solo Swedish latar (polska, vals)",
+          "descriptors": [
+            "dance-driving",
+            "ornamented",
+            "soloistic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "swedish",
+            "dance"
+          ]
+        },
+        {
+          "id": "dubbeldackare_role_dance_band",
+          "name": "Member of an 18th-century dance band",
+          "descriptors": [
+            "ensemble-blend",
+            "festive",
+            "driving"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "period",
+            "dance"
+          ]
+        },
+        {
+          "id": "dubbeldackare_role_art_music",
+          "name": "Domestic 18th-century art music",
+          "descriptors": [
+            "classical",
+            "refined",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "period",
+            "chamber"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,494 @@
+{
+  "id": "bedug",
+  "name": "Bedug (Javanese mosque barrel drum)",
+  "family": "percussion",
+  "class": "barrel_drum",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -2,
+    "range": -2,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "bedug",
+  "parts": [
+    {
+      "id": "bedug_size",
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "bedug_size_village",
+          "default": true,
+          "name": "Village mosque bedug (moderate boom, single player)",
+          "descriptors": [
+            "deep",
+            "communal",
+            "traditional"
+          ],
+          "match_tokens": [
+            "struck",
+            "low-register",
+            "deep-boom"
+          ],
+          "canonical_tags": [
+            "javanese",
+            "indonesian"
+          ]
+        },
+        {
+          "id": "bedug_size_monumental",
+          "name": "Great-mosque / festival bedug (well over a metre, near-subsonic thud)",
+          "descriptors": [
+            "massive",
+            "booming",
+            "far-carrying"
+          ],
+          "match_tokens": [
+            "struck",
+            "low-register",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "javanese",
+            "ceremonial"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bedug_head",
+      "name": "Head hide & mounting",
+      "variants": [
+        {
+          "id": "bedug_head_buffalo_nailed",
+          "default": true,
+          "name": "Water-buffalo hide nailed to the shell (canonical, untunable)",
+          "descriptors": [
+            "hide",
+            "deep",
+            "traditional"
+          ],
+          "match_tokens": [
+            "struck",
+            "hide-head",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "javanese",
+            "traditional"
+          ]
+        },
+        {
+          "id": "bedug_head_cowhide_nailed",
+          "name": "Cowhide nailed (tighter, more attack)",
+          "descriptors": [
+            "hide",
+            "crisp",
+            "snappy"
+          ],
+          "match_tokens": [
+            "struck",
+            "hide-head"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "bedug_head_bolt_tensioned",
+          "name": "Bolt-tensioned modern rebuild (tunable)",
+          "descriptors": [
+            "tunable",
+            "stable",
+            "modern"
+          ],
+          "match_tokens": [
+            "struck",
+            "hide-head"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bedug_beater",
+      "name": "Beater",
+      "variants": [
+        {
+          "id": "bedug_beater_padded",
+          "default": true,
+          "name": "Cloth-wrapped padded mallet (canonical — dark and round)",
+          "descriptors": [
+            "soft-attack",
+            "deep",
+            "rounded"
+          ],
+          "match_tokens": [
+            "struck",
+            "mallets",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "bedug_beater_hardwood",
+          "name": "Bare hardwood stick (hard attack, audible shell knock)",
+          "descriptors": [
+            "woody",
+            "sharp",
+            "dry"
+          ],
+          "match_tokens": [
+            "struck",
+            "sticks",
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "hardwood"
+          ]
+        },
+        {
+          "id": "bedug_beater_hand",
+          "name": "Hand-struck for soft ritual sounding",
+          "descriptors": [
+            "intimate",
+            "soft-attack",
+            "low-dynamic-level"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "ritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bedug_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "bedug_context_prayer_call",
+          "default": true,
+          "name": "Prayer-time signalling — single long-decay strokes before the adhan",
+          "descriptors": [
+            "devotional",
+            "measured",
+            "solemn"
+          ],
+          "match_tokens": [
+            "struck",
+            "signal-drum",
+            "devotional"
+          ],
+          "canonical_tags": [
+            "devotional",
+            "javanese"
+          ]
+        },
+        {
+          "id": "bedug_context_kentongan",
+          "name": "Interlocking with the kentongan slit-log",
+          "descriptors": [
+            "interlocking",
+            "communal",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "struck",
+            "interlocking",
+            "signal-drum"
+          ],
+          "canonical_tags": [
+            "javanese",
+            "indonesian"
+          ]
+        },
+        {
+          "id": "bedug_context_takbiran",
+          "name": "Takbiran processional patterning (eve of Idul Fitri)",
+          "descriptors": [
+            "processional",
+            "festive",
+            "communal"
+          ],
+          "match_tokens": [
+            "struck",
+            "processional",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "processional",
+            "javanese"
+          ]
+        },
+        {
+          "id": "bedug_context_sekaten",
+          "name": "Low punctuation under a gamelan sekaten",
+          "descriptors": [
+            "ceremonial",
+            "grounding",
+            "courtly"
+          ],
+          "match_tokens": [
+            "struck",
+            "ensemble",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "gamelan",
+            "javanese"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "bedug_size",
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "bedug_size_village",
+          "default": true,
+          "name": "Village mosque bedug (moderate boom, single player)",
+          "descriptors": [
+            "deep",
+            "communal",
+            "traditional"
+          ],
+          "match_tokens": [
+            "struck",
+            "low-register",
+            "deep-boom"
+          ],
+          "canonical_tags": [
+            "javanese",
+            "indonesian"
+          ]
+        },
+        {
+          "id": "bedug_size_monumental",
+          "name": "Great-mosque / festival bedug (well over a metre, near-subsonic thud)",
+          "descriptors": [
+            "massive",
+            "booming",
+            "far-carrying"
+          ],
+          "match_tokens": [
+            "struck",
+            "low-register",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "javanese",
+            "ceremonial"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bedug_head",
+      "name": "Head hide & mounting",
+      "variants": [
+        {
+          "id": "bedug_head_buffalo_nailed",
+          "default": true,
+          "name": "Water-buffalo hide nailed to the shell (canonical, untunable)",
+          "descriptors": [
+            "hide",
+            "deep",
+            "traditional"
+          ],
+          "match_tokens": [
+            "struck",
+            "hide-head",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "javanese",
+            "traditional"
+          ]
+        },
+        {
+          "id": "bedug_head_cowhide_nailed",
+          "name": "Cowhide nailed (tighter, more attack)",
+          "descriptors": [
+            "hide",
+            "crisp",
+            "snappy"
+          ],
+          "match_tokens": [
+            "struck",
+            "hide-head"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "bedug_head_bolt_tensioned",
+          "name": "Bolt-tensioned modern rebuild (tunable)",
+          "descriptors": [
+            "tunable",
+            "stable",
+            "modern"
+          ],
+          "match_tokens": [
+            "struck",
+            "hide-head"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bedug_beater",
+      "name": "Beater",
+      "variants": [
+        {
+          "id": "bedug_beater_padded",
+          "default": true,
+          "name": "Cloth-wrapped padded mallet (canonical — dark and round)",
+          "descriptors": [
+            "soft-attack",
+            "deep",
+            "rounded"
+          ],
+          "match_tokens": [
+            "struck",
+            "mallets",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "bedug_beater_hardwood",
+          "name": "Bare hardwood stick (hard attack, audible shell knock)",
+          "descriptors": [
+            "woody",
+            "sharp",
+            "dry"
+          ],
+          "match_tokens": [
+            "struck",
+            "sticks",
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "hardwood"
+          ]
+        },
+        {
+          "id": "bedug_beater_hand",
+          "name": "Hand-struck for soft ritual sounding",
+          "descriptors": [
+            "intimate",
+            "soft-attack",
+            "low-dynamic-level"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "ritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bedug_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "bedug_context_prayer_call",
+          "default": true,
+          "name": "Prayer-time signalling — single long-decay strokes before the adhan",
+          "descriptors": [
+            "devotional",
+            "measured",
+            "solemn"
+          ],
+          "match_tokens": [
+            "struck",
+            "signal-drum",
+            "devotional"
+          ],
+          "canonical_tags": [
+            "devotional",
+            "javanese"
+          ]
+        },
+        {
+          "id": "bedug_context_kentongan",
+          "name": "Interlocking with the kentongan slit-log",
+          "descriptors": [
+            "interlocking",
+            "communal",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "struck",
+            "interlocking",
+            "signal-drum"
+          ],
+          "canonical_tags": [
+            "javanese",
+            "indonesian"
+          ]
+        },
+        {
+          "id": "bedug_context_takbiran",
+          "name": "Takbiran processional patterning (eve of Idul Fitri)",
+          "descriptors": [
+            "processional",
+            "festive",
+            "communal"
+          ],
+          "match_tokens": [
+            "struck",
+            "processional",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "processional",
+            "javanese"
+          ]
+        },
+        {
+          "id": "bedug_context_sekaten",
+          "name": "Low punctuation under a gamelan sekaten",
+          "descriptors": [
+            "ceremonial",
+            "grounding",
+            "courtly"
+          ],
+          "match_tokens": [
+            "struck",
+            "ensemble",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "gamelan",
+            "javanese"
+          ]
+        }
+      ]
+    }
+  ]
+}

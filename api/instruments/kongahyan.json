@@ -1,0 +1,485 @@
+{
+  "id": "kongahyan",
+  "name": "Kongahyan (Betawi two-string spike fiddle)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "kongahyan",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "kongahyan_resonator",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "kongahyan_coconut_shell",
+          "default": true,
+          "name": "Coconut-shell (batok kelapa) resonator, thin membrane face — post-1950s standard",
+          "descriptors": [
+            "coconut-shell",
+            "projecting",
+            "nasal-bright"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "indonesian",
+            "traditional"
+          ]
+        },
+        {
+          "id": "kongahyan_bamboo_tube",
+          "name": "Historic bamboo-tube resonator (pre-1950s, quieter)",
+          "descriptors": [
+            "bamboo",
+            "thin",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "indonesian",
+            "bamboo-tube",
+            "historical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kongahyan_register",
+      "name": "Family member / register",
+      "variants": [
+        {
+          "id": "kongahyan_high_d",
+          "default": true,
+          "name": "Kongahyan (smallest, basic pitch D — leading ornamented line)",
+          "descriptors": [
+            "lead-voice",
+            "densely-ornamented",
+            "high-tuned"
+          ],
+          "match_tokens": [
+            "bowed",
+            "high-register",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "indonesian"
+          ]
+        },
+        {
+          "id": "kongahyan_tehyan_a",
+          "name": "Tehyan (middle voice, basic pitch A — teak spike)",
+          "descriptors": [
+            "teak",
+            "balanced",
+            "heterophonic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "indonesian"
+          ]
+        },
+        {
+          "id": "kongahyan_sukong_g",
+          "name": "Sukong (largest, basic pitch G — lowest of the three)",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "foundational",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "indonesian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kongahyan_repertoire",
+      "name": "Repertoire / context",
+      "variants": [
+        {
+          "id": "kongahyan_gambang_kromong",
+          "default": true,
+          "name": "Gambang kromong ensemble lead (Betawi–peranakan Jakarta)",
+          "descriptors": [
+            "lead-melodic",
+            "heterophonic",
+            "ensemble"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "indonesian",
+            "traditional"
+          ]
+        },
+        {
+          "id": "kongahyan_pobin",
+          "name": "Pobin / lagu dalem (older Chinese-modal repertoire)",
+          "descriptors": [
+            "archaic",
+            "courtly",
+            "distinct-repertoire"
+          ],
+          "match_tokens": [
+            "bowed",
+            "chinese-traditional",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "chinese",
+            "historical"
+          ]
+        },
+        {
+          "id": "kongahyan_lagu_sayur",
+          "name": "Lagu sayur (later popular repertoire, keroncong-inflected)",
+          "descriptors": [
+            "popular",
+            "song-accompaniment",
+            "flowing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "accompaniment",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "indonesian",
+            "twentieth-century"
+          ]
+        },
+        {
+          "id": "kongahyan_lenong",
+          "name": "Lenong theatre and Betawi wedding processions",
+          "descriptors": [
+            "theatrical",
+            "wedding",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "bowed",
+            "processional",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "indonesian",
+            "processional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kongahyan_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "kongahyan_steel_modern",
+          "default": true,
+          "name": "Steel (modern standard)",
+          "descriptors": [
+            "steel-modern-canonical",
+            "bright"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing"
+          ],
+          "canonical_tags": [
+            "steel"
+          ]
+        },
+        {
+          "id": "kongahyan_silk_historical",
+          "name": "Silk / gut (pre-modern historical)",
+          "descriptors": [
+            "silk-pre-1950s-historical",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "silk-strung"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kongahyan_resonator",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "kongahyan_coconut_shell",
+          "default": true,
+          "name": "Coconut-shell (batok kelapa) resonator, thin membrane face — post-1950s standard",
+          "descriptors": [
+            "coconut-shell",
+            "projecting",
+            "nasal-bright"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "indonesian",
+            "traditional"
+          ]
+        },
+        {
+          "id": "kongahyan_bamboo_tube",
+          "name": "Historic bamboo-tube resonator (pre-1950s, quieter)",
+          "descriptors": [
+            "bamboo",
+            "thin",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "indonesian",
+            "bamboo-tube",
+            "historical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kongahyan_register",
+      "name": "Family member / register",
+      "variants": [
+        {
+          "id": "kongahyan_high_d",
+          "default": true,
+          "name": "Kongahyan (smallest, basic pitch D — leading ornamented line)",
+          "descriptors": [
+            "lead-voice",
+            "densely-ornamented",
+            "high-tuned"
+          ],
+          "match_tokens": [
+            "bowed",
+            "high-register",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "indonesian"
+          ]
+        },
+        {
+          "id": "kongahyan_tehyan_a",
+          "name": "Tehyan (middle voice, basic pitch A — teak spike)",
+          "descriptors": [
+            "teak",
+            "balanced",
+            "heterophonic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "indonesian"
+          ]
+        },
+        {
+          "id": "kongahyan_sukong_g",
+          "name": "Sukong (largest, basic pitch G — lowest of the three)",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "foundational",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "indonesian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kongahyan_repertoire",
+      "name": "Repertoire / context",
+      "variants": [
+        {
+          "id": "kongahyan_gambang_kromong",
+          "default": true,
+          "name": "Gambang kromong ensemble lead (Betawi–peranakan Jakarta)",
+          "descriptors": [
+            "lead-melodic",
+            "heterophonic",
+            "ensemble"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "indonesian",
+            "traditional"
+          ]
+        },
+        {
+          "id": "kongahyan_pobin",
+          "name": "Pobin / lagu dalem (older Chinese-modal repertoire)",
+          "descriptors": [
+            "archaic",
+            "courtly",
+            "distinct-repertoire"
+          ],
+          "match_tokens": [
+            "bowed",
+            "chinese-traditional",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "chinese",
+            "historical"
+          ]
+        },
+        {
+          "id": "kongahyan_lagu_sayur",
+          "name": "Lagu sayur (later popular repertoire, keroncong-inflected)",
+          "descriptors": [
+            "popular",
+            "song-accompaniment",
+            "flowing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "accompaniment",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "indonesian",
+            "twentieth-century"
+          ]
+        },
+        {
+          "id": "kongahyan_lenong",
+          "name": "Lenong theatre and Betawi wedding processions",
+          "descriptors": [
+            "theatrical",
+            "wedding",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "bowed",
+            "processional",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "indonesian",
+            "processional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kongahyan_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "kongahyan_steel_modern",
+          "default": true,
+          "name": "Steel (modern standard)",
+          "descriptors": [
+            "steel-modern-canonical",
+            "bright"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing"
+          ],
+          "canonical_tags": [
+            "steel"
+          ]
+        },
+        {
+          "id": "kongahyan_silk_historical",
+          "name": "Silk / gut (pre-modern historical)",
+          "descriptors": [
+            "silk-pre-1950s-historical",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "silk-strung"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        }
+      ]
+    }
+  ]
+}

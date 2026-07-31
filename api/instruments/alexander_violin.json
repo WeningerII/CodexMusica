@@ -1,0 +1,367 @@
+{
+  "id": "alexander_violin",
+  "name": "Alexander violin (Talbott arm-held bowed zither)",
+  "family": "bowed",
+  "class": "bowed_box_zither",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 0,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "alexander violin",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "alexander_violin_posture",
+      "name": "Posture / support",
+      "variants": [
+        {
+          "id": "alexander_violin_arm_rested",
+          "default": true,
+          "name": "Rested on the player's arm and rotated by its handle to bring strings under the bow",
+          "descriptors": [
+            "under-arm",
+            "hand-held",
+            "historical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "box-zither",
+            "intimate"
+          ]
+        },
+        {
+          "id": "alexander_violin_table_laid",
+          "name": "Laid flat on a table (ordinary zither posture)",
+          "descriptors": [
+            "seated",
+            "stable",
+            "lap-played"
+          ],
+          "match_tokens": [
+            "bowed",
+            "box-zither",
+            "soft"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "alexander_violin_tuning",
+      "name": "Bridge placement / tuning",
+      "variants": [
+        {
+          "id": "alexander_violin_c_major",
+          "default": true,
+          "name": "Sixteen wire strings tuned diatonically in C major (catalogue standard)",
+          "descriptors": [
+            "c-major",
+            "wire-strung",
+            "movable"
+          ],
+          "match_tokens": [
+            "bowed",
+            "diatonic",
+            "box-zither",
+            "metallic"
+          ],
+          "canonical_tags": [
+            "diatonic"
+          ]
+        },
+        {
+          "id": "alexander_violin_moved_bridges",
+          "name": "Movable wooden bridges reset to a non-C diatonic or modal set",
+          "descriptors": [
+            "scordatura",
+            "experimental-tuning",
+            "modal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "box-zither",
+            "modal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "alexander_violin_build",
+      "name": "Build",
+      "variants": [
+        {
+          "id": "alexander_violin_pine",
+          "default": true,
+          "name": "Soft pine body, 53.6 cm overall, short 44.2 cm string length (Crosby Brown type)",
+          "descriptors": [
+            "pine",
+            "soft-toned",
+            "small-bodied"
+          ],
+          "match_tokens": [
+            "bowed",
+            "box-zither",
+            "soft-toned",
+            "wood-toned"
+          ],
+          "canonical_tags": [
+            "historic",
+            "wood"
+          ]
+        },
+        {
+          "id": "alexander_violin_hard_top_repro",
+          "name": "Hard-topped modern reproduction (brighter, louder)",
+          "descriptors": [
+            "carved-hardwood",
+            "brighter",
+            "modern-variant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "box-zither",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "alexander_violin_role",
+      "name": "Musical role",
+      "variants": [
+        {
+          "id": "alexander_violin_parlour_melody",
+          "default": true,
+          "name": "Solo parlour melody",
+          "descriptors": [
+            "parlor",
+            "sentimental",
+            "domestic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic-lead",
+            "intimate",
+            "box-zither"
+          ],
+          "canonical_tags": [
+            "domestic",
+            "americana"
+          ]
+        },
+        {
+          "id": "alexander_violin_voice_doubling",
+          "name": "Doubling a singing voice",
+          "descriptors": [
+            "vocal-doubling",
+            "supportive",
+            "plain"
+          ],
+          "match_tokens": [
+            "bowed",
+            "doubled",
+            "box-zither"
+          ],
+          "canonical_tags": [
+            "domestic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "alexander_violin_posture",
+      "name": "Posture / support",
+      "variants": [
+        {
+          "id": "alexander_violin_arm_rested",
+          "default": true,
+          "name": "Rested on the player's arm and rotated by its handle to bring strings under the bow",
+          "descriptors": [
+            "under-arm",
+            "hand-held",
+            "historical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "box-zither",
+            "intimate"
+          ]
+        },
+        {
+          "id": "alexander_violin_table_laid",
+          "name": "Laid flat on a table (ordinary zither posture)",
+          "descriptors": [
+            "seated",
+            "stable",
+            "lap-played"
+          ],
+          "match_tokens": [
+            "bowed",
+            "box-zither",
+            "soft"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "alexander_violin_tuning",
+      "name": "Bridge placement / tuning",
+      "variants": [
+        {
+          "id": "alexander_violin_c_major",
+          "default": true,
+          "name": "Sixteen wire strings tuned diatonically in C major (catalogue standard)",
+          "descriptors": [
+            "c-major",
+            "wire-strung",
+            "movable"
+          ],
+          "match_tokens": [
+            "bowed",
+            "diatonic",
+            "box-zither",
+            "metallic"
+          ],
+          "canonical_tags": [
+            "diatonic"
+          ]
+        },
+        {
+          "id": "alexander_violin_moved_bridges",
+          "name": "Movable wooden bridges reset to a non-C diatonic or modal set",
+          "descriptors": [
+            "scordatura",
+            "experimental-tuning",
+            "modal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "box-zither",
+            "modal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "alexander_violin_build",
+      "name": "Build",
+      "variants": [
+        {
+          "id": "alexander_violin_pine",
+          "default": true,
+          "name": "Soft pine body, 53.6 cm overall, short 44.2 cm string length (Crosby Brown type)",
+          "descriptors": [
+            "pine",
+            "soft-toned",
+            "small-bodied"
+          ],
+          "match_tokens": [
+            "bowed",
+            "box-zither",
+            "soft-toned",
+            "wood-toned"
+          ],
+          "canonical_tags": [
+            "historic",
+            "wood"
+          ]
+        },
+        {
+          "id": "alexander_violin_hard_top_repro",
+          "name": "Hard-topped modern reproduction (brighter, louder)",
+          "descriptors": [
+            "carved-hardwood",
+            "brighter",
+            "modern-variant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "box-zither",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "alexander_violin_role",
+      "name": "Musical role",
+      "variants": [
+        {
+          "id": "alexander_violin_parlour_melody",
+          "default": true,
+          "name": "Solo parlour melody",
+          "descriptors": [
+            "parlor",
+            "sentimental",
+            "domestic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic-lead",
+            "intimate",
+            "box-zither"
+          ],
+          "canonical_tags": [
+            "domestic",
+            "americana"
+          ]
+        },
+        {
+          "id": "alexander_violin_voice_doubling",
+          "name": "Doubling a singing voice",
+          "descriptors": [
+            "vocal-doubling",
+            "supportive",
+            "plain"
+          ],
+          "match_tokens": [
+            "bowed",
+            "doubled",
+            "box-zither"
+          ],
+          "canonical_tags": [
+            "domestic"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -7,3 +7,8 @@ codex.zip
 /_dist
 /_dist_test
 .claude/
+# Scratch for the instrument-drafting workflows: the binding schema handed to
+# the drafting agents, and the JSON batches they return before the serial apply
+# step folds them into references/02_instruments.js.
+.draft-spec.md
+.drafts/

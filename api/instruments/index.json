@@ -1,5 +1,5 @@
 {
-  "count": 651,
+  "count": 870,
   "items": [
     {
       "id": "choir_ensemble",
@@ -3906,6 +3906,1320 @@
       "name": "Tuna (estudiantina)",
       "family": "ensemble",
       "href": "instruments/tuna_estudiantina.json"
+    },
+    {
+      "id": "endingidi",
+      "name": "Endingidi (Baganda one-string tube fiddle)",
+      "family": "bowed",
+      "href": "instruments/endingidi.json"
+    },
+    {
+      "id": "kukkuma",
+      "name": "Kukkuma (small Hausa one-string bowed spike fiddle)",
+      "family": "bowed",
+      "href": "instruments/kukkuma.json"
+    },
+    {
+      "id": "segankuru",
+      "name": "Segankuru (Tswana bowed monochord, a.k.a. segaba / serankure)",
+      "family": "bowed",
+      "href": "instruments/segankuru.json"
+    },
+    {
+      "id": "lokanga_bara",
+      "name": "Lokanga bara (Malagasy three-string fiddle)",
+      "family": "bowed",
+      "href": "instruments/lokanga_bara.json"
+    },
+    {
+      "id": "cimboa",
+      "name": "Cimboa (Cape Verdean one-string bowed spike fiddle)",
+      "family": "bowed",
+      "href": "instruments/cimboa.json"
+    },
+    {
+      "id": "byzaanchy",
+      "name": "Byzaanchy (Tuvan four-string spike fiddle)",
+      "family": "bowed",
+      "href": "instruments/byzaanchy.json"
+    },
+    {
+      "id": "ducheke",
+      "name": "Ducheke (Nanai one-string bowed tube fiddle)",
+      "family": "bowed",
+      "href": "instruments/ducheke.json"
+    },
+    {
+      "id": "dudumanku",
+      "name": "Dudumanku (Oroch one-string bowed spike fiddle)",
+      "family": "bowed",
+      "href": "instruments/dudumanku.json"
+    },
+    {
+      "id": "tyngryng",
+      "name": "Tyngryng (Nivkh one-string bowed box fiddle)",
+      "family": "bowed",
+      "href": "instruments/tyngryng.json"
+    },
+    {
+      "id": "krem",
+      "name": "Krem (Jah Hut bowed bamboo tube zither)",
+      "family": "bowed",
+      "href": "instruments/krem.json"
+    },
+    {
+      "id": "nvike",
+      "name": "N'vike (Toba/Qom bowed monochord)",
+      "family": "bowed",
+      "href": "instruments/nvike.json"
+    },
+    {
+      "id": "seri_fiddle",
+      "name": "Seri one-string fiddle (Comcáac; enneg)",
+      "family": "bowed",
+      "href": "instruments/seri_fiddle.json"
+    },
+    {
+      "id": "duda_latvian",
+      "name": "Dūda (Latvian bowed bladder-fiddle)",
+      "family": "bowed",
+      "href": "instruments/duda_latvian.json"
+    },
+    {
+      "id": "dakkari",
+      "name": "Dakkari (Mithila Dom bowed fiddle)",
+      "family": "bowed",
+      "href": "instruments/dakkari.json"
+    },
+    {
+      "id": "chiwang",
+      "name": "Chiwang (Bhutanese two-string spike fiddle)",
+      "family": "bowed",
+      "href": "instruments/chiwang.json"
+    },
+    {
+      "id": "gunjac",
+      "name": "Gunjac / bajs (Croatian two-string folk bass)",
+      "family": "bowed",
+      "href": "instruments/gunjac.json"
+    },
+    {
+      "id": "chagane",
+      "name": "Chagane (reconstructed Azerbaijani four-string spike fiddle)",
+      "family": "bowed",
+      "href": "instruments/chagane.json"
+    },
+    {
+      "id": "sorahi",
+      "name": "Sorahi (Shajarian-designed Persian bowed spike fiddle)",
+      "family": "bowed",
+      "href": "instruments/sorahi.json"
+    },
+    {
+      "id": "kingri",
+      "name": "Kingri (Pardhan bowed spike fiddle)",
+      "family": "bowed",
+      "href": "instruments/kingri.json"
+    },
+    {
+      "id": "dhantara",
+      "name": "Dhantara (Gaddi folk sarangi)",
+      "family": "bowed",
+      "href": "instruments/dhantara.json"
+    },
+    {
+      "id": "cappadocian_kemane",
+      "name": "Cappadocian kemane (Anatolian Greek sympathetic-string lyra)",
+      "family": "bowed",
+      "href": "instruments/cappadocian_kemane.json"
+    },
+    {
+      "id": "tautirut",
+      "name": "Tautirut (Inuit bowed box zither)",
+      "family": "bowed",
+      "href": "instruments/tautirut.json"
+    },
+    {
+      "id": "qelutviaq",
+      "name": "Qelutviaq (Central Yup'ik one-string fiddle)",
+      "family": "bowed",
+      "href": "instruments/qelutviaq.json"
+    },
+    {
+      "id": "apache_fiddle",
+      "name": "Apache fiddle (tsii'edo'a'tl, bowed agave-stalk one-string)",
+      "family": "bowed",
+      "href": "instruments/apache_fiddle.json"
+    },
+    {
+      "id": "gue",
+      "name": "Gue (Shetland bowed lyre, reconstructed)",
+      "family": "bowed",
+      "href": "instruments/gue.json"
+    },
+    {
+      "id": "latfiol",
+      "name": "Låtfiol (Swedish revival fiddle with sympathetic strings)",
+      "family": "bowed",
+      "href": "instruments/latfiol.json"
+    },
+    {
+      "id": "dubbeldackare",
+      "name": "Dubbeldäckare (Swedish two-tier-pegbox sympathetic violin)",
+      "family": "bowed",
+      "href": "instruments/dubbeldackare.json"
+    },
+    {
+      "id": "traskofiol",
+      "name": "Träskofiol (Swedish clog fiddle)",
+      "family": "bowed",
+      "href": "instruments/traskofiol.json"
+    },
+    {
+      "id": "psalmodikon",
+      "name": "Psalmodikon (Nordic single-string hymn zither)",
+      "family": "bowed",
+      "href": "instruments/psalmodikon.json"
+    },
+    {
+      "id": "organistrum",
+      "name": "Organistrum (two-player medieval wheel fiddle)",
+      "family": "bowed",
+      "href": "instruments/organistrum.json"
+    },
+    {
+      "id": "rylei",
+      "name": "Rylei (Don Cossack wheel lyre)",
+      "family": "bowed",
+      "href": "instruments/rylei.json"
+    },
+    {
+      "id": "lira_korbowa",
+      "name": "Lira korbowa (Polish crank lyre)",
+      "family": "bowed",
+      "href": "instruments/lira_korbowa.json"
+    },
+    {
+      "id": "kolisna_lira",
+      "name": "Kolisna lira (Ukrainian lirnyk wheel lyre)",
+      "family": "bowed",
+      "href": "instruments/kolisna_lira.json"
+    },
+    {
+      "id": "bazantar",
+      "name": "Bazantar (Deutsch sympathetic-string bass)",
+      "family": "bowed",
+      "href": "instruments/bazantar.json"
+    },
+    {
+      "id": "daxophone",
+      "name": "Daxophone (Reichel bowed friction tongue)",
+      "family": "percussion",
+      "href": "instruments/daxophone.json"
+    },
+    {
+      "id": "wheelharp",
+      "name": "Wheelharp (Antiquity Music keyboard bowed-string)",
+      "family": "bowed",
+      "href": "instruments/wheelharp.json"
+    },
+    {
+      "id": "viola_organista",
+      "name": "Viola organista (bowed-keyboard chordophone)",
+      "family": "bowed",
+      "href": "instruments/viola_organista.json"
+    },
+    {
+      "id": "nail_violin",
+      "name": "Nail violin (Nagelgeige)",
+      "family": "percussion",
+      "href": "instruments/nail_violin.json"
+    },
+    {
+      "id": "phonofiddle",
+      "name": "Phonofiddle (horn-and-diaphragm bowed fiddle)",
+      "family": "bowed",
+      "href": "instruments/phonofiddle.json"
+    },
+    {
+      "id": "ukelin",
+      "name": "Ukelin (American bowed parlour zither)",
+      "family": "bowed",
+      "href": "instruments/ukelin.json"
+    },
+    {
+      "id": "alexander_violin",
+      "name": "Alexander violin (Talbott arm-held bowed zither)",
+      "family": "bowed",
+      "href": "instruments/alexander_violin.json"
+    },
+    {
+      "id": "violinzither",
+      "name": "Violinzither (Neuber bowed violin harp)",
+      "family": "bowed",
+      "href": "instruments/violinzither.json"
+    },
+    {
+      "id": "streichmelodion",
+      "name": "Streichmelodion / Breitoline (fretted bowed zither)",
+      "family": "bowed",
+      "href": "instruments/streichmelodion.json"
+    },
+    {
+      "id": "cornstalk_fiddle",
+      "name": "Cornstalk fiddle (rural American idiochord toy)",
+      "family": "bowed",
+      "href": "instruments/cornstalk_fiddle.json"
+    },
+    {
+      "id": "banhu",
+      "name": "Banhu (Chinese wooden-faced bowed fiddle)",
+      "family": "bowed",
+      "href": "instruments/banhu.json"
+    },
+    {
+      "id": "zhonghu",
+      "name": "Zhonghu (Chinese alto fiddle)",
+      "family": "bowed",
+      "href": "instruments/zhonghu.json"
+    },
+    {
+      "id": "gehu",
+      "name": "Gehu (Chinese cello-format skin fiddle)",
+      "family": "bowed",
+      "href": "instruments/gehu.json"
+    },
+    {
+      "id": "diyin_gehu",
+      "name": "Diyin gehu (Chinese bass gehu)",
+      "family": "bowed",
+      "href": "instruments/diyin_gehu.json"
+    },
+    {
+      "id": "dihu",
+      "name": "Dihu (Chinese low huqin family)",
+      "family": "bowed",
+      "href": "instruments/dihu.json"
+    },
+    {
+      "id": "yehu",
+      "name": "Yehu (Cantonese coconut-shell fiddle)",
+      "family": "bowed",
+      "href": "instruments/yehu.json"
+    },
+    {
+      "id": "zhuihu",
+      "name": "Zhuihu (Henan fretless bowed lute)",
+      "family": "bowed",
+      "href": "instruments/zhuihu.json"
+    },
+    {
+      "id": "tuhu",
+      "name": "Tuhu (Zhuang mid-register wooden fiddle)",
+      "family": "bowed",
+      "href": "instruments/tuhu.json"
+    },
+    {
+      "id": "huluhu",
+      "name": "Huluhu (Zhuang gourd-bodied fiddle)",
+      "family": "bowed",
+      "href": "instruments/huluhu.json"
+    },
+    {
+      "id": "maguhu",
+      "name": "Maguhu (Zhuang horse-bone fiddle)",
+      "family": "bowed",
+      "href": "instruments/maguhu.json"
+    },
+    {
+      "id": "leiqin",
+      "name": "Leiqin (Shandong mimicry fiddle)",
+      "family": "bowed",
+      "href": "instruments/leiqin.json"
+    },
+    {
+      "id": "sihu",
+      "name": "Sihu (Mongolian four-string fiddle)",
+      "family": "bowed",
+      "href": "instruments/sihu.json"
+    },
+    {
+      "id": "daguangxian",
+      "name": "Daguangxian (Minnan wood-topped lament fiddle)",
+      "family": "bowed",
+      "href": "instruments/daguangxian.json"
+    },
+    {
+      "id": "datong",
+      "name": "Datong (Hunan flower-drum opera big-tube fiddle)",
+      "family": "bowed",
+      "href": "instruments/datong.json"
+    },
+    {
+      "id": "erxian_cantonese",
+      "name": "Erxian (Cantonese hard-bow lead fiddle)",
+      "family": "bowed",
+      "href": "instruments/erxian_cantonese.json"
+    },
+    {
+      "id": "touxian",
+      "name": "Touxian (Chaozhou xianshi leading fiddle)",
+      "family": "bowed",
+      "href": "instruments/touxian.json"
+    },
+    {
+      "id": "erxian_qinqiang",
+      "name": "Erxian (Qinqiang wood-topped shrill fiddle)",
+      "family": "bowed",
+      "href": "instruments/erxian_qinqiang.json"
+    },
+    {
+      "id": "jiaohu",
+      "name": "Jiaohu (Guangxi ox-horn fiddle)",
+      "family": "bowed",
+      "href": "instruments/jiaohu.json"
+    },
+    {
+      "id": "jing_erhu",
+      "name": "Jing erhu (Beijing-opera companion fiddle)",
+      "family": "bowed",
+      "href": "instruments/jing_erhu.json"
+    },
+    {
+      "id": "kezaixian",
+      "name": "Kezaixian (Taiwanese coconut-shell lead fiddle)",
+      "family": "bowed",
+      "href": "instruments/kezaixian.json"
+    },
+    {
+      "id": "laruan",
+      "name": "Laruan (bowed ruan, Chinese-orchestra bass reform instrument)",
+      "family": "bowed",
+      "href": "instruments/laruan.json"
+    },
+    {
+      "id": "liujiaoxian",
+      "name": "Liujiaoxian (hexagonal-box gezaixi lead fiddle)",
+      "family": "bowed",
+      "href": "instruments/liujiaoxian.json"
+    },
+    {
+      "id": "niutuiqin",
+      "name": "Niutuiqin (Dong cow-leg bowed boat-lute)",
+      "family": "bowed",
+      "href": "instruments/niutuiqin.json"
+    },
+    {
+      "id": "sanhu",
+      "name": "Sanhu (three-string reform erhu)",
+      "family": "bowed",
+      "href": "instruments/sanhu.json"
+    },
+    {
+      "id": "sanhu_yi",
+      "name": "Yi sanhu (Axi heihu / Sani leihu three-string fiddle)",
+      "family": "bowed",
+      "href": "instruments/sanhu_yi.json"
+    },
+    {
+      "id": "tihu",
+      "name": "Tihu (Chaozhou xianshi mid-register fiddle)",
+      "family": "bowed",
+      "href": "instruments/tihu.json"
+    },
+    {
+      "id": "zhutiqin",
+      "name": "Zhutiqin (Cantonese bamboo tiqin, hard-bow ensemble)",
+      "family": "bowed",
+      "href": "instruments/zhutiqin.json"
+    },
+    {
+      "id": "xiqin",
+      "name": "Xiqin (Tang-Song ancestral two-string fiddle)",
+      "family": "bowed",
+      "href": "instruments/xiqin.json"
+    },
+    {
+      "id": "dan_nhi",
+      "name": "Đàn nhị (Vietnamese two-string spike fiddle)",
+      "family": "bowed",
+      "href": "instruments/dan_nhi.json"
+    },
+    {
+      "id": "dan_gao",
+      "name": "Đàn gáo (southern Vietnamese coconut-body fiddle)",
+      "family": "bowed",
+      "href": "instruments/dan_gao.json"
+    },
+    {
+      "id": "dan_ho",
+      "name": "Đàn hồ (northern Vietnamese low fiddle family)",
+      "family": "bowed",
+      "href": "instruments/dan_ho.json"
+    },
+    {
+      "id": "k_ni",
+      "name": "K'ni (Jarai mouth-resonated bowed fiddle)",
+      "family": "bowed",
+      "href": "instruments/k_ni.json"
+    },
+    {
+      "id": "salo",
+      "name": "Salo (Lanna northern Thai free-bow spike fiddle)",
+      "family": "bowed",
+      "href": "instruments/salo.json"
+    },
+    {
+      "id": "saw_bang",
+      "name": "Saw bang (Isan Phu Thai bamboo-tube fiddle)",
+      "family": "bowed",
+      "href": "instruments/saw_bang.json"
+    },
+    {
+      "id": "saw_sam_sai",
+      "name": "Saw sam sai (Thai three-string court fiddle)",
+      "family": "bowed",
+      "href": "instruments/saw_sam_sai.json"
+    },
+    {
+      "id": "saw_u",
+      "name": "Saw u (Thai low coconut-body fiddle)",
+      "family": "bowed",
+      "href": "instruments/saw_u.json"
+    },
+    {
+      "id": "tro_u",
+      "name": "Tro u (Khmer low coconut-body spike fiddle)",
+      "family": "bowed",
+      "href": "instruments/tro_u.json"
+    },
+    {
+      "id": "tro_khmer",
+      "name": "Tro Khmer (Cambodian three-string ritual fiddle)",
+      "family": "bowed",
+      "href": "instruments/tro_khmer.json"
+    },
+    {
+      "id": "kokyu",
+      "name": "Kokyū (Japanese bowed three-string)",
+      "family": "bowed",
+      "href": "instruments/kokyu.json"
+    },
+    {
+      "id": "kaisatsuko",
+      "name": "Kaisatsuko (crank-bowed experimental fiddle)",
+      "family": "bowed",
+      "href": "instruments/kaisatsuko.json"
+    },
+    {
+      "id": "sohaegeum",
+      "name": "Sohaegeum (North Korean four-string fiddle)",
+      "family": "bowed",
+      "href": "instruments/sohaegeum.json"
+    },
+    {
+      "id": "kongahyan",
+      "name": "Kongahyan (Betawi two-string spike fiddle)",
+      "family": "bowed",
+      "href": "instruments/kongahyan.json"
+    },
+    {
+      "id": "yazheng",
+      "name": "Yazheng (Chinese bowed board zither)",
+      "family": "bowed",
+      "href": "instruments/yazheng.json"
+    },
+    {
+      "id": "division_viol",
+      "name": "Division viol (English bass viol for divisions on a ground)",
+      "family": "bowed",
+      "href": "instruments/division_viol.json"
+    },
+    {
+      "id": "lyra_viol",
+      "name": "Lyra viol (English bass viol played lyra-way)",
+      "family": "bowed",
+      "href": "instruments/lyra_viol.json"
+    },
+    {
+      "id": "pardessus_de_viole",
+      "name": "Pardessus de viole (highest viol, incl. the violin-bodied quinton)",
+      "family": "bowed",
+      "href": "instruments/pardessus_de_viole.json"
+    },
+    {
+      "id": "baryton",
+      "name": "Baryton (bowed viol with plucked sympathetic wires)",
+      "family": "bowed",
+      "href": "instruments/baryton.json"
+    },
+    {
+      "id": "arpeggione",
+      "name": "Arpeggione (bowed guitar / Guitarre-Violoncell)",
+      "family": "bowed",
+      "href": "instruments/arpeggione.json"
+    },
+    {
+      "id": "violoncello_da_spalla",
+      "name": "Violoncello da spalla (shoulder-borne small cello / viola pomposa)",
+      "family": "bowed",
+      "href": "instruments/violoncello_da_spalla.json"
+    },
+    {
+      "id": "violino_piccolo",
+      "name": "Violino piccolo (small baroque violin tuned above the violin)",
+      "family": "bowed",
+      "href": "instruments/violino_piccolo.json"
+    },
+    {
+      "id": "tenor_violin",
+      "name": "Tenor violin (historical five-part tenor, F–c–g–d′)",
+      "family": "bowed",
+      "href": "instruments/tenor_violin.json"
+    },
+    {
+      "id": "pochette",
+      "name": "Pochette (dancing-master's kit violin)",
+      "family": "bowed",
+      "href": "instruments/pochette.json"
+    },
+    {
+      "id": "philomel",
+      "name": "Philomel (19th-century Bavarian steel-strung parlour fiddle)",
+      "family": "bowed",
+      "href": "instruments/philomel.json"
+    },
+    {
+      "id": "lira_da_braccio",
+      "name": "Lira da braccio (Renaissance chordal arm fiddle)",
+      "family": "bowed",
+      "href": "instruments/lira_da_braccio.json"
+    },
+    {
+      "id": "lirone",
+      "name": "Lirone (bass lira da gamba, chordal continuo)",
+      "family": "bowed",
+      "href": "instruments/lirone.json"
+    },
+    {
+      "id": "octobass",
+      "name": "Octobass (Vuillaume 3.5 m lever-stopped contrabass)",
+      "family": "bowed",
+      "href": "instruments/octobass.json"
+    },
+    {
+      "id": "tromba_marina",
+      "name": "Tromba marina (bowed monochord with rattling bridge)",
+      "family": "bowed",
+      "href": "instruments/tromba_marina.json"
+    },
+    {
+      "id": "gudok",
+      "name": "Gudok (Russian three-string bowed fiddle)",
+      "family": "bowed",
+      "href": "instruments/gudok.json"
+    },
+    {
+      "id": "byzantine_lyra",
+      "name": "Byzantine lyra (medieval bowed lyra, reconstructed)",
+      "family": "bowed",
+      "href": "instruments/byzantine_lyra.json"
+    },
+    {
+      "id": "lira_calabrese",
+      "name": "Lira calabrese (Calabrian bowed lira)",
+      "family": "bowed",
+      "href": "instruments/lira_calabrese.json"
+    },
+    {
+      "id": "lijerica",
+      "name": "Lijerica (Dalmatian bowed lira)",
+      "family": "bowed",
+      "href": "instruments/lijerica.json"
+    },
+    {
+      "id": "aphyartsa",
+      "name": "Aphyartsa (Abkhaz two-string bowed lute)",
+      "family": "bowed",
+      "href": "instruments/aphyartsa.json"
+    },
+    {
+      "id": "chuniri",
+      "name": "Chuniri / chianuri (Georgian three-string bowed lute)",
+      "family": "bowed",
+      "href": "instruments/chuniri.json"
+    },
+    {
+      "id": "qobyz",
+      "name": "Qyl-qobyz (Kazakh shamanic bowed lute)",
+      "family": "bowed",
+      "href": "instruments/qobyz.json"
+    },
+    {
+      "id": "ghaychak",
+      "name": "Ghaychak (Baloch double-chambered bowed lute)",
+      "family": "bowed",
+      "href": "instruments/ghaychak.json"
+    },
+    {
+      "id": "suroz",
+      "name": "Suroz (Baloch sarinda-type bowed lute)",
+      "family": "bowed",
+      "href": "instruments/suroz.json"
+    },
+    {
+      "id": "yayli_tanbur",
+      "name": "Yaylı tanbur (Turkish bowed long-neck lute)",
+      "family": "bowed",
+      "href": "instruments/yayli_tanbur.json"
+    },
+    {
+      "id": "chikara",
+      "name": "Chikara (Bundelkhandi bardic folk fiddle)",
+      "family": "bowed",
+      "href": "instruments/chikara.json"
+    },
+    {
+      "id": "sarinda",
+      "name": "Sarinda (South Asian waisted folk bowed lute)",
+      "family": "bowed",
+      "href": "instruments/sarinda.json"
+    },
+    {
+      "id": "nepali_sarangi",
+      "name": "Nepali sarangi (Gandharba four-string bowed lute)",
+      "family": "bowed",
+      "href": "instruments/nepali_sarangi.json"
+    },
+    {
+      "id": "ravanahatta",
+      "name": "Ravanahatta (Rajasthani coconut spike fiddle)",
+      "family": "bowed",
+      "href": "instruments/ravanahatta.json"
+    },
+    {
+      "id": "taus",
+      "name": "Taus (Sikh peacock-bodied bowed lute)",
+      "family": "bowed",
+      "href": "instruments/taus.json"
+    },
+    {
+      "id": "tar_shehnai",
+      "name": "Tar shehnai (horn-amplified bowed Indian lute)",
+      "family": "bowed",
+      "href": "instruments/tar_shehnai.json"
+    },
+    {
+      "id": "pena",
+      "name": "Pena (Meitei single-string bowed spike lute)",
+      "family": "bowed",
+      "href": "instruments/pena.json"
+    },
+    {
+      "id": "kendara",
+      "name": "Kendara (Odishan mendicant bowed spike lute)",
+      "family": "bowed",
+      "href": "instruments/kendara.json"
+    },
+    {
+      "id": "pinaki_vina",
+      "name": "Pinaki vina (treatise-era Indian bowed stick zither)",
+      "family": "bowed",
+      "href": "instruments/pinaki_vina.json"
+    },
+    {
+      "id": "keyed_bugle",
+      "name": "Keyed bugle (Royal Kent bugle / clavitube)",
+      "family": "wind",
+      "href": "instruments/keyed_bugle.json"
+    },
+    {
+      "id": "keyed_trumpet",
+      "name": "Keyed trumpet (Klappentrompete / tromba a chiavi)",
+      "family": "wind",
+      "href": "instruments/keyed_trumpet.json"
+    },
+    {
+      "id": "ophicleide",
+      "name": "Ophicleide (keyed bass brass, Halary 1817)",
+      "family": "wind",
+      "href": "instruments/ophicleide.json"
+    },
+    {
+      "id": "vladimirskiy_rozhok",
+      "name": "Vladimirskiy rozhok (Russian fingerhole lip-reed shepherd horn)",
+      "family": "wind",
+      "href": "instruments/vladimirskiy_rozhok.json"
+    },
+    {
+      "id": "jazzophone",
+      "name": "Jazzophone (saxophone-shaped double-bell B-flat trumpet)",
+      "family": "wind",
+      "href": "instruments/jazzophone.json"
+    },
+    {
+      "id": "piccolo_oboe",
+      "name": "Piccolo oboe (musette — sopranino oboe in E♭/F)",
+      "family": "wind",
+      "href": "instruments/piccolo_oboe.json"
+    },
+    {
+      "id": "oboe_da_caccia",
+      "name": "Oboe da caccia (curved leather-covered baroque tenor oboe in F)",
+      "family": "wind",
+      "href": "instruments/oboe_da_caccia.json"
+    },
+    {
+      "id": "bass_oboe",
+      "name": "Bass oboe / baritone oboe (hautbois baryton, in C an octave below the oboe)",
+      "family": "wind",
+      "href": "instruments/bass_oboe.json"
+    },
+    {
+      "id": "contrabass_oboe",
+      "name": "Contrabass oboe (contrebasse de hautbois — historical reconstruction)",
+      "family": "wind",
+      "href": "instruments/contrabass_oboe.json"
+    },
+    {
+      "id": "heckelphone",
+      "name": "Heckelphone (wide-bore baritone double reed in C)",
+      "family": "wind",
+      "href": "instruments/heckelphone.json"
+    },
+    {
+      "id": "piccolo_heckelphone",
+      "name": "Piccolo heckelphone (wide-bore sopranino double reed in F)",
+      "family": "wind",
+      "href": "instruments/piccolo_heckelphone.json"
+    },
+    {
+      "id": "sarrusophone",
+      "name": "Sarrusophone (metal-bodied keyed double-reed family)",
+      "family": "wind",
+      "href": "instruments/sarrusophone.json"
+    },
+    {
+      "id": "reed_contrabass",
+      "name": "Reed contrabass (contrebasse à anche — ophicleide-derived metal contrabass double reed)",
+      "family": "wind",
+      "href": "instruments/reed_contrabass.json"
+    },
+    {
+      "id": "dulcian",
+      "name": "Dulcian (Renaissance curtal / bajón)",
+      "family": "wind",
+      "href": "instruments/dulcian.json"
+    },
+    {
+      "id": "tenoroon",
+      "name": "Tenoroon (small transposing bassoon in F / G)",
+      "family": "wind",
+      "href": "instruments/tenoroon.json"
+    },
+    {
+      "id": "contraforte",
+      "name": "Contraforte (Wolf–Eppelsheim redesigned contrabassoon)",
+      "family": "wind",
+      "href": "instruments/contraforte.json"
+    },
+    {
+      "id": "rackett",
+      "name": "Rackett (Renaissance multi-bore double reed)",
+      "family": "wind",
+      "href": "instruments/rackett.json"
+    },
+    {
+      "id": "tromboon",
+      "name": "Tromboon (P.D.Q. Bach bassoon-reed trombone hybrid)",
+      "family": "wind",
+      "href": "instruments/tromboon.json"
+    },
+    {
+      "id": "dulzaina",
+      "name": "Dulzaina (Iberian keyless folk shawm)",
+      "family": "wind",
+      "href": "instruments/dulzaina.json"
+    },
+    {
+      "id": "cromorne",
+      "name": "Cromorne (French baroque conical double reed, not the crumhorn)",
+      "family": "wind",
+      "href": "instruments/cromorne.json"
+    },
+    {
+      "id": "bassanello",
+      "name": "Bassanello (Venetian soft consort double reed)",
+      "family": "wind",
+      "href": "instruments/bassanello.json"
+    },
+    {
+      "id": "cornamuse",
+      "name": "Cornamuse (renaissance capped reed with stopped bell)",
+      "family": "wind",
+      "href": "instruments/cornamuse.json"
+    },
+    {
+      "id": "hirtenschalmei",
+      "name": "Hirtenschalmei (German shepherd's shawm, iconographic reconstruction)",
+      "family": "wind",
+      "href": "instruments/hirtenschalmei.json"
+    },
+    {
+      "id": "kortholt",
+      "name": "Kortholt (renaissance capped doubled-bore reed)",
+      "family": "wind",
+      "href": "instruments/kortholt.json"
+    },
+    {
+      "id": "rauschpfeife",
+      "name": "Rauschpfeife (Schreierpfeife, capped loud shawm)",
+      "family": "wind",
+      "href": "instruments/rauschpfeife.json"
+    },
+    {
+      "id": "zurla",
+      "name": "Zurla (Macedonian double-reed shawm)",
+      "family": "wind",
+      "href": "instruments/zurla.json"
+    },
+    {
+      "id": "trompeta_china",
+      "name": "Trompeta china / corneta china (Cuban carnival shawm)",
+      "family": "wind",
+      "href": "instruments/trompeta_china.json"
+    },
+    {
+      "id": "ken_bau",
+      "name": "Ken bau (Vietnamese gourd-belled shawm)",
+      "family": "wind",
+      "href": "instruments/ken_bau.json"
+    },
+    {
+      "id": "aulos",
+      "name": "Aulos (ancient Greek paired double reedpipes)",
+      "family": "wind",
+      "href": "instruments/aulos.json"
+    },
+    {
+      "id": "aburukuwa",
+      "name": "Aburukuwa (Asante high-pitched pegged drum)",
+      "family": "percussion",
+      "href": "instruments/aburukuwa.json"
+    },
+    {
+      "id": "atumpan",
+      "name": "Atumpan (Akan talking-drum pair)",
+      "family": "percussion",
+      "href": "instruments/atumpan.json"
+    },
+    {
+      "id": "fontomfrom",
+      "name": "Fontomfrom (Akan royal court drums)",
+      "family": "percussion",
+      "href": "instruments/fontomfrom.json"
+    },
+    {
+      "id": "kpanlogo",
+      "name": "Kpanlogo (Ga peg-tuned hand drum)",
+      "family": "percussion",
+      "href": "instruments/kpanlogo.json"
+    },
+    {
+      "id": "atsimevu",
+      "name": "Atsimevu (Ewe master drum)",
+      "family": "percussion",
+      "href": "instruments/atsimevu.json"
+    },
+    {
+      "id": "sogo",
+      "name": "Sogo (Ewe barrel drum)",
+      "family": "percussion",
+      "href": "instruments/sogo.json"
+    },
+    {
+      "id": "kidi",
+      "name": "Kidi (Ewe response drum)",
+      "family": "percussion",
+      "href": "instruments/kidi.json"
+    },
+    {
+      "id": "kagan",
+      "name": "Kagan (Ewe timekeeping drum)",
+      "family": "percussion",
+      "href": "instruments/kagan.json"
+    },
+    {
+      "id": "boba",
+      "name": "Boba (Ewe Gahu master drum)",
+      "family": "percussion",
+      "href": "instruments/boba.json"
+    },
+    {
+      "id": "ashiko",
+      "name": "Ashiko (West African / diaspora conical hand drum)",
+      "family": "percussion",
+      "href": "instruments/ashiko.json"
+    },
+    {
+      "id": "bougarabou",
+      "name": "Bougarabou (Jola tuned drum set of the Casamance)",
+      "family": "percussion",
+      "href": "instruments/bougarabou.json"
+    },
+    {
+      "id": "bara",
+      "name": "Bara / bendré (West African gourd kettle drum)",
+      "family": "percussion",
+      "href": "instruments/bara.json"
+    },
+    {
+      "id": "parai",
+      "name": "Parai (Tamil stick-beaten frame drum)",
+      "family": "percussion",
+      "href": "instruments/parai.json"
+    },
+    {
+      "id": "idakka",
+      "name": "Idakka (Kerala hourglass pressure drum)",
+      "family": "percussion",
+      "href": "instruments/idakka.json"
+    },
+    {
+      "id": "madal",
+      "name": "Mādal (Nepali double-headed hand drum)",
+      "family": "percussion",
+      "href": "instruments/madal.json"
+    },
+    {
+      "id": "damphu",
+      "name": "Damphu (Tamang frame drum of Nepal)",
+      "family": "percussion",
+      "href": "instruments/damphu.json"
+    },
+    {
+      "id": "dhimay",
+      "name": "Dhimay (Newar processional drum)",
+      "family": "percussion",
+      "href": "instruments/dhimay.json"
+    },
+    {
+      "id": "dhak",
+      "name": "Dhak (Bengali processional puja drum)",
+      "family": "percussion",
+      "href": "instruments/dhak.json"
+    },
+    {
+      "id": "dayereh",
+      "name": "Dāyereh (Persian small jingle frame drum)",
+      "family": "percussion",
+      "href": "instruments/dayereh.json"
+    },
+    {
+      "id": "bedug",
+      "name": "Bedug (Javanese mosque barrel drum)",
+      "family": "percussion",
+      "href": "instruments/bedug.json"
+    },
+    {
+      "id": "dong_son_drum",
+      "name": "Đông Sơn drum (Vietnamese Heger Type I bronze drum)",
+      "family": "percussion",
+      "href": "instruments/dong_son_drum.json"
+    },
+    {
+      "id": "lambeg_drum",
+      "name": "Lambeg drum (Ulster rope-tensioned snare drum)",
+      "family": "percussion",
+      "href": "instruments/lambeg_drum.json"
+    },
+    {
+      "id": "tabor",
+      "name": "Tabor (European pipe-and-tabor snare drum)",
+      "family": "percussion",
+      "href": "instruments/tabor.json"
+    },
+    {
+      "id": "crowdy_crawn",
+      "name": "Crowdy-crawn (Cornish revival frame drum)",
+      "family": "percussion",
+      "href": "instruments/crowdy_crawn.json"
+    },
+    {
+      "id": "tenor_drum",
+      "name": "Tenor drum (orchestral / marching, unsnared)",
+      "family": "percussion",
+      "href": "instruments/tenor_drum.json"
+    },
+    {
+      "id": "cocktail_drum",
+      "name": "Cocktail drum (stand-up single-shell kit)",
+      "family": "percussion",
+      "href": "instruments/cocktail_drum.json"
+    },
+    {
+      "id": "koudi",
+      "name": "Koudi (Chinese miniature centre-blown transverse flute)",
+      "family": "wind",
+      "href": "instruments/koudi.json"
+    },
+    {
+      "id": "nohkan",
+      "name": "Nōkan (Japanese noh-theatre transverse flute)",
+      "family": "wind",
+      "href": "instruments/nohkan.json"
+    },
+    {
+      "id": "shinobue",
+      "name": "Shinobue / takebue (Japanese festival transverse flute)",
+      "family": "wind",
+      "href": "instruments/shinobue.json"
+    },
+    {
+      "id": "hocchiku",
+      "name": "Hocchiku (jinashi root-end bamboo shakuhachi)",
+      "family": "wind",
+      "href": "instruments/hocchiku.json"
+    },
+    {
+      "id": "danso",
+      "name": "Danso (Korean notched vertical bamboo flute)",
+      "family": "wind",
+      "href": "instruments/danso.json"
+    },
+    {
+      "id": "hun",
+      "name": "Hun (Korean ritual clay vessel flute)",
+      "family": "wind",
+      "href": "instruments/hun.json"
+    },
+    {
+      "id": "palendag",
+      "name": "Palendag (Maguindanaon lip-valley flute)",
+      "family": "wind",
+      "href": "instruments/palendag.json"
+    },
+    {
+      "id": "tumpong",
+      "name": "Tumpong (Maguindanaon half-length lip-valley flute)",
+      "family": "wind",
+      "href": "instruments/tumpong.json"
+    },
+    {
+      "id": "khlui",
+      "name": "Khlui (Thai vertical duct flute)",
+      "family": "wind",
+      "href": "instruments/khlui.json"
+    },
+    {
+      "id": "nguru",
+      "name": "Nguru (Maori semi-enclosed flute)",
+      "family": "wind",
+      "href": "instruments/nguru.json"
+    },
+    {
+      "id": "almpfeiferl",
+      "name": "Almpfeiferl (Styrian Brucker duct flute)",
+      "family": "wind",
+      "href": "instruments/almpfeiferl.json"
+    },
+    {
+      "id": "caval_romanian",
+      "name": "Caval (Romanian five-hole duct shepherd flute)",
+      "family": "wind",
+      "href": "instruments/caval_romanian.json"
+    },
+    {
+      "id": "fluier",
+      "name": "Fluier (Romanian six-hole duct flute)",
+      "family": "wind",
+      "href": "instruments/fluier.json"
+    },
+    {
+      "id": "dvojnice",
+      "name": "Dvojnice (Balkan double duct flute)",
+      "family": "wind",
+      "href": "instruments/dvojnice.json"
+    },
+    {
+      "id": "furulya",
+      "name": "Furulya (Hungarian shepherd duct flute)",
+      "family": "wind",
+      "href": "instruments/furulya.json"
+    },
+    {
+      "id": "gemshorn",
+      "name": "Gemshorn (Renaissance stopped horn vessel flute)",
+      "family": "wind",
+      "href": "instruments/gemshorn.json"
+    },
+    {
+      "id": "flageolet",
+      "name": "Flageolet (French / English duct flute)",
+      "family": "wind",
+      "href": "instruments/flageolet.json"
+    },
+    {
+      "id": "shvi",
+      "name": "Shvi (Armenian apricot-wood duct flute)",
+      "family": "wind",
+      "href": "instruments/shvi.json"
+    },
+    {
+      "id": "fyell",
+      "name": "Fyell brezi (Albanian rim-blown shepherd flute)",
+      "family": "wind",
+      "href": "instruments/fyell.json"
+    },
+    {
+      "id": "irish_wooden_flute",
+      "name": "Irish flute (simple-system conical wooden transverse flute)",
+      "family": "wind",
+      "href": "instruments/irish_wooden_flute.json"
+    },
+    {
+      "id": "fife",
+      "name": "Fife (military transverse pipe)",
+      "family": "wind",
+      "href": "instruments/fife.json"
+    },
+    {
+      "id": "contrabass_flute",
+      "name": "Contrabass flute (in C, two octaves below concert)",
+      "family": "wind",
+      "href": "instruments/contrabass_flute.json"
+    },
+    {
+      "id": "subcontrabass_flute",
+      "name": "Subcontrabass flute (in G/F or C; the C size is also called double contrabass or octobass flute)",
+      "family": "wind",
+      "href": "instruments/subcontrabass_flute.json"
+    },
+    {
+      "id": "hyperbass_flute",
+      "name": "Hyperbass flute (Fabbriciani / Romei sub-audio flute)",
+      "family": "wind",
+      "href": "instruments/hyperbass_flute.json"
+    },
+    {
+      "id": "syrinx_greek",
+      "name": "Syrinx (ancient Greek panpipe)",
+      "family": "wind",
+      "href": "instruments/syrinx_greek.json"
+    },
+    {
+      "id": "chalumeau",
+      "name": "Chalumeau (baroque keyed single-reed pipe)",
+      "family": "wind",
+      "href": "instruments/chalumeau.json"
+    },
+    {
+      "id": "basset_clarinet",
+      "name": "Basset clarinet (Stadler's downward-extended soprano clarinet)",
+      "family": "wind",
+      "href": "instruments/basset_clarinet.json"
+    },
+    {
+      "id": "clarinet_damore",
+      "name": "Clarinette d'amour (bulb-bell clarinet in G)",
+      "family": "wind",
+      "href": "instruments/clarinet_damore.json"
+    },
+    {
+      "id": "soprillo",
+      "name": "Soprillo (B♭ piccolo saxophone)",
+      "family": "wind",
+      "href": "instruments/soprillo.json"
+    },
+    {
+      "id": "tubax",
+      "name": "Tubax (compact contrabass saxophone)",
+      "family": "wind",
+      "href": "instruments/tubax.json"
+    },
+    {
+      "id": "manzello",
+      "name": "Manzello (Kirk-modified saxello soprano)",
+      "family": "wind",
+      "href": "instruments/manzello.json"
+    },
+    {
+      "id": "stritch",
+      "name": "Stritch (straight E♭ alto saxophone)",
+      "family": "wind",
+      "href": "instruments/stritch.json"
+    },
+    {
+      "id": "xaphoon",
+      "name": "Xaphoon (Maui bamboo pocket sax)",
+      "family": "wind",
+      "href": "instruments/xaphoon.json"
+    },
+    {
+      "id": "octavin",
+      "name": "Octavin (German doubled-back conical single reed)",
+      "family": "wind",
+      "href": "instruments/octavin.json"
+    },
+    {
+      "id": "rothphone",
+      "name": "Rothphone (Italian saxophone-bodied double reed)",
+      "family": "wind",
+      "href": "instruments/rothphone.json"
+    },
+    {
+      "id": "aulochrome",
+      "name": "Aulochrome (double soprano saxophone)",
+      "family": "wind",
+      "href": "instruments/aulochrome.json"
+    },
+    {
+      "id": "conn_o_sax",
+      "name": "Conn-O-Sax (F saxophone with globular bell)",
+      "family": "wind",
+      "href": "instruments/conn_o_sax.json"
+    },
+    {
+      "id": "pibgorn",
+      "name": "Pibgorn (Welsh windcapped single-reed hornpipe)",
+      "family": "wind",
+      "href": "instruments/pibgorn.json"
+    },
+    {
+      "id": "sipsi",
+      "name": "Sipsi (Turkish Teke single-reed cane pipe)",
+      "family": "wind",
+      "href": "instruments/sipsi.json"
+    },
+    {
+      "id": "diple",
+      "name": "Diple (Adriatic double single-reed clarinet)",
+      "family": "wind",
+      "href": "instruments/diple.json"
+    },
+    {
+      "id": "diplica",
+      "name": "Diplica (Baranja single-reed cane pipe)",
+      "family": "wind",
+      "href": "instruments/diplica.json"
+    },
+    {
+      "id": "heckel_clarina",
+      "name": "Heckel-clarina (1889 metal single-reed conical soprano)",
+      "family": "wind",
+      "href": "instruments/heckel_clarina.json"
+    },
+    {
+      "id": "heckelphone_clarinet",
+      "name": "Heckelphone-clarinet (1907 wide-conical wooden alto)",
+      "family": "wind",
+      "href": "instruments/heckelphone_clarinet.json"
+    },
+    {
+      "id": "sneng",
+      "name": "Sneng (Khmer buffalo-horn free reed)",
+      "family": "free_reed",
+      "href": "instruments/sneng.json"
     }
   ]
 }

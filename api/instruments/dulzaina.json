@@ -1,0 +1,516 @@
+{
+  "id": "dulzaina",
+  "name": "Dulzaina (Iberian keyless folk shawm)",
+  "family": "wind",
+  "class": "double_reed_shawm",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "dulzaina",
+  "parts": [
+    {
+      "id": "dulzaina_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "dulzaina_castellana",
+          "default": true,
+          "name": "Dulzaina castellana (Castilian keyless form, paired with tamboril)",
+          "descriptors": [
+            "canonical",
+            "folk-rustic",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven",
+            "reed-driven",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "spanish",
+            "iberian"
+          ]
+        },
+        {
+          "id": "dulzaina_dolcaina_valenciana",
+          "name": "Dolcaina / xirimita valenciana (shorter bore, circular-breathed)",
+          "descriptors": [
+            "bright",
+            "shrill",
+            "circular-breathed"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven",
+            "circular-breathing",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "valencia",
+            "iberian"
+          ]
+        },
+        {
+          "id": "dulzaina_gralla",
+          "name": "Gralla (Catalan keyless ancestor of the tenora)",
+          "descriptors": [
+            "strident",
+            "archaic",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "catalan",
+            "iberian"
+          ]
+        },
+        {
+          "id": "dulzaina_pita",
+          "name": "Pita (La Mancha / Murcia local naming and scrape)",
+          "descriptors": [
+            "village",
+            "regional",
+            "reedy"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "spanish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dulzaina_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "dulzaina_tabalet_duo",
+          "default": true,
+          "name": "Dolcaina i tabalet duo (pipe-and-drum processional pairing)",
+          "descriptors": [
+            "processional",
+            "ceremonial",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "processional",
+            "valencia"
+          ]
+        },
+        {
+          "id": "dulzaina_colla_massed",
+          "name": "Colla (massed twenty- to thirty-player revival band)",
+          "descriptors": [
+            "massed",
+            "festive",
+            "revival"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "double-reed",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "revival",
+            "valencia"
+          ]
+        },
+        {
+          "id": "dulzaina_moros_cristianos",
+          "name": "Moros i Cristians / jota parade lead",
+          "descriptors": [
+            "parade-driving",
+            "dance-driving",
+            "festive"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "loud-projection",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "festival",
+            "spanish"
+          ]
+        },
+        {
+          "id": "dulzaina_concert_colla",
+          "name": "Modern staged concert programme",
+          "descriptors": [
+            "concert",
+            "contemporary",
+            "modern"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven",
+            "concert"
+          ],
+          "canonical_tags": [
+            "concert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dulzaina_reed",
+      "name": "Reed scrape / attack",
+      "variants": [
+        {
+          "id": "dulzaina_hard_scrape",
+          "default": true,
+          "name": "Hard scrape on a metal staple with lip-plate (canonical outdoor tone)",
+          "descriptors": [
+            "cane-double-reed-canonical-arundo-donax",
+            "raw-outdoor",
+            "piercing"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "reed-driven",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "dulzaina_soft_scrape",
+          "name": "Softer scrape for indoor and concert playing",
+          "descriptors": [
+            "soft",
+            "indoor-volume",
+            "less-shrill"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "reed-driven",
+            "wind-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dulzaina_body_wood",
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "dulzaina_boj_boxwood",
+          "default": true,
+          "name": "Boxwood (boj, canonical Iberian turning)",
+          "descriptors": [
+            "dense",
+            "traditional",
+            "warm-toned"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "boxwood",
+            "iberian"
+          ]
+        },
+        {
+          "id": "dulzaina_granadillo",
+          "name": "Granadillo (dense modern premium)",
+          "descriptors": [
+            "granadillo-dense-premium",
+            "dense"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "dulzaina_palosanto",
+          "name": "Palosanto / rosewood (bright modern build)",
+          "descriptors": [
+            "rosewood-premium",
+            "bright"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dulzaina_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "dulzaina_castellana",
+          "default": true,
+          "name": "Dulzaina castellana (Castilian keyless form, paired with tamboril)",
+          "descriptors": [
+            "canonical",
+            "folk-rustic",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven",
+            "reed-driven",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "spanish",
+            "iberian"
+          ]
+        },
+        {
+          "id": "dulzaina_dolcaina_valenciana",
+          "name": "Dolcaina / xirimita valenciana (shorter bore, circular-breathed)",
+          "descriptors": [
+            "bright",
+            "shrill",
+            "circular-breathed"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven",
+            "circular-breathing",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "valencia",
+            "iberian"
+          ]
+        },
+        {
+          "id": "dulzaina_gralla",
+          "name": "Gralla (Catalan keyless ancestor of the tenora)",
+          "descriptors": [
+            "strident",
+            "archaic",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "catalan",
+            "iberian"
+          ]
+        },
+        {
+          "id": "dulzaina_pita",
+          "name": "Pita (La Mancha / Murcia local naming and scrape)",
+          "descriptors": [
+            "village",
+            "regional",
+            "reedy"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "spanish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dulzaina_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "dulzaina_tabalet_duo",
+          "default": true,
+          "name": "Dolcaina i tabalet duo (pipe-and-drum processional pairing)",
+          "descriptors": [
+            "processional",
+            "ceremonial",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "processional",
+            "valencia"
+          ]
+        },
+        {
+          "id": "dulzaina_colla_massed",
+          "name": "Colla (massed twenty- to thirty-player revival band)",
+          "descriptors": [
+            "massed",
+            "festive",
+            "revival"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "double-reed",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "revival",
+            "valencia"
+          ]
+        },
+        {
+          "id": "dulzaina_moros_cristianos",
+          "name": "Moros i Cristians / jota parade lead",
+          "descriptors": [
+            "parade-driving",
+            "dance-driving",
+            "festive"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "loud-projection",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "festival",
+            "spanish"
+          ]
+        },
+        {
+          "id": "dulzaina_concert_colla",
+          "name": "Modern staged concert programme",
+          "descriptors": [
+            "concert",
+            "contemporary",
+            "modern"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven",
+            "concert"
+          ],
+          "canonical_tags": [
+            "concert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dulzaina_reed",
+      "name": "Reed scrape / attack",
+      "variants": [
+        {
+          "id": "dulzaina_hard_scrape",
+          "default": true,
+          "name": "Hard scrape on a metal staple with lip-plate (canonical outdoor tone)",
+          "descriptors": [
+            "cane-double-reed-canonical-arundo-donax",
+            "raw-outdoor",
+            "piercing"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "reed-driven",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "dulzaina_soft_scrape",
+          "name": "Softer scrape for indoor and concert playing",
+          "descriptors": [
+            "soft",
+            "indoor-volume",
+            "less-shrill"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "reed-driven",
+            "wind-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dulzaina_body_wood",
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "dulzaina_boj_boxwood",
+          "default": true,
+          "name": "Boxwood (boj, canonical Iberian turning)",
+          "descriptors": [
+            "dense",
+            "traditional",
+            "warm-toned"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "boxwood",
+            "iberian"
+          ]
+        },
+        {
+          "id": "dulzaina_granadillo",
+          "name": "Granadillo (dense modern premium)",
+          "descriptors": [
+            "granadillo-dense-premium",
+            "dense"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "dulzaina_palosanto",
+          "name": "Palosanto / rosewood (bright modern build)",
+          "descriptors": [
+            "rosewood-premium",
+            "bright"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        }
+      ]
+    }
+  ]
+}

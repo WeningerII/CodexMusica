@@ -1,0 +1,413 @@
+{
+  "id": "sorahi",
+  "name": "Sorahi (Shajarian-designed Persian bowed spike fiddle)",
+  "family": "bowed",
+  "class": "bowed_spike_fiddle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "sorahi",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "sorahi_register",
+      "name": "Family member / register",
+      "variants": [
+        {
+          "id": "sorahi_register_soprano",
+          "default": true,
+          "name": "Soprano / treble sorahi (best-documented member)",
+          "descriptors": [
+            "bright",
+            "expressive",
+            "concert-grade"
+          ],
+          "match_tokens": [
+            "bowed",
+            "high-register",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "persian",
+            "dastgah",
+            "contemporary"
+          ]
+        },
+        {
+          "id": "sorahi_register_alto",
+          "name": "Alto sorahi",
+          "descriptors": [
+            "warm",
+            "blended",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "mid-register",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "persian",
+            "dastgah"
+          ]
+        },
+        {
+          "id": "sorahi_register_bass",
+          "name": "Bass sorahi",
+          "descriptors": [
+            "bass-foundational",
+            "warm",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bass-register",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "persian",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "sorahi_register_contrabass",
+          "name": "Contrabass sorahi",
+          "descriptors": [
+            "bass-heavy",
+            "deep-gourd",
+            "solemn"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bass-register",
+            "foundational-bass"
+          ],
+          "canonical_tags": [
+            "persian",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sorahi_pad",
+      "name": "Bridge damping pad (tone-changing mechanism)",
+      "variants": [
+        {
+          "id": "sorahi_pad_leather",
+          "default": true,
+          "name": "Leather pad seated between bridge and soundboard",
+          "descriptors": [
+            "mellow",
+            "warm",
+            "softened"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "persian",
+            "contemporary"
+          ]
+        },
+        {
+          "id": "sorahi_pad_leather_wood",
+          "name": "Leather-and-wood pad (tighter coupling)",
+          "descriptors": [
+            "projecting",
+            "bright",
+            "clean"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "persian",
+            "contemporary"
+          ]
+        },
+        {
+          "id": "sorahi_pad_removed",
+          "name": "Pad removed (fullest, most open coupling)",
+          "descriptors": [
+            "resonant",
+            "projecting",
+            "raw"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "persian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sorahi_idiom",
+      "name": "Playing idiom",
+      "variants": [
+        {
+          "id": "sorahi_idiom_violin_toned",
+          "default": true,
+          "name": "Violin-toned modern Persian ensemble writing",
+          "descriptors": [
+            "blended",
+            "concert-grade",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "persian",
+            "dastgah",
+            "contemporary"
+          ]
+        },
+        {
+          "id": "sorahi_idiom_kamancheh",
+          "name": "Kamancheh-idiomatic radif ornamentation",
+          "descriptors": [
+            "ornamented",
+            "expressive",
+            "radif-suited"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented",
+            "microtonal-bend"
+          ],
+          "canonical_tags": [
+            "persian",
+            "dastgah"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sorahi_register",
+      "name": "Family member / register",
+      "variants": [
+        {
+          "id": "sorahi_register_soprano",
+          "default": true,
+          "name": "Soprano / treble sorahi (best-documented member)",
+          "descriptors": [
+            "bright",
+            "expressive",
+            "concert-grade"
+          ],
+          "match_tokens": [
+            "bowed",
+            "high-register",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "persian",
+            "dastgah",
+            "contemporary"
+          ]
+        },
+        {
+          "id": "sorahi_register_alto",
+          "name": "Alto sorahi",
+          "descriptors": [
+            "warm",
+            "blended",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "mid-register",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "persian",
+            "dastgah"
+          ]
+        },
+        {
+          "id": "sorahi_register_bass",
+          "name": "Bass sorahi",
+          "descriptors": [
+            "bass-foundational",
+            "warm",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bass-register",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "persian",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "sorahi_register_contrabass",
+          "name": "Contrabass sorahi",
+          "descriptors": [
+            "bass-heavy",
+            "deep-gourd",
+            "solemn"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bass-register",
+            "foundational-bass"
+          ],
+          "canonical_tags": [
+            "persian",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sorahi_pad",
+      "name": "Bridge damping pad (tone-changing mechanism)",
+      "variants": [
+        {
+          "id": "sorahi_pad_leather",
+          "default": true,
+          "name": "Leather pad seated between bridge and soundboard",
+          "descriptors": [
+            "mellow",
+            "warm",
+            "softened"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "persian",
+            "contemporary"
+          ]
+        },
+        {
+          "id": "sorahi_pad_leather_wood",
+          "name": "Leather-and-wood pad (tighter coupling)",
+          "descriptors": [
+            "projecting",
+            "bright",
+            "clean"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "persian",
+            "contemporary"
+          ]
+        },
+        {
+          "id": "sorahi_pad_removed",
+          "name": "Pad removed (fullest, most open coupling)",
+          "descriptors": [
+            "resonant",
+            "projecting",
+            "raw"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "persian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sorahi_idiom",
+      "name": "Playing idiom",
+      "variants": [
+        {
+          "id": "sorahi_idiom_violin_toned",
+          "default": true,
+          "name": "Violin-toned modern Persian ensemble writing",
+          "descriptors": [
+            "blended",
+            "concert-grade",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "persian",
+            "dastgah",
+            "contemporary"
+          ]
+        },
+        {
+          "id": "sorahi_idiom_kamancheh",
+          "name": "Kamancheh-idiomatic radif ornamentation",
+          "descriptors": [
+            "ornamented",
+            "expressive",
+            "radif-suited"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented",
+            "microtonal-bend"
+          ],
+          "canonical_tags": [
+            "persian",
+            "dastgah"
+          ]
+        }
+      ]
+    }
+  ]
+}

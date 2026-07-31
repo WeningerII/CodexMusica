@@ -1,0 +1,597 @@
+{
+  "id": "tromba_marina",
+  "name": "Tromba marina (bowed monochord with rattling bridge)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "tromba marina",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "tromba_marina_form",
+      "name": "Regional form / build",
+      "variants": [
+        {
+          "id": "tromba_marina_form_italian",
+          "default": true,
+          "name": "Slim Italian tromba marina (single gut string, 1.5-2 m tapering box)",
+          "descriptors": [
+            "single-string",
+            "archaic",
+            "brilliant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "natural-harmonics",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "italian",
+            "early-music"
+          ]
+        },
+        {
+          "id": "tromba_marina_form_trumscheit",
+          "name": "German Trumscheit (interior bank of sympathetic wires)",
+          "descriptors": [
+            "sympathetic-halo",
+            "resonance-saturated",
+            "buzzing-overtones"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "natural-harmonics"
+          ],
+          "canonical_tags": [
+            "germanic",
+            "baroque"
+          ]
+        },
+        {
+          "id": "tromba_marina_form_nonnengeige",
+          "name": "Convent Nonnengeige / nun's fiddle (church and cloister instrument)",
+          "descriptors": [
+            "monastic",
+            "devotional",
+            "solemn"
+          ],
+          "match_tokens": [
+            "bowed",
+            "natural-harmonics",
+            "devotional"
+          ],
+          "canonical_tags": [
+            "monastic",
+            "sacred"
+          ]
+        },
+        {
+          "id": "tromba_marina_form_multi_string",
+          "name": "Two- or three-string late form (wound bass string added)",
+          "descriptors": [
+            "fuller",
+            "deeper",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "natural-harmonics",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tromba_marina_role",
+      "name": "Repertoire and register",
+      "variants": [
+        {
+          "id": "tromba_marina_role_fanfare",
+          "default": true,
+          "name": "Trumpet-surrogate fanfare on high partials (4-16)",
+          "descriptors": [
+            "fanfare-like",
+            "brilliant",
+            "high-partials"
+          ],
+          "match_tokens": [
+            "bowed",
+            "natural-trumpet",
+            "fanfare",
+            "natural-harmonics"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "early-music"
+          ]
+        },
+        {
+          "id": "tromba_marina_role_sacred",
+          "name": "Convent / church obbligato over voices and organ",
+          "descriptors": [
+            "devotional",
+            "solemn",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "devotional",
+            "natural-harmonics"
+          ],
+          "canonical_tags": [
+            "monastic",
+            "sacred"
+          ]
+        },
+        {
+          "id": "tromba_marina_role_bass_drone",
+          "name": "Low unstopped fundamental as a sustained consort drone",
+          "descriptors": [
+            "deep-droning",
+            "sustained-drone",
+            "heavy-drone"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "early-music"
+          ]
+        },
+        {
+          "id": "tromba_marina_role_court_novelty",
+          "name": "Courtly novelty band / signal calls (Restoration trumpet-marine consort)",
+          "descriptors": [
+            "courtly",
+            "festive",
+            "signal-like"
+          ],
+          "match_tokens": [
+            "bowed",
+            "natural-trumpet",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "court",
+            "baroque"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tromba_marina_bridge",
+      "name": "Rattling-bridge setting",
+      "variants": [
+        {
+          "id": "tromba_marina_bridge_plate",
+          "default": true,
+          "name": "Free foot hammering an ivory or glass plate (full brass-shock)",
+          "descriptors": [
+            "brassy-buzz",
+            "rattling",
+            "strident"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rattle-buzz",
+            "natural-trumpet"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        },
+        {
+          "id": "tromba_marina_bridge_soft",
+          "name": "Lightly loaded foot on bare soundboard (soft buzz)",
+          "descriptors": [
+            "warm-buzz",
+            "slightly-damped-buzz",
+            "rounded"
+          ],
+          "match_tokens": [
+            "bowed",
+            "buzzy-tone",
+            "natural-harmonics"
+          ],
+          "canonical_tags": [
+            "period"
+          ]
+        },
+        {
+          "id": "tromba_marina_bridge_damped",
+          "name": "Foot damped or seated flat (clean bowed monochord)",
+          "descriptors": [
+            "clean",
+            "glassy",
+            "sustained-drone"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "overtone-series"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tromba_marina_string",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "tromba_marina_string_gut",
+          "default": true,
+          "name": "Single thick plain gut string",
+          "descriptors": [
+            "gut-strung",
+            "warm",
+            "archaic-tone"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "tromba_marina_string_wound",
+          "name": "Wound gut (later practice, heavier fundamental)",
+          "descriptors": [
+            "fuller",
+            "deeper",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "baroque"
+          ]
+        },
+        {
+          "id": "tromba_marina_string_synthetic",
+          "name": "Synthetic / nylon revival string",
+          "descriptors": [
+            "stable",
+            "bright",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "early-music-context"
+          ],
+          "canonical_tags": [
+            "synthetic",
+            "revival"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tromba_marina_form",
+      "name": "Regional form / build",
+      "variants": [
+        {
+          "id": "tromba_marina_form_italian",
+          "default": true,
+          "name": "Slim Italian tromba marina (single gut string, 1.5-2 m tapering box)",
+          "descriptors": [
+            "single-string",
+            "archaic",
+            "brilliant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "natural-harmonics",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "italian",
+            "early-music"
+          ]
+        },
+        {
+          "id": "tromba_marina_form_trumscheit",
+          "name": "German Trumscheit (interior bank of sympathetic wires)",
+          "descriptors": [
+            "sympathetic-halo",
+            "resonance-saturated",
+            "buzzing-overtones"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "natural-harmonics"
+          ],
+          "canonical_tags": [
+            "germanic",
+            "baroque"
+          ]
+        },
+        {
+          "id": "tromba_marina_form_nonnengeige",
+          "name": "Convent Nonnengeige / nun's fiddle (church and cloister instrument)",
+          "descriptors": [
+            "monastic",
+            "devotional",
+            "solemn"
+          ],
+          "match_tokens": [
+            "bowed",
+            "natural-harmonics",
+            "devotional"
+          ],
+          "canonical_tags": [
+            "monastic",
+            "sacred"
+          ]
+        },
+        {
+          "id": "tromba_marina_form_multi_string",
+          "name": "Two- or three-string late form (wound bass string added)",
+          "descriptors": [
+            "fuller",
+            "deeper",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "natural-harmonics",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tromba_marina_role",
+      "name": "Repertoire and register",
+      "variants": [
+        {
+          "id": "tromba_marina_role_fanfare",
+          "default": true,
+          "name": "Trumpet-surrogate fanfare on high partials (4-16)",
+          "descriptors": [
+            "fanfare-like",
+            "brilliant",
+            "high-partials"
+          ],
+          "match_tokens": [
+            "bowed",
+            "natural-trumpet",
+            "fanfare",
+            "natural-harmonics"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "early-music"
+          ]
+        },
+        {
+          "id": "tromba_marina_role_sacred",
+          "name": "Convent / church obbligato over voices and organ",
+          "descriptors": [
+            "devotional",
+            "solemn",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "devotional",
+            "natural-harmonics"
+          ],
+          "canonical_tags": [
+            "monastic",
+            "sacred"
+          ]
+        },
+        {
+          "id": "tromba_marina_role_bass_drone",
+          "name": "Low unstopped fundamental as a sustained consort drone",
+          "descriptors": [
+            "deep-droning",
+            "sustained-drone",
+            "heavy-drone"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "early-music"
+          ]
+        },
+        {
+          "id": "tromba_marina_role_court_novelty",
+          "name": "Courtly novelty band / signal calls (Restoration trumpet-marine consort)",
+          "descriptors": [
+            "courtly",
+            "festive",
+            "signal-like"
+          ],
+          "match_tokens": [
+            "bowed",
+            "natural-trumpet",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "court",
+            "baroque"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tromba_marina_bridge",
+      "name": "Rattling-bridge setting",
+      "variants": [
+        {
+          "id": "tromba_marina_bridge_plate",
+          "default": true,
+          "name": "Free foot hammering an ivory or glass plate (full brass-shock)",
+          "descriptors": [
+            "brassy-buzz",
+            "rattling",
+            "strident"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rattle-buzz",
+            "natural-trumpet"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        },
+        {
+          "id": "tromba_marina_bridge_soft",
+          "name": "Lightly loaded foot on bare soundboard (soft buzz)",
+          "descriptors": [
+            "warm-buzz",
+            "slightly-damped-buzz",
+            "rounded"
+          ],
+          "match_tokens": [
+            "bowed",
+            "buzzy-tone",
+            "natural-harmonics"
+          ],
+          "canonical_tags": [
+            "period"
+          ]
+        },
+        {
+          "id": "tromba_marina_bridge_damped",
+          "name": "Foot damped or seated flat (clean bowed monochord)",
+          "descriptors": [
+            "clean",
+            "glassy",
+            "sustained-drone"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "overtone-series"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tromba_marina_string",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "tromba_marina_string_gut",
+          "default": true,
+          "name": "Single thick plain gut string",
+          "descriptors": [
+            "gut-strung",
+            "warm",
+            "archaic-tone"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "tromba_marina_string_wound",
+          "name": "Wound gut (later practice, heavier fundamental)",
+          "descriptors": [
+            "fuller",
+            "deeper",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "baroque"
+          ]
+        },
+        {
+          "id": "tromba_marina_string_synthetic",
+          "name": "Synthetic / nylon revival string",
+          "descriptors": [
+            "stable",
+            "bright",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "early-music-context"
+          ],
+          "canonical_tags": [
+            "synthetic",
+            "revival"
+          ]
+        }
+      ]
+    }
+  ]
+}

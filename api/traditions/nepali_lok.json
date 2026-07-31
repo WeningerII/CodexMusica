@@ -3,9 +3,9 @@
   "name": "Nepali lok (folk-popular song)",
   "family": "global",
   "lineage": "Nepali lok geet (\"folk songs\") encompass the broad popular-and-traditional song repertoire of Nepal, including regional variants from the Newari, Tharu, Gurung, Magar, Tamang, Rai, Limbu, and other ethnic communities, plus the urban Kathmandu Valley pan-Nepali pop synthesis. The genre developed through the twentieth-century Radio Nepal (founded 1951) commercial-recording era. Standard instrumentation centers on madal two-headed barrel-drum, tabla, sarangi (Nepali, four-string short-neck bowed lute distinct from Hindustani sarangi), and bansuri flute. Repertoire spans selo (Tamang call-and-response), tappa (regional ballad), and roila (Karnali region).",
-  "recipe": "classic South Asian early-1950s nepali lok, functional Song, south Asian pop branch, west African groove percussion indonesian jaipongan fújì. thick, breath veiled tone, straight note core, interlocked note trading. dholak, dark folk clay tabla, kerala bamboo alternative south indian maihar gharana canonical 20th century melodic bansuri, gut 3 main playing strings teak modern alternative microtonal sarangi. kolkata dum dum EMI hmv 1928-present major-flagship kolkata hmv dum dum studio. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
-  "recipe_chars": 557,
-  "score": 209.852,
+  "recipe": "classic South Asian early-1950s nepali lok, functional Song, south Asian pop branch, west African groove percussion indonesian jaipongan fújì. thick, breath veiled tone, straight note core, interlocked note trading. dance driving slung madal, dholak, dark folk clay tabla, kerala bamboo alternative south indian maihar gharana canonical 20th century melodic bansuri, gut 3 main playing strings teak modern alternative microtonal sarangi. kolkata dum dum EMI hmv 1928-present major-flagship kolkata hmv dum dum studio. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 584,
+  "score": 230.457,
   "config": {
     "traditions": [
       "nepali_lok",
@@ -50,6 +50,21 @@
           "voice_pitch_organization": 9.064999999999998,
           "voice_processing_chain": 6.455,
           "voice_multitrack_stack": 5.1850000000000005
+        }
+      },
+      {
+        "id": "madal",
+        "slots": {
+          "madal_role": "madal_role_jhyaure",
+          "madal_posture": "madal_posture_patuka",
+          "madal_paste": "madal_paste_khari",
+          "madal_shell": "madal_shell_hardwood"
+        },
+        "scores": {
+          "madal_role": 12.014999999999999,
+          "madal_posture": 3.394999999999999,
+          "madal_paste": 5.265,
+          "madal_shell": -0.07
         }
       },
       {

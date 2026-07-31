@@ -1,0 +1,506 @@
+{
+  "id": "ophicleide",
+  "name": "Ophicleide (keyed bass brass, Halary 1817)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -2,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "ophicleide",
+  "parts": [
+    {
+      "id": "ophicleide_size",
+      "name": "Size / pitch member",
+      "variants": [
+        {
+          "id": "ophicleide_bass_c",
+          "default": true,
+          "name": "Bass in C (the standard instrument, body 40–48 in.)",
+          "descriptors": [
+            "foundational",
+            "grave",
+            "projecting"
+          ],
+          "match_tokens": [
+            "lip-buzzed",
+            "keyed",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "orchestral",
+            "historical"
+          ]
+        },
+        {
+          "id": "ophicleide_bass_bflat",
+          "name": "Bass in B♭ (band pitch)",
+          "descriptors": [
+            "foundational",
+            "robust",
+            "band"
+          ],
+          "match_tokens": [
+            "lip-buzzed",
+            "keyed",
+            "bass-register"
+          ],
+          "canonical_tags": [
+            "brass-band",
+            "historical"
+          ]
+        },
+        {
+          "id": "ophicleide_alto_quinticlave",
+          "name": "Alto in F or E♭ (quinticlave / quinti-tube)",
+          "descriptors": [
+            "alto-light",
+            "singing",
+            "agile"
+          ],
+          "match_tokens": [
+            "lip-buzzed",
+            "keyed",
+            "tenor-register"
+          ],
+          "canonical_tags": [
+            "french",
+            "historical"
+          ]
+        },
+        {
+          "id": "ophicleide_contrabass",
+          "name": "Contrabass in F or E♭ (rare)",
+          "descriptors": [
+            "cavernous",
+            "deep",
+            "rare"
+          ],
+          "match_tokens": [
+            "lip-buzzed",
+            "keyed",
+            "low-end"
+          ],
+          "canonical_tags": [
+            "historic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ophicleide_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "ophicleide_orchestral_low_brass",
+          "default": true,
+          "name": "Orchestral / grand-opera bass doubling the trombones (Berlioz, Mendelssohn, Wagner Rienzi, early Verdi)",
+          "descriptors": [
+            "section-blend",
+            "grave",
+            "projecting"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "low-register",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "orchestral",
+            "opera"
+          ]
+        },
+        {
+          "id": "ophicleide_band_bass",
+          "name": "Military / civilian band bass line, strident outdoor attack",
+          "descriptors": [
+            "strident",
+            "robust",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "marching",
+            "open-air",
+            "bass-foundation"
+          ],
+          "canonical_tags": [
+            "brass-band",
+            "processional"
+          ]
+        },
+        {
+          "id": "ophicleide_church_band",
+          "name": "West-gallery church band bass under voices (serpent-style blend)",
+          "descriptors": [
+            "blending",
+            "devotional",
+            "soft"
+          ],
+          "match_tokens": [
+            "hymn",
+            "choir-blendable",
+            "sacred"
+          ],
+          "canonical_tags": [
+            "sacred",
+            "historical"
+          ]
+        },
+        {
+          "id": "ophicleide_solo_variations",
+          "name": "Agile solo air with variations — the instrument's real party trick",
+          "descriptors": [
+            "agile",
+            "florid",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "soloistic",
+            "virtuosic",
+            "keyed"
+          ],
+          "canonical_tags": [
+            "solo",
+            "historical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ophicleide_keywork",
+      "name": "Generation / key count",
+      "variants": [
+        {
+          "id": "ophicleide_eleven_key",
+          "default": true,
+          "name": "Mature eleven- or twelve-key instrument (roughly one key per semitone, evener and homogeneous)",
+          "descriptors": [
+            "chromatic",
+            "even",
+            "full"
+          ],
+          "match_tokens": [
+            "keyed",
+            "chromatic"
+          ]
+        },
+        {
+          "id": "ophicleide_nine_key_halary",
+          "name": "Early nine-key Halary type (more open-hole colour, more compromised notes)",
+          "descriptors": [
+            "archaic",
+            "raw",
+            "diatonic"
+          ],
+          "match_tokens": [
+            "keyed",
+            "historic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ophicleide_build",
+      "name": "Material and build",
+      "variants": [
+        {
+          "id": "ophicleide_brass_light",
+          "default": true,
+          "name": "Light early brass build",
+          "descriptors": [
+            "brass",
+            "bright",
+            "historic"
+          ],
+          "match_tokens": [
+            "keyed",
+            "brass"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        },
+        {
+          "id": "ophicleide_copper",
+          "name": "Copper body",
+          "descriptors": [
+            "copper",
+            "warm",
+            "round"
+          ],
+          "match_tokens": [
+            "keyed",
+            "copper"
+          ]
+        },
+        {
+          "id": "ophicleide_german_silver_heavy",
+          "name": "German silver, heavier late build",
+          "descriptors": [
+            "german-silver",
+            "dense",
+            "cutting"
+          ],
+          "match_tokens": [
+            "keyed",
+            "brass"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ophicleide_size",
+      "name": "Size / pitch member",
+      "variants": [
+        {
+          "id": "ophicleide_bass_c",
+          "default": true,
+          "name": "Bass in C (the standard instrument, body 40–48 in.)",
+          "descriptors": [
+            "foundational",
+            "grave",
+            "projecting"
+          ],
+          "match_tokens": [
+            "lip-buzzed",
+            "keyed",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "orchestral",
+            "historical"
+          ]
+        },
+        {
+          "id": "ophicleide_bass_bflat",
+          "name": "Bass in B♭ (band pitch)",
+          "descriptors": [
+            "foundational",
+            "robust",
+            "band"
+          ],
+          "match_tokens": [
+            "lip-buzzed",
+            "keyed",
+            "bass-register"
+          ],
+          "canonical_tags": [
+            "brass-band",
+            "historical"
+          ]
+        },
+        {
+          "id": "ophicleide_alto_quinticlave",
+          "name": "Alto in F or E♭ (quinticlave / quinti-tube)",
+          "descriptors": [
+            "alto-light",
+            "singing",
+            "agile"
+          ],
+          "match_tokens": [
+            "lip-buzzed",
+            "keyed",
+            "tenor-register"
+          ],
+          "canonical_tags": [
+            "french",
+            "historical"
+          ]
+        },
+        {
+          "id": "ophicleide_contrabass",
+          "name": "Contrabass in F or E♭ (rare)",
+          "descriptors": [
+            "cavernous",
+            "deep",
+            "rare"
+          ],
+          "match_tokens": [
+            "lip-buzzed",
+            "keyed",
+            "low-end"
+          ],
+          "canonical_tags": [
+            "historic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ophicleide_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "ophicleide_orchestral_low_brass",
+          "default": true,
+          "name": "Orchestral / grand-opera bass doubling the trombones (Berlioz, Mendelssohn, Wagner Rienzi, early Verdi)",
+          "descriptors": [
+            "section-blend",
+            "grave",
+            "projecting"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "low-register",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "orchestral",
+            "opera"
+          ]
+        },
+        {
+          "id": "ophicleide_band_bass",
+          "name": "Military / civilian band bass line, strident outdoor attack",
+          "descriptors": [
+            "strident",
+            "robust",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "marching",
+            "open-air",
+            "bass-foundation"
+          ],
+          "canonical_tags": [
+            "brass-band",
+            "processional"
+          ]
+        },
+        {
+          "id": "ophicleide_church_band",
+          "name": "West-gallery church band bass under voices (serpent-style blend)",
+          "descriptors": [
+            "blending",
+            "devotional",
+            "soft"
+          ],
+          "match_tokens": [
+            "hymn",
+            "choir-blendable",
+            "sacred"
+          ],
+          "canonical_tags": [
+            "sacred",
+            "historical"
+          ]
+        },
+        {
+          "id": "ophicleide_solo_variations",
+          "name": "Agile solo air with variations — the instrument's real party trick",
+          "descriptors": [
+            "agile",
+            "florid",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "soloistic",
+            "virtuosic",
+            "keyed"
+          ],
+          "canonical_tags": [
+            "solo",
+            "historical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ophicleide_keywork",
+      "name": "Generation / key count",
+      "variants": [
+        {
+          "id": "ophicleide_eleven_key",
+          "default": true,
+          "name": "Mature eleven- or twelve-key instrument (roughly one key per semitone, evener and homogeneous)",
+          "descriptors": [
+            "chromatic",
+            "even",
+            "full"
+          ],
+          "match_tokens": [
+            "keyed",
+            "chromatic"
+          ]
+        },
+        {
+          "id": "ophicleide_nine_key_halary",
+          "name": "Early nine-key Halary type (more open-hole colour, more compromised notes)",
+          "descriptors": [
+            "archaic",
+            "raw",
+            "diatonic"
+          ],
+          "match_tokens": [
+            "keyed",
+            "historic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ophicleide_build",
+      "name": "Material and build",
+      "variants": [
+        {
+          "id": "ophicleide_brass_light",
+          "default": true,
+          "name": "Light early brass build",
+          "descriptors": [
+            "brass",
+            "bright",
+            "historic"
+          ],
+          "match_tokens": [
+            "keyed",
+            "brass"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        },
+        {
+          "id": "ophicleide_copper",
+          "name": "Copper body",
+          "descriptors": [
+            "copper",
+            "warm",
+            "round"
+          ],
+          "match_tokens": [
+            "keyed",
+            "copper"
+          ]
+        },
+        {
+          "id": "ophicleide_german_silver_heavy",
+          "name": "German silver, heavier late build",
+          "descriptors": [
+            "german-silver",
+            "dense",
+            "cutting"
+          ],
+          "match_tokens": [
+            "keyed",
+            "brass"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,343 @@
+{
+  "id": "seri_fiddle",
+  "name": "Seri one-string fiddle (Comcáac; enneg)",
+  "family": "bowed",
+  "class": "bowed_lute",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "seri fiddle",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "seri_fiddle_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "seri_fiddle_body_solid_block",
+          "default": true,
+          "name": "Rectangular body carved from a single block, one string over a bridge",
+          "descriptors": [
+            "carved-wood",
+            "solid-body",
+            "single-string",
+            "dry"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "wood"
+          ],
+          "canonical_tags": [
+            "indigenous",
+            "amerindian",
+            "wood"
+          ]
+        },
+        {
+          "id": "seri_fiddle_body_skin_topped",
+          "name": "Hollowed resonator with a skin belly",
+          "descriptors": [
+            "skin-topped",
+            "nasal",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "indigenous",
+            "natural-skin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "seri_fiddle_bow",
+      "name": "Bow",
+      "variants": [
+        {
+          "id": "seri_fiddle_bow_mesquite",
+          "default": true,
+          "name": "Mesquite stick strung with horsehair (stiff, low tension)",
+          "descriptors": [
+            "horsehair",
+            "coarse",
+            "gritty"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "horsehair",
+            "indigenous"
+          ]
+        },
+        {
+          "id": "seri_fiddle_bow_modern",
+          "name": "Modern violin bow",
+          "descriptors": [
+            "clean",
+            "grippy",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "modern",
+            "horsehair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "seri_fiddle_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "seri_fiddle_context_rite_dance",
+          "default": true,
+          "name": "Rites and dances",
+          "descriptors": [
+            "ceremonial",
+            "ritual",
+            "steady-pulse"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ritual-context",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "indigenous",
+            "ritual",
+            "ceremonial"
+          ]
+        },
+        {
+          "id": "seri_fiddle_context_song_accompaniment",
+          "name": "Accompanying the Comcáac song repertoire (sea, desert, turtle, whale songs)",
+          "descriptors": [
+            "vocal-accompaniment",
+            "plaintive",
+            "spare"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vocal-accompaniment",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "indigenous",
+            "accompaniment"
+          ]
+        },
+        {
+          "id": "seri_fiddle_context_revival",
+          "name": "Revival / documentation performance (the instrumental tradition is near dormant)",
+          "descriptors": [
+            "revival-build",
+            "reconstructed",
+            "concert"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-revival",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "revival",
+            "folk-revival"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "seri_fiddle_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "seri_fiddle_body_solid_block",
+          "default": true,
+          "name": "Rectangular body carved from a single block, one string over a bridge",
+          "descriptors": [
+            "carved-wood",
+            "solid-body",
+            "single-string",
+            "dry"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "wood"
+          ],
+          "canonical_tags": [
+            "indigenous",
+            "amerindian",
+            "wood"
+          ]
+        },
+        {
+          "id": "seri_fiddle_body_skin_topped",
+          "name": "Hollowed resonator with a skin belly",
+          "descriptors": [
+            "skin-topped",
+            "nasal",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "indigenous",
+            "natural-skin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "seri_fiddle_bow",
+      "name": "Bow",
+      "variants": [
+        {
+          "id": "seri_fiddle_bow_mesquite",
+          "default": true,
+          "name": "Mesquite stick strung with horsehair (stiff, low tension)",
+          "descriptors": [
+            "horsehair",
+            "coarse",
+            "gritty"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "horsehair",
+            "indigenous"
+          ]
+        },
+        {
+          "id": "seri_fiddle_bow_modern",
+          "name": "Modern violin bow",
+          "descriptors": [
+            "clean",
+            "grippy",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "modern",
+            "horsehair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "seri_fiddle_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "seri_fiddle_context_rite_dance",
+          "default": true,
+          "name": "Rites and dances",
+          "descriptors": [
+            "ceremonial",
+            "ritual",
+            "steady-pulse"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ritual-context",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "indigenous",
+            "ritual",
+            "ceremonial"
+          ]
+        },
+        {
+          "id": "seri_fiddle_context_song_accompaniment",
+          "name": "Accompanying the Comcáac song repertoire (sea, desert, turtle, whale songs)",
+          "descriptors": [
+            "vocal-accompaniment",
+            "plaintive",
+            "spare"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vocal-accompaniment",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "indigenous",
+            "accompaniment"
+          ]
+        },
+        {
+          "id": "seri_fiddle_context_revival",
+          "name": "Revival / documentation performance (the instrumental tradition is near dormant)",
+          "descriptors": [
+            "revival-build",
+            "reconstructed",
+            "concert"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-revival",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "revival",
+            "folk-revival"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,509 @@
+{
+  "id": "tyngryng",
+  "name": "Tyngryng (Nivkh one-string bowed box fiddle)",
+  "family": "bowed",
+  "class": "bowed_spike_fiddle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": -2,
+    "register": 0,
+    "range": -1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "tyngryng",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "tyngryng_body",
+      "name": "Resonator build",
+      "variants": [
+        {
+          "id": "tyngryng_body_bark_fishskin",
+          "default": true,
+          "name": "Hollow birch-bark box, one face stretched with fish skin",
+          "descriptors": [
+            "fish-skin",
+            "hollow",
+            "light",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "hide-soundboard"
+          ],
+          "canonical_tags": [
+            "sakhalin",
+            "indigenous",
+            "traditional"
+          ]
+        },
+        {
+          "id": "tyngryng_body_multi_cavity",
+          "name": "Multi-cavity build (three resonating chambers, two or three pitches at once)",
+          "descriptors": [
+            "multiphonic",
+            "hollow",
+            "buzzy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "sakhalin",
+            "traditional"
+          ]
+        },
+        {
+          "id": "tyngryng_body_bear_head",
+          "name": "Neck end finished with a carved bear's head (ritual register)",
+          "descriptors": [
+            "carved",
+            "ritual",
+            "shamanic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ritual-context",
+            "sacred"
+          ],
+          "canonical_tags": [
+            "sakhalin",
+            "ritual",
+            "sacred"
+          ]
+        },
+        {
+          "id": "tyngryng_body_wood_box",
+          "name": "Wooden box body (later, drier build)",
+          "descriptors": [
+            "wooden",
+            "dry",
+            "focused"
+          ],
+          "match_tokens": [
+            "bowed",
+            "wood-body",
+            "wood-toned"
+          ],
+          "canonical_tags": [
+            "sakhalin",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tyngryng_bow",
+      "name": "Bow form",
+      "variants": [
+        {
+          "id": "tyngryng_bow_hunting",
+          "default": true,
+          "name": "Hunting-bow-shaped, low-tension (rasping, multi-layered)",
+          "descriptors": [
+            "rasping",
+            "low-tension",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "archaic"
+          ],
+          "canonical_tags": [
+            "sakhalin",
+            "traditional"
+          ]
+        },
+        {
+          "id": "tyngryng_bow_modern",
+          "name": "Straighter modern bow (cleaner single line)",
+          "descriptors": [
+            "clean",
+            "focused",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern",
+            "revival"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tyngryng_context",
+      "name": "Context",
+      "variants": [
+        {
+          "id": "tyngryng_context_funeral",
+          "default": true,
+          "name": "Funeral rite — instrument as intermediary between worlds",
+          "descriptors": [
+            "mournful",
+            "ritual",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ritual-context",
+            "melancholic"
+          ],
+          "canonical_tags": [
+            "context:funeral-ritual",
+            "ritual",
+            "sakhalin"
+          ]
+        },
+        {
+          "id": "tyngryng_context_bear_festival",
+          "name": "Bear-festival instrumentarium (beside musical log and shaman's drum)",
+          "descriptors": [
+            "shamanic",
+            "ceremonial",
+            "narrative"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sacred",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "shamanic",
+            "sacred",
+            "sakhalin"
+          ]
+        },
+        {
+          "id": "tyngryng_context_secular_solo",
+          "name": "Secular solo playing",
+          "descriptors": [
+            "soloistic",
+            "intimate",
+            "spare"
+          ],
+          "match_tokens": [
+            "bowed",
+            "solo",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "sakhalin",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tyngryng_texture",
+      "name": "Texture",
+      "variants": [
+        {
+          "id": "tyngryng_texture_multi_pitch",
+          "default": true,
+          "name": "Two or three pitches sounding at once (drone plus melody)",
+          "descriptors": [
+            "multiphonic",
+            "droning",
+            "drone-under-melody"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "sakhalin",
+            "traditional"
+          ]
+        },
+        {
+          "id": "tyngryng_texture_single_line",
+          "name": "Single unaccompanied melodic line",
+          "descriptors": [
+            "soloistic",
+            "spare",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "sakhalin",
+            "solo"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tyngryng_body",
+      "name": "Resonator build",
+      "variants": [
+        {
+          "id": "tyngryng_body_bark_fishskin",
+          "default": true,
+          "name": "Hollow birch-bark box, one face stretched with fish skin",
+          "descriptors": [
+            "fish-skin",
+            "hollow",
+            "light",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "hide-soundboard"
+          ],
+          "canonical_tags": [
+            "sakhalin",
+            "indigenous",
+            "traditional"
+          ]
+        },
+        {
+          "id": "tyngryng_body_multi_cavity",
+          "name": "Multi-cavity build (three resonating chambers, two or three pitches at once)",
+          "descriptors": [
+            "multiphonic",
+            "hollow",
+            "buzzy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "sakhalin",
+            "traditional"
+          ]
+        },
+        {
+          "id": "tyngryng_body_bear_head",
+          "name": "Neck end finished with a carved bear's head (ritual register)",
+          "descriptors": [
+            "carved",
+            "ritual",
+            "shamanic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ritual-context",
+            "sacred"
+          ],
+          "canonical_tags": [
+            "sakhalin",
+            "ritual",
+            "sacred"
+          ]
+        },
+        {
+          "id": "tyngryng_body_wood_box",
+          "name": "Wooden box body (later, drier build)",
+          "descriptors": [
+            "wooden",
+            "dry",
+            "focused"
+          ],
+          "match_tokens": [
+            "bowed",
+            "wood-body",
+            "wood-toned"
+          ],
+          "canonical_tags": [
+            "sakhalin",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tyngryng_bow",
+      "name": "Bow form",
+      "variants": [
+        {
+          "id": "tyngryng_bow_hunting",
+          "default": true,
+          "name": "Hunting-bow-shaped, low-tension (rasping, multi-layered)",
+          "descriptors": [
+            "rasping",
+            "low-tension",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "archaic"
+          ],
+          "canonical_tags": [
+            "sakhalin",
+            "traditional"
+          ]
+        },
+        {
+          "id": "tyngryng_bow_modern",
+          "name": "Straighter modern bow (cleaner single line)",
+          "descriptors": [
+            "clean",
+            "focused",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern",
+            "revival"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tyngryng_context",
+      "name": "Context",
+      "variants": [
+        {
+          "id": "tyngryng_context_funeral",
+          "default": true,
+          "name": "Funeral rite — instrument as intermediary between worlds",
+          "descriptors": [
+            "mournful",
+            "ritual",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ritual-context",
+            "melancholic"
+          ],
+          "canonical_tags": [
+            "context:funeral-ritual",
+            "ritual",
+            "sakhalin"
+          ]
+        },
+        {
+          "id": "tyngryng_context_bear_festival",
+          "name": "Bear-festival instrumentarium (beside musical log and shaman's drum)",
+          "descriptors": [
+            "shamanic",
+            "ceremonial",
+            "narrative"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sacred",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "shamanic",
+            "sacred",
+            "sakhalin"
+          ]
+        },
+        {
+          "id": "tyngryng_context_secular_solo",
+          "name": "Secular solo playing",
+          "descriptors": [
+            "soloistic",
+            "intimate",
+            "spare"
+          ],
+          "match_tokens": [
+            "bowed",
+            "solo",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "sakhalin",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tyngryng_texture",
+      "name": "Texture",
+      "variants": [
+        {
+          "id": "tyngryng_texture_multi_pitch",
+          "default": true,
+          "name": "Two or three pitches sounding at once (drone plus melody)",
+          "descriptors": [
+            "multiphonic",
+            "droning",
+            "drone-under-melody"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "sakhalin",
+            "traditional"
+          ]
+        },
+        {
+          "id": "tyngryng_texture_single_line",
+          "name": "Single unaccompanied melodic line",
+          "descriptors": [
+            "soloistic",
+            "spare",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "sakhalin",
+            "solo"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,453 @@
+{
+  "id": "apache_fiddle",
+  "name": "Apache fiddle (tsii'edo'a'tl, bowed agave-stalk one-string)",
+  "family": "bowed",
+  "class": "bowed_tube_fiddle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 1,
+    "range": -2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "apache fiddle",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "apache_fiddle_stringing",
+      "name": "String count / material",
+      "variants": [
+        {
+          "id": "apache_fiddle_black_horsehair",
+          "default": true,
+          "name": "Single black-horsehair string (most common)",
+          "descriptors": [
+            "horsehair",
+            "nasal",
+            "buzzy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "horsehair",
+            "indigenous"
+          ]
+        },
+        {
+          "id": "apache_fiddle_gut_sinew",
+          "name": "Gut or sinew string",
+          "descriptors": [
+            "gut-strung",
+            "softer",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "gut",
+            "traditional"
+          ]
+        },
+        {
+          "id": "apache_fiddle_two_string",
+          "name": "Rarer two-string form",
+          "descriptors": [
+            "two-string",
+            "fuller",
+            "droning"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "indigenous"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "apache_fiddle_stalk",
+      "name": "Agave stalk length",
+      "variants": [
+        {
+          "id": "apache_fiddle_short_stalk",
+          "default": true,
+          "name": "Short stalk (~40 cm, diamond soundholes)",
+          "descriptors": [
+            "nasal",
+            "tight",
+            "high-pitched"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "desert",
+            "indigenous"
+          ]
+        },
+        {
+          "id": "apache_fiddle_long_stalk",
+          "name": "Long stalk (~70 cm)",
+          "descriptors": [
+            "lower",
+            "resonant",
+            "fuller-bodied"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "desert",
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "apache_fiddle_function",
+      "name": "Function in the mix",
+      "variants": [
+        {
+          "id": "apache_fiddle_drone_bed",
+          "default": true,
+          "name": "Rhythmic drone bed under song and dance (traditional practice)",
+          "descriptors": [
+            "drone-under-song",
+            "rhythmic",
+            "supportive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "indigenous",
+            "ceremonial"
+          ]
+        },
+        {
+          "id": "apache_fiddle_courting",
+          "name": "Courting and love-song accompaniment",
+          "descriptors": [
+            "courting",
+            "love-song",
+            "intimate"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "courting",
+            "folk-song"
+          ]
+        },
+        {
+          "id": "apache_fiddle_melodic_lead",
+          "name": "Foregrounded melodic lead (modern revival practice)",
+          "descriptors": [
+            "soloistic",
+            "revival",
+            "melodic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "lead-melody",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "revival",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "apache_fiddle_decoration",
+      "name": "Painted decoration / era",
+      "variants": [
+        {
+          "id": "apache_fiddle_early_geometric",
+          "default": true,
+          "name": "Pre-1920 red-and-black geometric painting",
+          "descriptors": [
+            "red-dyed",
+            "sparse",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "historical",
+            "archaic"
+          ]
+        },
+        {
+          "id": "apache_fiddle_later_polychrome",
+          "name": "Dense polychrome designs (later twentieth-century makers)",
+          "descriptors": [
+            "ornate",
+            "dense",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "twentieth-century",
+            "indigenous"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "apache_fiddle_stringing",
+      "name": "String count / material",
+      "variants": [
+        {
+          "id": "apache_fiddle_black_horsehair",
+          "default": true,
+          "name": "Single black-horsehair string (most common)",
+          "descriptors": [
+            "horsehair",
+            "nasal",
+            "buzzy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "horsehair",
+            "indigenous"
+          ]
+        },
+        {
+          "id": "apache_fiddle_gut_sinew",
+          "name": "Gut or sinew string",
+          "descriptors": [
+            "gut-strung",
+            "softer",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "gut",
+            "traditional"
+          ]
+        },
+        {
+          "id": "apache_fiddle_two_string",
+          "name": "Rarer two-string form",
+          "descriptors": [
+            "two-string",
+            "fuller",
+            "droning"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "indigenous"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "apache_fiddle_stalk",
+      "name": "Agave stalk length",
+      "variants": [
+        {
+          "id": "apache_fiddle_short_stalk",
+          "default": true,
+          "name": "Short stalk (~40 cm, diamond soundholes)",
+          "descriptors": [
+            "nasal",
+            "tight",
+            "high-pitched"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "desert",
+            "indigenous"
+          ]
+        },
+        {
+          "id": "apache_fiddle_long_stalk",
+          "name": "Long stalk (~70 cm)",
+          "descriptors": [
+            "lower",
+            "resonant",
+            "fuller-bodied"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "desert",
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "apache_fiddle_function",
+      "name": "Function in the mix",
+      "variants": [
+        {
+          "id": "apache_fiddle_drone_bed",
+          "default": true,
+          "name": "Rhythmic drone bed under song and dance (traditional practice)",
+          "descriptors": [
+            "drone-under-song",
+            "rhythmic",
+            "supportive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "indigenous",
+            "ceremonial"
+          ]
+        },
+        {
+          "id": "apache_fiddle_courting",
+          "name": "Courting and love-song accompaniment",
+          "descriptors": [
+            "courting",
+            "love-song",
+            "intimate"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "courting",
+            "folk-song"
+          ]
+        },
+        {
+          "id": "apache_fiddle_melodic_lead",
+          "name": "Foregrounded melodic lead (modern revival practice)",
+          "descriptors": [
+            "soloistic",
+            "revival",
+            "melodic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "lead-melody",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "revival",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "apache_fiddle_decoration",
+      "name": "Painted decoration / era",
+      "variants": [
+        {
+          "id": "apache_fiddle_early_geometric",
+          "default": true,
+          "name": "Pre-1920 red-and-black geometric painting",
+          "descriptors": [
+            "red-dyed",
+            "sparse",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "historical",
+            "archaic"
+          ]
+        },
+        {
+          "id": "apache_fiddle_later_polychrome",
+          "name": "Dense polychrome designs (later twentieth-century makers)",
+          "descriptors": [
+            "ornate",
+            "dense",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "twentieth-century",
+            "indigenous"
+          ]
+        }
+      ]
+    }
+  ]
+}

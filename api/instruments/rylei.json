@@ -1,0 +1,421 @@
+{
+  "id": "rylei",
+  "name": "Rylei (Don Cossack wheel lyre)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": -1,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "rylei",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "rylei_keybox",
+      "name": "Keybox span",
+      "variants": [
+        {
+          "id": "rylei_eleven_key",
+          "default": true,
+          "name": "Eleven keys along the side face of the neck (documented Don norm)",
+          "descriptors": [
+            "archaic",
+            "folk",
+            "narrow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "keyed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "russian",
+            "archaic"
+          ]
+        },
+        {
+          "id": "rylei_fourteen_key",
+          "name": "Fourteen keys (extended upper melody register)",
+          "descriptors": [
+            "extended",
+            "melodic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "keyed",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "russian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rylei_repertoire",
+      "name": "Repertoire mode",
+      "variants": [
+        {
+          "id": "rylei_dukhovnye_stikhi",
+          "default": true,
+          "name": "Dukhovnye stikhi (spiritual verse) - slow crank, voice-forward",
+          "descriptors": [
+            "devotional",
+            "declamatory",
+            "unhurried"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "devotional",
+            "self-accompanying"
+          ],
+          "canonical_tags": [
+            "devotional",
+            "russian"
+          ]
+        },
+        {
+          "id": "rylei_protyazhnaya_bylina",
+          "name": "Protyazhnaya long-drawn lyric song and bylina narrative",
+          "descriptors": [
+            "oral-history",
+            "narrative",
+            "mournful"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "declaimed",
+            "epic"
+          ],
+          "canonical_tags": [
+            "epic",
+            "narrative"
+          ]
+        },
+        {
+          "id": "rylei_dance_tune",
+          "name": "Dance tune - fast crank, rhythmic accent",
+          "descriptors": [
+            "dance-driving",
+            "rhythmic",
+            "festive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "dance",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rylei_frame",
+      "name": "Performance frame",
+      "variants": [
+        {
+          "id": "rylei_solo_singer",
+          "default": true,
+          "name": "Solo self-accompanied ryleshnik",
+          "descriptors": [
+            "song-accompaniment",
+            "intimate"
+          ],
+          "match_tokens": [
+            "bowed",
+            "self-accompanying",
+            "song-accompaniment"
+          ],
+          "canonical_tags": [
+            "self-accompanied",
+            "russian"
+          ]
+        },
+        {
+          "id": "rylei_cossack_ensemble",
+          "name": "Drone floor inside a Cossack male polyphonic ensemble",
+          "descriptors": [
+            "communal",
+            "grounding",
+            "ensemble"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "ensemble",
+            "russian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rylei_drones",
+      "name": "Drone weight",
+      "variants": [
+        {
+          "id": "rylei_single_drone",
+          "default": true,
+          "name": "Single drone (Don norm: two melody strings, one drone, one key-return cord)",
+          "descriptors": [
+            "droning",
+            "spare"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "friction-driven"
+          ],
+          "canonical_tags": [
+            "drone",
+            "russian"
+          ]
+        },
+        {
+          "id": "rylei_double_drone",
+          "name": "Second drone added from Ukrainian practice",
+          "descriptors": [
+            "droning",
+            "full"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "friction-driven"
+          ],
+          "canonical_tags": [
+            "drone",
+            "ukrainian"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "rylei_keybox",
+      "name": "Keybox span",
+      "variants": [
+        {
+          "id": "rylei_eleven_key",
+          "default": true,
+          "name": "Eleven keys along the side face of the neck (documented Don norm)",
+          "descriptors": [
+            "archaic",
+            "folk",
+            "narrow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "keyed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "russian",
+            "archaic"
+          ]
+        },
+        {
+          "id": "rylei_fourteen_key",
+          "name": "Fourteen keys (extended upper melody register)",
+          "descriptors": [
+            "extended",
+            "melodic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "keyed",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "russian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rylei_repertoire",
+      "name": "Repertoire mode",
+      "variants": [
+        {
+          "id": "rylei_dukhovnye_stikhi",
+          "default": true,
+          "name": "Dukhovnye stikhi (spiritual verse) - slow crank, voice-forward",
+          "descriptors": [
+            "devotional",
+            "declamatory",
+            "unhurried"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "devotional",
+            "self-accompanying"
+          ],
+          "canonical_tags": [
+            "devotional",
+            "russian"
+          ]
+        },
+        {
+          "id": "rylei_protyazhnaya_bylina",
+          "name": "Protyazhnaya long-drawn lyric song and bylina narrative",
+          "descriptors": [
+            "oral-history",
+            "narrative",
+            "mournful"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "declaimed",
+            "epic"
+          ],
+          "canonical_tags": [
+            "epic",
+            "narrative"
+          ]
+        },
+        {
+          "id": "rylei_dance_tune",
+          "name": "Dance tune - fast crank, rhythmic accent",
+          "descriptors": [
+            "dance-driving",
+            "rhythmic",
+            "festive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "dance",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rylei_frame",
+      "name": "Performance frame",
+      "variants": [
+        {
+          "id": "rylei_solo_singer",
+          "default": true,
+          "name": "Solo self-accompanied ryleshnik",
+          "descriptors": [
+            "song-accompaniment",
+            "intimate"
+          ],
+          "match_tokens": [
+            "bowed",
+            "self-accompanying",
+            "song-accompaniment"
+          ],
+          "canonical_tags": [
+            "self-accompanied",
+            "russian"
+          ]
+        },
+        {
+          "id": "rylei_cossack_ensemble",
+          "name": "Drone floor inside a Cossack male polyphonic ensemble",
+          "descriptors": [
+            "communal",
+            "grounding",
+            "ensemble"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "ensemble",
+            "russian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rylei_drones",
+      "name": "Drone weight",
+      "variants": [
+        {
+          "id": "rylei_single_drone",
+          "default": true,
+          "name": "Single drone (Don norm: two melody strings, one drone, one key-return cord)",
+          "descriptors": [
+            "droning",
+            "spare"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "friction-driven"
+          ],
+          "canonical_tags": [
+            "drone",
+            "russian"
+          ]
+        },
+        {
+          "id": "rylei_double_drone",
+          "name": "Second drone added from Ukrainian practice",
+          "descriptors": [
+            "droning",
+            "full"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "friction-driven"
+          ],
+          "canonical_tags": [
+            "drone",
+            "ukrainian"
+          ]
+        }
+      ]
+    }
+  ]
+}

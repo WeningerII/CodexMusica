@@ -1,0 +1,339 @@
+{
+  "id": "tuhu",
+  "name": "Tuhu (Zhuang mid-register wooden fiddle)",
+  "family": "bowed",
+  "class": "bowed_fiddle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "tuhu",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "tuhu_body",
+      "name": "Soundbox construction",
+      "variants": [
+        {
+          "id": "tuhu_body_paulownia",
+          "default": true,
+          "name": "Paulownia box with thin wood face (documented Zhuang build)",
+          "descriptors": [
+            "paulownia",
+            "wood-faced",
+            "thick",
+            "dark"
+          ],
+          "match_tokens": [
+            "bowed",
+            "wood-body",
+            "mellow-tone"
+          ],
+          "canonical_tags": [
+            "traditional",
+            "wood"
+          ]
+        },
+        {
+          "id": "tuhu_body_gourd_skin",
+          "name": "Gourd body with snakeskin face (variant claim in English sources)",
+          "descriptors": [
+            "gourd-bodied",
+            "snake-skin",
+            "nasal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "nasal-tone",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "gourd-body",
+            "snakeskin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tuhu_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "tuhu_role_bayin",
+          "default": true,
+          "name": "Zhuang bayin harmony voice",
+          "descriptors": [
+            "inner-voice",
+            "blended",
+            "supporting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "mid-register"
+          ],
+          "canonical_tags": [
+            "ensemble",
+            "folk"
+          ]
+        },
+        {
+          "id": "tuhu_role_opera",
+          "name": "Zhuang opera pit, under the maguhu",
+          "descriptors": [
+            "operatic",
+            "supporting",
+            "thick"
+          ],
+          "match_tokens": [
+            "bowed",
+            "accompaniment",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "opera",
+            "traditional"
+          ]
+        },
+        {
+          "id": "tuhu_role_houhu",
+          "name": "Houhu low setting (the thick mother-fiddle voice)",
+          "descriptors": [
+            "deep",
+            "dense",
+            "muffled"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register",
+            "dark-toned"
+          ],
+          "canonical_tags": [
+            "china"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tuhu_region",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "tuhu_region_guangxi",
+          "default": true,
+          "name": "Western Guangxi (Baise, Tianlin, Xilin)",
+          "descriptors": [
+            "rustic",
+            "village",
+            "handmade"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "wood-toned"
+          ],
+          "canonical_tags": [
+            "china",
+            "folk"
+          ]
+        },
+        {
+          "id": "tuhu_region_yunnan",
+          "name": "Funing Zhuang form (Wenshan, Yunnan)",
+          "descriptors": [
+            "earthy",
+            "traditional",
+            "woody"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tuhu_body",
+      "name": "Soundbox construction",
+      "variants": [
+        {
+          "id": "tuhu_body_paulownia",
+          "default": true,
+          "name": "Paulownia box with thin wood face (documented Zhuang build)",
+          "descriptors": [
+            "paulownia",
+            "wood-faced",
+            "thick",
+            "dark"
+          ],
+          "match_tokens": [
+            "bowed",
+            "wood-body",
+            "mellow-tone"
+          ],
+          "canonical_tags": [
+            "traditional",
+            "wood"
+          ]
+        },
+        {
+          "id": "tuhu_body_gourd_skin",
+          "name": "Gourd body with snakeskin face (variant claim in English sources)",
+          "descriptors": [
+            "gourd-bodied",
+            "snake-skin",
+            "nasal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "nasal-tone",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "gourd-body",
+            "snakeskin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tuhu_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "tuhu_role_bayin",
+          "default": true,
+          "name": "Zhuang bayin harmony voice",
+          "descriptors": [
+            "inner-voice",
+            "blended",
+            "supporting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "mid-register"
+          ],
+          "canonical_tags": [
+            "ensemble",
+            "folk"
+          ]
+        },
+        {
+          "id": "tuhu_role_opera",
+          "name": "Zhuang opera pit, under the maguhu",
+          "descriptors": [
+            "operatic",
+            "supporting",
+            "thick"
+          ],
+          "match_tokens": [
+            "bowed",
+            "accompaniment",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "opera",
+            "traditional"
+          ]
+        },
+        {
+          "id": "tuhu_role_houhu",
+          "name": "Houhu low setting (the thick mother-fiddle voice)",
+          "descriptors": [
+            "deep",
+            "dense",
+            "muffled"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register",
+            "dark-toned"
+          ],
+          "canonical_tags": [
+            "china"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tuhu_region",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "tuhu_region_guangxi",
+          "default": true,
+          "name": "Western Guangxi (Baise, Tianlin, Xilin)",
+          "descriptors": [
+            "rustic",
+            "village",
+            "handmade"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "wood-toned"
+          ],
+          "canonical_tags": [
+            "china",
+            "folk"
+          ]
+        },
+        {
+          "id": "tuhu_region_yunnan",
+          "name": "Funing Zhuang form (Wenshan, Yunnan)",
+          "descriptors": [
+            "earthy",
+            "traditional",
+            "woody"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        }
+      ]
+    }
+  ]
+}

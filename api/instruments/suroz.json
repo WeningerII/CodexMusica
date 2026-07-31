@@ -1,0 +1,385 @@
+{
+  "id": "suroz",
+  "name": "Suroz (Baloch sarinda-type bowed lute)",
+  "family": "bowed",
+  "class": "bowed_lute",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "suroz",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "suroz_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "suroz_form_pakistani",
+          "default": true,
+          "name": "Pakistani Balochistan suroz (deep hourglass waist, horn-like upper arms)",
+          "descriptors": [
+            "carved",
+            "hide-faced",
+            "sympathetic-halo",
+            "vocal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "fretless"
+          ],
+          "canonical_tags": [
+            "folk",
+            "afghan"
+          ]
+        },
+        {
+          "id": "suroz_form_iranian_soroud",
+          "name": "Iranian Baloch soroud (Sistan-Baluchestan form)",
+          "descriptors": [
+            "plaintive",
+            "rustic",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "microtonal-bend",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "persian",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "suroz_context",
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "suroz_context_zahirig",
+          "default": true,
+          "name": "Zahirig modal exposition (principal melodic voice)",
+          "descriptors": [
+            "modal",
+            "improvisatory",
+            "lead-voice",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic-lead",
+            "microtonal-bend",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "folk",
+            "persian"
+          ]
+        },
+        {
+          "id": "suroz_context_sherwandi",
+          "name": "Sherwandi ballad and epic singer accompaniment",
+          "descriptors": [
+            "narrative",
+            "vocal-shadowing",
+            "declamatory"
+          ],
+          "match_tokens": [
+            "bowed",
+            "epic",
+            "vocal-accompaniment"
+          ],
+          "canonical_tags": [
+            "storytelling",
+            "narrative"
+          ]
+        },
+        {
+          "id": "suroz_context_guati",
+          "name": "Guati / damali trance-ceremony ostinato",
+          "descriptors": [
+            "ostinato",
+            "cyclic",
+            "hypnotic",
+            "ritual"
+          ],
+          "match_tokens": [
+            "bowed",
+            "trance-inducing",
+            "ostinato",
+            "ritual-context"
+          ],
+          "canonical_tags": [
+            "ritual",
+            "trance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "suroz_build",
+      "name": "Stringing",
+      "variants": [
+        {
+          "id": "suroz_build_gut_full_taraf",
+          "default": true,
+          "name": "Gut melody strings over a full sympathetic bank",
+          "descriptors": [
+            "gut",
+            "sympathetic-halo",
+            "floating",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "sympathetic-resonant"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "suroz_build_steel_full_taraf",
+          "name": "Steel melody strings over a full sympathetic bank",
+          "descriptors": [
+            "steel",
+            "bright",
+            "resonance-saturated"
+          ],
+          "match_tokens": [
+            "bowed",
+            "steel-string",
+            "sympathetic-resonant"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "suroz_build_no_taraf",
+          "name": "Stripped village build, melody strings only",
+          "descriptors": [
+            "spare",
+            "raw",
+            "handmade",
+            "dry"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "suroz_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "suroz_form_pakistani",
+          "default": true,
+          "name": "Pakistani Balochistan suroz (deep hourglass waist, horn-like upper arms)",
+          "descriptors": [
+            "carved",
+            "hide-faced",
+            "sympathetic-halo",
+            "vocal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "fretless"
+          ],
+          "canonical_tags": [
+            "folk",
+            "afghan"
+          ]
+        },
+        {
+          "id": "suroz_form_iranian_soroud",
+          "name": "Iranian Baloch soroud (Sistan-Baluchestan form)",
+          "descriptors": [
+            "plaintive",
+            "rustic",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "microtonal-bend",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "persian",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "suroz_context",
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "suroz_context_zahirig",
+          "default": true,
+          "name": "Zahirig modal exposition (principal melodic voice)",
+          "descriptors": [
+            "modal",
+            "improvisatory",
+            "lead-voice",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic-lead",
+            "microtonal-bend",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "folk",
+            "persian"
+          ]
+        },
+        {
+          "id": "suroz_context_sherwandi",
+          "name": "Sherwandi ballad and epic singer accompaniment",
+          "descriptors": [
+            "narrative",
+            "vocal-shadowing",
+            "declamatory"
+          ],
+          "match_tokens": [
+            "bowed",
+            "epic",
+            "vocal-accompaniment"
+          ],
+          "canonical_tags": [
+            "storytelling",
+            "narrative"
+          ]
+        },
+        {
+          "id": "suroz_context_guati",
+          "name": "Guati / damali trance-ceremony ostinato",
+          "descriptors": [
+            "ostinato",
+            "cyclic",
+            "hypnotic",
+            "ritual"
+          ],
+          "match_tokens": [
+            "bowed",
+            "trance-inducing",
+            "ostinato",
+            "ritual-context"
+          ],
+          "canonical_tags": [
+            "ritual",
+            "trance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "suroz_build",
+      "name": "Stringing",
+      "variants": [
+        {
+          "id": "suroz_build_gut_full_taraf",
+          "default": true,
+          "name": "Gut melody strings over a full sympathetic bank",
+          "descriptors": [
+            "gut",
+            "sympathetic-halo",
+            "floating",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "sympathetic-resonant"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "suroz_build_steel_full_taraf",
+          "name": "Steel melody strings over a full sympathetic bank",
+          "descriptors": [
+            "steel",
+            "bright",
+            "resonance-saturated"
+          ],
+          "match_tokens": [
+            "bowed",
+            "steel-string",
+            "sympathetic-resonant"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "suroz_build_no_taraf",
+          "name": "Stripped village build, melody strings only",
+          "descriptors": [
+            "spare",
+            "raw",
+            "handmade",
+            "dry"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        }
+      ]
+    }
+  ]
+}

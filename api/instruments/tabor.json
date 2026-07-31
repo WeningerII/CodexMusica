@@ -1,0 +1,632 @@
+{
+  "id": "tabor",
+  "name": "Tabor (European pipe-and-tabor snare drum)",
+  "family": "percussion",
+  "class": "double_headed_drum",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": -2,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "tabor",
+  "parts": [
+    {
+      "id": "tabor_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "tabor_english_morris",
+          "default": true,
+          "name": "English Morris tabor (shallow, light, wrist-slung)",
+          "descriptors": [
+            "shallow-shell",
+            "crisp",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "struck",
+            "sticks",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "british_isles",
+            "britfolk"
+          ]
+        },
+        {
+          "id": "tabor_tambourin_provencal",
+          "name": "Provençal tambourin (deep narrow shell, low sustained boom)",
+          "descriptors": [
+            "deep-boom",
+            "sustained",
+            "processional"
+          ],
+          "match_tokens": [
+            "struck",
+            "sticks",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "french"
+          ]
+        },
+        {
+          "id": "tabor_danbolin_basque",
+          "name": "Basque danbolin (small high drum of the txistulari)",
+          "descriptors": [
+            "bright",
+            "tight",
+            "self-accompanied"
+          ],
+          "match_tokens": [
+            "struck",
+            "sticks",
+            "tabor-paired"
+          ],
+          "canonical_tags": [
+            "basque"
+          ]
+        },
+        {
+          "id": "tabor_tambori_catalan",
+          "name": "Catalan tamborí (very small flabiol partner)",
+          "descriptors": [
+            "clipped",
+            "light",
+            "festive"
+          ],
+          "match_tokens": [
+            "struck",
+            "sticks",
+            "dance-pulse"
+          ],
+          "canonical_tags": [
+            "catalan"
+          ]
+        },
+        {
+          "id": "tabor_tamboril_iberian",
+          "name": "Tamboril (Extremaduran gaita-and-tamboril pairing)",
+          "descriptors": [
+            "rustic",
+            "steady-pulse",
+            "processional"
+          ],
+          "match_tokens": [
+            "struck",
+            "sticks",
+            "processional"
+          ],
+          "canonical_tags": [
+            "iberian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tabor_context",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "tabor_pipe_and_tabor",
+          "default": true,
+          "name": "One-player pipe and tabor (English 'whittle and dub')",
+          "descriptors": [
+            "one-handed",
+            "self-accompanied",
+            "foundational"
+          ],
+          "match_tokens": [
+            "struck",
+            "tabor-paired",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "traditional",
+            "dance"
+          ]
+        },
+        {
+          "id": "tabor_morris_dance",
+          "name": "Morris and English country dance",
+          "descriptors": [
+            "dance-driving",
+            "outdoor",
+            "communal"
+          ],
+          "match_tokens": [
+            "struck",
+            "dance-rhythm",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "british_isles",
+            "traditional-dance"
+          ]
+        },
+        {
+          "id": "tabor_medieval",
+          "name": "Medieval estampie and basse danse",
+          "descriptors": [
+            "medieval",
+            "archaic",
+            "measured"
+          ],
+          "match_tokens": [
+            "struck",
+            "period-performance",
+            "dance-rhythm"
+          ],
+          "canonical_tags": [
+            "medieval",
+            "early-music"
+          ]
+        },
+        {
+          "id": "tabor_farandole",
+          "name": "Provençal farandole procession",
+          "descriptors": [
+            "processional",
+            "lilting",
+            "open-air"
+          ],
+          "match_tokens": [
+            "struck",
+            "processional",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "french",
+            "processional"
+          ]
+        },
+        {
+          "id": "tabor_aurresku",
+          "name": "Basque dance suite with txistu (aurresku, arin-arin)",
+          "descriptors": [
+            "ceremonial",
+            "lilting",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "struck",
+            "tabor-paired",
+            "dance"
+          ],
+          "canonical_tags": [
+            "basque",
+            "dance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tabor_snare",
+      "name": "Snare configuration",
+      "variants": [
+        {
+          "id": "tabor_snare_batter",
+          "default": true,
+          "name": "Gut snare lying across the struck head",
+          "descriptors": [
+            "gut",
+            "buzzing",
+            "rasping"
+          ],
+          "match_tokens": [
+            "struck",
+            "rattle-buzz",
+            "sticks"
+          ],
+          "canonical_tags": [
+            "traditional",
+            "gut"
+          ]
+        },
+        {
+          "id": "tabor_snare_resonant",
+          "name": "Snare on the far resonant head",
+          "descriptors": [
+            "buzzing",
+            "undamped-resonance",
+            "warm"
+          ],
+          "match_tokens": [
+            "struck",
+            "rattle-buzz"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "tabor_no_snare",
+          "name": "Snare removed (dry medieval thump)",
+          "descriptors": [
+            "dry",
+            "damped",
+            "archaic"
+          ],
+          "match_tokens": [
+            "struck",
+            "dry-tone",
+            "sticks"
+          ],
+          "canonical_tags": [
+            "medieval"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tabor_heads",
+      "name": "Head material and tension",
+      "variants": [
+        {
+          "id": "tabor_calfskin_slack",
+          "default": true,
+          "name": "Calfskin heads, slack and warm",
+          "descriptors": [
+            "calfskin",
+            "low-tension",
+            "warm"
+          ],
+          "match_tokens": [
+            "struck",
+            "hide-head"
+          ],
+          "canonical_tags": [
+            "natural-skin"
+          ]
+        },
+        {
+          "id": "tabor_goatskin_tight",
+          "name": "Goatskin heads cranked tight (bright, cracking)",
+          "descriptors": [
+            "goatskin-head",
+            "high-tension",
+            "bright"
+          ],
+          "match_tokens": [
+            "struck",
+            "sharp-crack"
+          ],
+          "canonical_tags": [
+            "natural-skin",
+            "goatskin"
+          ]
+        },
+        {
+          "id": "tabor_synthetic_heads",
+          "name": "Synthetic heads (weather-stable modern build)",
+          "descriptors": [
+            "synthetic-heads",
+            "weatherproof",
+            "consistent"
+          ],
+          "match_tokens": [
+            "struck",
+            "sticks"
+          ],
+          "canonical_tags": [
+            "synthetic",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tabor_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "tabor_english_morris",
+          "default": true,
+          "name": "English Morris tabor (shallow, light, wrist-slung)",
+          "descriptors": [
+            "shallow-shell",
+            "crisp",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "struck",
+            "sticks",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "british_isles",
+            "britfolk"
+          ]
+        },
+        {
+          "id": "tabor_tambourin_provencal",
+          "name": "Provençal tambourin (deep narrow shell, low sustained boom)",
+          "descriptors": [
+            "deep-boom",
+            "sustained",
+            "processional"
+          ],
+          "match_tokens": [
+            "struck",
+            "sticks",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "french"
+          ]
+        },
+        {
+          "id": "tabor_danbolin_basque",
+          "name": "Basque danbolin (small high drum of the txistulari)",
+          "descriptors": [
+            "bright",
+            "tight",
+            "self-accompanied"
+          ],
+          "match_tokens": [
+            "struck",
+            "sticks",
+            "tabor-paired"
+          ],
+          "canonical_tags": [
+            "basque"
+          ]
+        },
+        {
+          "id": "tabor_tambori_catalan",
+          "name": "Catalan tamborí (very small flabiol partner)",
+          "descriptors": [
+            "clipped",
+            "light",
+            "festive"
+          ],
+          "match_tokens": [
+            "struck",
+            "sticks",
+            "dance-pulse"
+          ],
+          "canonical_tags": [
+            "catalan"
+          ]
+        },
+        {
+          "id": "tabor_tamboril_iberian",
+          "name": "Tamboril (Extremaduran gaita-and-tamboril pairing)",
+          "descriptors": [
+            "rustic",
+            "steady-pulse",
+            "processional"
+          ],
+          "match_tokens": [
+            "struck",
+            "sticks",
+            "processional"
+          ],
+          "canonical_tags": [
+            "iberian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tabor_context",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "tabor_pipe_and_tabor",
+          "default": true,
+          "name": "One-player pipe and tabor (English 'whittle and dub')",
+          "descriptors": [
+            "one-handed",
+            "self-accompanied",
+            "foundational"
+          ],
+          "match_tokens": [
+            "struck",
+            "tabor-paired",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "traditional",
+            "dance"
+          ]
+        },
+        {
+          "id": "tabor_morris_dance",
+          "name": "Morris and English country dance",
+          "descriptors": [
+            "dance-driving",
+            "outdoor",
+            "communal"
+          ],
+          "match_tokens": [
+            "struck",
+            "dance-rhythm",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "british_isles",
+            "traditional-dance"
+          ]
+        },
+        {
+          "id": "tabor_medieval",
+          "name": "Medieval estampie and basse danse",
+          "descriptors": [
+            "medieval",
+            "archaic",
+            "measured"
+          ],
+          "match_tokens": [
+            "struck",
+            "period-performance",
+            "dance-rhythm"
+          ],
+          "canonical_tags": [
+            "medieval",
+            "early-music"
+          ]
+        },
+        {
+          "id": "tabor_farandole",
+          "name": "Provençal farandole procession",
+          "descriptors": [
+            "processional",
+            "lilting",
+            "open-air"
+          ],
+          "match_tokens": [
+            "struck",
+            "processional",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "french",
+            "processional"
+          ]
+        },
+        {
+          "id": "tabor_aurresku",
+          "name": "Basque dance suite with txistu (aurresku, arin-arin)",
+          "descriptors": [
+            "ceremonial",
+            "lilting",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "struck",
+            "tabor-paired",
+            "dance"
+          ],
+          "canonical_tags": [
+            "basque",
+            "dance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tabor_snare",
+      "name": "Snare configuration",
+      "variants": [
+        {
+          "id": "tabor_snare_batter",
+          "default": true,
+          "name": "Gut snare lying across the struck head",
+          "descriptors": [
+            "gut",
+            "buzzing",
+            "rasping"
+          ],
+          "match_tokens": [
+            "struck",
+            "rattle-buzz",
+            "sticks"
+          ],
+          "canonical_tags": [
+            "traditional",
+            "gut"
+          ]
+        },
+        {
+          "id": "tabor_snare_resonant",
+          "name": "Snare on the far resonant head",
+          "descriptors": [
+            "buzzing",
+            "undamped-resonance",
+            "warm"
+          ],
+          "match_tokens": [
+            "struck",
+            "rattle-buzz"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "tabor_no_snare",
+          "name": "Snare removed (dry medieval thump)",
+          "descriptors": [
+            "dry",
+            "damped",
+            "archaic"
+          ],
+          "match_tokens": [
+            "struck",
+            "dry-tone",
+            "sticks"
+          ],
+          "canonical_tags": [
+            "medieval"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tabor_heads",
+      "name": "Head material and tension",
+      "variants": [
+        {
+          "id": "tabor_calfskin_slack",
+          "default": true,
+          "name": "Calfskin heads, slack and warm",
+          "descriptors": [
+            "calfskin",
+            "low-tension",
+            "warm"
+          ],
+          "match_tokens": [
+            "struck",
+            "hide-head"
+          ],
+          "canonical_tags": [
+            "natural-skin"
+          ]
+        },
+        {
+          "id": "tabor_goatskin_tight",
+          "name": "Goatskin heads cranked tight (bright, cracking)",
+          "descriptors": [
+            "goatskin-head",
+            "high-tension",
+            "bright"
+          ],
+          "match_tokens": [
+            "struck",
+            "sharp-crack"
+          ],
+          "canonical_tags": [
+            "natural-skin",
+            "goatskin"
+          ]
+        },
+        {
+          "id": "tabor_synthetic_heads",
+          "name": "Synthetic heads (weather-stable modern build)",
+          "descriptors": [
+            "synthetic-heads",
+            "weatherproof",
+            "consistent"
+          ],
+          "match_tokens": [
+            "struck",
+            "sticks"
+          ],
+          "canonical_tags": [
+            "synthetic",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

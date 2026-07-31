@@ -1,0 +1,497 @@
+{
+  "id": "lira_calabrese",
+  "name": "Lira calabrese (Calabrian bowed lira)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "lira calabrese",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "lira_calabrese_ensemble",
+      "name": "Ensemble setting",
+      "variants": [
+        {
+          "id": "lira_calabrese_tamburello_pair",
+          "default": true,
+          "name": "Lira + tamburello pair (canonical dance duo)",
+          "descriptors": [
+            "driving",
+            "communal",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "frame-drum"
+          ],
+          "canonical_tags": [
+            "southern-italy",
+            "tarantella",
+            "dance"
+          ]
+        },
+        {
+          "id": "lira_calabrese_solo",
+          "name": "Solo dance-driver (single player)",
+          "descriptors": [
+            "soloistic",
+            "rustic",
+            "raw"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "southern-italy",
+            "folk"
+          ]
+        },
+        {
+          "id": "lira_calabrese_sonu_a_ballu",
+          "name": "Full sonu a ballu set (zampogna, organetto, chitarra battente)",
+          "descriptors": [
+            "festive",
+            "full",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "southern-italy",
+            "italian",
+            "tarantella"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lira_calabrese_repertoire",
+      "name": "Repertoire context",
+      "variants": [
+        {
+          "id": "lira_calabrese_tarantella",
+          "default": true,
+          "name": "Tarantella calabrese dance",
+          "descriptors": [
+            "high-tempo",
+            "driving",
+            "festive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-rhythm",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "tarantella",
+            "italian",
+            "dance"
+          ]
+        },
+        {
+          "id": "lira_calabrese_polsi_feast",
+          "name": "Madonna di Polsi pilgrimage feast",
+          "descriptors": [
+            "ritual",
+            "processional",
+            "communal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ritual-context",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "southern-italy",
+            "ritual",
+            "processional"
+          ]
+        },
+        {
+          "id": "lira_calabrese_sung_strophe",
+          "name": "Sung-strophe accompaniment",
+          "descriptors": [
+            "song-accompaniment",
+            "plaintive",
+            "modal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "accompaniment",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "southern-italy",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lira_calabrese_drone",
+      "name": "Drone weight",
+      "variants": [
+        {
+          "id": "lira_calabrese_continuous_drone",
+          "default": true,
+          "name": "Melody over continuous open-string drone",
+          "descriptors": [
+            "droning",
+            "earthy",
+            "foundational"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "double-stop"
+          ],
+          "canonical_tags": [
+            "drone"
+          ]
+        },
+        {
+          "id": "lira_calabrese_single_line",
+          "name": "Cleaner single-line playing",
+          "descriptors": [
+            "focused",
+            "lyrical",
+            "articulate"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic",
+            "expressive"
+          ],
+          "canonical_tags": [
+            "melodic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lira_calabrese_build",
+      "name": "Build / body wood",
+      "variants": [
+        {
+          "id": "lira_calabrese_walnut_rustic",
+          "default": true,
+          "name": "Rustic one-piece walnut carve",
+          "descriptors": [
+            "rustic",
+            "walnut",
+            "woody"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "wood"
+          ]
+        },
+        {
+          "id": "lira_calabrese_mulberry_olive",
+          "name": "Mulberry or olive carve",
+          "descriptors": [
+            "mellow",
+            "resonant",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "wood"
+          ]
+        },
+        {
+          "id": "lira_calabrese_luthier_revival",
+          "name": "Luthier revival instrument",
+          "descriptors": [
+            "projecting",
+            "refined",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bright-tone",
+            "concert"
+          ],
+          "canonical_tags": [
+            "revival",
+            "concert"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "lira_calabrese_ensemble",
+      "name": "Ensemble setting",
+      "variants": [
+        {
+          "id": "lira_calabrese_tamburello_pair",
+          "default": true,
+          "name": "Lira + tamburello pair (canonical dance duo)",
+          "descriptors": [
+            "driving",
+            "communal",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "frame-drum"
+          ],
+          "canonical_tags": [
+            "southern-italy",
+            "tarantella",
+            "dance"
+          ]
+        },
+        {
+          "id": "lira_calabrese_solo",
+          "name": "Solo dance-driver (single player)",
+          "descriptors": [
+            "soloistic",
+            "rustic",
+            "raw"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "southern-italy",
+            "folk"
+          ]
+        },
+        {
+          "id": "lira_calabrese_sonu_a_ballu",
+          "name": "Full sonu a ballu set (zampogna, organetto, chitarra battente)",
+          "descriptors": [
+            "festive",
+            "full",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "southern-italy",
+            "italian",
+            "tarantella"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lira_calabrese_repertoire",
+      "name": "Repertoire context",
+      "variants": [
+        {
+          "id": "lira_calabrese_tarantella",
+          "default": true,
+          "name": "Tarantella calabrese dance",
+          "descriptors": [
+            "high-tempo",
+            "driving",
+            "festive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-rhythm",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "tarantella",
+            "italian",
+            "dance"
+          ]
+        },
+        {
+          "id": "lira_calabrese_polsi_feast",
+          "name": "Madonna di Polsi pilgrimage feast",
+          "descriptors": [
+            "ritual",
+            "processional",
+            "communal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ritual-context",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "southern-italy",
+            "ritual",
+            "processional"
+          ]
+        },
+        {
+          "id": "lira_calabrese_sung_strophe",
+          "name": "Sung-strophe accompaniment",
+          "descriptors": [
+            "song-accompaniment",
+            "plaintive",
+            "modal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "accompaniment",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "southern-italy",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lira_calabrese_drone",
+      "name": "Drone weight",
+      "variants": [
+        {
+          "id": "lira_calabrese_continuous_drone",
+          "default": true,
+          "name": "Melody over continuous open-string drone",
+          "descriptors": [
+            "droning",
+            "earthy",
+            "foundational"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "double-stop"
+          ],
+          "canonical_tags": [
+            "drone"
+          ]
+        },
+        {
+          "id": "lira_calabrese_single_line",
+          "name": "Cleaner single-line playing",
+          "descriptors": [
+            "focused",
+            "lyrical",
+            "articulate"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic",
+            "expressive"
+          ],
+          "canonical_tags": [
+            "melodic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lira_calabrese_build",
+      "name": "Build / body wood",
+      "variants": [
+        {
+          "id": "lira_calabrese_walnut_rustic",
+          "default": true,
+          "name": "Rustic one-piece walnut carve",
+          "descriptors": [
+            "rustic",
+            "walnut",
+            "woody"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "wood"
+          ]
+        },
+        {
+          "id": "lira_calabrese_mulberry_olive",
+          "name": "Mulberry or olive carve",
+          "descriptors": [
+            "mellow",
+            "resonant",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "wood"
+          ]
+        },
+        {
+          "id": "lira_calabrese_luthier_revival",
+          "name": "Luthier revival instrument",
+          "descriptors": [
+            "projecting",
+            "refined",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bright-tone",
+            "concert"
+          ],
+          "canonical_tags": [
+            "revival",
+            "concert"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,502 @@
+{
+  "id": "fluier",
+  "name": "Fluier (Romanian six-hole duct flute)",
+  "family": "wind",
+  "class": "duct_flute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "fluier",
+  "parts": [
+    {
+      "id": "fluier_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "fluier_form_wallachian",
+          "default": true,
+          "name": "Wallachian fluier cu dop (six-hole block duct flute — the standard type)",
+          "descriptors": [
+            "bright",
+            "agile",
+            "folk-diatonic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "fipple-flute",
+            "folk"
+          ],
+          "canonical_tags": [
+            "romanian",
+            "duct-flute"
+          ]
+        },
+        {
+          "id": "fluier_form_trisca",
+          "name": "Trișcă / fluieraș (small high Transylvanian pipe)",
+          "descriptors": [
+            "shrill",
+            "tiny",
+            "piercing"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "romanian",
+            "transylvania"
+          ]
+        },
+        {
+          "id": "fluier_form_dobrogean",
+          "name": "Fluier dobrogean (reed-bodied, seventh thumb hole like a recorder)",
+          "descriptors": [
+            "reedy",
+            "light",
+            "clear"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "reedy"
+          ],
+          "canonical_tags": [
+            "romanian"
+          ]
+        },
+        {
+          "id": "fluier_form_moldavian_open",
+          "name": "Moldavian / Bucovina fluier (stopped end, blown at the open end without a fipple — tilincă-related)",
+          "descriptors": [
+            "airy",
+            "overblown",
+            "archaic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "overtone-series",
+            "breathy"
+          ],
+          "canonical_tags": [
+            "romanian",
+            "moldavian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fluier_idiom",
+      "name": "Idiom / role",
+      "variants": [
+        {
+          "id": "fluier_idiom_doina",
+          "default": true,
+          "name": "Free-rhythm doină (rubato, heavy vibrato and glissando)",
+          "descriptors": [
+            "rubato",
+            "mournful",
+            "glissando",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "rubato",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "romanian_doina",
+            "doina"
+          ]
+        },
+        {
+          "id": "fluier_idiom_hora_sarba",
+          "name": "Tight hora / sârbă dance articulation",
+          "descriptors": [
+            "dance-driving",
+            "staccato",
+            "lively"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "dance-driving",
+            "staccato"
+          ],
+          "canonical_tags": [
+            "romanian",
+            "dance"
+          ]
+        },
+        {
+          "id": "fluier_idiom_signal",
+          "name": "Pastoral signalling and ritual use (flock calls, courtship, funeral tunes)",
+          "descriptors": [
+            "far-carrying",
+            "plaintive",
+            "pastoral"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "outdoor-field",
+            "ritual-context"
+          ],
+          "canonical_tags": [
+            "pastoral",
+            "shepherd",
+            "herding"
+          ]
+        },
+        {
+          "id": "fluier_idiom_taraf_lead",
+          "name": "Melody lead in a taraf (over cobza and țambal)",
+          "descriptors": [
+            "lead-carrying",
+            "ornamented",
+            "ensemble-blend"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "melodic-lead",
+            "taraf-tradition",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "romanian_lautari",
+            "romanian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fluier_body",
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "fluier_body_ash",
+          "default": true,
+          "name": "Ash (canonical Romanian build)",
+          "descriptors": [
+            "clear",
+            "woody",
+            "traditional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "wooden",
+            "duct-flute"
+          ],
+          "canonical_tags": [
+            "wood-body",
+            "traditional",
+            "romanian"
+          ]
+        },
+        {
+          "id": "fluier_body_plum",
+          "name": "Plum (denser and darker-toned)",
+          "descriptors": [
+            "dense",
+            "dark",
+            "warm"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "wooden",
+            "hardwood"
+          ],
+          "canonical_tags": [
+            "wood-body",
+            "hardwood"
+          ]
+        },
+        {
+          "id": "fluier_body_elder",
+          "name": "Elder with pithed bore (soft-edged village build)",
+          "descriptors": [
+            "soft-edged",
+            "mellow",
+            "rustic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "wooden",
+            "elder"
+          ],
+          "canonical_tags": [
+            "wood-body"
+          ]
+        },
+        {
+          "id": "fluier_body_metal",
+          "name": "Metal tube (market-made, bright and cutting)",
+          "descriptors": [
+            "bright",
+            "cutting",
+            "modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "metal-context",
+            "metal-bore"
+          ],
+          "canonical_tags": [
+            "metal",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "fluier_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "fluier_form_wallachian",
+          "default": true,
+          "name": "Wallachian fluier cu dop (six-hole block duct flute — the standard type)",
+          "descriptors": [
+            "bright",
+            "agile",
+            "folk-diatonic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "fipple-flute",
+            "folk"
+          ],
+          "canonical_tags": [
+            "romanian",
+            "duct-flute"
+          ]
+        },
+        {
+          "id": "fluier_form_trisca",
+          "name": "Trișcă / fluieraș (small high Transylvanian pipe)",
+          "descriptors": [
+            "shrill",
+            "tiny",
+            "piercing"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "romanian",
+            "transylvania"
+          ]
+        },
+        {
+          "id": "fluier_form_dobrogean",
+          "name": "Fluier dobrogean (reed-bodied, seventh thumb hole like a recorder)",
+          "descriptors": [
+            "reedy",
+            "light",
+            "clear"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "reedy"
+          ],
+          "canonical_tags": [
+            "romanian"
+          ]
+        },
+        {
+          "id": "fluier_form_moldavian_open",
+          "name": "Moldavian / Bucovina fluier (stopped end, blown at the open end without a fipple — tilincă-related)",
+          "descriptors": [
+            "airy",
+            "overblown",
+            "archaic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "overtone-series",
+            "breathy"
+          ],
+          "canonical_tags": [
+            "romanian",
+            "moldavian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fluier_idiom",
+      "name": "Idiom / role",
+      "variants": [
+        {
+          "id": "fluier_idiom_doina",
+          "default": true,
+          "name": "Free-rhythm doină (rubato, heavy vibrato and glissando)",
+          "descriptors": [
+            "rubato",
+            "mournful",
+            "glissando",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "rubato",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "romanian_doina",
+            "doina"
+          ]
+        },
+        {
+          "id": "fluier_idiom_hora_sarba",
+          "name": "Tight hora / sârbă dance articulation",
+          "descriptors": [
+            "dance-driving",
+            "staccato",
+            "lively"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "dance-driving",
+            "staccato"
+          ],
+          "canonical_tags": [
+            "romanian",
+            "dance"
+          ]
+        },
+        {
+          "id": "fluier_idiom_signal",
+          "name": "Pastoral signalling and ritual use (flock calls, courtship, funeral tunes)",
+          "descriptors": [
+            "far-carrying",
+            "plaintive",
+            "pastoral"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "outdoor-field",
+            "ritual-context"
+          ],
+          "canonical_tags": [
+            "pastoral",
+            "shepherd",
+            "herding"
+          ]
+        },
+        {
+          "id": "fluier_idiom_taraf_lead",
+          "name": "Melody lead in a taraf (over cobza and țambal)",
+          "descriptors": [
+            "lead-carrying",
+            "ornamented",
+            "ensemble-blend"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "melodic-lead",
+            "taraf-tradition",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "romanian_lautari",
+            "romanian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fluier_body",
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "fluier_body_ash",
+          "default": true,
+          "name": "Ash (canonical Romanian build)",
+          "descriptors": [
+            "clear",
+            "woody",
+            "traditional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "wooden",
+            "duct-flute"
+          ],
+          "canonical_tags": [
+            "wood-body",
+            "traditional",
+            "romanian"
+          ]
+        },
+        {
+          "id": "fluier_body_plum",
+          "name": "Plum (denser and darker-toned)",
+          "descriptors": [
+            "dense",
+            "dark",
+            "warm"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "wooden",
+            "hardwood"
+          ],
+          "canonical_tags": [
+            "wood-body",
+            "hardwood"
+          ]
+        },
+        {
+          "id": "fluier_body_elder",
+          "name": "Elder with pithed bore (soft-edged village build)",
+          "descriptors": [
+            "soft-edged",
+            "mellow",
+            "rustic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "wooden",
+            "elder"
+          ],
+          "canonical_tags": [
+            "wood-body"
+          ]
+        },
+        {
+          "id": "fluier_body_metal",
+          "name": "Metal tube (market-made, bright and cutting)",
+          "descriptors": [
+            "bright",
+            "cutting",
+            "modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "metal-context",
+            "metal-bore"
+          ],
+          "canonical_tags": [
+            "metal",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

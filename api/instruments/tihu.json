@@ -1,0 +1,341 @@
+{
+  "id": "tihu",
+  "name": "Tihu (Chaozhou xianshi mid-register fiddle)",
+  "family": "bowed",
+  "class": "bowed_spike_fiddle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "tihu",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "tihu_lineage",
+      "name": "Derivation framing",
+      "variants": [
+        {
+          "id": "tihu_lineage_erhu_class",
+          "default": true,
+          "name": "Mid-register erhu-class fiddle (what Chaozhou players simply call erhu)",
+          "descriptors": [
+            "rounded-tone",
+            "warm",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "mellow-tone",
+            "two-string",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "china",
+            "traditional"
+          ]
+        },
+        {
+          "id": "tihu_lineage_gaohu_derived",
+          "name": "Gaohu-derived reading found in English references (higher-set, brighter)",
+          "descriptors": [
+            "brighter",
+            "cutting",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bright-tone",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "guangdong",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tihu_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "tihu_strings_steel",
+          "default": true,
+          "name": "Steel (modern standard)",
+          "descriptors": [
+            "steel",
+            "projecting",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "steel-string"
+          ],
+          "canonical_tags": [
+            "modern",
+            "steel"
+          ]
+        },
+        {
+          "id": "tihu_strings_silk",
+          "name": "Silk (pre-modern historical)",
+          "descriptors": [
+            "silk",
+            "pre-modern",
+            "soft-toned"
+          ],
+          "match_tokens": [
+            "bowed",
+            "silk-strung",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tihu_idiom",
+      "name": "Ensemble idiom",
+      "variants": [
+        {
+          "id": "tihu_idiom_ruujia",
+          "default": true,
+          "name": "Ruujia yue refined chamber playing, slow and sustained under the touxian",
+          "descriptors": [
+            "refined",
+            "sustained",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "chamber-fed",
+            "sustained-tone",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "chamber",
+            "china"
+          ]
+        },
+        {
+          "id": "tihu_idiom_pengding",
+          "name": "Pengding yue opera-pit playing, plainer and coarser",
+          "descriptors": [
+            "coarse",
+            "declamatory",
+            "supporting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "chinese-opera",
+            "accompaniment"
+          ]
+        },
+        {
+          "id": "tihu_idiom_heterophonic",
+          "name": "Dense heterophonic elaboration against the touxian line",
+          "descriptors": [
+            "heterophonic",
+            "ornamented",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "china",
+            "traditional"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tihu_lineage",
+      "name": "Derivation framing",
+      "variants": [
+        {
+          "id": "tihu_lineage_erhu_class",
+          "default": true,
+          "name": "Mid-register erhu-class fiddle (what Chaozhou players simply call erhu)",
+          "descriptors": [
+            "rounded-tone",
+            "warm",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "mellow-tone",
+            "two-string",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "china",
+            "traditional"
+          ]
+        },
+        {
+          "id": "tihu_lineage_gaohu_derived",
+          "name": "Gaohu-derived reading found in English references (higher-set, brighter)",
+          "descriptors": [
+            "brighter",
+            "cutting",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bright-tone",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "guangdong",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tihu_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "tihu_strings_steel",
+          "default": true,
+          "name": "Steel (modern standard)",
+          "descriptors": [
+            "steel",
+            "projecting",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "steel-string"
+          ],
+          "canonical_tags": [
+            "modern",
+            "steel"
+          ]
+        },
+        {
+          "id": "tihu_strings_silk",
+          "name": "Silk (pre-modern historical)",
+          "descriptors": [
+            "silk",
+            "pre-modern",
+            "soft-toned"
+          ],
+          "match_tokens": [
+            "bowed",
+            "silk-strung",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tihu_idiom",
+      "name": "Ensemble idiom",
+      "variants": [
+        {
+          "id": "tihu_idiom_ruujia",
+          "default": true,
+          "name": "Ruujia yue refined chamber playing, slow and sustained under the touxian",
+          "descriptors": [
+            "refined",
+            "sustained",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "chamber-fed",
+            "sustained-tone",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "chamber",
+            "china"
+          ]
+        },
+        {
+          "id": "tihu_idiom_pengding",
+          "name": "Pengding yue opera-pit playing, plainer and coarser",
+          "descriptors": [
+            "coarse",
+            "declamatory",
+            "supporting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "chinese-opera",
+            "accompaniment"
+          ]
+        },
+        {
+          "id": "tihu_idiom_heterophonic",
+          "name": "Dense heterophonic elaboration against the touxian line",
+          "descriptors": [
+            "heterophonic",
+            "ornamented",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "china",
+            "traditional"
+          ]
+        }
+      ]
+    }
+  ]
+}

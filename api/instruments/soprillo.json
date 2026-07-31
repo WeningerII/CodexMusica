@@ -1,0 +1,474 @@
+{
+  "id": "soprillo",
+  "name": "Soprillo (B♭ piccolo saxophone)",
+  "family": "wind",
+  "class": "single_reed_conical",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 2,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "soprillo",
+  "parts": [
+    {
+      "id": "soprillo_finish",
+      "name": "Finish / plating",
+      "variants": [
+        {
+          "id": "soprillo_gold_lacquer",
+          "default": true,
+          "name": "Gold lacquer (Eppelsheim standard)",
+          "descriptors": [
+            "lacquered",
+            "balanced-bright",
+            "standard"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "metal-context"
+          ],
+          "canonical_tags": [
+            "germanic",
+            "modern"
+          ]
+        },
+        {
+          "id": "soprillo_dark_lacquer",
+          "name": "Dark lacquer",
+          "descriptors": [
+            "lacquered",
+            "darker-warmer",
+            "focused"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "metal-context"
+          ],
+          "canonical_tags": [
+            "germanic",
+            "modern"
+          ]
+        },
+        {
+          "id": "soprillo_silver_plate",
+          "name": "Silver plate",
+          "descriptors": [
+            "silver",
+            "bright-projecting",
+            "cutting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "metal-context"
+          ],
+          "canonical_tags": [
+            "germanic",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "soprillo_reed",
+      "name": "Reed choice",
+      "variants": [
+        {
+          "id": "soprillo_eb_clarinet_reed",
+          "default": true,
+          "name": "E♭ sopranino clarinet reed (maker-recommended)",
+          "descriptors": [
+            "focused",
+            "stable",
+            "bright"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "soprillo_sopranino_sax_reed",
+          "name": "Sopranino saxophone reed",
+          "descriptors": [
+            "reedy",
+            "edgy",
+            "projecting"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "soprillo_soft_reed",
+          "name": "Soft reed (easier blowing, looser altissimo)",
+          "descriptors": [
+            "easy-blowing",
+            "breathy",
+            "soft-attack"
+          ],
+          "match_tokens": [
+            "soft-attack",
+            "reed-driven",
+            "breathy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "soprillo_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "soprillo_lyrical_top_line",
+          "default": true,
+          "name": "Controlled lyrical top line",
+          "descriptors": [
+            "lyrical",
+            "singing",
+            "sustained"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "melodic-lead",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "contemporary"
+          ]
+        },
+        {
+          "id": "soprillo_altissimo_squeal",
+          "name": "Deliberate squeal / extreme overblow",
+          "descriptors": [
+            "overblown",
+            "shrill",
+            "piercing"
+          ],
+          "match_tokens": [
+            "loud-projection",
+            "avant-garde",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "free-jazz",
+            "noise"
+          ]
+        },
+        {
+          "id": "soprillo_multiphonic_extended",
+          "name": "Multiphonics and extended technique",
+          "descriptors": [
+            "multiphonic",
+            "split-tone",
+            "experimental"
+          ],
+          "match_tokens": [
+            "avant-garde",
+            "reed-driven",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "avant",
+            "experimental"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "soprillo_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "soprillo_sax_choir_top",
+          "default": true,
+          "name": "Top voice of a saxophone orchestra",
+          "descriptors": [
+            "ensemble-blend",
+            "high-register",
+            "piercing"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "ensemble-blend",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "contemporary"
+          ]
+        },
+        {
+          "id": "soprillo_octave_doubling",
+          "name": "Piccolo-style octave doubling of a melody",
+          "descriptors": [
+            "doubling",
+            "treble-extended",
+            "bright"
+          ],
+          "match_tokens": [
+            "octave-doubled",
+            "melodic-lead",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "soprillo_free_solo",
+          "name": "Standalone soloist / free improvisation",
+          "descriptors": [
+            "featured",
+            "improvisatory",
+            "virtuosic"
+          ],
+          "match_tokens": [
+            "soloistic",
+            "improv",
+            "avant-garde"
+          ],
+          "canonical_tags": [
+            "free-improvisation",
+            "contemporary"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "soprillo_finish",
+      "name": "Finish / plating",
+      "variants": [
+        {
+          "id": "soprillo_gold_lacquer",
+          "default": true,
+          "name": "Gold lacquer (Eppelsheim standard)",
+          "descriptors": [
+            "lacquered",
+            "balanced-bright",
+            "standard"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "metal-context"
+          ],
+          "canonical_tags": [
+            "germanic",
+            "modern"
+          ]
+        },
+        {
+          "id": "soprillo_dark_lacquer",
+          "name": "Dark lacquer",
+          "descriptors": [
+            "lacquered",
+            "darker-warmer",
+            "focused"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "metal-context"
+          ],
+          "canonical_tags": [
+            "germanic",
+            "modern"
+          ]
+        },
+        {
+          "id": "soprillo_silver_plate",
+          "name": "Silver plate",
+          "descriptors": [
+            "silver",
+            "bright-projecting",
+            "cutting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "metal-context"
+          ],
+          "canonical_tags": [
+            "germanic",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "soprillo_reed",
+      "name": "Reed choice",
+      "variants": [
+        {
+          "id": "soprillo_eb_clarinet_reed",
+          "default": true,
+          "name": "E♭ sopranino clarinet reed (maker-recommended)",
+          "descriptors": [
+            "focused",
+            "stable",
+            "bright"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "soprillo_sopranino_sax_reed",
+          "name": "Sopranino saxophone reed",
+          "descriptors": [
+            "reedy",
+            "edgy",
+            "projecting"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "soprillo_soft_reed",
+          "name": "Soft reed (easier blowing, looser altissimo)",
+          "descriptors": [
+            "easy-blowing",
+            "breathy",
+            "soft-attack"
+          ],
+          "match_tokens": [
+            "soft-attack",
+            "reed-driven",
+            "breathy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "soprillo_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "soprillo_lyrical_top_line",
+          "default": true,
+          "name": "Controlled lyrical top line",
+          "descriptors": [
+            "lyrical",
+            "singing",
+            "sustained"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "melodic-lead",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "contemporary"
+          ]
+        },
+        {
+          "id": "soprillo_altissimo_squeal",
+          "name": "Deliberate squeal / extreme overblow",
+          "descriptors": [
+            "overblown",
+            "shrill",
+            "piercing"
+          ],
+          "match_tokens": [
+            "loud-projection",
+            "avant-garde",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "free-jazz",
+            "noise"
+          ]
+        },
+        {
+          "id": "soprillo_multiphonic_extended",
+          "name": "Multiphonics and extended technique",
+          "descriptors": [
+            "multiphonic",
+            "split-tone",
+            "experimental"
+          ],
+          "match_tokens": [
+            "avant-garde",
+            "reed-driven",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "avant",
+            "experimental"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "soprillo_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "soprillo_sax_choir_top",
+          "default": true,
+          "name": "Top voice of a saxophone orchestra",
+          "descriptors": [
+            "ensemble-blend",
+            "high-register",
+            "piercing"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "ensemble-blend",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "contemporary"
+          ]
+        },
+        {
+          "id": "soprillo_octave_doubling",
+          "name": "Piccolo-style octave doubling of a melody",
+          "descriptors": [
+            "doubling",
+            "treble-extended",
+            "bright"
+          ],
+          "match_tokens": [
+            "octave-doubled",
+            "melodic-lead",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "soprillo_free_solo",
+          "name": "Standalone soloist / free improvisation",
+          "descriptors": [
+            "featured",
+            "improvisatory",
+            "virtuosic"
+          ],
+          "match_tokens": [
+            "soloistic",
+            "improv",
+            "avant-garde"
+          ],
+          "canonical_tags": [
+            "free-improvisation",
+            "contemporary"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,421 @@
+{
+  "id": "saw_bang",
+  "name": "Saw bang (Isan Phu Thai bamboo-tube fiddle)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 1,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "saw bang",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "saw_bang_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "saw_bang_brake_cable",
+          "default": true,
+          "name": "Bicycle brake cable (classic improvised stringing)",
+          "descriptors": [
+            "recycled-steel",
+            "wire-strung",
+            "rough-toned"
+          ],
+          "match_tokens": [
+            "bowed",
+            "metal-strung",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "isan",
+            "steel"
+          ]
+        },
+        {
+          "id": "saw_bang_steel_wire",
+          "name": "Drawn steel wire",
+          "descriptors": [
+            "steel",
+            "wire-strung",
+            "brighter"
+          ],
+          "match_tokens": [
+            "bowed",
+            "metal-strung"
+          ],
+          "canonical_tags": [
+            "isan",
+            "steel"
+          ]
+        },
+        {
+          "id": "saw_bang_silk_gut",
+          "name": "Silk or gut (older village stringing)",
+          "descriptors": [
+            "silk-historical",
+            "mellow",
+            "soft"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "isan",
+            "historical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saw_bang_tube",
+      "name": "Bamboo tube",
+      "variants": [
+        {
+          "id": "saw_bang_narrow_tube",
+          "default": true,
+          "name": "Narrow sun-dried mai ku tube",
+          "descriptors": [
+            "bamboo",
+            "buzzy",
+            "nasal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bamboo",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "isan",
+            "bamboo-tube"
+          ]
+        },
+        {
+          "id": "saw_bang_wide_tube",
+          "name": "Wide, longer tube",
+          "descriptors": [
+            "bamboo",
+            "deep-toned",
+            "round"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bamboo",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "isan",
+            "bamboo-tube"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saw_bang_style",
+      "name": "Local playing style",
+      "variants": [
+        {
+          "id": "saw_bang_traditional",
+          "default": true,
+          "name": "Traditional style: two main strings plus a secondary drone-type string",
+          "descriptors": [
+            "drone-under-melody",
+            "archaic",
+            "village-rooted"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "isan",
+            "traditional"
+          ]
+        },
+        {
+          "id": "saw_bang_general",
+          "name": "General style: plain two-string playing",
+          "descriptors": [
+            "two-string",
+            "melodic",
+            "folk-rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "isan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saw_bang_context",
+      "name": "Function",
+      "variants": [
+        {
+          "id": "saw_bang_village_solo",
+          "default": true,
+          "name": "Solo village fiddling",
+          "descriptors": [
+            "village-rooted",
+            "improvisatory",
+            "rough-toned"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "solo"
+          ],
+          "canonical_tags": [
+            "isan",
+            "folk"
+          ]
+        },
+        {
+          "id": "saw_bang_molam",
+          "name": "Backing lam / molam singing with hand drums and finger cymbals",
+          "descriptors": [
+            "vocal-supportive",
+            "folk-song",
+            "rough-toned"
+          ],
+          "match_tokens": [
+            "bowed",
+            "song-accompaniment",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "isan",
+            "molam"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "saw_bang_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "saw_bang_brake_cable",
+          "default": true,
+          "name": "Bicycle brake cable (classic improvised stringing)",
+          "descriptors": [
+            "recycled-steel",
+            "wire-strung",
+            "rough-toned"
+          ],
+          "match_tokens": [
+            "bowed",
+            "metal-strung",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "isan",
+            "steel"
+          ]
+        },
+        {
+          "id": "saw_bang_steel_wire",
+          "name": "Drawn steel wire",
+          "descriptors": [
+            "steel",
+            "wire-strung",
+            "brighter"
+          ],
+          "match_tokens": [
+            "bowed",
+            "metal-strung"
+          ],
+          "canonical_tags": [
+            "isan",
+            "steel"
+          ]
+        },
+        {
+          "id": "saw_bang_silk_gut",
+          "name": "Silk or gut (older village stringing)",
+          "descriptors": [
+            "silk-historical",
+            "mellow",
+            "soft"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "isan",
+            "historical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saw_bang_tube",
+      "name": "Bamboo tube",
+      "variants": [
+        {
+          "id": "saw_bang_narrow_tube",
+          "default": true,
+          "name": "Narrow sun-dried mai ku tube",
+          "descriptors": [
+            "bamboo",
+            "buzzy",
+            "nasal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bamboo",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "isan",
+            "bamboo-tube"
+          ]
+        },
+        {
+          "id": "saw_bang_wide_tube",
+          "name": "Wide, longer tube",
+          "descriptors": [
+            "bamboo",
+            "deep-toned",
+            "round"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bamboo",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "isan",
+            "bamboo-tube"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saw_bang_style",
+      "name": "Local playing style",
+      "variants": [
+        {
+          "id": "saw_bang_traditional",
+          "default": true,
+          "name": "Traditional style: two main strings plus a secondary drone-type string",
+          "descriptors": [
+            "drone-under-melody",
+            "archaic",
+            "village-rooted"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "isan",
+            "traditional"
+          ]
+        },
+        {
+          "id": "saw_bang_general",
+          "name": "General style: plain two-string playing",
+          "descriptors": [
+            "two-string",
+            "melodic",
+            "folk-rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "isan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saw_bang_context",
+      "name": "Function",
+      "variants": [
+        {
+          "id": "saw_bang_village_solo",
+          "default": true,
+          "name": "Solo village fiddling",
+          "descriptors": [
+            "village-rooted",
+            "improvisatory",
+            "rough-toned"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "solo"
+          ],
+          "canonical_tags": [
+            "isan",
+            "folk"
+          ]
+        },
+        {
+          "id": "saw_bang_molam",
+          "name": "Backing lam / molam singing with hand drums and finger cymbals",
+          "descriptors": [
+            "vocal-supportive",
+            "folk-song",
+            "rough-toned"
+          ],
+          "match_tokens": [
+            "bowed",
+            "song-accompaniment",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "isan",
+            "molam"
+          ]
+        }
+      ]
+    }
+  ]
+}

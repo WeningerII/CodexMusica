@@ -1,0 +1,498 @@
+{
+  "id": "dong_son_drum",
+  "name": "Đông Sơn drum (Vietnamese Heger Type I bronze drum)",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": -2,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "đông sơn drum",
+  "parts": [
+    {
+      "id": "dong_son_drum_size",
+      "name": "Size / register class",
+      "variants": [
+        {
+          "id": "dong_son_drum_size_ceremonial",
+          "default": true,
+          "name": "Classic ceremonial drum (Ngọc Lũ scale, ~70 cm tympanum)",
+          "descriptors": [
+            "ceremonial",
+            "resonant",
+            "bronze"
+          ],
+          "match_tokens": [
+            "struck",
+            "metallic",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "vietnamese",
+            "ceremonial"
+          ]
+        },
+        {
+          "id": "dong_son_drum_size_small",
+          "name": "Small portable drum (~40 cm tympanum, higher and bell-like)",
+          "descriptors": [
+            "bell-like",
+            "high-pitched",
+            "bright"
+          ],
+          "match_tokens": [
+            "struck",
+            "metallic",
+            "ringing"
+          ],
+          "canonical_tags": [
+            "vietnamese"
+          ]
+        },
+        {
+          "id": "dong_son_drum_size_monumental",
+          "name": "Monumental drum (over a metre, Cổ Loa scale, slow-blooming)",
+          "descriptors": [
+            "massive",
+            "deep",
+            "booming"
+          ],
+          "match_tokens": [
+            "struck",
+            "metallic",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "vietnamese",
+            "ceremonial"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dong_son_drum_mounting",
+      "name": "Mounting",
+      "variants": [
+        {
+          "id": "dong_son_drum_mounting_suspended",
+          "default": true,
+          "name": "Suspended from the side lugs (free-ringing, longest sustain)",
+          "descriptors": [
+            "sustained",
+            "ringing",
+            "overtone-rich"
+          ],
+          "match_tokens": [
+            "struck",
+            "metallic",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "dong_son_drum_mounting_ground",
+          "name": "Set on the ground or a plinth (coupled, shorter and thuddier)",
+          "descriptors": [
+            "damped",
+            "short-sustain",
+            "dry"
+          ],
+          "match_tokens": [
+            "struck",
+            "metallic",
+            "muted"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "dong_son_drum_mounting_platform",
+          "name": "Boat- or platform-mounted, as depicted on the drums themselves",
+          "descriptors": [
+            "processional",
+            "outdoor",
+            "communal"
+          ],
+          "match_tokens": [
+            "struck",
+            "metallic",
+            "processional"
+          ],
+          "canonical_tags": [
+            "processional",
+            "historic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dong_son_drum_beater",
+      "name": "Beater & strike point",
+      "variants": [
+        {
+          "id": "dong_son_drum_beater_padded_star",
+          "default": true,
+          "name": "Padded mallet on the central star boss (fundamental, roundest)",
+          "descriptors": [
+            "soft-attack",
+            "rounded",
+            "full"
+          ],
+          "match_tokens": [
+            "struck",
+            "mallets",
+            "metallic"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "dong_son_drum_beater_hardwood_rays",
+          "name": "Hard wood on the rim or star rays (bright, partial-rich)",
+          "descriptors": [
+            "bright",
+            "overtone-rich",
+            "sharp"
+          ],
+          "match_tokens": [
+            "struck",
+            "sticks",
+            "metallic"
+          ],
+          "canonical_tags": [
+            "hardwood"
+          ]
+        },
+        {
+          "id": "dong_son_drum_beater_shoulder",
+          "name": "Struck on the shoulder or flared foot (thin, clangorous)",
+          "descriptors": [
+            "clangorous",
+            "metallic",
+            "dry"
+          ],
+          "match_tokens": [
+            "struck",
+            "metallic",
+            "ringing"
+          ],
+          "canonical_tags": [
+            "experimental"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dong_son_drum_context",
+      "name": "Cultural framing",
+      "variants": [
+        {
+          "id": "dong_son_drum_context_archaeological",
+          "default": true,
+          "name": "Đông Sơn ritual reconstruction (rain-making, funerary, chiefly regalia)",
+          "descriptors": [
+            "archaic",
+            "ritual",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "struck",
+            "ritual-context",
+            "metallic"
+          ],
+          "canonical_tags": [
+            "vietnamese",
+            "ritual"
+          ]
+        },
+        {
+          "id": "dong_son_drum_context_karen",
+          "name": "Living Karen frog-drum practice (Myanmar / Thailand)",
+          "descriptors": [
+            "traditional",
+            "communal",
+            "festive"
+          ],
+          "match_tokens": [
+            "struck",
+            "metallic",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "thai"
+          ]
+        },
+        {
+          "id": "dong_son_drum_context_muong",
+          "name": "Mường ceremonial bronze-drum use (northern Vietnam)",
+          "descriptors": [
+            "ceremonial",
+            "regional",
+            "traditional"
+          ],
+          "match_tokens": [
+            "struck",
+            "metallic",
+            "ritual-context"
+          ],
+          "canonical_tags": [
+            "vietnamese",
+            "ceremonial"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dong_son_drum_size",
+      "name": "Size / register class",
+      "variants": [
+        {
+          "id": "dong_son_drum_size_ceremonial",
+          "default": true,
+          "name": "Classic ceremonial drum (Ngọc Lũ scale, ~70 cm tympanum)",
+          "descriptors": [
+            "ceremonial",
+            "resonant",
+            "bronze"
+          ],
+          "match_tokens": [
+            "struck",
+            "metallic",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "vietnamese",
+            "ceremonial"
+          ]
+        },
+        {
+          "id": "dong_son_drum_size_small",
+          "name": "Small portable drum (~40 cm tympanum, higher and bell-like)",
+          "descriptors": [
+            "bell-like",
+            "high-pitched",
+            "bright"
+          ],
+          "match_tokens": [
+            "struck",
+            "metallic",
+            "ringing"
+          ],
+          "canonical_tags": [
+            "vietnamese"
+          ]
+        },
+        {
+          "id": "dong_son_drum_size_monumental",
+          "name": "Monumental drum (over a metre, Cổ Loa scale, slow-blooming)",
+          "descriptors": [
+            "massive",
+            "deep",
+            "booming"
+          ],
+          "match_tokens": [
+            "struck",
+            "metallic",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "vietnamese",
+            "ceremonial"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dong_son_drum_mounting",
+      "name": "Mounting",
+      "variants": [
+        {
+          "id": "dong_son_drum_mounting_suspended",
+          "default": true,
+          "name": "Suspended from the side lugs (free-ringing, longest sustain)",
+          "descriptors": [
+            "sustained",
+            "ringing",
+            "overtone-rich"
+          ],
+          "match_tokens": [
+            "struck",
+            "metallic",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "dong_son_drum_mounting_ground",
+          "name": "Set on the ground or a plinth (coupled, shorter and thuddier)",
+          "descriptors": [
+            "damped",
+            "short-sustain",
+            "dry"
+          ],
+          "match_tokens": [
+            "struck",
+            "metallic",
+            "muted"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "dong_son_drum_mounting_platform",
+          "name": "Boat- or platform-mounted, as depicted on the drums themselves",
+          "descriptors": [
+            "processional",
+            "outdoor",
+            "communal"
+          ],
+          "match_tokens": [
+            "struck",
+            "metallic",
+            "processional"
+          ],
+          "canonical_tags": [
+            "processional",
+            "historic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dong_son_drum_beater",
+      "name": "Beater & strike point",
+      "variants": [
+        {
+          "id": "dong_son_drum_beater_padded_star",
+          "default": true,
+          "name": "Padded mallet on the central star boss (fundamental, roundest)",
+          "descriptors": [
+            "soft-attack",
+            "rounded",
+            "full"
+          ],
+          "match_tokens": [
+            "struck",
+            "mallets",
+            "metallic"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "dong_son_drum_beater_hardwood_rays",
+          "name": "Hard wood on the rim or star rays (bright, partial-rich)",
+          "descriptors": [
+            "bright",
+            "overtone-rich",
+            "sharp"
+          ],
+          "match_tokens": [
+            "struck",
+            "sticks",
+            "metallic"
+          ],
+          "canonical_tags": [
+            "hardwood"
+          ]
+        },
+        {
+          "id": "dong_son_drum_beater_shoulder",
+          "name": "Struck on the shoulder or flared foot (thin, clangorous)",
+          "descriptors": [
+            "clangorous",
+            "metallic",
+            "dry"
+          ],
+          "match_tokens": [
+            "struck",
+            "metallic",
+            "ringing"
+          ],
+          "canonical_tags": [
+            "experimental"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dong_son_drum_context",
+      "name": "Cultural framing",
+      "variants": [
+        {
+          "id": "dong_son_drum_context_archaeological",
+          "default": true,
+          "name": "Đông Sơn ritual reconstruction (rain-making, funerary, chiefly regalia)",
+          "descriptors": [
+            "archaic",
+            "ritual",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "struck",
+            "ritual-context",
+            "metallic"
+          ],
+          "canonical_tags": [
+            "vietnamese",
+            "ritual"
+          ]
+        },
+        {
+          "id": "dong_son_drum_context_karen",
+          "name": "Living Karen frog-drum practice (Myanmar / Thailand)",
+          "descriptors": [
+            "traditional",
+            "communal",
+            "festive"
+          ],
+          "match_tokens": [
+            "struck",
+            "metallic",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "thai"
+          ]
+        },
+        {
+          "id": "dong_son_drum_context_muong",
+          "name": "Mường ceremonial bronze-drum use (northern Vietnam)",
+          "descriptors": [
+            "ceremonial",
+            "regional",
+            "traditional"
+          ],
+          "match_tokens": [
+            "struck",
+            "metallic",
+            "ritual-context"
+          ],
+          "canonical_tags": [
+            "vietnamese",
+            "ceremonial"
+          ]
+        }
+      ]
+    }
+  ]
+}

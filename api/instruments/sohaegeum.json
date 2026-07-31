@@ -1,0 +1,567 @@
+{
+  "id": "sohaegeum",
+  "name": "Sohaegeum (North Korean four-string fiddle)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "sohaegeum",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "sohaegeum_register",
+      "name": "Family member / register",
+      "variants": [
+        {
+          "id": "sohaegeum_so",
+          "default": true,
+          "name": "Sohaegeum (violin register — four strings in fifths, lateral pegs)",
+          "descriptors": [
+            "bright",
+            "soloistic",
+            "fifths-tuned"
+          ],
+          "match_tokens": [
+            "bowed",
+            "high-register",
+            "orchestral"
+          ],
+          "canonical_tags": [
+            "korean",
+            "modern"
+          ]
+        },
+        {
+          "id": "sohaegeum_jung",
+          "name": "Junghaegeum (viola register)",
+          "descriptors": [
+            "warm",
+            "blended-tone",
+            "ensemble-blend"
+          ],
+          "match_tokens": [
+            "bowed",
+            "orchestral",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "korean",
+            "modern"
+          ]
+        },
+        {
+          "id": "sohaegeum_dae",
+          "name": "Daehaegeum (cello register)",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "foundational",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register",
+            "orchestral"
+          ],
+          "canonical_tags": [
+            "korean",
+            "modern"
+          ]
+        },
+        {
+          "id": "sohaegeum_contrabass",
+          "name": "Contrabass haegeum (ensemble floor)",
+          "descriptors": [
+            "ensemble-bass",
+            "deep",
+            "foundational"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register",
+            "orchestral"
+          ],
+          "canonical_tags": [
+            "korean",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sohaegeum_tone",
+      "name": "Tone target",
+      "variants": [
+        {
+          "id": "sohaegeum_modernized",
+          "default": true,
+          "name": "Fully modernized — wooden resonator, wound strings, violin-like tone",
+          "descriptors": [
+            "wood-faced",
+            "smoother",
+            "concert-grade"
+          ],
+          "match_tokens": [
+            "bowed",
+            "orchestral",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "modern",
+            "korean"
+          ]
+        },
+        {
+          "id": "sohaegeum_reedy_retained",
+          "name": "Haegeum reediness retained (nasal edge kept in the build)",
+          "descriptors": [
+            "nasal-toned",
+            "reedy",
+            "traditional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "reedy",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "korean",
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sohaegeum_ornament",
+      "name": "Ornament policy",
+      "variants": [
+        {
+          "id": "sohaegeum_western_vibrato",
+          "default": true,
+          "name": "Western continuous vibrato, equal temperament",
+          "descriptors": [
+            "vibrato-rich",
+            "equal-tempered",
+            "institutional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vibrato-rich",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "sohaegeum_sigimsae",
+          "name": "Retained sigimsae bends and slides",
+          "descriptors": [
+            "sigimsae-ornament-traces",
+            "ornamented",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "microtonal-bend",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "korean",
+            "gugak"
+          ]
+        },
+        {
+          "id": "sohaegeum_double_stops",
+          "name": "Double stops and chordal texture (fifths tuning exploited)",
+          "descriptors": [
+            "double-stops",
+            "fifths-tuned",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "double-stop",
+            "orchestral"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sohaegeum_context",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "sohaegeum_baehap",
+          "default": true,
+          "name": "Baehap blended-orchestra section (DPRK)",
+          "descriptors": [
+            "section-blend",
+            "orchestral",
+            "standardized"
+          ],
+          "match_tokens": [
+            "bowed",
+            "orchestral",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "korean",
+            "orchestral"
+          ]
+        },
+        {
+          "id": "sohaegeum_folk_orchestra",
+          "name": "Folk orchestra — arranged revolutionary and film songs",
+          "descriptors": [
+            "folk-orchestra",
+            "song-accompaniment",
+            "popular"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "korean",
+            "twentieth-century"
+          ]
+        },
+        {
+          "id": "sohaegeum_concerto",
+          "name": "Concerto-style exposed solo line",
+          "descriptors": [
+            "soloistic",
+            "virtuoso",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "soloistic",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "solo",
+            "modern"
+          ]
+        },
+        {
+          "id": "sohaegeum_yanbian",
+          "name": "Yanbian Korean-Chinese ensemble use",
+          "descriptors": [
+            "regional",
+            "distinct-repertoire",
+            "ensemble"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "korean",
+            "chinese"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sohaegeum_register",
+      "name": "Family member / register",
+      "variants": [
+        {
+          "id": "sohaegeum_so",
+          "default": true,
+          "name": "Sohaegeum (violin register — four strings in fifths, lateral pegs)",
+          "descriptors": [
+            "bright",
+            "soloistic",
+            "fifths-tuned"
+          ],
+          "match_tokens": [
+            "bowed",
+            "high-register",
+            "orchestral"
+          ],
+          "canonical_tags": [
+            "korean",
+            "modern"
+          ]
+        },
+        {
+          "id": "sohaegeum_jung",
+          "name": "Junghaegeum (viola register)",
+          "descriptors": [
+            "warm",
+            "blended-tone",
+            "ensemble-blend"
+          ],
+          "match_tokens": [
+            "bowed",
+            "orchestral",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "korean",
+            "modern"
+          ]
+        },
+        {
+          "id": "sohaegeum_dae",
+          "name": "Daehaegeum (cello register)",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "foundational",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register",
+            "orchestral"
+          ],
+          "canonical_tags": [
+            "korean",
+            "modern"
+          ]
+        },
+        {
+          "id": "sohaegeum_contrabass",
+          "name": "Contrabass haegeum (ensemble floor)",
+          "descriptors": [
+            "ensemble-bass",
+            "deep",
+            "foundational"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register",
+            "orchestral"
+          ],
+          "canonical_tags": [
+            "korean",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sohaegeum_tone",
+      "name": "Tone target",
+      "variants": [
+        {
+          "id": "sohaegeum_modernized",
+          "default": true,
+          "name": "Fully modernized — wooden resonator, wound strings, violin-like tone",
+          "descriptors": [
+            "wood-faced",
+            "smoother",
+            "concert-grade"
+          ],
+          "match_tokens": [
+            "bowed",
+            "orchestral",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "modern",
+            "korean"
+          ]
+        },
+        {
+          "id": "sohaegeum_reedy_retained",
+          "name": "Haegeum reediness retained (nasal edge kept in the build)",
+          "descriptors": [
+            "nasal-toned",
+            "reedy",
+            "traditional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "reedy",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "korean",
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sohaegeum_ornament",
+      "name": "Ornament policy",
+      "variants": [
+        {
+          "id": "sohaegeum_western_vibrato",
+          "default": true,
+          "name": "Western continuous vibrato, equal temperament",
+          "descriptors": [
+            "vibrato-rich",
+            "equal-tempered",
+            "institutional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vibrato-rich",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "sohaegeum_sigimsae",
+          "name": "Retained sigimsae bends and slides",
+          "descriptors": [
+            "sigimsae-ornament-traces",
+            "ornamented",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "microtonal-bend",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "korean",
+            "gugak"
+          ]
+        },
+        {
+          "id": "sohaegeum_double_stops",
+          "name": "Double stops and chordal texture (fifths tuning exploited)",
+          "descriptors": [
+            "double-stops",
+            "fifths-tuned",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "double-stop",
+            "orchestral"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sohaegeum_context",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "sohaegeum_baehap",
+          "default": true,
+          "name": "Baehap blended-orchestra section (DPRK)",
+          "descriptors": [
+            "section-blend",
+            "orchestral",
+            "standardized"
+          ],
+          "match_tokens": [
+            "bowed",
+            "orchestral",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "korean",
+            "orchestral"
+          ]
+        },
+        {
+          "id": "sohaegeum_folk_orchestra",
+          "name": "Folk orchestra — arranged revolutionary and film songs",
+          "descriptors": [
+            "folk-orchestra",
+            "song-accompaniment",
+            "popular"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "korean",
+            "twentieth-century"
+          ]
+        },
+        {
+          "id": "sohaegeum_concerto",
+          "name": "Concerto-style exposed solo line",
+          "descriptors": [
+            "soloistic",
+            "virtuoso",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "soloistic",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "solo",
+            "modern"
+          ]
+        },
+        {
+          "id": "sohaegeum_yanbian",
+          "name": "Yanbian Korean-Chinese ensemble use",
+          "descriptors": [
+            "regional",
+            "distinct-repertoire",
+            "ensemble"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "korean",
+            "chinese"
+          ]
+        }
+      ]
+    }
+  ]
+}

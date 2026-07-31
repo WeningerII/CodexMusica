@@ -1,0 +1,392 @@
+{
+  "id": "palendag",
+  "name": "Palendag (Maguindanaon lip-valley flute)",
+  "family": "wind",
+  "class": "end_blown_flute",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "palendag",
+  "parts": [
+    {
+      "id": "palendag_form",
+      "name": "Regional form / bore length",
+      "variants": [
+        {
+          "id": "palendag_maguindanaon",
+          "default": true,
+          "name": "Maguindanaon palendag (full-length Cotabato bamboo, three front holes and one thumb hole)",
+          "descriptors": [
+            "low-register",
+            "breathy",
+            "plaintive",
+            "traditional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "end-blown",
+            "breathy-tone",
+            "bamboo"
+          ],
+          "canonical_tags": [
+            "philippines",
+            "mindanao"
+          ]
+        },
+        {
+          "id": "palendag_kalinga_paldong",
+          "name": "Kalinga paldong (shorter northern Luzon lip-valley flute)",
+          "descriptors": [
+            "bright",
+            "high-pitched",
+            "regional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "end-blown",
+            "bamboo"
+          ],
+          "canonical_tags": [
+            "philippines"
+          ]
+        },
+        {
+          "id": "palendag_manobo_pulalu",
+          "name": "Manobo / Bagobo cognate (pulalu, palandag, lumundeg)",
+          "descriptors": [
+            "archaic",
+            "regional",
+            "rustic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "end-blown",
+            "bamboo",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "philippines",
+            "mindanao"
+          ]
+        },
+        {
+          "id": "palendag_short_tube",
+          "name": "Half-length tube (tumpong-scale, easier speaking)",
+          "descriptors": [
+            "mid-register",
+            "agile",
+            "bright-edged"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "end-blown",
+            "bamboo"
+          ],
+          "canonical_tags": [
+            "mindanao"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "palendag_delivery",
+      "name": "Playing technique / delivery",
+      "variants": [
+        {
+          "id": "palendag_wailing",
+          "default": true,
+          "name": "Wailing delivery (breath-heavy, overblown, portamento by partial hole-shading)",
+          "descriptors": [
+            "wailing",
+            "breathy",
+            "plaintive",
+            "overblown"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathy-tone",
+            "microtonal-bend",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "palendag_clean_tone",
+          "name": "Clean sustained tone (steady narrow airstream, minimal breath noise)",
+          "descriptors": [
+            "sustained",
+            "rounded",
+            "meditative"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "sustained",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "concert"
+          ]
+        },
+        {
+          "id": "palendag_speech_narrative",
+          "name": "Speech-inflected narrative phrasing (free rhythm, personal storytelling)",
+          "descriptors": [
+            "narrative",
+            "intimate",
+            "free-rhythm"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "narrative",
+            "breathy-tone"
+          ],
+          "canonical_tags": [
+            "solo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "palendag_context",
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "palendag_evening_solo",
+          "default": true,
+          "name": "Unaccompanied evening piece at a family gathering (reflection and courting)",
+          "descriptors": [
+            "intimate",
+            "solo",
+            "courting",
+            "unaccompanied"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "solo",
+            "breathy-tone"
+          ],
+          "canonical_tags": [
+            "philippines",
+            "mindanao",
+            "solo"
+          ]
+        },
+        {
+          "id": "palendag_kulintang_layered",
+          "name": "Layered over a kulintang / agung bed (modern staged and studio practice)",
+          "descriptors": [
+            "contemporary",
+            "ensemble",
+            "melodic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ensemble",
+            "melodic-lead"
+          ],
+          "canonical_tags": [
+            "mindanao",
+            "contemporary"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "palendag_form",
+      "name": "Regional form / bore length",
+      "variants": [
+        {
+          "id": "palendag_maguindanaon",
+          "default": true,
+          "name": "Maguindanaon palendag (full-length Cotabato bamboo, three front holes and one thumb hole)",
+          "descriptors": [
+            "low-register",
+            "breathy",
+            "plaintive",
+            "traditional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "end-blown",
+            "breathy-tone",
+            "bamboo"
+          ],
+          "canonical_tags": [
+            "philippines",
+            "mindanao"
+          ]
+        },
+        {
+          "id": "palendag_kalinga_paldong",
+          "name": "Kalinga paldong (shorter northern Luzon lip-valley flute)",
+          "descriptors": [
+            "bright",
+            "high-pitched",
+            "regional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "end-blown",
+            "bamboo"
+          ],
+          "canonical_tags": [
+            "philippines"
+          ]
+        },
+        {
+          "id": "palendag_manobo_pulalu",
+          "name": "Manobo / Bagobo cognate (pulalu, palandag, lumundeg)",
+          "descriptors": [
+            "archaic",
+            "regional",
+            "rustic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "end-blown",
+            "bamboo",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "philippines",
+            "mindanao"
+          ]
+        },
+        {
+          "id": "palendag_short_tube",
+          "name": "Half-length tube (tumpong-scale, easier speaking)",
+          "descriptors": [
+            "mid-register",
+            "agile",
+            "bright-edged"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "end-blown",
+            "bamboo"
+          ],
+          "canonical_tags": [
+            "mindanao"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "palendag_delivery",
+      "name": "Playing technique / delivery",
+      "variants": [
+        {
+          "id": "palendag_wailing",
+          "default": true,
+          "name": "Wailing delivery (breath-heavy, overblown, portamento by partial hole-shading)",
+          "descriptors": [
+            "wailing",
+            "breathy",
+            "plaintive",
+            "overblown"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathy-tone",
+            "microtonal-bend",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "palendag_clean_tone",
+          "name": "Clean sustained tone (steady narrow airstream, minimal breath noise)",
+          "descriptors": [
+            "sustained",
+            "rounded",
+            "meditative"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "sustained",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "concert"
+          ]
+        },
+        {
+          "id": "palendag_speech_narrative",
+          "name": "Speech-inflected narrative phrasing (free rhythm, personal storytelling)",
+          "descriptors": [
+            "narrative",
+            "intimate",
+            "free-rhythm"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "narrative",
+            "breathy-tone"
+          ],
+          "canonical_tags": [
+            "solo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "palendag_context",
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "palendag_evening_solo",
+          "default": true,
+          "name": "Unaccompanied evening piece at a family gathering (reflection and courting)",
+          "descriptors": [
+            "intimate",
+            "solo",
+            "courting",
+            "unaccompanied"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "solo",
+            "breathy-tone"
+          ],
+          "canonical_tags": [
+            "philippines",
+            "mindanao",
+            "solo"
+          ]
+        },
+        {
+          "id": "palendag_kulintang_layered",
+          "name": "Layered over a kulintang / agung bed (modern staged and studio practice)",
+          "descriptors": [
+            "contemporary",
+            "ensemble",
+            "melodic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ensemble",
+            "melodic-lead"
+          ],
+          "canonical_tags": [
+            "mindanao",
+            "contemporary"
+          ]
+        }
+      ]
+    }
+  ]
+}

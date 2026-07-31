@@ -1,0 +1,419 @@
+{
+  "id": "dan_gao",
+  "name": "Đàn gáo (southern Vietnamese coconut-body fiddle)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "đàn gáo",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "dan_gao_face",
+      "name": "Resonator face",
+      "variants": [
+        {
+          "id": "dan_gao_skin",
+          "default": true,
+          "name": "Thin leather membrane over the coconut half (canonical southern build, bow fixed between the strings)",
+          "descriptors": [
+            "coconut-shell",
+            "leather",
+            "nasal-toned",
+            "threaded-between-strings-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "nasal-tone",
+            "resonator"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "natural-skin"
+          ]
+        },
+        {
+          "id": "dan_gao_wood",
+          "name": "Thin wooden soundboard (drier, more lute-like)",
+          "descriptors": [
+            "wood-faced",
+            "dry",
+            "round"
+          ],
+          "match_tokens": [
+            "bowed",
+            "wood-toned",
+            "resonator"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "wood"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dan_gao_size",
+      "name": "Coconut size / register",
+      "variants": [
+        {
+          "id": "dan_gao_alto",
+          "default": true,
+          "name": "Standard coconut, alto — a fourth to a fifth below the đàn nhị",
+          "descriptors": [
+            "alto",
+            "round",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "mid-register"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "southern"
+          ]
+        },
+        {
+          "id": "dan_gao_tenor",
+          "name": "Large thick-walled coconut, tenor",
+          "descriptors": [
+            "tenor-register",
+            "deep-toned",
+            "spacious"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "southern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dan_gao_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "dan_gao_paired_nhi",
+          "default": true,
+          "name": "Paired with a đàn nhị in the cải lương pit (low half of one heterophonic line)",
+          "descriptors": [
+            "heterophonic",
+            "supportive",
+            "round"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "southern"
+          ]
+        },
+        {
+          "id": "dan_gao_tai_tu",
+          "name": "Đờn ca tài tử chamber lead",
+          "descriptors": [
+            "intimate-chamber",
+            "improvisatory",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "soloistic",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "tai_tu"
+          ]
+        },
+        {
+          "id": "dan_gao_vong_co",
+          "name": "Vọng cổ / oán-mode song accompaniment",
+          "descriptors": [
+            "melancholic",
+            "languid",
+            "vocal-supportive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melancholic",
+            "song-accompaniment"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "southern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dan_gao_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "dan_gao_steel",
+          "default": true,
+          "name": "Steel (modern cải lương norm)",
+          "descriptors": [
+            "steel-modern-canonical",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "metal-string"
+          ],
+          "canonical_tags": [
+            "steel",
+            "modern"
+          ]
+        },
+        {
+          "id": "dan_gao_silk",
+          "name": "Silk (pre-modern)",
+          "descriptors": [
+            "silk-pre-modern-historical",
+            "mellow",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "silk-strung",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dan_gao_face",
+      "name": "Resonator face",
+      "variants": [
+        {
+          "id": "dan_gao_skin",
+          "default": true,
+          "name": "Thin leather membrane over the coconut half (canonical southern build, bow fixed between the strings)",
+          "descriptors": [
+            "coconut-shell",
+            "leather",
+            "nasal-toned",
+            "threaded-between-strings-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "nasal-tone",
+            "resonator"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "natural-skin"
+          ]
+        },
+        {
+          "id": "dan_gao_wood",
+          "name": "Thin wooden soundboard (drier, more lute-like)",
+          "descriptors": [
+            "wood-faced",
+            "dry",
+            "round"
+          ],
+          "match_tokens": [
+            "bowed",
+            "wood-toned",
+            "resonator"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "wood"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dan_gao_size",
+      "name": "Coconut size / register",
+      "variants": [
+        {
+          "id": "dan_gao_alto",
+          "default": true,
+          "name": "Standard coconut, alto — a fourth to a fifth below the đàn nhị",
+          "descriptors": [
+            "alto",
+            "round",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "mid-register"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "southern"
+          ]
+        },
+        {
+          "id": "dan_gao_tenor",
+          "name": "Large thick-walled coconut, tenor",
+          "descriptors": [
+            "tenor-register",
+            "deep-toned",
+            "spacious"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "southern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dan_gao_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "dan_gao_paired_nhi",
+          "default": true,
+          "name": "Paired with a đàn nhị in the cải lương pit (low half of one heterophonic line)",
+          "descriptors": [
+            "heterophonic",
+            "supportive",
+            "round"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "southern"
+          ]
+        },
+        {
+          "id": "dan_gao_tai_tu",
+          "name": "Đờn ca tài tử chamber lead",
+          "descriptors": [
+            "intimate-chamber",
+            "improvisatory",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "soloistic",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "tai_tu"
+          ]
+        },
+        {
+          "id": "dan_gao_vong_co",
+          "name": "Vọng cổ / oán-mode song accompaniment",
+          "descriptors": [
+            "melancholic",
+            "languid",
+            "vocal-supportive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melancholic",
+            "song-accompaniment"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "southern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dan_gao_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "dan_gao_steel",
+          "default": true,
+          "name": "Steel (modern cải lương norm)",
+          "descriptors": [
+            "steel-modern-canonical",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "metal-string"
+          ],
+          "canonical_tags": [
+            "steel",
+            "modern"
+          ]
+        },
+        {
+          "id": "dan_gao_silk",
+          "name": "Silk (pre-modern)",
+          "descriptors": [
+            "silk-pre-modern-historical",
+            "mellow",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "silk-strung",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        }
+      ]
+    }
+  ]
+}

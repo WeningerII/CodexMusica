@@ -1,0 +1,462 @@
+{
+  "id": "heckel_clarina",
+  "name": "Heckel-clarina (1889 metal single-reed conical soprano)",
+  "family": "wind",
+  "class": "single_reed_conical",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "heckel-clarina",
+  "parts": [
+    {
+      "id": "heckel_clarina_pitch",
+      "name": "Size / pitch",
+      "variants": [
+        {
+          "id": "heckel_clarina_bb_soprano",
+          "default": true,
+          "name": "B♭ soprano clarina (transposing, written a tone above sounding)",
+          "descriptors": [
+            "soprano",
+            "reedy",
+            "saxophone-like"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "conical-bore"
+          ],
+          "canonical_tags": [
+            "germanic",
+            "opera"
+          ]
+        },
+        {
+          "id": "heckel_clarina_eb_sopranino",
+          "name": "E♭ sopranino clarina",
+          "descriptors": [
+            "bright",
+            "piercing",
+            "sharp"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "high-pitched"
+          ],
+          "canonical_tags": [
+            "germanic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "heckel_clarina_register",
+      "name": "Register / tone zone",
+      "variants": [
+        {
+          "id": "heckel_clarina_middle",
+          "default": true,
+          "name": "Middle register — saxophone-like core, the Tristan solo's home",
+          "descriptors": [
+            "saxophone-like",
+            "reedy",
+            "singing"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "melodic-lead"
+          ],
+          "canonical_tags": [
+            "opera"
+          ]
+        },
+        {
+          "id": "heckel_clarina_low",
+          "name": "Low register — cor-anglais-like chalumeau weight",
+          "descriptors": [
+            "dark-toned",
+            "plaintive",
+            "mellow"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "dark-reedy",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "opera"
+          ]
+        },
+        {
+          "id": "heckel_clarina_top",
+          "name": "Top register — clarinet-like edge",
+          "descriptors": [
+            "bright",
+            "piercing",
+            "focused"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "opera"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "heckel_clarina_substitution",
+      "name": "Tristan shepherd-pipe substitution",
+      "variants": [
+        {
+          "id": "heckel_clarina_bayreuth",
+          "default": true,
+          "name": "Heckel-clarina, as adopted at Bayreuth from 1891",
+          "descriptors": [
+            "plaintive",
+            "distant",
+            "historical"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "soloistic"
+          ],
+          "canonical_tags": [
+            "opera",
+            "wagnerian-declamation"
+          ]
+        },
+        {
+          "id": "heckel_clarina_holztrompete",
+          "name": "Wagner's original Holztrompete",
+          "descriptors": [
+            "raw",
+            "strident",
+            "archaic"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "rough-tone",
+            "soloistic"
+          ],
+          "canonical_tags": [
+            "opera",
+            "germanic"
+          ]
+        },
+        {
+          "id": "heckel_clarina_tarogato",
+          "name": "Tárogató (Hans Richter's 1902 Bayreuth replacement)",
+          "descriptors": [
+            "warm",
+            "reedy",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "conical-bore"
+          ],
+          "canonical_tags": [
+            "opera",
+            "hungarian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "heckel_clarina_placement",
+      "name": "Placement / scoring",
+      "variants": [
+        {
+          "id": "heckel_clarina_offstage",
+          "default": true,
+          "name": "Offstage distant shepherd-pipe cue (Tristan Act III)",
+          "descriptors": [
+            "distant",
+            "plaintive",
+            "quiet"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "soloistic",
+            "stage"
+          ],
+          "canonical_tags": [
+            "opera"
+          ]
+        },
+        {
+          "id": "heckel_clarina_in_pit",
+          "name": "Played in the pit with the orchestra",
+          "descriptors": [
+            "blending",
+            "focused",
+            "resonant"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "orchestral",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "opera",
+            "orchestral"
+          ]
+        },
+        {
+          "id": "heckel_clarina_concert_solo",
+          "name": "Concert-stage solo feature",
+          "descriptors": [
+            "singing",
+            "proud",
+            "concert"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "solo",
+            "concert"
+          ],
+          "canonical_tags": [
+            "concert"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "heckel_clarina_pitch",
+      "name": "Size / pitch",
+      "variants": [
+        {
+          "id": "heckel_clarina_bb_soprano",
+          "default": true,
+          "name": "B♭ soprano clarina (transposing, written a tone above sounding)",
+          "descriptors": [
+            "soprano",
+            "reedy",
+            "saxophone-like"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "conical-bore"
+          ],
+          "canonical_tags": [
+            "germanic",
+            "opera"
+          ]
+        },
+        {
+          "id": "heckel_clarina_eb_sopranino",
+          "name": "E♭ sopranino clarina",
+          "descriptors": [
+            "bright",
+            "piercing",
+            "sharp"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "high-pitched"
+          ],
+          "canonical_tags": [
+            "germanic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "heckel_clarina_register",
+      "name": "Register / tone zone",
+      "variants": [
+        {
+          "id": "heckel_clarina_middle",
+          "default": true,
+          "name": "Middle register — saxophone-like core, the Tristan solo's home",
+          "descriptors": [
+            "saxophone-like",
+            "reedy",
+            "singing"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "melodic-lead"
+          ],
+          "canonical_tags": [
+            "opera"
+          ]
+        },
+        {
+          "id": "heckel_clarina_low",
+          "name": "Low register — cor-anglais-like chalumeau weight",
+          "descriptors": [
+            "dark-toned",
+            "plaintive",
+            "mellow"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "dark-reedy",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "opera"
+          ]
+        },
+        {
+          "id": "heckel_clarina_top",
+          "name": "Top register — clarinet-like edge",
+          "descriptors": [
+            "bright",
+            "piercing",
+            "focused"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "opera"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "heckel_clarina_substitution",
+      "name": "Tristan shepherd-pipe substitution",
+      "variants": [
+        {
+          "id": "heckel_clarina_bayreuth",
+          "default": true,
+          "name": "Heckel-clarina, as adopted at Bayreuth from 1891",
+          "descriptors": [
+            "plaintive",
+            "distant",
+            "historical"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "soloistic"
+          ],
+          "canonical_tags": [
+            "opera",
+            "wagnerian-declamation"
+          ]
+        },
+        {
+          "id": "heckel_clarina_holztrompete",
+          "name": "Wagner's original Holztrompete",
+          "descriptors": [
+            "raw",
+            "strident",
+            "archaic"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "rough-tone",
+            "soloistic"
+          ],
+          "canonical_tags": [
+            "opera",
+            "germanic"
+          ]
+        },
+        {
+          "id": "heckel_clarina_tarogato",
+          "name": "Tárogató (Hans Richter's 1902 Bayreuth replacement)",
+          "descriptors": [
+            "warm",
+            "reedy",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "conical-bore"
+          ],
+          "canonical_tags": [
+            "opera",
+            "hungarian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "heckel_clarina_placement",
+      "name": "Placement / scoring",
+      "variants": [
+        {
+          "id": "heckel_clarina_offstage",
+          "default": true,
+          "name": "Offstage distant shepherd-pipe cue (Tristan Act III)",
+          "descriptors": [
+            "distant",
+            "plaintive",
+            "quiet"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "soloistic",
+            "stage"
+          ],
+          "canonical_tags": [
+            "opera"
+          ]
+        },
+        {
+          "id": "heckel_clarina_in_pit",
+          "name": "Played in the pit with the orchestra",
+          "descriptors": [
+            "blending",
+            "focused",
+            "resonant"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "orchestral",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "opera",
+            "orchestral"
+          ]
+        },
+        {
+          "id": "heckel_clarina_concert_solo",
+          "name": "Concert-stage solo feature",
+          "descriptors": [
+            "singing",
+            "proud",
+            "concert"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "solo",
+            "concert"
+          ],
+          "canonical_tags": [
+            "concert"
+          ]
+        }
+      ]
+    }
+  ]
+}

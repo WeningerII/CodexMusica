@@ -1,0 +1,412 @@
+{
+  "id": "contrabass_oboe",
+  "name": "Contrabass oboe (contrebasse de hautbois — historical reconstruction)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": -2,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "contrabass oboe",
+  "parts": [
+    {
+      "id": "contrabass_oboe_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "contrabass_oboe_form_delusse",
+          "default": true,
+          "name": "Delusse-type folded wooden original (Paris, c. 1760 — Musée de la musique E.150)",
+          "descriptors": [
+            "historical",
+            "archaic",
+            "woody"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "double-reed",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "historical",
+            "french"
+          ]
+        },
+        {
+          "id": "contrabass_oboe_form_gohin_repro",
+          "name": "Henri Gohin modern reproduction",
+          "descriptors": [
+            "reconstructed",
+            "revival",
+            "modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "period-performance",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "revival",
+            "period"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "contrabass_oboe_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "contrabass_oboe_role_basse_continue",
+          "default": true,
+          "name": "Doubling the basse continue in the French reed choir",
+          "descriptors": [
+            "foundational",
+            "blended",
+            "deep"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "foundational-bass",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "french"
+          ]
+        },
+        {
+          "id": "contrabass_oboe_role_pedal",
+          "name": "Standalone pedal / drone",
+          "descriptors": [
+            "drone-foundation",
+            "sub-bass",
+            "sustaining"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "drone-foundation",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "baroque"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "contrabass_oboe_pitch",
+      "name": "Pitch standard",
+      "variants": [
+        {
+          "id": "contrabass_oboe_pitch_period",
+          "default": true,
+          "name": "A=392 / A=415 French period pitch",
+          "descriptors": [
+            "baroque-pitch",
+            "period",
+            "historical"
+          ],
+          "match_tokens": [
+            "period-performance",
+            "baroque-leaning",
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period",
+            "french"
+          ]
+        },
+        {
+          "id": "contrabass_oboe_pitch_a440",
+          "name": "A=440 modern reconstruction pitch",
+          "descriptors": [
+            "modern",
+            "standard",
+            "stable"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "contrabass_oboe_realisation",
+      "name": "Modern realisation",
+      "variants": [
+        {
+          "id": "contrabass_oboe_realisation_authentic",
+          "default": true,
+          "name": "Played on the reconstruction itself",
+          "descriptors": [
+            "authentic",
+            "rare",
+            "archaic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "period",
+            "historical"
+          ]
+        },
+        {
+          "id": "contrabass_oboe_realisation_contrabassoon",
+          "name": "Covered by contrabassoon / contraforte",
+          "descriptors": [
+            "modern",
+            "standard",
+            "deep"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "low-register",
+            "orchestral"
+          ],
+          "canonical_tags": [
+            "orchestral",
+            "modern"
+          ]
+        },
+        {
+          "id": "contrabass_oboe_realisation_sarrusophone",
+          "name": "Covered by contrabass sarrusophone or lupophone",
+          "descriptors": [
+            "metallic",
+            "buzzy",
+            "projecting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "metallic-rasp",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "brass"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "contrabass_oboe_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "contrabass_oboe_form_delusse",
+          "default": true,
+          "name": "Delusse-type folded wooden original (Paris, c. 1760 — Musée de la musique E.150)",
+          "descriptors": [
+            "historical",
+            "archaic",
+            "woody"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "double-reed",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "historical",
+            "french"
+          ]
+        },
+        {
+          "id": "contrabass_oboe_form_gohin_repro",
+          "name": "Henri Gohin modern reproduction",
+          "descriptors": [
+            "reconstructed",
+            "revival",
+            "modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "period-performance",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "revival",
+            "period"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "contrabass_oboe_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "contrabass_oboe_role_basse_continue",
+          "default": true,
+          "name": "Doubling the basse continue in the French reed choir",
+          "descriptors": [
+            "foundational",
+            "blended",
+            "deep"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "foundational-bass",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "french"
+          ]
+        },
+        {
+          "id": "contrabass_oboe_role_pedal",
+          "name": "Standalone pedal / drone",
+          "descriptors": [
+            "drone-foundation",
+            "sub-bass",
+            "sustaining"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "drone-foundation",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "baroque"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "contrabass_oboe_pitch",
+      "name": "Pitch standard",
+      "variants": [
+        {
+          "id": "contrabass_oboe_pitch_period",
+          "default": true,
+          "name": "A=392 / A=415 French period pitch",
+          "descriptors": [
+            "baroque-pitch",
+            "period",
+            "historical"
+          ],
+          "match_tokens": [
+            "period-performance",
+            "baroque-leaning",
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period",
+            "french"
+          ]
+        },
+        {
+          "id": "contrabass_oboe_pitch_a440",
+          "name": "A=440 modern reconstruction pitch",
+          "descriptors": [
+            "modern",
+            "standard",
+            "stable"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "contrabass_oboe_realisation",
+      "name": "Modern realisation",
+      "variants": [
+        {
+          "id": "contrabass_oboe_realisation_authentic",
+          "default": true,
+          "name": "Played on the reconstruction itself",
+          "descriptors": [
+            "authentic",
+            "rare",
+            "archaic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "period",
+            "historical"
+          ]
+        },
+        {
+          "id": "contrabass_oboe_realisation_contrabassoon",
+          "name": "Covered by contrabassoon / contraforte",
+          "descriptors": [
+            "modern",
+            "standard",
+            "deep"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "low-register",
+            "orchestral"
+          ],
+          "canonical_tags": [
+            "orchestral",
+            "modern"
+          ]
+        },
+        {
+          "id": "contrabass_oboe_realisation_sarrusophone",
+          "name": "Covered by contrabass sarrusophone or lupophone",
+          "descriptors": [
+            "metallic",
+            "buzzy",
+            "projecting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "metallic-rasp",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "brass"
+          ]
+        }
+      ]
+    }
+  ]
+}

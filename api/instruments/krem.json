@@ -1,0 +1,429 @@
+{
+  "id": "krem",
+  "name": "Krem (Jah Hut bowed bamboo tube zither)",
+  "family": "bowed",
+  "class": "tube_zither",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -2,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "krem",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "krem_excitation",
+      "name": "Excitation",
+      "variants": [
+        {
+          "id": "krem_excitation_bowed",
+          "default": true,
+          "name": "Bowed near the open end of the tube",
+          "descriptors": [
+            "droning",
+            "sustained",
+            "buzzy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "tube-zither",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "southeast-asian",
+            "bamboo-tube"
+          ]
+        },
+        {
+          "id": "krem_excitation_plucked",
+          "name": "Plucked (thumb and finger over the slits)",
+          "descriptors": [
+            "plucky",
+            "short-sustain",
+            "dry"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tube-zither",
+            "dry"
+          ],
+          "canonical_tags": [
+            "southeast-asian",
+            "bamboo-tube"
+          ]
+        },
+        {
+          "id": "krem_excitation_bow_pluck_alternating",
+          "name": "Alternating bow and pluck within one piece",
+          "descriptors": [
+            "archaic",
+            "spare",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "plucked",
+            "tube-zither"
+          ],
+          "canonical_tags": [
+            "southeast-asian",
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "krem_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "krem_context_domestic_solo",
+          "default": true,
+          "name": "Solo domestic playing (predominantly a women's instrument)",
+          "descriptors": [
+            "intimate",
+            "domestic",
+            "spare"
+          ],
+          "match_tokens": [
+            "bowed",
+            "intimate",
+            "domestic"
+          ],
+          "canonical_tags": [
+            "womens-tradition",
+            "domestic"
+          ]
+        },
+        {
+          "id": "krem_context_bamboo_pairing",
+          "name": "Paired with other Orang Asli bamboo instruments",
+          "descriptors": [
+            "bamboo",
+            "rustic",
+            "blended"
+          ],
+          "match_tokens": [
+            "bowed",
+            "tube-zither",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "southeast-asian",
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "krem_stringing",
+      "name": "Stringing type",
+      "variants": [
+        {
+          "id": "krem_stringing_heterochord",
+          "default": true,
+          "name": "Heterochord — two separate strings laid over small bridges (true krem)",
+          "descriptors": [
+            "two-string",
+            "resonant",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "tube-zither",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "heterochord",
+            "bamboo-tube"
+          ]
+        },
+        {
+          "id": "krem_stringing_idiochord_karaniing",
+          "name": "Idiochord — strips lifted from the bamboo skin (karaniing / pergam manner)",
+          "descriptors": [
+            "idiochord",
+            "archaic",
+            "muted"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tube-zither",
+            "archaic"
+          ],
+          "canonical_tags": [
+            "idiochord",
+            "bamboo-tube"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "krem_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "krem_strings_resin_root_fibre",
+          "default": true,
+          "name": "Plant root fibre coated with resin (archaic, loud and firm)",
+          "descriptors": [
+            "resin",
+            "buzzy",
+            "dry",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "tube-zither"
+          ],
+          "canonical_tags": [
+            "plant-fiber",
+            "traditional"
+          ]
+        },
+        {
+          "id": "krem_strings_nylon",
+          "name": "Nylon (modern replacement)",
+          "descriptors": [
+            "nylon",
+            "clean",
+            "bright"
+          ],
+          "match_tokens": [
+            "bowed",
+            "tube-zither",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "nylon",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "krem_excitation",
+      "name": "Excitation",
+      "variants": [
+        {
+          "id": "krem_excitation_bowed",
+          "default": true,
+          "name": "Bowed near the open end of the tube",
+          "descriptors": [
+            "droning",
+            "sustained",
+            "buzzy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "tube-zither",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "southeast-asian",
+            "bamboo-tube"
+          ]
+        },
+        {
+          "id": "krem_excitation_plucked",
+          "name": "Plucked (thumb and finger over the slits)",
+          "descriptors": [
+            "plucky",
+            "short-sustain",
+            "dry"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tube-zither",
+            "dry"
+          ],
+          "canonical_tags": [
+            "southeast-asian",
+            "bamboo-tube"
+          ]
+        },
+        {
+          "id": "krem_excitation_bow_pluck_alternating",
+          "name": "Alternating bow and pluck within one piece",
+          "descriptors": [
+            "archaic",
+            "spare",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "plucked",
+            "tube-zither"
+          ],
+          "canonical_tags": [
+            "southeast-asian",
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "krem_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "krem_context_domestic_solo",
+          "default": true,
+          "name": "Solo domestic playing (predominantly a women's instrument)",
+          "descriptors": [
+            "intimate",
+            "domestic",
+            "spare"
+          ],
+          "match_tokens": [
+            "bowed",
+            "intimate",
+            "domestic"
+          ],
+          "canonical_tags": [
+            "womens-tradition",
+            "domestic"
+          ]
+        },
+        {
+          "id": "krem_context_bamboo_pairing",
+          "name": "Paired with other Orang Asli bamboo instruments",
+          "descriptors": [
+            "bamboo",
+            "rustic",
+            "blended"
+          ],
+          "match_tokens": [
+            "bowed",
+            "tube-zither",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "southeast-asian",
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "krem_stringing",
+      "name": "Stringing type",
+      "variants": [
+        {
+          "id": "krem_stringing_heterochord",
+          "default": true,
+          "name": "Heterochord — two separate strings laid over small bridges (true krem)",
+          "descriptors": [
+            "two-string",
+            "resonant",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "tube-zither",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "heterochord",
+            "bamboo-tube"
+          ]
+        },
+        {
+          "id": "krem_stringing_idiochord_karaniing",
+          "name": "Idiochord — strips lifted from the bamboo skin (karaniing / pergam manner)",
+          "descriptors": [
+            "idiochord",
+            "archaic",
+            "muted"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tube-zither",
+            "archaic"
+          ],
+          "canonical_tags": [
+            "idiochord",
+            "bamboo-tube"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "krem_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "krem_strings_resin_root_fibre",
+          "default": true,
+          "name": "Plant root fibre coated with resin (archaic, loud and firm)",
+          "descriptors": [
+            "resin",
+            "buzzy",
+            "dry",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "tube-zither"
+          ],
+          "canonical_tags": [
+            "plant-fiber",
+            "traditional"
+          ]
+        },
+        {
+          "id": "krem_strings_nylon",
+          "name": "Nylon (modern replacement)",
+          "descriptors": [
+            "nylon",
+            "clean",
+            "bright"
+          ],
+          "match_tokens": [
+            "bowed",
+            "tube-zither",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "nylon",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

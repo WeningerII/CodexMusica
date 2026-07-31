@@ -1,0 +1,461 @@
+{
+  "id": "gue",
+  "name": "Gue (Shetland bowed lyre, reconstructed)",
+  "family": "bowed",
+  "class": "bowed_lyre",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "gue",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "gue_reading",
+      "name": "Organological reconstruction",
+      "variants": [
+        {
+          "id": "gue_reading_bowed_lyre",
+          "default": true,
+          "name": "Bowed-lyre reconstruction (yoke and open handhole, stopped from behind)",
+          "descriptors": [
+            "reconstructed",
+            "archaic",
+            "droning"
+          ],
+          "match_tokens": [
+            "bowed",
+            "lyre",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "scottish",
+            "nordic",
+            "revival"
+          ]
+        },
+        {
+          "id": "gue_reading_box_zither",
+          "name": "Bowed box-zither reading (fidla-type body)",
+          "descriptors": [
+            "archaic",
+            "two-string",
+            "spare"
+          ],
+          "match_tokens": [
+            "bowed",
+            "box-zither",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "scottish",
+            "historical"
+          ]
+        },
+        {
+          "id": "gue_reading_edmondston_literal",
+          "name": "Edmondston 1809 literal reading (two horsehair strings, held like a cello)",
+          "descriptors": [
+            "historical",
+            "rare",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "archaic"
+          ],
+          "canonical_tags": [
+            "scottish",
+            "historical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gue_tuning",
+      "name": "Tuning",
+      "variants": [
+        {
+          "id": "gue_tuning_fifth_gd",
+          "default": true,
+          "name": "Open fifth G/D (modern reconstruction standard)",
+          "descriptors": [
+            "open-string",
+            "resonant",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "double-stop"
+          ],
+          "canonical_tags": [
+            "revival"
+          ]
+        },
+        {
+          "id": "gue_tuning_drone_melody",
+          "name": "Fixed drone under a stopped melody string",
+          "descriptors": [
+            "drone-under-melody",
+            "droning",
+            "modal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "nordic",
+            "archaic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gue_repertoire",
+      "name": "Repertoire framing",
+      "variants": [
+        {
+          "id": "gue_repertoire_norn_song",
+          "default": true,
+          "name": "Archaic Norse / Norn drone-song accompaniment",
+          "descriptors": [
+            "archaic",
+            "narrative",
+            "droning"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "archaic"
+          ],
+          "canonical_tags": [
+            "nordic",
+            "scottish"
+          ]
+        },
+        {
+          "id": "gue_repertoire_shetland_reel",
+          "name": "Shetland reel material carried over from the fiddle",
+          "descriptors": [
+            "dance-driving",
+            "rhythmic",
+            "brisk"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "scottish",
+            "dance"
+          ]
+        },
+        {
+          "id": "gue_repertoire_ritual_drone",
+          "name": "Revival ritual drone / atmosphere bed",
+          "descriptors": [
+            "ritual",
+            "hypnotic",
+            "meditative"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "trance-inducing"
+          ],
+          "canonical_tags": [
+            "revival",
+            "ritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gue_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "gue_strings_horsehair",
+          "default": true,
+          "name": "Bundled horsehair (as described in 1809)",
+          "descriptors": [
+            "horsehair-strung",
+            "rough-tone",
+            "low-dynamic-level"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "friction-driven"
+          ],
+          "canonical_tags": [
+            "horsehair",
+            "historical"
+          ]
+        },
+        {
+          "id": "gue_strings_gut",
+          "name": "Gut (louder reconstruction option)",
+          "descriptors": [
+            "gut-strung",
+            "warm",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string"
+          ],
+          "canonical_tags": [
+            "gut",
+            "revival"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "gue_reading",
+      "name": "Organological reconstruction",
+      "variants": [
+        {
+          "id": "gue_reading_bowed_lyre",
+          "default": true,
+          "name": "Bowed-lyre reconstruction (yoke and open handhole, stopped from behind)",
+          "descriptors": [
+            "reconstructed",
+            "archaic",
+            "droning"
+          ],
+          "match_tokens": [
+            "bowed",
+            "lyre",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "scottish",
+            "nordic",
+            "revival"
+          ]
+        },
+        {
+          "id": "gue_reading_box_zither",
+          "name": "Bowed box-zither reading (fidla-type body)",
+          "descriptors": [
+            "archaic",
+            "two-string",
+            "spare"
+          ],
+          "match_tokens": [
+            "bowed",
+            "box-zither",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "scottish",
+            "historical"
+          ]
+        },
+        {
+          "id": "gue_reading_edmondston_literal",
+          "name": "Edmondston 1809 literal reading (two horsehair strings, held like a cello)",
+          "descriptors": [
+            "historical",
+            "rare",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "archaic"
+          ],
+          "canonical_tags": [
+            "scottish",
+            "historical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gue_tuning",
+      "name": "Tuning",
+      "variants": [
+        {
+          "id": "gue_tuning_fifth_gd",
+          "default": true,
+          "name": "Open fifth G/D (modern reconstruction standard)",
+          "descriptors": [
+            "open-string",
+            "resonant",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "double-stop"
+          ],
+          "canonical_tags": [
+            "revival"
+          ]
+        },
+        {
+          "id": "gue_tuning_drone_melody",
+          "name": "Fixed drone under a stopped melody string",
+          "descriptors": [
+            "drone-under-melody",
+            "droning",
+            "modal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "nordic",
+            "archaic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gue_repertoire",
+      "name": "Repertoire framing",
+      "variants": [
+        {
+          "id": "gue_repertoire_norn_song",
+          "default": true,
+          "name": "Archaic Norse / Norn drone-song accompaniment",
+          "descriptors": [
+            "archaic",
+            "narrative",
+            "droning"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "archaic"
+          ],
+          "canonical_tags": [
+            "nordic",
+            "scottish"
+          ]
+        },
+        {
+          "id": "gue_repertoire_shetland_reel",
+          "name": "Shetland reel material carried over from the fiddle",
+          "descriptors": [
+            "dance-driving",
+            "rhythmic",
+            "brisk"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "scottish",
+            "dance"
+          ]
+        },
+        {
+          "id": "gue_repertoire_ritual_drone",
+          "name": "Revival ritual drone / atmosphere bed",
+          "descriptors": [
+            "ritual",
+            "hypnotic",
+            "meditative"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "trance-inducing"
+          ],
+          "canonical_tags": [
+            "revival",
+            "ritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gue_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "gue_strings_horsehair",
+          "default": true,
+          "name": "Bundled horsehair (as described in 1809)",
+          "descriptors": [
+            "horsehair-strung",
+            "rough-tone",
+            "low-dynamic-level"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "friction-driven"
+          ],
+          "canonical_tags": [
+            "horsehair",
+            "historical"
+          ]
+        },
+        {
+          "id": "gue_strings_gut",
+          "name": "Gut (louder reconstruction option)",
+          "descriptors": [
+            "gut-strung",
+            "warm",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string"
+          ],
+          "canonical_tags": [
+            "gut",
+            "revival"
+          ]
+        }
+      ]
+    }
+  ]
+}

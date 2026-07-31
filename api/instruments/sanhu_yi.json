@@ -1,0 +1,381 @@
+{
+  "id": "sanhu_yi",
+  "name": "Yi sanhu (Axi heihu / Sani leihu three-string fiddle)",
+  "family": "bowed",
+  "class": "bowed_spike_fiddle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "yi sanhu",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "sanhu_yi_subgroup",
+      "name": "Subgroup and tuning order",
+      "variants": [
+        {
+          "id": "sanhu_yi_subgroup_axi",
+          "default": true,
+          "name": "Axi heihu, tuned inside-to-outside g-c1-c",
+          "descriptors": [
+            "rounded-tone",
+            "soft-toned",
+            "folk"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "soft-tone",
+            "open-string"
+          ],
+          "canonical_tags": [
+            "china",
+            "folk"
+          ]
+        },
+        {
+          "id": "sanhu_yi_subgroup_sani",
+          "name": "Sani leihu, tuned inside-to-outside g-c-c1",
+          "descriptors": [
+            "warm",
+            "measured",
+            "regional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "china",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sanhu_yi_size",
+      "name": "Self-built size",
+      "variants": [
+        {
+          "id": "sanhu_yi_size_mid",
+          "default": true,
+          "name": "Mid-length self-built instrument (no standard dimensions)",
+          "descriptors": [
+            "handmade",
+            "rustic",
+            "village"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "woody"
+          ],
+          "canonical_tags": [
+            "folk",
+            "traditional"
+          ]
+        },
+        {
+          "id": "sanhu_yi_size_short",
+          "name": "Short build near 80 cm (brighter and tighter)",
+          "descriptors": [
+            "brighter",
+            "thin",
+            "crisp"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bright-tone",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "folk",
+            "china"
+          ]
+        },
+        {
+          "id": "sanhu_yi_size_long",
+          "name": "Long build near 105 cm (deeper and rounder)",
+          "descriptors": [
+            "deep",
+            "rounded-tone",
+            "sonorous"
+          ],
+          "match_tokens": [
+            "bowed",
+            "mellow-tone",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "folk",
+            "china"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sanhu_yi_context",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "sanhu_yi_context_elders",
+          "default": true,
+          "name": "Axi Tiaoyue elders' dance, partnered to the large and small sanxian",
+          "descriptors": [
+            "dance-accompaniment",
+            "measured",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "ensemble",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "dance",
+            "china"
+          ]
+        },
+        {
+          "id": "sanhu_yi_context_full_band",
+          "name": "Full dance band with yueqin, bamboo flute, leaf and whistle",
+          "descriptors": [
+            "festive",
+            "blended",
+            "village"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "festival",
+            "folk"
+          ]
+        },
+        {
+          "id": "sanhu_yi_context_song",
+          "name": "Song accompaniment at village gatherings",
+          "descriptors": [
+            "vocal-supportive",
+            "intimate",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "song-accompaniment",
+            "soft-tone"
+          ],
+          "canonical_tags": [
+            "folk",
+            "traditional"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sanhu_yi_subgroup",
+      "name": "Subgroup and tuning order",
+      "variants": [
+        {
+          "id": "sanhu_yi_subgroup_axi",
+          "default": true,
+          "name": "Axi heihu, tuned inside-to-outside g-c1-c",
+          "descriptors": [
+            "rounded-tone",
+            "soft-toned",
+            "folk"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "soft-tone",
+            "open-string"
+          ],
+          "canonical_tags": [
+            "china",
+            "folk"
+          ]
+        },
+        {
+          "id": "sanhu_yi_subgroup_sani",
+          "name": "Sani leihu, tuned inside-to-outside g-c-c1",
+          "descriptors": [
+            "warm",
+            "measured",
+            "regional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "china",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sanhu_yi_size",
+      "name": "Self-built size",
+      "variants": [
+        {
+          "id": "sanhu_yi_size_mid",
+          "default": true,
+          "name": "Mid-length self-built instrument (no standard dimensions)",
+          "descriptors": [
+            "handmade",
+            "rustic",
+            "village"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "woody"
+          ],
+          "canonical_tags": [
+            "folk",
+            "traditional"
+          ]
+        },
+        {
+          "id": "sanhu_yi_size_short",
+          "name": "Short build near 80 cm (brighter and tighter)",
+          "descriptors": [
+            "brighter",
+            "thin",
+            "crisp"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bright-tone",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "folk",
+            "china"
+          ]
+        },
+        {
+          "id": "sanhu_yi_size_long",
+          "name": "Long build near 105 cm (deeper and rounder)",
+          "descriptors": [
+            "deep",
+            "rounded-tone",
+            "sonorous"
+          ],
+          "match_tokens": [
+            "bowed",
+            "mellow-tone",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "folk",
+            "china"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sanhu_yi_context",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "sanhu_yi_context_elders",
+          "default": true,
+          "name": "Axi Tiaoyue elders' dance, partnered to the large and small sanxian",
+          "descriptors": [
+            "dance-accompaniment",
+            "measured",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "ensemble",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "dance",
+            "china"
+          ]
+        },
+        {
+          "id": "sanhu_yi_context_full_band",
+          "name": "Full dance band with yueqin, bamboo flute, leaf and whistle",
+          "descriptors": [
+            "festive",
+            "blended",
+            "village"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "festival",
+            "folk"
+          ]
+        },
+        {
+          "id": "sanhu_yi_context_song",
+          "name": "Song accompaniment at village gatherings",
+          "descriptors": [
+            "vocal-supportive",
+            "intimate",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "song-accompaniment",
+            "soft-tone"
+          ],
+          "canonical_tags": [
+            "folk",
+            "traditional"
+          ]
+        }
+      ]
+    }
+  ]
+}

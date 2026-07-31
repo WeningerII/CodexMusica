@@ -1,0 +1,447 @@
+{
+  "id": "cimboa",
+  "name": "Cimboa (Cape Verdean one-string bowed spike fiddle)",
+  "family": "bowed",
+  "class": "bowed_spike_fiddle",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "cimboa",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "cimboa_body",
+      "name": "Soundbox",
+      "variants": [
+        {
+          "id": "cimboa_body_calabash",
+          "default": true,
+          "name": "Calabash bowl with kid-skin belly on cane splints",
+          "descriptors": [
+            "calabash-resonator",
+            "earthy",
+            "buzzy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "gourd-body",
+            "african"
+          ]
+        },
+        {
+          "id": "cimboa_body_coconut",
+          "name": "Coconut-shell bowl",
+          "descriptors": [
+            "coconut-shell",
+            "dry",
+            "thin"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cimboa_context",
+      "name": "Repertoire context",
+      "variants": [
+        {
+          "id": "cimboa_context_batuku",
+          "default": true,
+          "name": "Batuku — the only melodic instrument over txabeta and palmas",
+          "descriptors": [
+            "answering",
+            "cyclic",
+            "communal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "vocal-accompaniment"
+          ],
+          "canonical_tags": [
+            "diaspora",
+            "dance"
+          ]
+        },
+        {
+          "id": "cimboa_context_revival",
+          "name": "Revival lead over funaná- and morna-adjacent material",
+          "descriptors": [
+            "urban",
+            "projecting",
+            "revival"
+          ],
+          "match_tokens": [
+            "bowed",
+            "lead-melody"
+          ],
+          "canonical_tags": [
+            "revival",
+            "fusion"
+          ]
+        },
+        {
+          "id": "cimboa_context_finason",
+          "name": "Unaccompanied solo behind sung finason commentary",
+          "descriptors": [
+            "sparse",
+            "declamatory",
+            "intimate"
+          ],
+          "match_tokens": [
+            "bowed",
+            "solo",
+            "speech-derived"
+          ],
+          "canonical_tags": [
+            "storytelling",
+            "diaspora"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cimboa_string",
+      "name": "String and bow hair",
+      "variants": [
+        {
+          "id": "cimboa_string_horse_mane",
+          "default": true,
+          "name": "Horse-mane string with barnelo-wood bow, rosined",
+          "descriptors": [
+            "horsehair",
+            "raspy",
+            "traditional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "horsehair-string",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "cimboa_string_gut",
+          "name": "Gut string",
+          "descriptors": [
+            "gut-strung",
+            "mellow",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "cimboa_string_nylon",
+          "name": "Modern nylon string",
+          "descriptors": [
+            "nylon-modern",
+            "smoother",
+            "brighter"
+          ],
+          "match_tokens": [
+            "bowed",
+            "nylon-string"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cimboa_technique",
+      "name": "Timbre and technique",
+      "variants": [
+        {
+          "id": "cimboa_technique_ostinato",
+          "default": true,
+          "name": "Raspy near-bridge rhythmic ostinato",
+          "descriptors": [
+            "raspy",
+            "gritty",
+            "insistent"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ostinato",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "dance"
+          ]
+        },
+        {
+          "id": "cimboa_technique_doubling",
+          "name": "Sustained melodic voice-doubling",
+          "descriptors": [
+            "singing",
+            "vocal-shadowing",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "vocal-imitating"
+          ],
+          "canonical_tags": [
+            "vocal-accompaniment"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "cimboa_body",
+      "name": "Soundbox",
+      "variants": [
+        {
+          "id": "cimboa_body_calabash",
+          "default": true,
+          "name": "Calabash bowl with kid-skin belly on cane splints",
+          "descriptors": [
+            "calabash-resonator",
+            "earthy",
+            "buzzy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "gourd-body",
+            "african"
+          ]
+        },
+        {
+          "id": "cimboa_body_coconut",
+          "name": "Coconut-shell bowl",
+          "descriptors": [
+            "coconut-shell",
+            "dry",
+            "thin"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cimboa_context",
+      "name": "Repertoire context",
+      "variants": [
+        {
+          "id": "cimboa_context_batuku",
+          "default": true,
+          "name": "Batuku — the only melodic instrument over txabeta and palmas",
+          "descriptors": [
+            "answering",
+            "cyclic",
+            "communal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "vocal-accompaniment"
+          ],
+          "canonical_tags": [
+            "diaspora",
+            "dance"
+          ]
+        },
+        {
+          "id": "cimboa_context_revival",
+          "name": "Revival lead over funaná- and morna-adjacent material",
+          "descriptors": [
+            "urban",
+            "projecting",
+            "revival"
+          ],
+          "match_tokens": [
+            "bowed",
+            "lead-melody"
+          ],
+          "canonical_tags": [
+            "revival",
+            "fusion"
+          ]
+        },
+        {
+          "id": "cimboa_context_finason",
+          "name": "Unaccompanied solo behind sung finason commentary",
+          "descriptors": [
+            "sparse",
+            "declamatory",
+            "intimate"
+          ],
+          "match_tokens": [
+            "bowed",
+            "solo",
+            "speech-derived"
+          ],
+          "canonical_tags": [
+            "storytelling",
+            "diaspora"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cimboa_string",
+      "name": "String and bow hair",
+      "variants": [
+        {
+          "id": "cimboa_string_horse_mane",
+          "default": true,
+          "name": "Horse-mane string with barnelo-wood bow, rosined",
+          "descriptors": [
+            "horsehair",
+            "raspy",
+            "traditional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "horsehair-string",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "cimboa_string_gut",
+          "name": "Gut string",
+          "descriptors": [
+            "gut-strung",
+            "mellow",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "cimboa_string_nylon",
+          "name": "Modern nylon string",
+          "descriptors": [
+            "nylon-modern",
+            "smoother",
+            "brighter"
+          ],
+          "match_tokens": [
+            "bowed",
+            "nylon-string"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cimboa_technique",
+      "name": "Timbre and technique",
+      "variants": [
+        {
+          "id": "cimboa_technique_ostinato",
+          "default": true,
+          "name": "Raspy near-bridge rhythmic ostinato",
+          "descriptors": [
+            "raspy",
+            "gritty",
+            "insistent"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ostinato",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "dance"
+          ]
+        },
+        {
+          "id": "cimboa_technique_doubling",
+          "name": "Sustained melodic voice-doubling",
+          "descriptors": [
+            "singing",
+            "vocal-shadowing",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "vocal-imitating"
+          ],
+          "canonical_tags": [
+            "vocal-accompaniment"
+          ]
+        }
+      ]
+    }
+  ]
+}

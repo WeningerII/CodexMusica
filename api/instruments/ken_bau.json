@@ -1,0 +1,424 @@
+{
+  "id": "ken_bau",
+  "name": "Ken bau (Vietnamese gourd-belled shawm)",
+  "family": "wind",
+  "class": "double_reed_shawm",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "ken bau",
+  "parts": [
+    {
+      "id": "ken_bau_bell",
+      "name": "Bell",
+      "variants": [
+        {
+          "id": "ken_bau_gourd_bell",
+          "default": true,
+          "name": "Detachable jackfruit-wood gourd bell (diagnostic)",
+          "descriptors": [
+            "gourd",
+            "carved-hardwood",
+            "distinct-construction"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "vietnam"
+          ]
+        },
+        {
+          "id": "ken_bau_bell_removed",
+          "name": "Bell removed / short bell",
+          "descriptors": [
+            "short",
+            "less-shrill",
+            "focused-projection"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "vietnamese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ken_bau_context",
+      "name": "Ceremonial context",
+      "variants": [
+        {
+          "id": "ken_bau_nha_nhac",
+          "default": true,
+          "name": "Nha nhac, Hue imperial court music",
+          "descriptors": [
+            "court-ceremonial",
+            "courtly",
+            "imperial"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed",
+            "ceremonial"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "court"
+          ]
+        },
+        {
+          "id": "ken_bau_cheo",
+          "name": "Cheo theatre orchestra",
+          "descriptors": [
+            "theatrical",
+            "declamatory",
+            "ensemble"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "vietnamese",
+            "staged"
+          ]
+        },
+        {
+          "id": "ken_bau_chau_van",
+          "name": "Chau van ritual song",
+          "descriptors": [
+            "ritual",
+            "sacred",
+            "trance-inducing"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed",
+            "ritual-context"
+          ],
+          "canonical_tags": [
+            "ritual",
+            "vietnamese"
+          ]
+        },
+        {
+          "id": "ken_bau_ken_bop",
+          "name": "Northern funeral rite (ken bop)",
+          "descriptors": [
+            "funeral",
+            "mournful",
+            "processional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed",
+            "funeral"
+          ],
+          "canonical_tags": [
+            "context:funeral-ritual",
+            "vietnam"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ken_bau_texture",
+      "name": "Texture",
+      "variants": [
+        {
+          "id": "ken_bau_solo_lead",
+          "default": true,
+          "name": "Solo melodic lead",
+          "descriptors": [
+            "solo",
+            "melodic-lead",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "soloistic",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "solo"
+          ]
+        },
+        {
+          "id": "ken_bau_duet",
+          "name": "Duet pairing (two players)",
+          "descriptors": [
+            "paired",
+            "two-player",
+            "melody-doubling"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duet",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "paired"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ken_bau_breath",
+      "name": "Breath technique",
+      "variants": [
+        {
+          "id": "ken_bau_circular",
+          "default": true,
+          "name": "Circular breathing (unbroken ceremonial sound)",
+          "descriptors": [
+            "circular-breathing",
+            "continuous-airflow",
+            "sustained"
+          ],
+          "match_tokens": [
+            "circular-breathing",
+            "wind-driven",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "circular-breathing"
+          ]
+        },
+        {
+          "id": "ken_bau_phrased",
+          "name": "Phrased, breath-articulated",
+          "descriptors": [
+            "phrased",
+            "articulated",
+            "breathing"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "vietnamese"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ken_bau_bell",
+      "name": "Bell",
+      "variants": [
+        {
+          "id": "ken_bau_gourd_bell",
+          "default": true,
+          "name": "Detachable jackfruit-wood gourd bell (diagnostic)",
+          "descriptors": [
+            "gourd",
+            "carved-hardwood",
+            "distinct-construction"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "vietnam"
+          ]
+        },
+        {
+          "id": "ken_bau_bell_removed",
+          "name": "Bell removed / short bell",
+          "descriptors": [
+            "short",
+            "less-shrill",
+            "focused-projection"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "vietnamese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ken_bau_context",
+      "name": "Ceremonial context",
+      "variants": [
+        {
+          "id": "ken_bau_nha_nhac",
+          "default": true,
+          "name": "Nha nhac, Hue imperial court music",
+          "descriptors": [
+            "court-ceremonial",
+            "courtly",
+            "imperial"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed",
+            "ceremonial"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "court"
+          ]
+        },
+        {
+          "id": "ken_bau_cheo",
+          "name": "Cheo theatre orchestra",
+          "descriptors": [
+            "theatrical",
+            "declamatory",
+            "ensemble"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "vietnamese",
+            "staged"
+          ]
+        },
+        {
+          "id": "ken_bau_chau_van",
+          "name": "Chau van ritual song",
+          "descriptors": [
+            "ritual",
+            "sacred",
+            "trance-inducing"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed",
+            "ritual-context"
+          ],
+          "canonical_tags": [
+            "ritual",
+            "vietnamese"
+          ]
+        },
+        {
+          "id": "ken_bau_ken_bop",
+          "name": "Northern funeral rite (ken bop)",
+          "descriptors": [
+            "funeral",
+            "mournful",
+            "processional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed",
+            "funeral"
+          ],
+          "canonical_tags": [
+            "context:funeral-ritual",
+            "vietnam"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ken_bau_texture",
+      "name": "Texture",
+      "variants": [
+        {
+          "id": "ken_bau_solo_lead",
+          "default": true,
+          "name": "Solo melodic lead",
+          "descriptors": [
+            "solo",
+            "melodic-lead",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "soloistic",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "solo"
+          ]
+        },
+        {
+          "id": "ken_bau_duet",
+          "name": "Duet pairing (two players)",
+          "descriptors": [
+            "paired",
+            "two-player",
+            "melody-doubling"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duet",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "paired"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ken_bau_breath",
+      "name": "Breath technique",
+      "variants": [
+        {
+          "id": "ken_bau_circular",
+          "default": true,
+          "name": "Circular breathing (unbroken ceremonial sound)",
+          "descriptors": [
+            "circular-breathing",
+            "continuous-airflow",
+            "sustained"
+          ],
+          "match_tokens": [
+            "circular-breathing",
+            "wind-driven",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "circular-breathing"
+          ]
+        },
+        {
+          "id": "ken_bau_phrased",
+          "name": "Phrased, breath-articulated",
+          "descriptors": [
+            "phrased",
+            "articulated",
+            "breathing"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "vietnamese"
+          ]
+        }
+      ]
+    }
+  ]
+}

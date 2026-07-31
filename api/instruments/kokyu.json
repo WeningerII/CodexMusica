@@ -1,0 +1,553 @@
+{
+  "id": "kokyu",
+  "name": "Kokyū (Japanese bowed three-string)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "kokyū",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "kokyu_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "kokyu_mainland_square",
+          "default": true,
+          "name": "Mainland square shamisen-type body (hardwood frame, both faces skinned)",
+          "descriptors": [
+            "nasal-bright",
+            "delicate",
+            "thin"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "japanese",
+            "traditional"
+          ]
+        },
+        {
+          "id": "kokyu_okinawan_kucho",
+          "name": "Okinawan kūchō (round coconut / egonoki body, ~70 cm)",
+          "descriptors": [
+            "coconut-shell",
+            "warm",
+            "island"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "japanese",
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kokyu_skin",
+      "name": "Body skin",
+      "variants": [
+        {
+          "id": "kokyu_cat_skin",
+          "default": true,
+          "name": "Cat skin (canonical mainland)",
+          "descriptors": [
+            "cat-skin",
+            "hide",
+            "delicate",
+            "rare"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "kokyu_dog_skin",
+          "name": "Dog skin (rugged alternative)",
+          "descriptors": [
+            "dog-skin",
+            "hide",
+            "durable",
+            "fuller"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "kokyu_snakeskin",
+          "name": "Python skin (Okinawan kūchō, sanshin practice)",
+          "descriptors": [
+            "snake-skin",
+            "hide",
+            "nasal-bright"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "snakeskin",
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "kokyu_synthetic",
+          "name": "Synthetic skin (modern conservation-compliant)",
+          "descriptors": [
+            "synthetic",
+            "stable",
+            "consistent"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "bowed",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kokyu_tuning",
+      "name": "Stringing and tuning",
+      "variants": [
+        {
+          "id": "kokyu_honchoshi_three",
+          "default": true,
+          "name": "Three silk strings, honchōshi (shamisen relationship, roughly an octave up)",
+          "descriptors": [
+            "silk-canonical",
+            "traditional",
+            "high-tuned"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained",
+            "silk-strung"
+          ],
+          "canonical_tags": [
+            "japanese"
+          ]
+        },
+        {
+          "id": "kokyu_niagari_sansagari",
+          "name": "Three strings, niagari / sansagari (third string raised or lowered)",
+          "descriptors": [
+            "regional",
+            "distinct-repertoire",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "japanese"
+          ]
+        },
+        {
+          "id": "kokyu_matayoshi_four",
+          "name": "Four strings, Matayoshi Shin'ei added bass string (Ryukyuan extended range)",
+          "descriptors": [
+            "extended-range",
+            "twentieth-century",
+            "fuller"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "modern",
+            "japanese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kokyu_context",
+      "name": "Ensemble role / repertoire",
+      "variants": [
+        {
+          "id": "kokyu_sankyoku",
+          "default": true,
+          "name": "Sankyoku third voice (koto + shamisen + kokyū, pre-shakuhachi)",
+          "descriptors": [
+            "chamber",
+            "vocal-supportive",
+            "classical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "japanese",
+            "classical"
+          ]
+        },
+        {
+          "id": "kokyu_gidayu",
+          "name": "Gidayū-bushi theatre colour (Shōutsushi Asagao-banashi and kin)",
+          "descriptors": [
+            "theatrical",
+            "narrative",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "accompaniment",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "japanese"
+          ]
+        },
+        {
+          "id": "kokyu_owara_folk",
+          "name": "Owara Kaze no Bon / Gokayama Mugiya-bushi folk lead",
+          "descriptors": [
+            "lead-voice",
+            "festival",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "japanese",
+            "folk"
+          ]
+        },
+        {
+          "id": "kokyu_ryukyuan_classical",
+          "name": "Ryukyuan classical and kumiodori accompaniment (kūchō)",
+          "descriptors": [
+            "courtly",
+            "song-accompaniment",
+            "refined"
+          ],
+          "match_tokens": [
+            "bowed",
+            "accompaniment",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "japanese",
+            "court"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kokyu_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "kokyu_mainland_square",
+          "default": true,
+          "name": "Mainland square shamisen-type body (hardwood frame, both faces skinned)",
+          "descriptors": [
+            "nasal-bright",
+            "delicate",
+            "thin"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "japanese",
+            "traditional"
+          ]
+        },
+        {
+          "id": "kokyu_okinawan_kucho",
+          "name": "Okinawan kūchō (round coconut / egonoki body, ~70 cm)",
+          "descriptors": [
+            "coconut-shell",
+            "warm",
+            "island"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "japanese",
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kokyu_skin",
+      "name": "Body skin",
+      "variants": [
+        {
+          "id": "kokyu_cat_skin",
+          "default": true,
+          "name": "Cat skin (canonical mainland)",
+          "descriptors": [
+            "cat-skin",
+            "hide",
+            "delicate",
+            "rare"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "kokyu_dog_skin",
+          "name": "Dog skin (rugged alternative)",
+          "descriptors": [
+            "dog-skin",
+            "hide",
+            "durable",
+            "fuller"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "kokyu_snakeskin",
+          "name": "Python skin (Okinawan kūchō, sanshin practice)",
+          "descriptors": [
+            "snake-skin",
+            "hide",
+            "nasal-bright"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "snakeskin",
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "kokyu_synthetic",
+          "name": "Synthetic skin (modern conservation-compliant)",
+          "descriptors": [
+            "synthetic",
+            "stable",
+            "consistent"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "bowed",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kokyu_tuning",
+      "name": "Stringing and tuning",
+      "variants": [
+        {
+          "id": "kokyu_honchoshi_three",
+          "default": true,
+          "name": "Three silk strings, honchōshi (shamisen relationship, roughly an octave up)",
+          "descriptors": [
+            "silk-canonical",
+            "traditional",
+            "high-tuned"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained",
+            "silk-strung"
+          ],
+          "canonical_tags": [
+            "japanese"
+          ]
+        },
+        {
+          "id": "kokyu_niagari_sansagari",
+          "name": "Three strings, niagari / sansagari (third string raised or lowered)",
+          "descriptors": [
+            "regional",
+            "distinct-repertoire",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "japanese"
+          ]
+        },
+        {
+          "id": "kokyu_matayoshi_four",
+          "name": "Four strings, Matayoshi Shin'ei added bass string (Ryukyuan extended range)",
+          "descriptors": [
+            "extended-range",
+            "twentieth-century",
+            "fuller"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "modern",
+            "japanese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kokyu_context",
+      "name": "Ensemble role / repertoire",
+      "variants": [
+        {
+          "id": "kokyu_sankyoku",
+          "default": true,
+          "name": "Sankyoku third voice (koto + shamisen + kokyū, pre-shakuhachi)",
+          "descriptors": [
+            "chamber",
+            "vocal-supportive",
+            "classical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "japanese",
+            "classical"
+          ]
+        },
+        {
+          "id": "kokyu_gidayu",
+          "name": "Gidayū-bushi theatre colour (Shōutsushi Asagao-banashi and kin)",
+          "descriptors": [
+            "theatrical",
+            "narrative",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "accompaniment",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "japanese"
+          ]
+        },
+        {
+          "id": "kokyu_owara_folk",
+          "name": "Owara Kaze no Bon / Gokayama Mugiya-bushi folk lead",
+          "descriptors": [
+            "lead-voice",
+            "festival",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "japanese",
+            "folk"
+          ]
+        },
+        {
+          "id": "kokyu_ryukyuan_classical",
+          "name": "Ryukyuan classical and kumiodori accompaniment (kūchō)",
+          "descriptors": [
+            "courtly",
+            "song-accompaniment",
+            "refined"
+          ],
+          "match_tokens": [
+            "bowed",
+            "accompaniment",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "japanese",
+            "court"
+          ]
+        }
+      ]
+    }
+  ]
+}

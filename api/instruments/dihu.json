@@ -1,0 +1,451 @@
+{
+  "id": "dihu",
+  "name": "Dihu (Chinese low huqin family)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "dihu",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "dihu_size",
+      "name": "Size / register within the family",
+      "variants": [
+        {
+          "id": "dihu_xiaodihu",
+          "default": true,
+          "name": "Xiaodihu (= dahu = cizhonghu) - D3-A3, an octave below the erhu (tenor)",
+          "descriptors": [
+            "tenor",
+            "warm",
+            "rounded"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "chinese-orchestra",
+            "china"
+          ]
+        },
+        {
+          "id": "dihu_zhongdihu",
+          "name": "Zhongdihu - G2-D3, an octave below the zhonghu (bass)",
+          "descriptors": [
+            "deep",
+            "thick",
+            "bass-foundational"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bass-register",
+            "foundational-bass"
+          ],
+          "canonical_tags": [
+            "chinese-orchestra",
+            "bass"
+          ]
+        },
+        {
+          "id": "dihu_dadihu",
+          "name": "Dadihu - D2-A2, two octaves below the erhu (contrabass, played standing)",
+          "descriptors": [
+            "sub-bass",
+            "deep",
+            "foundational"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bass-register",
+            "bass-foundation"
+          ],
+          "canonical_tags": [
+            "chinese-orchestra",
+            "bass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dihu_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "dihu_harmonic_pedal",
+          "default": true,
+          "name": "Sustained harmonic pedal under the erhu choir",
+          "descriptors": [
+            "inner-voice",
+            "pad",
+            "supportive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "chinese-orchestra",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "dihu_pizzicato_bass",
+          "name": "Pizzicato bass punctuation",
+          "descriptors": [
+            "rhythmic",
+            "dry",
+            "bass-foundational"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register",
+            "bass-foundation"
+          ]
+        },
+        {
+          "id": "dihu_octave_doubling",
+          "name": "Doubling the melody an octave below",
+          "descriptors": [
+            "octave-doubled",
+            "blending",
+            "supportive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "doubled",
+            "ensemble-blend"
+          ],
+          "canonical_tags": [
+            "chinese-orchestra"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dihu_bridge",
+      "name": "Bridge placement on the skin",
+      "variants": [
+        {
+          "id": "dihu_bridge_high",
+          "default": true,
+          "name": "Set above centre (canonical, spares the large membrane)",
+          "descriptors": [
+            "focused",
+            "taut",
+            "dry"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bright-tone",
+            "acoustic-only"
+          ],
+          "canonical_tags": [
+            "china",
+            "traditional"
+          ]
+        },
+        {
+          "id": "dihu_bridge_centred",
+          "name": "Centred on the skin (loose and boomy)",
+          "descriptors": [
+            "boomy",
+            "rounded",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "mellow-tone",
+            "body-resonance-low-mid"
+          ],
+          "canonical_tags": [
+            "china"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dihu_period",
+      "name": "Period practice",
+      "variants": [
+        {
+          "id": "dihu_guoyue_mid_century",
+          "default": true,
+          "name": "1930s-70s guoyue orchestra (dihu in the chair)",
+          "descriptors": [
+            "traditional",
+            "ensemble",
+            "twentieth-century"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "chinese-orchestra",
+            "historic"
+          ]
+        },
+        {
+          "id": "dihu_modern_replaced",
+          "name": "Modern practice (cello or double bass in the chair)",
+          "descriptors": [
+            "modern",
+            "projecting",
+            "concert-grade"
+          ],
+          "match_tokens": [
+            "bowed",
+            "orchestral",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern",
+            "orchestral"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dihu_size",
+      "name": "Size / register within the family",
+      "variants": [
+        {
+          "id": "dihu_xiaodihu",
+          "default": true,
+          "name": "Xiaodihu (= dahu = cizhonghu) - D3-A3, an octave below the erhu (tenor)",
+          "descriptors": [
+            "tenor",
+            "warm",
+            "rounded"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "chinese-orchestra",
+            "china"
+          ]
+        },
+        {
+          "id": "dihu_zhongdihu",
+          "name": "Zhongdihu - G2-D3, an octave below the zhonghu (bass)",
+          "descriptors": [
+            "deep",
+            "thick",
+            "bass-foundational"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bass-register",
+            "foundational-bass"
+          ],
+          "canonical_tags": [
+            "chinese-orchestra",
+            "bass"
+          ]
+        },
+        {
+          "id": "dihu_dadihu",
+          "name": "Dadihu - D2-A2, two octaves below the erhu (contrabass, played standing)",
+          "descriptors": [
+            "sub-bass",
+            "deep",
+            "foundational"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bass-register",
+            "bass-foundation"
+          ],
+          "canonical_tags": [
+            "chinese-orchestra",
+            "bass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dihu_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "dihu_harmonic_pedal",
+          "default": true,
+          "name": "Sustained harmonic pedal under the erhu choir",
+          "descriptors": [
+            "inner-voice",
+            "pad",
+            "supportive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "chinese-orchestra",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "dihu_pizzicato_bass",
+          "name": "Pizzicato bass punctuation",
+          "descriptors": [
+            "rhythmic",
+            "dry",
+            "bass-foundational"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register",
+            "bass-foundation"
+          ]
+        },
+        {
+          "id": "dihu_octave_doubling",
+          "name": "Doubling the melody an octave below",
+          "descriptors": [
+            "octave-doubled",
+            "blending",
+            "supportive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "doubled",
+            "ensemble-blend"
+          ],
+          "canonical_tags": [
+            "chinese-orchestra"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dihu_bridge",
+      "name": "Bridge placement on the skin",
+      "variants": [
+        {
+          "id": "dihu_bridge_high",
+          "default": true,
+          "name": "Set above centre (canonical, spares the large membrane)",
+          "descriptors": [
+            "focused",
+            "taut",
+            "dry"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bright-tone",
+            "acoustic-only"
+          ],
+          "canonical_tags": [
+            "china",
+            "traditional"
+          ]
+        },
+        {
+          "id": "dihu_bridge_centred",
+          "name": "Centred on the skin (loose and boomy)",
+          "descriptors": [
+            "boomy",
+            "rounded",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "mellow-tone",
+            "body-resonance-low-mid"
+          ],
+          "canonical_tags": [
+            "china"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dihu_period",
+      "name": "Period practice",
+      "variants": [
+        {
+          "id": "dihu_guoyue_mid_century",
+          "default": true,
+          "name": "1930s-70s guoyue orchestra (dihu in the chair)",
+          "descriptors": [
+            "traditional",
+            "ensemble",
+            "twentieth-century"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "chinese-orchestra",
+            "historic"
+          ]
+        },
+        {
+          "id": "dihu_modern_replaced",
+          "name": "Modern practice (cello or double bass in the chair)",
+          "descriptors": [
+            "modern",
+            "projecting",
+            "concert-grade"
+          ],
+          "match_tokens": [
+            "bowed",
+            "orchestral",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern",
+            "orchestral"
+          ]
+        }
+      ]
+    }
+  ]
+}

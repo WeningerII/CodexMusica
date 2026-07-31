@@ -1,0 +1,477 @@
+{
+  "id": "qobyz",
+  "name": "Qyl-qobyz (Kazakh shamanic bowed lute)",
+  "family": "bowed",
+  "class": "bowed_lute",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": -2,
+    "register": -1,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "qobyz",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "qobyz_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "qobyz_form_archaic_kyl",
+          "default": true,
+          "name": "Archaic qyl-qobyz (gouged ladle body, open upper bowl, hide-closed lower chamber)",
+          "descriptors": [
+            "archaic",
+            "carved",
+            "hide-faced",
+            "deep-bodied"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "horsehair-string"
+          ],
+          "canonical_tags": [
+            "kazakh",
+            "central-asia",
+            "traditional"
+          ]
+        },
+        {
+          "id": "qobyz_form_baqsy_hung",
+          "name": "Baqsy instrument hung with mirror-plates, pendants and feathers",
+          "descriptors": [
+            "ritual",
+            "rattling",
+            "jangling",
+            "shamanic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "ritual-context"
+          ],
+          "canonical_tags": [
+            "kazakh",
+            "shamanic",
+            "ritual"
+          ]
+        },
+        {
+          "id": "qobyz_form_prima_orchestral",
+          "name": "Prima qobyz (1930s four-string metal-strung folk-orchestra redesign)",
+          "descriptors": [
+            "reconstructed",
+            "standardized",
+            "folk-orchestra",
+            "clean"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "modern"
+          ],
+          "canonical_tags": [
+            "kazakh",
+            "orchestral",
+            "soviet-era"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qobyz_repertoire",
+      "name": "Repertoire and technique",
+      "variants": [
+        {
+          "id": "qobyz_repertoire_baqsy_sarin",
+          "default": true,
+          "name": "Baqsy invocation and healing sarın (flageolet-heavy, overtone-saturated)",
+          "descriptors": [
+            "invocatory",
+            "shamanic",
+            "multiphonic",
+            "trance-building"
+          ],
+          "match_tokens": [
+            "bowed",
+            "trance-inducing",
+            "ritual-context",
+            "overtone-series"
+          ],
+          "canonical_tags": [
+            "kazakh",
+            "shamanic",
+            "trance"
+          ]
+        },
+        {
+          "id": "qobyz_repertoire_kuy",
+          "name": "Korkyt küy (programmatic solo piece)",
+          "descriptors": [
+            "programmatic",
+            "narrative",
+            "virtuosic",
+            "solo"
+          ],
+          "match_tokens": [
+            "bowed",
+            "solo",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "kazakh",
+            "kuy",
+            "solo"
+          ]
+        },
+        {
+          "id": "qobyz_repertoire_zhyrau",
+          "name": "Zhyrau epic recitation support",
+          "descriptors": [
+            "epic-accompaniment",
+            "droning",
+            "declamatory"
+          ],
+          "match_tokens": [
+            "bowed",
+            "epic",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "kazakh",
+            "epic",
+            "storytelling"
+          ]
+        },
+        {
+          "id": "qobyz_repertoire_orchestra_section",
+          "name": "Folk-orchestra section line (stopped melodic playing)",
+          "descriptors": [
+            "notated",
+            "unison",
+            "conservatory",
+            "blended"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "kazakh",
+            "orchestral",
+            "conservatory"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qobyz_build",
+      "name": "Strings and chamber",
+      "variants": [
+        {
+          "id": "qobyz_build_horsehair_hide",
+          "default": true,
+          "name": "Ungreased horsehair bundles over a camel or goat-hide lower chamber (juniper block)",
+          "descriptors": [
+            "horsehair-strung",
+            "hide",
+            "breathy",
+            "raw"
+          ],
+          "match_tokens": [
+            "bowed",
+            "horsehair-string",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "kazakh",
+            "traditional"
+          ]
+        },
+        {
+          "id": "qobyz_build_gut",
+          "name": "Gut strings (smoother, less breath-noise)",
+          "descriptors": [
+            "gut",
+            "warm",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        },
+        {
+          "id": "qobyz_build_steel_prima",
+          "name": "Steel strings on a wood-faced prima body",
+          "descriptors": [
+            "steel",
+            "bright",
+            "clean",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "steel-string",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "kazakh",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "qobyz_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "qobyz_form_archaic_kyl",
+          "default": true,
+          "name": "Archaic qyl-qobyz (gouged ladle body, open upper bowl, hide-closed lower chamber)",
+          "descriptors": [
+            "archaic",
+            "carved",
+            "hide-faced",
+            "deep-bodied"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "horsehair-string"
+          ],
+          "canonical_tags": [
+            "kazakh",
+            "central-asia",
+            "traditional"
+          ]
+        },
+        {
+          "id": "qobyz_form_baqsy_hung",
+          "name": "Baqsy instrument hung with mirror-plates, pendants and feathers",
+          "descriptors": [
+            "ritual",
+            "rattling",
+            "jangling",
+            "shamanic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "ritual-context"
+          ],
+          "canonical_tags": [
+            "kazakh",
+            "shamanic",
+            "ritual"
+          ]
+        },
+        {
+          "id": "qobyz_form_prima_orchestral",
+          "name": "Prima qobyz (1930s four-string metal-strung folk-orchestra redesign)",
+          "descriptors": [
+            "reconstructed",
+            "standardized",
+            "folk-orchestra",
+            "clean"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "modern"
+          ],
+          "canonical_tags": [
+            "kazakh",
+            "orchestral",
+            "soviet-era"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qobyz_repertoire",
+      "name": "Repertoire and technique",
+      "variants": [
+        {
+          "id": "qobyz_repertoire_baqsy_sarin",
+          "default": true,
+          "name": "Baqsy invocation and healing sarın (flageolet-heavy, overtone-saturated)",
+          "descriptors": [
+            "invocatory",
+            "shamanic",
+            "multiphonic",
+            "trance-building"
+          ],
+          "match_tokens": [
+            "bowed",
+            "trance-inducing",
+            "ritual-context",
+            "overtone-series"
+          ],
+          "canonical_tags": [
+            "kazakh",
+            "shamanic",
+            "trance"
+          ]
+        },
+        {
+          "id": "qobyz_repertoire_kuy",
+          "name": "Korkyt küy (programmatic solo piece)",
+          "descriptors": [
+            "programmatic",
+            "narrative",
+            "virtuosic",
+            "solo"
+          ],
+          "match_tokens": [
+            "bowed",
+            "solo",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "kazakh",
+            "kuy",
+            "solo"
+          ]
+        },
+        {
+          "id": "qobyz_repertoire_zhyrau",
+          "name": "Zhyrau epic recitation support",
+          "descriptors": [
+            "epic-accompaniment",
+            "droning",
+            "declamatory"
+          ],
+          "match_tokens": [
+            "bowed",
+            "epic",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "kazakh",
+            "epic",
+            "storytelling"
+          ]
+        },
+        {
+          "id": "qobyz_repertoire_orchestra_section",
+          "name": "Folk-orchestra section line (stopped melodic playing)",
+          "descriptors": [
+            "notated",
+            "unison",
+            "conservatory",
+            "blended"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "kazakh",
+            "orchestral",
+            "conservatory"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qobyz_build",
+      "name": "Strings and chamber",
+      "variants": [
+        {
+          "id": "qobyz_build_horsehair_hide",
+          "default": true,
+          "name": "Ungreased horsehair bundles over a camel or goat-hide lower chamber (juniper block)",
+          "descriptors": [
+            "horsehair-strung",
+            "hide",
+            "breathy",
+            "raw"
+          ],
+          "match_tokens": [
+            "bowed",
+            "horsehair-string",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "kazakh",
+            "traditional"
+          ]
+        },
+        {
+          "id": "qobyz_build_gut",
+          "name": "Gut strings (smoother, less breath-noise)",
+          "descriptors": [
+            "gut",
+            "warm",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        },
+        {
+          "id": "qobyz_build_steel_prima",
+          "name": "Steel strings on a wood-faced prima body",
+          "descriptors": [
+            "steel",
+            "bright",
+            "clean",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "steel-string",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "kazakh",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

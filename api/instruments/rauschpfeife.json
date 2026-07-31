@@ -1,0 +1,456 @@
+{
+  "id": "rauschpfeife",
+  "name": "Rauschpfeife (Schreierpfeife, capped loud shawm)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -2
+  },
+  "short": "rauschpfeife",
+  "parts": [
+    {
+      "id": "rauschpfeife_size",
+      "name": "Size (modern makers convention)",
+      "variants": [
+        {
+          "id": "rauschpfeife_soprano_c",
+          "default": true,
+          "name": "Soprano in C",
+          "descriptors": [
+            "soprano",
+            "shrill",
+            "piercing-overtone-rich"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "loud-projection",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "renaissance"
+          ]
+        },
+        {
+          "id": "rauschpfeife_alto_f",
+          "name": "Alto in F / G",
+          "descriptors": [
+            "alto",
+            "strident",
+            "carrying"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "loud-projection",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "renaissance"
+          ]
+        },
+        {
+          "id": "rauschpfeife_tenor",
+          "name": "Tenor (modern extension of the family)",
+          "descriptors": [
+            "tenor",
+            "modern",
+            "loud"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rauschpfeife_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "rauschpfeife_outdoor_dance",
+          "default": true,
+          "name": "Outdoor processional and dance music",
+          "descriptors": [
+            "outdoor",
+            "processional",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "loud-projection",
+            "outdoor-field"
+          ],
+          "canonical_tags": [
+            "processional",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "rauschpfeife_mittelalter_scene",
+          "name": "Mittelaltermarkt / medieval-folk-rock band setting",
+          "descriptors": [
+            "modern-loud",
+            "festive",
+            "folk-rock"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "loud-projection",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "neofolk",
+            "festival"
+          ]
+        },
+        {
+          "id": "rauschpfeife_windcap_consort",
+          "name": "Windcap consort with crumhorns and cornamuses",
+          "descriptors": [
+            "consort",
+            "pre-baroque",
+            "historically-informed"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "consort"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rauschpfeife_reed_mount",
+      "name": "Reed mounting",
+      "variants": [
+        {
+          "id": "rauschpfeife_windcap",
+          "default": true,
+          "name": "Windcap fully enclosing the reed (no lip contact, flat-out dynamic)",
+          "descriptors": [
+            "loud-projection",
+            "piercing",
+            "overtone-rich"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "loud-projection",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "rauschpfeife_cap_removed",
+          "name": "Windcap removed, played as an exposed-reed shawm",
+          "descriptors": [
+            "expressive",
+            "breath-controlled-dynamic-arc",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "loud-projection"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rauschpfeife_pairing",
+      "name": "Pairing",
+      "variants": [
+        {
+          "id": "rauschpfeife_bagpipe_drum",
+          "default": true,
+          "name": "Paired with bagpipe drone and drum",
+          "descriptors": [
+            "drone-under-melody",
+            "dance-driving",
+            "festive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation",
+            "percussive-attack",
+            "bagpipe"
+          ],
+          "canonical_tags": [
+            "festival"
+          ]
+        },
+        {
+          "id": "rauschpfeife_consort_stack",
+          "name": "Massed windcap consort stack",
+          "descriptors": [
+            "massed",
+            "consort",
+            "ensemble"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ensemble",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "consort"
+          ]
+        },
+        {
+          "id": "rauschpfeife_solo_lead",
+          "name": "Solo melodic lead over percussion",
+          "descriptors": [
+            "melodic-lead",
+            "soloistic",
+            "projecting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "soloistic",
+            "loud-projection"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "rauschpfeife_size",
+      "name": "Size (modern makers convention)",
+      "variants": [
+        {
+          "id": "rauschpfeife_soprano_c",
+          "default": true,
+          "name": "Soprano in C",
+          "descriptors": [
+            "soprano",
+            "shrill",
+            "piercing-overtone-rich"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "loud-projection",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "renaissance"
+          ]
+        },
+        {
+          "id": "rauschpfeife_alto_f",
+          "name": "Alto in F / G",
+          "descriptors": [
+            "alto",
+            "strident",
+            "carrying"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "loud-projection",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "renaissance"
+          ]
+        },
+        {
+          "id": "rauschpfeife_tenor",
+          "name": "Tenor (modern extension of the family)",
+          "descriptors": [
+            "tenor",
+            "modern",
+            "loud"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rauschpfeife_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "rauschpfeife_outdoor_dance",
+          "default": true,
+          "name": "Outdoor processional and dance music",
+          "descriptors": [
+            "outdoor",
+            "processional",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "loud-projection",
+            "outdoor-field"
+          ],
+          "canonical_tags": [
+            "processional",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "rauschpfeife_mittelalter_scene",
+          "name": "Mittelaltermarkt / medieval-folk-rock band setting",
+          "descriptors": [
+            "modern-loud",
+            "festive",
+            "folk-rock"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "loud-projection",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "neofolk",
+            "festival"
+          ]
+        },
+        {
+          "id": "rauschpfeife_windcap_consort",
+          "name": "Windcap consort with crumhorns and cornamuses",
+          "descriptors": [
+            "consort",
+            "pre-baroque",
+            "historically-informed"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "consort"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rauschpfeife_reed_mount",
+      "name": "Reed mounting",
+      "variants": [
+        {
+          "id": "rauschpfeife_windcap",
+          "default": true,
+          "name": "Windcap fully enclosing the reed (no lip contact, flat-out dynamic)",
+          "descriptors": [
+            "loud-projection",
+            "piercing",
+            "overtone-rich"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "loud-projection",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "rauschpfeife_cap_removed",
+          "name": "Windcap removed, played as an exposed-reed shawm",
+          "descriptors": [
+            "expressive",
+            "breath-controlled-dynamic-arc",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "loud-projection"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rauschpfeife_pairing",
+      "name": "Pairing",
+      "variants": [
+        {
+          "id": "rauschpfeife_bagpipe_drum",
+          "default": true,
+          "name": "Paired with bagpipe drone and drum",
+          "descriptors": [
+            "drone-under-melody",
+            "dance-driving",
+            "festive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation",
+            "percussive-attack",
+            "bagpipe"
+          ],
+          "canonical_tags": [
+            "festival"
+          ]
+        },
+        {
+          "id": "rauschpfeife_consort_stack",
+          "name": "Massed windcap consort stack",
+          "descriptors": [
+            "massed",
+            "consort",
+            "ensemble"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ensemble",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "consort"
+          ]
+        },
+        {
+          "id": "rauschpfeife_solo_lead",
+          "name": "Solo melodic lead over percussion",
+          "descriptors": [
+            "melodic-lead",
+            "soloistic",
+            "projecting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "soloistic",
+            "loud-projection"
+          ]
+        }
+      ]
+    }
+  ]
+}

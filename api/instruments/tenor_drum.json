@@ -1,0 +1,614 @@
+{
+  "id": "tenor_drum",
+  "name": "Tenor drum (orchestral / marching, unsnared)",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "tenor drum",
+  "parts": [
+    {
+      "id": "tenor_drum_form",
+      "name": "Form / ensemble role",
+      "variants": [
+        {
+          "id": "tenor_drum_orchestral_single",
+          "default": true,
+          "name": "Orchestral single deep drum (caisse roulante)",
+          "descriptors": [
+            "orchestral",
+            "deep",
+            "dull",
+            "rolling"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "mallets",
+            "classical-trained",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "orchestral",
+            "classical"
+          ]
+        },
+        {
+          "id": "tenor_drum_military_field",
+          "name": "Historical military marching drum (deep signal voice)",
+          "descriptors": [
+            "archaic",
+            "military-tight",
+            "processional",
+            "historical"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "period-performance",
+            "signal"
+          ],
+          "canonical_tags": [
+            "historical",
+            "processional"
+          ]
+        },
+        {
+          "id": "tenor_drum_pipe_band",
+          "name": "Scottish pipe-band flourishing tenor",
+          "descriptors": [
+            "pipe-band",
+            "flourishing",
+            "visual",
+            "choreographed"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "mallets",
+            "ensemble",
+            "processional"
+          ],
+          "canonical_tags": [
+            "scottish",
+            "processional"
+          ]
+        },
+        {
+          "id": "tenor_drum_corps_multi",
+          "name": "Drum-corps multi-drum tenors (quads / quints / sextets)",
+          "descriptors": [
+            "five-drum-arc",
+            "elaborate-figures",
+            "military-tight",
+            "projection-strong"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "ensemble",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "modern",
+            "marching"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tenor_drum_head",
+      "name": "Head material and tension",
+      "variants": [
+        {
+          "id": "tenor_drum_calfskin",
+          "name": "Calfskin at low-moderate tension (historical)",
+          "descriptors": [
+            "calfskin",
+            "hide",
+            "low-fundamental-tuning",
+            "natural-material-resonance"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "mallets",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "vintage",
+            "pre-modern"
+          ]
+        },
+        {
+          "id": "tenor_drum_mylar",
+          "default": true,
+          "name": "Mylar / synthetic (modern standard)",
+          "descriptors": [
+            "synthetic",
+            "stable",
+            "consistent",
+            "modern"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "percussive-attack",
+            "mallets"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "tenor_drum_kevlar",
+          "name": "Kevlar / aramid at extreme tension (corps)",
+          "descriptors": [
+            "kevlar",
+            "aramid",
+            "extreme-tension",
+            "dry-zero-sustain"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "modern",
+            "marching"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tenor_drum_beater",
+      "name": "Beater / stroke",
+      "variants": [
+        {
+          "id": "tenor_drum_felt_mallets",
+          "default": true,
+          "name": "Soft felt-and-wool mallets (roll-oriented)",
+          "descriptors": [
+            "mallets",
+            "dark",
+            "rounded-attack",
+            "rolling"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "mallets",
+            "orchestral"
+          ],
+          "canonical_tags": [
+            "orchestral",
+            "classical"
+          ]
+        },
+        {
+          "id": "tenor_drum_wood_sticks",
+          "name": "Hard wooden sticks (articulate)",
+          "descriptors": [
+            "sticks",
+            "articulate",
+            "attack-forward",
+            "cutting"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "marching"
+          ]
+        },
+        {
+          "id": "tenor_drum_corps_mallets",
+          "name": "Disc-tip / nylon corps tenor mallets",
+          "descriptors": [
+            "nylon",
+            "defined-point",
+            "clicky-attack",
+            "projection-strong"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "modern",
+            "marching"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tenor_drum_shell",
+      "name": "Shell, tensioning and damping",
+      "variants": [
+        {
+          "id": "tenor_drum_rope_stave",
+          "name": "Rope-tensioned stave shell (historical military)",
+          "descriptors": [
+            "rope-tensioned",
+            "archaic",
+            "historical",
+            "natural-material-resonance"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "period-performance",
+            "processional"
+          ],
+          "canonical_tags": [
+            "historical",
+            "period"
+          ]
+        },
+        {
+          "id": "tenor_drum_lug_ply",
+          "default": true,
+          "name": "Lug-tensioned multi-ply maple / birch, open",
+          "descriptors": [
+            "maple",
+            "birch",
+            "undamped-resonance",
+            "balanced"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "mallets",
+            "concert"
+          ],
+          "canonical_tags": [
+            "modern",
+            "concert"
+          ]
+        },
+        {
+          "id": "tenor_drum_muffled_cloth",
+          "name": "Cloth-muffled (funeral cortege / mourning topic)",
+          "descriptors": [
+            "muffled",
+            "dampened",
+            "low-dynamic-level",
+            "funeral"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "mallets",
+            "funeral"
+          ],
+          "canonical_tags": [
+            "processional",
+            "ceremonial"
+          ]
+        },
+        {
+          "id": "tenor_drum_corps_shell",
+          "name": "Fiberglass / acrylic marching shell",
+          "descriptors": [
+            "fiberglass",
+            "acrylic",
+            "projecting",
+            "durable"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "modern",
+            "marching"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tenor_drum_form",
+      "name": "Form / ensemble role",
+      "variants": [
+        {
+          "id": "tenor_drum_orchestral_single",
+          "default": true,
+          "name": "Orchestral single deep drum (caisse roulante)",
+          "descriptors": [
+            "orchestral",
+            "deep",
+            "dull",
+            "rolling"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "mallets",
+            "classical-trained",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "orchestral",
+            "classical"
+          ]
+        },
+        {
+          "id": "tenor_drum_military_field",
+          "name": "Historical military marching drum (deep signal voice)",
+          "descriptors": [
+            "archaic",
+            "military-tight",
+            "processional",
+            "historical"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "period-performance",
+            "signal"
+          ],
+          "canonical_tags": [
+            "historical",
+            "processional"
+          ]
+        },
+        {
+          "id": "tenor_drum_pipe_band",
+          "name": "Scottish pipe-band flourishing tenor",
+          "descriptors": [
+            "pipe-band",
+            "flourishing",
+            "visual",
+            "choreographed"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "mallets",
+            "ensemble",
+            "processional"
+          ],
+          "canonical_tags": [
+            "scottish",
+            "processional"
+          ]
+        },
+        {
+          "id": "tenor_drum_corps_multi",
+          "name": "Drum-corps multi-drum tenors (quads / quints / sextets)",
+          "descriptors": [
+            "five-drum-arc",
+            "elaborate-figures",
+            "military-tight",
+            "projection-strong"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "ensemble",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "modern",
+            "marching"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tenor_drum_head",
+      "name": "Head material and tension",
+      "variants": [
+        {
+          "id": "tenor_drum_calfskin",
+          "name": "Calfskin at low-moderate tension (historical)",
+          "descriptors": [
+            "calfskin",
+            "hide",
+            "low-fundamental-tuning",
+            "natural-material-resonance"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "mallets",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "vintage",
+            "pre-modern"
+          ]
+        },
+        {
+          "id": "tenor_drum_mylar",
+          "default": true,
+          "name": "Mylar / synthetic (modern standard)",
+          "descriptors": [
+            "synthetic",
+            "stable",
+            "consistent",
+            "modern"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "percussive-attack",
+            "mallets"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "tenor_drum_kevlar",
+          "name": "Kevlar / aramid at extreme tension (corps)",
+          "descriptors": [
+            "kevlar",
+            "aramid",
+            "extreme-tension",
+            "dry-zero-sustain"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "modern",
+            "marching"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tenor_drum_beater",
+      "name": "Beater / stroke",
+      "variants": [
+        {
+          "id": "tenor_drum_felt_mallets",
+          "default": true,
+          "name": "Soft felt-and-wool mallets (roll-oriented)",
+          "descriptors": [
+            "mallets",
+            "dark",
+            "rounded-attack",
+            "rolling"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "mallets",
+            "orchestral"
+          ],
+          "canonical_tags": [
+            "orchestral",
+            "classical"
+          ]
+        },
+        {
+          "id": "tenor_drum_wood_sticks",
+          "name": "Hard wooden sticks (articulate)",
+          "descriptors": [
+            "sticks",
+            "articulate",
+            "attack-forward",
+            "cutting"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "marching"
+          ]
+        },
+        {
+          "id": "tenor_drum_corps_mallets",
+          "name": "Disc-tip / nylon corps tenor mallets",
+          "descriptors": [
+            "nylon",
+            "defined-point",
+            "clicky-attack",
+            "projection-strong"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "modern",
+            "marching"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tenor_drum_shell",
+      "name": "Shell, tensioning and damping",
+      "variants": [
+        {
+          "id": "tenor_drum_rope_stave",
+          "name": "Rope-tensioned stave shell (historical military)",
+          "descriptors": [
+            "rope-tensioned",
+            "archaic",
+            "historical",
+            "natural-material-resonance"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "period-performance",
+            "processional"
+          ],
+          "canonical_tags": [
+            "historical",
+            "period"
+          ]
+        },
+        {
+          "id": "tenor_drum_lug_ply",
+          "default": true,
+          "name": "Lug-tensioned multi-ply maple / birch, open",
+          "descriptors": [
+            "maple",
+            "birch",
+            "undamped-resonance",
+            "balanced"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "mallets",
+            "concert"
+          ],
+          "canonical_tags": [
+            "modern",
+            "concert"
+          ]
+        },
+        {
+          "id": "tenor_drum_muffled_cloth",
+          "name": "Cloth-muffled (funeral cortege / mourning topic)",
+          "descriptors": [
+            "muffled",
+            "dampened",
+            "low-dynamic-level",
+            "funeral"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "mallets",
+            "funeral"
+          ],
+          "canonical_tags": [
+            "processional",
+            "ceremonial"
+          ]
+        },
+        {
+          "id": "tenor_drum_corps_shell",
+          "name": "Fiberglass / acrylic marching shell",
+          "descriptors": [
+            "fiberglass",
+            "acrylic",
+            "projecting",
+            "durable"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "modern",
+            "marching"
+          ]
+        }
+      ]
+    }
+  ]
+}

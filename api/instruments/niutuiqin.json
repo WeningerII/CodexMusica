@@ -1,0 +1,541 @@
+{
+  "id": "niutuiqin",
+  "name": "Niutuiqin (Dong cow-leg bowed boat-lute)",
+  "family": "bowed",
+  "class": "bowed_lute",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "niutuiqin",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "niutuiqin_wood",
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "niutuiqin_wood_fir",
+          "default": true,
+          "name": "Single block of Chinese fir hollowed from below, fir soundboard",
+          "descriptors": [
+            "fir",
+            "soft-toned",
+            "handmade"
+          ],
+          "match_tokens": [
+            "bowed",
+            "wood-body",
+            "soft-tone",
+            "two-string"
+          ],
+          "canonical_tags": [
+            "china",
+            "folk"
+          ]
+        },
+        {
+          "id": "niutuiqin_wood_paulownia",
+          "name": "Paulownia body and soundboard (lighter, more open)",
+          "descriptors": [
+            "paulownia",
+            "resonant",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "wood-body",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "china",
+            "wood"
+          ]
+        },
+        {
+          "id": "niutuiqin_wood_pine",
+          "name": "Pine, toon or poplar (village-made alternatives)",
+          "descriptors": [
+            "rustic",
+            "dry",
+            "village"
+          ],
+          "match_tokens": [
+            "bowed",
+            "woody",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "folk",
+            "china"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "niutuiqin_strings",
+      "name": "Strings and bow hair",
+      "variants": [
+        {
+          "id": "niutuiqin_strings_palm",
+          "default": true,
+          "name": "Palm-fibre strings with palm-fibre bow hair (canonical soft rasp)",
+          "descriptors": [
+            "fiber-strung",
+            "raspy",
+            "tender"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fiber",
+            "rough-tone",
+            "soft-tone"
+          ],
+          "canonical_tags": [
+            "plant-fiber",
+            "traditional"
+          ]
+        },
+        {
+          "id": "niutuiqin_strings_steel",
+          "name": "Modern steel strings with a horsehair bow (total timbral swap)",
+          "descriptors": [
+            "steel",
+            "brighter",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "steel-string",
+            "horsehair-string"
+          ],
+          "canonical_tags": [
+            "modern",
+            "horsehair"
+          ]
+        },
+        {
+          "id": "niutuiqin_strings_mixed",
+          "name": "Palm-fibre strings under a horsehair bow",
+          "descriptors": [
+            "hybrid",
+            "smoother",
+            "fiber-strung"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fiber",
+            "horsehair-string"
+          ],
+          "canonical_tags": [
+            "plant-fiber",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "niutuiqin_tuning",
+      "name": "Tuning interval",
+      "variants": [
+        {
+          "id": "niutuiqin_tuning_fifth",
+          "default": true,
+          "name": "Pure fifth (d1-a1, the most widespread pair)",
+          "descriptors": [
+            "open-fifths",
+            "clear",
+            "traditional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "open-string",
+            "two-string"
+          ],
+          "canonical_tags": [
+            "traditional",
+            "china"
+          ]
+        },
+        {
+          "id": "niutuiqin_tuning_fourth",
+          "name": "Fourth (d1-g1)",
+          "descriptors": [
+            "narrow",
+            "drone-like",
+            "regional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "open-string",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "folk",
+            "china"
+          ]
+        },
+        {
+          "id": "niutuiqin_tuning_third",
+          "name": "Minor third (e1-g1, narrow local pairing)",
+          "descriptors": [
+            "buzzing",
+            "village",
+            "folk"
+          ],
+          "match_tokens": [
+            "bowed",
+            "open-string",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "folk",
+            "china"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "niutuiqin_context",
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "niutuiqin_context_ga",
+          "default": true,
+          "name": "Dong ga narrative and love-song self-accompaniment",
+          "descriptors": [
+            "vocal-supportive",
+            "tender",
+            "intimate"
+          ],
+          "match_tokens": [
+            "bowed",
+            "song-accompaniment",
+            "self-accompanying",
+            "soft-tone"
+          ],
+          "canonical_tags": [
+            "folk",
+            "china"
+          ]
+        },
+        {
+          "id": "niutuiqin_context_opera",
+          "name": "Dong opera (dongxi) accompaniment",
+          "descriptors": [
+            "operatic",
+            "measured",
+            "supporting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "accompaniment",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "opera",
+            "china"
+          ]
+        },
+        {
+          "id": "niutuiqin_context_courtship",
+          "name": "Village courtship serenade",
+          "descriptors": [
+            "intimate",
+            "delicate",
+            "village"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "soft-tone"
+          ],
+          "canonical_tags": [
+            "folk",
+            "traditional"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "niutuiqin_wood",
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "niutuiqin_wood_fir",
+          "default": true,
+          "name": "Single block of Chinese fir hollowed from below, fir soundboard",
+          "descriptors": [
+            "fir",
+            "soft-toned",
+            "handmade"
+          ],
+          "match_tokens": [
+            "bowed",
+            "wood-body",
+            "soft-tone",
+            "two-string"
+          ],
+          "canonical_tags": [
+            "china",
+            "folk"
+          ]
+        },
+        {
+          "id": "niutuiqin_wood_paulownia",
+          "name": "Paulownia body and soundboard (lighter, more open)",
+          "descriptors": [
+            "paulownia",
+            "resonant",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "wood-body",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "china",
+            "wood"
+          ]
+        },
+        {
+          "id": "niutuiqin_wood_pine",
+          "name": "Pine, toon or poplar (village-made alternatives)",
+          "descriptors": [
+            "rustic",
+            "dry",
+            "village"
+          ],
+          "match_tokens": [
+            "bowed",
+            "woody",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "folk",
+            "china"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "niutuiqin_strings",
+      "name": "Strings and bow hair",
+      "variants": [
+        {
+          "id": "niutuiqin_strings_palm",
+          "default": true,
+          "name": "Palm-fibre strings with palm-fibre bow hair (canonical soft rasp)",
+          "descriptors": [
+            "fiber-strung",
+            "raspy",
+            "tender"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fiber",
+            "rough-tone",
+            "soft-tone"
+          ],
+          "canonical_tags": [
+            "plant-fiber",
+            "traditional"
+          ]
+        },
+        {
+          "id": "niutuiqin_strings_steel",
+          "name": "Modern steel strings with a horsehair bow (total timbral swap)",
+          "descriptors": [
+            "steel",
+            "brighter",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "steel-string",
+            "horsehair-string"
+          ],
+          "canonical_tags": [
+            "modern",
+            "horsehair"
+          ]
+        },
+        {
+          "id": "niutuiqin_strings_mixed",
+          "name": "Palm-fibre strings under a horsehair bow",
+          "descriptors": [
+            "hybrid",
+            "smoother",
+            "fiber-strung"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fiber",
+            "horsehair-string"
+          ],
+          "canonical_tags": [
+            "plant-fiber",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "niutuiqin_tuning",
+      "name": "Tuning interval",
+      "variants": [
+        {
+          "id": "niutuiqin_tuning_fifth",
+          "default": true,
+          "name": "Pure fifth (d1-a1, the most widespread pair)",
+          "descriptors": [
+            "open-fifths",
+            "clear",
+            "traditional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "open-string",
+            "two-string"
+          ],
+          "canonical_tags": [
+            "traditional",
+            "china"
+          ]
+        },
+        {
+          "id": "niutuiqin_tuning_fourth",
+          "name": "Fourth (d1-g1)",
+          "descriptors": [
+            "narrow",
+            "drone-like",
+            "regional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "open-string",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "folk",
+            "china"
+          ]
+        },
+        {
+          "id": "niutuiqin_tuning_third",
+          "name": "Minor third (e1-g1, narrow local pairing)",
+          "descriptors": [
+            "buzzing",
+            "village",
+            "folk"
+          ],
+          "match_tokens": [
+            "bowed",
+            "open-string",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "folk",
+            "china"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "niutuiqin_context",
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "niutuiqin_context_ga",
+          "default": true,
+          "name": "Dong ga narrative and love-song self-accompaniment",
+          "descriptors": [
+            "vocal-supportive",
+            "tender",
+            "intimate"
+          ],
+          "match_tokens": [
+            "bowed",
+            "song-accompaniment",
+            "self-accompanying",
+            "soft-tone"
+          ],
+          "canonical_tags": [
+            "folk",
+            "china"
+          ]
+        },
+        {
+          "id": "niutuiqin_context_opera",
+          "name": "Dong opera (dongxi) accompaniment",
+          "descriptors": [
+            "operatic",
+            "measured",
+            "supporting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "accompaniment",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "opera",
+            "china"
+          ]
+        },
+        {
+          "id": "niutuiqin_context_courtship",
+          "name": "Village courtship serenade",
+          "descriptors": [
+            "intimate",
+            "delicate",
+            "village"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "soft-tone"
+          ],
+          "canonical_tags": [
+            "folk",
+            "traditional"
+          ]
+        }
+      ]
+    }
+  ]
+}

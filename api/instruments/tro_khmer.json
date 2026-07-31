@@ -1,0 +1,419 @@
+{
+  "id": "tro_khmer",
+  "name": "Tro Khmer (Cambodian three-string ritual fiddle)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "tro khmer",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "tro_khmer_strings",
+      "name": "String material / era",
+      "variants": [
+        {
+          "id": "tro_khmer_metal",
+          "default": true,
+          "name": "Metal strings (from about the 1960s — sharper and brighter)",
+          "descriptors": [
+            "steel-modern",
+            "bright-cutting",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "metal-strung"
+          ],
+          "canonical_tags": [
+            "khmer",
+            "metal"
+          ]
+        },
+        {
+          "id": "tro_khmer_silk",
+          "name": "Silk strings (pre-1960s — softer and darker)",
+          "descriptors": [
+            "silk-historical",
+            "soft",
+            "dark-tone"
+          ],
+          "match_tokens": [
+            "bowed",
+            "silk-strung",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "khmer",
+            "historical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tro_khmer_body",
+      "name": "Coconut selection and skin tension",
+      "variants": [
+        {
+          "id": "tro_khmer_tight_snakeskin",
+          "default": true,
+          "name": "Elephant-head coconut silhouette, tightly stretched snakeskin",
+          "descriptors": [
+            "coconut-shell",
+            "snake-skin",
+            "nasal-bright"
+          ],
+          "match_tokens": [
+            "bowed",
+            "nasal-tone",
+            "resonator"
+          ],
+          "canonical_tags": [
+            "khmer",
+            "snakeskin"
+          ]
+        },
+        {
+          "id": "tro_khmer_loose_skin",
+          "name": "Looser skin, rounder chamber tone",
+          "descriptors": [
+            "round",
+            "warm",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "warm-tone",
+            "resonator"
+          ],
+          "canonical_tags": [
+            "khmer",
+            "chamber"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tro_khmer_tuning",
+      "name": "Tuning scheme",
+      "variants": [
+        {
+          "id": "tro_khmer_fourth_fourth",
+          "default": true,
+          "name": "Stacked fourths across the three strings",
+          "descriptors": [
+            "three-string",
+            "modal",
+            "singing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "khmer"
+          ]
+        },
+        {
+          "id": "tro_khmer_fifth_fourth",
+          "name": "Fifth between low and middle, fourth above",
+          "descriptors": [
+            "three-string",
+            "open-fifths",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented",
+            "open-string"
+          ],
+          "canonical_tags": [
+            "khmer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tro_khmer_context",
+      "name": "Ritual context",
+      "variants": [
+        {
+          "id": "tro_khmer_arak",
+          "default": true,
+          "name": "Phleng arak spirit-invocation and healing ceremony",
+          "descriptors": [
+            "healing-rite",
+            "trance-inducing",
+            "ritual"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ritual-context",
+            "trance-inducing"
+          ],
+          "canonical_tags": [
+            "shamanic",
+            "khmer"
+          ]
+        },
+        {
+          "id": "tro_khmer_wedding",
+          "name": "Phleng kar / areak ka wedding orchestra",
+          "descriptors": [
+            "wedding-context",
+            "vocal-supportive",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "bowed",
+            "wedding-tradition",
+            "cambodian-tradition"
+          ],
+          "canonical_tags": [
+            "wedding",
+            "khmer"
+          ]
+        },
+        {
+          "id": "tro_khmer_mahori",
+          "name": "Mahori chamber ensemble",
+          "descriptors": [
+            "intimate-chamber",
+            "blended",
+            "refined"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "cambodian-tradition"
+          ],
+          "canonical_tags": [
+            "mahori",
+            "khmer"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tro_khmer_strings",
+      "name": "String material / era",
+      "variants": [
+        {
+          "id": "tro_khmer_metal",
+          "default": true,
+          "name": "Metal strings (from about the 1960s — sharper and brighter)",
+          "descriptors": [
+            "steel-modern",
+            "bright-cutting",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "metal-strung"
+          ],
+          "canonical_tags": [
+            "khmer",
+            "metal"
+          ]
+        },
+        {
+          "id": "tro_khmer_silk",
+          "name": "Silk strings (pre-1960s — softer and darker)",
+          "descriptors": [
+            "silk-historical",
+            "soft",
+            "dark-tone"
+          ],
+          "match_tokens": [
+            "bowed",
+            "silk-strung",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "khmer",
+            "historical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tro_khmer_body",
+      "name": "Coconut selection and skin tension",
+      "variants": [
+        {
+          "id": "tro_khmer_tight_snakeskin",
+          "default": true,
+          "name": "Elephant-head coconut silhouette, tightly stretched snakeskin",
+          "descriptors": [
+            "coconut-shell",
+            "snake-skin",
+            "nasal-bright"
+          ],
+          "match_tokens": [
+            "bowed",
+            "nasal-tone",
+            "resonator"
+          ],
+          "canonical_tags": [
+            "khmer",
+            "snakeskin"
+          ]
+        },
+        {
+          "id": "tro_khmer_loose_skin",
+          "name": "Looser skin, rounder chamber tone",
+          "descriptors": [
+            "round",
+            "warm",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "warm-tone",
+            "resonator"
+          ],
+          "canonical_tags": [
+            "khmer",
+            "chamber"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tro_khmer_tuning",
+      "name": "Tuning scheme",
+      "variants": [
+        {
+          "id": "tro_khmer_fourth_fourth",
+          "default": true,
+          "name": "Stacked fourths across the three strings",
+          "descriptors": [
+            "three-string",
+            "modal",
+            "singing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "khmer"
+          ]
+        },
+        {
+          "id": "tro_khmer_fifth_fourth",
+          "name": "Fifth between low and middle, fourth above",
+          "descriptors": [
+            "three-string",
+            "open-fifths",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented",
+            "open-string"
+          ],
+          "canonical_tags": [
+            "khmer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tro_khmer_context",
+      "name": "Ritual context",
+      "variants": [
+        {
+          "id": "tro_khmer_arak",
+          "default": true,
+          "name": "Phleng arak spirit-invocation and healing ceremony",
+          "descriptors": [
+            "healing-rite",
+            "trance-inducing",
+            "ritual"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ritual-context",
+            "trance-inducing"
+          ],
+          "canonical_tags": [
+            "shamanic",
+            "khmer"
+          ]
+        },
+        {
+          "id": "tro_khmer_wedding",
+          "name": "Phleng kar / areak ka wedding orchestra",
+          "descriptors": [
+            "wedding-context",
+            "vocal-supportive",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "bowed",
+            "wedding-tradition",
+            "cambodian-tradition"
+          ],
+          "canonical_tags": [
+            "wedding",
+            "khmer"
+          ]
+        },
+        {
+          "id": "tro_khmer_mahori",
+          "name": "Mahori chamber ensemble",
+          "descriptors": [
+            "intimate-chamber",
+            "blended",
+            "refined"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "cambodian-tradition"
+          ],
+          "canonical_tags": [
+            "mahori",
+            "khmer"
+          ]
+        }
+      ]
+    }
+  ]
+}

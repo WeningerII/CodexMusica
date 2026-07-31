@@ -1,0 +1,387 @@
+{
+  "id": "chagane",
+  "name": "Chagane (reconstructed Azerbaijani four-string spike fiddle)",
+  "family": "bowed",
+  "class": "bowed_spike_fiddle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "chagane",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "chagane_provenance",
+      "name": "Provenance register",
+      "variants": [
+        {
+          "id": "chagane_provenance_karimov_1982",
+          "default": true,
+          "name": "Majnun Karimov 1982 reconstruction from miniatures and poetry",
+          "descriptors": [
+            "reconstructed",
+            "revival-build",
+            "ornate"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "azerbaijani",
+            "revival",
+            "medieval"
+          ]
+        },
+        {
+          "id": "chagane_provenance_kamancheh_stand_in",
+          "name": "Played as a kamancheh substitute (no reconstruction claim)",
+          "descriptors": [
+            "classical",
+            "balanced",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "caucasus",
+            "mugham"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chagane_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "chagane_role_ancient_ensemble",
+          "default": true,
+          "name": "Azerbaijani ensemble of ancient instruments (with chang, barbat, santur)",
+          "descriptors": [
+            "ensemble",
+            "blended",
+            "courtly"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "azerbaijani",
+            "medieval",
+            "revival"
+          ]
+        },
+        {
+          "id": "chagane_role_mugham_solo",
+          "name": "Solo mugham melodic line",
+          "descriptors": [
+            "expressive",
+            "virtuoso",
+            "melismatic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented",
+            "microtonal-bend"
+          ],
+          "canonical_tags": [
+            "mugham",
+            "caucasus"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chagane_ornament",
+      "name": "Ornamentation density",
+      "variants": [
+        {
+          "id": "chagane_ornament_mugham_dense",
+          "default": true,
+          "name": "Dense mugham glissando and ornament",
+          "descriptors": [
+            "ornamented",
+            "expressive",
+            "keening"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented",
+            "microtonal-bend"
+          ],
+          "canonical_tags": [
+            "mugham"
+          ]
+        },
+        {
+          "id": "chagane_ornament_plain_sustained",
+          "name": "Plain sustained lines (iconographic-reconstruction reading)",
+          "descriptors": [
+            "sustained",
+            "spare",
+            "solemn"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "medieval"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chagane_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "chagane_strings_gut",
+          "default": true,
+          "name": "Gut across four courses (period reading)",
+          "descriptors": [
+            "plain-gut",
+            "gut",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut",
+            "gut"
+          ]
+        },
+        {
+          "id": "chagane_strings_metal",
+          "name": "Metal strings (modern ensemble build)",
+          "descriptors": [
+            "steel",
+            "projecting",
+            "bright"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "steel",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "chagane_provenance",
+      "name": "Provenance register",
+      "variants": [
+        {
+          "id": "chagane_provenance_karimov_1982",
+          "default": true,
+          "name": "Majnun Karimov 1982 reconstruction from miniatures and poetry",
+          "descriptors": [
+            "reconstructed",
+            "revival-build",
+            "ornate"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "azerbaijani",
+            "revival",
+            "medieval"
+          ]
+        },
+        {
+          "id": "chagane_provenance_kamancheh_stand_in",
+          "name": "Played as a kamancheh substitute (no reconstruction claim)",
+          "descriptors": [
+            "classical",
+            "balanced",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "caucasus",
+            "mugham"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chagane_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "chagane_role_ancient_ensemble",
+          "default": true,
+          "name": "Azerbaijani ensemble of ancient instruments (with chang, barbat, santur)",
+          "descriptors": [
+            "ensemble",
+            "blended",
+            "courtly"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "azerbaijani",
+            "medieval",
+            "revival"
+          ]
+        },
+        {
+          "id": "chagane_role_mugham_solo",
+          "name": "Solo mugham melodic line",
+          "descriptors": [
+            "expressive",
+            "virtuoso",
+            "melismatic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented",
+            "microtonal-bend"
+          ],
+          "canonical_tags": [
+            "mugham",
+            "caucasus"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chagane_ornament",
+      "name": "Ornamentation density",
+      "variants": [
+        {
+          "id": "chagane_ornament_mugham_dense",
+          "default": true,
+          "name": "Dense mugham glissando and ornament",
+          "descriptors": [
+            "ornamented",
+            "expressive",
+            "keening"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented",
+            "microtonal-bend"
+          ],
+          "canonical_tags": [
+            "mugham"
+          ]
+        },
+        {
+          "id": "chagane_ornament_plain_sustained",
+          "name": "Plain sustained lines (iconographic-reconstruction reading)",
+          "descriptors": [
+            "sustained",
+            "spare",
+            "solemn"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "medieval"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chagane_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "chagane_strings_gut",
+          "default": true,
+          "name": "Gut across four courses (period reading)",
+          "descriptors": [
+            "plain-gut",
+            "gut",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut",
+            "gut"
+          ]
+        },
+        {
+          "id": "chagane_strings_metal",
+          "name": "Metal strings (modern ensemble build)",
+          "descriptors": [
+            "steel",
+            "projecting",
+            "bright"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "steel",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

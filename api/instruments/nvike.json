@@ -1,0 +1,461 @@
+{
+  "id": "nvike",
+  "name": "N'vike (Toba/Qom bowed monochord)",
+  "family": "bowed",
+  "class": "bowed_lute",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "n'vike",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "nvike_resonator",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "nvike_resonator_tin_box",
+          "default": true,
+          "name": "Tin can / metal box (post-contact canonical)",
+          "descriptors": [
+            "tin-can",
+            "metallic",
+            "tinny"
+          ],
+          "match_tokens": [
+            "bowed",
+            "metallic",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "indigenous",
+            "tin",
+            "south-american"
+          ]
+        },
+        {
+          "id": "nvike_resonator_gourd",
+          "name": "Gourd resonator (older form)",
+          "descriptors": [
+            "gourd-bodied",
+            "warm",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gourd-resonated",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "indigenous",
+            "gourd-body"
+          ]
+        },
+        {
+          "id": "nvike_resonator_carved_wood",
+          "name": "Carved wooden box",
+          "descriptors": [
+            "carved-wood",
+            "dry",
+            "spare"
+          ],
+          "match_tokens": [
+            "bowed",
+            "wood",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "indigenous",
+            "wood"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nvike_role",
+      "name": "Playing role",
+      "variants": [
+        {
+          "id": "nvike_role_dance_awakening",
+          "default": true,
+          "name": "Dance-cueing ostinato ('awakening' the dance)",
+          "descriptors": [
+            "ostinato",
+            "driving",
+            "steady-pulse"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "ostinato"
+          ],
+          "canonical_tags": [
+            "indigenous",
+            "dance"
+          ]
+        },
+        {
+          "id": "nvike_role_melodic_recitation",
+          "name": "Free melodic recitation of remembered tunes",
+          "descriptors": [
+            "narrative",
+            "plaintive",
+            "improvised"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "indigenous",
+            "narrative"
+          ]
+        },
+        {
+          "id": "nvike_role_self_accompaniment",
+          "name": "Self-accompanied solo singing",
+          "descriptors": [
+            "self-accompanied",
+            "spare",
+            "raw"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vocal-accompaniment",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "indigenous",
+            "accompaniment"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nvike_bow",
+      "name": "Bow (checne'c) and attack",
+      "variants": [
+        {
+          "id": "nvike_bow_clawing",
+          "default": true,
+          "name": "Slack horsehair, light rosin — the jaguar-claw rasp",
+          "descriptors": [
+            "rasping",
+            "scraping",
+            "gritty",
+            "coarse"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "rasping"
+          ],
+          "canonical_tags": [
+            "horsehair",
+            "indigenous"
+          ]
+        },
+        {
+          "id": "nvike_bow_clean",
+          "name": "Tight, well-rosined bow (clean stroke)",
+          "descriptors": [
+            "clean",
+            "grippy",
+            "sweet-toned"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "horsehair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nvike_neck",
+      "name": "Neck",
+      "variants": [
+        {
+          "id": "nvike_neck_tool_handle",
+          "default": true,
+          "name": "Pickaxe or tool handle (canonical bricolage build)",
+          "descriptors": [
+            "old-tool-cutting",
+            "rustic",
+            "raw"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "indigenous",
+            "wood"
+          ]
+        },
+        {
+          "id": "nvike_neck_carved",
+          "name": "Purpose-carved wooden neck",
+          "descriptors": [
+            "carved-wood",
+            "warm",
+            "spare"
+          ],
+          "match_tokens": [
+            "bowed",
+            "wood",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "wood"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "nvike_resonator",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "nvike_resonator_tin_box",
+          "default": true,
+          "name": "Tin can / metal box (post-contact canonical)",
+          "descriptors": [
+            "tin-can",
+            "metallic",
+            "tinny"
+          ],
+          "match_tokens": [
+            "bowed",
+            "metallic",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "indigenous",
+            "tin",
+            "south-american"
+          ]
+        },
+        {
+          "id": "nvike_resonator_gourd",
+          "name": "Gourd resonator (older form)",
+          "descriptors": [
+            "gourd-bodied",
+            "warm",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gourd-resonated",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "indigenous",
+            "gourd-body"
+          ]
+        },
+        {
+          "id": "nvike_resonator_carved_wood",
+          "name": "Carved wooden box",
+          "descriptors": [
+            "carved-wood",
+            "dry",
+            "spare"
+          ],
+          "match_tokens": [
+            "bowed",
+            "wood",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "indigenous",
+            "wood"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nvike_role",
+      "name": "Playing role",
+      "variants": [
+        {
+          "id": "nvike_role_dance_awakening",
+          "default": true,
+          "name": "Dance-cueing ostinato ('awakening' the dance)",
+          "descriptors": [
+            "ostinato",
+            "driving",
+            "steady-pulse"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "ostinato"
+          ],
+          "canonical_tags": [
+            "indigenous",
+            "dance"
+          ]
+        },
+        {
+          "id": "nvike_role_melodic_recitation",
+          "name": "Free melodic recitation of remembered tunes",
+          "descriptors": [
+            "narrative",
+            "plaintive",
+            "improvised"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "indigenous",
+            "narrative"
+          ]
+        },
+        {
+          "id": "nvike_role_self_accompaniment",
+          "name": "Self-accompanied solo singing",
+          "descriptors": [
+            "self-accompanied",
+            "spare",
+            "raw"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vocal-accompaniment",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "indigenous",
+            "accompaniment"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nvike_bow",
+      "name": "Bow (checne'c) and attack",
+      "variants": [
+        {
+          "id": "nvike_bow_clawing",
+          "default": true,
+          "name": "Slack horsehair, light rosin — the jaguar-claw rasp",
+          "descriptors": [
+            "rasping",
+            "scraping",
+            "gritty",
+            "coarse"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "rasping"
+          ],
+          "canonical_tags": [
+            "horsehair",
+            "indigenous"
+          ]
+        },
+        {
+          "id": "nvike_bow_clean",
+          "name": "Tight, well-rosined bow (clean stroke)",
+          "descriptors": [
+            "clean",
+            "grippy",
+            "sweet-toned"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "horsehair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nvike_neck",
+      "name": "Neck",
+      "variants": [
+        {
+          "id": "nvike_neck_tool_handle",
+          "default": true,
+          "name": "Pickaxe or tool handle (canonical bricolage build)",
+          "descriptors": [
+            "old-tool-cutting",
+            "rustic",
+            "raw"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "indigenous",
+            "wood"
+          ]
+        },
+        {
+          "id": "nvike_neck_carved",
+          "name": "Purpose-carved wooden neck",
+          "descriptors": [
+            "carved-wood",
+            "warm",
+            "spare"
+          ],
+          "match_tokens": [
+            "bowed",
+            "wood",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "wood"
+          ]
+        }
+      ]
+    }
+  ]
+}

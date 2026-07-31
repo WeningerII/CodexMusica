@@ -1,0 +1,294 @@
+{
+  "id": "hyperbass_flute",
+  "name": "Hyperbass flute (Fabbriciani / Romei sub-audio flute)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -2,
+    "range": -1,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -2
+  },
+  "short": "hyperbass flute",
+  "parts": [
+    {
+      "id": "hyperbass_flute_generation",
+      "name": "Build generation",
+      "variants": [
+        {
+          "id": "hyperbass_flute_romei",
+          "default": true,
+          "name": "Romei original (Florence, 1970s - open holes covered by the palms, not fully chromatic)",
+          "descriptors": [
+            "experimental",
+            "rare",
+            "avant-garde"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "italian",
+            "experimental"
+          ]
+        },
+        {
+          "id": "hyperbass_flute_hogenhuis",
+          "name": "Hogenhuis fully chromatic keyed build (2010, commissioned by Peter Sheridan)",
+          "descriptors": [
+            "chromatic",
+            "modern",
+            "pvc"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "contemporary",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hyperbass_flute_length",
+      "name": "Tube length",
+      "variants": [
+        {
+          "id": "hyperbass_flute_8m",
+          "default": true,
+          "name": "Approx. 8 m (26 ft) of PVC folded into a rack",
+          "descriptors": [
+            "standard",
+            "sub-bass",
+            "deep"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "low-register",
+            "breathing"
+          ]
+        },
+        {
+          "id": "hyperbass_flute_15m",
+          "name": "Approx. 15 m (49 ft) - the longest recorded example",
+          "descriptors": [
+            "rare",
+            "extra-deep",
+            "massive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "low-register",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hyperbass_flute_register",
+      "name": "Register use",
+      "variants": [
+        {
+          "id": "hyperbass_flute_fundamental",
+          "default": true,
+          "name": "Infrasonic fundamental (approx. 16 Hz, C0) as felt rumble / room excitation",
+          "descriptors": [
+            "sub-bass",
+            "deep",
+            "droning"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "sustained-tone",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "experimental"
+          ]
+        },
+        {
+          "id": "hyperbass_flute_overtone",
+          "name": "Overtone register played for audible pitch content",
+          "descriptors": [
+            "overtone-rich",
+            "breathy",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "overtone-series",
+            "wind-driven",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "contemporary"
+          ]
+        },
+        {
+          "id": "hyperbass_flute_air",
+          "name": "Air-sound / breath texture only",
+          "descriptors": [
+            "breathy",
+            "atmospheric",
+            "experimental"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "breathy"
+          ],
+          "canonical_tags": [
+            "experimental"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "hyperbass_flute_generation",
+      "name": "Build generation",
+      "variants": [
+        {
+          "id": "hyperbass_flute_romei",
+          "default": true,
+          "name": "Romei original (Florence, 1970s - open holes covered by the palms, not fully chromatic)",
+          "descriptors": [
+            "experimental",
+            "rare",
+            "avant-garde"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "italian",
+            "experimental"
+          ]
+        },
+        {
+          "id": "hyperbass_flute_hogenhuis",
+          "name": "Hogenhuis fully chromatic keyed build (2010, commissioned by Peter Sheridan)",
+          "descriptors": [
+            "chromatic",
+            "modern",
+            "pvc"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "contemporary",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hyperbass_flute_length",
+      "name": "Tube length",
+      "variants": [
+        {
+          "id": "hyperbass_flute_8m",
+          "default": true,
+          "name": "Approx. 8 m (26 ft) of PVC folded into a rack",
+          "descriptors": [
+            "standard",
+            "sub-bass",
+            "deep"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "low-register",
+            "breathing"
+          ]
+        },
+        {
+          "id": "hyperbass_flute_15m",
+          "name": "Approx. 15 m (49 ft) - the longest recorded example",
+          "descriptors": [
+            "rare",
+            "extra-deep",
+            "massive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "low-register",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hyperbass_flute_register",
+      "name": "Register use",
+      "variants": [
+        {
+          "id": "hyperbass_flute_fundamental",
+          "default": true,
+          "name": "Infrasonic fundamental (approx. 16 Hz, C0) as felt rumble / room excitation",
+          "descriptors": [
+            "sub-bass",
+            "deep",
+            "droning"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "sustained-tone",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "experimental"
+          ]
+        },
+        {
+          "id": "hyperbass_flute_overtone",
+          "name": "Overtone register played for audible pitch content",
+          "descriptors": [
+            "overtone-rich",
+            "breathy",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "overtone-series",
+            "wind-driven",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "contemporary"
+          ]
+        },
+        {
+          "id": "hyperbass_flute_air",
+          "name": "Air-sound / breath texture only",
+          "descriptors": [
+            "breathy",
+            "atmospheric",
+            "experimental"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "breathy"
+          ],
+          "canonical_tags": [
+            "experimental"
+          ]
+        }
+      ]
+    }
+  ]
+}

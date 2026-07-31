@@ -1,0 +1,460 @@
+{
+  "id": "basset_clarinet",
+  "name": "Basset clarinet (Stadler's downward-extended soprano clarinet)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 2,
+    "register": 0,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "bassetclarinet",
+  "parts": [
+    {
+      "id": "basset_clarinet_pitch",
+      "name": "Pitch",
+      "variants": [
+        {
+          "id": "basset_clarinet_pitch_a",
+          "default": true,
+          "name": "A basset clarinet (Quintet K.581, Concerto K.622)",
+          "descriptors": [
+            "mellow",
+            "warm",
+            "classical-solo"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "single-reed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "classical-era"
+          ]
+        },
+        {
+          "id": "basset_clarinet_pitch_bb",
+          "name": "B-flat basset clarinet (Parto, parto obbligato from La clemenza di Tito)",
+          "descriptors": [
+            "bright",
+            "projecting",
+            "aria-partner"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "single-reed",
+            "soloistic"
+          ],
+          "canonical_tags": [
+            "classical",
+            "opera"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "basset_clarinet_build",
+      "name": "Build era / pitch standard",
+      "variants": [
+        {
+          "id": "basset_clarinet_build_lotz",
+          "default": true,
+          "name": "Lotz-model classical boxwood, 8-9 keys, low pitch and unequal temperament",
+          "descriptors": [
+            "boxwood-canonical-baroque-classical-pre-1850",
+            "historically-informed",
+            "unequal-key-color"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "period-performance",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical-era",
+            "viennese",
+            "period"
+          ]
+        },
+        {
+          "id": "basset_clarinet_build_modern_boehm",
+          "name": "Modern grenadilla Boehm basset clarinet at concert pitch",
+          "descriptors": [
+            "grenadilla",
+            "equal-temperament-modern-concert-standard",
+            "stable"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "single-reed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "modern",
+            "concert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "basset_clarinet_extension",
+      "name": "Basset extension form",
+      "variants": [
+        {
+          "id": "basset_clarinet_extension_straight",
+          "default": true,
+          "name": "Straight downward extension to written low C",
+          "descriptors": [
+            "straight",
+            "extended-range",
+            "focused"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "low-register",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "basset_clarinet_extension_curved",
+          "name": "Angled / curved metal basset section turning the foot back",
+          "descriptors": [
+            "curved",
+            "brass",
+            "archaic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "low-register",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "classical-era",
+            "historic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "basset_clarinet_repertoire",
+      "name": "Repertoire context",
+      "variants": [
+        {
+          "id": "basset_clarinet_rep_concerto",
+          "default": true,
+          "name": "Mozart Concerto K.622, restored basset text (Hacker 1967)",
+          "descriptors": [
+            "virtuoso-solo",
+            "singing",
+            "classical-solo"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "soloistic",
+            "orchestral"
+          ],
+          "canonical_tags": [
+            "classical",
+            "concert"
+          ]
+        },
+        {
+          "id": "basset_clarinet_rep_quintet",
+          "name": "Mozart Quintet K.581 with string quartet (Kratochvil 1957 restoration)",
+          "descriptors": [
+            "intimate-chamber",
+            "blended",
+            "graceful"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "chamber-fed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "chamber"
+          ]
+        },
+        {
+          "id": "basset_clarinet_rep_opera_obbligato",
+          "name": "Operatic obbligato beside solo voice",
+          "descriptors": [
+            "aria-partner",
+            "vocal-doubling",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "soloistic",
+            "orchestral"
+          ],
+          "canonical_tags": [
+            "classical",
+            "opera"
+          ]
+        },
+        {
+          "id": "basset_clarinet_rep_modern",
+          "name": "Modern repertoire written for the revived instrument",
+          "descriptors": [
+            "modern",
+            "extended-techniques",
+            "concert-rare"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "contemporary",
+            "soloistic"
+          ],
+          "canonical_tags": [
+            "contemporary",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "basset_clarinet_pitch",
+      "name": "Pitch",
+      "variants": [
+        {
+          "id": "basset_clarinet_pitch_a",
+          "default": true,
+          "name": "A basset clarinet (Quintet K.581, Concerto K.622)",
+          "descriptors": [
+            "mellow",
+            "warm",
+            "classical-solo"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "single-reed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "classical-era"
+          ]
+        },
+        {
+          "id": "basset_clarinet_pitch_bb",
+          "name": "B-flat basset clarinet (Parto, parto obbligato from La clemenza di Tito)",
+          "descriptors": [
+            "bright",
+            "projecting",
+            "aria-partner"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "single-reed",
+            "soloistic"
+          ],
+          "canonical_tags": [
+            "classical",
+            "opera"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "basset_clarinet_build",
+      "name": "Build era / pitch standard",
+      "variants": [
+        {
+          "id": "basset_clarinet_build_lotz",
+          "default": true,
+          "name": "Lotz-model classical boxwood, 8-9 keys, low pitch and unequal temperament",
+          "descriptors": [
+            "boxwood-canonical-baroque-classical-pre-1850",
+            "historically-informed",
+            "unequal-key-color"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "period-performance",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical-era",
+            "viennese",
+            "period"
+          ]
+        },
+        {
+          "id": "basset_clarinet_build_modern_boehm",
+          "name": "Modern grenadilla Boehm basset clarinet at concert pitch",
+          "descriptors": [
+            "grenadilla",
+            "equal-temperament-modern-concert-standard",
+            "stable"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "single-reed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "modern",
+            "concert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "basset_clarinet_extension",
+      "name": "Basset extension form",
+      "variants": [
+        {
+          "id": "basset_clarinet_extension_straight",
+          "default": true,
+          "name": "Straight downward extension to written low C",
+          "descriptors": [
+            "straight",
+            "extended-range",
+            "focused"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "low-register",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "basset_clarinet_extension_curved",
+          "name": "Angled / curved metal basset section turning the foot back",
+          "descriptors": [
+            "curved",
+            "brass",
+            "archaic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "low-register",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "classical-era",
+            "historic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "basset_clarinet_repertoire",
+      "name": "Repertoire context",
+      "variants": [
+        {
+          "id": "basset_clarinet_rep_concerto",
+          "default": true,
+          "name": "Mozart Concerto K.622, restored basset text (Hacker 1967)",
+          "descriptors": [
+            "virtuoso-solo",
+            "singing",
+            "classical-solo"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "soloistic",
+            "orchestral"
+          ],
+          "canonical_tags": [
+            "classical",
+            "concert"
+          ]
+        },
+        {
+          "id": "basset_clarinet_rep_quintet",
+          "name": "Mozart Quintet K.581 with string quartet (Kratochvil 1957 restoration)",
+          "descriptors": [
+            "intimate-chamber",
+            "blended",
+            "graceful"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "chamber-fed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "chamber"
+          ]
+        },
+        {
+          "id": "basset_clarinet_rep_opera_obbligato",
+          "name": "Operatic obbligato beside solo voice",
+          "descriptors": [
+            "aria-partner",
+            "vocal-doubling",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "soloistic",
+            "orchestral"
+          ],
+          "canonical_tags": [
+            "classical",
+            "opera"
+          ]
+        },
+        {
+          "id": "basset_clarinet_rep_modern",
+          "name": "Modern repertoire written for the revived instrument",
+          "descriptors": [
+            "modern",
+            "extended-techniques",
+            "concert-rare"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "contemporary",
+            "soloistic"
+          ],
+          "canonical_tags": [
+            "contemporary",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

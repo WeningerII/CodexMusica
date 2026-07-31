@@ -1,0 +1,421 @@
+{
+  "id": "latfiol",
+  "name": "Låtfiol (Swedish revival fiddle with sympathetic strings)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "latfiol",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "latfiol_sympathetics",
+      "name": "Sympathetic stringing",
+      "variants": [
+        {
+          "id": "latfiol_sympathetics_two",
+          "default": true,
+          "name": "Two sympathetics under the fingerboard (the build the 1980s term actually names)",
+          "descriptors": [
+            "sympathetic-halo",
+            "subtle",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "swedish",
+            "1980s"
+          ]
+        },
+        {
+          "id": "latfiol_sympathetics_eight",
+          "name": "Eight sympathetics (copy of a museum instrument)",
+          "descriptors": [
+            "sympathetic-halo",
+            "ringing",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "swedish",
+            "historical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "latfiol_tuning",
+      "name": "Tuning",
+      "variants": [
+        {
+          "id": "latfiol_tuning_gdae",
+          "default": true,
+          "name": "Standard GDAE",
+          "descriptors": [
+            "standard",
+            "balanced",
+            "versatile"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "swedish",
+            "modern"
+          ]
+        },
+        {
+          "id": "latfiol_tuning_aeae",
+          "name": "Swedish scordatura (AEAE)",
+          "descriptors": [
+            "scordatura",
+            "droning",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "swedish",
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "latfiol_repertoire",
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "latfiol_repertoire_polska",
+          "default": true,
+          "name": "Polska (asymmetric Swedish dance latar)",
+          "descriptors": [
+            "dance-driving",
+            "ornamented",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "swedish",
+            "dance"
+          ]
+        },
+        {
+          "id": "latfiol_repertoire_brudmarsch",
+          "name": "Brudmarsch (wedding processional)",
+          "descriptors": [
+            "processional",
+            "stately",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "swedish",
+            "processional"
+          ]
+        },
+        {
+          "id": "latfiol_repertoire_schottis_vals",
+          "name": "Schottis and vals",
+          "descriptors": [
+            "lilting",
+            "festive",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "swedish",
+            "dance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "latfiol_voicing",
+      "name": "Sympathetic voicing / build",
+      "variants": [
+        {
+          "id": "latfiol_voicing_subtle",
+          "default": true,
+          "name": "Plain revival violin, sympathetics barely audible",
+          "descriptors": [
+            "subtle",
+            "plain",
+            "focused"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "latfiol_voicing_ringing",
+          "name": "Decorated build, sympathetics deliberately voiced",
+          "descriptors": [
+            "ringing",
+            "resonant",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "revival"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "latfiol_sympathetics",
+      "name": "Sympathetic stringing",
+      "variants": [
+        {
+          "id": "latfiol_sympathetics_two",
+          "default": true,
+          "name": "Two sympathetics under the fingerboard (the build the 1980s term actually names)",
+          "descriptors": [
+            "sympathetic-halo",
+            "subtle",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "swedish",
+            "1980s"
+          ]
+        },
+        {
+          "id": "latfiol_sympathetics_eight",
+          "name": "Eight sympathetics (copy of a museum instrument)",
+          "descriptors": [
+            "sympathetic-halo",
+            "ringing",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "swedish",
+            "historical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "latfiol_tuning",
+      "name": "Tuning",
+      "variants": [
+        {
+          "id": "latfiol_tuning_gdae",
+          "default": true,
+          "name": "Standard GDAE",
+          "descriptors": [
+            "standard",
+            "balanced",
+            "versatile"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "swedish",
+            "modern"
+          ]
+        },
+        {
+          "id": "latfiol_tuning_aeae",
+          "name": "Swedish scordatura (AEAE)",
+          "descriptors": [
+            "scordatura",
+            "droning",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "swedish",
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "latfiol_repertoire",
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "latfiol_repertoire_polska",
+          "default": true,
+          "name": "Polska (asymmetric Swedish dance latar)",
+          "descriptors": [
+            "dance-driving",
+            "ornamented",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "swedish",
+            "dance"
+          ]
+        },
+        {
+          "id": "latfiol_repertoire_brudmarsch",
+          "name": "Brudmarsch (wedding processional)",
+          "descriptors": [
+            "processional",
+            "stately",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "swedish",
+            "processional"
+          ]
+        },
+        {
+          "id": "latfiol_repertoire_schottis_vals",
+          "name": "Schottis and vals",
+          "descriptors": [
+            "lilting",
+            "festive",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "swedish",
+            "dance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "latfiol_voicing",
+      "name": "Sympathetic voicing / build",
+      "variants": [
+        {
+          "id": "latfiol_voicing_subtle",
+          "default": true,
+          "name": "Plain revival violin, sympathetics barely audible",
+          "descriptors": [
+            "subtle",
+            "plain",
+            "focused"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "latfiol_voicing_ringing",
+          "name": "Decorated build, sympathetics deliberately voiced",
+          "descriptors": [
+            "ringing",
+            "resonant",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "revival"
+          ]
+        }
+      ]
+    }
+  ]
+}

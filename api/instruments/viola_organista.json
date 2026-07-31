@@ -1,0 +1,423 @@
+{
+  "id": "viola_organista",
+  "name": "Viola organista (bowed-keyboard chordophone)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "viola organista",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "viola_organista_drive",
+      "name": "Friction drive",
+      "variants": [
+        {
+          "id": "viola_organista_wheel_bank",
+          "default": true,
+          "name": "Bank of rosined bow-wheels (Haiden Geigenwerk principle, Zubrzycki realisation)",
+          "descriptors": [
+            "great-wheel",
+            "revival-build",
+            "singing-tone"
+          ],
+          "match_tokens": [
+            "bowed",
+            "friction-driven",
+            "keyed",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "revival",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "viola_organista_friction_belt",
+          "name": "Continuous friction belt (Leonardo's drawn design, never built)",
+          "descriptors": [
+            "friction-driven",
+            "renaissance",
+            "historical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "friction-driven",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "historical",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "viola_organista_horsehair_wheels",
+          "name": "Horsehair-covered wheels (1754 viola da gamba piano type)",
+          "descriptors": [
+            "horsehair",
+            "softer",
+            "breathy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "friction-driven",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "historical",
+            "baroque"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "viola_organista_operation",
+      "name": "Operation and compass",
+      "variants": [
+        {
+          "id": "viola_organista_zubrzycki_61",
+          "default": true,
+          "name": "One player, foot-pedal drive, four bow-wheels, 61 keys F1-F6 (Zubrzycki 2013)",
+          "descriptors": [
+            "pedal",
+            "five-octave",
+            "solo"
+          ],
+          "match_tokens": [
+            "bowed",
+            "keyed",
+            "wide-range",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "revival",
+            "concert"
+          ]
+        },
+        {
+          "id": "viola_organista_haiden_two_player",
+          "name": "Two players - one cranking, one at the keys, about 44 keys (1575 Geigenwerk)",
+          "descriptors": [
+            "two-player",
+            "hand-cranked",
+            "narrow-compass"
+          ],
+          "match_tokens": [
+            "bowed",
+            "keyed",
+            "early-music-context",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "historical"
+          ]
+        },
+        {
+          "id": "viola_organista_obuchi_repro",
+          "name": "Obuchi-lineage workshop reconstruction (from 1993)",
+          "descriptors": [
+            "reconstruction",
+            "faithful",
+            "boutique"
+          ],
+          "match_tokens": [
+            "bowed",
+            "keyed",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "revival",
+            "japanese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "viola_organista_repertoire",
+      "name": "Repertoire context",
+      "variants": [
+        {
+          "id": "viola_organista_early_keyboard",
+          "default": true,
+          "name": "Renaissance and early-baroque keyboard repertoire on sustained strings",
+          "descriptors": [
+            "early-period",
+            "sustained-chords",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "early-music-context",
+            "chordal",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "early-music"
+          ]
+        },
+        {
+          "id": "viola_organista_art_song_obbligato",
+          "name": "Contemporary art-song obbligato (Bjork, 'Black Lake')",
+          "descriptors": [
+            "vocal-accompaniment",
+            "austere",
+            "mournful"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "contemporary"
+          ],
+          "canonical_tags": [
+            "contemporary",
+            "art-music"
+          ]
+        },
+        {
+          "id": "viola_organista_drone_texture",
+          "name": "Sustained chordal drone texture",
+          "descriptors": [
+            "sustained-drone",
+            "enveloping",
+            "organ-like"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "sustained-tone",
+            "chordal"
+          ],
+          "canonical_tags": [
+            "drone",
+            "ambient"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "viola_organista_drive",
+      "name": "Friction drive",
+      "variants": [
+        {
+          "id": "viola_organista_wheel_bank",
+          "default": true,
+          "name": "Bank of rosined bow-wheels (Haiden Geigenwerk principle, Zubrzycki realisation)",
+          "descriptors": [
+            "great-wheel",
+            "revival-build",
+            "singing-tone"
+          ],
+          "match_tokens": [
+            "bowed",
+            "friction-driven",
+            "keyed",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "revival",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "viola_organista_friction_belt",
+          "name": "Continuous friction belt (Leonardo's drawn design, never built)",
+          "descriptors": [
+            "friction-driven",
+            "renaissance",
+            "historical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "friction-driven",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "historical",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "viola_organista_horsehair_wheels",
+          "name": "Horsehair-covered wheels (1754 viola da gamba piano type)",
+          "descriptors": [
+            "horsehair",
+            "softer",
+            "breathy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "friction-driven",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "historical",
+            "baroque"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "viola_organista_operation",
+      "name": "Operation and compass",
+      "variants": [
+        {
+          "id": "viola_organista_zubrzycki_61",
+          "default": true,
+          "name": "One player, foot-pedal drive, four bow-wheels, 61 keys F1-F6 (Zubrzycki 2013)",
+          "descriptors": [
+            "pedal",
+            "five-octave",
+            "solo"
+          ],
+          "match_tokens": [
+            "bowed",
+            "keyed",
+            "wide-range",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "revival",
+            "concert"
+          ]
+        },
+        {
+          "id": "viola_organista_haiden_two_player",
+          "name": "Two players - one cranking, one at the keys, about 44 keys (1575 Geigenwerk)",
+          "descriptors": [
+            "two-player",
+            "hand-cranked",
+            "narrow-compass"
+          ],
+          "match_tokens": [
+            "bowed",
+            "keyed",
+            "early-music-context",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "historical"
+          ]
+        },
+        {
+          "id": "viola_organista_obuchi_repro",
+          "name": "Obuchi-lineage workshop reconstruction (from 1993)",
+          "descriptors": [
+            "reconstruction",
+            "faithful",
+            "boutique"
+          ],
+          "match_tokens": [
+            "bowed",
+            "keyed",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "revival",
+            "japanese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "viola_organista_repertoire",
+      "name": "Repertoire context",
+      "variants": [
+        {
+          "id": "viola_organista_early_keyboard",
+          "default": true,
+          "name": "Renaissance and early-baroque keyboard repertoire on sustained strings",
+          "descriptors": [
+            "early-period",
+            "sustained-chords",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "early-music-context",
+            "chordal",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "early-music"
+          ]
+        },
+        {
+          "id": "viola_organista_art_song_obbligato",
+          "name": "Contemporary art-song obbligato (Bjork, 'Black Lake')",
+          "descriptors": [
+            "vocal-accompaniment",
+            "austere",
+            "mournful"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "contemporary"
+          ],
+          "canonical_tags": [
+            "contemporary",
+            "art-music"
+          ]
+        },
+        {
+          "id": "viola_organista_drone_texture",
+          "name": "Sustained chordal drone texture",
+          "descriptors": [
+            "sustained-drone",
+            "enveloping",
+            "organ-like"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "sustained-tone",
+            "chordal"
+          ],
+          "canonical_tags": [
+            "drone",
+            "ambient"
+          ]
+        }
+      ]
+    }
+  ]
+}

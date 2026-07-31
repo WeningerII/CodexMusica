@@ -1,0 +1,453 @@
+{
+  "id": "lira_korbowa",
+  "name": "Lira korbowa (Polish crank lyre)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "lira korbowa",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "lira_korbowa_body",
+      "name": "Body pattern",
+      "variants": [
+        {
+          "id": "lira_korbowa_guitar_form",
+          "default": true,
+          "name": "Guitar-form body (commonest Polish pattern)",
+          "descriptors": [
+            "guitar-shaped",
+            "projecting",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "polish",
+            "folk"
+          ]
+        },
+        {
+          "id": "lira_korbowa_lute_back",
+          "name": "Vaulted lute-back body",
+          "descriptors": [
+            "deep-bodied",
+            "archaic",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "polish",
+            "historical"
+          ]
+        },
+        {
+          "id": "lira_korbowa_cello_form",
+          "name": "Cello-form body",
+          "descriptors": [
+            "deep",
+            "grounding",
+            "full"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "polish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lira_korbowa_role",
+      "name": "Repertoire / social role",
+      "variants": [
+        {
+          "id": "lira_korbowa_dziadowska",
+          "default": true,
+          "name": "Piesni dziadowskie - itinerant blind dziad-lirnik's beggar song",
+          "descriptors": [
+            "narrative",
+            "rustic",
+            "song-accompaniment"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "song-accompaniment",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "itinerant",
+            "polish",
+            "narrative"
+          ]
+        },
+        {
+          "id": "lira_korbowa_religious",
+          "name": "Religious and moralizing song at church-feast gatherings",
+          "descriptors": [
+            "devotional",
+            "processional",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "devotional",
+            "processional"
+          ],
+          "canonical_tags": [
+            "devotional",
+            "polish"
+          ]
+        },
+        {
+          "id": "lira_korbowa_revival_ensemble",
+          "name": "Modern Polish folk-revival ensemble",
+          "descriptors": [
+            "folk-revival",
+            "festive",
+            "driving"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "revival",
+            "dance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lira_korbowa_lineage",
+      "name": "Build lineage",
+      "variants": [
+        {
+          "id": "lira_korbowa_wyzykowski_nogaj",
+          "default": true,
+          "name": "Wyzykowski / Nogaj revival build (Haczow - Stara Wies line)",
+          "descriptors": [
+            "revival",
+            "preservationist"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "revival",
+            "polish"
+          ]
+        },
+        {
+          "id": "lira_korbowa_museum_copy",
+          "name": "Szydlowiec museum-copy historical build",
+          "descriptors": [
+            "historical",
+            "preservationist"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "historical",
+            "polish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lira_korbowa_drones",
+      "name": "Drone bank",
+      "variants": [
+        {
+          "id": "lira_korbowa_single_drone",
+          "default": true,
+          "name": "Single drone (minimal, voice-forward)",
+          "descriptors": [
+            "spare",
+            "focused"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "friction-driven"
+          ],
+          "canonical_tags": [
+            "drone"
+          ]
+        },
+        {
+          "id": "lira_korbowa_full_drone_bank",
+          "name": "Full drone bank",
+          "descriptors": [
+            "droning",
+            "full"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "friction-driven"
+          ],
+          "canonical_tags": [
+            "drone"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "lira_korbowa_body",
+      "name": "Body pattern",
+      "variants": [
+        {
+          "id": "lira_korbowa_guitar_form",
+          "default": true,
+          "name": "Guitar-form body (commonest Polish pattern)",
+          "descriptors": [
+            "guitar-shaped",
+            "projecting",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "polish",
+            "folk"
+          ]
+        },
+        {
+          "id": "lira_korbowa_lute_back",
+          "name": "Vaulted lute-back body",
+          "descriptors": [
+            "deep-bodied",
+            "archaic",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "polish",
+            "historical"
+          ]
+        },
+        {
+          "id": "lira_korbowa_cello_form",
+          "name": "Cello-form body",
+          "descriptors": [
+            "deep",
+            "grounding",
+            "full"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "polish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lira_korbowa_role",
+      "name": "Repertoire / social role",
+      "variants": [
+        {
+          "id": "lira_korbowa_dziadowska",
+          "default": true,
+          "name": "Piesni dziadowskie - itinerant blind dziad-lirnik's beggar song",
+          "descriptors": [
+            "narrative",
+            "rustic",
+            "song-accompaniment"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "song-accompaniment",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "itinerant",
+            "polish",
+            "narrative"
+          ]
+        },
+        {
+          "id": "lira_korbowa_religious",
+          "name": "Religious and moralizing song at church-feast gatherings",
+          "descriptors": [
+            "devotional",
+            "processional",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "devotional",
+            "processional"
+          ],
+          "canonical_tags": [
+            "devotional",
+            "polish"
+          ]
+        },
+        {
+          "id": "lira_korbowa_revival_ensemble",
+          "name": "Modern Polish folk-revival ensemble",
+          "descriptors": [
+            "folk-revival",
+            "festive",
+            "driving"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "revival",
+            "dance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lira_korbowa_lineage",
+      "name": "Build lineage",
+      "variants": [
+        {
+          "id": "lira_korbowa_wyzykowski_nogaj",
+          "default": true,
+          "name": "Wyzykowski / Nogaj revival build (Haczow - Stara Wies line)",
+          "descriptors": [
+            "revival",
+            "preservationist"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "revival",
+            "polish"
+          ]
+        },
+        {
+          "id": "lira_korbowa_museum_copy",
+          "name": "Szydlowiec museum-copy historical build",
+          "descriptors": [
+            "historical",
+            "preservationist"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "historical",
+            "polish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lira_korbowa_drones",
+      "name": "Drone bank",
+      "variants": [
+        {
+          "id": "lira_korbowa_single_drone",
+          "default": true,
+          "name": "Single drone (minimal, voice-forward)",
+          "descriptors": [
+            "spare",
+            "focused"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "friction-driven"
+          ],
+          "canonical_tags": [
+            "drone"
+          ]
+        },
+        {
+          "id": "lira_korbowa_full_drone_bank",
+          "name": "Full drone bank",
+          "descriptors": [
+            "droning",
+            "full"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "friction-driven"
+          ],
+          "canonical_tags": [
+            "drone"
+          ]
+        }
+      ]
+    }
+  ]
+}

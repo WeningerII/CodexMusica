@@ -1,0 +1,487 @@
+{
+  "id": "kukkuma",
+  "name": "Kukkuma (small Hausa one-string bowed spike fiddle)",
+  "family": "bowed",
+  "class": "bowed_spike_fiddle",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 1,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "kukkuma",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "kukkuma_ensemble",
+      "name": "Ensemble",
+      "variants": [
+        {
+          "id": "kukkuma_ensemble_solo_voice",
+          "default": true,
+          "name": "Solo fiddle with self-accompanied singing",
+          "descriptors": [
+            "intimate",
+            "vocal-shadowing",
+            "light"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "vocal-accompaniment"
+          ],
+          "canonical_tags": [
+            "west_africa",
+            "hausa"
+          ]
+        },
+        {
+          "id": "kukkuma_ensemble_kalangu",
+          "name": "With kalangu hourglass talking drum",
+          "descriptors": [
+            "driving",
+            "conversational",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "west_africa",
+            "hausa"
+          ]
+        },
+        {
+          "id": "kukkuma_ensemble_kwarya",
+          "name": "With kwarya struck-calabash percussion group",
+          "descriptors": [
+            "festive",
+            "percussive",
+            "communal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "dance-pulse"
+          ],
+          "canonical_tags": [
+            "west_africa",
+            "dance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kukkuma_repertoire",
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "kukkuma_repertoire_dance",
+          "default": true,
+          "name": "Light secular dance entertainment",
+          "descriptors": [
+            "secular",
+            "festive",
+            "driving"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "entertainment",
+            "dance"
+          ]
+        },
+        {
+          "id": "kukkuma_repertoire_kirari",
+          "name": "Itinerant praise-singing (kirari)",
+          "descriptors": [
+            "declamatory",
+            "narrative",
+            "responsive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vocal-accompaniment",
+            "speech-derived"
+          ],
+          "canonical_tags": [
+            "praise",
+            "itinerant"
+          ]
+        },
+        {
+          "id": "kukkuma_repertoire_popular",
+          "name": "Modern Hausa popular song (Ibrahim Na Habu lineage)",
+          "descriptors": [
+            "urban",
+            "projecting",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "lead-melody"
+          ],
+          "canonical_tags": [
+            "popular",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kukkuma_material",
+      "name": "Membrane and string material",
+      "variants": [
+        {
+          "id": "kukkuma_material_lizard_horsehair",
+          "default": true,
+          "name": "Monitor-lizard skin over half-calabash, bundled-horsehair string",
+          "descriptors": [
+            "lizard-skin",
+            "calabash-resonator",
+            "buzzy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "horsehair-string"
+          ],
+          "canonical_tags": [
+            "gourd-body",
+            "traditional"
+          ]
+        },
+        {
+          "id": "kukkuma_material_goat",
+          "name": "Goatskin membrane",
+          "descriptors": [
+            "goatskin",
+            "warm",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "gourd-body"
+          ]
+        },
+        {
+          "id": "kukkuma_material_nylon",
+          "name": "Modern nylon string",
+          "descriptors": [
+            "nylon-modern",
+            "smoother",
+            "brighter"
+          ],
+          "match_tokens": [
+            "bowed",
+            "nylon-string"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kukkuma_bowing",
+      "name": "Bowing register",
+      "variants": [
+        {
+          "id": "kukkuma_bowing_high_ostinato",
+          "default": true,
+          "name": "High nasal ostinato — the small fiddle of the Hausa pair, above the larger goge",
+          "descriptors": [
+            "nasal",
+            "high-pitched",
+            "insistent"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ostinato",
+            "nasal-tone"
+          ],
+          "canonical_tags": [
+            "hausa",
+            "west_africa"
+          ]
+        },
+        {
+          "id": "kukkuma_bowing_vocal_doubling",
+          "name": "Sustained vocal doubling",
+          "descriptors": [
+            "vocal-shadowing",
+            "singing",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vocal-imitating",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "praise"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kukkuma_ensemble",
+      "name": "Ensemble",
+      "variants": [
+        {
+          "id": "kukkuma_ensemble_solo_voice",
+          "default": true,
+          "name": "Solo fiddle with self-accompanied singing",
+          "descriptors": [
+            "intimate",
+            "vocal-shadowing",
+            "light"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "vocal-accompaniment"
+          ],
+          "canonical_tags": [
+            "west_africa",
+            "hausa"
+          ]
+        },
+        {
+          "id": "kukkuma_ensemble_kalangu",
+          "name": "With kalangu hourglass talking drum",
+          "descriptors": [
+            "driving",
+            "conversational",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "west_africa",
+            "hausa"
+          ]
+        },
+        {
+          "id": "kukkuma_ensemble_kwarya",
+          "name": "With kwarya struck-calabash percussion group",
+          "descriptors": [
+            "festive",
+            "percussive",
+            "communal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "dance-pulse"
+          ],
+          "canonical_tags": [
+            "west_africa",
+            "dance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kukkuma_repertoire",
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "kukkuma_repertoire_dance",
+          "default": true,
+          "name": "Light secular dance entertainment",
+          "descriptors": [
+            "secular",
+            "festive",
+            "driving"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "entertainment",
+            "dance"
+          ]
+        },
+        {
+          "id": "kukkuma_repertoire_kirari",
+          "name": "Itinerant praise-singing (kirari)",
+          "descriptors": [
+            "declamatory",
+            "narrative",
+            "responsive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vocal-accompaniment",
+            "speech-derived"
+          ],
+          "canonical_tags": [
+            "praise",
+            "itinerant"
+          ]
+        },
+        {
+          "id": "kukkuma_repertoire_popular",
+          "name": "Modern Hausa popular song (Ibrahim Na Habu lineage)",
+          "descriptors": [
+            "urban",
+            "projecting",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "lead-melody"
+          ],
+          "canonical_tags": [
+            "popular",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kukkuma_material",
+      "name": "Membrane and string material",
+      "variants": [
+        {
+          "id": "kukkuma_material_lizard_horsehair",
+          "default": true,
+          "name": "Monitor-lizard skin over half-calabash, bundled-horsehair string",
+          "descriptors": [
+            "lizard-skin",
+            "calabash-resonator",
+            "buzzy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "horsehair-string"
+          ],
+          "canonical_tags": [
+            "gourd-body",
+            "traditional"
+          ]
+        },
+        {
+          "id": "kukkuma_material_goat",
+          "name": "Goatskin membrane",
+          "descriptors": [
+            "goatskin",
+            "warm",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "gourd-body"
+          ]
+        },
+        {
+          "id": "kukkuma_material_nylon",
+          "name": "Modern nylon string",
+          "descriptors": [
+            "nylon-modern",
+            "smoother",
+            "brighter"
+          ],
+          "match_tokens": [
+            "bowed",
+            "nylon-string"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kukkuma_bowing",
+      "name": "Bowing register",
+      "variants": [
+        {
+          "id": "kukkuma_bowing_high_ostinato",
+          "default": true,
+          "name": "High nasal ostinato — the small fiddle of the Hausa pair, above the larger goge",
+          "descriptors": [
+            "nasal",
+            "high-pitched",
+            "insistent"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ostinato",
+            "nasal-tone"
+          ],
+          "canonical_tags": [
+            "hausa",
+            "west_africa"
+          ]
+        },
+        {
+          "id": "kukkuma_bowing_vocal_doubling",
+          "name": "Sustained vocal doubling",
+          "descriptors": [
+            "vocal-shadowing",
+            "singing",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vocal-imitating",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "praise"
+          ]
+        }
+      ]
+    }
+  ]
+}

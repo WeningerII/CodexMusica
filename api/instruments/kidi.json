@@ -1,0 +1,438 @@
+{
+  "id": "kidi",
+  "name": "Kidi (Ewe response drum)",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "kidi",
+  "parts": [
+    {
+      "id": "kidi_stroke_technique",
+      "name": "Open and mute stroke balance",
+      "variants": [
+        {
+          "id": "kidi_stroke_technique_damped",
+          "default": true,
+          "name": "Heavily damped conversational idiom (stick left pressed on the head)",
+          "descriptors": [
+            "damped",
+            "muffled",
+            "dry",
+            "conversational"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "muted-stroke",
+            "damped"
+          ],
+          "canonical_tags": [
+            "damped-strokes",
+            "muted"
+          ]
+        },
+        {
+          "id": "kidi_stroke_technique_open",
+          "name": "Mostly open ringing strokes",
+          "descriptors": [
+            "ringing",
+            "resonant",
+            "open-slap-tones"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "open-stroke"
+          ],
+          "canonical_tags": [
+            "open-strokes"
+          ]
+        },
+        {
+          "id": "kidi_stroke_technique_ki_de",
+          "name": "Ki / de alternation (bounced edge stroke against centre stroke)",
+          "descriptors": [
+            "two-tone",
+            "articulate",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "interlocking"
+          ],
+          "canonical_tags": [
+            "high-low-pair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kidi_ensemble_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "kidi_ensemble_role_dialogue",
+          "default": true,
+          "name": "Drum dialogue — filling the lead's phrases, changing pattern on its cue",
+          "descriptors": [
+            "answering",
+            "call-and-response",
+            "responsive"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "call-response",
+            "sticks"
+          ],
+          "canonical_tags": [
+            "west-african"
+          ]
+        },
+        {
+          "id": "kidi_ensemble_role_fixed_ostinato",
+          "name": "Fixed ostinato under the lead",
+          "descriptors": [
+            "cyclic",
+            "steady",
+            "supporting-pulse"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ostinato",
+            "cyclic"
+          ],
+          "canonical_tags": [
+            "ostinato"
+          ]
+        },
+        {
+          "id": "kidi_ensemble_role_gahu",
+          "name": "Gahu response under boba",
+          "descriptors": [
+            "dance-driving",
+            "interlocking",
+            "steady-groove"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "groove",
+            "interlocking"
+          ],
+          "canonical_tags": [
+            "dance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kidi_stick_weight",
+      "name": "Stick weight",
+      "variants": [
+        {
+          "id": "kidi_stick_weight_hardwood_heavy",
+          "default": true,
+          "name": "Heavy short hardwood sticks",
+          "descriptors": [
+            "hardwood",
+            "sharp-attack",
+            "punchy"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "woody"
+          ]
+        },
+        {
+          "id": "kidi_stick_weight_light",
+          "name": "Lighter sticks for a softer mid voice",
+          "descriptors": [
+            "soft",
+            "mellow",
+            "mid-register"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kidi_hide_material",
+      "name": "Shell, hide and tuning against sogo",
+      "variants": [
+        {
+          "id": "kidi_hide_material_goat_tight",
+          "default": true,
+          "name": "Goat hide on about seven conical pegs, tuned clear of sogo",
+          "descriptors": [
+            "goat-skin-head",
+            "rope-tensioned",
+            "tight",
+            "bright"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "membrane",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "goatskin"
+          ]
+        },
+        {
+          "id": "kidi_hide_material_goat_slack",
+          "name": "Slack tuning close to sogo",
+          "descriptors": [
+            "goat-skin-head",
+            "blended",
+            "warm"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "membrane"
+          ],
+          "canonical_tags": [
+            "goatskin"
+          ]
+        },
+        {
+          "id": "kidi_hide_material_carved_log",
+          "name": "Carved solid-log shell instead of stave and hoop",
+          "descriptors": [
+            "hollowed-trunk",
+            "woody",
+            "body-rich"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "membrane",
+            "woody"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kidi_stroke_technique",
+      "name": "Open and mute stroke balance",
+      "variants": [
+        {
+          "id": "kidi_stroke_technique_damped",
+          "default": true,
+          "name": "Heavily damped conversational idiom (stick left pressed on the head)",
+          "descriptors": [
+            "damped",
+            "muffled",
+            "dry",
+            "conversational"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "muted-stroke",
+            "damped"
+          ],
+          "canonical_tags": [
+            "damped-strokes",
+            "muted"
+          ]
+        },
+        {
+          "id": "kidi_stroke_technique_open",
+          "name": "Mostly open ringing strokes",
+          "descriptors": [
+            "ringing",
+            "resonant",
+            "open-slap-tones"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "open-stroke"
+          ],
+          "canonical_tags": [
+            "open-strokes"
+          ]
+        },
+        {
+          "id": "kidi_stroke_technique_ki_de",
+          "name": "Ki / de alternation (bounced edge stroke against centre stroke)",
+          "descriptors": [
+            "two-tone",
+            "articulate",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "interlocking"
+          ],
+          "canonical_tags": [
+            "high-low-pair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kidi_ensemble_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "kidi_ensemble_role_dialogue",
+          "default": true,
+          "name": "Drum dialogue — filling the lead's phrases, changing pattern on its cue",
+          "descriptors": [
+            "answering",
+            "call-and-response",
+            "responsive"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "call-response",
+            "sticks"
+          ],
+          "canonical_tags": [
+            "west-african"
+          ]
+        },
+        {
+          "id": "kidi_ensemble_role_fixed_ostinato",
+          "name": "Fixed ostinato under the lead",
+          "descriptors": [
+            "cyclic",
+            "steady",
+            "supporting-pulse"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ostinato",
+            "cyclic"
+          ],
+          "canonical_tags": [
+            "ostinato"
+          ]
+        },
+        {
+          "id": "kidi_ensemble_role_gahu",
+          "name": "Gahu response under boba",
+          "descriptors": [
+            "dance-driving",
+            "interlocking",
+            "steady-groove"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "groove",
+            "interlocking"
+          ],
+          "canonical_tags": [
+            "dance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kidi_stick_weight",
+      "name": "Stick weight",
+      "variants": [
+        {
+          "id": "kidi_stick_weight_hardwood_heavy",
+          "default": true,
+          "name": "Heavy short hardwood sticks",
+          "descriptors": [
+            "hardwood",
+            "sharp-attack",
+            "punchy"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "woody"
+          ]
+        },
+        {
+          "id": "kidi_stick_weight_light",
+          "name": "Lighter sticks for a softer mid voice",
+          "descriptors": [
+            "soft",
+            "mellow",
+            "mid-register"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kidi_hide_material",
+      "name": "Shell, hide and tuning against sogo",
+      "variants": [
+        {
+          "id": "kidi_hide_material_goat_tight",
+          "default": true,
+          "name": "Goat hide on about seven conical pegs, tuned clear of sogo",
+          "descriptors": [
+            "goat-skin-head",
+            "rope-tensioned",
+            "tight",
+            "bright"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "membrane",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "goatskin"
+          ]
+        },
+        {
+          "id": "kidi_hide_material_goat_slack",
+          "name": "Slack tuning close to sogo",
+          "descriptors": [
+            "goat-skin-head",
+            "blended",
+            "warm"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "membrane"
+          ],
+          "canonical_tags": [
+            "goatskin"
+          ]
+        },
+        {
+          "id": "kidi_hide_material_carved_log",
+          "name": "Carved solid-log shell instead of stave and hoop",
+          "descriptors": [
+            "hollowed-trunk",
+            "woody",
+            "body-rich"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "membrane",
+            "woody"
+          ]
+        }
+      ]
+    }
+  ]
+}

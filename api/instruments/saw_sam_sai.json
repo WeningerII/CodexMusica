@@ -1,0 +1,423 @@
+{
+  "id": "saw_sam_sai",
+  "name": "Saw sam sai (Thai three-string court fiddle)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "saw sam sai",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "saw_sam_sai_build",
+      "name": "Neck and fittings",
+      "variants": [
+        {
+          "id": "saw_sam_sai_hardwood_court",
+          "default": true,
+          "name": "Hardwood neck with silver and mother-of-pearl fittings (standard classical build)",
+          "descriptors": [
+            "hardwood",
+            "refined",
+            "court-classical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "thai-classical",
+            "hardwood"
+          ]
+        },
+        {
+          "id": "saw_sam_sai_ivory_royal",
+          "name": "Ivory-necked royal instrument (e.g. King Prajadhipok's)",
+          "descriptors": [
+            "ivory-court-heirloom",
+            "refined",
+            "glassy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "thai-classical",
+            "court",
+            "cites-app-i"
+          ]
+        },
+        {
+          "id": "saw_sam_sai_plain_folk",
+          "name": "Plain hardwood folk build",
+          "descriptors": [
+            "hardwood",
+            "folk-rustic",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "thai",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saw_sam_sai_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "saw_sam_sai_silk",
+          "default": true,
+          "name": "Silk strings tuned in fourths, crossed with an unattached bow (canonical, essential to the classic tone)",
+          "descriptors": [
+            "silk-canonical-thai-court",
+            "warm",
+            "soft"
+          ],
+          "match_tokens": [
+            "bowed",
+            "silk-strung",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "thai-classical",
+            "traditional"
+          ]
+        },
+        {
+          "id": "saw_sam_sai_synthetic",
+          "name": "Modern synthetic strings",
+          "descriptors": [
+            "synthetic",
+            "stable",
+            "brighter"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "bowed"
+          ],
+          "canonical_tags": [
+            "modern",
+            "nylon"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saw_sam_sai_body",
+      "name": "Coconut lobes and skin tension",
+      "variants": [
+        {
+          "id": "saw_sam_sai_deep_lobe_tight",
+          "default": true,
+          "name": "Deep three-lobed coconut, tightly stretched goat or calf skin",
+          "descriptors": [
+            "coconut-shell",
+            "calfskin",
+            "nasal-bright"
+          ],
+          "match_tokens": [
+            "bowed",
+            "nasal-tone",
+            "resonator"
+          ],
+          "canonical_tags": [
+            "thai-classical",
+            "natural-skin"
+          ]
+        },
+        {
+          "id": "saw_sam_sai_shallow_loose",
+          "name": "Shallower lobes, looser skin",
+          "descriptors": [
+            "round",
+            "warm",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "warm-tone",
+            "resonator"
+          ],
+          "canonical_tags": [
+            "thai",
+            "natural-skin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saw_sam_sai_role",
+      "name": "Role",
+      "variants": [
+        {
+          "id": "saw_sam_sai_vocal_shadow",
+          "default": true,
+          "name": "Shadowing the solo voice in mahori and khap mai",
+          "descriptors": [
+            "vocal-shadowing",
+            "sustained",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vocal-accompaniment",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "mahori",
+            "thai-classical"
+          ]
+        },
+        {
+          "id": "saw_sam_sai_royal_ritual",
+          "name": "Royal and ceremonial solo",
+          "descriptors": [
+            "court-ceremonial",
+            "solemn",
+            "refined"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ceremonial",
+            "soloistic"
+          ],
+          "canonical_tags": [
+            "court",
+            "thai-classical"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "saw_sam_sai_build",
+      "name": "Neck and fittings",
+      "variants": [
+        {
+          "id": "saw_sam_sai_hardwood_court",
+          "default": true,
+          "name": "Hardwood neck with silver and mother-of-pearl fittings (standard classical build)",
+          "descriptors": [
+            "hardwood",
+            "refined",
+            "court-classical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "thai-classical",
+            "hardwood"
+          ]
+        },
+        {
+          "id": "saw_sam_sai_ivory_royal",
+          "name": "Ivory-necked royal instrument (e.g. King Prajadhipok's)",
+          "descriptors": [
+            "ivory-court-heirloom",
+            "refined",
+            "glassy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "thai-classical",
+            "court",
+            "cites-app-i"
+          ]
+        },
+        {
+          "id": "saw_sam_sai_plain_folk",
+          "name": "Plain hardwood folk build",
+          "descriptors": [
+            "hardwood",
+            "folk-rustic",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "thai",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saw_sam_sai_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "saw_sam_sai_silk",
+          "default": true,
+          "name": "Silk strings tuned in fourths, crossed with an unattached bow (canonical, essential to the classic tone)",
+          "descriptors": [
+            "silk-canonical-thai-court",
+            "warm",
+            "soft"
+          ],
+          "match_tokens": [
+            "bowed",
+            "silk-strung",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "thai-classical",
+            "traditional"
+          ]
+        },
+        {
+          "id": "saw_sam_sai_synthetic",
+          "name": "Modern synthetic strings",
+          "descriptors": [
+            "synthetic",
+            "stable",
+            "brighter"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "bowed"
+          ],
+          "canonical_tags": [
+            "modern",
+            "nylon"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saw_sam_sai_body",
+      "name": "Coconut lobes and skin tension",
+      "variants": [
+        {
+          "id": "saw_sam_sai_deep_lobe_tight",
+          "default": true,
+          "name": "Deep three-lobed coconut, tightly stretched goat or calf skin",
+          "descriptors": [
+            "coconut-shell",
+            "calfskin",
+            "nasal-bright"
+          ],
+          "match_tokens": [
+            "bowed",
+            "nasal-tone",
+            "resonator"
+          ],
+          "canonical_tags": [
+            "thai-classical",
+            "natural-skin"
+          ]
+        },
+        {
+          "id": "saw_sam_sai_shallow_loose",
+          "name": "Shallower lobes, looser skin",
+          "descriptors": [
+            "round",
+            "warm",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "warm-tone",
+            "resonator"
+          ],
+          "canonical_tags": [
+            "thai",
+            "natural-skin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saw_sam_sai_role",
+      "name": "Role",
+      "variants": [
+        {
+          "id": "saw_sam_sai_vocal_shadow",
+          "default": true,
+          "name": "Shadowing the solo voice in mahori and khap mai",
+          "descriptors": [
+            "vocal-shadowing",
+            "sustained",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vocal-accompaniment",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "mahori",
+            "thai-classical"
+          ]
+        },
+        {
+          "id": "saw_sam_sai_royal_ritual",
+          "name": "Royal and ceremonial solo",
+          "descriptors": [
+            "court-ceremonial",
+            "solemn",
+            "refined"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ceremonial",
+            "soloistic"
+          ],
+          "canonical_tags": [
+            "court",
+            "thai-classical"
+          ]
+        }
+      ]
+    }
+  ]
+}

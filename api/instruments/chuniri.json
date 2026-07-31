@@ -1,0 +1,465 @@
+{
+  "id": "chuniri",
+  "name": "Chuniri / chianuri (Georgian three-string bowed lute)",
+  "family": "bowed",
+  "class": "bowed_lute",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "chuniri",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "chuniri_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "chuniri_form_svan",
+          "default": true,
+          "name": "Svan chuniri (Svaneti highland, hide-faced bowl)",
+          "descriptors": [
+            "highland",
+            "archaic",
+            "hide-faced",
+            "austere"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "caucasus",
+            "svaneti"
+          ]
+        },
+        {
+          "id": "chuniri_form_chianuri",
+          "name": "Rachan / Gurian chianuri (western lowland name and form)",
+          "descriptors": [
+            "rural",
+            "sweet-toned",
+            "three-string"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "caucasus",
+            "guria"
+          ]
+        },
+        {
+          "id": "chuniri_form_revival_ensemble",
+          "name": "Standardized revival / stage-ensemble build",
+          "descriptors": [
+            "standardized",
+            "preservationist",
+            "concert-tuned"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "modern"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "caucasus",
+            "revival"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chuniri_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "chuniri_context_funeral_lament",
+          "default": true,
+          "name": "Svan funeral lament under three-part male polyphony",
+          "descriptors": [
+            "mournful",
+            "solemn",
+            "sustained",
+            "vocal-supportive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ritual-context",
+            "drone-foundation",
+            "vocal-accompaniment"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "caucasus",
+            "ritual"
+          ]
+        },
+        {
+          "id": "chuniri_context_heroic_song",
+          "name": "Heroic and ballad song accompaniment",
+          "descriptors": [
+            "heroic",
+            "narrative",
+            "declamatory"
+          ],
+          "match_tokens": [
+            "bowed",
+            "epic",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "caucasus",
+            "storytelling"
+          ]
+        },
+        {
+          "id": "chuniri_context_healing",
+          "name": "Healing song for the sick and wounded",
+          "descriptors": [
+            "incantatory",
+            "ritual",
+            "measured"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ritual-context",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "caucasus",
+            "ritual"
+          ]
+        },
+        {
+          "id": "chuniri_context_paired",
+          "name": "Two or three chuniris doubling a polyphonic trio",
+          "descriptors": [
+            "ensemble-blend",
+            "unison",
+            "communal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "caucasus",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chuniri_build",
+      "name": "Belly and strings",
+      "variants": [
+        {
+          "id": "chuniri_build_skin_horsehair",
+          "default": true,
+          "name": "Bladder or goat-skin belly, bunched horsehair strings",
+          "descriptors": [
+            "hide-faced",
+            "goatskin",
+            "horsehair-strung",
+            "raw"
+          ],
+          "match_tokens": [
+            "bowed",
+            "horsehair-string",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "traditional"
+          ]
+        },
+        {
+          "id": "chuniri_build_wooden_belly",
+          "name": "Thin wooden soundboard (drier, more focused)",
+          "descriptors": [
+            "wood",
+            "dry",
+            "woody"
+          ],
+          "match_tokens": [
+            "bowed",
+            "mellow-tone"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "modern"
+          ]
+        },
+        {
+          "id": "chuniri_build_gut",
+          "name": "Gut strings",
+          "descriptors": [
+            "gut",
+            "warm",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "chuniri_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "chuniri_form_svan",
+          "default": true,
+          "name": "Svan chuniri (Svaneti highland, hide-faced bowl)",
+          "descriptors": [
+            "highland",
+            "archaic",
+            "hide-faced",
+            "austere"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "caucasus",
+            "svaneti"
+          ]
+        },
+        {
+          "id": "chuniri_form_chianuri",
+          "name": "Rachan / Gurian chianuri (western lowland name and form)",
+          "descriptors": [
+            "rural",
+            "sweet-toned",
+            "three-string"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "caucasus",
+            "guria"
+          ]
+        },
+        {
+          "id": "chuniri_form_revival_ensemble",
+          "name": "Standardized revival / stage-ensemble build",
+          "descriptors": [
+            "standardized",
+            "preservationist",
+            "concert-tuned"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "modern"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "caucasus",
+            "revival"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chuniri_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "chuniri_context_funeral_lament",
+          "default": true,
+          "name": "Svan funeral lament under three-part male polyphony",
+          "descriptors": [
+            "mournful",
+            "solemn",
+            "sustained",
+            "vocal-supportive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ritual-context",
+            "drone-foundation",
+            "vocal-accompaniment"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "caucasus",
+            "ritual"
+          ]
+        },
+        {
+          "id": "chuniri_context_heroic_song",
+          "name": "Heroic and ballad song accompaniment",
+          "descriptors": [
+            "heroic",
+            "narrative",
+            "declamatory"
+          ],
+          "match_tokens": [
+            "bowed",
+            "epic",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "caucasus",
+            "storytelling"
+          ]
+        },
+        {
+          "id": "chuniri_context_healing",
+          "name": "Healing song for the sick and wounded",
+          "descriptors": [
+            "incantatory",
+            "ritual",
+            "measured"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ritual-context",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "caucasus",
+            "ritual"
+          ]
+        },
+        {
+          "id": "chuniri_context_paired",
+          "name": "Two or three chuniris doubling a polyphonic trio",
+          "descriptors": [
+            "ensemble-blend",
+            "unison",
+            "communal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "caucasus",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chuniri_build",
+      "name": "Belly and strings",
+      "variants": [
+        {
+          "id": "chuniri_build_skin_horsehair",
+          "default": true,
+          "name": "Bladder or goat-skin belly, bunched horsehair strings",
+          "descriptors": [
+            "hide-faced",
+            "goatskin",
+            "horsehair-strung",
+            "raw"
+          ],
+          "match_tokens": [
+            "bowed",
+            "horsehair-string",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "traditional"
+          ]
+        },
+        {
+          "id": "chuniri_build_wooden_belly",
+          "name": "Thin wooden soundboard (drier, more focused)",
+          "descriptors": [
+            "wood",
+            "dry",
+            "woody"
+          ],
+          "match_tokens": [
+            "bowed",
+            "mellow-tone"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "modern"
+          ]
+        },
+        {
+          "id": "chuniri_build_gut",
+          "name": "Gut strings",
+          "descriptors": [
+            "gut",
+            "warm",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        }
+      ]
+    }
+  ]
+}

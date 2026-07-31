@@ -1,0 +1,522 @@
+{
+  "id": "xaphoon",
+  "name": "Xaphoon (Maui bamboo pocket sax)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "xaphoon",
+  "parts": [
+    {
+      "id": "xaphoon_material",
+      "name": "Material",
+      "variants": [
+        {
+          "id": "xaphoon_bamboo",
+          "default": true,
+          "name": "Hand-cut fire-toasted Maui bamboo (signature series)",
+          "descriptors": [
+            "bamboo",
+            "warm",
+            "rustic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "wooden"
+          ],
+          "canonical_tags": [
+            "hawaiian",
+            "bamboo"
+          ]
+        },
+        {
+          "id": "xaphoon_abs_resin",
+          "name": "ABS resin Pocket Sax (mass-market)",
+          "descriptors": [
+            "abs-plastic",
+            "bright",
+            "durable"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "portable"
+          ],
+          "canonical_tags": [
+            "modern",
+            "synthetic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xaphoon_key",
+      "name": "Key",
+      "variants": [
+        {
+          "id": "xaphoon_c",
+          "default": true,
+          "name": "C (standard; the only plastic pitch)",
+          "descriptors": [
+            "standard",
+            "versatile"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "xaphoon_bb",
+          "name": "B♭",
+          "descriptors": [
+            "mellow",
+            "warm"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "xaphoon_d",
+          "name": "D (bright folk key)",
+          "descriptors": [
+            "bright",
+            "keen"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "high-pitched"
+          ]
+        },
+        {
+          "id": "xaphoon_low_g",
+          "name": "Low G (bamboo only)",
+          "descriptors": [
+            "deep",
+            "husky",
+            "low-register"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "lower-register"
+          ],
+          "canonical_tags": [
+            "bamboo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xaphoon_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "xaphoon_diatonic_melody",
+          "default": true,
+          "name": "Plain diatonic melody",
+          "descriptors": [
+            "simple",
+            "folk",
+            "accessible"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk-tradition",
+            "melodic-lead"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        },
+        {
+          "id": "xaphoon_half_hole_chromatic",
+          "name": "Half-hole chromaticism, bends and growls",
+          "descriptors": [
+            "chromatic",
+            "expressive",
+            "microtonal"
+          ],
+          "match_tokens": [
+            "microtonal-bend",
+            "bending",
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "xaphoon_overblown_edge",
+          "name": "Hard reed, edgy overblown tone",
+          "descriptors": [
+            "overblown",
+            "edgy",
+            "raw"
+          ],
+          "match_tokens": [
+            "rough-tone",
+            "loud-projection",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "xaphoon_breathy_folk",
+          "name": "Soft reed, breathy folk tone",
+          "descriptors": [
+            "breathy",
+            "soft-attack",
+            "intimate"
+          ],
+          "match_tokens": [
+            "breathy",
+            "soft-attack",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xaphoon_context",
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "xaphoon_busking_travel",
+          "default": true,
+          "name": "Busking, travel and campfire",
+          "descriptors": [
+            "portable",
+            "travel-friendly",
+            "campfire"
+          ],
+          "match_tokens": [
+            "portable",
+            "folk-tradition",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "street",
+            "folk"
+          ]
+        },
+        {
+          "id": "xaphoon_classroom",
+          "name": "Classroom and budget student use",
+          "descriptors": [
+            "student",
+            "affordable",
+            "pedagogical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "folk-revival"
+          ]
+        },
+        {
+          "id": "xaphoon_world_fusion",
+          "name": "World-fusion / singer-songwriter texture",
+          "descriptors": [
+            "textural",
+            "atmospheric",
+            "layered"
+          ],
+          "match_tokens": [
+            "studio",
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "world-fusion",
+            "studio"
+          ]
+        },
+        {
+          "id": "xaphoon_film_colour",
+          "name": "Film and library colour",
+          "descriptors": [
+            "raw",
+            "rough",
+            "atmospheric"
+          ],
+          "match_tokens": [
+            "cinematic",
+            "studio",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "film-scoring",
+            "studio"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "xaphoon_material",
+      "name": "Material",
+      "variants": [
+        {
+          "id": "xaphoon_bamboo",
+          "default": true,
+          "name": "Hand-cut fire-toasted Maui bamboo (signature series)",
+          "descriptors": [
+            "bamboo",
+            "warm",
+            "rustic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "wooden"
+          ],
+          "canonical_tags": [
+            "hawaiian",
+            "bamboo"
+          ]
+        },
+        {
+          "id": "xaphoon_abs_resin",
+          "name": "ABS resin Pocket Sax (mass-market)",
+          "descriptors": [
+            "abs-plastic",
+            "bright",
+            "durable"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "portable"
+          ],
+          "canonical_tags": [
+            "modern",
+            "synthetic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xaphoon_key",
+      "name": "Key",
+      "variants": [
+        {
+          "id": "xaphoon_c",
+          "default": true,
+          "name": "C (standard; the only plastic pitch)",
+          "descriptors": [
+            "standard",
+            "versatile"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "xaphoon_bb",
+          "name": "B♭",
+          "descriptors": [
+            "mellow",
+            "warm"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "xaphoon_d",
+          "name": "D (bright folk key)",
+          "descriptors": [
+            "bright",
+            "keen"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "high-pitched"
+          ]
+        },
+        {
+          "id": "xaphoon_low_g",
+          "name": "Low G (bamboo only)",
+          "descriptors": [
+            "deep",
+            "husky",
+            "low-register"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "lower-register"
+          ],
+          "canonical_tags": [
+            "bamboo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xaphoon_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "xaphoon_diatonic_melody",
+          "default": true,
+          "name": "Plain diatonic melody",
+          "descriptors": [
+            "simple",
+            "folk",
+            "accessible"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk-tradition",
+            "melodic-lead"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        },
+        {
+          "id": "xaphoon_half_hole_chromatic",
+          "name": "Half-hole chromaticism, bends and growls",
+          "descriptors": [
+            "chromatic",
+            "expressive",
+            "microtonal"
+          ],
+          "match_tokens": [
+            "microtonal-bend",
+            "bending",
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "xaphoon_overblown_edge",
+          "name": "Hard reed, edgy overblown tone",
+          "descriptors": [
+            "overblown",
+            "edgy",
+            "raw"
+          ],
+          "match_tokens": [
+            "rough-tone",
+            "loud-projection",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "xaphoon_breathy_folk",
+          "name": "Soft reed, breathy folk tone",
+          "descriptors": [
+            "breathy",
+            "soft-attack",
+            "intimate"
+          ],
+          "match_tokens": [
+            "breathy",
+            "soft-attack",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xaphoon_context",
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "xaphoon_busking_travel",
+          "default": true,
+          "name": "Busking, travel and campfire",
+          "descriptors": [
+            "portable",
+            "travel-friendly",
+            "campfire"
+          ],
+          "match_tokens": [
+            "portable",
+            "folk-tradition",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "street",
+            "folk"
+          ]
+        },
+        {
+          "id": "xaphoon_classroom",
+          "name": "Classroom and budget student use",
+          "descriptors": [
+            "student",
+            "affordable",
+            "pedagogical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "folk-revival"
+          ]
+        },
+        {
+          "id": "xaphoon_world_fusion",
+          "name": "World-fusion / singer-songwriter texture",
+          "descriptors": [
+            "textural",
+            "atmospheric",
+            "layered"
+          ],
+          "match_tokens": [
+            "studio",
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "world-fusion",
+            "studio"
+          ]
+        },
+        {
+          "id": "xaphoon_film_colour",
+          "name": "Film and library colour",
+          "descriptors": [
+            "raw",
+            "rough",
+            "atmospheric"
+          ],
+          "match_tokens": [
+            "cinematic",
+            "studio",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "film-scoring",
+            "studio"
+          ]
+        }
+      ]
+    }
+  ]
+}

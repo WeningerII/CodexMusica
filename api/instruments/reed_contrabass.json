@@ -1,0 +1,452 @@
+{
+  "id": "reed_contrabass",
+  "name": "Reed contrabass (contrebasse à anche — ophicleide-derived metal contrabass double reed)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -2,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "reed contrabass",
+  "parts": [
+    {
+      "id": "reed_contrabass_pitch",
+      "name": "Pitch",
+      "variants": [
+        {
+          "id": "reed_contrabass_pitch_c",
+          "default": true,
+          "name": "Nominal C (the standard description)",
+          "descriptors": [
+            "deep-bass",
+            "buzzy",
+            "foundational"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "low-register",
+            "foundational-bass"
+          ],
+          "canonical_tags": [
+            "brass"
+          ]
+        },
+        {
+          "id": "reed_contrabass_pitch_eb",
+          "name": "Nominal E♭ (surviving museum examples)",
+          "descriptors": [
+            "historical",
+            "archaic",
+            "deep"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "low-register",
+            "bass-foundation"
+          ],
+          "canonical_tags": [
+            "historical",
+            "brass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reed_contrabass_maker",
+      "name": "Maker pattern",
+      "variants": [
+        {
+          "id": "reed_contrabass_maker_mahillon",
+          "default": true,
+          "name": "Mahillon Brussels / Besson (canonical Belgian-French pattern, from 1868)",
+          "descriptors": [
+            "canonical",
+            "standard",
+            "full"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "metallic",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "brass"
+          ]
+        },
+        {
+          "id": "reed_contrabass_maker_cerveny",
+          "name": "Červený Tritonicon (1856 Bohemian original, Kontrafagott aus Metall)",
+          "descriptors": [
+            "archaic",
+            "historical",
+            "coarse"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "metallic-rasp",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "historical",
+            "austrian-bohemian"
+          ]
+        },
+        {
+          "id": "reed_contrabass_maker_italian",
+          "name": "Italian pattern (Alziati — still played in banda)",
+          "descriptors": [
+            "italian",
+            "traditional",
+            "projecting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "outdoor-projection",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "italian",
+            "brass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reed_contrabass_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "reed_contrabass_role_band_bass",
+          "default": true,
+          "name": "Sustained band bass line under the reed choir",
+          "descriptors": [
+            "foundational",
+            "sustaining",
+            "civic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "foundational-bass",
+            "outdoor-projection"
+          ],
+          "canonical_tags": [
+            "outdoor",
+            "processional",
+            "brass"
+          ]
+        },
+        {
+          "id": "reed_contrabass_role_buzzing_pedal",
+          "name": "Exposed buzzing pedal / rasp",
+          "descriptors": [
+            "rasping",
+            "gritty",
+            "sub-bass"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "metallic-rasp",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "brass"
+          ]
+        },
+        {
+          "id": "reed_contrabass_role_substitute",
+          "name": "Substituted by contrabassoon or contrabass sarrusophone",
+          "descriptors": [
+            "standard",
+            "modern",
+            "blended"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "low-register",
+            "orchestral"
+          ],
+          "canonical_tags": [
+            "orchestral",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reed_contrabass_keywork",
+      "name": "Keywork",
+      "variants": [
+        {
+          "id": "reed_contrabass_keywork_seventeen",
+          "default": true,
+          "name": "Seventeen keys, one tone hole per note (ophicleide logic — no alternates, no trill keys)",
+          "descriptors": [
+            "keyed",
+            "archaic",
+            "standard"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "keyed",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        },
+        {
+          "id": "reed_contrabass_keywork_modern_italian",
+          "name": "Modernised Italian keywork",
+          "descriptors": [
+            "modern",
+            "responsive",
+            "articulate"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "keyed",
+            "modern"
+          ],
+          "canonical_tags": [
+            "italian",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "reed_contrabass_pitch",
+      "name": "Pitch",
+      "variants": [
+        {
+          "id": "reed_contrabass_pitch_c",
+          "default": true,
+          "name": "Nominal C (the standard description)",
+          "descriptors": [
+            "deep-bass",
+            "buzzy",
+            "foundational"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "low-register",
+            "foundational-bass"
+          ],
+          "canonical_tags": [
+            "brass"
+          ]
+        },
+        {
+          "id": "reed_contrabass_pitch_eb",
+          "name": "Nominal E♭ (surviving museum examples)",
+          "descriptors": [
+            "historical",
+            "archaic",
+            "deep"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "low-register",
+            "bass-foundation"
+          ],
+          "canonical_tags": [
+            "historical",
+            "brass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reed_contrabass_maker",
+      "name": "Maker pattern",
+      "variants": [
+        {
+          "id": "reed_contrabass_maker_mahillon",
+          "default": true,
+          "name": "Mahillon Brussels / Besson (canonical Belgian-French pattern, from 1868)",
+          "descriptors": [
+            "canonical",
+            "standard",
+            "full"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "metallic",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "brass"
+          ]
+        },
+        {
+          "id": "reed_contrabass_maker_cerveny",
+          "name": "Červený Tritonicon (1856 Bohemian original, Kontrafagott aus Metall)",
+          "descriptors": [
+            "archaic",
+            "historical",
+            "coarse"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "metallic-rasp",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "historical",
+            "austrian-bohemian"
+          ]
+        },
+        {
+          "id": "reed_contrabass_maker_italian",
+          "name": "Italian pattern (Alziati — still played in banda)",
+          "descriptors": [
+            "italian",
+            "traditional",
+            "projecting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "outdoor-projection",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "italian",
+            "brass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reed_contrabass_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "reed_contrabass_role_band_bass",
+          "default": true,
+          "name": "Sustained band bass line under the reed choir",
+          "descriptors": [
+            "foundational",
+            "sustaining",
+            "civic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "foundational-bass",
+            "outdoor-projection"
+          ],
+          "canonical_tags": [
+            "outdoor",
+            "processional",
+            "brass"
+          ]
+        },
+        {
+          "id": "reed_contrabass_role_buzzing_pedal",
+          "name": "Exposed buzzing pedal / rasp",
+          "descriptors": [
+            "rasping",
+            "gritty",
+            "sub-bass"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "metallic-rasp",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "brass"
+          ]
+        },
+        {
+          "id": "reed_contrabass_role_substitute",
+          "name": "Substituted by contrabassoon or contrabass sarrusophone",
+          "descriptors": [
+            "standard",
+            "modern",
+            "blended"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "low-register",
+            "orchestral"
+          ],
+          "canonical_tags": [
+            "orchestral",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reed_contrabass_keywork",
+      "name": "Keywork",
+      "variants": [
+        {
+          "id": "reed_contrabass_keywork_seventeen",
+          "default": true,
+          "name": "Seventeen keys, one tone hole per note (ophicleide logic — no alternates, no trill keys)",
+          "descriptors": [
+            "keyed",
+            "archaic",
+            "standard"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "keyed",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        },
+        {
+          "id": "reed_contrabass_keywork_modern_italian",
+          "name": "Modernised Italian keywork",
+          "descriptors": [
+            "modern",
+            "responsive",
+            "articulate"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "keyed",
+            "modern"
+          ],
+          "canonical_tags": [
+            "italian",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

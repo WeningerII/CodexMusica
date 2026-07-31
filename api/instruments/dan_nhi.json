@@ -1,0 +1,557 @@
+{
+  "id": "dan_nhi",
+  "name": "Đàn nhị (Vietnamese two-string spike fiddle)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "đàn nhị",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "dan_nhi_membrane",
+      "name": "Resonator membrane",
+      "variants": [
+        {
+          "id": "dan_nhi_python",
+          "default": true,
+          "name": "Python skin over the bát nhị (canonical, bow threaded between the strings)",
+          "descriptors": [
+            "python-skin-canonical",
+            "nasal-bright",
+            "vocal-imitating",
+            "threaded-between-strings-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "nasal-tone",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "snakeskin"
+          ]
+        },
+        {
+          "id": "dan_nhi_lizard",
+          "name": "Monitor-lizard skin (village build, tighter bite)",
+          "descriptors": [
+            "lizard-skin",
+            "bright-cutting",
+            "rough-toned"
+          ],
+          "match_tokens": [
+            "bowed",
+            "nasal-tone",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "natural-skin"
+          ]
+        },
+        {
+          "id": "dan_nhi_synthetic",
+          "name": "Synthetic membrane (modern conservation-compliant)",
+          "descriptors": [
+            "synthetic",
+            "stable",
+            "consistent"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "bowed",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dan_nhi_mode",
+      "name": "Modal tuning / cữ loop position",
+      "variants": [
+        {
+          "id": "dan_nhi_bac",
+          "default": true,
+          "name": "Điệu bắc, strings roughly G–D (bright, joyful mode)",
+          "descriptors": [
+            "bright",
+            "open-fifths",
+            "singing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bright-tone",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "vietnam"
+          ]
+        },
+        {
+          "id": "dan_nhi_nam",
+          "name": "Điệu nam, strings roughly F–C (sad mode, wide vibrato)",
+          "descriptors": [
+            "melancholic",
+            "plaintive",
+            "mournful"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melancholic",
+            "microtonal-bend"
+          ],
+          "canonical_tags": [
+            "vietnam"
+          ]
+        },
+        {
+          "id": "dan_nhi_cheo_tuning",
+          "name": "Chèo tuning, strings roughly C–G, cữ loop pulled down",
+          "descriptors": [
+            "theatrical",
+            "projecting",
+            "lead-voice"
+          ],
+          "match_tokens": [
+            "bowed",
+            "lead-melody",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "northern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dan_nhi_idiom",
+      "name": "Repertoire / idiom",
+      "variants": [
+        {
+          "id": "dan_nhi_cheo_lead",
+          "default": true,
+          "name": "Chèo and tuồng theatre lead voice",
+          "descriptors": [
+            "theatrical",
+            "lead-voice",
+            "densely-ornamented"
+          ],
+          "match_tokens": [
+            "bowed",
+            "lead-melody",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "northern"
+          ]
+        },
+        {
+          "id": "dan_nhi_xam",
+          "name": "Hát xẩm street-singing accompaniment",
+          "descriptors": [
+            "rough-toned",
+            "village-rooted",
+            "vocal-supportive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "song-accompaniment",
+            "street"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "street"
+          ]
+        },
+        {
+          "id": "dan_nhi_nha_nhac",
+          "name": "Nhã nhạc court restraint",
+          "descriptors": [
+            "court-classical",
+            "refined",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "court"
+          ]
+        },
+        {
+          "id": "dan_nhi_funeral",
+          "name": "Funeral music and phường bát âm ceremonial band",
+          "descriptors": [
+            "funeral-voiced",
+            "mournful",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "bowed",
+            "funeral",
+            "ritual"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "context:funeral-ritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dan_nhi_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "dan_nhi_nylon",
+          "default": true,
+          "name": "Nylon (modern standard)",
+          "descriptors": [
+            "nylon-modern-standard",
+            "stable"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "nylon",
+            "modern"
+          ]
+        },
+        {
+          "id": "dan_nhi_steel",
+          "name": "Steel (projecting concert set)",
+          "descriptors": [
+            "steel-modern",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "metal-string"
+          ],
+          "canonical_tags": [
+            "steel",
+            "modern"
+          ]
+        },
+        {
+          "id": "dan_nhi_silk",
+          "name": "Silk (pre-modern historical)",
+          "descriptors": [
+            "silk-pre-modern-historical",
+            "warm",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "silk-strung",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dan_nhi_membrane",
+      "name": "Resonator membrane",
+      "variants": [
+        {
+          "id": "dan_nhi_python",
+          "default": true,
+          "name": "Python skin over the bát nhị (canonical, bow threaded between the strings)",
+          "descriptors": [
+            "python-skin-canonical",
+            "nasal-bright",
+            "vocal-imitating",
+            "threaded-between-strings-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "nasal-tone",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "snakeskin"
+          ]
+        },
+        {
+          "id": "dan_nhi_lizard",
+          "name": "Monitor-lizard skin (village build, tighter bite)",
+          "descriptors": [
+            "lizard-skin",
+            "bright-cutting",
+            "rough-toned"
+          ],
+          "match_tokens": [
+            "bowed",
+            "nasal-tone",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "natural-skin"
+          ]
+        },
+        {
+          "id": "dan_nhi_synthetic",
+          "name": "Synthetic membrane (modern conservation-compliant)",
+          "descriptors": [
+            "synthetic",
+            "stable",
+            "consistent"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "bowed",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dan_nhi_mode",
+      "name": "Modal tuning / cữ loop position",
+      "variants": [
+        {
+          "id": "dan_nhi_bac",
+          "default": true,
+          "name": "Điệu bắc, strings roughly G–D (bright, joyful mode)",
+          "descriptors": [
+            "bright",
+            "open-fifths",
+            "singing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bright-tone",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "vietnam"
+          ]
+        },
+        {
+          "id": "dan_nhi_nam",
+          "name": "Điệu nam, strings roughly F–C (sad mode, wide vibrato)",
+          "descriptors": [
+            "melancholic",
+            "plaintive",
+            "mournful"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melancholic",
+            "microtonal-bend"
+          ],
+          "canonical_tags": [
+            "vietnam"
+          ]
+        },
+        {
+          "id": "dan_nhi_cheo_tuning",
+          "name": "Chèo tuning, strings roughly C–G, cữ loop pulled down",
+          "descriptors": [
+            "theatrical",
+            "projecting",
+            "lead-voice"
+          ],
+          "match_tokens": [
+            "bowed",
+            "lead-melody",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "northern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dan_nhi_idiom",
+      "name": "Repertoire / idiom",
+      "variants": [
+        {
+          "id": "dan_nhi_cheo_lead",
+          "default": true,
+          "name": "Chèo and tuồng theatre lead voice",
+          "descriptors": [
+            "theatrical",
+            "lead-voice",
+            "densely-ornamented"
+          ],
+          "match_tokens": [
+            "bowed",
+            "lead-melody",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "northern"
+          ]
+        },
+        {
+          "id": "dan_nhi_xam",
+          "name": "Hát xẩm street-singing accompaniment",
+          "descriptors": [
+            "rough-toned",
+            "village-rooted",
+            "vocal-supportive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "song-accompaniment",
+            "street"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "street"
+          ]
+        },
+        {
+          "id": "dan_nhi_nha_nhac",
+          "name": "Nhã nhạc court restraint",
+          "descriptors": [
+            "court-classical",
+            "refined",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "court"
+          ]
+        },
+        {
+          "id": "dan_nhi_funeral",
+          "name": "Funeral music and phường bát âm ceremonial band",
+          "descriptors": [
+            "funeral-voiced",
+            "mournful",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "bowed",
+            "funeral",
+            "ritual"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "context:funeral-ritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dan_nhi_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "dan_nhi_nylon",
+          "default": true,
+          "name": "Nylon (modern standard)",
+          "descriptors": [
+            "nylon-modern-standard",
+            "stable"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "nylon",
+            "modern"
+          ]
+        },
+        {
+          "id": "dan_nhi_steel",
+          "name": "Steel (projecting concert set)",
+          "descriptors": [
+            "steel-modern",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "metal-string"
+          ],
+          "canonical_tags": [
+            "steel",
+            "modern"
+          ]
+        },
+        {
+          "id": "dan_nhi_silk",
+          "name": "Silk (pre-modern historical)",
+          "descriptors": [
+            "silk-pre-modern-historical",
+            "warm",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "silk-strung",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        }
+      ]
+    }
+  ]
+}

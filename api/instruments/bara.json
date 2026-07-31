@@ -1,0 +1,498 @@
+{
+  "id": "bara",
+  "name": "Bara / bendré (West African gourd kettle drum)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "bara",
+  "parts": [
+    {
+      "id": "bara_size",
+      "name": "Gourd size / register",
+      "variants": [
+        {
+          "id": "bara_size_mid",
+          "default": true,
+          "name": "Mid-size bara (ensemble accompaniment)",
+          "descriptors": [
+            "focused",
+            "foundational",
+            "versatile"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "west_africa",
+            "mali"
+          ]
+        },
+        {
+          "id": "bara_size_royal_bendre",
+          "name": "Large deep calabash — Mossi royal bendré",
+          "descriptors": [
+            "deep",
+            "low-fundamental-tuning",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "court",
+            "west_africa"
+          ]
+        },
+        {
+          "id": "bara_size_small",
+          "name": "Small gourd (higher, drier voice)",
+          "descriptors": [
+            "compact",
+            "bright",
+            "dry"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "hand-drum"
+          ],
+          "canonical_tags": [
+            "west_africa"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bara_head",
+      "name": "Head material and tension",
+      "variants": [
+        {
+          "id": "bara_head_goat_high",
+          "default": true,
+          "name": "Goat-skin at high tension (dry, defined)",
+          "descriptors": [
+            "goatskin",
+            "dry",
+            "crisp"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ],
+          "canonical_tags": [
+            "traditional",
+            "gourd-body"
+          ]
+        },
+        {
+          "id": "bara_head_goat_low",
+          "name": "Goat-skin at low tension (loose, boomy low tone)",
+          "descriptors": [
+            "boomy",
+            "deep",
+            "rounded"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "traditional",
+            "gourd-body"
+          ]
+        },
+        {
+          "id": "bara_head_sheepskin",
+          "name": "Sheep-skin head (thicker, darker)",
+          "descriptors": [
+            "hide",
+            "dark",
+            "softer"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bara_technique",
+      "name": "Striking zone / technique",
+      "variants": [
+        {
+          "id": "bara_technique_centre_edge",
+          "default": true,
+          "name": "Centre-versus-edge stroke contrast (benaaba pitch play)",
+          "descriptors": [
+            "virtuoso",
+            "organic-tone",
+            "melodic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "west_africa",
+            "vessel-drum"
+          ]
+        },
+        {
+          "id": "bara_technique_finger_rings",
+          "name": "Bare hands plus metal finger rings",
+          "descriptors": [
+            "snappier",
+            "metallic-overtones",
+            "traditional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "metallic-attack"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "bara_technique_pressed_bend",
+          "name": "Pressed / muted pitch-bending strokes",
+          "descriptors": [
+            "bent-pitch",
+            "expressive",
+            "melodic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "microtonal-bend"
+          ],
+          "canonical_tags": [
+            "west_africa"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bara_role",
+      "name": "Repertoire / role",
+      "variants": [
+        {
+          "id": "bara_role_balafon_accompaniment",
+          "default": true,
+          "name": "Balafon accompaniment (Burkinabè and Malian ensemble)",
+          "descriptors": [
+            "foundational",
+            "interlocking",
+            "communal"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "west_africa",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "bara_role_mossi_court",
+          "name": "Mossi court recitation at the Moro Naba (dynastic praise)",
+          "descriptors": [
+            "ceremonial",
+            "oral-history",
+            "courtly"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "speech-derived",
+            "ritual-context"
+          ],
+          "canonical_tags": [
+            "court",
+            "ceremonial"
+          ]
+        },
+        {
+          "id": "bara_role_funeral_festival",
+          "name": "Funeral and religious-festival drumming",
+          "descriptors": [
+            "ritual",
+            "communal",
+            "ancestral"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ritual-context",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "ritual",
+            "west_africa"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "bara_size",
+      "name": "Gourd size / register",
+      "variants": [
+        {
+          "id": "bara_size_mid",
+          "default": true,
+          "name": "Mid-size bara (ensemble accompaniment)",
+          "descriptors": [
+            "focused",
+            "foundational",
+            "versatile"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "west_africa",
+            "mali"
+          ]
+        },
+        {
+          "id": "bara_size_royal_bendre",
+          "name": "Large deep calabash — Mossi royal bendré",
+          "descriptors": [
+            "deep",
+            "low-fundamental-tuning",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "court",
+            "west_africa"
+          ]
+        },
+        {
+          "id": "bara_size_small",
+          "name": "Small gourd (higher, drier voice)",
+          "descriptors": [
+            "compact",
+            "bright",
+            "dry"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "hand-drum"
+          ],
+          "canonical_tags": [
+            "west_africa"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bara_head",
+      "name": "Head material and tension",
+      "variants": [
+        {
+          "id": "bara_head_goat_high",
+          "default": true,
+          "name": "Goat-skin at high tension (dry, defined)",
+          "descriptors": [
+            "goatskin",
+            "dry",
+            "crisp"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ],
+          "canonical_tags": [
+            "traditional",
+            "gourd-body"
+          ]
+        },
+        {
+          "id": "bara_head_goat_low",
+          "name": "Goat-skin at low tension (loose, boomy low tone)",
+          "descriptors": [
+            "boomy",
+            "deep",
+            "rounded"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "traditional",
+            "gourd-body"
+          ]
+        },
+        {
+          "id": "bara_head_sheepskin",
+          "name": "Sheep-skin head (thicker, darker)",
+          "descriptors": [
+            "hide",
+            "dark",
+            "softer"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bara_technique",
+      "name": "Striking zone / technique",
+      "variants": [
+        {
+          "id": "bara_technique_centre_edge",
+          "default": true,
+          "name": "Centre-versus-edge stroke contrast (benaaba pitch play)",
+          "descriptors": [
+            "virtuoso",
+            "organic-tone",
+            "melodic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "west_africa",
+            "vessel-drum"
+          ]
+        },
+        {
+          "id": "bara_technique_finger_rings",
+          "name": "Bare hands plus metal finger rings",
+          "descriptors": [
+            "snappier",
+            "metallic-overtones",
+            "traditional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "metallic-attack"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "bara_technique_pressed_bend",
+          "name": "Pressed / muted pitch-bending strokes",
+          "descriptors": [
+            "bent-pitch",
+            "expressive",
+            "melodic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "microtonal-bend"
+          ],
+          "canonical_tags": [
+            "west_africa"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bara_role",
+      "name": "Repertoire / role",
+      "variants": [
+        {
+          "id": "bara_role_balafon_accompaniment",
+          "default": true,
+          "name": "Balafon accompaniment (Burkinabè and Malian ensemble)",
+          "descriptors": [
+            "foundational",
+            "interlocking",
+            "communal"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "west_africa",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "bara_role_mossi_court",
+          "name": "Mossi court recitation at the Moro Naba (dynastic praise)",
+          "descriptors": [
+            "ceremonial",
+            "oral-history",
+            "courtly"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "speech-derived",
+            "ritual-context"
+          ],
+          "canonical_tags": [
+            "court",
+            "ceremonial"
+          ]
+        },
+        {
+          "id": "bara_role_funeral_festival",
+          "name": "Funeral and religious-festival drumming",
+          "descriptors": [
+            "ritual",
+            "communal",
+            "ancestral"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ritual-context",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "ritual",
+            "west_africa"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,381 @@
+{
+  "id": "nepali_sarangi",
+  "name": "Nepali sarangi (Gandharba four-string bowed lute)",
+  "family": "bowed",
+  "class": "bowed_lute",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "nepali sarangi",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "nepali_sarangi_form",
+      "name": "Form and build",
+      "variants": [
+        {
+          "id": "nepali_sarangi_form_gandharba",
+          "default": true,
+          "name": "Traditional Gandharba build (soft light wood, four strings, no sympathetics)",
+          "descriptors": [
+            "four-string",
+            "carved",
+            "hide-faced",
+            "speech-like"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretless",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "himalayan",
+            "folk"
+          ]
+        },
+        {
+          "id": "nepali_sarangi_form_modern_stage",
+          "name": "Modernized stage instrument (larger body, steel-strung, brighter)",
+          "descriptors": [
+            "standardized",
+            "projecting",
+            "bright",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "steel-string",
+            "modern"
+          ],
+          "canonical_tags": [
+            "himalayan",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nepali_sarangi_context",
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "nepali_sarangi_context_karkha",
+          "default": true,
+          "name": "Gandharba self-accompanied karkha heroic ballad and sung news",
+          "descriptors": [
+            "bardic",
+            "self-accompanied",
+            "narrative",
+            "declamatory"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vocal-accompaniment",
+            "epic"
+          ],
+          "canonical_tags": [
+            "himalayan",
+            "storytelling",
+            "narrative"
+          ]
+        },
+        {
+          "id": "nepali_sarangi_context_seasonal",
+          "name": "Seasonal and wedding song accompaniment",
+          "descriptors": [
+            "festive",
+            "communal",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "accompaniment",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "himalayan",
+            "wedding"
+          ]
+        },
+        {
+          "id": "nepali_sarangi_context_folk_band",
+          "name": "Nepali folk-pop lead line",
+          "descriptors": [
+            "lead-voice",
+            "singing",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic-lead",
+            "modern"
+          ],
+          "canonical_tags": [
+            "himalayan",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nepali_sarangi_build",
+      "name": "Strings and bow",
+      "variants": [
+        {
+          "id": "nepali_sarangi_build_gut_plain_bow",
+          "default": true,
+          "name": "Gut or nylon strings, plain horsehair bow on a bamboo stick",
+          "descriptors": [
+            "gut",
+            "nylon",
+            "dry",
+            "spare"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "bamboo"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "nepali_sarangi_build_bell_bow",
+          "name": "Bow hung with small jingle bells",
+          "descriptors": [
+            "jangling",
+            "rattling",
+            "festive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "jingle",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "nepali_sarangi_build_steel",
+          "name": "Steel strings (modern retrofit)",
+          "descriptors": [
+            "steel",
+            "bright",
+            "cutting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "steel-string",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "nepali_sarangi_form",
+      "name": "Form and build",
+      "variants": [
+        {
+          "id": "nepali_sarangi_form_gandharba",
+          "default": true,
+          "name": "Traditional Gandharba build (soft light wood, four strings, no sympathetics)",
+          "descriptors": [
+            "four-string",
+            "carved",
+            "hide-faced",
+            "speech-like"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretless",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "himalayan",
+            "folk"
+          ]
+        },
+        {
+          "id": "nepali_sarangi_form_modern_stage",
+          "name": "Modernized stage instrument (larger body, steel-strung, brighter)",
+          "descriptors": [
+            "standardized",
+            "projecting",
+            "bright",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "steel-string",
+            "modern"
+          ],
+          "canonical_tags": [
+            "himalayan",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nepali_sarangi_context",
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "nepali_sarangi_context_karkha",
+          "default": true,
+          "name": "Gandharba self-accompanied karkha heroic ballad and sung news",
+          "descriptors": [
+            "bardic",
+            "self-accompanied",
+            "narrative",
+            "declamatory"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vocal-accompaniment",
+            "epic"
+          ],
+          "canonical_tags": [
+            "himalayan",
+            "storytelling",
+            "narrative"
+          ]
+        },
+        {
+          "id": "nepali_sarangi_context_seasonal",
+          "name": "Seasonal and wedding song accompaniment",
+          "descriptors": [
+            "festive",
+            "communal",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "accompaniment",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "himalayan",
+            "wedding"
+          ]
+        },
+        {
+          "id": "nepali_sarangi_context_folk_band",
+          "name": "Nepali folk-pop lead line",
+          "descriptors": [
+            "lead-voice",
+            "singing",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic-lead",
+            "modern"
+          ],
+          "canonical_tags": [
+            "himalayan",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nepali_sarangi_build",
+      "name": "Strings and bow",
+      "variants": [
+        {
+          "id": "nepali_sarangi_build_gut_plain_bow",
+          "default": true,
+          "name": "Gut or nylon strings, plain horsehair bow on a bamboo stick",
+          "descriptors": [
+            "gut",
+            "nylon",
+            "dry",
+            "spare"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "bamboo"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "nepali_sarangi_build_bell_bow",
+          "name": "Bow hung with small jingle bells",
+          "descriptors": [
+            "jangling",
+            "rattling",
+            "festive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "jingle",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "nepali_sarangi_build_steel",
+          "name": "Steel strings (modern retrofit)",
+          "descriptors": [
+            "steel",
+            "bright",
+            "cutting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "steel-string",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

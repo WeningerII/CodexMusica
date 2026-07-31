@@ -1,0 +1,569 @@
+{
+  "id": "arpeggione",
+  "name": "Arpeggione (bowed guitar / Guitarre-Violoncell)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "arpeggione",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "arpeggione_build",
+      "name": "Build / period form",
+      "variants": [
+        {
+          "id": "arpeggione_build_stauffer_rosette",
+          "default": true,
+          "name": "Early Stauffer c. 1823 - guitar body with rosette, flat back",
+          "descriptors": [
+            "guitar-shaped",
+            "flat-back",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretted",
+            "gut-string"
+          ],
+          "canonical_tags": [
+            "viennese",
+            "early-romantic"
+          ]
+        },
+        {
+          "id": "arpeggione_build_f_hole_cello_form",
+          "name": "Later c. 1825-31 build - f-holes and a more cello-like outline",
+          "descriptors": [
+            "projecting",
+            "resonant",
+            "refined"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretted",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "viennese",
+            "early-romantic"
+          ]
+        },
+        {
+          "id": "arpeggione_build_teufelsdorfer",
+          "name": "Teufelsdorfer Sentimental-Guitarre (Budapest parallel design)",
+          "descriptors": [
+            "historical",
+            "sweet",
+            "ornate"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretted",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical",
+            "early-romantic"
+          ]
+        },
+        {
+          "id": "arpeggione_build_modern_reconstruction",
+          "name": "Modern reconstruction for the Schubert sonata",
+          "descriptors": [
+            "reconstructed",
+            "stable",
+            "revival"
+          ],
+          "match_tokens": [
+            "bowed",
+            "modern",
+            "fretted"
+          ],
+          "canonical_tags": [
+            "revival",
+            "hip"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arpeggione_stringing",
+      "name": "Stringing",
+      "variants": [
+        {
+          "id": "arpeggione_stringing_plain_gut",
+          "default": true,
+          "name": "Plain gut throughout (period setup)",
+          "descriptors": [
+            "gut",
+            "short-sustain",
+            "low-tension"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut",
+            "period"
+          ]
+        },
+        {
+          "id": "arpeggione_stringing_overspun_bass",
+          "name": "Overspun lower three under gut trebles",
+          "descriptors": [
+            "silver-wound",
+            "fuller",
+            "deeper"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "historical-gut",
+            "wound-gut"
+          ]
+        },
+        {
+          "id": "arpeggione_stringing_synthetic_modern",
+          "name": "Modern synthetic revival stringing",
+          "descriptors": [
+            "stable",
+            "bright",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "modern",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "modern",
+            "revival"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arpeggione_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "arpeggione_technique_arco_cantabile",
+          "default": true,
+          "name": "Pure arco cantabile line",
+          "descriptors": [
+            "lyrical",
+            "singing-tone",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "melodic-lead"
+          ],
+          "canonical_tags": [
+            "early-romantic",
+            "classical"
+          ]
+        },
+        {
+          "id": "arpeggione_technique_mixed_pizz",
+          "name": "Mixed bowed and plucked (guitarist's hybrid touch)",
+          "descriptors": [
+            "conversational",
+            "articulate",
+            "plucked-lyricism"
+          ],
+          "match_tokens": [
+            "bowed",
+            "plucked",
+            "fretted"
+          ],
+          "canonical_tags": [
+            "early-romantic"
+          ]
+        },
+        {
+          "id": "arpeggione_technique_arpeggiated",
+          "name": "Arpeggiated chordal passagework across the guitar-tuned strings",
+          "descriptors": [
+            "chordal",
+            "ringing",
+            "virtuosic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "chordal",
+            "fretted"
+          ],
+          "canonical_tags": [
+            "early-romantic",
+            "solo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arpeggione_context",
+      "name": "Repertoire context",
+      "variants": [
+        {
+          "id": "arpeggione_context_schubert_sonata",
+          "default": true,
+          "name": "Schubert Sonata in A minor D 821 with fortepiano",
+          "descriptors": [
+            "lyrical",
+            "featured",
+            "art-music"
+          ],
+          "match_tokens": [
+            "bowed",
+            "soloistic",
+            "chamber-fed"
+          ],
+          "canonical_tags": [
+            "viennese",
+            "classical"
+          ]
+        },
+        {
+          "id": "arpeggione_context_salon_guitar_society",
+          "name": "Viennese guitar-society salon piece",
+          "descriptors": [
+            "salon",
+            "intimate",
+            "courtly"
+          ],
+          "match_tokens": [
+            "bowed",
+            "intimate",
+            "chamber-fed"
+          ],
+          "canonical_tags": [
+            "salon",
+            "viennese"
+          ]
+        },
+        {
+          "id": "arpeggione_context_schuster_tutor",
+          "name": "Schuster tutor exercises and Burgmuller pieces",
+          "descriptors": [
+            "composed-tradition",
+            "articulate",
+            "historical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretted",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical",
+            "early-romantic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "arpeggione_build",
+      "name": "Build / period form",
+      "variants": [
+        {
+          "id": "arpeggione_build_stauffer_rosette",
+          "default": true,
+          "name": "Early Stauffer c. 1823 - guitar body with rosette, flat back",
+          "descriptors": [
+            "guitar-shaped",
+            "flat-back",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretted",
+            "gut-string"
+          ],
+          "canonical_tags": [
+            "viennese",
+            "early-romantic"
+          ]
+        },
+        {
+          "id": "arpeggione_build_f_hole_cello_form",
+          "name": "Later c. 1825-31 build - f-holes and a more cello-like outline",
+          "descriptors": [
+            "projecting",
+            "resonant",
+            "refined"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretted",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "viennese",
+            "early-romantic"
+          ]
+        },
+        {
+          "id": "arpeggione_build_teufelsdorfer",
+          "name": "Teufelsdorfer Sentimental-Guitarre (Budapest parallel design)",
+          "descriptors": [
+            "historical",
+            "sweet",
+            "ornate"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretted",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical",
+            "early-romantic"
+          ]
+        },
+        {
+          "id": "arpeggione_build_modern_reconstruction",
+          "name": "Modern reconstruction for the Schubert sonata",
+          "descriptors": [
+            "reconstructed",
+            "stable",
+            "revival"
+          ],
+          "match_tokens": [
+            "bowed",
+            "modern",
+            "fretted"
+          ],
+          "canonical_tags": [
+            "revival",
+            "hip"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arpeggione_stringing",
+      "name": "Stringing",
+      "variants": [
+        {
+          "id": "arpeggione_stringing_plain_gut",
+          "default": true,
+          "name": "Plain gut throughout (period setup)",
+          "descriptors": [
+            "gut",
+            "short-sustain",
+            "low-tension"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut",
+            "period"
+          ]
+        },
+        {
+          "id": "arpeggione_stringing_overspun_bass",
+          "name": "Overspun lower three under gut trebles",
+          "descriptors": [
+            "silver-wound",
+            "fuller",
+            "deeper"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "historical-gut",
+            "wound-gut"
+          ]
+        },
+        {
+          "id": "arpeggione_stringing_synthetic_modern",
+          "name": "Modern synthetic revival stringing",
+          "descriptors": [
+            "stable",
+            "bright",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "modern",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "modern",
+            "revival"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arpeggione_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "arpeggione_technique_arco_cantabile",
+          "default": true,
+          "name": "Pure arco cantabile line",
+          "descriptors": [
+            "lyrical",
+            "singing-tone",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "melodic-lead"
+          ],
+          "canonical_tags": [
+            "early-romantic",
+            "classical"
+          ]
+        },
+        {
+          "id": "arpeggione_technique_mixed_pizz",
+          "name": "Mixed bowed and plucked (guitarist's hybrid touch)",
+          "descriptors": [
+            "conversational",
+            "articulate",
+            "plucked-lyricism"
+          ],
+          "match_tokens": [
+            "bowed",
+            "plucked",
+            "fretted"
+          ],
+          "canonical_tags": [
+            "early-romantic"
+          ]
+        },
+        {
+          "id": "arpeggione_technique_arpeggiated",
+          "name": "Arpeggiated chordal passagework across the guitar-tuned strings",
+          "descriptors": [
+            "chordal",
+            "ringing",
+            "virtuosic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "chordal",
+            "fretted"
+          ],
+          "canonical_tags": [
+            "early-romantic",
+            "solo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arpeggione_context",
+      "name": "Repertoire context",
+      "variants": [
+        {
+          "id": "arpeggione_context_schubert_sonata",
+          "default": true,
+          "name": "Schubert Sonata in A minor D 821 with fortepiano",
+          "descriptors": [
+            "lyrical",
+            "featured",
+            "art-music"
+          ],
+          "match_tokens": [
+            "bowed",
+            "soloistic",
+            "chamber-fed"
+          ],
+          "canonical_tags": [
+            "viennese",
+            "classical"
+          ]
+        },
+        {
+          "id": "arpeggione_context_salon_guitar_society",
+          "name": "Viennese guitar-society salon piece",
+          "descriptors": [
+            "salon",
+            "intimate",
+            "courtly"
+          ],
+          "match_tokens": [
+            "bowed",
+            "intimate",
+            "chamber-fed"
+          ],
+          "canonical_tags": [
+            "salon",
+            "viennese"
+          ]
+        },
+        {
+          "id": "arpeggione_context_schuster_tutor",
+          "name": "Schuster tutor exercises and Burgmuller pieces",
+          "descriptors": [
+            "composed-tradition",
+            "articulate",
+            "historical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretted",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical",
+            "early-romantic"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,425 @@
+{
+  "id": "chiwang",
+  "name": "Chiwang (Bhutanese two-string spike fiddle)",
+  "family": "bowed",
+  "class": "bowed_spike_fiddle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "chiwang",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "chiwang_genre",
+      "name": "Song genre",
+      "variants": [
+        {
+          "id": "chiwang_genre_boedra",
+          "default": true,
+          "name": "Boedra — metric, dance-like, the fiddle as a horse",
+          "descriptors": [
+            "horse-imitating",
+            "driving",
+            "lilting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "tibetan",
+            "court",
+            "dance"
+          ]
+        },
+        {
+          "id": "chiwang_genre_zhungdra",
+          "name": "Zhungdra — slow, long-breathed, heavily ornamented",
+          "descriptors": [
+            "melismatic",
+            "sustained",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "himalayan",
+            "tibetan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chiwang_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "chiwang_role_vocal_doubling",
+          "default": true,
+          "name": "Heterophonic doubling of the sung line",
+          "descriptors": [
+            "vocal-accompaniment",
+            "heterophonic",
+            "blended"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vocal-accompaniment",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "tibetan",
+            "accompaniment"
+          ]
+        },
+        {
+          "id": "chiwang_role_interlude",
+          "name": "Instrumental interlude between verses",
+          "descriptors": [
+            "ensemble-lead",
+            "ornamented",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "tibetan"
+          ]
+        },
+        {
+          "id": "chiwang_role_folk_quartet",
+          "name": "Core folk ensemble with dramnyen, lingm and yangchen",
+          "descriptors": [
+            "ensemble",
+            "blended",
+            "festive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "himalayan",
+            "tibetan",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chiwang_build",
+      "name": "Build",
+      "variants": [
+        {
+          "id": "chiwang_build_bamboo_membrane",
+          "default": true,
+          "name": "Bamboo sound box with membrane face, dried-bamboo bow (Bhutanese)",
+          "descriptors": [
+            "bamboo-bodied",
+            "thin-toned",
+            "nasal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "nasal-tone",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "himalayan",
+            "bamboo"
+          ]
+        },
+        {
+          "id": "chiwang_build_piwang_wood",
+          "name": "Wooden box (Tibetan piwang build)",
+          "descriptors": [
+            "carved-wood",
+            "warm",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "nasal-tone",
+            "wood"
+          ],
+          "canonical_tags": [
+            "tibetan",
+            "wood"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chiwang_tuning",
+      "name": "Tuning",
+      "variants": [
+        {
+          "id": "chiwang_tuning_fourth",
+          "default": true,
+          "name": "Fourth apart (right string la, left string mi)",
+          "descriptors": [
+            "distinct-tuning",
+            "bright",
+            "two-string"
+          ],
+          "match_tokens": [
+            "bowed",
+            "two-string",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "tibetan"
+          ]
+        },
+        {
+          "id": "chiwang_tuning_fifth",
+          "name": "Fifth apart (wider fingering geography)",
+          "descriptors": [
+            "distinct-tuning",
+            "spare",
+            "clean"
+          ],
+          "match_tokens": [
+            "bowed",
+            "two-string",
+            "microtonal-bend"
+          ],
+          "canonical_tags": [
+            "tibetan"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "chiwang_genre",
+      "name": "Song genre",
+      "variants": [
+        {
+          "id": "chiwang_genre_boedra",
+          "default": true,
+          "name": "Boedra — metric, dance-like, the fiddle as a horse",
+          "descriptors": [
+            "horse-imitating",
+            "driving",
+            "lilting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "tibetan",
+            "court",
+            "dance"
+          ]
+        },
+        {
+          "id": "chiwang_genre_zhungdra",
+          "name": "Zhungdra — slow, long-breathed, heavily ornamented",
+          "descriptors": [
+            "melismatic",
+            "sustained",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "himalayan",
+            "tibetan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chiwang_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "chiwang_role_vocal_doubling",
+          "default": true,
+          "name": "Heterophonic doubling of the sung line",
+          "descriptors": [
+            "vocal-accompaniment",
+            "heterophonic",
+            "blended"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vocal-accompaniment",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "tibetan",
+            "accompaniment"
+          ]
+        },
+        {
+          "id": "chiwang_role_interlude",
+          "name": "Instrumental interlude between verses",
+          "descriptors": [
+            "ensemble-lead",
+            "ornamented",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "tibetan"
+          ]
+        },
+        {
+          "id": "chiwang_role_folk_quartet",
+          "name": "Core folk ensemble with dramnyen, lingm and yangchen",
+          "descriptors": [
+            "ensemble",
+            "blended",
+            "festive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "himalayan",
+            "tibetan",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chiwang_build",
+      "name": "Build",
+      "variants": [
+        {
+          "id": "chiwang_build_bamboo_membrane",
+          "default": true,
+          "name": "Bamboo sound box with membrane face, dried-bamboo bow (Bhutanese)",
+          "descriptors": [
+            "bamboo-bodied",
+            "thin-toned",
+            "nasal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "nasal-tone",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "himalayan",
+            "bamboo"
+          ]
+        },
+        {
+          "id": "chiwang_build_piwang_wood",
+          "name": "Wooden box (Tibetan piwang build)",
+          "descriptors": [
+            "carved-wood",
+            "warm",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "nasal-tone",
+            "wood"
+          ],
+          "canonical_tags": [
+            "tibetan",
+            "wood"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chiwang_tuning",
+      "name": "Tuning",
+      "variants": [
+        {
+          "id": "chiwang_tuning_fourth",
+          "default": true,
+          "name": "Fourth apart (right string la, left string mi)",
+          "descriptors": [
+            "distinct-tuning",
+            "bright",
+            "two-string"
+          ],
+          "match_tokens": [
+            "bowed",
+            "two-string",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "tibetan"
+          ]
+        },
+        {
+          "id": "chiwang_tuning_fifth",
+          "name": "Fifth apart (wider fingering geography)",
+          "descriptors": [
+            "distinct-tuning",
+            "spare",
+            "clean"
+          ],
+          "match_tokens": [
+            "bowed",
+            "two-string",
+            "microtonal-bend"
+          ],
+          "canonical_tags": [
+            "tibetan"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,529 @@
+{
+  "id": "pochette",
+  "name": "Pochette (dancing-master's kit violin)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": 2,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "pochette",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "pochette_form",
+      "name": "Body form",
+      "variants": [
+        {
+          "id": "pochette_form_boat_rebec",
+          "default": true,
+          "name": "Boat / narrow rebec form carved from one block (no waist)",
+          "descriptors": [
+            "boat-bodied",
+            "nasal",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "small-body",
+            "nasal-tone"
+          ],
+          "canonical_tags": [
+            "historic",
+            "french"
+          ]
+        },
+        {
+          "id": "pochette_form_kit_miniature_violin",
+          "name": "Kit proper — miniature violin with ribs, arched plates and f-holes",
+          "descriptors": [
+            "compact",
+            "bright",
+            "singing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "small-body",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period"
+          ]
+        },
+        {
+          "id": "pochette_form_ribbed_lute_back",
+          "name": "Ribbed lute-like vaulted back",
+          "descriptors": [
+            "deep-vaulted-back",
+            "woody",
+            "ornate"
+          ],
+          "match_tokens": [
+            "bowed",
+            "small-body",
+            "historic"
+          ],
+          "canonical_tags": [
+            "historic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pochette_pitch",
+      "name": "Pitch level",
+      "variants": [
+        {
+          "id": "pochette_pitch_fourth_above",
+          "default": true,
+          "name": "Fourth above the violin (octave above the viola)",
+          "descriptors": [
+            "treble-extended",
+            "piercing",
+            "cutting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "high-register",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "dance",
+            "historic"
+          ]
+        },
+        {
+          "id": "pochette_pitch_octave_above",
+          "name": "Octave above the violin (smallest kits)",
+          "descriptors": [
+            "shrill",
+            "keening",
+            "tinny"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing",
+            "small-body"
+          ],
+          "canonical_tags": [
+            "historic"
+          ]
+        },
+        {
+          "id": "pochette_pitch_violin_pitch",
+          "name": "Violin pitch (larger examples)",
+          "descriptors": [
+            "balanced",
+            "singing",
+            "fuller"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "small-body"
+          ],
+          "canonical_tags": [
+            "baroque"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pochette_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "pochette_context_dance_teaching",
+          "default": true,
+          "name": "Solo unaccompanied dance teaching (branles, minuets, contredanses)",
+          "descriptors": [
+            "dance-driving",
+            "lilting",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "dance"
+          ],
+          "canonical_tags": [
+            "dance",
+            "french"
+          ]
+        },
+        {
+          "id": "pochette_context_street_tavern",
+          "name": "Street and tavern playing by itinerant musicians",
+          "descriptors": [
+            "rustic",
+            "raucous",
+            "driving"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "folk",
+            "historic"
+          ]
+        },
+        {
+          "id": "pochette_context_scottish_reels",
+          "name": "Reels and strathspeys (Neil Gow-type fiddler's kit)",
+          "descriptors": [
+            "brisk",
+            "driving",
+            "lilting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "scottish",
+            "dance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pochette_material",
+      "name": "Material register / decoration",
+      "variants": [
+        {
+          "id": "pochette_material_fruitwood_plain",
+          "default": true,
+          "name": "Plain fruitwood working instrument",
+          "descriptors": [
+            "simple",
+            "woody",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "small-body",
+            "pre-modern"
+          ],
+          "canonical_tags": [
+            "historic",
+            "wood"
+          ]
+        },
+        {
+          "id": "pochette_material_ivory_tortoiseshell",
+          "name": "Ivory and tortoiseshell court object with inlay",
+          "descriptors": [
+            "ornate",
+            "premium-decorative",
+            "courtly"
+          ],
+          "match_tokens": [
+            "bowed",
+            "small-body",
+            "historic"
+          ],
+          "canonical_tags": [
+            "court",
+            "cites-app-i"
+          ]
+        },
+        {
+          "id": "pochette_material_exotic_hardwood",
+          "name": "Exotic hardwood (ebony, boxwood) with carving",
+          "descriptors": [
+            "dense-wood",
+            "ornate",
+            "luthier-grade"
+          ],
+          "match_tokens": [
+            "bowed",
+            "small-body",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "boxwood",
+            "historic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "pochette_form",
+      "name": "Body form",
+      "variants": [
+        {
+          "id": "pochette_form_boat_rebec",
+          "default": true,
+          "name": "Boat / narrow rebec form carved from one block (no waist)",
+          "descriptors": [
+            "boat-bodied",
+            "nasal",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "small-body",
+            "nasal-tone"
+          ],
+          "canonical_tags": [
+            "historic",
+            "french"
+          ]
+        },
+        {
+          "id": "pochette_form_kit_miniature_violin",
+          "name": "Kit proper — miniature violin with ribs, arched plates and f-holes",
+          "descriptors": [
+            "compact",
+            "bright",
+            "singing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "small-body",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period"
+          ]
+        },
+        {
+          "id": "pochette_form_ribbed_lute_back",
+          "name": "Ribbed lute-like vaulted back",
+          "descriptors": [
+            "deep-vaulted-back",
+            "woody",
+            "ornate"
+          ],
+          "match_tokens": [
+            "bowed",
+            "small-body",
+            "historic"
+          ],
+          "canonical_tags": [
+            "historic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pochette_pitch",
+      "name": "Pitch level",
+      "variants": [
+        {
+          "id": "pochette_pitch_fourth_above",
+          "default": true,
+          "name": "Fourth above the violin (octave above the viola)",
+          "descriptors": [
+            "treble-extended",
+            "piercing",
+            "cutting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "high-register",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "dance",
+            "historic"
+          ]
+        },
+        {
+          "id": "pochette_pitch_octave_above",
+          "name": "Octave above the violin (smallest kits)",
+          "descriptors": [
+            "shrill",
+            "keening",
+            "tinny"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing",
+            "small-body"
+          ],
+          "canonical_tags": [
+            "historic"
+          ]
+        },
+        {
+          "id": "pochette_pitch_violin_pitch",
+          "name": "Violin pitch (larger examples)",
+          "descriptors": [
+            "balanced",
+            "singing",
+            "fuller"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "small-body"
+          ],
+          "canonical_tags": [
+            "baroque"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pochette_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "pochette_context_dance_teaching",
+          "default": true,
+          "name": "Solo unaccompanied dance teaching (branles, minuets, contredanses)",
+          "descriptors": [
+            "dance-driving",
+            "lilting",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "dance"
+          ],
+          "canonical_tags": [
+            "dance",
+            "french"
+          ]
+        },
+        {
+          "id": "pochette_context_street_tavern",
+          "name": "Street and tavern playing by itinerant musicians",
+          "descriptors": [
+            "rustic",
+            "raucous",
+            "driving"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "folk",
+            "historic"
+          ]
+        },
+        {
+          "id": "pochette_context_scottish_reels",
+          "name": "Reels and strathspeys (Neil Gow-type fiddler's kit)",
+          "descriptors": [
+            "brisk",
+            "driving",
+            "lilting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "scottish",
+            "dance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pochette_material",
+      "name": "Material register / decoration",
+      "variants": [
+        {
+          "id": "pochette_material_fruitwood_plain",
+          "default": true,
+          "name": "Plain fruitwood working instrument",
+          "descriptors": [
+            "simple",
+            "woody",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "small-body",
+            "pre-modern"
+          ],
+          "canonical_tags": [
+            "historic",
+            "wood"
+          ]
+        },
+        {
+          "id": "pochette_material_ivory_tortoiseshell",
+          "name": "Ivory and tortoiseshell court object with inlay",
+          "descriptors": [
+            "ornate",
+            "premium-decorative",
+            "courtly"
+          ],
+          "match_tokens": [
+            "bowed",
+            "small-body",
+            "historic"
+          ],
+          "canonical_tags": [
+            "court",
+            "cites-app-i"
+          ]
+        },
+        {
+          "id": "pochette_material_exotic_hardwood",
+          "name": "Exotic hardwood (ebony, boxwood) with carving",
+          "descriptors": [
+            "dense-wood",
+            "ornate",
+            "luthier-grade"
+          ],
+          "match_tokens": [
+            "bowed",
+            "small-body",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "boxwood",
+            "historic"
+          ]
+        }
+      ]
+    }
+  ]
+}

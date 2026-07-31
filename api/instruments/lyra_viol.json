@@ -1,0 +1,633 @@
+{
+  "id": "lyra_viol",
+  "name": "Lyra viol (English bass viol played lyra-way)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "lyra viol",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "lyra_viol_tuning",
+      "name": "Tablature tuning (scordatura)",
+      "variants": [
+        {
+          "id": "lyra_viol_tuning_plain_way",
+          "default": true,
+          "name": "Plain way / viol way (D-G-c-e-a-d')",
+          "descriptors": [
+            "historical",
+            "consort",
+            "clear"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "period",
+            "historical"
+          ]
+        },
+        {
+          "id": "lyra_viol_tuning_harp_way_sharp",
+          "name": "Harp way sharp (major-chord open tuning)",
+          "descriptors": [
+            "chordal",
+            "ringing",
+            "scordatura"
+          ],
+          "match_tokens": [
+            "bowed",
+            "chordal",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque"
+          ]
+        },
+        {
+          "id": "lyra_viol_tuning_harp_way_flat",
+          "name": "Harp way flat (minor-chord open tuning)",
+          "descriptors": [
+            "chordal",
+            "solemn",
+            "scordatura"
+          ],
+          "match_tokens": [
+            "bowed",
+            "chordal",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque"
+          ]
+        },
+        {
+          "id": "lyra_viol_tuning_bagpipe",
+          "name": "Bagpipe tuning (drone-heavy open strings)",
+          "descriptors": [
+            "archaic",
+            "rustic",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "secular",
+            "dance"
+          ]
+        },
+        {
+          "id": "lyra_viol_tuning_high_harp_way",
+          "name": "High harp way (bright upper-register set)",
+          "descriptors": [
+            "bright",
+            "ringing",
+            "agile"
+          ],
+          "match_tokens": [
+            "bowed",
+            "chordal",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "baroque"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lyra_viol_texture",
+      "name": "Texture",
+      "variants": [
+        {
+          "id": "lyra_viol_texture_chordal",
+          "default": true,
+          "name": "Full chordal / arpeggiated lyra-way",
+          "descriptors": [
+            "chordal",
+            "harp-like",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "chordal",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "solo"
+          ]
+        },
+        {
+          "id": "lyra_viol_texture_single_line",
+          "name": "Single-line melodic (ayres and divisions)",
+          "descriptors": [
+            "lyrical",
+            "articulate",
+            "soloistic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic-lead",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "baroque"
+          ]
+        },
+        {
+          "id": "lyra_viol_texture_mixed",
+          "name": "Melody over self-accompanying chords",
+          "descriptors": [
+            "conversational",
+            "chordal",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "bowed",
+            "chordal",
+            "soloistic"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "solo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lyra_viol_ensemble",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "lyra_viol_ensemble_solo_lessons",
+          "default": true,
+          "name": "Solo lessons from tablature (Hume, Playford Musicks Recreation)",
+          "descriptors": [
+            "intimate",
+            "soloistic",
+            "improvisatory"
+          ],
+          "match_tokens": [
+            "bowed",
+            "soloistic",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "solo",
+            "baroque"
+          ]
+        },
+        {
+          "id": "lyra_viol_ensemble_song_accompaniment",
+          "name": "Accompanying a solo voice (Ford, Corkine ayres)",
+          "descriptors": [
+            "song-support",
+            "intimate",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "chordal",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "chamber"
+          ]
+        },
+        {
+          "id": "lyra_viol_ensemble_lyra_consort",
+          "name": "Two or three lyra viols in consort (Ferrabosco lessons)",
+          "descriptors": [
+            "consort",
+            "blended",
+            "composed-tradition"
+          ],
+          "match_tokens": [
+            "bowed",
+            "renaissance",
+            "early-music-context"
+          ],
+          "canonical_tags": [
+            "consort",
+            "period"
+          ]
+        },
+        {
+          "id": "lyra_viol_ensemble_mixed_consort",
+          "name": "Lyra viol with bass viol and theorbo (Lawes-era chamber)",
+          "descriptors": [
+            "blended",
+            "resonant",
+            "art-music"
+          ],
+          "match_tokens": [
+            "bowed",
+            "plucked",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "chamber",
+            "baroque"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lyra_viol_setup",
+      "name": "Instrument setup",
+      "variants": [
+        {
+          "id": "lyra_viol_setup_purpose_built",
+          "default": true,
+          "name": "Purpose-built small lyra viol (~72 cm, flat bridge, light gut)",
+          "descriptors": [
+            "light-gauge",
+            "chordal",
+            "agile"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "chordal"
+          ],
+          "canonical_tags": [
+            "historical-gut",
+            "period"
+          ]
+        },
+        {
+          "id": "lyra_viol_setup_restrung_bass",
+          "name": "Ordinary bass viol restrung and retuned lyra-way",
+          "descriptors": [
+            "deep-bodied",
+            "foundational",
+            "historical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "lyra_viol_setup_farrant_sympathetic",
+          "name": "Daniel Farrant type with added sympathetic wires (baryton ancestor)",
+          "descriptors": [
+            "sympathetic-strings",
+            "silvery",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "seventeenth-century",
+            "historical"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "lyra_viol_tuning",
+      "name": "Tablature tuning (scordatura)",
+      "variants": [
+        {
+          "id": "lyra_viol_tuning_plain_way",
+          "default": true,
+          "name": "Plain way / viol way (D-G-c-e-a-d')",
+          "descriptors": [
+            "historical",
+            "consort",
+            "clear"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "period",
+            "historical"
+          ]
+        },
+        {
+          "id": "lyra_viol_tuning_harp_way_sharp",
+          "name": "Harp way sharp (major-chord open tuning)",
+          "descriptors": [
+            "chordal",
+            "ringing",
+            "scordatura"
+          ],
+          "match_tokens": [
+            "bowed",
+            "chordal",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque"
+          ]
+        },
+        {
+          "id": "lyra_viol_tuning_harp_way_flat",
+          "name": "Harp way flat (minor-chord open tuning)",
+          "descriptors": [
+            "chordal",
+            "solemn",
+            "scordatura"
+          ],
+          "match_tokens": [
+            "bowed",
+            "chordal",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque"
+          ]
+        },
+        {
+          "id": "lyra_viol_tuning_bagpipe",
+          "name": "Bagpipe tuning (drone-heavy open strings)",
+          "descriptors": [
+            "archaic",
+            "rustic",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "secular",
+            "dance"
+          ]
+        },
+        {
+          "id": "lyra_viol_tuning_high_harp_way",
+          "name": "High harp way (bright upper-register set)",
+          "descriptors": [
+            "bright",
+            "ringing",
+            "agile"
+          ],
+          "match_tokens": [
+            "bowed",
+            "chordal",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "baroque"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lyra_viol_texture",
+      "name": "Texture",
+      "variants": [
+        {
+          "id": "lyra_viol_texture_chordal",
+          "default": true,
+          "name": "Full chordal / arpeggiated lyra-way",
+          "descriptors": [
+            "chordal",
+            "harp-like",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "chordal",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "solo"
+          ]
+        },
+        {
+          "id": "lyra_viol_texture_single_line",
+          "name": "Single-line melodic (ayres and divisions)",
+          "descriptors": [
+            "lyrical",
+            "articulate",
+            "soloistic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic-lead",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "baroque"
+          ]
+        },
+        {
+          "id": "lyra_viol_texture_mixed",
+          "name": "Melody over self-accompanying chords",
+          "descriptors": [
+            "conversational",
+            "chordal",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "bowed",
+            "chordal",
+            "soloistic"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "solo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lyra_viol_ensemble",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "lyra_viol_ensemble_solo_lessons",
+          "default": true,
+          "name": "Solo lessons from tablature (Hume, Playford Musicks Recreation)",
+          "descriptors": [
+            "intimate",
+            "soloistic",
+            "improvisatory"
+          ],
+          "match_tokens": [
+            "bowed",
+            "soloistic",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "solo",
+            "baroque"
+          ]
+        },
+        {
+          "id": "lyra_viol_ensemble_song_accompaniment",
+          "name": "Accompanying a solo voice (Ford, Corkine ayres)",
+          "descriptors": [
+            "song-support",
+            "intimate",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "chordal",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "chamber"
+          ]
+        },
+        {
+          "id": "lyra_viol_ensemble_lyra_consort",
+          "name": "Two or three lyra viols in consort (Ferrabosco lessons)",
+          "descriptors": [
+            "consort",
+            "blended",
+            "composed-tradition"
+          ],
+          "match_tokens": [
+            "bowed",
+            "renaissance",
+            "early-music-context"
+          ],
+          "canonical_tags": [
+            "consort",
+            "period"
+          ]
+        },
+        {
+          "id": "lyra_viol_ensemble_mixed_consort",
+          "name": "Lyra viol with bass viol and theorbo (Lawes-era chamber)",
+          "descriptors": [
+            "blended",
+            "resonant",
+            "art-music"
+          ],
+          "match_tokens": [
+            "bowed",
+            "plucked",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "chamber",
+            "baroque"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lyra_viol_setup",
+      "name": "Instrument setup",
+      "variants": [
+        {
+          "id": "lyra_viol_setup_purpose_built",
+          "default": true,
+          "name": "Purpose-built small lyra viol (~72 cm, flat bridge, light gut)",
+          "descriptors": [
+            "light-gauge",
+            "chordal",
+            "agile"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "chordal"
+          ],
+          "canonical_tags": [
+            "historical-gut",
+            "period"
+          ]
+        },
+        {
+          "id": "lyra_viol_setup_restrung_bass",
+          "name": "Ordinary bass viol restrung and retuned lyra-way",
+          "descriptors": [
+            "deep-bodied",
+            "foundational",
+            "historical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "lyra_viol_setup_farrant_sympathetic",
+          "name": "Daniel Farrant type with added sympathetic wires (baryton ancestor)",
+          "descriptors": [
+            "sympathetic-strings",
+            "silvery",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "seventeenth-century",
+            "historical"
+          ]
+        }
+      ]
+    }
+  ]
+}

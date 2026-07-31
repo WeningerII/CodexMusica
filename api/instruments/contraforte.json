@@ -1,0 +1,340 @@
+{
+  "id": "contraforte",
+  "name": "Contraforte (Wolf–Eppelsheim redesigned contrabassoon)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": -2,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "contraforte",
+  "parts": [
+    {
+      "id": "contraforte_role",
+      "name": "Role framing",
+      "variants": [
+        {
+          "id": "contraforte_orchestral_substitute",
+          "default": true,
+          "name": "Substitute on standard orchestral contrabassoon parts",
+          "descriptors": [
+            "standard",
+            "projecting",
+            "foundational"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "wind-driven",
+            "reed-driven",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "orchestral",
+            "modern"
+          ]
+        },
+        {
+          "id": "contraforte_contemporary_solo",
+          "name": "Contemporary solo / chamber writing exploiting the secure top",
+          "descriptors": [
+            "featured",
+            "extended-range",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "soloistic",
+            "chamber-fed",
+            "wind-driven",
+            "contemporary-classical"
+          ],
+          "canonical_tags": [
+            "contemporary"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "contraforte_register_focus",
+      "name": "Register emphasis",
+      "variants": [
+        {
+          "id": "contraforte_sub_pedal",
+          "default": true,
+          "name": "Sub-pedal foundation A0–C1, doubling basses and tuba",
+          "descriptors": [
+            "sub-bass",
+            "subterranean",
+            "foundational"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "wind-driven",
+            "reed-driven",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "orchestral"
+          ]
+        },
+        {
+          "id": "contraforte_upper_secure",
+          "name": "Tenor-to-high register the contrabassoon cannot sustain",
+          "descriptors": [
+            "even",
+            "projecting",
+            "sustained"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "mid-register",
+            "contemporary-classical"
+          ],
+          "canonical_tags": [
+            "contemporary"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "contraforte_articulation",
+      "name": "Articulation profile",
+      "variants": [
+        {
+          "id": "contraforte_sustained_pedal",
+          "default": true,
+          "name": "Sustained orchestral pedal",
+          "descriptors": [
+            "sustained",
+            "even",
+            "foundational"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "wind-driven",
+            "drone-foundation",
+            "low-register"
+          ]
+        },
+        {
+          "id": "contraforte_marcato_engine",
+          "name": "Marcato / staccato \"engine\" articulation",
+          "descriptors": [
+            "staccato",
+            "growly",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "contraforte_reed",
+      "name": "Reed / bocal setup",
+      "variants": [
+        {
+          "id": "contraforte_standard_scrape",
+          "default": true,
+          "name": "Standard contrabassoon-scrape reed on bocal",
+          "descriptors": [
+            "standard",
+            "balanced",
+            "warm"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "low-register"
+          ]
+        },
+        {
+          "id": "contraforte_hard_scrape",
+          "name": "Harder scrape for attack definition and buzz",
+          "descriptors": [
+            "harder-edge",
+            "buzzy",
+            "projecting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "rough-tone",
+            "low-register"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "contraforte_role",
+      "name": "Role framing",
+      "variants": [
+        {
+          "id": "contraforte_orchestral_substitute",
+          "default": true,
+          "name": "Substitute on standard orchestral contrabassoon parts",
+          "descriptors": [
+            "standard",
+            "projecting",
+            "foundational"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "wind-driven",
+            "reed-driven",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "orchestral",
+            "modern"
+          ]
+        },
+        {
+          "id": "contraforte_contemporary_solo",
+          "name": "Contemporary solo / chamber writing exploiting the secure top",
+          "descriptors": [
+            "featured",
+            "extended-range",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "soloistic",
+            "chamber-fed",
+            "wind-driven",
+            "contemporary-classical"
+          ],
+          "canonical_tags": [
+            "contemporary"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "contraforte_register_focus",
+      "name": "Register emphasis",
+      "variants": [
+        {
+          "id": "contraforte_sub_pedal",
+          "default": true,
+          "name": "Sub-pedal foundation A0–C1, doubling basses and tuba",
+          "descriptors": [
+            "sub-bass",
+            "subterranean",
+            "foundational"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "wind-driven",
+            "reed-driven",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "orchestral"
+          ]
+        },
+        {
+          "id": "contraforte_upper_secure",
+          "name": "Tenor-to-high register the contrabassoon cannot sustain",
+          "descriptors": [
+            "even",
+            "projecting",
+            "sustained"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "mid-register",
+            "contemporary-classical"
+          ],
+          "canonical_tags": [
+            "contemporary"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "contraforte_articulation",
+      "name": "Articulation profile",
+      "variants": [
+        {
+          "id": "contraforte_sustained_pedal",
+          "default": true,
+          "name": "Sustained orchestral pedal",
+          "descriptors": [
+            "sustained",
+            "even",
+            "foundational"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "wind-driven",
+            "drone-foundation",
+            "low-register"
+          ]
+        },
+        {
+          "id": "contraforte_marcato_engine",
+          "name": "Marcato / staccato \"engine\" articulation",
+          "descriptors": [
+            "staccato",
+            "growly",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "contraforte_reed",
+      "name": "Reed / bocal setup",
+      "variants": [
+        {
+          "id": "contraforte_standard_scrape",
+          "default": true,
+          "name": "Standard contrabassoon-scrape reed on bocal",
+          "descriptors": [
+            "standard",
+            "balanced",
+            "warm"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "low-register"
+          ]
+        },
+        {
+          "id": "contraforte_hard_scrape",
+          "name": "Harder scrape for attack definition and buzz",
+          "descriptors": [
+            "harder-edge",
+            "buzzy",
+            "projecting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "rough-tone",
+            "low-register"
+          ]
+        }
+      ]
+    }
+  ]
+}

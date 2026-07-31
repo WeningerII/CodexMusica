@@ -1,0 +1,405 @@
+{
+  "id": "leiqin",
+  "name": "Leiqin (Shandong mimicry fiddle)",
+  "family": "bowed",
+  "class": "bowed_lute",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "leiqin",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "leiqin_mode",
+      "name": "Performance mode",
+      "variants": [
+        {
+          "id": "leiqin_mode_laxi",
+          "default": true,
+          "name": "Laxi - bowed imitation of named opera singers",
+          "descriptors": [
+            "vocal-imitating",
+            "operatic",
+            "theatrical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vocal",
+            "speech-derived"
+          ],
+          "canonical_tags": [
+            "chinese-opera",
+            "solo"
+          ]
+        },
+        {
+          "id": "leiqin_mode_effects",
+          "name": "Animal cries, sheng-and-guan and gong effects",
+          "descriptors": [
+            "imitative",
+            "playful",
+            "birdsong"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "expressive"
+          ],
+          "canonical_tags": [
+            "china"
+          ]
+        },
+        {
+          "id": "leiqin_mode_melodic",
+          "name": "Straight melodic solo (Fishermen's Song, Humoresque)",
+          "descriptors": [
+            "lyrical",
+            "singing",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic",
+            "solo"
+          ],
+          "canonical_tags": [
+            "solo",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "leiqin_size",
+      "name": "Instrument size",
+      "variants": [
+        {
+          "id": "leiqin_size_dalei",
+          "default": true,
+          "name": "Dalei (~110 cm concert instrument)",
+          "descriptors": [
+            "loud",
+            "full-bodied",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register",
+            "resonant"
+          ],
+          "canonical_tags": [
+            "concert"
+          ]
+        },
+        {
+          "id": "leiqin_size_xiaolei",
+          "name": "Xiaolei (small form)",
+          "descriptors": [
+            "brighter",
+            "focused",
+            "nasal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "mid-register",
+            "nasal-tone"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "leiqin_tuning",
+      "name": "String interval",
+      "variants": [
+        {
+          "id": "leiqin_tuning_fourth",
+          "default": true,
+          "name": "Perfect fourth (e-a on the dalei)",
+          "descriptors": [
+            "standard",
+            "balanced"
+          ],
+          "match_tokens": [
+            "bowed",
+            "mid-register"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "leiqin_tuning_fifth",
+          "name": "Perfect fifth (d-a)",
+          "descriptors": [
+            "open-string",
+            "fuller"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "china"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "leiqin_setting",
+      "name": "Accompaniment context",
+      "variants": [
+        {
+          "id": "leiqin_setting_solo_act",
+          "default": true,
+          "name": "Solo variety act",
+          "descriptors": [
+            "soloistic",
+            "virtuosic",
+            "showpiece"
+          ],
+          "match_tokens": [
+            "bowed",
+            "solo",
+            "virtuosic"
+          ],
+          "canonical_tags": [
+            "solo"
+          ]
+        },
+        {
+          "id": "leiqin_setting_ensemble",
+          "name": "Ensemble member",
+          "descriptors": [
+            "ensemble",
+            "blended",
+            "supporting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "leiqin_mode",
+      "name": "Performance mode",
+      "variants": [
+        {
+          "id": "leiqin_mode_laxi",
+          "default": true,
+          "name": "Laxi - bowed imitation of named opera singers",
+          "descriptors": [
+            "vocal-imitating",
+            "operatic",
+            "theatrical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vocal",
+            "speech-derived"
+          ],
+          "canonical_tags": [
+            "chinese-opera",
+            "solo"
+          ]
+        },
+        {
+          "id": "leiqin_mode_effects",
+          "name": "Animal cries, sheng-and-guan and gong effects",
+          "descriptors": [
+            "imitative",
+            "playful",
+            "birdsong"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "expressive"
+          ],
+          "canonical_tags": [
+            "china"
+          ]
+        },
+        {
+          "id": "leiqin_mode_melodic",
+          "name": "Straight melodic solo (Fishermen's Song, Humoresque)",
+          "descriptors": [
+            "lyrical",
+            "singing",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic",
+            "solo"
+          ],
+          "canonical_tags": [
+            "solo",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "leiqin_size",
+      "name": "Instrument size",
+      "variants": [
+        {
+          "id": "leiqin_size_dalei",
+          "default": true,
+          "name": "Dalei (~110 cm concert instrument)",
+          "descriptors": [
+            "loud",
+            "full-bodied",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register",
+            "resonant"
+          ],
+          "canonical_tags": [
+            "concert"
+          ]
+        },
+        {
+          "id": "leiqin_size_xiaolei",
+          "name": "Xiaolei (small form)",
+          "descriptors": [
+            "brighter",
+            "focused",
+            "nasal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "mid-register",
+            "nasal-tone"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "leiqin_tuning",
+      "name": "String interval",
+      "variants": [
+        {
+          "id": "leiqin_tuning_fourth",
+          "default": true,
+          "name": "Perfect fourth (e-a on the dalei)",
+          "descriptors": [
+            "standard",
+            "balanced"
+          ],
+          "match_tokens": [
+            "bowed",
+            "mid-register"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "leiqin_tuning_fifth",
+          "name": "Perfect fifth (d-a)",
+          "descriptors": [
+            "open-string",
+            "fuller"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "china"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "leiqin_setting",
+      "name": "Accompaniment context",
+      "variants": [
+        {
+          "id": "leiqin_setting_solo_act",
+          "default": true,
+          "name": "Solo variety act",
+          "descriptors": [
+            "soloistic",
+            "virtuosic",
+            "showpiece"
+          ],
+          "match_tokens": [
+            "bowed",
+            "solo",
+            "virtuosic"
+          ],
+          "canonical_tags": [
+            "solo"
+          ]
+        },
+        {
+          "id": "leiqin_setting_ensemble",
+          "name": "Ensemble member",
+          "descriptors": [
+            "ensemble",
+            "blended",
+            "supporting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ]
+}

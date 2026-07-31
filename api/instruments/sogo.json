@@ -1,0 +1,452 @@
+{
+  "id": "sogo",
+  "name": "Sogo (Ewe barrel drum)",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "sogo",
+  "parts": [
+    {
+      "id": "sogo_ensemble_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "sogo_ensemble_role_agbadza_lead",
+          "default": true,
+          "name": "Agbadza master drum (bare hands, cueing drums and dancers)",
+          "descriptors": [
+            "lead",
+            "commanding",
+            "call-and-response"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "lead-drum"
+          ],
+          "canonical_tags": [
+            "lead",
+            "dance"
+          ]
+        },
+        {
+          "id": "sogo_ensemble_role_agbekor_support",
+          "name": "Agbekor support voice answering atsimevu",
+          "descriptors": [
+            "supporting",
+            "interlocking",
+            "foundational"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "interlocking"
+          ],
+          "canonical_tags": [
+            "ostinato",
+            "ceremonial"
+          ]
+        },
+        {
+          "id": "sogo_ensemble_role_gahu_support",
+          "name": "Gahu support voice answering boba",
+          "descriptors": [
+            "answering",
+            "steady-groove",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "groove"
+          ],
+          "canonical_tags": [
+            "dance",
+            "ostinato"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sogo_stroke_technique",
+      "name": "Stroke technique",
+      "variants": [
+        {
+          "id": "sogo_stroke_technique_bare_hands",
+          "default": true,
+          "name": "Two bare hands (Agbadza norm)",
+          "descriptors": [
+            "warm-open-tone",
+            "open-slap-tones",
+            "expressive"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "west-african"
+          ]
+        },
+        {
+          "id": "sogo_stroke_technique_two_sticks",
+          "name": "Two wooden sticks",
+          "descriptors": [
+            "sharp-attack",
+            "projecting",
+            "cutting"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "west-african"
+          ]
+        },
+        {
+          "id": "sogo_stroke_technique_hand_and_stick",
+          "name": "Hand and stick",
+          "descriptors": [
+            "articulate",
+            "two-tone",
+            "expressive"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "sticks"
+          ],
+          "canonical_tags": [
+            "west-african"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sogo_tuning_pair",
+      "name": "Tuning against kidi",
+      "variants": [
+        {
+          "id": "sogo_tuning_pair_wide",
+          "default": true,
+          "name": "Wide interval from kidi (distinct father and mother voices)",
+          "descriptors": [
+            "deep-voiced",
+            "interlocking",
+            "two-tone"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "high-low-pair"
+          ]
+        },
+        {
+          "id": "sogo_tuning_pair_close",
+          "name": "Close-tuned for a blended low pair",
+          "descriptors": [
+            "blended",
+            "warm",
+            "low-mid-rich-spectrum"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "high-low-pair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sogo_hide_material",
+      "name": "Shell and hide",
+      "variants": [
+        {
+          "id": "sogo_hide_material_goat_stave",
+          "default": true,
+          "name": "Goat hide on a stave-built shell, six to eight conical pegs",
+          "descriptors": [
+            "goat-skin-head",
+            "rope-tensioned",
+            "brighter-crack"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "membrane",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "goatskin"
+          ]
+        },
+        {
+          "id": "sogo_hide_material_antelope_carved",
+          "name": "Antelope hide on a carved solid log",
+          "descriptors": [
+            "hide",
+            "hollowed-trunk",
+            "darker"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "membrane",
+            "low-register"
+          ]
+        },
+        {
+          "id": "sogo_hide_material_cowhide",
+          "name": "Cowhide head (heavier, deeper)",
+          "descriptors": [
+            "hide",
+            "deeper",
+            "body-rich"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "membrane",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "natural-skin"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sogo_ensemble_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "sogo_ensemble_role_agbadza_lead",
+          "default": true,
+          "name": "Agbadza master drum (bare hands, cueing drums and dancers)",
+          "descriptors": [
+            "lead",
+            "commanding",
+            "call-and-response"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "lead-drum"
+          ],
+          "canonical_tags": [
+            "lead",
+            "dance"
+          ]
+        },
+        {
+          "id": "sogo_ensemble_role_agbekor_support",
+          "name": "Agbekor support voice answering atsimevu",
+          "descriptors": [
+            "supporting",
+            "interlocking",
+            "foundational"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "interlocking"
+          ],
+          "canonical_tags": [
+            "ostinato",
+            "ceremonial"
+          ]
+        },
+        {
+          "id": "sogo_ensemble_role_gahu_support",
+          "name": "Gahu support voice answering boba",
+          "descriptors": [
+            "answering",
+            "steady-groove",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "groove"
+          ],
+          "canonical_tags": [
+            "dance",
+            "ostinato"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sogo_stroke_technique",
+      "name": "Stroke technique",
+      "variants": [
+        {
+          "id": "sogo_stroke_technique_bare_hands",
+          "default": true,
+          "name": "Two bare hands (Agbadza norm)",
+          "descriptors": [
+            "warm-open-tone",
+            "open-slap-tones",
+            "expressive"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "west-african"
+          ]
+        },
+        {
+          "id": "sogo_stroke_technique_two_sticks",
+          "name": "Two wooden sticks",
+          "descriptors": [
+            "sharp-attack",
+            "projecting",
+            "cutting"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "west-african"
+          ]
+        },
+        {
+          "id": "sogo_stroke_technique_hand_and_stick",
+          "name": "Hand and stick",
+          "descriptors": [
+            "articulate",
+            "two-tone",
+            "expressive"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "sticks"
+          ],
+          "canonical_tags": [
+            "west-african"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sogo_tuning_pair",
+      "name": "Tuning against kidi",
+      "variants": [
+        {
+          "id": "sogo_tuning_pair_wide",
+          "default": true,
+          "name": "Wide interval from kidi (distinct father and mother voices)",
+          "descriptors": [
+            "deep-voiced",
+            "interlocking",
+            "two-tone"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "high-low-pair"
+          ]
+        },
+        {
+          "id": "sogo_tuning_pair_close",
+          "name": "Close-tuned for a blended low pair",
+          "descriptors": [
+            "blended",
+            "warm",
+            "low-mid-rich-spectrum"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "high-low-pair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sogo_hide_material",
+      "name": "Shell and hide",
+      "variants": [
+        {
+          "id": "sogo_hide_material_goat_stave",
+          "default": true,
+          "name": "Goat hide on a stave-built shell, six to eight conical pegs",
+          "descriptors": [
+            "goat-skin-head",
+            "rope-tensioned",
+            "brighter-crack"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "membrane",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "goatskin"
+          ]
+        },
+        {
+          "id": "sogo_hide_material_antelope_carved",
+          "name": "Antelope hide on a carved solid log",
+          "descriptors": [
+            "hide",
+            "hollowed-trunk",
+            "darker"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "membrane",
+            "low-register"
+          ]
+        },
+        {
+          "id": "sogo_hide_material_cowhide",
+          "name": "Cowhide head (heavier, deeper)",
+          "descriptors": [
+            "hide",
+            "deeper",
+            "body-rich"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "membrane",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "natural-skin"
+          ]
+        }
+      ]
+    }
+  ]
+}

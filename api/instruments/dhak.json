@@ -1,0 +1,512 @@
+{
+  "id": "dhak",
+  "name": "Dhak (Bengali processional puja drum)",
+  "family": "percussion",
+  "class": "barrel_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "dhak",
+  "parts": [
+    {
+      "id": "dhak_context",
+      "name": "Ritual context / repertoire",
+      "variants": [
+        {
+          "id": "dhak_context_puja",
+          "default": true,
+          "name": "Durga Puja dhaki playing",
+          "descriptors": [
+            "devotional",
+            "festive",
+            "processional"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "processional",
+            "festival",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "bengali",
+            "festival",
+            "ritual"
+          ]
+        },
+        {
+          "id": "dhak_context_dhunuchi",
+          "name": "Dhunuchi naach accompaniment (incense-pot dance)",
+          "descriptors": [
+            "accelerating",
+            "trance-building",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "dance-pulse",
+            "trance-inducing"
+          ],
+          "canonical_tags": [
+            "bengali",
+            "dance",
+            "ritual"
+          ]
+        },
+        {
+          "id": "dhak_context_wedding",
+          "name": "Wedding, folk theatre and village festival",
+          "descriptors": [
+            "celebratory",
+            "outdoor",
+            "communal"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "processional",
+            "festival"
+          ],
+          "canonical_tags": [
+            "wedding",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dhak_mounting",
+      "name": "Mounting and posture",
+      "variants": [
+        {
+          "id": "dhak_mounting_shoulder",
+          "default": true,
+          "name": "High shoulder sling, played standing and dancing",
+          "descriptors": [
+            "slung",
+            "loose",
+            "open"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "processional",
+            "dance"
+          ],
+          "canonical_tags": [
+            "processional",
+            "dance"
+          ]
+        },
+        {
+          "id": "dhak_mounting_waist",
+          "name": "Waist-slung and steadied",
+          "descriptors": [
+            "controlled",
+            "tight",
+            "steady"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "sharp-attack",
+            "groove"
+          ],
+          "canonical_tags": [
+            "processional"
+          ]
+        },
+        {
+          "id": "dhak_mounting_stand",
+          "name": "Stand-mounted studio position",
+          "descriptors": [
+            "controlled",
+            "even",
+            "modern"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "modern",
+            "sticks"
+          ],
+          "canonical_tags": [
+            "studio",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dhak_ensemble",
+      "name": "Ensemble",
+      "variants": [
+        {
+          "id": "dhak_ensemble_kansor",
+          "default": true,
+          "name": "Solo dhaki with kansor gong-cymbal and shankha conch",
+          "descriptors": [
+            "ritual",
+            "sparse",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "ritual-context",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "ritual",
+            "procession"
+          ]
+        },
+        {
+          "id": "dhak_ensemble_battery",
+          "name": "Massed dhak battery with dhamsa kettle drum",
+          "descriptors": [
+            "massed",
+            "thunderous",
+            "unison"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "loud-projection",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "ensemble",
+            "procession"
+          ]
+        },
+        {
+          "id": "dhak_ensemble_arranged",
+          "name": "Single dhak inside a recorded arrangement",
+          "descriptors": [
+            "layered",
+            "arranged",
+            "modern"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "modern",
+            "groove"
+          ],
+          "canonical_tags": [
+            "studio",
+            "modern",
+            "pop"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dhak_build",
+      "name": "Shell and sticks",
+      "variants": [
+        {
+          "id": "dhak_build_mango_cane",
+          "default": true,
+          "name": "Large mango-wood shell, rope-laced hide, thin cane sticks",
+          "descriptors": [
+            "woody",
+            "resonant",
+            "traditional"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "wood-shell",
+            "sticks"
+          ],
+          "canonical_tags": [
+            "mango-wood",
+            "cane"
+          ]
+        },
+        {
+          "id": "dhak_build_light",
+          "name": "Smaller lightweight modern shell",
+          "descriptors": [
+            "lighter",
+            "bright",
+            "portable"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "modern",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "dhak_build_heavy_sticks",
+          "name": "Heavier sticks on a deep traditional shell",
+          "descriptors": [
+            "heavy",
+            "deep",
+            "punchy"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "sticks",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "hardwood"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dhak_context",
+      "name": "Ritual context / repertoire",
+      "variants": [
+        {
+          "id": "dhak_context_puja",
+          "default": true,
+          "name": "Durga Puja dhaki playing",
+          "descriptors": [
+            "devotional",
+            "festive",
+            "processional"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "processional",
+            "festival",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "bengali",
+            "festival",
+            "ritual"
+          ]
+        },
+        {
+          "id": "dhak_context_dhunuchi",
+          "name": "Dhunuchi naach accompaniment (incense-pot dance)",
+          "descriptors": [
+            "accelerating",
+            "trance-building",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "dance-pulse",
+            "trance-inducing"
+          ],
+          "canonical_tags": [
+            "bengali",
+            "dance",
+            "ritual"
+          ]
+        },
+        {
+          "id": "dhak_context_wedding",
+          "name": "Wedding, folk theatre and village festival",
+          "descriptors": [
+            "celebratory",
+            "outdoor",
+            "communal"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "processional",
+            "festival"
+          ],
+          "canonical_tags": [
+            "wedding",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dhak_mounting",
+      "name": "Mounting and posture",
+      "variants": [
+        {
+          "id": "dhak_mounting_shoulder",
+          "default": true,
+          "name": "High shoulder sling, played standing and dancing",
+          "descriptors": [
+            "slung",
+            "loose",
+            "open"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "processional",
+            "dance"
+          ],
+          "canonical_tags": [
+            "processional",
+            "dance"
+          ]
+        },
+        {
+          "id": "dhak_mounting_waist",
+          "name": "Waist-slung and steadied",
+          "descriptors": [
+            "controlled",
+            "tight",
+            "steady"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "sharp-attack",
+            "groove"
+          ],
+          "canonical_tags": [
+            "processional"
+          ]
+        },
+        {
+          "id": "dhak_mounting_stand",
+          "name": "Stand-mounted studio position",
+          "descriptors": [
+            "controlled",
+            "even",
+            "modern"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "modern",
+            "sticks"
+          ],
+          "canonical_tags": [
+            "studio",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dhak_ensemble",
+      "name": "Ensemble",
+      "variants": [
+        {
+          "id": "dhak_ensemble_kansor",
+          "default": true,
+          "name": "Solo dhaki with kansor gong-cymbal and shankha conch",
+          "descriptors": [
+            "ritual",
+            "sparse",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "ritual-context",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "ritual",
+            "procession"
+          ]
+        },
+        {
+          "id": "dhak_ensemble_battery",
+          "name": "Massed dhak battery with dhamsa kettle drum",
+          "descriptors": [
+            "massed",
+            "thunderous",
+            "unison"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "loud-projection",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "ensemble",
+            "procession"
+          ]
+        },
+        {
+          "id": "dhak_ensemble_arranged",
+          "name": "Single dhak inside a recorded arrangement",
+          "descriptors": [
+            "layered",
+            "arranged",
+            "modern"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "modern",
+            "groove"
+          ],
+          "canonical_tags": [
+            "studio",
+            "modern",
+            "pop"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dhak_build",
+      "name": "Shell and sticks",
+      "variants": [
+        {
+          "id": "dhak_build_mango_cane",
+          "default": true,
+          "name": "Large mango-wood shell, rope-laced hide, thin cane sticks",
+          "descriptors": [
+            "woody",
+            "resonant",
+            "traditional"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "wood-shell",
+            "sticks"
+          ],
+          "canonical_tags": [
+            "mango-wood",
+            "cane"
+          ]
+        },
+        {
+          "id": "dhak_build_light",
+          "name": "Smaller lightweight modern shell",
+          "descriptors": [
+            "lighter",
+            "bright",
+            "portable"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "modern",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "dhak_build_heavy_sticks",
+          "name": "Heavier sticks on a deep traditional shell",
+          "descriptors": [
+            "heavy",
+            "deep",
+            "punchy"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "sticks",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "hardwood"
+          ]
+        }
+      ]
+    }
+  ]
+}

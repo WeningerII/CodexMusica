@@ -1,0 +1,465 @@
+{
+  "id": "yayli_tanbur",
+  "name": "Yaylı tanbur (Turkish bowed long-neck lute)",
+  "family": "bowed",
+  "class": "bowed_lute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "yaylı tanbur",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "yayli_tanbur_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "yayli_tanbur_form_skin_endpin",
+          "default": true,
+          "name": "Mid-20th-century standard: skin-membrane belly on a shallow bowl, played upright on an endpin",
+          "descriptors": [
+            "hide-faced",
+            "resonance-saturated",
+            "singing",
+            "long-necked"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "drone-resonance",
+            "fretted"
+          ],
+          "canonical_tags": [
+            "turkish",
+            "ottoman",
+            "art-music"
+          ]
+        },
+        {
+          "id": "yayli_tanbur_form_wooden_belly",
+          "name": "Thin wooden soundboard build (drier, more focused)",
+          "descriptors": [
+            "wood",
+            "dry",
+            "refined"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "fretted"
+          ],
+          "canonical_tags": [
+            "turkish",
+            "modern"
+          ]
+        },
+        {
+          "id": "yayli_tanbur_form_knee_held",
+          "name": "Held on the knee without an endpin (older posture)",
+          "descriptors": [
+            "archaic",
+            "intimate",
+            "soft"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "turkish",
+            "historical"
+          ]
+        },
+        {
+          "id": "yayli_tanbur_form_mixed_attack",
+          "name": "Mixed bowed-and-plucked tanbur (bow and mızrap alternating)",
+          "descriptors": [
+            "expressive",
+            "improvisatory",
+            "virtuosic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "plucked",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "turkish",
+            "art-music"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yayli_tanbur_repertoire",
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "yayli_tanbur_repertoire_taksim",
+          "default": true,
+          "name": "Solo improvised taksim",
+          "descriptors": [
+            "improvisatory",
+            "free-rhythm",
+            "rubato",
+            "modal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "solo",
+            "microtonal-bend",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "turkish",
+            "makam",
+            "solo"
+          ]
+        },
+        {
+          "id": "yayli_tanbur_repertoire_fasil",
+          "name": "Fasıl ensemble line (peşrev, saz semaisi)",
+          "descriptors": [
+            "courtly",
+            "measured",
+            "ensemble-blend"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "turkish",
+            "ottoman",
+            "art-music"
+          ]
+        },
+        {
+          "id": "yayli_tanbur_repertoire_mevlevi",
+          "name": "Mevlevi ayin (Sufi ceremony)",
+          "descriptors": [
+            "sacred",
+            "meditative",
+            "sustained",
+            "solemn"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sacred-traditional",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "turkish",
+            "sufi",
+            "ritual"
+          ]
+        },
+        {
+          "id": "yayli_tanbur_repertoire_film_studio",
+          "name": "Film and arabesk studio timbre",
+          "descriptors": [
+            "plaintive",
+            "lyrical",
+            "urban"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented",
+            "modern"
+          ],
+          "canonical_tags": [
+            "turkish",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yayli_tanbur_fretting",
+      "name": "Fretting and tuning",
+      "variants": [
+        {
+          "id": "yayli_tanbur_fretting_comma",
+          "default": true,
+          "name": "Turkish makam comma fretting (48-56 tied gut frets)",
+          "descriptors": [
+            "microtonal",
+            "modal",
+            "gut"
+          ],
+          "match_tokens": [
+            "bowed",
+            "microtonal-bend",
+            "fretted"
+          ],
+          "canonical_tags": [
+            "turkish",
+            "makam"
+          ]
+        },
+        {
+          "id": "yayli_tanbur_fretting_reduced",
+          "name": "Reduced / near-equal-tempered fretting (crossover work)",
+          "descriptors": [
+            "standardized",
+            "clean",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretted",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "yayli_tanbur_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "yayli_tanbur_form_skin_endpin",
+          "default": true,
+          "name": "Mid-20th-century standard: skin-membrane belly on a shallow bowl, played upright on an endpin",
+          "descriptors": [
+            "hide-faced",
+            "resonance-saturated",
+            "singing",
+            "long-necked"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "drone-resonance",
+            "fretted"
+          ],
+          "canonical_tags": [
+            "turkish",
+            "ottoman",
+            "art-music"
+          ]
+        },
+        {
+          "id": "yayli_tanbur_form_wooden_belly",
+          "name": "Thin wooden soundboard build (drier, more focused)",
+          "descriptors": [
+            "wood",
+            "dry",
+            "refined"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "fretted"
+          ],
+          "canonical_tags": [
+            "turkish",
+            "modern"
+          ]
+        },
+        {
+          "id": "yayli_tanbur_form_knee_held",
+          "name": "Held on the knee without an endpin (older posture)",
+          "descriptors": [
+            "archaic",
+            "intimate",
+            "soft"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "turkish",
+            "historical"
+          ]
+        },
+        {
+          "id": "yayli_tanbur_form_mixed_attack",
+          "name": "Mixed bowed-and-plucked tanbur (bow and mızrap alternating)",
+          "descriptors": [
+            "expressive",
+            "improvisatory",
+            "virtuosic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "plucked",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "turkish",
+            "art-music"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yayli_tanbur_repertoire",
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "yayli_tanbur_repertoire_taksim",
+          "default": true,
+          "name": "Solo improvised taksim",
+          "descriptors": [
+            "improvisatory",
+            "free-rhythm",
+            "rubato",
+            "modal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "solo",
+            "microtonal-bend",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "turkish",
+            "makam",
+            "solo"
+          ]
+        },
+        {
+          "id": "yayli_tanbur_repertoire_fasil",
+          "name": "Fasıl ensemble line (peşrev, saz semaisi)",
+          "descriptors": [
+            "courtly",
+            "measured",
+            "ensemble-blend"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "turkish",
+            "ottoman",
+            "art-music"
+          ]
+        },
+        {
+          "id": "yayli_tanbur_repertoire_mevlevi",
+          "name": "Mevlevi ayin (Sufi ceremony)",
+          "descriptors": [
+            "sacred",
+            "meditative",
+            "sustained",
+            "solemn"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sacred-traditional",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "turkish",
+            "sufi",
+            "ritual"
+          ]
+        },
+        {
+          "id": "yayli_tanbur_repertoire_film_studio",
+          "name": "Film and arabesk studio timbre",
+          "descriptors": [
+            "plaintive",
+            "lyrical",
+            "urban"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented",
+            "modern"
+          ],
+          "canonical_tags": [
+            "turkish",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yayli_tanbur_fretting",
+      "name": "Fretting and tuning",
+      "variants": [
+        {
+          "id": "yayli_tanbur_fretting_comma",
+          "default": true,
+          "name": "Turkish makam comma fretting (48-56 tied gut frets)",
+          "descriptors": [
+            "microtonal",
+            "modal",
+            "gut"
+          ],
+          "match_tokens": [
+            "bowed",
+            "microtonal-bend",
+            "fretted"
+          ],
+          "canonical_tags": [
+            "turkish",
+            "makam"
+          ]
+        },
+        {
+          "id": "yayli_tanbur_fretting_reduced",
+          "name": "Reduced / near-equal-tempered fretting (crossover work)",
+          "descriptors": [
+            "standardized",
+            "clean",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretted",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

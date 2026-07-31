@@ -1,0 +1,483 @@
+{
+  "id": "maguhu",
+  "name": "Maguhu (Zhuang horse-bone fiddle)",
+  "family": "bowed",
+  "class": "bowed_fiddle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 2,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "maguhu",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "maguhu_bone",
+      "name": "Resonator bone",
+      "variants": [
+        {
+          "id": "maguhu_bone_horse",
+          "default": true,
+          "name": "Draught-horse femur (best-regarded stock)",
+          "descriptors": [
+            "bone",
+            "bone-built",
+            "ringing",
+            "piercing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bright-tone",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "traditional",
+            "china"
+          ]
+        },
+        {
+          "id": "maguhu_bone_ox",
+          "name": "Ox or mule bone",
+          "descriptors": [
+            "animal-bone",
+            "dense",
+            "fuller"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bright-tone",
+            "mid-register"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        },
+        {
+          "id": "maguhu_bone_laminated",
+          "name": "Post-1949 laminated bone box",
+          "descriptors": [
+            "modern",
+            "stable",
+            "even"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bright-tone",
+            "resonant"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "maguhu_membrane",
+      "name": "Membrane",
+      "variants": [
+        {
+          "id": "maguhu_membrane_python",
+          "default": true,
+          "name": "Python / snake skin",
+          "descriptors": [
+            "python-skin",
+            "snake-skin",
+            "cutting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bright-tone",
+            "piercing"
+          ],
+          "canonical_tags": [
+            "snakeskin"
+          ]
+        },
+        {
+          "id": "maguhu_membrane_shark",
+          "name": "Shark skin",
+          "descriptors": [
+            "grainy",
+            "rough",
+            "dry"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "natural-skin"
+          ]
+        },
+        {
+          "id": "maguhu_membrane_frog",
+          "name": "Frog skin",
+          "descriptors": [
+            "thin",
+            "soft",
+            "nasal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "nasal-tone",
+            "soft-tone"
+          ],
+          "canonical_tags": [
+            "natural-skin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "maguhu_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "maguhu_role_beilu",
+          "default": true,
+          "name": "Lead of Northern Road Zhuang opera",
+          "descriptors": [
+            "operatic",
+            "projecting",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "bowed",
+            "lead-melody",
+            "piercing"
+          ],
+          "canonical_tags": [
+            "opera",
+            "traditional"
+          ]
+        },
+        {
+          "id": "maguhu_role_bayin",
+          "name": "Zhuang bayin principal voice",
+          "descriptors": [
+            "ensemble",
+            "festive",
+            "carrying"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "outdoor-field"
+          ],
+          "canonical_tags": [
+            "ensemble",
+            "folk"
+          ]
+        },
+        {
+          "id": "maguhu_role_stack",
+          "name": "Top of the maguhu / tuhu / huluhu three-fiddle stack",
+          "descriptors": [
+            "bright",
+            "soloistic",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic-lead",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "china"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "maguhu_form",
+      "name": "Regional and ethnic form",
+      "variants": [
+        {
+          "id": "maguhu_form_zhuang",
+          "default": true,
+          "name": "Guangxi Zhuang maguhu (horse bone)",
+          "descriptors": [
+            "traditional",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "china",
+            "folk"
+          ]
+        },
+        {
+          "id": "maguhu_form_niuguhu",
+          "name": "Guizhou Buyei niuguhu (ox bone)",
+          "descriptors": [
+            "animal-bone",
+            "earthy",
+            "fuller"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "mid-register"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "maguhu_bone",
+      "name": "Resonator bone",
+      "variants": [
+        {
+          "id": "maguhu_bone_horse",
+          "default": true,
+          "name": "Draught-horse femur (best-regarded stock)",
+          "descriptors": [
+            "bone",
+            "bone-built",
+            "ringing",
+            "piercing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bright-tone",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "traditional",
+            "china"
+          ]
+        },
+        {
+          "id": "maguhu_bone_ox",
+          "name": "Ox or mule bone",
+          "descriptors": [
+            "animal-bone",
+            "dense",
+            "fuller"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bright-tone",
+            "mid-register"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        },
+        {
+          "id": "maguhu_bone_laminated",
+          "name": "Post-1949 laminated bone box",
+          "descriptors": [
+            "modern",
+            "stable",
+            "even"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bright-tone",
+            "resonant"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "maguhu_membrane",
+      "name": "Membrane",
+      "variants": [
+        {
+          "id": "maguhu_membrane_python",
+          "default": true,
+          "name": "Python / snake skin",
+          "descriptors": [
+            "python-skin",
+            "snake-skin",
+            "cutting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bright-tone",
+            "piercing"
+          ],
+          "canonical_tags": [
+            "snakeskin"
+          ]
+        },
+        {
+          "id": "maguhu_membrane_shark",
+          "name": "Shark skin",
+          "descriptors": [
+            "grainy",
+            "rough",
+            "dry"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "natural-skin"
+          ]
+        },
+        {
+          "id": "maguhu_membrane_frog",
+          "name": "Frog skin",
+          "descriptors": [
+            "thin",
+            "soft",
+            "nasal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "nasal-tone",
+            "soft-tone"
+          ],
+          "canonical_tags": [
+            "natural-skin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "maguhu_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "maguhu_role_beilu",
+          "default": true,
+          "name": "Lead of Northern Road Zhuang opera",
+          "descriptors": [
+            "operatic",
+            "projecting",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "bowed",
+            "lead-melody",
+            "piercing"
+          ],
+          "canonical_tags": [
+            "opera",
+            "traditional"
+          ]
+        },
+        {
+          "id": "maguhu_role_bayin",
+          "name": "Zhuang bayin principal voice",
+          "descriptors": [
+            "ensemble",
+            "festive",
+            "carrying"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "outdoor-field"
+          ],
+          "canonical_tags": [
+            "ensemble",
+            "folk"
+          ]
+        },
+        {
+          "id": "maguhu_role_stack",
+          "name": "Top of the maguhu / tuhu / huluhu three-fiddle stack",
+          "descriptors": [
+            "bright",
+            "soloistic",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic-lead",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "china"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "maguhu_form",
+      "name": "Regional and ethnic form",
+      "variants": [
+        {
+          "id": "maguhu_form_zhuang",
+          "default": true,
+          "name": "Guangxi Zhuang maguhu (horse bone)",
+          "descriptors": [
+            "traditional",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "china",
+            "folk"
+          ]
+        },
+        {
+          "id": "maguhu_form_niuguhu",
+          "name": "Guizhou Buyei niuguhu (ox bone)",
+          "descriptors": [
+            "animal-bone",
+            "earthy",
+            "fuller"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "mid-register"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        }
+      ]
+    }
+  ]
+}

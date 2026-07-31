@@ -1,0 +1,448 @@
+{
+  "id": "cromorne",
+  "name": "Cromorne (French baroque conical double reed, not the crumhorn)",
+  "family": "wind",
+  "class": "double_reed",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "cromorne",
+  "parts": [
+    {
+      "id": "cromorne_size",
+      "name": "Family size",
+      "variants": [
+        {
+          "id": "cromorne_basse",
+          "default": true,
+          "name": "Basse de cromorne / basse de hautbois (the bass oboe of the French baroque)",
+          "descriptors": [
+            "bass",
+            "foundation-bass",
+            "dark-reedy"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven",
+            "low-register",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "french"
+          ]
+        },
+        {
+          "id": "cromorne_taille",
+          "name": "Taille (tenor voice of the consort)",
+          "descriptors": [
+            "tenor",
+            "inner-voice",
+            "warm"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "french"
+          ]
+        },
+        {
+          "id": "cromorne_dessus",
+          "name": "Dessus (treble, displaced by the new hautbois)",
+          "descriptors": [
+            "soprano",
+            "bright",
+            "historical"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "early-music-caution"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cromorne_role",
+      "name": "Repertoire role",
+      "variants": [
+        {
+          "id": "cromorne_lully_continuo",
+          "default": true,
+          "name": "Continuo bass under Lully's petits choeurs",
+          "descriptors": [
+            "continuo",
+            "foundation-bass",
+            "courtly"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "baroque-leaning",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "french",
+            "court"
+          ]
+        },
+        {
+          "id": "cromorne_charpentier_melodic",
+          "name": "Melodic upper voice in Charpentier's sacred scoring",
+          "descriptors": [
+            "melodic-lead",
+            "sacred",
+            "polyphonic"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "melodic",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "french"
+          ]
+        },
+        {
+          "id": "cromorne_cmbv_replica",
+          "name": "Modern replica consort (Centre de musique baroque de Versailles)",
+          "descriptors": [
+            "reconstructed",
+            "historically-informed",
+            "preservationist"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "period-performance",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "period-performance",
+            "revival"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cromorne_pitch_standard",
+      "name": "Pitch standard",
+      "variants": [
+        {
+          "id": "cromorne_ton_dopera",
+          "default": true,
+          "name": "A=392 (French ton d'opera, CMBV replica standard)",
+          "descriptors": [
+            "baroque-pitch",
+            "french",
+            "historically-tuned"
+          ],
+          "match_tokens": [
+            "period-performance",
+            "baroque-leaning",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "period"
+          ]
+        },
+        {
+          "id": "cromorne_a415",
+          "name": "A=415 (general baroque consort pitch)",
+          "descriptors": [
+            "a-415",
+            "baroque-pitch"
+          ],
+          "match_tokens": [
+            "period-performance",
+            "baroque-leaning",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "period"
+          ]
+        },
+        {
+          "id": "cromorne_a440",
+          "name": "A=440 (modern-pitch practical build)",
+          "descriptors": [
+            "a-440",
+            "modern"
+          ],
+          "match_tokens": [
+            "modern",
+            "double-reed",
+            "wind-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cromorne_reed",
+      "name": "Reed scrape / embouchure",
+      "variants": [
+        {
+          "id": "cromorne_broad_french",
+          "default": true,
+          "name": "Broad soft French baroque scrape, reed between the lips",
+          "descriptors": [
+            "cane-double-reed-canonical-arundo-donax",
+            "soft",
+            "french"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "reed-driven",
+            "baroque-leaning",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "cromorne_shawm_derived",
+          "name": "Harder shawm-derived scrape (earlier, louder reading)",
+          "descriptors": [
+            "loud",
+            "penetrating",
+            "archaic"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "reed-driven",
+            "loud-projection"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "cromorne_size",
+      "name": "Family size",
+      "variants": [
+        {
+          "id": "cromorne_basse",
+          "default": true,
+          "name": "Basse de cromorne / basse de hautbois (the bass oboe of the French baroque)",
+          "descriptors": [
+            "bass",
+            "foundation-bass",
+            "dark-reedy"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven",
+            "low-register",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "french"
+          ]
+        },
+        {
+          "id": "cromorne_taille",
+          "name": "Taille (tenor voice of the consort)",
+          "descriptors": [
+            "tenor",
+            "inner-voice",
+            "warm"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "french"
+          ]
+        },
+        {
+          "id": "cromorne_dessus",
+          "name": "Dessus (treble, displaced by the new hautbois)",
+          "descriptors": [
+            "soprano",
+            "bright",
+            "historical"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "early-music-caution"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cromorne_role",
+      "name": "Repertoire role",
+      "variants": [
+        {
+          "id": "cromorne_lully_continuo",
+          "default": true,
+          "name": "Continuo bass under Lully's petits choeurs",
+          "descriptors": [
+            "continuo",
+            "foundation-bass",
+            "courtly"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "baroque-leaning",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "french",
+            "court"
+          ]
+        },
+        {
+          "id": "cromorne_charpentier_melodic",
+          "name": "Melodic upper voice in Charpentier's sacred scoring",
+          "descriptors": [
+            "melodic-lead",
+            "sacred",
+            "polyphonic"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "melodic",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "french"
+          ]
+        },
+        {
+          "id": "cromorne_cmbv_replica",
+          "name": "Modern replica consort (Centre de musique baroque de Versailles)",
+          "descriptors": [
+            "reconstructed",
+            "historically-informed",
+            "preservationist"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "period-performance",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "period-performance",
+            "revival"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cromorne_pitch_standard",
+      "name": "Pitch standard",
+      "variants": [
+        {
+          "id": "cromorne_ton_dopera",
+          "default": true,
+          "name": "A=392 (French ton d'opera, CMBV replica standard)",
+          "descriptors": [
+            "baroque-pitch",
+            "french",
+            "historically-tuned"
+          ],
+          "match_tokens": [
+            "period-performance",
+            "baroque-leaning",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "period"
+          ]
+        },
+        {
+          "id": "cromorne_a415",
+          "name": "A=415 (general baroque consort pitch)",
+          "descriptors": [
+            "a-415",
+            "baroque-pitch"
+          ],
+          "match_tokens": [
+            "period-performance",
+            "baroque-leaning",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "period"
+          ]
+        },
+        {
+          "id": "cromorne_a440",
+          "name": "A=440 (modern-pitch practical build)",
+          "descriptors": [
+            "a-440",
+            "modern"
+          ],
+          "match_tokens": [
+            "modern",
+            "double-reed",
+            "wind-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cromorne_reed",
+      "name": "Reed scrape / embouchure",
+      "variants": [
+        {
+          "id": "cromorne_broad_french",
+          "default": true,
+          "name": "Broad soft French baroque scrape, reed between the lips",
+          "descriptors": [
+            "cane-double-reed-canonical-arundo-donax",
+            "soft",
+            "french"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "reed-driven",
+            "baroque-leaning",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "cromorne_shawm_derived",
+          "name": "Harder shawm-derived scrape (earlier, louder reading)",
+          "descriptors": [
+            "loud",
+            "penetrating",
+            "archaic"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "reed-driven",
+            "loud-projection"
+          ]
+        }
+      ]
+    }
+  ]
+}

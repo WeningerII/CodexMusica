@@ -1,0 +1,510 @@
+{
+  "id": "rothphone",
+  "name": "Rothphone (Italian saxophone-bodied double reed)",
+  "family": "wind",
+  "class": "double_reed",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "rothphone",
+  "parts": [
+    {
+      "id": "rothphone_size",
+      "name": "Size",
+      "variants": [
+        {
+          "id": "rothphone_baritone_eb",
+          "default": true,
+          "name": "Baritone in E♭ (presented Rome 1911)",
+          "descriptors": [
+            "deep",
+            "reedy",
+            "buzzy"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "reed-driven",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "italian",
+            "historical"
+          ]
+        },
+        {
+          "id": "rothphone_soprano_bb",
+          "name": "Soprano in B♭",
+          "descriptors": [
+            "nasal",
+            "piercing",
+            "high-register"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "reed-driven",
+            "high-pitched"
+          ],
+          "canonical_tags": [
+            "italian"
+          ]
+        },
+        {
+          "id": "rothphone_alto_eb",
+          "name": "Alto in E♭",
+          "descriptors": [
+            "reedy",
+            "strident",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "reed-driven",
+            "mid-register"
+          ],
+          "canonical_tags": [
+            "italian"
+          ]
+        },
+        {
+          "id": "rothphone_tenor_bb",
+          "name": "Tenor in B♭",
+          "descriptors": [
+            "round",
+            "husky",
+            "warm"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "reed-driven",
+            "tenor-register"
+          ],
+          "canonical_tags": [
+            "italian"
+          ]
+        },
+        {
+          "id": "rothphone_bass_bb",
+          "name": "Bass in B♭",
+          "descriptors": [
+            "booming",
+            "sub-bass",
+            "foundational"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "bass-foundation",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "italian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rothphone_reed",
+      "name": "Reed treatment",
+      "variants": [
+        {
+          "id": "rothphone_light_reed",
+          "default": true,
+          "name": "Lighter sarrusophone-style reed",
+          "descriptors": [
+            "light",
+            "agile",
+            "bright"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "rothphone_heavy_reed",
+          "name": "Heavier bassoon-derived reed",
+          "descriptors": [
+            "dense",
+            "stable",
+            "dark"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rothphone_role",
+      "name": "Band role",
+      "variants": [
+        {
+          "id": "rothphone_banda_melody",
+          "default": true,
+          "name": "Banda melodic voice",
+          "descriptors": [
+            "outdoor",
+            "projecting",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "melodic-lead",
+            "loud-projection",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "italian",
+            "outdoor"
+          ]
+        },
+        {
+          "id": "rothphone_oboe_bassoon_substitute",
+          "name": "Outdoor substitute for oboe / bassoon",
+          "descriptors": [
+            "reedy",
+            "durable",
+            "weatherproof"
+          ],
+          "match_tokens": [
+            "ensemble-blend",
+            "double-reed",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "italian",
+            "processional"
+          ]
+        },
+        {
+          "id": "rothphone_bass_reinforcement",
+          "name": "Bass reinforcement line",
+          "descriptors": [
+            "foundational",
+            "deep",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bass-foundation",
+            "ensemble-blend",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "italian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rothphone_substitution",
+      "name": "Instrument choice",
+      "variants": [
+        {
+          "id": "rothphone_rothphone_own",
+          "default": true,
+          "name": "Rothphone (narrower bore, lighter reed)",
+          "descriptors": [
+            "narrow-bore",
+            "focused",
+            "light"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "reed-driven",
+            "conical-bore"
+          ],
+          "canonical_tags": [
+            "italian"
+          ]
+        },
+        {
+          "id": "rothphone_sarrusophone",
+          "name": "Sarrusophone (heavier, wider bore)",
+          "descriptors": [
+            "broad",
+            "heavy",
+            "buzzy"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "reed-driven",
+            "conical-bore"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        },
+        {
+          "id": "rothphone_saxophone_sub",
+          "name": "Saxophone on the same band part",
+          "descriptors": [
+            "reedy",
+            "smooth",
+            "modern"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "reed-driven",
+            "conical-bore"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "rothphone_size",
+      "name": "Size",
+      "variants": [
+        {
+          "id": "rothphone_baritone_eb",
+          "default": true,
+          "name": "Baritone in E♭ (presented Rome 1911)",
+          "descriptors": [
+            "deep",
+            "reedy",
+            "buzzy"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "reed-driven",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "italian",
+            "historical"
+          ]
+        },
+        {
+          "id": "rothphone_soprano_bb",
+          "name": "Soprano in B♭",
+          "descriptors": [
+            "nasal",
+            "piercing",
+            "high-register"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "reed-driven",
+            "high-pitched"
+          ],
+          "canonical_tags": [
+            "italian"
+          ]
+        },
+        {
+          "id": "rothphone_alto_eb",
+          "name": "Alto in E♭",
+          "descriptors": [
+            "reedy",
+            "strident",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "reed-driven",
+            "mid-register"
+          ],
+          "canonical_tags": [
+            "italian"
+          ]
+        },
+        {
+          "id": "rothphone_tenor_bb",
+          "name": "Tenor in B♭",
+          "descriptors": [
+            "round",
+            "husky",
+            "warm"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "reed-driven",
+            "tenor-register"
+          ],
+          "canonical_tags": [
+            "italian"
+          ]
+        },
+        {
+          "id": "rothphone_bass_bb",
+          "name": "Bass in B♭",
+          "descriptors": [
+            "booming",
+            "sub-bass",
+            "foundational"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "bass-foundation",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "italian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rothphone_reed",
+      "name": "Reed treatment",
+      "variants": [
+        {
+          "id": "rothphone_light_reed",
+          "default": true,
+          "name": "Lighter sarrusophone-style reed",
+          "descriptors": [
+            "light",
+            "agile",
+            "bright"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "rothphone_heavy_reed",
+          "name": "Heavier bassoon-derived reed",
+          "descriptors": [
+            "dense",
+            "stable",
+            "dark"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rothphone_role",
+      "name": "Band role",
+      "variants": [
+        {
+          "id": "rothphone_banda_melody",
+          "default": true,
+          "name": "Banda melodic voice",
+          "descriptors": [
+            "outdoor",
+            "projecting",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "melodic-lead",
+            "loud-projection",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "italian",
+            "outdoor"
+          ]
+        },
+        {
+          "id": "rothphone_oboe_bassoon_substitute",
+          "name": "Outdoor substitute for oboe / bassoon",
+          "descriptors": [
+            "reedy",
+            "durable",
+            "weatherproof"
+          ],
+          "match_tokens": [
+            "ensemble-blend",
+            "double-reed",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "italian",
+            "processional"
+          ]
+        },
+        {
+          "id": "rothphone_bass_reinforcement",
+          "name": "Bass reinforcement line",
+          "descriptors": [
+            "foundational",
+            "deep",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bass-foundation",
+            "ensemble-blend",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "italian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rothphone_substitution",
+      "name": "Instrument choice",
+      "variants": [
+        {
+          "id": "rothphone_rothphone_own",
+          "default": true,
+          "name": "Rothphone (narrower bore, lighter reed)",
+          "descriptors": [
+            "narrow-bore",
+            "focused",
+            "light"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "reed-driven",
+            "conical-bore"
+          ],
+          "canonical_tags": [
+            "italian"
+          ]
+        },
+        {
+          "id": "rothphone_sarrusophone",
+          "name": "Sarrusophone (heavier, wider bore)",
+          "descriptors": [
+            "broad",
+            "heavy",
+            "buzzy"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "reed-driven",
+            "conical-bore"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        },
+        {
+          "id": "rothphone_saxophone_sub",
+          "name": "Saxophone on the same band part",
+          "descriptors": [
+            "reedy",
+            "smooth",
+            "modern"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "reed-driven",
+            "conical-bore"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

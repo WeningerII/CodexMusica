@@ -6,6 +6,113 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Added
+- **219 instrument records — the catalog grows 651 → 870 (+34%).** Drafted from
+  two source lists (the Wikipedia drum "Types" section, and a ~350-entry list of
+  horns, bowed strings, flutes, single reeds and double reeds), researched and
+  authored by nine parallel workflows, then applied serially. **824 new parts,
+  2,336 new variants**; the table now holds 3,227 parts across 870 instruments.
+
+  | family | now |
+  |---|---|
+  | percussion | 220 |
+  | wind | 198 |
+  | bowed | 162 |
+  | plucked_traditional | 116 |
+
+  The largest coherent gaps closed: **Ghana/Akan** (atumpan, fontomfrom,
+  aburukuwa, kpanlogo, plus the Ewe ensemble drums) — an entire regional
+  tradition that had none of its drums while Senegal, Mali and Guinea were well
+  covered; **Nepal/Himalaya** (madal, damphu, dhimay), previously absent
+  entirely; **South India below the famous three** (tavil, parai, idakka); the
+  **Chinese huqin long tail** (banhu, zhonghu, gehu, yehu, zhuihu, tuhu, huluhu,
+  maguhu and others — of 80+ documented huqin types); **Arctic and First Nations
+  bowed** (tautirut, the Inuit bowed box zither strung with whalebone rather
+  than horsehair; qelutviaq; the Apache fiddle) — a cluster the source list
+  scattered but which is organologically coherent, and which Baines links to the
+  Icelandic fiðla and Shetland gue, both also added; and the **historical
+  European bowed and reed families** (division viol, lyra viol, baryton,
+  arpeggione, lira da braccio, lirone, tromba marina, octobass; chalumeau,
+  basset clarinet, dulcian, rackett, cromorne, the capped renaissance reeds).
+
+  **81 candidates were deliberately NOT added**, each with a recorded reason:
+  55 duplicates or synonyms of records already present, 11 better expressed as a
+  variant of an existing record than as a new one, 6 that no source could
+  establish exist at all, 9 other. Pure size variants (contrabass flute,
+  octocontra-alto clarinet, subcontrabass saxophone) were kept out on purpose —
+  `Saxophone` and `Clarinet` are already modelled as single records with
+  configurable size parts, and minting one record per size would fight that.
+
+### Changed
+- `bass_flute_contra_g` renamed from "Contrabass G" to the contra-alto in G. It
+  is the contra-alto, not a contrabass, and the name became actively misleading
+  the moment this batch's real `contrabass_flute` (in C) landed. Name only — the
+  id is untouched, so no reference breaks.
+- Native spelling restored on `latfiol`, `traskofiol` and `dubbeldackare`
+  (Låtfiol, Träskofiol, Dubbeldäckare). The catalog already carries Tār,
+  Kamāncheh, Sārangī, Cajón and Batá, so ASCII-folding was a drafting artefact
+  rather than house style.
+- `nepali_lok` gains `madal`, and `akan_kete_royal_praise` gains `atumpan`. Both
+  were already described in their own lineage prose — `nepali_lok` reads
+  "Standard instrumentation centers on madal two-headed barrel-drum" while madal
+  was absent from its `instruments[]`, because no madal record existed until now.
+- Two new `class` values, `bowed_box_zither` and `single_reed_cylindrical`. Both
+  follow existing series exactly (`bowed_lute` / `bowed_lyre` / `bowed_tube_fiddle`;
+  `single_reed_conical` / `_hornpipe` / `_droned_pipe` / `_double_clarinet`) and
+  nothing already in the table fits. Note `validate.js` does not constrain
+  `class`, so nothing would have caught these — they are a deliberate widening.
+- Instrument counts corrected in AGENTS.md, SKILL.md, docs/connector.md,
+  docs/connector-directory-submission.md, index.html and package.json (651 → 870).
+
+### Fixed
+- **`tests/regression_snapshot.json` is now written in a stable key order.**
+  Re-blessing a two-fixture change produced a **3,590-line diff** — the writer's
+  key order is not deterministic, so almost the entire file churned. Compared as
+  sets, exactly 2 fixtures had changed content (`nepali_lok`,
+  `akan_kete_royal_praise`), 0 added, 0 removed. Rewritten in the committed key
+  order: the diff is now 2 insertions / 2 deletions and still passes 1171/1171.
+  Left alone, that churn would have made review impossible and could hide a real
+  regression behind noise.
+
+### Known advisories (not gates, recorded honestly)
+- `audit.js` warnings rise 1027 → 1307, all in three pre-existing advisory
+  classes and roughly proportional to a catalog that grew 34%:
+  `family_parts_coverage` +100 (204 records already carried it — no
+  `percussion_technique` variant lists the new ids in `applies_to`),
+  `dead_canonical` +112 (362 → 474; canonical_tags on new variants that no
+  tradition references yet — the new instruments are reachable in the app, which
+  lets any instrument join any tradition, but they are not yet wired into
+  tradition records), and `description_instrument_mismatch` +61. That last one is
+  a fuzzy substring matcher and the increase is almost entirely noise: only
+  **3** genuinely new entries, all false positives (`celtic_irish_trad` mentions
+  "wooden" → matches `irish_wooden_flute`; `gagaku` mentions "china" → matches
+  `trompeta_china`). The hard gate, `check:dead-tokens`, is CLEAN.
+- App recipe token ORDER is not fully stable across catalog growth. Six snapshot
+  entries drifted for `mandolin` and `tanbur_persian` — instruments untouched by
+  this change — as `ebony european-maple` → `european-maple ebony` and a rotation
+  on tanbur. Verified as identical token multisets: no content changed, only a
+  tie-break that shifted when the instrument table grew. Re-blessed, but the same
+  catalog state should produce the same string, and it does not.
+
+### Deferred (each edits an existing record; wrong to bundle into a 219-record insert)
+- **Split the `kemence` record.** It fuses two organologically distinct
+  instruments under one id — the Ottoman classical armudî kemençe (pear-shaped,
+  fingernail-side stopping) and the Karadeniz box fiddle (one-block trough,
+  fingertip stopping, parallel-fourth double stops). Independently confirmed by
+  two separate batches, both of which correctly skipped their candidate rather
+  than double-cover it.
+- **Mint `nepali` / `tamang` / `newari` canonical tags and wire them to
+  traditions.** The tag vocabulary has no Himalayan coverage beyond a single-use
+  `himalayan`, so that regional detail currently survives only inside variant
+  names. Minting them unwired would just create more dead tags.
+- **Retire `ryuteki_nohkan` / `ryuteki_shinobue`** now that nohkan and shinobue
+  are records. Kept for now on the catalog's own precedent — `alto_flute`,
+  `bass_flute` and `piccolo` each exist both as records and as `flute_size`
+  variants.
+- **`sorna` as a record distinct from `zurna`.** Skipped because the live `zurna`
+  record's own name claims "surnay", which would put the same word in the catalog
+  twice. The `duduk`/`mey` split is precedent for the other reading.
+
 ### Fixed
 - **CI was red for three commits: the mobile gate stopped failing for the right
   reason.** `scripts/faults.js` is the gate on the gates — it plants one defect

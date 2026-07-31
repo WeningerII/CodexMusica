@@ -1,0 +1,534 @@
+{
+  "id": "nohkan",
+  "name": "Nōkan (Japanese noh-theatre transverse flute)",
+  "family": "wind",
+  "class": "transverse_flute",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 2,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "nohkan",
+  "parts": [
+    {
+      "id": "nohkan_school",
+      "name": "School / lineage",
+      "variants": [
+        {
+          "id": "nohkan_school_isso",
+          "default": true,
+          "name": "Issō-ryū (largest school, declamatory pattern set)",
+          "descriptors": [
+            "declamatory",
+            "projecting",
+            "traditional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "piercing"
+          ],
+          "canonical_tags": [
+            "noh",
+            "japanese"
+          ]
+        },
+        {
+          "id": "nohkan_school_morita",
+          "name": "Morita-ryū (ornamented, more lyrical phrasing)",
+          "descriptors": [
+            "ornamented",
+            "lyrical",
+            "refined"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "noh",
+            "japanese"
+          ]
+        },
+        {
+          "id": "nohkan_school_fujita",
+          "name": "Fujita-ryū (spare, archaic Kaga lineage)",
+          "descriptors": [
+            "restrained",
+            "archaic",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "sparse"
+          ],
+          "canonical_tags": [
+            "noh",
+            "japanese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nohkan_delivery",
+      "name": "Delivery against the drums",
+      "variants": [
+        {
+          "id": "nohkan_delivery_matched",
+          "default": true,
+          "name": "Matched playing - named patterns locked to the drum cycle",
+          "descriptors": [
+            "interlocking",
+            "ensemble-locked",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ensemble",
+            "interlocking"
+          ],
+          "canonical_tags": [
+            "noh",
+            "japanese"
+          ]
+        },
+        {
+          "id": "nohkan_delivery_ashirai",
+          "name": "Ashirai - unmatched, free against the drum pattern",
+          "descriptors": [
+            "free-rhythm",
+            "unmetered",
+            "floating"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "sustained",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "noh",
+            "japanese"
+          ]
+        },
+        {
+          "id": "nohkan_delivery_hishigi",
+          "name": "Hishigi-heavy - overblown shriek marking scene boundaries",
+          "descriptors": [
+            "piercing",
+            "shrill",
+            "ritual"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "piercing",
+            "ritual-context"
+          ],
+          "canonical_tags": [
+            "noh",
+            "japanese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nohkan_staging",
+      "name": "Staging context",
+      "variants": [
+        {
+          "id": "nohkan_staging_noh",
+          "default": true,
+          "name": "Noh hayashi (sole melodic voice against three drums)",
+          "descriptors": [
+            "ceremonial",
+            "restrained",
+            "ritual"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ensemble",
+            "sparse"
+          ],
+          "canonical_tags": [
+            "noh",
+            "japanese"
+          ]
+        },
+        {
+          "id": "nohkan_staging_kabuki",
+          "name": "Kabuki nagauta / geza hayashi",
+          "descriptors": [
+            "theatrical",
+            "driving",
+            "nagauta"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ensemble",
+            "melodic-lead"
+          ],
+          "canonical_tags": [
+            "kabuki",
+            "japanese"
+          ]
+        },
+        {
+          "id": "nohkan_staging_matsuri",
+          "name": "Festival / matsuri use",
+          "descriptors": [
+            "festive",
+            "outdoor",
+            "celebratory"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk",
+            "dance"
+          ],
+          "canonical_tags": [
+            "matsuri",
+            "japanese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nohkan_construction",
+      "name": "Bore & construction",
+      "variants": [
+        {
+          "id": "nohkan_construction_susudake_nodo",
+          "default": true,
+          "name": "Susudake smoked bamboo, split and reassembled inside-out, nodo throat inserted",
+          "descriptors": [
+            "aged-bamboo",
+            "non-harmonic-bore",
+            "lacquered"
+          ],
+          "match_tokens": [
+            "bamboo",
+            "piercing"
+          ],
+          "canonical_tags": [
+            "noh",
+            "japan"
+          ]
+        },
+        {
+          "id": "nohkan_construction_yakidake",
+          "name": "Yakidake fire-hardened bamboo body",
+          "descriptors": [
+            "seasoned",
+            "dense-toned",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bamboo",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "noh",
+            "japan"
+          ]
+        },
+        {
+          "id": "nohkan_construction_kabamaki",
+          "name": "Cherry-bark (kabamaki) binding under urushi lacquer",
+          "descriptors": [
+            "bark-wrapped",
+            "lacquered",
+            "traditional"
+          ],
+          "match_tokens": [
+            "bamboo",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "japan"
+          ]
+        },
+        {
+          "id": "nohkan_construction_resin",
+          "name": "Molded resin practice flute",
+          "descriptors": [
+            "resin",
+            "durable",
+            "student"
+          ],
+          "match_tokens": [
+            "bright-tone",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "nohkan_school",
+      "name": "School / lineage",
+      "variants": [
+        {
+          "id": "nohkan_school_isso",
+          "default": true,
+          "name": "Issō-ryū (largest school, declamatory pattern set)",
+          "descriptors": [
+            "declamatory",
+            "projecting",
+            "traditional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "piercing"
+          ],
+          "canonical_tags": [
+            "noh",
+            "japanese"
+          ]
+        },
+        {
+          "id": "nohkan_school_morita",
+          "name": "Morita-ryū (ornamented, more lyrical phrasing)",
+          "descriptors": [
+            "ornamented",
+            "lyrical",
+            "refined"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "noh",
+            "japanese"
+          ]
+        },
+        {
+          "id": "nohkan_school_fujita",
+          "name": "Fujita-ryū (spare, archaic Kaga lineage)",
+          "descriptors": [
+            "restrained",
+            "archaic",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "sparse"
+          ],
+          "canonical_tags": [
+            "noh",
+            "japanese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nohkan_delivery",
+      "name": "Delivery against the drums",
+      "variants": [
+        {
+          "id": "nohkan_delivery_matched",
+          "default": true,
+          "name": "Matched playing - named patterns locked to the drum cycle",
+          "descriptors": [
+            "interlocking",
+            "ensemble-locked",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ensemble",
+            "interlocking"
+          ],
+          "canonical_tags": [
+            "noh",
+            "japanese"
+          ]
+        },
+        {
+          "id": "nohkan_delivery_ashirai",
+          "name": "Ashirai - unmatched, free against the drum pattern",
+          "descriptors": [
+            "free-rhythm",
+            "unmetered",
+            "floating"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "sustained",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "noh",
+            "japanese"
+          ]
+        },
+        {
+          "id": "nohkan_delivery_hishigi",
+          "name": "Hishigi-heavy - overblown shriek marking scene boundaries",
+          "descriptors": [
+            "piercing",
+            "shrill",
+            "ritual"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "piercing",
+            "ritual-context"
+          ],
+          "canonical_tags": [
+            "noh",
+            "japanese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nohkan_staging",
+      "name": "Staging context",
+      "variants": [
+        {
+          "id": "nohkan_staging_noh",
+          "default": true,
+          "name": "Noh hayashi (sole melodic voice against three drums)",
+          "descriptors": [
+            "ceremonial",
+            "restrained",
+            "ritual"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ensemble",
+            "sparse"
+          ],
+          "canonical_tags": [
+            "noh",
+            "japanese"
+          ]
+        },
+        {
+          "id": "nohkan_staging_kabuki",
+          "name": "Kabuki nagauta / geza hayashi",
+          "descriptors": [
+            "theatrical",
+            "driving",
+            "nagauta"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ensemble",
+            "melodic-lead"
+          ],
+          "canonical_tags": [
+            "kabuki",
+            "japanese"
+          ]
+        },
+        {
+          "id": "nohkan_staging_matsuri",
+          "name": "Festival / matsuri use",
+          "descriptors": [
+            "festive",
+            "outdoor",
+            "celebratory"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk",
+            "dance"
+          ],
+          "canonical_tags": [
+            "matsuri",
+            "japanese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nohkan_construction",
+      "name": "Bore & construction",
+      "variants": [
+        {
+          "id": "nohkan_construction_susudake_nodo",
+          "default": true,
+          "name": "Susudake smoked bamboo, split and reassembled inside-out, nodo throat inserted",
+          "descriptors": [
+            "aged-bamboo",
+            "non-harmonic-bore",
+            "lacquered"
+          ],
+          "match_tokens": [
+            "bamboo",
+            "piercing"
+          ],
+          "canonical_tags": [
+            "noh",
+            "japan"
+          ]
+        },
+        {
+          "id": "nohkan_construction_yakidake",
+          "name": "Yakidake fire-hardened bamboo body",
+          "descriptors": [
+            "seasoned",
+            "dense-toned",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bamboo",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "noh",
+            "japan"
+          ]
+        },
+        {
+          "id": "nohkan_construction_kabamaki",
+          "name": "Cherry-bark (kabamaki) binding under urushi lacquer",
+          "descriptors": [
+            "bark-wrapped",
+            "lacquered",
+            "traditional"
+          ],
+          "match_tokens": [
+            "bamboo",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "japan"
+          ]
+        },
+        {
+          "id": "nohkan_construction_resin",
+          "name": "Molded resin practice flute",
+          "descriptors": [
+            "resin",
+            "durable",
+            "student"
+          ],
+          "match_tokens": [
+            "bright-tone",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

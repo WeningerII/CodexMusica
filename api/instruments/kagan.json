@@ -1,0 +1,386 @@
+{
+  "id": "kagan",
+  "name": "Kagan (Ewe timekeeping drum)",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 1,
+    "range": -2,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "kagan",
+  "parts": [
+    {
+      "id": "kagan_ensemble_role",
+      "name": "Ostinato pattern / repertoire",
+      "variants": [
+        {
+          "id": "kagan_ensemble_role_agbadza_offbeat",
+          "default": true,
+          "name": "Agbadza offbeat pairs locked to the gankogui timeline",
+          "descriptors": [
+            "cyclic",
+            "interlocking",
+            "timekeeping"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "ostinato",
+            "timeline"
+          ],
+          "canonical_tags": [
+            "timeline",
+            "ostinato"
+          ]
+        },
+        {
+          "id": "kagan_ensemble_role_gahu",
+          "name": "Gahu driving ostinato",
+          "descriptors": [
+            "driving",
+            "dance-driving",
+            "propulsive"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "ostinato",
+            "fast"
+          ],
+          "canonical_tags": [
+            "dance",
+            "ostinato"
+          ]
+        },
+        {
+          "id": "kagan_ensemble_role_agbekor",
+          "name": "Agbekor pattern",
+          "descriptors": [
+            "martial",
+            "ceremonial",
+            "steady"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "ostinato"
+          ],
+          "canonical_tags": [
+            "ceremonial",
+            "ostinato"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kagan_stroke_technique",
+      "name": "Open and mute strokes",
+      "variants": [
+        {
+          "id": "kagan_stroke_technique_all_open",
+          "default": true,
+          "name": "Every stroke open (Agbadza idiom — mutes deliberately unused)",
+          "descriptors": [
+            "ringing",
+            "open-slap-tones",
+            "bright"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "open-stroke"
+          ],
+          "canonical_tags": [
+            "open-strokes"
+          ]
+        },
+        {
+          "id": "kagan_stroke_technique_mixed",
+          "name": "Mixed open and damped strokes (Agbekor and Gahu)",
+          "descriptors": [
+            "damped",
+            "dry",
+            "articulate"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "muted-stroke",
+            "damped"
+          ],
+          "canonical_tags": [
+            "damped-strokes",
+            "muted"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kagan_hide_material",
+      "name": "Head tension and hide",
+      "variants": [
+        {
+          "id": "kagan_hide_material_tight_goat",
+          "default": true,
+          "name": "Goat skin driven extremely tight over the narrow bore",
+          "descriptors": [
+            "tight",
+            "cracking",
+            "piercing",
+            "sharp-attack"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "membrane",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "goatskin"
+          ]
+        },
+        {
+          "id": "kagan_hide_material_moderate",
+          "name": "Moderately tensioned goat skin",
+          "descriptors": [
+            "goat-skin-head",
+            "warm",
+            "mellow"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "membrane"
+          ],
+          "canonical_tags": [
+            "goatskin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kagan_stick_spec",
+      "name": "Stick spec",
+      "variants": [
+        {
+          "id": "kagan_stick_spec_long_thin",
+          "default": true,
+          "name": "Long thin whippy sticks",
+          "descriptors": [
+            "light",
+            "agile",
+            "crisp"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "fast"
+          ]
+        },
+        {
+          "id": "kagan_stick_spec_short_heavy",
+          "name": "Shorter heavier sticks for more body",
+          "descriptors": [
+            "heavy",
+            "punchy",
+            "body-rich"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "woody"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kagan_ensemble_role",
+      "name": "Ostinato pattern / repertoire",
+      "variants": [
+        {
+          "id": "kagan_ensemble_role_agbadza_offbeat",
+          "default": true,
+          "name": "Agbadza offbeat pairs locked to the gankogui timeline",
+          "descriptors": [
+            "cyclic",
+            "interlocking",
+            "timekeeping"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "ostinato",
+            "timeline"
+          ],
+          "canonical_tags": [
+            "timeline",
+            "ostinato"
+          ]
+        },
+        {
+          "id": "kagan_ensemble_role_gahu",
+          "name": "Gahu driving ostinato",
+          "descriptors": [
+            "driving",
+            "dance-driving",
+            "propulsive"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "ostinato",
+            "fast"
+          ],
+          "canonical_tags": [
+            "dance",
+            "ostinato"
+          ]
+        },
+        {
+          "id": "kagan_ensemble_role_agbekor",
+          "name": "Agbekor pattern",
+          "descriptors": [
+            "martial",
+            "ceremonial",
+            "steady"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "ostinato"
+          ],
+          "canonical_tags": [
+            "ceremonial",
+            "ostinato"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kagan_stroke_technique",
+      "name": "Open and mute strokes",
+      "variants": [
+        {
+          "id": "kagan_stroke_technique_all_open",
+          "default": true,
+          "name": "Every stroke open (Agbadza idiom — mutes deliberately unused)",
+          "descriptors": [
+            "ringing",
+            "open-slap-tones",
+            "bright"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "open-stroke"
+          ],
+          "canonical_tags": [
+            "open-strokes"
+          ]
+        },
+        {
+          "id": "kagan_stroke_technique_mixed",
+          "name": "Mixed open and damped strokes (Agbekor and Gahu)",
+          "descriptors": [
+            "damped",
+            "dry",
+            "articulate"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "muted-stroke",
+            "damped"
+          ],
+          "canonical_tags": [
+            "damped-strokes",
+            "muted"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kagan_hide_material",
+      "name": "Head tension and hide",
+      "variants": [
+        {
+          "id": "kagan_hide_material_tight_goat",
+          "default": true,
+          "name": "Goat skin driven extremely tight over the narrow bore",
+          "descriptors": [
+            "tight",
+            "cracking",
+            "piercing",
+            "sharp-attack"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "membrane",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "goatskin"
+          ]
+        },
+        {
+          "id": "kagan_hide_material_moderate",
+          "name": "Moderately tensioned goat skin",
+          "descriptors": [
+            "goat-skin-head",
+            "warm",
+            "mellow"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "membrane"
+          ],
+          "canonical_tags": [
+            "goatskin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kagan_stick_spec",
+      "name": "Stick spec",
+      "variants": [
+        {
+          "id": "kagan_stick_spec_long_thin",
+          "default": true,
+          "name": "Long thin whippy sticks",
+          "descriptors": [
+            "light",
+            "agile",
+            "crisp"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "fast"
+          ]
+        },
+        {
+          "id": "kagan_stick_spec_short_heavy",
+          "name": "Shorter heavier sticks for more body",
+          "descriptors": [
+            "heavy",
+            "punchy",
+            "body-rich"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "woody"
+          ]
+        }
+      ]
+    }
+  ]
+}

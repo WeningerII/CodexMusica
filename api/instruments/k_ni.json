@@ -1,0 +1,423 @@
+{
+  "id": "k_ni",
+  "name": "K'ni (Jarai mouth-resonated bowed fiddle)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 1,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -2
+  },
+  "short": "k'ni",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "k_ni_body",
+      "name": "Body build",
+      "variants": [
+        {
+          "id": "k_ni_bamboo_cane",
+          "default": true,
+          "name": "Single bamboo cane, unfretted (traditional Jarai build)",
+          "descriptors": [
+            "bamboo",
+            "archaic",
+            "small-bodied"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretless",
+            "bamboo"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "highland"
+          ]
+        },
+        {
+          "id": "k_ni_fretted_neck",
+          "name": "Modern build with a short bamboo-fretted neck",
+          "descriptors": [
+            "bamboo",
+            "modern",
+            "articulate"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretted",
+            "bamboo"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "k_ni_coupling",
+      "name": "Mouth coupling",
+      "variants": [
+        {
+          "id": "k_ni_horn_disc",
+          "default": true,
+          "name": "Buffalo-horn disc on the bridge thread, gripped between the teeth",
+          "descriptors": [
+            "nasal-coupled-resonance",
+            "speech-like",
+            "voice-like"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vocal-imitating",
+            "speech-derived"
+          ],
+          "canonical_tags": [
+            "highland",
+            "traditional"
+          ]
+        },
+        {
+          "id": "k_ni_lip_plate",
+          "name": "Thin bone or shell plate held behind the lips",
+          "descriptors": [
+            "nasal-coupled-resonance",
+            "soft",
+            "breathy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vocal-imitating",
+            "breathy-tone"
+          ],
+          "canonical_tags": [
+            "highland"
+          ]
+        },
+        {
+          "id": "k_ni_thread_extended",
+          "name": "Thread run out through a bamboo section as a distance amplifier",
+          "descriptors": [
+            "bamboo",
+            "quiet",
+            "distant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bamboo",
+            "courtship"
+          ],
+          "canonical_tags": [
+            "highland",
+            "context:courtship"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "k_ni_vocal_intent",
+      "name": "Vocal-formant intent",
+      "variants": [
+        {
+          "id": "k_ni_speech",
+          "default": true,
+          "name": "Articulated speech vowels — the instrument talks",
+          "descriptors": [
+            "speech-mimicking",
+            "tongue-narrowed-formant-tuning",
+            "articulate"
+          ],
+          "match_tokens": [
+            "bowed",
+            "speech-derived",
+            "vocal-imitating"
+          ],
+          "canonical_tags": [
+            "highland",
+            "traditional"
+          ]
+        },
+        {
+          "id": "k_ni_sung_vowel",
+          "name": "Sustained singing vowel",
+          "descriptors": [
+            "singing-tone",
+            "sustained-line",
+            "vocal-imitating"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "vocal-imitating"
+          ],
+          "canonical_tags": [
+            "highland"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "k_ni_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "k_ni_courtship",
+          "default": true,
+          "name": "Courtship — a suitor speaks to a woman through the instrument",
+          "descriptors": [
+            "courtship",
+            "intimate",
+            "quiet"
+          ],
+          "match_tokens": [
+            "bowed",
+            "courtship",
+            "solo"
+          ],
+          "canonical_tags": [
+            "context:courtship",
+            "highland"
+          ]
+        },
+        {
+          "id": "k_ni_funeral_ritual",
+          "name": "Funerary and religious ceremony",
+          "descriptors": [
+            "funeral-voiced",
+            "ritual",
+            "mournful"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ritual-context",
+            "funeral"
+          ],
+          "canonical_tags": [
+            "context:funeral-ritual",
+            "highland"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "k_ni_body",
+      "name": "Body build",
+      "variants": [
+        {
+          "id": "k_ni_bamboo_cane",
+          "default": true,
+          "name": "Single bamboo cane, unfretted (traditional Jarai build)",
+          "descriptors": [
+            "bamboo",
+            "archaic",
+            "small-bodied"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretless",
+            "bamboo"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "highland"
+          ]
+        },
+        {
+          "id": "k_ni_fretted_neck",
+          "name": "Modern build with a short bamboo-fretted neck",
+          "descriptors": [
+            "bamboo",
+            "modern",
+            "articulate"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretted",
+            "bamboo"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "k_ni_coupling",
+      "name": "Mouth coupling",
+      "variants": [
+        {
+          "id": "k_ni_horn_disc",
+          "default": true,
+          "name": "Buffalo-horn disc on the bridge thread, gripped between the teeth",
+          "descriptors": [
+            "nasal-coupled-resonance",
+            "speech-like",
+            "voice-like"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vocal-imitating",
+            "speech-derived"
+          ],
+          "canonical_tags": [
+            "highland",
+            "traditional"
+          ]
+        },
+        {
+          "id": "k_ni_lip_plate",
+          "name": "Thin bone or shell plate held behind the lips",
+          "descriptors": [
+            "nasal-coupled-resonance",
+            "soft",
+            "breathy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vocal-imitating",
+            "breathy-tone"
+          ],
+          "canonical_tags": [
+            "highland"
+          ]
+        },
+        {
+          "id": "k_ni_thread_extended",
+          "name": "Thread run out through a bamboo section as a distance amplifier",
+          "descriptors": [
+            "bamboo",
+            "quiet",
+            "distant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bamboo",
+            "courtship"
+          ],
+          "canonical_tags": [
+            "highland",
+            "context:courtship"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "k_ni_vocal_intent",
+      "name": "Vocal-formant intent",
+      "variants": [
+        {
+          "id": "k_ni_speech",
+          "default": true,
+          "name": "Articulated speech vowels — the instrument talks",
+          "descriptors": [
+            "speech-mimicking",
+            "tongue-narrowed-formant-tuning",
+            "articulate"
+          ],
+          "match_tokens": [
+            "bowed",
+            "speech-derived",
+            "vocal-imitating"
+          ],
+          "canonical_tags": [
+            "highland",
+            "traditional"
+          ]
+        },
+        {
+          "id": "k_ni_sung_vowel",
+          "name": "Sustained singing vowel",
+          "descriptors": [
+            "singing-tone",
+            "sustained-line",
+            "vocal-imitating"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "vocal-imitating"
+          ],
+          "canonical_tags": [
+            "highland"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "k_ni_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "k_ni_courtship",
+          "default": true,
+          "name": "Courtship — a suitor speaks to a woman through the instrument",
+          "descriptors": [
+            "courtship",
+            "intimate",
+            "quiet"
+          ],
+          "match_tokens": [
+            "bowed",
+            "courtship",
+            "solo"
+          ],
+          "canonical_tags": [
+            "context:courtship",
+            "highland"
+          ]
+        },
+        {
+          "id": "k_ni_funeral_ritual",
+          "name": "Funerary and religious ceremony",
+          "descriptors": [
+            "funeral-voiced",
+            "ritual",
+            "mournful"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ritual-context",
+            "funeral"
+          ],
+          "canonical_tags": [
+            "context:funeral-ritual",
+            "highland"
+          ]
+        }
+      ]
+    }
+  ]
+}

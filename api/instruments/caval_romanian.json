@@ -1,0 +1,392 @@
+{
+  "id": "caval_romanian",
+  "name": "Caval (Romanian five-hole duct shepherd flute)",
+  "family": "wind",
+  "class": "duct_flute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "caval",
+  "parts": [
+    {
+      "id": "caval_romanian_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "caval_romanian_oltenian",
+          "default": true,
+          "name": "Oltenian / Muntenian caval (block duct mouthpiece, five holes grouped 2+3 — not the rim-blown Dobrogean kaval)",
+          "descriptors": [
+            "dark",
+            "plaintive",
+            "soft-blend"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "romanian",
+            "pastoral"
+          ]
+        },
+        {
+          "id": "caval_romanian_fluier_mare",
+          "name": "Fluier mare (large southern-Moldavian caval, deeper and slow-speaking)",
+          "descriptors": [
+            "deep",
+            "slow-speaking",
+            "hollow"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "romanian",
+            "moldavian"
+          ]
+        },
+        {
+          "id": "caval_romanian_short_high",
+          "name": "Shorter high-pitched caval (tighter overblow, brighter voice)",
+          "descriptors": [
+            "bright",
+            "agile",
+            "clear"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "romanian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "caval_romanian_technique",
+      "name": "Technique / repertoire",
+      "variants": [
+        {
+          "id": "caval_romanian_doina",
+          "default": true,
+          "name": "Overblown pastoral doină (free rubato, gapped modal line built on the E and A overblows)",
+          "descriptors": [
+            "rubato",
+            "mournful",
+            "ornamented",
+            "free-rhythm"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "rubato",
+            "ornamented",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "romanian_doina",
+            "doina",
+            "pastoral"
+          ]
+        },
+        {
+          "id": "caval_romanian_dance",
+          "name": "Fixed-metre dance melody (hora, sârbă)",
+          "descriptors": [
+            "steady",
+            "driving",
+            "lively"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "dance-pulse",
+            "dance"
+          ],
+          "canonical_tags": [
+            "romanian",
+            "dance"
+          ]
+        },
+        {
+          "id": "caval_romanian_taraf",
+          "name": "Melody line in a taraf (over cobza and țambal)",
+          "descriptors": [
+            "ensemble-blend",
+            "ornamented",
+            "lead-carrying"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "melodic-lead",
+            "taraf-tradition",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "romanian_lautari",
+            "romanian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "caval_romanian_body",
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "caval_romanian_body_plum",
+          "default": true,
+          "name": "Plum wood (canonical Oltenian build)",
+          "descriptors": [
+            "warm",
+            "dark",
+            "traditional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "wooden",
+            "duct-flute"
+          ],
+          "canonical_tags": [
+            "wood-body",
+            "traditional",
+            "romanian"
+          ]
+        },
+        {
+          "id": "caval_romanian_body_ash",
+          "name": "Ash (common brighter alternative)",
+          "descriptors": [
+            "bright",
+            "clear",
+            "woody"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "wooden"
+          ],
+          "canonical_tags": [
+            "wood-body"
+          ]
+        },
+        {
+          "id": "caval_romanian_body_cherry",
+          "name": "Cherry (dense, dark-toned)",
+          "descriptors": [
+            "dense",
+            "dark",
+            "mellow"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "wooden",
+            "hardwood"
+          ],
+          "canonical_tags": [
+            "wood-body",
+            "hardwood"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "caval_romanian_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "caval_romanian_oltenian",
+          "default": true,
+          "name": "Oltenian / Muntenian caval (block duct mouthpiece, five holes grouped 2+3 — not the rim-blown Dobrogean kaval)",
+          "descriptors": [
+            "dark",
+            "plaintive",
+            "soft-blend"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "romanian",
+            "pastoral"
+          ]
+        },
+        {
+          "id": "caval_romanian_fluier_mare",
+          "name": "Fluier mare (large southern-Moldavian caval, deeper and slow-speaking)",
+          "descriptors": [
+            "deep",
+            "slow-speaking",
+            "hollow"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "romanian",
+            "moldavian"
+          ]
+        },
+        {
+          "id": "caval_romanian_short_high",
+          "name": "Shorter high-pitched caval (tighter overblow, brighter voice)",
+          "descriptors": [
+            "bright",
+            "agile",
+            "clear"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "duct-flute",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "romanian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "caval_romanian_technique",
+      "name": "Technique / repertoire",
+      "variants": [
+        {
+          "id": "caval_romanian_doina",
+          "default": true,
+          "name": "Overblown pastoral doină (free rubato, gapped modal line built on the E and A overblows)",
+          "descriptors": [
+            "rubato",
+            "mournful",
+            "ornamented",
+            "free-rhythm"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "rubato",
+            "ornamented",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "romanian_doina",
+            "doina",
+            "pastoral"
+          ]
+        },
+        {
+          "id": "caval_romanian_dance",
+          "name": "Fixed-metre dance melody (hora, sârbă)",
+          "descriptors": [
+            "steady",
+            "driving",
+            "lively"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "dance-pulse",
+            "dance"
+          ],
+          "canonical_tags": [
+            "romanian",
+            "dance"
+          ]
+        },
+        {
+          "id": "caval_romanian_taraf",
+          "name": "Melody line in a taraf (over cobza and țambal)",
+          "descriptors": [
+            "ensemble-blend",
+            "ornamented",
+            "lead-carrying"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "melodic-lead",
+            "taraf-tradition",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "romanian_lautari",
+            "romanian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "caval_romanian_body",
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "caval_romanian_body_plum",
+          "default": true,
+          "name": "Plum wood (canonical Oltenian build)",
+          "descriptors": [
+            "warm",
+            "dark",
+            "traditional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "wooden",
+            "duct-flute"
+          ],
+          "canonical_tags": [
+            "wood-body",
+            "traditional",
+            "romanian"
+          ]
+        },
+        {
+          "id": "caval_romanian_body_ash",
+          "name": "Ash (common brighter alternative)",
+          "descriptors": [
+            "bright",
+            "clear",
+            "woody"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "wooden"
+          ],
+          "canonical_tags": [
+            "wood-body"
+          ]
+        },
+        {
+          "id": "caval_romanian_body_cherry",
+          "name": "Cherry (dense, dark-toned)",
+          "descriptors": [
+            "dense",
+            "dark",
+            "mellow"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "wooden",
+            "hardwood"
+          ],
+          "canonical_tags": [
+            "wood-body",
+            "hardwood"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,346 @@
+{
+  "id": "lambeg_drum",
+  "name": "Lambeg drum (Ulster rope-tensioned snare drum)",
+  "family": "percussion",
+  "class": "double_headed_drum",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 0,
+    "range": -2,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "lambeg",
+  "parts": [
+    {
+      "id": "lambeg_drum_context",
+      "name": "Ensemble context / role",
+      "variants": [
+        {
+          "id": "lambeg_drum_solo_match",
+          "default": true,
+          "name": "Solo drumming match (judged on tone and time over a set course)",
+          "descriptors": [
+            "competitive",
+            "solo",
+            "projecting"
+          ],
+          "match_tokens": [
+            "struck",
+            "sticks",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "irish",
+            "british_isles"
+          ]
+        },
+        {
+          "id": "lambeg_drum_paired",
+          "name": "Interlocking pair (two drums locking and trading)",
+          "descriptors": [
+            "paired",
+            "interlocking",
+            "driving"
+          ],
+          "match_tokens": [
+            "struck",
+            "sticks",
+            "interlocking"
+          ],
+          "canonical_tags": [
+            "irish",
+            "british_isles"
+          ]
+        },
+        {
+          "id": "lambeg_drum_fife_party",
+          "name": "Fife-and-drum party (high fife riding over one or two drums)",
+          "descriptors": [
+            "piercing",
+            "outdoor",
+            "communal"
+          ],
+          "match_tokens": [
+            "struck",
+            "sticks",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "british_isles",
+            "folk"
+          ]
+        },
+        {
+          "id": "lambeg_drum_parade",
+          "name": "Massed parade line (Twelfth of July procession)",
+          "descriptors": [
+            "processional",
+            "massed",
+            "celebratory"
+          ],
+          "match_tokens": [
+            "struck",
+            "processional",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "processional",
+            "outdoor"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lambeg_drum_tension",
+      "name": "Head tension",
+      "variants": [
+        {
+          "id": "lambeg_drum_cranked_dry",
+          "default": true,
+          "name": "Cranked bone-dry to cracking pitch (heat-dried before a match)",
+          "descriptors": [
+            "high-tension",
+            "dry",
+            "penetrating-crack"
+          ],
+          "match_tokens": [
+            "struck",
+            "sticks",
+            "sharp-crack"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "lambeg_drum_damp_slack",
+          "name": "Slack damp-weather tone (lower, duller, less carry)",
+          "descriptors": [
+            "low-tension",
+            "dull",
+            "thudding"
+          ],
+          "match_tokens": [
+            "struck",
+            "sticks",
+            "dry-tone"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lambeg_drum_heads",
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "lambeg_drum_goatskin",
+          "default": true,
+          "name": "Goatskin heads on flesh hoops, rope-and-buff tensioned",
+          "descriptors": [
+            "goatskin-heads",
+            "rope-tensioned",
+            "traditional"
+          ],
+          "match_tokens": [
+            "struck",
+            "hide-head",
+            "sticks"
+          ],
+          "canonical_tags": [
+            "goatskin",
+            "traditional"
+          ]
+        },
+        {
+          "id": "lambeg_drum_synthetic",
+          "name": "Synthetic heads (modern weather-stable)",
+          "descriptors": [
+            "synthetic-heads",
+            "weatherproof",
+            "consistent"
+          ],
+          "match_tokens": [
+            "struck",
+            "sticks"
+          ],
+          "canonical_tags": [
+            "synthetic",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "lambeg_drum_context",
+      "name": "Ensemble context / role",
+      "variants": [
+        {
+          "id": "lambeg_drum_solo_match",
+          "default": true,
+          "name": "Solo drumming match (judged on tone and time over a set course)",
+          "descriptors": [
+            "competitive",
+            "solo",
+            "projecting"
+          ],
+          "match_tokens": [
+            "struck",
+            "sticks",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "irish",
+            "british_isles"
+          ]
+        },
+        {
+          "id": "lambeg_drum_paired",
+          "name": "Interlocking pair (two drums locking and trading)",
+          "descriptors": [
+            "paired",
+            "interlocking",
+            "driving"
+          ],
+          "match_tokens": [
+            "struck",
+            "sticks",
+            "interlocking"
+          ],
+          "canonical_tags": [
+            "irish",
+            "british_isles"
+          ]
+        },
+        {
+          "id": "lambeg_drum_fife_party",
+          "name": "Fife-and-drum party (high fife riding over one or two drums)",
+          "descriptors": [
+            "piercing",
+            "outdoor",
+            "communal"
+          ],
+          "match_tokens": [
+            "struck",
+            "sticks",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "british_isles",
+            "folk"
+          ]
+        },
+        {
+          "id": "lambeg_drum_parade",
+          "name": "Massed parade line (Twelfth of July procession)",
+          "descriptors": [
+            "processional",
+            "massed",
+            "celebratory"
+          ],
+          "match_tokens": [
+            "struck",
+            "processional",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "processional",
+            "outdoor"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lambeg_drum_tension",
+      "name": "Head tension",
+      "variants": [
+        {
+          "id": "lambeg_drum_cranked_dry",
+          "default": true,
+          "name": "Cranked bone-dry to cracking pitch (heat-dried before a match)",
+          "descriptors": [
+            "high-tension",
+            "dry",
+            "penetrating-crack"
+          ],
+          "match_tokens": [
+            "struck",
+            "sticks",
+            "sharp-crack"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "lambeg_drum_damp_slack",
+          "name": "Slack damp-weather tone (lower, duller, less carry)",
+          "descriptors": [
+            "low-tension",
+            "dull",
+            "thudding"
+          ],
+          "match_tokens": [
+            "struck",
+            "sticks",
+            "dry-tone"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lambeg_drum_heads",
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "lambeg_drum_goatskin",
+          "default": true,
+          "name": "Goatskin heads on flesh hoops, rope-and-buff tensioned",
+          "descriptors": [
+            "goatskin-heads",
+            "rope-tensioned",
+            "traditional"
+          ],
+          "match_tokens": [
+            "struck",
+            "hide-head",
+            "sticks"
+          ],
+          "canonical_tags": [
+            "goatskin",
+            "traditional"
+          ]
+        },
+        {
+          "id": "lambeg_drum_synthetic",
+          "name": "Synthetic heads (modern weather-stable)",
+          "descriptors": [
+            "synthetic-heads",
+            "weatherproof",
+            "consistent"
+          ],
+          "match_tokens": [
+            "struck",
+            "sticks"
+          ],
+          "canonical_tags": [
+            "synthetic",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

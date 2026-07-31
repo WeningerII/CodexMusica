@@ -1,0 +1,461 @@
+{
+  "id": "octobass",
+  "name": "Octobass (Vuillaume 3.5 m lever-stopped contrabass)",
+  "family": "bowed",
+  "class": "bass",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -2,
+    "range": -1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "octobass",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "octobass_tuning",
+      "name": "Tuning",
+      "variants": [
+        {
+          "id": "octobass_tuning_berlioz_c1",
+          "default": true,
+          "name": "Berlioz C1–G1–C2 (bottom C an octave below the cello's low C)",
+          "descriptors": [
+            "sub-bass",
+            "foundational",
+            "historical-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bass-register",
+            "low-register",
+            "orchestral"
+          ],
+          "canonical_tags": [
+            "historical",
+            "orchestral"
+          ]
+        },
+        {
+          "id": "octobass_tuning_modern_c0",
+          "name": "Modern subsonic C0–G0–D1 (Phoenix MIM instrument)",
+          "descriptors": [
+            "sub-bass",
+            "deep",
+            "rare"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bass-register",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "octobass_tuning_a0_e1_b1",
+          "name": "A0–E1–B1 (Orchestre symphonique de Montréal practice)",
+          "descriptors": [
+            "sub-bass",
+            "foundational",
+            "concert"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bass-register",
+            "orchestral"
+          ],
+          "canonical_tags": [
+            "modern",
+            "concert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "octobass_stopping",
+      "name": "Stopping mechanism",
+      "variants": [
+        {
+          "id": "octobass_stopping_pedal_levers",
+          "default": true,
+          "name": "Hand levers and foot pedals driving metal clamps over the neck",
+          "descriptors": [
+            "mechanical",
+            "pedal",
+            "historical-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register",
+            "acoustic-only"
+          ],
+          "canonical_tags": [
+            "historical",
+            "paris"
+          ]
+        },
+        {
+          "id": "octobass_stopping_open_strings",
+          "name": "Open strings only (drone / pedal-point use)",
+          "descriptors": [
+            "open-string",
+            "droning",
+            "sub-bass"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "bass-register"
+          ],
+          "canonical_tags": [
+            "drone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "octobass_function",
+      "name": "Orchestral function",
+      "variants": [
+        {
+          "id": "octobass_function_octave_doubling",
+          "default": true,
+          "name": "Doubling the bass section an octave below (Berlioz's grand-orchestra intent)",
+          "descriptors": [
+            "foundational",
+            "octave-doubled",
+            "blended"
+          ],
+          "match_tokens": [
+            "bowed",
+            "foundational-bass",
+            "orchestral",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "orchestral",
+            "historical"
+          ]
+        },
+        {
+          "id": "octobass_function_sub_effect",
+          "name": "Felt-more-than-heard sub-bass effect / drone",
+          "descriptors": [
+            "sub-bass",
+            "droning",
+            "atmospheric"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "bass-register"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "octobass_function_solo_spectacle",
+          "name": "Isolated solo spectacle / demonstration piece",
+          "descriptors": [
+            "rare",
+            "display",
+            "theatrical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "soloistic",
+            "concert"
+          ],
+          "canonical_tags": [
+            "concert",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "octobass_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "octobass_strings_wound_gut",
+          "default": true,
+          "name": "Very thick wound gut (Vuillaume-era)",
+          "descriptors": [
+            "silver-wound",
+            "large-diameter",
+            "high-tension"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bass-register",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut",
+            "historic"
+          ]
+        },
+        {
+          "id": "octobass_strings_steel_modern",
+          "name": "Modern steel-core (playable replicas)",
+          "descriptors": [
+            "steel",
+            "high-tension",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bass-register",
+            "modern"
+          ],
+          "canonical_tags": [
+            "steel",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "octobass_tuning",
+      "name": "Tuning",
+      "variants": [
+        {
+          "id": "octobass_tuning_berlioz_c1",
+          "default": true,
+          "name": "Berlioz C1–G1–C2 (bottom C an octave below the cello's low C)",
+          "descriptors": [
+            "sub-bass",
+            "foundational",
+            "historical-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bass-register",
+            "low-register",
+            "orchestral"
+          ],
+          "canonical_tags": [
+            "historical",
+            "orchestral"
+          ]
+        },
+        {
+          "id": "octobass_tuning_modern_c0",
+          "name": "Modern subsonic C0–G0–D1 (Phoenix MIM instrument)",
+          "descriptors": [
+            "sub-bass",
+            "deep",
+            "rare"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bass-register",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "octobass_tuning_a0_e1_b1",
+          "name": "A0–E1–B1 (Orchestre symphonique de Montréal practice)",
+          "descriptors": [
+            "sub-bass",
+            "foundational",
+            "concert"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bass-register",
+            "orchestral"
+          ],
+          "canonical_tags": [
+            "modern",
+            "concert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "octobass_stopping",
+      "name": "Stopping mechanism",
+      "variants": [
+        {
+          "id": "octobass_stopping_pedal_levers",
+          "default": true,
+          "name": "Hand levers and foot pedals driving metal clamps over the neck",
+          "descriptors": [
+            "mechanical",
+            "pedal",
+            "historical-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register",
+            "acoustic-only"
+          ],
+          "canonical_tags": [
+            "historical",
+            "paris"
+          ]
+        },
+        {
+          "id": "octobass_stopping_open_strings",
+          "name": "Open strings only (drone / pedal-point use)",
+          "descriptors": [
+            "open-string",
+            "droning",
+            "sub-bass"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "bass-register"
+          ],
+          "canonical_tags": [
+            "drone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "octobass_function",
+      "name": "Orchestral function",
+      "variants": [
+        {
+          "id": "octobass_function_octave_doubling",
+          "default": true,
+          "name": "Doubling the bass section an octave below (Berlioz's grand-orchestra intent)",
+          "descriptors": [
+            "foundational",
+            "octave-doubled",
+            "blended"
+          ],
+          "match_tokens": [
+            "bowed",
+            "foundational-bass",
+            "orchestral",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "orchestral",
+            "historical"
+          ]
+        },
+        {
+          "id": "octobass_function_sub_effect",
+          "name": "Felt-more-than-heard sub-bass effect / drone",
+          "descriptors": [
+            "sub-bass",
+            "droning",
+            "atmospheric"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "bass-register"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "octobass_function_solo_spectacle",
+          "name": "Isolated solo spectacle / demonstration piece",
+          "descriptors": [
+            "rare",
+            "display",
+            "theatrical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "soloistic",
+            "concert"
+          ],
+          "canonical_tags": [
+            "concert",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "octobass_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "octobass_strings_wound_gut",
+          "default": true,
+          "name": "Very thick wound gut (Vuillaume-era)",
+          "descriptors": [
+            "silver-wound",
+            "large-diameter",
+            "high-tension"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bass-register",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut",
+            "historic"
+          ]
+        },
+        {
+          "id": "octobass_strings_steel_modern",
+          "name": "Modern steel-core (playable replicas)",
+          "descriptors": [
+            "steel",
+            "high-tension",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bass-register",
+            "modern"
+          ],
+          "canonical_tags": [
+            "steel",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

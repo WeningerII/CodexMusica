@@ -1,0 +1,512 @@
+{
+  "id": "atumpan",
+  "name": "Atumpan (Akan talking-drum pair)",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": -1,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "atumpan",
+  "parts": [
+    {
+      "id": "atumpan_mode",
+      "name": "Performance mode",
+      "variants": [
+        {
+          "id": "atumpan_ayan_speech",
+          "default": true,
+          "name": "Ayan drum poetry (speech-surrogate appellations, free rhythm)",
+          "descriptors": [
+            "declamatory",
+            "free-rhythm",
+            "praise-song",
+            "sparse"
+          ],
+          "match_tokens": [
+            "struck",
+            "speech-derived",
+            "talking"
+          ],
+          "canonical_tags": [
+            "akan",
+            "asante",
+            "praise"
+          ]
+        },
+        {
+          "id": "atumpan_ensemble_role",
+          "name": "Locked rhythm role inside adowa / kete",
+          "descriptors": [
+            "interlocking",
+            "dance-driving",
+            "ensemble"
+          ],
+          "match_tokens": [
+            "struck",
+            "ensemble",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "asante",
+            "kete",
+            "dance"
+          ]
+        },
+        {
+          "id": "atumpan_fontomfrom_battery",
+          "name": "Seated inside the fontomfrom court battery",
+          "descriptors": [
+            "ceremonial",
+            "courtly",
+            "processional"
+          ],
+          "match_tokens": [
+            "struck",
+            "ensemble",
+            "processional"
+          ],
+          "canonical_tags": [
+            "akan",
+            "court",
+            "ceremonial"
+          ]
+        },
+        {
+          "id": "atumpan_signal_call",
+          "name": "Announcement, summons and long-distance signalling",
+          "descriptors": [
+            "projecting",
+            "declamatory",
+            "stately"
+          ],
+          "match_tokens": [
+            "struck",
+            "loud-projection",
+            "speech-derived"
+          ],
+          "canonical_tags": [
+            "akan",
+            "ghana"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "atumpan_interval",
+      "name": "Male/female pitch interval",
+      "variants": [
+        {
+          "id": "atumpan_narrow_third",
+          "default": true,
+          "name": "Narrow (about a third — maximum speech intelligibility)",
+          "descriptors": [
+            "narrow",
+            "vocal",
+            "inflected"
+          ],
+          "match_tokens": [
+            "struck",
+            "speech-derived",
+            "two-tone"
+          ],
+          "canonical_tags": [
+            "akan",
+            "asante"
+          ]
+        },
+        {
+          "id": "atumpan_wide_fifth",
+          "name": "Wide (a fifth or more — musical contrast)",
+          "descriptors": [
+            "wide",
+            "melodic",
+            "paired"
+          ],
+          "match_tokens": [
+            "struck",
+            "two-tone",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "akan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "atumpan_stroke",
+      "name": "Beater & stroke",
+      "variants": [
+        {
+          "id": "atumpan_curved_open",
+          "default": true,
+          "name": "Curved sticks, open ringing strokes",
+          "descriptors": [
+            "open-ringing",
+            "projecting",
+            "resonant"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-struck",
+            "open-stroke"
+          ],
+          "canonical_tags": [
+            "akan",
+            "traditional"
+          ]
+        },
+        {
+          "id": "atumpan_damped",
+          "name": "Damped / pressed strokes",
+          "descriptors": [
+            "muted",
+            "dry",
+            "clipped"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-struck",
+            "muted"
+          ],
+          "canonical_tags": [
+            "akan"
+          ]
+        },
+        {
+          "id": "atumpan_arm_pressure",
+          "name": "Arm-pressure bending on the head",
+          "descriptors": [
+            "bent-pitch",
+            "expressive",
+            "vocal"
+          ],
+          "match_tokens": [
+            "struck",
+            "pitch-bend",
+            "talking"
+          ],
+          "canonical_tags": [
+            "akan",
+            "praise"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "atumpan_build",
+      "name": "Shell & head build",
+      "variants": [
+        {
+          "id": "atumpan_tweneboa_antelope",
+          "default": true,
+          "name": "Tweneboa log shell, antelope hide on ring-and-peg tension (canonical)",
+          "descriptors": [
+            "hardwood-shell",
+            "archaic",
+            "traditional"
+          ],
+          "match_tokens": [
+            "struck",
+            "wood-shell",
+            "hide-head"
+          ],
+          "canonical_tags": [
+            "asante",
+            "traditional"
+          ]
+        },
+        {
+          "id": "atumpan_cowhide",
+          "name": "Cowhide head (heavier, darker)",
+          "descriptors": [
+            "dark",
+            "deep-toned",
+            "warm"
+          ],
+          "match_tokens": [
+            "struck",
+            "hide-head",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "ghana"
+          ]
+        },
+        {
+          "id": "atumpan_export_hardware",
+          "name": "Export build with modern tuning hardware",
+          "descriptors": [
+            "modern",
+            "contemporary",
+            "pedagogical"
+          ],
+          "match_tokens": [
+            "struck",
+            "modern",
+            "concert"
+          ],
+          "canonical_tags": [
+            "modern",
+            "concert"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "atumpan_mode",
+      "name": "Performance mode",
+      "variants": [
+        {
+          "id": "atumpan_ayan_speech",
+          "default": true,
+          "name": "Ayan drum poetry (speech-surrogate appellations, free rhythm)",
+          "descriptors": [
+            "declamatory",
+            "free-rhythm",
+            "praise-song",
+            "sparse"
+          ],
+          "match_tokens": [
+            "struck",
+            "speech-derived",
+            "talking"
+          ],
+          "canonical_tags": [
+            "akan",
+            "asante",
+            "praise"
+          ]
+        },
+        {
+          "id": "atumpan_ensemble_role",
+          "name": "Locked rhythm role inside adowa / kete",
+          "descriptors": [
+            "interlocking",
+            "dance-driving",
+            "ensemble"
+          ],
+          "match_tokens": [
+            "struck",
+            "ensemble",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "asante",
+            "kete",
+            "dance"
+          ]
+        },
+        {
+          "id": "atumpan_fontomfrom_battery",
+          "name": "Seated inside the fontomfrom court battery",
+          "descriptors": [
+            "ceremonial",
+            "courtly",
+            "processional"
+          ],
+          "match_tokens": [
+            "struck",
+            "ensemble",
+            "processional"
+          ],
+          "canonical_tags": [
+            "akan",
+            "court",
+            "ceremonial"
+          ]
+        },
+        {
+          "id": "atumpan_signal_call",
+          "name": "Announcement, summons and long-distance signalling",
+          "descriptors": [
+            "projecting",
+            "declamatory",
+            "stately"
+          ],
+          "match_tokens": [
+            "struck",
+            "loud-projection",
+            "speech-derived"
+          ],
+          "canonical_tags": [
+            "akan",
+            "ghana"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "atumpan_interval",
+      "name": "Male/female pitch interval",
+      "variants": [
+        {
+          "id": "atumpan_narrow_third",
+          "default": true,
+          "name": "Narrow (about a third — maximum speech intelligibility)",
+          "descriptors": [
+            "narrow",
+            "vocal",
+            "inflected"
+          ],
+          "match_tokens": [
+            "struck",
+            "speech-derived",
+            "two-tone"
+          ],
+          "canonical_tags": [
+            "akan",
+            "asante"
+          ]
+        },
+        {
+          "id": "atumpan_wide_fifth",
+          "name": "Wide (a fifth or more — musical contrast)",
+          "descriptors": [
+            "wide",
+            "melodic",
+            "paired"
+          ],
+          "match_tokens": [
+            "struck",
+            "two-tone",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "akan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "atumpan_stroke",
+      "name": "Beater & stroke",
+      "variants": [
+        {
+          "id": "atumpan_curved_open",
+          "default": true,
+          "name": "Curved sticks, open ringing strokes",
+          "descriptors": [
+            "open-ringing",
+            "projecting",
+            "resonant"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-struck",
+            "open-stroke"
+          ],
+          "canonical_tags": [
+            "akan",
+            "traditional"
+          ]
+        },
+        {
+          "id": "atumpan_damped",
+          "name": "Damped / pressed strokes",
+          "descriptors": [
+            "muted",
+            "dry",
+            "clipped"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-struck",
+            "muted"
+          ],
+          "canonical_tags": [
+            "akan"
+          ]
+        },
+        {
+          "id": "atumpan_arm_pressure",
+          "name": "Arm-pressure bending on the head",
+          "descriptors": [
+            "bent-pitch",
+            "expressive",
+            "vocal"
+          ],
+          "match_tokens": [
+            "struck",
+            "pitch-bend",
+            "talking"
+          ],
+          "canonical_tags": [
+            "akan",
+            "praise"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "atumpan_build",
+      "name": "Shell & head build",
+      "variants": [
+        {
+          "id": "atumpan_tweneboa_antelope",
+          "default": true,
+          "name": "Tweneboa log shell, antelope hide on ring-and-peg tension (canonical)",
+          "descriptors": [
+            "hardwood-shell",
+            "archaic",
+            "traditional"
+          ],
+          "match_tokens": [
+            "struck",
+            "wood-shell",
+            "hide-head"
+          ],
+          "canonical_tags": [
+            "asante",
+            "traditional"
+          ]
+        },
+        {
+          "id": "atumpan_cowhide",
+          "name": "Cowhide head (heavier, darker)",
+          "descriptors": [
+            "dark",
+            "deep-toned",
+            "warm"
+          ],
+          "match_tokens": [
+            "struck",
+            "hide-head",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "ghana"
+          ]
+        },
+        {
+          "id": "atumpan_export_hardware",
+          "name": "Export build with modern tuning hardware",
+          "descriptors": [
+            "modern",
+            "contemporary",
+            "pedagogical"
+          ],
+          "match_tokens": [
+            "struck",
+            "modern",
+            "concert"
+          ],
+          "canonical_tags": [
+            "modern",
+            "concert"
+          ]
+        }
+      ]
+    }
+  ]
+}

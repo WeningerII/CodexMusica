@@ -1,0 +1,429 @@
+{
+  "id": "gunjac",
+  "name": "Gunjac / bajs (Croatian two-string folk bass)",
+  "family": "bowed",
+  "class": "bass",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 1,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": -2,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "bajs",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "gunjac_ensemble",
+      "name": "Band format",
+      "variants": [
+        {
+          "id": "gunjac_ensemble_violin_pair",
+          "default": true,
+          "name": "Vijulin (violin) and bajs — older Žumberak / Istrian pairing",
+          "descriptors": [
+            "village-rooted",
+            "rustic",
+            "dance-lilting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "foundational-bass",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "slavic",
+            "dance"
+          ]
+        },
+        {
+          "id": "gunjac_ensemble_tamburica",
+          "name": "Tamburica ensemble with bajs underneath",
+          "descriptors": [
+            "ensemble",
+            "blended",
+            "bass-foundational"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bass-foundation",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "slavic"
+          ]
+        },
+        {
+          "id": "gunjac_ensemble_klarin_accordion",
+          "name": "Klarin and diatonic accordion band (later Central-European set)",
+          "descriptors": [
+            "festive",
+            "driving",
+            "village-wedding"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bass-foundation",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "slavic",
+            "wedding",
+            "polka"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gunjac_stroke",
+      "name": "Bass function",
+      "variants": [
+        {
+          "id": "gunjac_stroke_dance_strokes",
+          "default": true,
+          "name": "Short percussive strokes on the beat (kolo, polka, mazurka)",
+          "descriptors": [
+            "steady-pulse",
+            "driving",
+            "dry"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-rhythm",
+            "foundational-bass"
+          ],
+          "canonical_tags": [
+            "dance",
+            "polka"
+          ]
+        },
+        {
+          "id": "gunjac_stroke_sustained_bass",
+          "name": "Sustained bowed bass under the melody",
+          "descriptors": [
+            "drone-under-melody",
+            "bass-foundational",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "bass-register"
+          ],
+          "canonical_tags": [
+            "bass",
+            "drone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gunjac_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "gunjac_strings_cow_gut",
+          "default": true,
+          "name": "Cow gut in fifths (archaic canonical)",
+          "descriptors": [
+            "plain-gut",
+            "gut",
+            "short-sustain",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut",
+            "gut"
+          ]
+        },
+        {
+          "id": "gunjac_strings_steel",
+          "name": "Steel strings (louder, longer decay)",
+          "descriptors": [
+            "steel",
+            "projecting",
+            "bright"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bass-register"
+          ],
+          "canonical_tags": [
+            "steel",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gunjac_build",
+      "name": "Build",
+      "variants": [
+        {
+          "id": "gunjac_build_home_built",
+          "default": true,
+          "name": "Home-built two-string cello-shaped body",
+          "descriptors": [
+            "two-string",
+            "rustic",
+            "folk-rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "bass-register"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "wood"
+          ]
+        },
+        {
+          "id": "gunjac_build_standard_bass",
+          "name": "Conventional cello or double bass standing in",
+          "descriptors": [
+            "concert-grade",
+            "balanced",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bass-register",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "modern",
+            "classical"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "gunjac_ensemble",
+      "name": "Band format",
+      "variants": [
+        {
+          "id": "gunjac_ensemble_violin_pair",
+          "default": true,
+          "name": "Vijulin (violin) and bajs — older Žumberak / Istrian pairing",
+          "descriptors": [
+            "village-rooted",
+            "rustic",
+            "dance-lilting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "foundational-bass",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "slavic",
+            "dance"
+          ]
+        },
+        {
+          "id": "gunjac_ensemble_tamburica",
+          "name": "Tamburica ensemble with bajs underneath",
+          "descriptors": [
+            "ensemble",
+            "blended",
+            "bass-foundational"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bass-foundation",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "slavic"
+          ]
+        },
+        {
+          "id": "gunjac_ensemble_klarin_accordion",
+          "name": "Klarin and diatonic accordion band (later Central-European set)",
+          "descriptors": [
+            "festive",
+            "driving",
+            "village-wedding"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bass-foundation",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "slavic",
+            "wedding",
+            "polka"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gunjac_stroke",
+      "name": "Bass function",
+      "variants": [
+        {
+          "id": "gunjac_stroke_dance_strokes",
+          "default": true,
+          "name": "Short percussive strokes on the beat (kolo, polka, mazurka)",
+          "descriptors": [
+            "steady-pulse",
+            "driving",
+            "dry"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-rhythm",
+            "foundational-bass"
+          ],
+          "canonical_tags": [
+            "dance",
+            "polka"
+          ]
+        },
+        {
+          "id": "gunjac_stroke_sustained_bass",
+          "name": "Sustained bowed bass under the melody",
+          "descriptors": [
+            "drone-under-melody",
+            "bass-foundational",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "bass-register"
+          ],
+          "canonical_tags": [
+            "bass",
+            "drone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gunjac_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "gunjac_strings_cow_gut",
+          "default": true,
+          "name": "Cow gut in fifths (archaic canonical)",
+          "descriptors": [
+            "plain-gut",
+            "gut",
+            "short-sustain",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut",
+            "gut"
+          ]
+        },
+        {
+          "id": "gunjac_strings_steel",
+          "name": "Steel strings (louder, longer decay)",
+          "descriptors": [
+            "steel",
+            "projecting",
+            "bright"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bass-register"
+          ],
+          "canonical_tags": [
+            "steel",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gunjac_build",
+      "name": "Build",
+      "variants": [
+        {
+          "id": "gunjac_build_home_built",
+          "default": true,
+          "name": "Home-built two-string cello-shaped body",
+          "descriptors": [
+            "two-string",
+            "rustic",
+            "folk-rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "bass-register"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "wood"
+          ]
+        },
+        {
+          "id": "gunjac_build_standard_bass",
+          "name": "Conventional cello or double bass standing in",
+          "descriptors": [
+            "concert-grade",
+            "balanced",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bass-register",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "modern",
+            "classical"
+          ]
+        }
+      ]
+    }
+  ]
+}

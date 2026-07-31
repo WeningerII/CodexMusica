@@ -1,0 +1,417 @@
+{
+  "id": "jiaohu",
+  "name": "Jiaohu (Guangxi ox-horn fiddle)",
+  "family": "bowed",
+  "class": "bowed_spike_fiddle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 2,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "jiaohu",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "jiaohu_horn",
+      "name": "Horn resonator",
+      "variants": [
+        {
+          "id": "jiaohu_horn_standard",
+          "default": true,
+          "name": "Yellow-cattle horn about 20 cm, snakeskin over the open face",
+          "descriptors": [
+            "snake-skin",
+            "crisp",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "bowed",
+            "resonant-membrane",
+            "high-register",
+            "two-string"
+          ],
+          "canonical_tags": [
+            "china",
+            "folk"
+          ]
+        },
+        {
+          "id": "jiaohu_horn_large",
+          "name": "Larger horn (lower, rougher, more rasp)",
+          "descriptors": [
+            "raspy",
+            "deep",
+            "thick-tone"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "resonant-membrane"
+          ],
+          "canonical_tags": [
+            "china",
+            "folk"
+          ]
+        },
+        {
+          "id": "jiaohu_horn_small",
+          "name": "Small horn (higher and thinner)",
+          "descriptors": [
+            "shrill",
+            "thin",
+            "bright"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing",
+            "high-pitched"
+          ],
+          "canonical_tags": [
+            "china",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jiaohu_neck",
+      "name": "Neck and pegbox",
+      "variants": [
+        {
+          "id": "jiaohu_neck_oxhead",
+          "default": true,
+          "name": "Hexagonal hardwood neck topped with a carved ox head",
+          "descriptors": [
+            "hardwood",
+            "handmade",
+            "traditional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "woody",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "china",
+            "traditional"
+          ]
+        },
+        {
+          "id": "jiaohu_neck_plain",
+          "name": "Plain hardwood neck and pegbox",
+          "descriptors": [
+            "rustic",
+            "dense-hardwood",
+            "village"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "woody"
+          ],
+          "canonical_tags": [
+            "folk",
+            "china"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jiaohu_context",
+      "name": "Ethnic practice and context",
+      "variants": [
+        {
+          "id": "jiaohu_context_gelao_baxian",
+          "default": true,
+          "name": "Gelao Baxian (Eight Immortals) ensemble lead",
+          "descriptors": [
+            "ensemble-lead",
+            "festive",
+            "brisk"
+          ],
+          "match_tokens": [
+            "bowed",
+            "lead-melody",
+            "ensemble",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "china",
+            "folk"
+          ]
+        },
+        {
+          "id": "jiaohu_context_miao",
+          "name": "Miao wedding and festival playing",
+          "descriptors": [
+            "festive",
+            "wedding-context",
+            "driving"
+          ],
+          "match_tokens": [
+            "bowed",
+            "festival",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "festival",
+            "wedding"
+          ]
+        },
+        {
+          "id": "jiaohu_context_dong",
+          "name": "Dong village celebration ensemble",
+          "descriptors": [
+            "village",
+            "interlocking",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "folk",
+            "china"
+          ]
+        },
+        {
+          "id": "jiaohu_context_solo",
+          "name": "Solo melody in short brisk erhu-like strokes",
+          "descriptors": [
+            "crisp",
+            "brisk",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "soloistic",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "solo",
+            "china"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "jiaohu_horn",
+      "name": "Horn resonator",
+      "variants": [
+        {
+          "id": "jiaohu_horn_standard",
+          "default": true,
+          "name": "Yellow-cattle horn about 20 cm, snakeskin over the open face",
+          "descriptors": [
+            "snake-skin",
+            "crisp",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "bowed",
+            "resonant-membrane",
+            "high-register",
+            "two-string"
+          ],
+          "canonical_tags": [
+            "china",
+            "folk"
+          ]
+        },
+        {
+          "id": "jiaohu_horn_large",
+          "name": "Larger horn (lower, rougher, more rasp)",
+          "descriptors": [
+            "raspy",
+            "deep",
+            "thick-tone"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "resonant-membrane"
+          ],
+          "canonical_tags": [
+            "china",
+            "folk"
+          ]
+        },
+        {
+          "id": "jiaohu_horn_small",
+          "name": "Small horn (higher and thinner)",
+          "descriptors": [
+            "shrill",
+            "thin",
+            "bright"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing",
+            "high-pitched"
+          ],
+          "canonical_tags": [
+            "china",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jiaohu_neck",
+      "name": "Neck and pegbox",
+      "variants": [
+        {
+          "id": "jiaohu_neck_oxhead",
+          "default": true,
+          "name": "Hexagonal hardwood neck topped with a carved ox head",
+          "descriptors": [
+            "hardwood",
+            "handmade",
+            "traditional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "woody",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "china",
+            "traditional"
+          ]
+        },
+        {
+          "id": "jiaohu_neck_plain",
+          "name": "Plain hardwood neck and pegbox",
+          "descriptors": [
+            "rustic",
+            "dense-hardwood",
+            "village"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "woody"
+          ],
+          "canonical_tags": [
+            "folk",
+            "china"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jiaohu_context",
+      "name": "Ethnic practice and context",
+      "variants": [
+        {
+          "id": "jiaohu_context_gelao_baxian",
+          "default": true,
+          "name": "Gelao Baxian (Eight Immortals) ensemble lead",
+          "descriptors": [
+            "ensemble-lead",
+            "festive",
+            "brisk"
+          ],
+          "match_tokens": [
+            "bowed",
+            "lead-melody",
+            "ensemble",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "china",
+            "folk"
+          ]
+        },
+        {
+          "id": "jiaohu_context_miao",
+          "name": "Miao wedding and festival playing",
+          "descriptors": [
+            "festive",
+            "wedding-context",
+            "driving"
+          ],
+          "match_tokens": [
+            "bowed",
+            "festival",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "festival",
+            "wedding"
+          ]
+        },
+        {
+          "id": "jiaohu_context_dong",
+          "name": "Dong village celebration ensemble",
+          "descriptors": [
+            "village",
+            "interlocking",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "folk",
+            "china"
+          ]
+        },
+        {
+          "id": "jiaohu_context_solo",
+          "name": "Solo melody in short brisk erhu-like strokes",
+          "descriptors": [
+            "crisp",
+            "brisk",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "soloistic",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "solo",
+            "china"
+          ]
+        }
+      ]
+    }
+  ]
+}

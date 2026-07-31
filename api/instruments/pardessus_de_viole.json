@@ -1,0 +1,535 @@
+{
+  "id": "pardessus_de_viole",
+  "name": "Pardessus de viole (highest viol, incl. the violin-bodied quinton)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "pardessus",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "pardessus_de_viole_stringing",
+      "name": "String disposition and tuning",
+      "variants": [
+        {
+          "id": "pardessus_de_viole_five_string",
+          "default": true,
+          "name": "Five strings g-d'-a'-d''-g'' (mixed fifths and fourths, from c. 1725-30)",
+          "descriptors": [
+            "bright",
+            "agile",
+            "singing-tone"
+          ],
+          "match_tokens": [
+            "bowed",
+            "five-string",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "french",
+            "baroque"
+          ]
+        },
+        {
+          "id": "pardessus_de_viole_six_string",
+          "name": "Six strings g-c'-e'-a'-d''-g'' (viol tuning, from c. 1700)",
+          "descriptors": [
+            "consort",
+            "sweet",
+            "historical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "six-string",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "french",
+            "period"
+          ]
+        },
+        {
+          "id": "pardessus_de_viole_violin_fifths",
+          "name": "Restrung toward violin-like fifths (late hybrid practice)",
+          "descriptors": [
+            "brilliant",
+            "projecting",
+            "refined"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "french",
+            "classical-era"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pardessus_de_viole_body",
+      "name": "Body form and frets",
+      "variants": [
+        {
+          "id": "pardessus_de_viole_body_viol_form",
+          "default": true,
+          "name": "Viol form - sloping shoulders, flat back, C-holes, seven tied gut frets",
+          "descriptors": [
+            "flat-back",
+            "sweet",
+            "historical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretted",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut",
+            "movable-frets"
+          ]
+        },
+        {
+          "id": "pardessus_de_viole_body_quinton_violin_form",
+          "name": "Violin form (the museum-label quinton) - violin outline, arching and f-holes with viol neck and frets",
+          "descriptors": [
+            "projecting",
+            "brilliant",
+            "refined"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretted",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "french",
+            "movable-frets"
+          ]
+        },
+        {
+          "id": "pardessus_de_viole_body_quinton_fretless",
+          "name": "Violin-form hybrid played fretless",
+          "descriptors": [
+            "singing-tone",
+            "clear",
+            "agile"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretless",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "french",
+            "classical-era"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pardessus_de_viole_bow",
+      "name": "Bow grip and posture",
+      "variants": [
+        {
+          "id": "pardessus_de_viole_bow_underhand_lap",
+          "default": true,
+          "name": "Underhand viol grip, instrument upright on the lap",
+          "descriptors": [
+            "underhand-grip",
+            "lap-position",
+            "delicate"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "early-music-context"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period"
+          ]
+        },
+        {
+          "id": "pardessus_de_viole_bow_overhand_cello",
+          "name": "Overhand cello grip (1765 method, competing with the violin)",
+          "descriptors": [
+            "projecting",
+            "articulate",
+            "refined"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained",
+            "late-baroque"
+          ],
+          "canonical_tags": [
+            "french",
+            "classical-era"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pardessus_de_viole_role",
+      "name": "Repertoire and social role",
+      "variants": [
+        {
+          "id": "pardessus_de_viole_role_violin_flute_substitute",
+          "default": true,
+          "name": "Standing in for violin or flute in French sonatas and suites",
+          "descriptors": [
+            "lyrical",
+            "refined",
+            "art-music"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained",
+            "chamber-fed"
+          ],
+          "canonical_tags": [
+            "french",
+            "baroque"
+          ]
+        },
+        {
+          "id": "pardessus_de_viole_role_duo_literature",
+          "name": "Pardessus-duo literature (de Caix op. 1, two five-string pardessus)",
+          "descriptors": [
+            "conversational",
+            "blended",
+            "composed-tradition"
+          ],
+          "match_tokens": [
+            "bowed",
+            "five-string",
+            "chamber-fed"
+          ],
+          "canonical_tags": [
+            "french",
+            "chamber"
+          ]
+        },
+        {
+          "id": "pardessus_de_viole_role_accompanied_solo",
+          "name": "Accompanied solo with continuo (Dolle, Dupuits)",
+          "descriptors": [
+            "featured",
+            "ornate",
+            "art-music"
+          ],
+          "match_tokens": [
+            "bowed",
+            "soloistic",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "french",
+            "baroque"
+          ]
+        },
+        {
+          "id": "pardessus_de_viole_role_salon_amateur",
+          "name": "Aristocratic salon playing by women amateurs",
+          "descriptors": [
+            "salon",
+            "intimate",
+            "courtly"
+          ],
+          "match_tokens": [
+            "bowed",
+            "intimate",
+            "chamber-fed"
+          ],
+          "canonical_tags": [
+            "salon",
+            "court"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "pardessus_de_viole_stringing",
+      "name": "String disposition and tuning",
+      "variants": [
+        {
+          "id": "pardessus_de_viole_five_string",
+          "default": true,
+          "name": "Five strings g-d'-a'-d''-g'' (mixed fifths and fourths, from c. 1725-30)",
+          "descriptors": [
+            "bright",
+            "agile",
+            "singing-tone"
+          ],
+          "match_tokens": [
+            "bowed",
+            "five-string",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "french",
+            "baroque"
+          ]
+        },
+        {
+          "id": "pardessus_de_viole_six_string",
+          "name": "Six strings g-c'-e'-a'-d''-g'' (viol tuning, from c. 1700)",
+          "descriptors": [
+            "consort",
+            "sweet",
+            "historical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "six-string",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "french",
+            "period"
+          ]
+        },
+        {
+          "id": "pardessus_de_viole_violin_fifths",
+          "name": "Restrung toward violin-like fifths (late hybrid practice)",
+          "descriptors": [
+            "brilliant",
+            "projecting",
+            "refined"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "french",
+            "classical-era"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pardessus_de_viole_body",
+      "name": "Body form and frets",
+      "variants": [
+        {
+          "id": "pardessus_de_viole_body_viol_form",
+          "default": true,
+          "name": "Viol form - sloping shoulders, flat back, C-holes, seven tied gut frets",
+          "descriptors": [
+            "flat-back",
+            "sweet",
+            "historical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretted",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut",
+            "movable-frets"
+          ]
+        },
+        {
+          "id": "pardessus_de_viole_body_quinton_violin_form",
+          "name": "Violin form (the museum-label quinton) - violin outline, arching and f-holes with viol neck and frets",
+          "descriptors": [
+            "projecting",
+            "brilliant",
+            "refined"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretted",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "french",
+            "movable-frets"
+          ]
+        },
+        {
+          "id": "pardessus_de_viole_body_quinton_fretless",
+          "name": "Violin-form hybrid played fretless",
+          "descriptors": [
+            "singing-tone",
+            "clear",
+            "agile"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretless",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "french",
+            "classical-era"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pardessus_de_viole_bow",
+      "name": "Bow grip and posture",
+      "variants": [
+        {
+          "id": "pardessus_de_viole_bow_underhand_lap",
+          "default": true,
+          "name": "Underhand viol grip, instrument upright on the lap",
+          "descriptors": [
+            "underhand-grip",
+            "lap-position",
+            "delicate"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "early-music-context"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period"
+          ]
+        },
+        {
+          "id": "pardessus_de_viole_bow_overhand_cello",
+          "name": "Overhand cello grip (1765 method, competing with the violin)",
+          "descriptors": [
+            "projecting",
+            "articulate",
+            "refined"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained",
+            "late-baroque"
+          ],
+          "canonical_tags": [
+            "french",
+            "classical-era"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pardessus_de_viole_role",
+      "name": "Repertoire and social role",
+      "variants": [
+        {
+          "id": "pardessus_de_viole_role_violin_flute_substitute",
+          "default": true,
+          "name": "Standing in for violin or flute in French sonatas and suites",
+          "descriptors": [
+            "lyrical",
+            "refined",
+            "art-music"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained",
+            "chamber-fed"
+          ],
+          "canonical_tags": [
+            "french",
+            "baroque"
+          ]
+        },
+        {
+          "id": "pardessus_de_viole_role_duo_literature",
+          "name": "Pardessus-duo literature (de Caix op. 1, two five-string pardessus)",
+          "descriptors": [
+            "conversational",
+            "blended",
+            "composed-tradition"
+          ],
+          "match_tokens": [
+            "bowed",
+            "five-string",
+            "chamber-fed"
+          ],
+          "canonical_tags": [
+            "french",
+            "chamber"
+          ]
+        },
+        {
+          "id": "pardessus_de_viole_role_accompanied_solo",
+          "name": "Accompanied solo with continuo (Dolle, Dupuits)",
+          "descriptors": [
+            "featured",
+            "ornate",
+            "art-music"
+          ],
+          "match_tokens": [
+            "bowed",
+            "soloistic",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "french",
+            "baroque"
+          ]
+        },
+        {
+          "id": "pardessus_de_viole_role_salon_amateur",
+          "name": "Aristocratic salon playing by women amateurs",
+          "descriptors": [
+            "salon",
+            "intimate",
+            "courtly"
+          ],
+          "match_tokens": [
+            "bowed",
+            "intimate",
+            "chamber-fed"
+          ],
+          "canonical_tags": [
+            "salon",
+            "court"
+          ]
+        }
+      ]
+    }
+  ]
+}

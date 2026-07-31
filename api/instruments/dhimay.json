@@ -1,0 +1,438 @@
+{
+  "id": "dhimay",
+  "name": "Dhimay (Newar processional drum)",
+  "family": "percussion",
+  "class": "cylindrical_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": -1,
+    "register": -2,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "dhimay",
+  "parts": [
+    {
+      "id": "dhimay_locality",
+      "name": "Locality / repertoire",
+      "variants": [
+        {
+          "id": "dhimay_locality_bhaktapur",
+          "default": true,
+          "name": "Bhaktapur dhimay repertoire",
+          "descriptors": [
+            "archaic",
+            "ceremonial",
+            "intricate"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "hand-and-stick",
+            "processional"
+          ],
+          "canonical_tags": [
+            "himalayan",
+            "traditional"
+          ]
+        },
+        {
+          "id": "dhimay_locality_kathmandu",
+          "name": "Kathmandu city guild style",
+          "descriptors": [
+            "urban",
+            "ensemble",
+            "regional"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "processional",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "himalayan",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "dhimay_locality_lalitpur",
+          "name": "Lalitpur (Patan) style",
+          "descriptors": [
+            "folk",
+            "communal",
+            "rustic"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "processional",
+            "hand-and-stick"
+          ],
+          "canonical_tags": [
+            "himalayan",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dhimay_ensemble",
+      "name": "Ensemble setting",
+      "variants": [
+        {
+          "id": "dhimay_ensemble_bhusyah",
+          "default": true,
+          "name": "Dhimay bājā with bhusyāh cymbals, outdoors and undamped",
+          "descriptors": [
+            "massed",
+            "undamped-resonance",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "loud-projection",
+            "ensemble",
+            "processional"
+          ],
+          "canonical_tags": [
+            "ensemble",
+            "processional",
+            "festival"
+          ]
+        },
+        {
+          "id": "dhimay_ensemble_solo_lead",
+          "name": "Single lead drum in a controlled space",
+          "descriptors": [
+            "soloistic",
+            "articulate",
+            "controlled"
+          ],
+          "match_tokens": [
+            "hand-and-stick",
+            "hand-struck",
+            "sharp-attack"
+          ],
+          "canonical_tags": [
+            "solo",
+            "studio"
+          ]
+        },
+        {
+          "id": "dhimay_ensemble_jatra",
+          "name": "Jātrā street procession",
+          "descriptors": [
+            "processional",
+            "walking",
+            "communal"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "processional",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "procession",
+            "festival"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dhimay_beater",
+      "name": "Stroke pairing",
+      "variants": [
+        {
+          "id": "dhimay_beater_cane",
+          "default": true,
+          "name": "Bare hand on one head, thin bent cane beater on the other",
+          "descriptors": [
+            "cracking",
+            "dense",
+            "hand-and-stick"
+          ],
+          "match_tokens": [
+            "hand-and-stick",
+            "hand-struck",
+            "stick-struck"
+          ],
+          "canonical_tags": [
+            "cane"
+          ]
+        },
+        {
+          "id": "dhimay_beater_stiff",
+          "name": "Stiffer beater (harder attack, sparser figures)",
+          "descriptors": [
+            "sharp-attack",
+            "hard",
+            "sparse"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "sharp-attack",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "hardwood"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dhimay_build",
+      "name": "Shell and heads",
+      "variants": [
+        {
+          "id": "dhimay_build_wood_laced",
+          "default": true,
+          "name": "Hollowed wooden shell, hide heads laced to the body",
+          "descriptors": [
+            "hollow",
+            "woody",
+            "booming"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "wood-shell",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "wood",
+            "rope-tension"
+          ]
+        },
+        {
+          "id": "dhimay_build_synthetic",
+          "name": "Modern synthetic heads on a wooden shell",
+          "descriptors": [
+            "synthetic-heads",
+            "weatherproof",
+            "consistent"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "synthetic",
+            "modern"
+          ],
+          "canonical_tags": [
+            "synthetic",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dhimay_locality",
+      "name": "Locality / repertoire",
+      "variants": [
+        {
+          "id": "dhimay_locality_bhaktapur",
+          "default": true,
+          "name": "Bhaktapur dhimay repertoire",
+          "descriptors": [
+            "archaic",
+            "ceremonial",
+            "intricate"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "hand-and-stick",
+            "processional"
+          ],
+          "canonical_tags": [
+            "himalayan",
+            "traditional"
+          ]
+        },
+        {
+          "id": "dhimay_locality_kathmandu",
+          "name": "Kathmandu city guild style",
+          "descriptors": [
+            "urban",
+            "ensemble",
+            "regional"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "processional",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "himalayan",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "dhimay_locality_lalitpur",
+          "name": "Lalitpur (Patan) style",
+          "descriptors": [
+            "folk",
+            "communal",
+            "rustic"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "processional",
+            "hand-and-stick"
+          ],
+          "canonical_tags": [
+            "himalayan",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dhimay_ensemble",
+      "name": "Ensemble setting",
+      "variants": [
+        {
+          "id": "dhimay_ensemble_bhusyah",
+          "default": true,
+          "name": "Dhimay bājā with bhusyāh cymbals, outdoors and undamped",
+          "descriptors": [
+            "massed",
+            "undamped-resonance",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "loud-projection",
+            "ensemble",
+            "processional"
+          ],
+          "canonical_tags": [
+            "ensemble",
+            "processional",
+            "festival"
+          ]
+        },
+        {
+          "id": "dhimay_ensemble_solo_lead",
+          "name": "Single lead drum in a controlled space",
+          "descriptors": [
+            "soloistic",
+            "articulate",
+            "controlled"
+          ],
+          "match_tokens": [
+            "hand-and-stick",
+            "hand-struck",
+            "sharp-attack"
+          ],
+          "canonical_tags": [
+            "solo",
+            "studio"
+          ]
+        },
+        {
+          "id": "dhimay_ensemble_jatra",
+          "name": "Jātrā street procession",
+          "descriptors": [
+            "processional",
+            "walking",
+            "communal"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "processional",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "procession",
+            "festival"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dhimay_beater",
+      "name": "Stroke pairing",
+      "variants": [
+        {
+          "id": "dhimay_beater_cane",
+          "default": true,
+          "name": "Bare hand on one head, thin bent cane beater on the other",
+          "descriptors": [
+            "cracking",
+            "dense",
+            "hand-and-stick"
+          ],
+          "match_tokens": [
+            "hand-and-stick",
+            "hand-struck",
+            "stick-struck"
+          ],
+          "canonical_tags": [
+            "cane"
+          ]
+        },
+        {
+          "id": "dhimay_beater_stiff",
+          "name": "Stiffer beater (harder attack, sparser figures)",
+          "descriptors": [
+            "sharp-attack",
+            "hard",
+            "sparse"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "sharp-attack",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "hardwood"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dhimay_build",
+      "name": "Shell and heads",
+      "variants": [
+        {
+          "id": "dhimay_build_wood_laced",
+          "default": true,
+          "name": "Hollowed wooden shell, hide heads laced to the body",
+          "descriptors": [
+            "hollow",
+            "woody",
+            "booming"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "wood-shell",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "wood",
+            "rope-tension"
+          ]
+        },
+        {
+          "id": "dhimay_build_synthetic",
+          "name": "Modern synthetic heads on a wooden shell",
+          "descriptors": [
+            "synthetic-heads",
+            "weatherproof",
+            "consistent"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "synthetic",
+            "modern"
+          ],
+          "canonical_tags": [
+            "synthetic",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

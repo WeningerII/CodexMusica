@@ -1,0 +1,512 @@
+{
+  "id": "rackett",
+  "name": "Rackett (Renaissance multi-bore double reed)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -2
+  },
+  "short": "rackett",
+  "parts": [
+    {
+      "id": "rackett_period",
+      "name": "Period / bore type",
+      "variants": [
+        {
+          "id": "rackett_renaissance_cylindrical",
+          "default": true,
+          "name": "Renaissance nine-bore cylindrical (overblows at the twelfth)",
+          "descriptors": [
+            "archaic",
+            "buzzy",
+            "quiet"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "renaissance"
+          ]
+        },
+        {
+          "id": "rackett_baroque_denner",
+          "name": "Baroque Denner ten-bore pseudo-conical, coiled crook and pepper-pot bell (octave overblow)",
+          "descriptors": [
+            "refined",
+            "warm",
+            "extended-range"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "baroque-context",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rackett_size",
+      "name": "Consort size",
+      "variants": [
+        {
+          "id": "rackett_bass",
+          "default": true,
+          "name": "Bass c–FF (consort workhorse)",
+          "descriptors": [
+            "consort-core",
+            "deep",
+            "foundational"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "renaissance"
+          ]
+        },
+        {
+          "id": "rackett_descant",
+          "name": "Descant (about 4½ inches tall, still reaching G2)",
+          "descriptors": [
+            "compact",
+            "nasal",
+            "bright"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "mid-register"
+          ],
+          "canonical_tags": [
+            "renaissance"
+          ]
+        },
+        {
+          "id": "rackett_tenor_alt",
+          "name": "Tenor-alt g–C",
+          "descriptors": [
+            "inner-voice",
+            "reedy",
+            "blended"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "mid-register"
+          ],
+          "canonical_tags": [
+            "renaissance"
+          ]
+        },
+        {
+          "id": "rackett_great_bass",
+          "name": "Great bass A–DD or G–CC",
+          "descriptors": [
+            "subterranean",
+            "droning",
+            "rare"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "renaissance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rackett_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "rackett_consort_bass",
+          "default": true,
+          "name": "Consort bass under recorders and crumhorns",
+          "descriptors": [
+            "foundational",
+            "soft-blend",
+            "blended"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "renaissance"
+          ]
+        },
+        {
+          "id": "rackett_voice_doubling",
+          "name": "Voice-doubling in a chamber Renaissance band",
+          "descriptors": [
+            "voice-doubling",
+            "polyphonic",
+            "intimate"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "choir-blendable"
+          ],
+          "canonical_tags": [
+            "renaissance"
+          ]
+        },
+        {
+          "id": "rackett_modern_colour",
+          "name": "Modern coloristic low buzz",
+          "descriptors": [
+            "buzzy",
+            "sound-design",
+            "twentieth-century"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "contemporary",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "contemporary"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rackett_material",
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "rackett_ivory_original",
+          "default": true,
+          "name": "Ivory (all three surviving Renaissance originals, Leipzig and Vienna)",
+          "descriptors": [
+            "ivory",
+            "refined",
+            "historic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "cites-app-i",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "rackett_boxwood",
+          "name": "Boxwood",
+          "descriptors": [
+            "boxwood-canonical-renaissance-european",
+            "warm",
+            "standard"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "renaissance"
+          ]
+        },
+        {
+          "id": "rackett_maple_workshop",
+          "name": "Maple, modern workshop reproduction (Moeck lineage)",
+          "descriptors": [
+            "maple",
+            "modern",
+            "stable"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "modern-repro",
+            "early-music"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "rackett_period",
+      "name": "Period / bore type",
+      "variants": [
+        {
+          "id": "rackett_renaissance_cylindrical",
+          "default": true,
+          "name": "Renaissance nine-bore cylindrical (overblows at the twelfth)",
+          "descriptors": [
+            "archaic",
+            "buzzy",
+            "quiet"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "renaissance"
+          ]
+        },
+        {
+          "id": "rackett_baroque_denner",
+          "name": "Baroque Denner ten-bore pseudo-conical, coiled crook and pepper-pot bell (octave overblow)",
+          "descriptors": [
+            "refined",
+            "warm",
+            "extended-range"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "baroque-context",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rackett_size",
+      "name": "Consort size",
+      "variants": [
+        {
+          "id": "rackett_bass",
+          "default": true,
+          "name": "Bass c–FF (consort workhorse)",
+          "descriptors": [
+            "consort-core",
+            "deep",
+            "foundational"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "renaissance"
+          ]
+        },
+        {
+          "id": "rackett_descant",
+          "name": "Descant (about 4½ inches tall, still reaching G2)",
+          "descriptors": [
+            "compact",
+            "nasal",
+            "bright"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "mid-register"
+          ],
+          "canonical_tags": [
+            "renaissance"
+          ]
+        },
+        {
+          "id": "rackett_tenor_alt",
+          "name": "Tenor-alt g–C",
+          "descriptors": [
+            "inner-voice",
+            "reedy",
+            "blended"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "mid-register"
+          ],
+          "canonical_tags": [
+            "renaissance"
+          ]
+        },
+        {
+          "id": "rackett_great_bass",
+          "name": "Great bass A–DD or G–CC",
+          "descriptors": [
+            "subterranean",
+            "droning",
+            "rare"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "renaissance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rackett_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "rackett_consort_bass",
+          "default": true,
+          "name": "Consort bass under recorders and crumhorns",
+          "descriptors": [
+            "foundational",
+            "soft-blend",
+            "blended"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "renaissance"
+          ]
+        },
+        {
+          "id": "rackett_voice_doubling",
+          "name": "Voice-doubling in a chamber Renaissance band",
+          "descriptors": [
+            "voice-doubling",
+            "polyphonic",
+            "intimate"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "choir-blendable"
+          ],
+          "canonical_tags": [
+            "renaissance"
+          ]
+        },
+        {
+          "id": "rackett_modern_colour",
+          "name": "Modern coloristic low buzz",
+          "descriptors": [
+            "buzzy",
+            "sound-design",
+            "twentieth-century"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "contemporary",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "contemporary"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rackett_material",
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "rackett_ivory_original",
+          "default": true,
+          "name": "Ivory (all three surviving Renaissance originals, Leipzig and Vienna)",
+          "descriptors": [
+            "ivory",
+            "refined",
+            "historic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "cites-app-i",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "rackett_boxwood",
+          "name": "Boxwood",
+          "descriptors": [
+            "boxwood-canonical-renaissance-european",
+            "warm",
+            "standard"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "renaissance"
+          ]
+        },
+        {
+          "id": "rackett_maple_workshop",
+          "name": "Maple, modern workshop reproduction (Moeck lineage)",
+          "descriptors": [
+            "maple",
+            "modern",
+            "stable"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "modern-repro",
+            "early-music"
+          ]
+        }
+      ]
+    }
+  ]
+}

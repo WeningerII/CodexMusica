@@ -1,0 +1,386 @@
+{
+  "id": "fyell",
+  "name": "Fyell brezi (Albanian rim-blown shepherd flute)",
+  "family": "wind",
+  "class": "end_blown_flute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "fyell",
+  "parts": [
+    {
+      "id": "fyell_form",
+      "name": "Form / blowing edge",
+      "variants": [
+        {
+          "id": "fyell_form_brezi",
+          "default": true,
+          "name": "Fyell brezi (six-hole belt flute sounded against a sharp edge cut at the top of the tube)",
+          "descriptors": [
+            "airy",
+            "bright-edge",
+            "pastoral"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "end-blown",
+            "breathy-tone"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "shepherd"
+          ]
+        },
+        {
+          "id": "fyell_form_long_kaval_type",
+          "name": "Long kaval-type fyell (Albanian usage extends the word to kaval-like flutes)",
+          "descriptors": [
+            "deep",
+            "breathy",
+            "hollow"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "end-blown",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "balkan"
+          ]
+        },
+        {
+          "id": "fyell_form_short_high",
+          "name": "Short high fyell (bright, quick dance pipe)",
+          "descriptors": [
+            "bright",
+            "shrill",
+            "agile"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "end-blown",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "balkan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fyell_context",
+      "name": "Region / repertoire",
+      "variants": [
+        {
+          "id": "fyell_context_dukagjin",
+          "default": true,
+          "name": "Northern Dukagjin / Malësia solo pastoral melody",
+          "descriptors": [
+            "unaccompanied",
+            "plaintive",
+            "free-rhythm"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "solo",
+            "outdoor-field",
+            "rubato"
+          ],
+          "canonical_tags": [
+            "shepherd",
+            "pastoral",
+            "balkan"
+          ]
+        },
+        {
+          "id": "fyell_context_iso_polyphony",
+          "name": "Southern Tosk iso-polyphonic context (flute shadowing a vocal line)",
+          "descriptors": [
+            "vocal-blend",
+            "droning",
+            "close-harmony"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "vocal-imitating",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "balkan"
+          ]
+        },
+        {
+          "id": "fyell_context_valle",
+          "name": "Valle dance tune with def and lodra drums",
+          "descriptors": [
+            "dance-driving",
+            "festive",
+            "propulsive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "dance-driving",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "dance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fyell_body",
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "fyell_body_fir",
+          "default": true,
+          "name": "Innermost fir trunk wood (traditional highland build)",
+          "descriptors": [
+            "soft-edged",
+            "warm",
+            "traditional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "wooden",
+            "end-blown"
+          ],
+          "canonical_tags": [
+            "wood-body",
+            "traditional"
+          ]
+        },
+        {
+          "id": "fyell_body_plum_walnut",
+          "name": "Plum or walnut (denser and darker)",
+          "descriptors": [
+            "dense",
+            "dark",
+            "focused"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "wooden",
+            "hardwood"
+          ],
+          "canonical_tags": [
+            "wood-body",
+            "hardwood"
+          ]
+        },
+        {
+          "id": "fyell_body_cane",
+          "name": "Reed or cane tube (light and rustic)",
+          "descriptors": [
+            "reedy",
+            "rustic",
+            "light"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reedy",
+            "end-blown"
+          ],
+          "canonical_tags": [
+            "reed-cane",
+            "cane"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "fyell_form",
+      "name": "Form / blowing edge",
+      "variants": [
+        {
+          "id": "fyell_form_brezi",
+          "default": true,
+          "name": "Fyell brezi (six-hole belt flute sounded against a sharp edge cut at the top of the tube)",
+          "descriptors": [
+            "airy",
+            "bright-edge",
+            "pastoral"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "end-blown",
+            "breathy-tone"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "shepherd"
+          ]
+        },
+        {
+          "id": "fyell_form_long_kaval_type",
+          "name": "Long kaval-type fyell (Albanian usage extends the word to kaval-like flutes)",
+          "descriptors": [
+            "deep",
+            "breathy",
+            "hollow"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "end-blown",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "balkan"
+          ]
+        },
+        {
+          "id": "fyell_form_short_high",
+          "name": "Short high fyell (bright, quick dance pipe)",
+          "descriptors": [
+            "bright",
+            "shrill",
+            "agile"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "end-blown",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "balkan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fyell_context",
+      "name": "Region / repertoire",
+      "variants": [
+        {
+          "id": "fyell_context_dukagjin",
+          "default": true,
+          "name": "Northern Dukagjin / Malësia solo pastoral melody",
+          "descriptors": [
+            "unaccompanied",
+            "plaintive",
+            "free-rhythm"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "solo",
+            "outdoor-field",
+            "rubato"
+          ],
+          "canonical_tags": [
+            "shepherd",
+            "pastoral",
+            "balkan"
+          ]
+        },
+        {
+          "id": "fyell_context_iso_polyphony",
+          "name": "Southern Tosk iso-polyphonic context (flute shadowing a vocal line)",
+          "descriptors": [
+            "vocal-blend",
+            "droning",
+            "close-harmony"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "vocal-imitating",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "balkan"
+          ]
+        },
+        {
+          "id": "fyell_context_valle",
+          "name": "Valle dance tune with def and lodra drums",
+          "descriptors": [
+            "dance-driving",
+            "festive",
+            "propulsive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "dance-driving",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "dance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fyell_body",
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "fyell_body_fir",
+          "default": true,
+          "name": "Innermost fir trunk wood (traditional highland build)",
+          "descriptors": [
+            "soft-edged",
+            "warm",
+            "traditional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "wooden",
+            "end-blown"
+          ],
+          "canonical_tags": [
+            "wood-body",
+            "traditional"
+          ]
+        },
+        {
+          "id": "fyell_body_plum_walnut",
+          "name": "Plum or walnut (denser and darker)",
+          "descriptors": [
+            "dense",
+            "dark",
+            "focused"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "wooden",
+            "hardwood"
+          ],
+          "canonical_tags": [
+            "wood-body",
+            "hardwood"
+          ]
+        },
+        {
+          "id": "fyell_body_cane",
+          "name": "Reed or cane tube (light and rustic)",
+          "descriptors": [
+            "reedy",
+            "rustic",
+            "light"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reedy",
+            "end-blown"
+          ],
+          "canonical_tags": [
+            "reed-cane",
+            "cane"
+          ]
+        }
+      ]
+    }
+  ]
+}

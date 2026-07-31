@@ -1,0 +1,350 @@
+{
+  "id": "tromboon",
+  "name": "Tromboon (P.D.Q. Bach bassoon-reed trombone hybrid)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "tromboon",
+  "parts": [
+    {
+      "id": "tromboon_body",
+      "name": "Donor body",
+      "variants": [
+        {
+          "id": "tromboon_tenor_trombone",
+          "default": true,
+          "name": "Tenor trombone body (canonical Schickele form)",
+          "descriptors": [
+            "standard",
+            "nasal",
+            "raucous"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "slide"
+          ],
+          "canonical_tags": [
+            "twentieth-century"
+          ]
+        },
+        {
+          "id": "tromboon_bass_trombone",
+          "name": "Bass trombone body (lower, fatter result)",
+          "descriptors": [
+            "bass-trombone",
+            "deep",
+            "growly"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "slide",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "twentieth-century"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tromboon_slide_use",
+      "name": "Slide use",
+      "variants": [
+        {
+          "id": "tromboon_full_gliss",
+          "default": true,
+          "name": "Full comic glissando / portamento",
+          "descriptors": [
+            "sliding",
+            "comic",
+            "playful"
+          ],
+          "match_tokens": [
+            "glissando-heavy",
+            "slide",
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "comic-song"
+          ]
+        },
+        {
+          "id": "tromboon_discrete_positions",
+          "name": "Discrete positions played like a keyless bassoon",
+          "descriptors": [
+            "articulate",
+            "standard",
+            "unstable"
+          ],
+          "match_tokens": [
+            "slide",
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "twentieth-century"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tromboon_role",
+      "name": "Role",
+      "variants": [
+        {
+          "id": "tromboon_pdq_feature",
+          "default": true,
+          "name": "Solo comic feature in a P.D.Q. Bach score (The Seasonings, Serenude, Shepherd on the Rocks)",
+          "descriptors": [
+            "comic",
+            "featured",
+            "loud"
+          ],
+          "match_tokens": [
+            "soloistic",
+            "wind-driven",
+            "reed-driven",
+            "contemporary"
+          ],
+          "canonical_tags": [
+            "comic-song",
+            "twentieth-century"
+          ]
+        },
+        {
+          "id": "tromboon_sound_design",
+          "name": "Sound-design / foley buzz outside any comic frame",
+          "descriptors": [
+            "sound-design",
+            "buzzy",
+            "experimental"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "rough-tone",
+            "contemporary"
+          ],
+          "canonical_tags": [
+            "experimental",
+            "contemporary"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tromboon_reed",
+      "name": "Reed",
+      "variants": [
+        {
+          "id": "tromboon_standard_bassoon_reed",
+          "default": true,
+          "name": "Standard bassoon reed on bocal",
+          "descriptors": [
+            "standard",
+            "reedy",
+            "balanced"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "double-reed"
+          ]
+        },
+        {
+          "id": "tromboon_hard_scrape_reed",
+          "name": "Harder / heavier scrape for more raucousness",
+          "descriptors": [
+            "harder-edge",
+            "raucous",
+            "brash"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "rough-tone"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tromboon_body",
+      "name": "Donor body",
+      "variants": [
+        {
+          "id": "tromboon_tenor_trombone",
+          "default": true,
+          "name": "Tenor trombone body (canonical Schickele form)",
+          "descriptors": [
+            "standard",
+            "nasal",
+            "raucous"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "slide"
+          ],
+          "canonical_tags": [
+            "twentieth-century"
+          ]
+        },
+        {
+          "id": "tromboon_bass_trombone",
+          "name": "Bass trombone body (lower, fatter result)",
+          "descriptors": [
+            "bass-trombone",
+            "deep",
+            "growly"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "slide",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "twentieth-century"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tromboon_slide_use",
+      "name": "Slide use",
+      "variants": [
+        {
+          "id": "tromboon_full_gliss",
+          "default": true,
+          "name": "Full comic glissando / portamento",
+          "descriptors": [
+            "sliding",
+            "comic",
+            "playful"
+          ],
+          "match_tokens": [
+            "glissando-heavy",
+            "slide",
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "comic-song"
+          ]
+        },
+        {
+          "id": "tromboon_discrete_positions",
+          "name": "Discrete positions played like a keyless bassoon",
+          "descriptors": [
+            "articulate",
+            "standard",
+            "unstable"
+          ],
+          "match_tokens": [
+            "slide",
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "twentieth-century"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tromboon_role",
+      "name": "Role",
+      "variants": [
+        {
+          "id": "tromboon_pdq_feature",
+          "default": true,
+          "name": "Solo comic feature in a P.D.Q. Bach score (The Seasonings, Serenude, Shepherd on the Rocks)",
+          "descriptors": [
+            "comic",
+            "featured",
+            "loud"
+          ],
+          "match_tokens": [
+            "soloistic",
+            "wind-driven",
+            "reed-driven",
+            "contemporary"
+          ],
+          "canonical_tags": [
+            "comic-song",
+            "twentieth-century"
+          ]
+        },
+        {
+          "id": "tromboon_sound_design",
+          "name": "Sound-design / foley buzz outside any comic frame",
+          "descriptors": [
+            "sound-design",
+            "buzzy",
+            "experimental"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "rough-tone",
+            "contemporary"
+          ],
+          "canonical_tags": [
+            "experimental",
+            "contemporary"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tromboon_reed",
+      "name": "Reed",
+      "variants": [
+        {
+          "id": "tromboon_standard_bassoon_reed",
+          "default": true,
+          "name": "Standard bassoon reed on bocal",
+          "descriptors": [
+            "standard",
+            "reedy",
+            "balanced"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "double-reed"
+          ]
+        },
+        {
+          "id": "tromboon_hard_scrape_reed",
+          "name": "Harder / heavier scrape for more raucousness",
+          "descriptors": [
+            "harder-edge",
+            "raucous",
+            "brash"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "rough-tone"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,550 @@
+{
+  "id": "fontomfrom",
+  "name": "Fontomfrom (Akan royal court drums)",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": -1,
+    "register": -2,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "fontomfrom",
+  "parts": [
+    {
+      "id": "fontomfrom_scope",
+      "name": "Scope of the set",
+      "variants": [
+        {
+          "id": "fontomfrom_bommaa_pair",
+          "default": true,
+          "name": "The two great from / bɔmmaa drums alone",
+          "descriptors": [
+            "deep-bass",
+            "thunderous",
+            "foundation"
+          ],
+          "match_tokens": [
+            "struck",
+            "low-register",
+            "sticks"
+          ],
+          "canonical_tags": [
+            "akan",
+            "court"
+          ]
+        },
+        {
+          "id": "fontomfrom_full_battery",
+          "name": "Full court battery (from pair, atumpan pair, small high pair, dawuro bell)",
+          "descriptors": [
+            "ensemble",
+            "interlocking",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "struck",
+            "ensemble",
+            "interlocking"
+          ],
+          "canonical_tags": [
+            "akan",
+            "asante",
+            "ceremonial"
+          ]
+        },
+        {
+          "id": "fontomfrom_lead_from",
+          "name": "Single lead from drum cueing the chief's dance",
+          "descriptors": [
+            "lead-voice",
+            "declamatory",
+            "improvising"
+          ],
+          "match_tokens": [
+            "struck",
+            "lead-voice",
+            "speech-derived"
+          ],
+          "canonical_tags": [
+            "akan",
+            "court"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fontomfrom_court",
+      "name": "Court / regional form",
+      "variants": [
+        {
+          "id": "fontomfrom_asante_kumasi",
+          "default": true,
+          "name": "Asante (Kumasi palace)",
+          "descriptors": [
+            "courtly",
+            "royal",
+            "stately"
+          ],
+          "match_tokens": [
+            "struck",
+            "processional",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "asante",
+            "ghana",
+            "court"
+          ]
+        },
+        {
+          "id": "fontomfrom_bono",
+          "name": "Bono court form",
+          "descriptors": [
+            "regional",
+            "archaic",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "struck",
+            "ensemble",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "akan",
+            "ghana"
+          ]
+        },
+        {
+          "id": "fontomfrom_fante",
+          "name": "Fante coastal court form",
+          "descriptors": [
+            "coastal",
+            "regional",
+            "festive"
+          ],
+          "match_tokens": [
+            "struck",
+            "ensemble",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "akan",
+            "ghana"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fontomfrom_function",
+      "name": "Function & repertoire",
+      "variants": [
+        {
+          "id": "fontomfrom_akantam_dance",
+          "default": true,
+          "name": "Akantam and the warrior dance suite (interlocking against dawuro)",
+          "descriptors": [
+            "driving",
+            "interlocking",
+            "celebratory"
+          ],
+          "match_tokens": [
+            "struck",
+            "dance-driving",
+            "timeline"
+          ],
+          "canonical_tags": [
+            "asante",
+            "dance"
+          ]
+        },
+        {
+          "id": "fontomfrom_appellation",
+          "name": "Appellation mode (praise of the chief, declamatory)",
+          "descriptors": [
+            "declamatory",
+            "praise-song",
+            "sparse",
+            "stately"
+          ],
+          "match_tokens": [
+            "struck",
+            "speech-derived",
+            "talking"
+          ],
+          "canonical_tags": [
+            "akan",
+            "praise"
+          ]
+        },
+        {
+          "id": "fontomfrom_durbar_procession",
+          "name": "Durbar and palanquin procession",
+          "descriptors": [
+            "processional",
+            "ceremonial",
+            "projecting"
+          ],
+          "match_tokens": [
+            "struck",
+            "processional",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "processional",
+            "ceremonial"
+          ]
+        },
+        {
+          "id": "fontomfrom_funeral_state",
+          "name": "State funeral rites",
+          "descriptors": [
+            "solemn",
+            "mourning",
+            "ritual"
+          ],
+          "match_tokens": [
+            "struck",
+            "ritual-context",
+            "processional"
+          ],
+          "canonical_tags": [
+            "akan",
+            "ritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fontomfrom_technique",
+      "name": "Stroke technique",
+      "variants": [
+        {
+          "id": "fontomfrom_curved_open",
+          "default": true,
+          "name": "Curved sticks, open booming strokes",
+          "descriptors": [
+            "booming",
+            "open-ringing",
+            "thunderous"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-struck",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "akan",
+            "traditional"
+          ]
+        },
+        {
+          "id": "fontomfrom_rim_edge",
+          "name": "Rim / edge strokes",
+          "descriptors": [
+            "dry",
+            "clipped",
+            "cutting"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-struck",
+            "dry-tone"
+          ],
+          "canonical_tags": [
+            "akan"
+          ]
+        },
+        {
+          "id": "fontomfrom_hand_pressure",
+          "name": "Hand or forearm pressure on the head (bent pitch)",
+          "descriptors": [
+            "bent-pitch",
+            "vocal",
+            "expressive"
+          ],
+          "match_tokens": [
+            "struck",
+            "pitch-bend",
+            "talking"
+          ],
+          "canonical_tags": [
+            "akan",
+            "praise"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "fontomfrom_scope",
+      "name": "Scope of the set",
+      "variants": [
+        {
+          "id": "fontomfrom_bommaa_pair",
+          "default": true,
+          "name": "The two great from / bɔmmaa drums alone",
+          "descriptors": [
+            "deep-bass",
+            "thunderous",
+            "foundation"
+          ],
+          "match_tokens": [
+            "struck",
+            "low-register",
+            "sticks"
+          ],
+          "canonical_tags": [
+            "akan",
+            "court"
+          ]
+        },
+        {
+          "id": "fontomfrom_full_battery",
+          "name": "Full court battery (from pair, atumpan pair, small high pair, dawuro bell)",
+          "descriptors": [
+            "ensemble",
+            "interlocking",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "struck",
+            "ensemble",
+            "interlocking"
+          ],
+          "canonical_tags": [
+            "akan",
+            "asante",
+            "ceremonial"
+          ]
+        },
+        {
+          "id": "fontomfrom_lead_from",
+          "name": "Single lead from drum cueing the chief's dance",
+          "descriptors": [
+            "lead-voice",
+            "declamatory",
+            "improvising"
+          ],
+          "match_tokens": [
+            "struck",
+            "lead-voice",
+            "speech-derived"
+          ],
+          "canonical_tags": [
+            "akan",
+            "court"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fontomfrom_court",
+      "name": "Court / regional form",
+      "variants": [
+        {
+          "id": "fontomfrom_asante_kumasi",
+          "default": true,
+          "name": "Asante (Kumasi palace)",
+          "descriptors": [
+            "courtly",
+            "royal",
+            "stately"
+          ],
+          "match_tokens": [
+            "struck",
+            "processional",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "asante",
+            "ghana",
+            "court"
+          ]
+        },
+        {
+          "id": "fontomfrom_bono",
+          "name": "Bono court form",
+          "descriptors": [
+            "regional",
+            "archaic",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "struck",
+            "ensemble",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "akan",
+            "ghana"
+          ]
+        },
+        {
+          "id": "fontomfrom_fante",
+          "name": "Fante coastal court form",
+          "descriptors": [
+            "coastal",
+            "regional",
+            "festive"
+          ],
+          "match_tokens": [
+            "struck",
+            "ensemble",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "akan",
+            "ghana"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fontomfrom_function",
+      "name": "Function & repertoire",
+      "variants": [
+        {
+          "id": "fontomfrom_akantam_dance",
+          "default": true,
+          "name": "Akantam and the warrior dance suite (interlocking against dawuro)",
+          "descriptors": [
+            "driving",
+            "interlocking",
+            "celebratory"
+          ],
+          "match_tokens": [
+            "struck",
+            "dance-driving",
+            "timeline"
+          ],
+          "canonical_tags": [
+            "asante",
+            "dance"
+          ]
+        },
+        {
+          "id": "fontomfrom_appellation",
+          "name": "Appellation mode (praise of the chief, declamatory)",
+          "descriptors": [
+            "declamatory",
+            "praise-song",
+            "sparse",
+            "stately"
+          ],
+          "match_tokens": [
+            "struck",
+            "speech-derived",
+            "talking"
+          ],
+          "canonical_tags": [
+            "akan",
+            "praise"
+          ]
+        },
+        {
+          "id": "fontomfrom_durbar_procession",
+          "name": "Durbar and palanquin procession",
+          "descriptors": [
+            "processional",
+            "ceremonial",
+            "projecting"
+          ],
+          "match_tokens": [
+            "struck",
+            "processional",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "processional",
+            "ceremonial"
+          ]
+        },
+        {
+          "id": "fontomfrom_funeral_state",
+          "name": "State funeral rites",
+          "descriptors": [
+            "solemn",
+            "mourning",
+            "ritual"
+          ],
+          "match_tokens": [
+            "struck",
+            "ritual-context",
+            "processional"
+          ],
+          "canonical_tags": [
+            "akan",
+            "ritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fontomfrom_technique",
+      "name": "Stroke technique",
+      "variants": [
+        {
+          "id": "fontomfrom_curved_open",
+          "default": true,
+          "name": "Curved sticks, open booming strokes",
+          "descriptors": [
+            "booming",
+            "open-ringing",
+            "thunderous"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-struck",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "akan",
+            "traditional"
+          ]
+        },
+        {
+          "id": "fontomfrom_rim_edge",
+          "name": "Rim / edge strokes",
+          "descriptors": [
+            "dry",
+            "clipped",
+            "cutting"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-struck",
+            "dry-tone"
+          ],
+          "canonical_tags": [
+            "akan"
+          ]
+        },
+        {
+          "id": "fontomfrom_hand_pressure",
+          "name": "Hand or forearm pressure on the head (bent pitch)",
+          "descriptors": [
+            "bent-pitch",
+            "vocal",
+            "expressive"
+          ],
+          "match_tokens": [
+            "struck",
+            "pitch-bend",
+            "talking"
+          ],
+          "canonical_tags": [
+            "akan",
+            "praise"
+          ]
+        }
+      ]
+    }
+  ]
+}

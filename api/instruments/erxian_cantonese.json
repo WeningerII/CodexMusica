@@ -1,0 +1,345 @@
+{
+  "id": "erxian_cantonese",
+  "name": "Erxian (Cantonese hard-bow lead fiddle)",
+  "family": "bowed",
+  "class": "bowed_spike_fiddle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "cantonese erxian",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "erxian_cantonese_tuning",
+      "name": "Tuning and tune-type",
+      "variants": [
+        {
+          "id": "erxian_cantonese_tuning_shigong",
+          "default": true,
+          "name": "Zhengxian shigong (a1-e2) for bangzi tunes",
+          "descriptors": [
+            "bright-piercing",
+            "cutting",
+            "driving"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing",
+            "high-register",
+            "two-string"
+          ],
+          "canonical_tags": [
+            "cantonese",
+            "guangdong"
+          ]
+        },
+        {
+          "id": "erxian_cantonese_tuning_hechi",
+          "name": "Zhengxian hechi (g1-d2) for erhuang tunes",
+          "descriptors": [
+            "plaintive",
+            "narrative",
+            "darker"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing",
+            "melancholic"
+          ],
+          "canonical_tags": [
+            "cantonese",
+            "cantonese-opera"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "erxian_cantonese_setup",
+      "name": "Strings and bow",
+      "variants": [
+        {
+          "id": "erxian_cantonese_setup_hard_bow",
+          "default": true,
+          "name": "Heavy silk strings with thick bamboo hard bow (yinggong canon)",
+          "descriptors": [
+            "silk",
+            "archaic",
+            "loud"
+          ],
+          "match_tokens": [
+            "bowed",
+            "silk-strung",
+            "period-performance",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "cantonese",
+            "historical"
+          ]
+        },
+        {
+          "id": "erxian_cantonese_setup_modern",
+          "name": "Steel strings with a light erhu bow (modern substitution)",
+          "descriptors": [
+            "steel",
+            "smoother",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "steel-string",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern",
+            "cantonese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "erxian_cantonese_role",
+      "name": "Ensemble placement",
+      "variants": [
+        {
+          "id": "erxian_cantonese_role_saam_ga_tau",
+          "default": true,
+          "name": "Saam-ga-tau hard-bow trio lead (with zhutiqin and sanxian)",
+          "descriptors": [
+            "ensemble-lead",
+            "commanding",
+            "heterophonic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "lead-melody",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "cantonese",
+            "lead"
+          ]
+        },
+        {
+          "id": "erxian_cantonese_role_ng_ga_tau",
+          "name": "Hard-bow ng-ga-tau five-piece (adds yueqin and a reed pipe or flute)",
+          "descriptors": [
+            "interlocking",
+            "chamber",
+            "stately"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "chamber-fed"
+          ],
+          "canonical_tags": [
+            "cantonese",
+            "guangdong"
+          ]
+        },
+        {
+          "id": "erxian_cantonese_role_opera",
+          "name": "Cantonese-opera singing accompaniment (near-exclusive modern use)",
+          "descriptors": [
+            "operatic",
+            "vocal-supportive",
+            "supporting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vocal-accompaniment",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "cantonese-opera",
+            "accompaniment"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "erxian_cantonese_tuning",
+      "name": "Tuning and tune-type",
+      "variants": [
+        {
+          "id": "erxian_cantonese_tuning_shigong",
+          "default": true,
+          "name": "Zhengxian shigong (a1-e2) for bangzi tunes",
+          "descriptors": [
+            "bright-piercing",
+            "cutting",
+            "driving"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing",
+            "high-register",
+            "two-string"
+          ],
+          "canonical_tags": [
+            "cantonese",
+            "guangdong"
+          ]
+        },
+        {
+          "id": "erxian_cantonese_tuning_hechi",
+          "name": "Zhengxian hechi (g1-d2) for erhuang tunes",
+          "descriptors": [
+            "plaintive",
+            "narrative",
+            "darker"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing",
+            "melancholic"
+          ],
+          "canonical_tags": [
+            "cantonese",
+            "cantonese-opera"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "erxian_cantonese_setup",
+      "name": "Strings and bow",
+      "variants": [
+        {
+          "id": "erxian_cantonese_setup_hard_bow",
+          "default": true,
+          "name": "Heavy silk strings with thick bamboo hard bow (yinggong canon)",
+          "descriptors": [
+            "silk",
+            "archaic",
+            "loud"
+          ],
+          "match_tokens": [
+            "bowed",
+            "silk-strung",
+            "period-performance",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "cantonese",
+            "historical"
+          ]
+        },
+        {
+          "id": "erxian_cantonese_setup_modern",
+          "name": "Steel strings with a light erhu bow (modern substitution)",
+          "descriptors": [
+            "steel",
+            "smoother",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "steel-string",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern",
+            "cantonese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "erxian_cantonese_role",
+      "name": "Ensemble placement",
+      "variants": [
+        {
+          "id": "erxian_cantonese_role_saam_ga_tau",
+          "default": true,
+          "name": "Saam-ga-tau hard-bow trio lead (with zhutiqin and sanxian)",
+          "descriptors": [
+            "ensemble-lead",
+            "commanding",
+            "heterophonic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "lead-melody",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "cantonese",
+            "lead"
+          ]
+        },
+        {
+          "id": "erxian_cantonese_role_ng_ga_tau",
+          "name": "Hard-bow ng-ga-tau five-piece (adds yueqin and a reed pipe or flute)",
+          "descriptors": [
+            "interlocking",
+            "chamber",
+            "stately"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "chamber-fed"
+          ],
+          "canonical_tags": [
+            "cantonese",
+            "guangdong"
+          ]
+        },
+        {
+          "id": "erxian_cantonese_role_opera",
+          "name": "Cantonese-opera singing accompaniment (near-exclusive modern use)",
+          "descriptors": [
+            "operatic",
+            "vocal-supportive",
+            "supporting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "vocal-accompaniment",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "cantonese-opera",
+            "accompaniment"
+          ]
+        }
+      ]
+    }
+  ]
+}

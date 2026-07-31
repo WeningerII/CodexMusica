@@ -1,0 +1,381 @@
+{
+  "id": "zhutiqin",
+  "name": "Zhutiqin (Cantonese bamboo tiqin, hard-bow ensemble)",
+  "family": "bowed",
+  "class": "bowed_tube_fiddle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "zhutiqin",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "zhutiqin_referent",
+      "name": "Which tiqin",
+      "variants": [
+        {
+          "id": "zhutiqin_referent_bamboo",
+          "default": true,
+          "name": "Cantonese bamboo zhutiqin - thick bamboo tube closed with a paulownia panel, no skin",
+          "descriptors": [
+            "bamboo-bodied",
+            "paulownia",
+            "nasal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "wood-body",
+            "nasal-tone",
+            "two-string"
+          ],
+          "canonical_tags": [
+            "cantonese",
+            "bamboo-tube"
+          ]
+        },
+        {
+          "id": "zhutiqin_referent_kunqu",
+          "name": "Kunqu gourd-resonator tiqin (Wei Liangfu, Wanli era - effectively a lost art)",
+          "descriptors": [
+            "gourd-bodied",
+            "archaic",
+            "mournful"
+          ],
+          "match_tokens": [
+            "bowed",
+            "archaic",
+            "melancholic"
+          ],
+          "canonical_tags": [
+            "historical",
+            "china"
+          ]
+        },
+        {
+          "id": "zhutiqin_referent_coconut",
+          "name": "Southern coconut-bodied tiqin of Hainan, Fujian and Taiwan (tung-wood face)",
+          "descriptors": [
+            "coconut-shell",
+            "bright",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bright-tone",
+            "wood-body"
+          ],
+          "canonical_tags": [
+            "east-asia",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zhutiqin_tuning",
+      "name": "Tuning (a fourth apart)",
+      "variants": [
+        {
+          "id": "zhutiqin_tuning_gongwu",
+          "default": true,
+          "name": "Zhengxian gongwu (e-a1)",
+          "descriptors": [
+            "warm-nasal",
+            "archaic",
+            "lingering"
+          ],
+          "match_tokens": [
+            "bowed",
+            "nasal-tone",
+            "open-string"
+          ],
+          "canonical_tags": [
+            "cantonese",
+            "guangdong"
+          ]
+        },
+        {
+          "id": "zhutiqin_tuning_chiwu",
+          "name": "Zhengxian chiwu (d-a1) for erhuang board-tunes",
+          "descriptors": [
+            "plaintive",
+            "darker",
+            "narrative"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melancholic",
+            "open-string"
+          ],
+          "canonical_tags": [
+            "cantonese-opera",
+            "cantonese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zhutiqin_ensemble",
+      "name": "Ensemble placement",
+      "variants": [
+        {
+          "id": "zhutiqin_ensemble_trio",
+          "default": true,
+          "name": "Saam-ga-tau hard-bow trio (erxian, zhutiqin, sanxian)",
+          "descriptors": [
+            "archaic",
+            "interlocking",
+            "chamber"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "chamber-fed",
+            "archaic"
+          ],
+          "canonical_tags": [
+            "cantonese",
+            "guangdong"
+          ]
+        },
+        {
+          "id": "zhutiqin_ensemble_five",
+          "name": "Hard-bow ng-ga-tau five-piece (adds yueqin and a reed pipe or flute)",
+          "descriptors": [
+            "stately",
+            "blended",
+            "silk-and-bamboo"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "chamber-fed"
+          ],
+          "canonical_tags": [
+            "guangdong",
+            "cantonese"
+          ]
+        },
+        {
+          "id": "zhutiqin_ensemble_softbow",
+          "name": "Colour instrument in the later soft-bow gaohu-led ensemble",
+          "descriptors": [
+            "supporting",
+            "blended",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "cantonese",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "zhutiqin_referent",
+      "name": "Which tiqin",
+      "variants": [
+        {
+          "id": "zhutiqin_referent_bamboo",
+          "default": true,
+          "name": "Cantonese bamboo zhutiqin - thick bamboo tube closed with a paulownia panel, no skin",
+          "descriptors": [
+            "bamboo-bodied",
+            "paulownia",
+            "nasal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "wood-body",
+            "nasal-tone",
+            "two-string"
+          ],
+          "canonical_tags": [
+            "cantonese",
+            "bamboo-tube"
+          ]
+        },
+        {
+          "id": "zhutiqin_referent_kunqu",
+          "name": "Kunqu gourd-resonator tiqin (Wei Liangfu, Wanli era - effectively a lost art)",
+          "descriptors": [
+            "gourd-bodied",
+            "archaic",
+            "mournful"
+          ],
+          "match_tokens": [
+            "bowed",
+            "archaic",
+            "melancholic"
+          ],
+          "canonical_tags": [
+            "historical",
+            "china"
+          ]
+        },
+        {
+          "id": "zhutiqin_referent_coconut",
+          "name": "Southern coconut-bodied tiqin of Hainan, Fujian and Taiwan (tung-wood face)",
+          "descriptors": [
+            "coconut-shell",
+            "bright",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bright-tone",
+            "wood-body"
+          ],
+          "canonical_tags": [
+            "east-asia",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zhutiqin_tuning",
+      "name": "Tuning (a fourth apart)",
+      "variants": [
+        {
+          "id": "zhutiqin_tuning_gongwu",
+          "default": true,
+          "name": "Zhengxian gongwu (e-a1)",
+          "descriptors": [
+            "warm-nasal",
+            "archaic",
+            "lingering"
+          ],
+          "match_tokens": [
+            "bowed",
+            "nasal-tone",
+            "open-string"
+          ],
+          "canonical_tags": [
+            "cantonese",
+            "guangdong"
+          ]
+        },
+        {
+          "id": "zhutiqin_tuning_chiwu",
+          "name": "Zhengxian chiwu (d-a1) for erhuang board-tunes",
+          "descriptors": [
+            "plaintive",
+            "darker",
+            "narrative"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melancholic",
+            "open-string"
+          ],
+          "canonical_tags": [
+            "cantonese-opera",
+            "cantonese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zhutiqin_ensemble",
+      "name": "Ensemble placement",
+      "variants": [
+        {
+          "id": "zhutiqin_ensemble_trio",
+          "default": true,
+          "name": "Saam-ga-tau hard-bow trio (erxian, zhutiqin, sanxian)",
+          "descriptors": [
+            "archaic",
+            "interlocking",
+            "chamber"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "chamber-fed",
+            "archaic"
+          ],
+          "canonical_tags": [
+            "cantonese",
+            "guangdong"
+          ]
+        },
+        {
+          "id": "zhutiqin_ensemble_five",
+          "name": "Hard-bow ng-ga-tau five-piece (adds yueqin and a reed pipe or flute)",
+          "descriptors": [
+            "stately",
+            "blended",
+            "silk-and-bamboo"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "chamber-fed"
+          ],
+          "canonical_tags": [
+            "guangdong",
+            "cantonese"
+          ]
+        },
+        {
+          "id": "zhutiqin_ensemble_softbow",
+          "name": "Colour instrument in the later soft-bow gaohu-led ensemble",
+          "descriptors": [
+            "supporting",
+            "blended",
+            "warm"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "cantonese",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

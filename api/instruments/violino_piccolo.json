@@ -1,0 +1,501 @@
+{
+  "id": "violino_piccolo",
+  "name": "Violino piccolo (small baroque violin tuned above the violin)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 1,
+    "register": 2,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "violino piccolo",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "violino_piccolo_tuning",
+      "name": "Tuning / pitch level",
+      "variants": [
+        {
+          "id": "violino_piccolo_tuning_minor_third",
+          "default": true,
+          "name": "Minor third above the violin (c′–g′–d″–a″, Walther's Lexicon)",
+          "descriptors": [
+            "silvery",
+            "treble-extended",
+            "historical-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "baroque-leaning",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period"
+          ]
+        },
+        {
+          "id": "violino_piccolo_tuning_fourth_up",
+          "name": "Fourth above the violin (d′–a′–e″–b″)",
+          "descriptors": [
+            "brighter",
+            "piercing",
+            "leaner"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "baroque"
+          ]
+        },
+        {
+          "id": "violino_piccolo_tuning_violin_pitch",
+          "name": "Violin pitch on a small body (modern shortcut)",
+          "descriptors": [
+            "compact",
+            "modern",
+            "balanced"
+          ],
+          "match_tokens": [
+            "bowed",
+            "small-body",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "violino_piccolo_role",
+      "name": "Ensemble role / repertoire",
+      "variants": [
+        {
+          "id": "violino_piccolo_role_concertante",
+          "default": true,
+          "name": "Concertante soloist over ripieno strings (Brandenburg 1, transposing part in D)",
+          "descriptors": [
+            "virtuosic",
+            "glittering",
+            "soloistic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "orchestral",
+            "soloistic",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "concert"
+          ]
+        },
+        {
+          "id": "violino_piccolo_role_chorale_obbligato",
+          "name": "Chorale-cantata obbligato with a solo voice (BWV 140)",
+          "descriptors": [
+            "aria-partner",
+            "devotional",
+            "intimate"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "chamber-fed",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "sacred",
+            "lutheran"
+          ]
+        },
+        {
+          "id": "violino_piccolo_role_early_italian",
+          "name": "Early-Baroque theatre ritornello (Monteverdi Orfeo, Praetorius consort)",
+          "descriptors": [
+            "early-baroque",
+            "courtly",
+            "festive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "renaissance",
+            "ensemble",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "italian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "violino_piccolo_build",
+      "name": "Body / neck proportion",
+      "variants": [
+        {
+          "id": "violino_piccolo_build_quarter_body_full_neck",
+          "default": true,
+          "name": "Quarter-size body with near-full-thickness neck (Amati 1613, Stradivari 1734)",
+          "descriptors": [
+            "historical-canonical",
+            "compact",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "small-body",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "historical"
+          ]
+        },
+        {
+          "id": "violino_piccolo_build_three_quarter_substitute",
+          "name": "Plain 3/4 violin substitute (common modern shortcut)",
+          "descriptors": [
+            "compact",
+            "modern",
+            "student-tier"
+          ],
+          "match_tokens": [
+            "bowed",
+            "small-body",
+            "student-tier"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "violino_piccolo_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "violino_piccolo_strings_plain_gut",
+          "default": true,
+          "name": "Plain lamb gut (baroque-setup canonical)",
+          "descriptors": [
+            "plain-gut",
+            "lamb-gut",
+            "low-tension",
+            "short-sustain"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "violino_piccolo_strings_silver_wound_gut",
+          "name": "Silver-wound on lamb gut (late-baroque)",
+          "descriptors": [
+            "silver-wound",
+            "lamb-gut-core",
+            "warm-bright"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained",
+            "late-baroque"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "violino_piccolo_strings_synthetic",
+          "name": "Synthetic core (modern revival setup)",
+          "descriptors": [
+            "synthetic",
+            "stable",
+            "modern"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "bowed",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern",
+            "revival"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "violino_piccolo_tuning",
+      "name": "Tuning / pitch level",
+      "variants": [
+        {
+          "id": "violino_piccolo_tuning_minor_third",
+          "default": true,
+          "name": "Minor third above the violin (c′–g′–d″–a″, Walther's Lexicon)",
+          "descriptors": [
+            "silvery",
+            "treble-extended",
+            "historical-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "baroque-leaning",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period"
+          ]
+        },
+        {
+          "id": "violino_piccolo_tuning_fourth_up",
+          "name": "Fourth above the violin (d′–a′–e″–b″)",
+          "descriptors": [
+            "brighter",
+            "piercing",
+            "leaner"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "baroque"
+          ]
+        },
+        {
+          "id": "violino_piccolo_tuning_violin_pitch",
+          "name": "Violin pitch on a small body (modern shortcut)",
+          "descriptors": [
+            "compact",
+            "modern",
+            "balanced"
+          ],
+          "match_tokens": [
+            "bowed",
+            "small-body",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "violino_piccolo_role",
+      "name": "Ensemble role / repertoire",
+      "variants": [
+        {
+          "id": "violino_piccolo_role_concertante",
+          "default": true,
+          "name": "Concertante soloist over ripieno strings (Brandenburg 1, transposing part in D)",
+          "descriptors": [
+            "virtuosic",
+            "glittering",
+            "soloistic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "orchestral",
+            "soloistic",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "concert"
+          ]
+        },
+        {
+          "id": "violino_piccolo_role_chorale_obbligato",
+          "name": "Chorale-cantata obbligato with a solo voice (BWV 140)",
+          "descriptors": [
+            "aria-partner",
+            "devotional",
+            "intimate"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "chamber-fed",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "sacred",
+            "lutheran"
+          ]
+        },
+        {
+          "id": "violino_piccolo_role_early_italian",
+          "name": "Early-Baroque theatre ritornello (Monteverdi Orfeo, Praetorius consort)",
+          "descriptors": [
+            "early-baroque",
+            "courtly",
+            "festive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "renaissance",
+            "ensemble",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "italian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "violino_piccolo_build",
+      "name": "Body / neck proportion",
+      "variants": [
+        {
+          "id": "violino_piccolo_build_quarter_body_full_neck",
+          "default": true,
+          "name": "Quarter-size body with near-full-thickness neck (Amati 1613, Stradivari 1734)",
+          "descriptors": [
+            "historical-canonical",
+            "compact",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "small-body",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "historical"
+          ]
+        },
+        {
+          "id": "violino_piccolo_build_three_quarter_substitute",
+          "name": "Plain 3/4 violin substitute (common modern shortcut)",
+          "descriptors": [
+            "compact",
+            "modern",
+            "student-tier"
+          ],
+          "match_tokens": [
+            "bowed",
+            "small-body",
+            "student-tier"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "violino_piccolo_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "violino_piccolo_strings_plain_gut",
+          "default": true,
+          "name": "Plain lamb gut (baroque-setup canonical)",
+          "descriptors": [
+            "plain-gut",
+            "lamb-gut",
+            "low-tension",
+            "short-sustain"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "violino_piccolo_strings_silver_wound_gut",
+          "name": "Silver-wound on lamb gut (late-baroque)",
+          "descriptors": [
+            "silver-wound",
+            "lamb-gut-core",
+            "warm-bright"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained",
+            "late-baroque"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "violino_piccolo_strings_synthetic",
+          "name": "Synthetic core (modern revival setup)",
+          "descriptors": [
+            "synthetic",
+            "stable",
+            "modern"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "bowed",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern",
+            "revival"
+          ]
+        }
+      ]
+    }
+  ]
+}

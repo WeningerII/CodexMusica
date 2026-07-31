@@ -1,0 +1,685 @@
+{
+  "id": "byzaanchy",
+  "name": "Byzaanchy (Tuvan four-string spike fiddle)",
+  "family": "bowed",
+  "class": "bowed_spike_fiddle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "byzaanchy",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "byzaanchy_body",
+      "name": "Resonator form",
+      "variants": [
+        {
+          "id": "byzaanchy_body_cylinder_wood",
+          "default": true,
+          "name": "Small cylindrical wooden body, calf-head headstock (canonical Tuvan)",
+          "descriptors": [
+            "cylindrical",
+            "nasal",
+            "carved",
+            "tuvan-tradition"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "hide-soundboard"
+          ],
+          "canonical_tags": [
+            "tuvan",
+            "siberia",
+            "traditional"
+          ]
+        },
+        {
+          "id": "byzaanchy_body_faceted_box",
+          "name": "Hexagonal or octagonal faceted box body",
+          "descriptors": [
+            "boxy",
+            "focused",
+            "cutting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "wood-body"
+          ],
+          "canonical_tags": [
+            "tuvan",
+            "siberia"
+          ]
+        },
+        {
+          "id": "byzaanchy_body_horn",
+          "name": "Horn-walled resonator (archaic build)",
+          "descriptors": [
+            "archaic",
+            "thin",
+            "cutting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "archaic"
+          ],
+          "canonical_tags": [
+            "tuvan",
+            "historical"
+          ]
+        },
+        {
+          "id": "byzaanchy_body_wide_deep",
+          "name": "Wide, deep resonator (louder stage build)",
+          "descriptors": [
+            "deep-bodied",
+            "projection-strong",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "loud-projection",
+            "wood-body"
+          ],
+          "canonical_tags": [
+            "tuvan",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "byzaanchy_face",
+      "name": "Table / face material",
+      "variants": [
+        {
+          "id": "byzaanchy_face_goat_calf",
+          "default": true,
+          "name": "Goat or calf skin table",
+          "descriptors": [
+            "goatskin",
+            "buzzy",
+            "nasal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "hide-soundboard",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "tuvan",
+            "traditional"
+          ]
+        },
+        {
+          "id": "byzaanchy_face_fish_skin",
+          "name": "Fish-skin table (thin, light-voiced)",
+          "descriptors": [
+            "fish-skin",
+            "thin",
+            "delicate"
+          ],
+          "match_tokens": [
+            "bowed",
+            "hide-soundboard",
+            "soft-toned"
+          ],
+          "canonical_tags": [
+            "siberia",
+            "traditional"
+          ]
+        },
+        {
+          "id": "byzaanchy_face_maral_hide",
+          "name": "Maral (Siberian red deer) hide table",
+          "descriptors": [
+            "hide",
+            "warm",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "hide-soundboard",
+            "membrane"
+          ],
+          "canonical_tags": [
+            "tuvan",
+            "siberia"
+          ]
+        },
+        {
+          "id": "byzaanchy_face_wood",
+          "name": "Wooden soundboard (drier fiddle voice)",
+          "descriptors": [
+            "wooden",
+            "dry",
+            "focused"
+          ],
+          "match_tokens": [
+            "bowed",
+            "wood-body",
+            "wood-toned"
+          ],
+          "canonical_tags": [
+            "tuvan",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "byzaanchy_strings",
+      "name": "Strings and course interval",
+      "variants": [
+        {
+          "id": "byzaanchy_strings_horsehair_fifth",
+          "default": true,
+          "name": "Twisted horsehair, two unison pairs a fifth apart",
+          "descriptors": [
+            "horsehair",
+            "breathy",
+            "unison",
+            "open-fifths"
+          ],
+          "match_tokens": [
+            "bowed",
+            "horsehair-string",
+            "unison-doubled"
+          ],
+          "canonical_tags": [
+            "tuvan",
+            "traditional"
+          ]
+        },
+        {
+          "id": "byzaanchy_strings_horsehair_fourth",
+          "name": "Twisted horsehair, pairs a fourth apart (Russian-language reporting)",
+          "descriptors": [
+            "horsehair",
+            "breathy",
+            "unison"
+          ],
+          "match_tokens": [
+            "bowed",
+            "horsehair-string",
+            "unison-doubled"
+          ],
+          "canonical_tags": [
+            "tuvan",
+            "historical"
+          ]
+        },
+        {
+          "id": "byzaanchy_strings_gut",
+          "name": "Gut strings (smoother, less breath-noise)",
+          "descriptors": [
+            "gut",
+            "warm",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "four-string"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        },
+        {
+          "id": "byzaanchy_strings_metal_nylon",
+          "name": "Modern metal or nylon strings (stage and ensemble use)",
+          "descriptors": [
+            "steel",
+            "focused",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "steel-string",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "tuvan",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "byzaanchy_context",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "byzaanchy_context_kozhamyk",
+          "default": true,
+          "name": "Kozhamyk ditties and folk-song (yrlar) accompaniment",
+          "descriptors": [
+            "vocal-shadowing",
+            "lilting",
+            "intimate"
+          ],
+          "match_tokens": [
+            "bowed",
+            "song-accompaniment",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "tuvan",
+            "folk"
+          ]
+        },
+        {
+          "id": "byzaanchy_context_khoomei",
+          "name": "Shadowing khoomei throat-singing",
+          "descriptors": [
+            "drone-under-melody",
+            "sustained",
+            "meditative"
+          ],
+          "match_tokens": [
+            "bowed",
+            "throat-singing",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "tuvan",
+            "overtone-tradition"
+          ]
+        },
+        {
+          "id": "byzaanchy_context_ayalga",
+          "name": "Solo instrumental ayalga (imitative, glissando-heavy)",
+          "descriptors": [
+            "imitative",
+            "gliding",
+            "soloistic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "solo",
+            "glissando-heavy"
+          ],
+          "canonical_tags": [
+            "tuvan",
+            "solo"
+          ]
+        },
+        {
+          "id": "byzaanchy_context_folk_orchestra",
+          "name": "Folk-orchestra / stage-ensemble section line",
+          "descriptors": [
+            "blended",
+            "notated",
+            "folk-orchestra"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "modern"
+          ],
+          "canonical_tags": [
+            "tuvan",
+            "orchestral",
+            "soviet-era"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "byzaanchy_body",
+      "name": "Resonator form",
+      "variants": [
+        {
+          "id": "byzaanchy_body_cylinder_wood",
+          "default": true,
+          "name": "Small cylindrical wooden body, calf-head headstock (canonical Tuvan)",
+          "descriptors": [
+            "cylindrical",
+            "nasal",
+            "carved",
+            "tuvan-tradition"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "hide-soundboard"
+          ],
+          "canonical_tags": [
+            "tuvan",
+            "siberia",
+            "traditional"
+          ]
+        },
+        {
+          "id": "byzaanchy_body_faceted_box",
+          "name": "Hexagonal or octagonal faceted box body",
+          "descriptors": [
+            "boxy",
+            "focused",
+            "cutting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "wood-body"
+          ],
+          "canonical_tags": [
+            "tuvan",
+            "siberia"
+          ]
+        },
+        {
+          "id": "byzaanchy_body_horn",
+          "name": "Horn-walled resonator (archaic build)",
+          "descriptors": [
+            "archaic",
+            "thin",
+            "cutting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "archaic"
+          ],
+          "canonical_tags": [
+            "tuvan",
+            "historical"
+          ]
+        },
+        {
+          "id": "byzaanchy_body_wide_deep",
+          "name": "Wide, deep resonator (louder stage build)",
+          "descriptors": [
+            "deep-bodied",
+            "projection-strong",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "loud-projection",
+            "wood-body"
+          ],
+          "canonical_tags": [
+            "tuvan",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "byzaanchy_face",
+      "name": "Table / face material",
+      "variants": [
+        {
+          "id": "byzaanchy_face_goat_calf",
+          "default": true,
+          "name": "Goat or calf skin table",
+          "descriptors": [
+            "goatskin",
+            "buzzy",
+            "nasal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "hide-soundboard",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "tuvan",
+            "traditional"
+          ]
+        },
+        {
+          "id": "byzaanchy_face_fish_skin",
+          "name": "Fish-skin table (thin, light-voiced)",
+          "descriptors": [
+            "fish-skin",
+            "thin",
+            "delicate"
+          ],
+          "match_tokens": [
+            "bowed",
+            "hide-soundboard",
+            "soft-toned"
+          ],
+          "canonical_tags": [
+            "siberia",
+            "traditional"
+          ]
+        },
+        {
+          "id": "byzaanchy_face_maral_hide",
+          "name": "Maral (Siberian red deer) hide table",
+          "descriptors": [
+            "hide",
+            "warm",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "hide-soundboard",
+            "membrane"
+          ],
+          "canonical_tags": [
+            "tuvan",
+            "siberia"
+          ]
+        },
+        {
+          "id": "byzaanchy_face_wood",
+          "name": "Wooden soundboard (drier fiddle voice)",
+          "descriptors": [
+            "wooden",
+            "dry",
+            "focused"
+          ],
+          "match_tokens": [
+            "bowed",
+            "wood-body",
+            "wood-toned"
+          ],
+          "canonical_tags": [
+            "tuvan",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "byzaanchy_strings",
+      "name": "Strings and course interval",
+      "variants": [
+        {
+          "id": "byzaanchy_strings_horsehair_fifth",
+          "default": true,
+          "name": "Twisted horsehair, two unison pairs a fifth apart",
+          "descriptors": [
+            "horsehair",
+            "breathy",
+            "unison",
+            "open-fifths"
+          ],
+          "match_tokens": [
+            "bowed",
+            "horsehair-string",
+            "unison-doubled"
+          ],
+          "canonical_tags": [
+            "tuvan",
+            "traditional"
+          ]
+        },
+        {
+          "id": "byzaanchy_strings_horsehair_fourth",
+          "name": "Twisted horsehair, pairs a fourth apart (Russian-language reporting)",
+          "descriptors": [
+            "horsehair",
+            "breathy",
+            "unison"
+          ],
+          "match_tokens": [
+            "bowed",
+            "horsehair-string",
+            "unison-doubled"
+          ],
+          "canonical_tags": [
+            "tuvan",
+            "historical"
+          ]
+        },
+        {
+          "id": "byzaanchy_strings_gut",
+          "name": "Gut strings (smoother, less breath-noise)",
+          "descriptors": [
+            "gut",
+            "warm",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string",
+            "four-string"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        },
+        {
+          "id": "byzaanchy_strings_metal_nylon",
+          "name": "Modern metal or nylon strings (stage and ensemble use)",
+          "descriptors": [
+            "steel",
+            "focused",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "steel-string",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "tuvan",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "byzaanchy_context",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "byzaanchy_context_kozhamyk",
+          "default": true,
+          "name": "Kozhamyk ditties and folk-song (yrlar) accompaniment",
+          "descriptors": [
+            "vocal-shadowing",
+            "lilting",
+            "intimate"
+          ],
+          "match_tokens": [
+            "bowed",
+            "song-accompaniment",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "tuvan",
+            "folk"
+          ]
+        },
+        {
+          "id": "byzaanchy_context_khoomei",
+          "name": "Shadowing khoomei throat-singing",
+          "descriptors": [
+            "drone-under-melody",
+            "sustained",
+            "meditative"
+          ],
+          "match_tokens": [
+            "bowed",
+            "throat-singing",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "tuvan",
+            "overtone-tradition"
+          ]
+        },
+        {
+          "id": "byzaanchy_context_ayalga",
+          "name": "Solo instrumental ayalga (imitative, glissando-heavy)",
+          "descriptors": [
+            "imitative",
+            "gliding",
+            "soloistic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "solo",
+            "glissando-heavy"
+          ],
+          "canonical_tags": [
+            "tuvan",
+            "solo"
+          ]
+        },
+        {
+          "id": "byzaanchy_context_folk_orchestra",
+          "name": "Folk-orchestra / stage-ensemble section line",
+          "descriptors": [
+            "blended",
+            "notated",
+            "folk-orchestra"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "modern"
+          ],
+          "canonical_tags": [
+            "tuvan",
+            "orchestral",
+            "soviet-era"
+          ]
+        }
+      ]
+    }
+  ]
+}
