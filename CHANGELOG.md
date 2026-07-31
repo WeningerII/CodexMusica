@@ -6,6 +6,77 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Fixed
+- **CI was red for three commits: the mobile gate stopped failing for the right
+  reason.** `scripts/faults.js` is the gate on the gates — it plants one defect
+  per gate-class and asserts each gate catches *that* defect, not merely that it
+  exits non-zero. Its `unfittable-header` class injects
+  `.app-bar .actions { min-width: 720px }` into `codex.html` and matches the
+  failure text against the measurement.
+
+  When `check_mobile_layout.js` was rewritten it began *interacting* with the
+  page — clicking a starter recipe, adding a genre, dragging — before probing.
+  Under that planted defect the layout is broken enough that another element
+  starts intercepting pointer events, so the click timed out, the exception hit
+  the outer `.catch`, and the whole run collapsed to
+  `MOBILE LAYOUT: FAIL — elementHandle.click: Timeout 30000ms exceeded`. The gate
+  failed, but never printed the measurement explaining why — `WRONG-REASON`.
+
+  Fixed on the merits rather than to satisfy the matcher: a layout too broken to
+  click through is precisely what this gate exists to report, so **assertions A
+  and B now run before the page is touched**, and again once a workspace loads. A
+  failed starter click is reported on its own terms instead of as a bare timeout,
+  and the drag check's clicks carry a short timeout so a already-failed run does
+  not add four minutes of Playwright retries. Both files now carry a comment
+  marking the shared phrases as a contract.
+- The meta-gate's matcher said `is off-screen`, but the rewritten capability
+  message reads `#btn-add off-screen (x …)` — no "is". Had the viewport-blowout
+  path ever stopped firing, neither alternative would have matched and the escape
+  would have been silent. Both sides now agree.
+
+### Added
+- **Drag and drop now works on touch — it never did before.** The tree's two drag
+  interactions (drag an instrument row into a different genre; drag a genre header
+  to reorder) were built on HTML5 drag-and-drop, and `dragstart` is a **mouse-only
+  event in every mobile browser**. `draggable="true"` on a phone produces a text-
+  selection callout, not a drag. So on any touch device, genre reorder was reachable
+  only through the ↑/↓ buttons and **reparenting a card had no route at all** — there
+  is no button equivalent for it. Nothing failed, because nothing tested it.
+
+  Rewritten on **Pointer Events**, which are input-agnostic: one implementation now
+  drives mouse, touch and pen instead of a mouse path plus a hole where the touch
+  path should be. The interaction had to be designed around scrolling, since below
+  900px the tree *is* the page and a finger moving up the screen usually means
+  "scroll":
+  - **Touch arms on a 350ms long press.** A stationary finger is unambiguous;
+    moving more than 12px before the timer fires cancels the press and lets the
+    scroll through untouched. A mouse still arms on 5px of movement, as before.
+  - **A non-passive `touchmove` blocker** stops the page scrolling under a live
+    drag. It is attached at arm time — safe precisely because the finger was
+    stationary, so no scroll gesture is in flight (one already begun cannot be
+    cancelled).
+  - **Edge auto-scroll**: dragging within 72px of the top or bottom scrolls the
+    page, so a drag can reach genres that were off screen when it started.
+  - A drag preview follows the pointer while the source row stays dimmed in place
+    (collapsing it would reflow every genre under the finger mid-gesture), the
+    target genre takes an accent tint that stays readable *around* the preview,
+    and a short `navigator.vibrate` marks the pick-up — the row being lifted is
+    hidden under the user's own thumb.
+
+  The two drop mutations are extracted as `dropCardOnTradition` and
+  `dropTraditionOnTradition`, so the controller is only about input and a future
+  keyboard or menu affordance can reuse the exact semantics. Drop behaviour is
+  unchanged: group-target only, card lands after the target genre's last card,
+  genre lands above or below the target depending on which half was released over.
+- **`check_mobile_layout.js` assertion H — drag and drop under the viewport's real
+  input.** A genuine touch gesture (CDP touch events, so `pointerType` is really
+  `'touch'`) on the five phone viewports and a genuine mouse drag on the three
+  desktop/tablet ones, asserting the card actually changed genre and that no ghost
+  or highlight survived the drop. This is the assertion whose absence let a whole
+  interaction be mouse-only indefinitely. **159 assertions → 175.** Verified by
+  mutation: neutering the controller fails all 8 viewports, each naming its own
+  input type.
+
 ### Removed
 - **Repo hygiene sweep — dead code, no-op structure and stale prose.** A survey of
   every dimension (unreferenced scripts, unreferenced fixtures, dead CSS classes

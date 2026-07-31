@@ -889,12 +889,12 @@ notes: Shipped as Phase 3a of UI Capability Inventory Plan. Uses existing confir
 ```yaml
 name: tradition-group-reorder
 kind: drag-drop
-selector: '.sb-tradition-header[draggable="true"]'
-surface: sidebar — drag tradition group headers to reorder
-implementation: dragstart sets app._dragTraditionId; group dragover/drop reorders app.cards by splicing sourceCards before targetGroup's first card
+selector: '.sb-tradition-header[data-drag-tradition]'
+surface: sidebar — drag genre headers to reorder (mouse, touch or pen)
+implementation: wireTreeDragAndDrop (Pointer Events, delegated from #sidebar-traditions) sets app._dnd; on release dropTraditionOnTradition splices the source genre's cards above or below the target's run
 status: reachable
 precondition: 2+ cards
-notes: Shipped as Phase 3b of UI Capability Inventory Plan. Group-target only; within-group reorder deferred. Drag-and-drop is the power-user path; explicit up/down arrow buttons (tradition-group-move-up, tradition-group-move-down) are the primary affordance — they avoid HTML5 drag's imprecise-drag-becomes-click failure mode.
+notes: Was HTML5 drag-and-drop, which is mouse-only — `dragstart` never fires from a finger, so this was unreachable on every phone. Rewritten on Pointer Events, one implementation for all input types; touch arms on a 350ms long press so a swipe still scrolls the page. Group-target only; within-group reorder deferred. The up/down arrow buttons (tradition-group-move-up / -move-down) remain the primary affordance. Exercised under real touch AND mouse by scripts/check_mobile_layout.js assertion H.
 ```
 
 ```yaml
@@ -922,12 +922,12 @@ notes: Always visible. Button is disabled at the bottom of the movable list (las
 ```yaml
 name: card-drag-reparent
 kind: drag-drop
-selector: '.sb-card[draggable="true"]'
-surface: sidebar — drag card row to a different tradition group to reparent
-implementation: dragstart sets app._dragCardId; drop on different .sb-tradition-group changes card.traditionId and moves to end of target group
+selector: '.sb-card'
+surface: sidebar — drag an instrument row into a different genre to reparent it (mouse, touch or pen)
+implementation: wireTreeDragAndDrop (Pointer Events, delegated from #sidebar-traditions) sets app._dnd; on release dropCardOnTradition sets card.traditionId and moves it after the target genre's last card
 status: reachable
 precondition: 2+ cards
-notes: Shipped as Phase 3c of UI Capability Inventory Plan. Group-target only; card-onto-card drop deferred.
+notes: Was HTML5 drag-and-drop, which is mouse-only, so on a phone this had NO route at all — unlike genre reorder there is no button equivalent. Rewritten on Pointer Events; touch arms on a 350ms long press. Group-target only; card-onto-card drop deferred. Exercised under real touch AND mouse by scripts/check_mobile_layout.js assertion H.
 ```
 
 ```yaml

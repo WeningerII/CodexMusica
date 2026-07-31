@@ -455,10 +455,15 @@ record(
   // needs a browser, and a Chromium-launch failure prints that same banner. Only
   // the two measured-defect messages count, so a missing browser is reported as
   // WRONG-REASON instead of masquerading as detection.
+  //
+  // These two phrases are a CONTRACT with check_mobile_layout.js. It reports the
+  // viewport measurement before it touches the page, precisely so a layout this
+  // broken — which also stops Playwright clicking through it — still fails on the
+  // measurement rather than on a click timeout. Keep them in step.
   record(
     'unfittable-header -> check_mobile_layout.js',
     gate(d, ['scripts/check_mobile_layout.js']),
-    /layout viewport blown open|is off-screen/i
+    /layout viewport blown open|off-screen/i
   );
 }
 

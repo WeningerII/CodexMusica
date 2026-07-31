@@ -331,8 +331,15 @@ ul { list-style: none; }
 .sb-tradition-delete:hover { opacity: 1 !important; color: var(--color-red); background: var(--surface-2); }
 .sb-tradition-header[draggable="true"] { cursor: grab; }
 .sb-tradition-header[draggable="true"]:active { cursor: grabbing; }
-.sb-tradition-group.is-drag-over { box-shadow: inset 0 2px 0 0 var(--accent); }
-.sb-tradition-group.is-drag-over .sb-tradition-header { background: var(--surface-2); }
+/* The drag preview sits under the pointer and therefore ON TOP of whatever it
+   is about to be dropped into, so a hairline alone is easy to miss on a phone.
+   The tint fills the whole target group and stays readable around the ghost. */
+.sb-tradition-group.is-drag-over {
+  box-shadow: inset 0 2px 0 0 var(--accent);
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+  border-radius: var(--r2);
+}
+.sb-tradition-group.is-drag-over .sb-tradition-header { background: transparent; }
 /* Directional drop indicators for group-onto-group reorder. Cursor in the
    top half of the target → line at top (drop above). Cursor in the bottom
    half → line at bottom (drop below). The visual treatment intentionally
@@ -340,6 +347,40 @@ ul { list-style: none; }
    intend a card-reparent (uses is-drag-over) or a group-reorder. */
 .sb-tradition-group.is-drag-over-top { box-shadow: inset 0 2px 0 0 var(--accent); }
 .sb-tradition-group.is-drag-over-bottom { box-shadow: inset 0 -2px 0 0 var(--accent); }
+
+/* ── Drag preview (Pointer Events; see "DRAG AND DROP" in app.js) ──────────
+   A clone of the row, following the pointer. `pointer-events: none` is load-
+   bearing: the controller resolves drop targets with elementFromPoint, and a
+   hit-testable ghost would sit under the pointer and answer every query with
+   itself. */
+.dnd-ghost {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 300;
+  pointer-events: none;
+  opacity: 0.85;
+  border-radius: var(--r2);
+  background: var(--surface);
+  box-shadow: 0 8px 24px rgba(32, 33, 36, 0.18), 0 0 0 1px var(--accent);
+  transition: none;
+}
+/* The row stays in place, dimmed, so the tree keeps its shape while you drag
+   — collapsing it would reflow every genre under the finger mid-gesture. */
+.sb-card.is-dragging,
+.sb-tradition-header.is-dragging { opacity: 0.4; }
+/* Cursor + selection only while a drag is live, so normal text selection in
+   the tree is unaffected the rest of the time. */
+body.is-dnd-active { cursor: grabbing; user-select: none; -webkit-user-select: none; }
+body.is-dnd-active * { cursor: grabbing !important; }
+/* Suppress the iOS/Android long-press callout on the drag handles — the long
+   press is our pick-up gesture. Vertical panning stays available, so a swipe
+   that starts on a row still scrolls the page. */
+.sb-card,
+.sb-tradition-header {
+  touch-action: pan-y;
+  -webkit-touch-callout: none;
+}
 .sb-card-pin { display: inline-flex; align-items: center; justify-content: center; color: var(--text-3); margin-right: 4px; }
 .sb-card.is-pinned .sb-card-pin { color: var(--accent); }
 
