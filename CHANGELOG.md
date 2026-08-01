@@ -6,6 +6,72 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Fixed — connector correctness
+
+An adversarial deliberation on the connector's tool surface (should it be one
+tool or nine?) concluded that the count was close to irrelevant and turned up
+four defects instead. Fixed here; the surface stays at nine pending an eval that
+can actually measure a routing change.
+
+- **`format: "compact"` silently dropped the environment.** Its first tier
+  repeats the room, tuning and every chain stage on EVERY line, so any roster
+  past about four cards blew the character ceiling; the fallback then reduced to
+  bare instrument labels and the environment vanished. Setting `carpeted_bedroom`
+  and asking for compact returned 164 characters with no room in them, no error,
+  and nothing to notice — while the connector's own instructions say to present
+  that string verbatim. A middle tier now names the environment once, the way
+  rich, tags and prose already did. Mirrored in `src/app.js`; parity holds at
+  1167/1167 across all four formats.
+- **`get_instrument` was a context trapdoor.** A few instruments inherit a
+  655-entry materials table, so the honest return-the-whole-record shape made this
+  the most expensive call in the connector by two orders of magnitude:
+  `acoustic_guitar_dread` serialised to **208,883 bytes (~52k tokens, about fifty
+  times the entire tool menu)** and **91 of 870 instruments cleared 100 KB**,
+  against a median of 2,156. The server instructions route models straight at it
+  ("specific gear/material/technique → get_instrument"). Wide parts are now
+  sampled against a shared budget, each part reports `variant_count` and sets
+  `truncated`, and `query` / `part` / `limit` narrow the request. The default
+  variant always survives filtering — verified across all 870 instruments, 0
+  dropped. Worst case is now **23,340 bytes**; mean 37,243 → 3,530.
+- **Chain overrides were unvalidated.** `room` and `tuning` were both guarded;
+  `chain` two lines below wrote anything. A bogus stage name was a silent no-op,
+  and a bogus item id did not fail but DELETED: the renderer drops a stage it
+  cannot resolve, so a typo'd mic id quietly removed the real mic from the recipe.
+  Both now raise the same actionable error as room and tuning.
+- **Search ranking was alphabetical, not ranked.** Every row scored one point per
+  matched term regardless of where it hit, so single-term queries left everything
+  tied and the codepoint tiebreak became the order: `country` returned all 37
+  matching traditions alphabetically, putting the tradition named `country`
+  **ninth**, behind `australian_didgeridoo_yidaki_extended`. Scoring is now
+  field-weighted — exact id/name, then word-boundary, then descriptor prose — with
+  a bonus when every term matches. `country` ranks first; `worn bitter struggling`
+  puts all three prefaces above the tape and bamboo variants that used to outrank
+  them.
+
+### Changed — connector documentation
+
+- `get_instrument` advertises `part` / `query` / `limit` and says wide parts are
+  sampled, so the budget is visible rather than surprising.
+- `search_catalog` no longer says "ALWAYS use this" for a request's words. It
+  routes concrete nouns to itself and mood adjectives to `search_prefaces`, which
+  returns the token profiles you need to choose between near-synonyms — the old
+  wording sent mood words to a search that ranked a bamboo flute above `bitter`.
+- `start_recipe` says "any number of traditions" rather than "one or more", and
+  `traditions` now states what order MEANS — first is named first in the header
+  and is last to lose material at the ceiling — instead of asserting an undefined
+  "primary".
+- `limit` is capped at 50 in the schema on both search tools, matching the cap the
+  engine already applied silently.
+
+### Known
+
+- The tool count is unresolved on purpose. Three judges split 6/6/9, and the one
+  who ruled for nine ruled on the state of the evidence rather than the merits:
+  nobody has an eval that scores a final recipe against the words the user
+  actually said, so no routing change can be shown to help or hurt. That eval is
+  cheaper than any of the merges considered and would settle it.
+
+
 ### Fixed — stability audit
 
 An audit of the repo's instability, architecture and dead code turned up eleven

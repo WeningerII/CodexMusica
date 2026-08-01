@@ -219,12 +219,45 @@ export function searchCatalog({ query, types, limit = 20 } = {}) {
   if (!query || !String(query).trim()) throw new EngineError('search_catalog needs a query.');
   const terms = String(query).toLowerCase().split(/\s+/).filter(Boolean);
   const want = new Set(Array.isArray(types) && types.length ? types : ALL_TYPES);
+  // Field-weighted, because counting hits does not rank. Every row used to score
+  // 1 per matched term with no regard for WHERE the term hit, so a single-term
+  // query left every result tied and the codepoint tiebreak became the ordering:
+  // "country" returned all 37 traditions in alphabetical order, putting the
+  // tradition actually named `country` ninth, behind `australian_didgeridoo_
+  // yidaki_extended`. A hit on an id or a name is evidence about the record; a
+  // hit in descriptor or lineage prose is a hint, and they were being counted the
+  // same. Weighting them apart is also what lets one query serve moods and nouns
+  // alike — the reason search_prefaces had to exist as a separate view was that
+  // prose hits on tape and bamboo outranked exact preface names.
+  const EXACT = 8;
+  const WORD = 3;
+  const PROSE = 1;
   const rows = [];
   const add = (type, id, name, hay) => {
     if (!want.has(type)) return;
-    const h = (id + ' ' + (name || '') + ' ' + (hay || '')).toLowerCase();
+    const idL = String(id).toLowerCase();
+    const nameL = String(name || '').toLowerCase();
+    const proseL = String(hay || '').toLowerCase();
+    const label = idL + ' ' + nameL;
     let score = 0;
-    for (const t of terms) if (h.includes(t)) score++;
+    let hits = 0;
+    for (const t of terms) {
+      let best = 0;
+      if (idL === t || nameL === t) best = EXACT;
+      else if (
+        new RegExp(`(^|[^a-z0-9])${t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}([^a-z0-9]|$)`).test(
+          label
+        )
+      )
+        best = WORD;
+      else if (label.includes(t)) best = WORD - 1;
+      else if (proseL.includes(t)) best = PROSE;
+      if (best > 0) hits++;
+      score += best;
+    }
+    // Every query term matching somewhere beats a partial match, whatever the
+    // fields: "delta blues" should not lose to a record that only says "blues".
+    if (hits === terms.length && terms.length > 1) score += EXACT;
     if (score > 0) rows.push({ type, id, name: name || id, matched: score });
   };
   for (const t of C.TRADITIONS || [])
@@ -271,26 +304,89 @@ export function searchPrefaces({ query, limit = 15 } = {}) {
 
 // The knob catalog for one instrument: every part + the variant ids valid for
 // set_variant, with labels and which is the default.
-export function getInstrument({ id } = {}) {
+// Per-part variant budget. A handful of parts inherit a universal materials
+// table — string_acoustic, orch_strings, guitarron_strings and pedal_steel_strings
+// all carry 655 variants — so the honest "return the whole record" shape made
+// this the most expensive call in the connector by two orders of magnitude:
+// acoustic_guitar_dread serialised to 208,883 bytes (~52k tokens, roughly fifty
+// times the entire tool menu) and 91 of 870 instruments cleared 100 KB, against a
+// median of 2,156. The caller wants the knobs it can turn, not the catalog.
+// Budget is TOTAL, not per-part, or the cap simply moves: `voice` has 16 parts,
+// so a flat 40-per-part still returned 312 variants and got no smaller. The
+// per-part share is derived from how many parts there are, with a floor so a
+// wide instrument still shows something real under each heading.
+const VARIANT_BUDGET = 120;
+const MIN_PER_PART = 4;
+
+export function getInstrument({ id, part, query, limit } = {}) {
   const i = instById(id);
   if (!i)
     throw new EngineError(
       `Unknown instrument id: "${id}" (use search_catalog types=["instrument"]).`
     );
-  return {
-    id: i.id,
-    name: labelOf(i) || i.id,
-    family: i.family || null,
-    parts: (i.parts || []).map((p) => ({
+  const partCount = part ? 1 : (i.parts || []).length || 1;
+  const cap = limit
+    ? Math.max(1, Math.min(limit, 200))
+    : Math.max(MIN_PER_PART, Math.floor(VARIANT_BUDGET / partCount));
+  const terms = String(query || '')
+    .toLowerCase()
+    .split(/\s+/)
+    .filter(Boolean);
+
+  let parts = i.parts || [];
+  if (part) {
+    const only = parts.find((p) => p.id === part);
+    if (!only) {
+      throw new EngineError(
+        `Instrument "${i.id}" has no part "${part}". Parts: ${parts.map((p) => p.id).join(', ')}`
+      );
+    }
+    parts = [only];
+  }
+
+  const out = parts.map((p) => {
+    const all = p.variants || [];
+    // The default always survives filtering and truncation — it is the one
+    // variant the caller needs to know in order to decide whether to change it.
+    const scored = all.map((v) => {
+      const hay = (
+        v.id +
+        ' ' +
+        (labelOf(v) || '') +
+        ' ' +
+        (v.descriptors || []).join(' ')
+      ).toLowerCase();
+      let score = 0;
+      for (const t of terms) if (hay.includes(t)) score++;
+      return { v, score };
+    });
+    const matched = terms.length ? scored.filter((x) => x.score > 0) : scored;
+    matched.sort((a, b) => b.score - a.score || (b.v.default ? 1 : 0) - (a.v.default ? 1 : 0));
+    const shown = matched.slice(0, cap).map((x) => x.v);
+    if (!shown.some((v) => v.default)) {
+      const def = all.find((v) => v.default);
+      if (def) shown.unshift(def);
+    }
+    const rec = {
       id: p.id,
       name: labelOf(p) || p.id,
-      variants: (p.variants || []).map((v) => ({
+      variant_count: all.length,
+      variants: shown.map((v) => ({
         id: v.id,
         name: labelOf(v) || v.id,
         default: !!v.default,
       })),
-    })),
-  };
+    };
+    if (shown.length < all.length) {
+      rec.truncated = true;
+      rec.hint = terms.length
+        ? `${matched.length} of ${all.length} variants match "${query}"; showing ${shown.length}. Raise \`limit\` or refine \`query\`.`
+        : `${all.length} variants; showing ${shown.length}. Pass \`query\` to filter (e.g. "mahogany"), \`part\` to focus one part, or raise \`limit\`.`;
+    }
+    return rec;
+  });
+
+  return { id: i.id, name: labelOf(i) || i.id, family: i.family || null, parts: out };
 }
 
 export function getTradition({ id } = {}) {

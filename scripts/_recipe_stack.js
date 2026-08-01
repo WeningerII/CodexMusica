@@ -901,14 +901,32 @@ function compressCompactRecipe(cards, ceiling) {
     })
     .join('\n');
   if (out.length <= ceiling) return out;
-  out = cards
-    .map((card) => {
-      const inst = buildStackParts(card).find((p) => p.kind === 'instrument');
-      if (!inst) return '?,';
-      const preface = _resolvePreface(card);
-      return (preface ? `${preface} ${inst.label}` : inst.label) + ',';
-    })
-    .join('\n');
+
+  const instLines = cards.map((card) => {
+    const inst = buildStackParts(card).find((p) => p.kind === 'instrument');
+    if (!inst) return '?,';
+    const preface = _resolvePreface(card);
+    return (preface ? `${preface} ${inst.label}` : inst.label) + ',';
+  });
+
+  // Tier 1 repeats the environment on EVERY line, so any roster past about four
+  // cards blows the ceiling — and the fallback below drops the environment
+  // outright. That lost the answer to a question the user had actually asked:
+  // set a room, ask for compact, and "carpeted bedroom" was simply not in the
+  // string, with no error and nothing to notice. Say it once instead. Every
+  // other format already carries the environment exactly once, from cards[0].
+  const envLine = cards.length
+    ? buildStackParts(cards[0])
+        .filter((p) => p.kind !== 'instrument')
+        .map((p) => p.label)
+        .join(' · ')
+    : '';
+  if (envLine) {
+    out = instLines.concat(envLine + ',').join('\n');
+    if (out.length <= ceiling) return out;
+  }
+
+  out = instLines.join('\n');
   if (out.length <= ceiling) return out;
   return out.slice(0, ceiling - 16) + '\n[truncated]';
 }

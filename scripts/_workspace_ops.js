@@ -144,7 +144,24 @@ function setEnvironment(ws, cardRef, { room, tuning, chain } = {}) {
     card.tuning = tuning;
   }
   if (chain && typeof chain === 'object') {
-    for (const [stage, id] of Object.entries(chain)) card.chain[stage] = id;
+    // Validate to the same standard as room and tuning above. Unvalidated, a
+    // typo'd stage wrote a key nothing reads (silent no-op) and a typo'd item id
+    // wrote a value nothing resolves — which does not fail, it DELETES: the
+    // renderer drops the stage it can no longer resolve, so a bogus mic id
+    // quietly removes the real mic from the recipe the user is handed.
+    for (const [stage, id] of Object.entries(chain)) {
+      const sec = (C.CHAIN_SECTIONS || []).find((s) => s.stage === stage || s.id === stage);
+      if (!sec) {
+        const stages = (C.CHAIN_SECTIONS || []).map((s) => s.stage || s.id);
+        throw new WorkspaceError(`Unknown chain stage: "${stage}". Valid: ${stages.join(', ')}`);
+      }
+      if (id !== null && !(sec.items || []).find((it) => it.id === id)) {
+        throw new WorkspaceError(
+          `Unknown ${stage} id: "${id}" (use list_options or search_catalog types=["chain"]).`
+        );
+      }
+      card.chain[stage] = id;
+    }
   }
   return next;
 }

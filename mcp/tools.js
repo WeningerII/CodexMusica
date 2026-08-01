@@ -111,7 +111,7 @@ export function registerTools(server) {
     {
       title: 'Start a recipe from tradition(s)',
       description:
-        'Seed a recording recipe from one or more traditions — deterministic default cards, identical to what a human sees in the ' +
+        'Seed a recording recipe from any number of traditions — deterministic default cards, identical to what a human sees in the ' +
         'app ("Current Recipe"). This is the SCAFFOLD, not the finished answer: when the user gave any stylistic words (a mood, ' +
         'gear, a space, an era), follow with edit_recipe to realize them before presenting. First tradition is primary; any ' +
         "others are explicit staples (NOT auto-added). Returns the recipe string, a per-card summary (with each instrument's " +
@@ -120,7 +120,10 @@ export function registerTools(server) {
         traditions: z
           .array(z.string())
           .min(1)
-          .describe('Tradition ids; first is primary. Resolve with search_catalog.'),
+          .describe(
+            'Tradition ids, resolved with search_catalog. ORDER IS MEANINGFUL: the first is named first in ' +
+              'the header and is the last to lose material if the recipe reaches the character ceiling.'
+          ),
         ...renderShape,
       },
     },
@@ -170,8 +173,10 @@ export function registerTools(server) {
       title: 'Search the catalog',
       description:
         'Free-text search across traditions, instruments, part-variants, rooms, tunings, arrangements, aesthetics, prefaces, and ' +
-        "chain items. ALWAYS use this to turn a request's words into real ids — never guess. Multi-word queries rank by how many " +
-        'terms match; filter with `types`.',
+        'chain items. Use it to turn the CONCRETE words in a request into real ids — a genre, an instrument, a piece of gear, a ' +
+        'material, a space, an era — and never guess an id. For MOOD and FEEL adjectives reach for search_prefaces instead: it ' +
+        'searches the same prefaces but returns their token profiles, which is what you need to choose between near-synonyms. ' +
+        'Hits on an id or name outrank hits in descriptor prose, and matching every term outranks matching some.',
       inputSchema: {
         query: z.string().describe('Words from the request, e.g. "garage rock fuzz".'),
         types: z
@@ -190,7 +195,13 @@ export function registerTools(server) {
           )
           .optional()
           .describe('Restrict to these record types.'),
-        limit: z.number().int().positive().optional().describe('Max results (default 20, max 50).'),
+        limit: z
+          .number()
+          .int()
+          .positive()
+          .max(50)
+          .optional()
+          .describe('Max results (default 20, max 50).'),
       },
     },
     (a) => E.searchCatalog(a)
@@ -207,7 +218,13 @@ export function registerTools(server) {
         'via edit_recipe set_preface. Any preface can target any instrument.',
       inputSchema: {
         query: z.string().describe('Mood/feel words, e.g. "worn bitter struggling".'),
-        limit: z.number().int().positive().optional().describe('Max results (default 15).'),
+        limit: z
+          .number()
+          .int()
+          .positive()
+          .max(50)
+          .optional()
+          .describe('Max results (default 15, max 50).'),
       },
     },
     (a) => E.searchPrefaces(a)
@@ -219,8 +236,29 @@ export function registerTools(server) {
     {
       title: 'Get one instrument (the knob catalog)',
       description:
-        'Every part and the variant ids valid for set_variant, with labels and which is the default.',
-      inputSchema: { id: z.string().describe('Instrument id (see search_catalog).') },
+        'The parts of one instrument and the variant ids valid for set_variant, with labels and which is ' +
+        'the default. Wide parts are SAMPLED, not dumped — a few instruments inherit a 655-entry materials ' +
+        'table, so each part reports its full `variant_count` and sets `truncated` when you are seeing a ' +
+        'slice. Narrow it rather than raising `limit`: `query` filters variants by name and descriptor ' +
+        '("mahogany", "phosphor bronze"), `part` focuses one part. The default variant is always included.',
+      inputSchema: {
+        id: z.string().describe('Instrument id (see search_catalog).'),
+        part: z
+          .string()
+          .optional()
+          .describe('Show only this part. Use when you already know which knob you are turning.'),
+        query: z
+          .string()
+          .optional()
+          .describe('Filter variants by name/descriptor words, e.g. "mahogany" or "nylon gut".'),
+        limit: z
+          .number()
+          .int()
+          .positive()
+          .max(200)
+          .optional()
+          .describe('Max variants per part (default: a shared budget across the parts; max 200).'),
+      },
     },
     (a) => E.getInstrument(a)
   );
