@@ -35,7 +35,7 @@ const VERBOSE = process.argv.includes('--verbose');
 // The adapters are ES modules; run the comparison in one child so both load once.
 const script = `
 import * as E from '${path.join(ROOT, 'mcp', 'engine.js')}';
-import { TOOL_SCHEMAS } from '${path.join(ROOT, 'mcp', 'tools.js')}';
+import { TOOL_SCHEMAS } from '${path.join(ROOT, 'mcp', 'schemas.js')}';
 import { handleRecipe, handleCatalog, handleRecord, parseEdit, formatEdit, RestError } from '${path.join(ROOT, 'mcp', 'rest.js')}';
 import C from '${path.join(ROOT, 'scripts', '_loader.js')}';
 

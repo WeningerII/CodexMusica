@@ -47,7 +47,7 @@
 // trailing commas, no nesting.
 
 import * as E from './engine.js';
-import { TOOL_SCHEMAS, editSchema } from './tools.js';
+import { TOOL_SCHEMAS, editSchema } from './schemas.js';
 import { RECIPE_CHAR_CEILING } from './engine.js';
 
 // ─────────────────────────── edit grammar ───────────────────────────

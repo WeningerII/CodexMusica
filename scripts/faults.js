@@ -512,20 +512,6 @@ record(
   );
 }
 
-// Registry-driven completeness: every promise-bound gate (_promises.js) must have
-// a fault class here, or "every gate is two-sided" is hollow. faults.js itself is
-// exempt (it is the injector); check_artifact_fresh's faults need --fresh-*, so
-// completeness is only asserted on a full run (CI passes --fresh-api/--fresh-html).
-let uncovered = [];
-if (FRESH_API && FRESH_HTML) {
-  const PROMISES = require('./_promises.js');
-  const faulted = new Set(results.map((r) => r.cls.split('->').pop().trim()));
-  uncovered = [...new Set(PROMISES.map((p) => p.gate))].filter(
-    (g) => g !== 'faults.js' && !faulted.has(g)
-  );
-}
-
-const escaped = results.filter((r) => !r.caught);
 // 22. REST answers differently from MCP -> check_rest_parity.js
 // The results half. Force the REST adapter to render one format while the caller
 // asked for another — the drift a shared engine is supposed to make impossible,
@@ -570,6 +556,20 @@ const escaped = results.filter((r) => !r.caught);
   );
 }
 
+// Registry-driven completeness: every promise-bound gate (_promises.js) must have
+// a fault class here, or "every gate is two-sided" is hollow. faults.js itself is
+// exempt (it is the injector); check_artifact_fresh's faults need --fresh-*, so
+// completeness is only asserted on a full run (CI passes --fresh-api/--fresh-html).
+let uncovered = [];
+if (FRESH_API && FRESH_HTML) {
+  const PROMISES = require('./_promises.js');
+  const faulted = new Set(results.map((r) => r.cls.split('->').pop().trim()));
+  uncovered = [...new Set(PROMISES.map((p) => p.gate))].filter(
+    (g) => g !== 'faults.js' && !faulted.has(g)
+  );
+}
+
+const escaped = results.filter((r) => !r.caught);
 console.log(
   `\n=== Fault injection: ${results.length} gate-class(es) tested, ${escaped.length} escape(s) ===`
 );
