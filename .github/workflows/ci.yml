@@ -62,6 +62,9 @@ jobs:
       - name: Authoring dead-token gate (every preface token reaches a tradition-default card)
         run: npm run check:dead-tokens
 
+      - name: Adapter parity (REST and MCP agree on every answer AND every refusal)
+        run: npm run check:rest
+
       - name: Audit data quality
         run: npm run audit
 

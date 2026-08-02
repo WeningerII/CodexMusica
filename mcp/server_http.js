@@ -16,6 +16,8 @@ import express from 'express';
 import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js';
 import { buildServer } from './tools.js';
 import { counts } from './engine.js';
+import { mountRest } from './rest.js';
+import { buildOpenApi } from './openapi.js';
 
 const PORT = process.env.PORT || 3000;
 const MCP_PATH = process.env.MCP_PATH || '/mcp';
@@ -33,6 +35,12 @@ app.use((req, res, next) => {
 });
 
 app.get('/health', (_req, res) => res.json({ ok: true, service: 'codex-musica-mcp' }));
+
+// The REST/OpenAPI adapter, over the same engine and the same Zod schemas. It is
+// mounted BEFORE the MCP route so `/` serves the self-describing index; /mcp,
+// /health and /.well-known/mcp.json are untouched. See rest.js for why editing
+// over GET is safe here.
+mountRest(app, { openapi: buildOpenApi });
 
 // Server card for zero-config discovery — served from the server's OWN origin so a client
 // can learn identity / transport / auth before the MCP handshake (the SEP-1649/SEP-1960
