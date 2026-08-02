@@ -5,7 +5,7 @@
   "lineage": "Vietnamese hò (work-coordination call-and-response song) tradition continuous from premodern Vietnamese-agricultural-and-maritime labor practice through 19th-20th century continuous performance into modern Vietnamese-folk-revival practice across Northern, Central, and Southern Vietnam; the hò is the canonical Vietnamese work-coordination song-form integrating leader-and-group call-and-response across rice-paddy-planting, fishing, boat-rowing, and other labor-contexts",
   "recipe": "classic modern vietnamese hò, field Work, east Asian branch, south Asian field work, atlantic Southeast Asian shanty, east Asian protest song bengali bhatiali korean minjung gayo. thick, breath veiled tone, straight onset, interlocked note trading. marsh swamp. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 324,
-  "score": 153.641,
+  "score": 149.691,
   "config": {
     "traditions": [
       "vietnamese_ho",
@@ -41,12 +41,12 @@
           "voice_vibrato": 3.2500000000000004,
           "voice_articulation": 16.445,
           "voice_microtone": 16.249999999999996,
-          "voice_tradition": 18.511499999999998,
+          "voice_tradition": 17.1115,
           "voice_mechanism_compound": 2.7390000000000003,
           "voice_estill_quality": 0.6499999999999999,
-          "voice_speech_song": 29.575,
+          "voice_speech_song": 28.275,
           "voice_ensemble_config": 16.38,
-          "voice_ornament_system": 9.475,
+          "voice_ornament_system": 8.225000000000001,
           "voice_pitch_organization": 18.72075,
           "voice_processing_chain": 3.9325000000000006,
           "voice_multitrack_stack": 2.9575000000000005

@@ -5,7 +5,7 @@
   "lineage": "Andean Quechua-and-Aymara huayno-de-trabajo (huayno-of-work) tradition continuous from pre-Hispanic Andean-agricultural-labor practice (the Andean ayni reciprocal-labor exchange tradition has been documented as integrating extensive song-coordination) through Spanish-colonial-era continuous performance into modern Quechua-and-Aymara-speaking Andean-rural practice across Bolivia, Peru, and Ecuador",
   "recipe": "classic Andean modern andean huayno-de-trabajo, field Work, andean branch, sub saharan African field work, americas wedding, iberian Latin protest song andean matrimonio huayno mande-wolof west-african harvest-and-field song. forward-resonance, straight note core, interlocked note trading, neutral third half flat. bone continuous-airflow legato quena, andean tradition paired rows interlocking siku panpipes, altiplano mara canonical single block tarka. andean altiplano outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 544,
-  "score": 350.436,
+  "score": 334.086,
   "config": {
     "traditions": [
       "andean_huayno_trabajo",
@@ -35,18 +35,18 @@
         },
         "scores": {
           "voice_register": 0.47500000000000014,
-          "voice_quality": 44.300000000000004,
+          "voice_quality": 40.55,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.8812500000000005,
-          "voice_articulation": 17.614999999999995,
-          "voice_microtone": 18.199999999999992,
-          "voice_tradition": 60.86874999999999,
+          "voice_articulation": 16.964999999999996,
+          "voice_microtone": 17.549999999999994,
+          "voice_tradition": 58.168749999999996,
           "voice_mechanism_compound": 1.17,
-          "voice_estill_quality": 27.649999999999995,
-          "voice_speech_song": 22.554999999999996,
-          "voice_ensemble_config": 28.354999999999993,
-          "voice_ornament_system": 40.2225,
+          "voice_estill_quality": 26.399999999999995,
+          "voice_speech_song": 21.254999999999995,
+          "voice_ensemble_config": 27.104999999999993,
+          "voice_ornament_system": 38.82249999999999,
           "voice_pitch_organization": 6.759999999999999,
           "voice_processing_chain": 1.6899999999999997,
           "voice_multitrack_stack": 0.975
@@ -62,7 +62,7 @@
         "scores": {
           "wind_articulation": 6.629999999999999,
           "quena_material": 4.29,
-          "quena_pitch": 16.75
+          "quena_pitch": 14.249999999999998
         }
       },
       {
@@ -72,7 +72,7 @@
           "siku_size": "siku_malta"
         },
         "scores": {
-          "siku_construction": 18.520624999999995,
+          "siku_construction": 17.870624999999997,
           "siku_size": 0.78
         }
       },

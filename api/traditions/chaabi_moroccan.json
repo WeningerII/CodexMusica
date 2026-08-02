@@ -3,9 +3,9 @@
   "name": "Chaabi (Moroccan)",
   "family": "global",
   "lineage": "Moroccan-Arabic-language popular wedding-and-celebration music built on the rural Moroccan dance rhythms (haoussa from Casablanca, aita from the Atlantic plains, houara from the Souss valley) with the urban ensemble of oud, violin, the Moroccan-invented banjo (late 1960s), darbuka, voice — codified through Cheikha Rimitti (raï predecessor and chaabi crossover), Najat Aatabou, Stati, Daoudi",
-  "recipe": "classic North African 1967-1969 chaabi, functional Song, mid east n African pop branch, Persian arab improv improv on frame, Sufi ritual devotional malhun iraqi maqam. extended whistle, breath veiled tone, slow rate, interlocked note trading. rosewood premium iraqi Turkish pyramid nylon arab school oud, spun aluminum Egyptian sombaty goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka, alder electric bass. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. large-diaphragm condenser, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe": "classic North African 1967-1969 chaabi, functional Song, mid east n African pop branch, Persian arab improv improv on frame, Sufi ritual devotional malhun iraqi maqam. extended whistle, breath veiled tone, slow rate, interlocked note trading. walnut ribs canonical mid tier pyramid nylon arab school oud, spun aluminum Egyptian sombaty goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka, alder electric bass. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. large-diaphragm condenser, German V72 tube pre, German tube console. tape 15ips.",
   "recipe_chars": 617,
-  "score": 170.912,
+  "score": 161.84,
   "config": {
     "traditions": [
       "chaabi_moroccan",
@@ -23,7 +23,7 @@
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "arabic_maqam_tradition",
+          "voice_tradition": "persian_dastgah_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -40,14 +40,14 @@
           "voice_effort": 0,
           "voice_vibrato": 7.3125,
           "voice_articulation": 6.630000000000001,
-          "voice_microtone": 21.092499999999998,
-          "voice_tradition": 16.311500000000002,
+          "voice_microtone": 17.842499999999998,
+          "voice_tradition": 15.080000000000002,
           "voice_mechanism_compound": 11.03775,
           "voice_estill_quality": 5.97775,
           "voice_speech_song": 8.58,
           "voice_ensemble_config": 8.645,
-          "voice_ornament_system": 16.38875,
-          "voice_pitch_organization": 16.49375,
+          "voice_ornament_system": 14.938749999999999,
+          "voice_pitch_organization": 15.04375,
           "voice_processing_chain": 2.0149999999999997,
           "voice_multitrack_stack": 4.766500000000001
         }
@@ -55,20 +55,20 @@
       {
         "id": "oud",
         "slots": {
-          "plucked_traditional_technique": "plucked_drone_modal",
+          "plucked_traditional_technique": "plucked_classical_idiom",
           "oud_school": "oud_arab_classic",
           "oud_strings": "oud_eleven",
           "oud_pick": "risha_eagle_feather",
-          "oud_body_wood": "oud_rosewood_body",
+          "oud_body_wood": "oud_walnut_body",
           "oud_soundboard_wood": "oud_spruce_face",
           "oud_string_material": "oud_pyramid_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 5.295,
+          "plucked_traditional_technique": 4.125,
           "oud_school": 4.095,
           "oud_strings": 2.145,
           "oud_pick": 1.95,
-          "oud_body_wood": 3.12,
+          "oud_body_wood": 2.6,
           "oud_soundboard_wood": 0.65,
           "oud_string_material": 4.16
         }

@@ -5,7 +5,7 @@
   "lineage": "Tuvan Republic (Russian-Federation Southern-Siberia, ethnically and linguistically Turkic-Mongolic) throat-singing tradition with five canonical styles — khöömei middle-register-resonance, sygyt high-isolated-whistle-overtone, kargyraa low-deep-undertone-style, borbangnadyr rolling-modulated-overtone, ezenggileer rhythmic-broken-overtone (horse-riding-mimetic). Distinct from the parallel Mongolian khoomei lineage despite the shared ethnographic-Turkic-Mongolic heritage; Tuvan technique tends toward higher-pitched sygyt isolation versus Mongolian deeper kharkhiraa. Embedded in nomadic herder-pastoralist work-song repertoire and in shamanic-trance ritual practice. The 1990s-onward post-Soviet international-touring exposure (initial European-and-American world-music-circuit) catalyzed contemporary-revival and academic-research interest.",
   "recipe": "classic Northeast Asian mid-1990s tuvan throat singing, drone Modal, overtone branch, buddhist ritual devotional, central Asian hunting song mongolian hunting-khoomei tibetan chöd rite. sygyt, false fold engaged, breath pulsed, interlocked note trading. wood larch canonical tuvan khoomei accompaniment igil, traditional mongolian tuvan tradition tovshuur, long song morin khuur sycamore canonical mongolian horsehair 118 130 strands morin khuur. steppe outdoor mongolian. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 535,
-  "score": 411.019,
+  "score": 394.607,
   "config": {
     "traditions": [
       "tuvan_throat",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 48.12325,
-          "voice_quality": 36.23375,
+          "voice_register": 46.650749999999995,
+          "voice_quality": 34.23375,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 8.29,
-          "voice_articulation": 18.914999999999992,
-          "voice_microtone": 20.27999999999999,
-          "voice_tradition": 49.252999999999986,
-          "voice_mechanism_compound": 45.55074999999999,
+          "voice_vibrato": 8.067499999999999,
+          "voice_articulation": 18.264999999999993,
+          "voice_microtone": 19.62999999999999,
+          "voice_tradition": 46.15299999999999,
+          "voice_mechanism_compound": 43.855749999999986,
           "voice_estill_quality": 5.2,
-          "voice_speech_song": 24.244999999999994,
-          "voice_ensemble_config": 20.34499999999999,
+          "voice_speech_song": 23.59499999999999,
+          "voice_ensemble_config": 19.044999999999995,
           "voice_ornament_system": 4.4,
-          "voice_pitch_organization": 43.868749999999984,
+          "voice_pitch_organization": 42.39624999999999,
           "voice_processing_chain": 3.25,
           "voice_multitrack_stack": 4.9399999999999995
         }
@@ -66,7 +66,7 @@
           "igil_body": 11.7,
           "igil_string": 0,
           "igil_body_wood": 7.952499999999999,
-          "igil_tradition": 7.149999999999998
+          "igil_tradition": 6.5
         }
       },
       {
@@ -76,7 +76,7 @@
           "tovshuur_body": "tovshuur_carved_wood_hide"
         },
         "scores": {
-          "tovshuur_strings": 18.199999999999996,
+          "tovshuur_strings": 17.549999999999997,
           "tovshuur_body": 0.39
         }
       },
@@ -91,9 +91,9 @@
         },
         "scores": {
           "bowed_technique": 2.99,
-          "morin_khuur_use": 21.597249999999995,
+          "morin_khuur_use": 20.347249999999995,
           "morin_khuur_construction": 0.845,
-          "morin_khuur_body_wood": 8.384999999999998,
+          "morin_khuur_body_wood": 7.734999999999999,
           "morin_khuur_strings": 2.275
         }
       }

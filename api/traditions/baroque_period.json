@@ -5,7 +5,7 @@
   "lineage": "1600-1750 European art-music period encompassing the development of opera (Monteverdi Orfeo 1607), the concerto grosso (Corelli), the cantata and fugue (Bach), the oratorio (Handel), and the harpsichord and early-fortepiano keyboard repertoire — characterized by figured-bass continuo practice, contrapuntal compositional technique, ornamental melodic style, and the moderate-pitch (A=415 Hz typical) tuning convention",
   "recipe": "classic European early-1600s baroque period-instrument, art Music, western early branch, christian gospel anglican choral anglican choral evensong. steel norway spruce European alpine European maple bosnian source violin orchestral, flemish ruckers antwerp canonical late 16th 17th century bach era reference quarter comma meantone canonical renaissance early Baroque legato harpsichord, gut norway spruce European alpine European maple bosnian source cello, yew ribs Italian Baroque pistoy bass gut plain gut treble historical canonical Baroque theorbo, pistoy silver wound gut treble canonical bass viol snakewood underhand grip viola da gamba, boxwood canonical Baroque classical pre 1850 loree paris canonical American school legato oboe, ayre and lieder pistoy bass gut plain gut treble lute renaissance, boxwood canonical renaissance European shawm, controlled legato bassoon, bass quartposaune consort blend thin hammered brass sackbut, fuller bass double bourdon early Italian baroque guitar.",
   "recipe_chars": 1000,
-  "score": 352.135,
+  "score": 351.202,
   "config": {
     "traditions": [
       "baroque_period",
@@ -32,11 +32,11 @@
           "orch_top_wood": 10.009500000000001,
           "orch_back_wood": 10.177500000000002,
           "orch_varnish": 8.5555,
-          "orch_setup_period": 15.4425,
+          "orch_setup_period": 15.3375,
           "orch_bow": 3.6094999999999993,
           "orch_bow_stick": 10.105,
           "orch_articulation": 3.9,
-          "orch_rosin": 11.016499999999999
+          "orch_rosin": 10.8065
         }
       },
       {
@@ -77,9 +77,9 @@
           "cello_top_wood": 10.009500000000001,
           "cello_back_wood": 10.177500000000002,
           "cello_varnish": 8.5555,
-          "cello_setup_period": 15.4425,
+          "cello_setup_period": 15.3375,
           "cello_bow_grip": 2.47,
-          "cello_rosin": 10.0655,
+          "cello_rosin": 9.9605,
           "cello_bow_stick": 12
         }
       },
@@ -119,7 +119,7 @@
           "viola_da_gamba_context": 11.894999999999998,
           "gamba_strings": 4.7325,
           "gamba_frets": 0.7149999999999999,
-          "gamba_bow_stick": 13.7385,
+          "gamba_bow_stick": 13.633500000000002,
           "gamba_lineage": 2.8600000000000003
         }
       },
@@ -137,7 +137,7 @@
           "oboe_reed": 0.39,
           "oboe_class": 0.39,
           "oboe_body_wood": 1.5600000000000003,
-          "oboe_maker_school": 1.8479999999999999
+          "oboe_maker_school": 1.6380000000000001
         }
       },
       {
@@ -163,14 +163,14 @@
         "id": "shawm",
         "slots": {
           "wind_articulation": "wind_ornament_heavy",
-          "shawm_pitch": "shawm_treble",
+          "shawm_pitch": "shawm_bass",
           "shawm_context": "shawm_renaissance_consort",
           "shawm_body_wood": "shawm_boxwood_canonical",
           "shawm_reed": "shawm_arundo_pirouette"
         },
         "scores": {
           "wind_articulation": 0.15000000000000002,
-          "shawm_pitch": 0.483,
+          "shawm_pitch": 0.39,
           "shawm_context": 2.47,
           "shawm_body_wood": 2.47,
           "shawm_reed": 0.39

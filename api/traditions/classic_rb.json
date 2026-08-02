@@ -5,7 +5,7 @@
   "lineage": "Atlantic Records New York 1948-1962 small-combo R&B canon — Ruth Brown, LaVern Baker, the Drifters, Ray Charles I Got a Woman and What Did I Say, Big Joe Turner Shake Rattle and Roll, the Coasters — tracked by Tom Dowd at Atlantic Studios 11 West 60th Street with a recurring NYC session rhythm section, distinct from later Stax / Motown / Philly Soul subgenres",
   "recipe": "classic North American classic r&b, functional Song, soul R&B branch, christian gospel black gospel contemporary urban gospel. thick, declaimed, wide pitch sway, multi note runs per syllable. Fender blackface amp American 60s amp spring reverb bright lower tension down tuning chicken-scratch single coil electric guitar, upright bass, pre muffled edge muffled brushes-and-sticks drum kit, gospel runs upright piano, tenor gold brass warmer tone ensemble honking saxophone. eleventh floor office converted studio 1947-1976 mid tier atlantic studios nyc. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac ibanez tube screamer TS9 / TS808.",
   "recipe_chars": 659,
-  "score": 404.91,
+  "score": 385.308,
   "config": {
     "traditions": [
       "classic_rb",
@@ -76,7 +76,7 @@
           "upright_piano_size": "upright_piano_spinet"
         },
         "scores": {
-          "keyboard_technique": 40.0255,
+          "keyboard_technique": 37.0755,
           "upright_use": 0.78,
           "upright_piano_size": 1.95
         }
@@ -119,26 +119,26 @@
           "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_pythagorean",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 42.80350000000001,
-          "voice_quality": 31.246999999999996,
+          "voice_register": 40.30350000000001,
+          "voice_quality": 28.746999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 5.575,
-          "voice_articulation": 30.5115,
+          "voice_articulation": 28.0115,
           "voice_microtone": 15.664999999999992,
-          "voice_tradition": 44.3825,
+          "voice_tradition": 41.432500000000005,
           "voice_mechanism_compound": 4.355,
-          "voice_estill_quality": 36.10500000000001,
+          "voice_estill_quality": 33.60500000000001,
           "voice_speech_song": 20.929999999999993,
-          "voice_ensemble_config": 26.102,
+          "voice_ensemble_config": 23.602,
           "voice_ornament_system": 5.4,
           "voice_pitch_organization": 0.7149999999999997,
-          "voice_processing_chain": 4.8100000000000005,
-          "voice_multitrack_stack": 4.225
+          "voice_processing_chain": 4.2575,
+          "voice_multitrack_stack": 3.575
         }
       }
     ],

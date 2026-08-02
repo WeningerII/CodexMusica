@@ -5,7 +5,7 @@
   "lineage": "Mid-1960s through 1970s amplified folk-rock fusion codified by The Byrds Mr. Tambourine Man (1965), Buffalo Springfield, Crosby Stills Nash and Young, Simon and Garfunkel late-60s catalog",
   "recipe": "classic North American 1964-1966 folk rock, functional Song, folk rock branch, country functional song country rock western swing. thick, breath veiled tone, wide pitch sway, interlocked note trading. cedar flatwound thomastik travis picked dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ, tambourine orch. hyde street san francisco 1969-1980 major-flagship wally heider studios sf. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
   "recipe_chars": 879,
-  "score": 715.79,
+  "score": 695.39,
   "config": {
     "traditions": [
       "folk_rock",
@@ -34,16 +34,16 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 91.49,
+          "voice_register": 88.99,
           "voice_quality": 11.89499999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 25.015,
+          "voice_vibrato": 23.765,
           "voice_articulation": 19.36999999999999,
-          "voice_microtone": 46.78500000000001,
+          "voice_microtone": 44.885000000000005,
           "voice_tradition": 30.286249999999992,
           "voice_mechanism_compound": 2.7299999999999995,
-          "voice_estill_quality": 26.799999999999997,
+          "voice_estill_quality": 25.549999999999997,
           "voice_speech_song": 25.28499999999999,
           "voice_ensemble_config": 19.88999999999999,
           "voice_ornament_system": 1.6249999999999998,
@@ -62,7 +62,7 @@
           "string_acoustic": "thomastik_flat_top"
         },
         "scores": {
-          "acoustic_technique": 44.99999999999999,
+          "acoustic_technique": 43.74999999999999,
           "string_tuning": 1.225,
           "top_wood": 1.99,
           "back_sides": 0.045,
@@ -86,8 +86,8 @@
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 23.794999999999998,
-          "amp_make": 26.4725,
+          "electric_technique": 22.544999999999998,
+          "amp_make": 25.2225,
           "body_wood": 1.99,
           "neck_wood": 1.99,
           "fretboard": 1.94,
@@ -97,7 +97,7 @@
           "bridge": 0,
           "scale_length": 2.08,
           "finish": 0.045,
-          "string_tuning": 17.653750000000002
+          "string_tuning": 16.96625
         }
       },
       {
@@ -112,13 +112,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 24.347499999999997,
+          "amp_make": 23.097499999999997,
           "body_wood": 2.08,
           "pickup_config": 0.045,
-          "string_type": 36.58250000000001,
+          "string_type": 35.145,
           "scale_length_b": 2.7675,
           "fretted_or_not": 0.345,
-          "bass_technique": 34.331250000000004
+          "bass_technique": 33.08125
         }
       },
       {
@@ -129,7 +129,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 34.205000000000005,
+          "drum_technique": 32.955,
           "drumhead": 6.9799999999999995,
           "drum_kit_kick_pedal": 0
         }
@@ -146,10 +146,10 @@
         },
         "scores": {
           "keyboard_technique": 6.695,
-          "drawbar_setting": 34.42625,
-          "rotary_speed": 33.82500000000001,
-          "percussion_setting": 16.302500000000002,
-          "tonewheel_model": 21.1175,
+          "drawbar_setting": 33.176249999999996,
+          "rotary_speed": 32.575,
+          "percussion_setting": 15.614999999999998,
+          "tonewheel_model": 20.43,
           "leslie_cabinet_model": 3.12
         }
       },

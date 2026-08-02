@@ -5,7 +5,7 @@
   "lineage": "Mexican cumbia DJ-and-sound-system tradition of Mexico City and northern-Mexican border-cities, emerging 1960s-1970s. The sonidero plays cumbia records on large mobile sound-systems at outdoor street-parties, interspersed with extempore MC-shoutouts dedicated to attendees by name and Mexican-immigrant family members in the US. Slowed-down cumbia rebajada emerged through accidental incorrect-speed playback.",
   "recipe": "classic Mexican mid-1960s sonidero, functional Song, Mexican branch, reggaeton MC rhythm moombahton. thick, full chest belt, straight onset, interlocked note trading. sound design field sampler, TR-808. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 416,
-  "score": 128.038,
+  "score": 122.783,
   "config": {
     "traditions": [
       "sonidero",
@@ -38,14 +38,14 @@
           "voice_quality": 11.974999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.0149999999999997,
-          "voice_articulation": 10.01,
-          "voice_microtone": 10.464999999999995,
+          "voice_vibrato": 1.3649999999999998,
+          "voice_articulation": 9.36,
+          "voice_microtone": 9.815000000000001,
           "voice_tradition": 6.305,
           "voice_mechanism_compound": 3.5100000000000002,
           "voice_estill_quality": 3.315000000000001,
-          "voice_speech_song": 11.959999999999997,
-          "voice_ensemble_config": 9.75,
+          "voice_speech_song": 11.309999999999997,
+          "voice_ensemble_config": 9.1,
           "voice_ornament_system": 4.355,
           "voice_pitch_organization": 2.3399999999999994,
           "voice_processing_chain": 9.593,
@@ -66,7 +66,7 @@
           "sampler_archetypes": 0.275,
           "sampler_bit_depth": 0.065,
           "sampler_workflow": 4.683000000000001,
-          "sampler_classic_context": 24.8655
+          "sampler_classic_context": 22.965500000000002
         }
       },
       {
@@ -79,7 +79,7 @@
         "scores": {
           "tr808_voice": 0.585,
           "drum_machine_808_context": 2.6,
-          "tr808_production_origin": 0.29024999999999995
+          "tr808_production_origin": 0.18525000000000003
         }
       }
     ],

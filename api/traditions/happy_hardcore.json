@@ -3,9 +3,9 @@
   "name": "Happy hardcore (UK 90s)",
   "family": "electronic",
   "lineage": "Mid-1990s UK electronic subgenre developed from hardcore breakbeat through faster-tempo (160-180 BPM) characterized by uplifting-and-bright synth-melodic-lead designs, sped-up female-vocal-sample hooks, and explicit rave-functional dance-floor-targeting. Slipmatt, Hixxy, Sharkey, Force & Styles, and the broader Bonkers compilation series anchor the canonical roster.",
-  "recipe": "classic British 1994-1996 happy hardcore, electronic Dance, hardstyle branch, eurodance electronic dance freestyle music. extended whistle, chest mix belt, straight note core, interlocked note trading. TR-808, singing lead analog synth. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 455,
-  "score": 126.07,
+  "recipe": "classic British 1994-1996 happy hardcore, electronic Dance, hardstyle branch, eurodance electronic dance freestyle music. extended whistle, breath veiled tone, straight note core, interlocked note trading. TR-808, singing lead analog synth. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 459,
+  "score": 125.097,
   "config": {
     "traditions": [
       "happy_hardcore",
@@ -17,7 +17,7 @@
         "id": "voice",
         "slots": {
           "voice_register": "extended_whistle_register",
-          "voice_quality": "chest_mix_belt_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
@@ -35,7 +35,7 @@
         },
         "scores": {
           "voice_register": 5.0375,
-          "voice_quality": 8.773,
+          "voice_quality": 7.8,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.2175000000000007,

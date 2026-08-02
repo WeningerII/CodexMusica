@@ -5,7 +5,7 @@
   "lineage": "Recitation of the gabay, the most prestigious and formally demanding genre of Somali oral poetry — long, alliterative, quantitative-metre verse on weighty themes of politics, philosophy, war and reconciliation, composed by a named poet (abwaan) and transmitted verbatim by memoriser-reciters. Central to Somali public life across the Horn of Africa, the tradition produced figures such as Sayyid Mohammed Abdullah Hassan and sustained the twentieth-century 'chain' poem-debates (silsilad); every line must alliterate on a chosen consonant throughout the poem. Delivery is grave, measured, elevated speech in which the poem's argument and its exact wording carry the art.",
   "recipe": "classic Middle Eastern modern somali gabay poetic recitation, ballad Poetry, med east poetic branch jeju haenyeo songs irish filí / bardic recitation. thick, breath veiled tone, breath pulsed, interlocked note trading. qat chew majlis room. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 303,
-  "score": 204.882,
+  "score": 203.192,
   "config": {
     "traditions": [
       "somali_gabay",
@@ -46,7 +46,7 @@
           "voice_estill_quality": 7.02,
           "voice_speech_song": 30.095,
           "voice_ensemble_config": 20.539999999999996,
-          "voice_ornament_system": 11.894999999999998,
+          "voice_ornament_system": 10.205,
           "voice_pitch_organization": 3.965,
           "voice_processing_chain": 14.169999999999998,
           "voice_multitrack_stack": 5.265000000000001

@@ -5,7 +5,7 @@
   "lineage": "Dark and forest psychedelic-trance offshoot of psytrance, codified through the 2000s underground night-floor scene across Russian, Mexican, and European forest-party circuits via Kindzadza, Psykovsky, and the Osom and Glitchy.Tonik label ecosystem — faster, denser, and more dissonant than mainstream psytrance",
   "recipe": "classic mid-2000s darkpsy, electronic Dance, trance branch, idm glitch experimental electric breakcore chiptune / 8-bit. analog mono synth, digital subtractive, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909, glitched textural sampler, glitched textural eurorack modular. forest clearing. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter ring modulator high-gain distortion flanger analog bucket-brigade delay.",
   "recipe_chars": 528,
-  "score": 84.641,
+  "score": 83.841,
   "config": {
     "traditions": [
       "darkpsy",
@@ -25,7 +25,7 @@
         "scores": {
           "electronic_technique": 0.26,
           "mono_oscillator": 0.15599999999999997,
-          "mono_filter": 0.6569999999999998,
+          "mono_filter": 0.5069999999999999,
           "mono_archetypes": 2.035,
           "mono_maker_lineage": -0.07000000000000019
         }
@@ -52,7 +52,7 @@
         },
         "scores": {
           "tr909_voice": 2.91,
-          "drum_machine_909_context": 3.575,
+          "drum_machine_909_context": 2.925,
           "tr909_production_origin": 1.1049999999999993
         }
       },

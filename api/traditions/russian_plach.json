@@ -5,7 +5,7 @@
   "lineage": "Russian mourning-song tradition continuous from medieval Russian peasant practice through 19th-century documented collection by Russian ethnographers (Pyotr Kireyevsky, Yelpidifor Barsov) into Soviet-era ethnomusicology; particularly preserved in Northern Russia (Pinega, Pomor regions)",
   "recipe": "classic modern russian plach, funeral Lament, European branch, vocal drone modal, Slavic bard ballad poetry, christian gospel ritual devotional bluegrass gospel southern gospel quartet. thick, declaimed, straight note core, multi note runs per syllable. bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 325,
-  "score": 193.648,
+  "score": 178.648,
   "config": {
     "traditions": [
       "russian_plach",
@@ -34,18 +34,18 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 24.565,
-          "voice_quality": 33.019999999999996,
+          "voice_register": 22.064999999999998,
+          "voice_quality": 30.519999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.5049999999999994,
-          "voice_articulation": 25.04,
+          "voice_articulation": 22.54,
           "voice_microtone": 6.3050000000000015,
-          "voice_tradition": 23.830000000000002,
+          "voice_tradition": 21.329999999999995,
           "voice_mechanism_compound": 3.3149999999999995,
-          "voice_estill_quality": 25.544999999999998,
+          "voice_estill_quality": 23.044999999999995,
           "voice_speech_song": 10.464999999999996,
-          "voice_ensemble_config": 23.584999999999997,
+          "voice_ensemble_config": 21.084999999999997,
           "voice_ornament_system": 6.2749999999999995,
           "voice_pitch_organization": 4.322500000000001,
           "voice_processing_chain": 6.825,

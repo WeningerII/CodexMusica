@@ -5,7 +5,7 @@
   "lineage": "European art-music period c.1850-1910 expanding the Romantic vocabulary into extreme chromaticism (Wagner), massive orchestral forces (Mahler, Strauss, Bruckner), nationalist-folk integration (Dvořák, Smetana, Borodin), and the gradual approach to tonal dissolution. Wagner's Tristan chord (1859) is often cited as the precipitating moment of tonal crisis. The German-Austrian symphonic tradition reached its maximum extent with Mahler's 1000-performer Eighth Symphony (1910).",
   "recipe": "classic British late romantic, art Music, western common practice branch, western modern art music second viennese school spectralism. thick, breath veiled tone, slow rate, interlocked note trading. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, synthetic sitka spruce bigleaf maple western maple oil varnish violin orchestral, synthetic carpathian spruce European maple sycamore maple oil varnish cello. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
   "recipe_chars": 528,
-  "score": 363.27,
+  "score": 359.11,
   "config": {
     "traditions": [
       "late_romantic_19c",
@@ -30,7 +30,7 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
@@ -41,15 +41,15 @@
           "voice_vibrato": 7.345000000000001,
           "voice_articulation": 6.5649999999999995,
           "voice_microtone": 12.980000000000002,
-          "voice_tradition": 12.86,
+          "voice_tradition": 12.709999999999999,
           "voice_mechanism_compound": 4.9,
           "voice_estill_quality": 7.37,
-          "voice_speech_song": 12.415,
+          "voice_speech_song": 11.374999999999998,
           "voice_ensemble_config": 6.5,
           "voice_ornament_system": 5.140000000000001,
           "voice_pitch_organization": 5.9725,
-          "voice_processing_chain": 4.074999999999999,
-          "voice_multitrack_stack": 5.6225000000000005
+          "voice_processing_chain": 3.3799999999999994,
+          "voice_multitrack_stack": 3.9975000000000005
         }
       },
       {
@@ -68,7 +68,7 @@
         "scores": {
           "keyboard_technique": 5,
           "grand_piano_size": 3.5100000000000002,
-          "grand_piano_brand": 5.329999999999999,
+          "grand_piano_brand": 4.68,
           "piano_hammer": 14.5925,
           "piano_rim": 13.535000000000002,
           "piano_soundboard": 10.5,

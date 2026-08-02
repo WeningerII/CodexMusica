@@ -5,7 +5,7 @@
   "lineage": "Pre-Gregorian liturgical chant tradition of Benevento and southern Italian Lombard-Beneventan duchies (sixth-thirteenth centuries), preserved fragmentarily in Beneventan-script manuscripts of the Benevento Cathedral Library and Montecassino Abbey. Replaced by Roman-rite Gregorian chant after eleventh-century imposition, but with significant Beneventan-melodic-material absorbed into the broader Italian Gregorian recension. Distinguished from Gregorian by Beneventan's distinct melodic style, narrower range, characteristic ornamental conventions, and Lombard-script notational tradition.",
   "recipe": "classic European early-1950s beneventan chant, ritual Devotional, christian gospel branch, western early art music ars antiqua and organum renaissance sacred polyphony. thick, declaimed, straight note core, interlocked note trading. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. parish church. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
   "recipe_chars": 478,
-  "score": 222.897,
+  "score": 214.648,
   "config": {
     "traditions": [
       "beneventan_chant",
@@ -29,7 +29,7 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_bel_canto",
-          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
@@ -38,16 +38,16 @@
           "voice_quality": 11.040000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 9.14,
-          "voice_articulation": 19.6625,
-          "voice_microtone": 18.004999999999995,
+          "voice_vibrato": 8.99,
+          "voice_articulation": 18.037499999999998,
+          "voice_microtone": 17.354999999999997,
           "voice_tradition": 18.599999999999998,
           "voice_mechanism_compound": 5.915,
-          "voice_estill_quality": 19.36,
-          "voice_speech_song": 16.509999999999998,
-          "voice_ensemble_config": 30.29,
+          "voice_estill_quality": 19.060000000000002,
+          "voice_speech_song": 15.859999999999996,
+          "voice_ensemble_config": 28.015,
           "voice_ornament_system": 15.575,
-          "voice_pitch_organization": 11.504999999999999,
+          "voice_pitch_organization": 9.555,
           "voice_processing_chain": 7.6049999999999995,
           "voice_multitrack_stack": 5.590000000000001
         }
@@ -64,7 +64,7 @@
           "choir_size": 4.55,
           "choir_polyphonic_configuration": 7.6049999999999995,
           "choir_regional_canonical_configuration": 5.524999999999999,
-          "choir_ensemble_repertoire": 6.5649999999999995
+          "choir_ensemble_repertoire": 5.915
         }
       }
     ],

@@ -3,9 +3,9 @@
   "name": "Sophisti-pop",
   "family": "global",
   "lineage": "1980s British adult-contemporary jazz-pop subgenre characterized by smooth chord-rich production, electric-piano-led harmonic foundation, atmospheric backing vocals — codified through Sade (Diamond Life 1984, Promise 1985), Everything But the Girl (Eden 1984), the Style Council (Café Bleu 1984), Prefab Sprout (Steve McQueen 1985), and the early Swing Out Sister releases",
-  "recipe": "classic North American mid-1980s sophisti-pop, functional Song, pop rock branch, crooners functional song great american songbook brill building pop. thick, breath veiled tone, straight onset, interlocked note trading. singing lead analog poly synth, marshall plexi amp British rock amp mahogany thomastik infeld low tension electric ampeg b15 amp American 60s bass amp flip top character ebony unlined fretless bass, pre muffled edge muffled brushes-and-sticks drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris rubber continuous-airflow saxophone, torrington spring steel tine canonical Rhodes 1965 1984 centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric. treated studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 893,
-  "score": 376.162,
+  "recipe": "classic North American mid-1980s sophisti-pop, functional Song, pop rock branch, crooners functional song great american songbook brill building pop. thick, breath veiled tone, straight onset, interlocked note trading. singing lead analog poly synth, marshall plexi amp British rock amp mahogany thomastik infeld low tension electric ampeg svt amp rock bass amp ebony unlined fusion fretless canon fretless bass, pre muffled edge muffled brushes-and-sticks drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris rubber continuous-airflow saxophone, torrington spring steel tine canonical Rhodes 1965 1984 centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric. treated studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 888,
+  "score": 344.492,
   "config": {
     "traditions": [
       "sophisti_pop",
@@ -34,14 +34,14 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 33.82500000000001,
+          "voice_register": 30.07499999999999,
           "voice_quality": 8.905000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 15.095500000000001,
+          "voice_vibrato": 13.8455,
           "voice_articulation": 12.479999999999995,
-          "voice_microtone": 33.58,
-          "voice_tradition": 24.775499999999994,
+          "voice_microtone": 29.82999999999999,
+          "voice_tradition": 21.300499999999992,
           "voice_mechanism_compound": 0.975,
           "voice_estill_quality": 4.375,
           "voice_speech_song": 19.369999999999994,
@@ -61,7 +61,7 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 18.501499999999997,
+          "electronic_technique": 16.001499999999997,
           "poly_archetypes": 2.795,
           "poly_voices": 2.2,
           "poly_maker_lineage": -0.035
@@ -82,10 +82,10 @@
           "amp_make": 4.355,
           "body_wood": 2.7299999999999995,
           "pickup_config": 0.603,
-          "string_type": 11.17,
+          "string_type": 9.77,
           "scale_length_b": 1.4299999999999997,
           "fretted_or_not": 0.3,
-          "bass_technique": 10.375
+          "bass_technique": 9.125
         }
       },
       {
@@ -96,8 +96,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 18.134999999999998,
-          "drumhead": 18.291499999999996,
+          "drum_technique": 17.484999999999996,
+          "drumhead": 15.791499999999996,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -116,10 +116,10 @@
           "wind_articulation": 0.12999999999999998,
           "sax_size": 1.4299999999999997,
           "sax_reed": 0.39,
-          "sax_body_alloy": 10.4195,
+          "sax_body_alloy": 9.1695,
           "sax_mouthpiece": 1,
-          "sax_technique": 10.375,
-          "sax_maker_school": 9.225000000000001
+          "sax_technique": 9.125,
+          "sax_maker_school": 7.824999999999999
         }
       },
       {
@@ -133,9 +133,9 @@
           "rhodes_pickup_position": "rhodes_pickup_centered"
         },
         "scores": {
-          "keyboard_technique": 19.532999999999998,
-          "rhodes_model": 12.091500000000002,
-          "rhodes_use": 3.965,
+          "keyboard_technique": 17.032999999999998,
+          "rhodes_model": 10.8415,
+          "rhodes_use": 3.3149999999999995,
           "rhodes_tine_material": 2.85,
           "rhodes_hammer_tip": -0.42000000000000004,
           "rhodes_pickup_position": 1.04
@@ -145,7 +145,7 @@
         "id": "fretless_bass",
         "slots": {
           "electric_technique": "electric_bass_slap_pop",
-          "amp_make": "amp_american_ampeg_b15",
+          "amp_make": "amp_american_ampeg_svt",
           "fretless_use": "fretless_rock",
           "fretless_bass_construction": "fretless_bass_factory",
           "fretless_fingerboard_wood": "fretless_ebony_unlined",
@@ -153,11 +153,11 @@
         },
         "scores": {
           "electric_technique": 0.75,
-          "amp_make": 3.5100000000000007,
+          "amp_make": 3.3149999999999995,
           "fretless_use": 2.6849999999999996,
           "fretless_bass_construction": 0.845,
-          "fretless_fingerboard_wood": 11.545,
-          "fretless_bass_strings": 11.17
+          "fretless_fingerboard_wood": 10.294999999999998,
+          "fretless_bass_strings": 9.77
         }
       }
     ],

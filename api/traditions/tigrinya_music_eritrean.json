@@ -5,7 +5,7 @@
   "lineage": "Tigrinya vocal-and-string tradition of Eritrea and the Tigray region of northern Ethiopia, sharing the qenet pentatonic mode-system with broader Habesha practice but with Tigrinya-language poetic-meter and Eritrean-highland melodic-contour conventions. Performance ranges from solo wata one-string spike-fiddle to ensembles with krar bowl-lyre, masenqo, kebero drum, and washint flute. Distinguished from Amhara azmari by Tigrinya-language repertoire and Asmara-Mendefera-Massawa dialect.",
   "recipe": "classic East African mid-1970s tigrinya music, ballad Poetry, west African griot branch, med east poetic ballad poetry somali qaraami song ethiopian azmari minstrel-poet. vocal fry, breath veiled tone, slow rate, interlocked note trading. gut ethiopian historical krar, curved horsehair bow canonical ethiopian azmari canonical ethiopian minstrel masenqo, calfskin canonical ethiopian orthodox ethiopian olive canonical conical staved orthodox tewahedo liturgy kebero, washint. addis kazanchis azmari bet tej house. dynamic moving-coil, transformer-coupled solid-state pre, BBC broadcast console, optical compressor, passive program EQ. indian/lebanese/greek vinyl pressing spring reverb.",
   "recipe_chars": 688,
-  "score": 266.428,
+  "score": 258.578,
   "config": {
     "traditions": [
       "tigrinya_music_eritrean",
@@ -44,10 +44,10 @@
           "voice_tradition": 32.955,
           "voice_mechanism_compound": 10.985,
           "voice_estill_quality": 9.945,
-          "voice_speech_song": 21.580000000000002,
+          "voice_speech_song": 20.93,
           "voice_ensemble_config": 19.175,
           "voice_ornament_system": 5.527500000000001,
-          "voice_pitch_organization": 46.635000000000005,
+          "voice_pitch_organization": 43.98499999999999,
           "voice_processing_chain": 4.7749999999999995,
           "voice_multitrack_stack": 5.2925
         }
@@ -62,7 +62,7 @@
         "scores": {
           "krar_strings": 0,
           "krar_body": 0,
-          "krar_string_material": 4.33
+          "krar_string_material": 3.6799999999999997
         }
       },
       {
@@ -78,8 +78,8 @@
           "bowed_technique": 2.5,
           "masenqo_body": 0,
           "masenqo_string": 0,
-          "masenqo_bow": 6.1025,
-          "masenqo_tradition": 15.4625
+          "masenqo_bow": 5.4525,
+          "masenqo_tradition": 13.5125
         }
       },
       {
@@ -90,8 +90,8 @@
           "kebero_tradition": "kebero_orthodox_tewahedo"
         },
         "scores": {
-          "kebero_skin": 6.1025,
-          "kebero_shell_wood": 6.9475,
+          "kebero_skin": 5.4525,
+          "kebero_shell_wood": 6.2975,
           "kebero_tradition": 1.69
         }
       },

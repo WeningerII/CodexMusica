@@ -5,7 +5,7 @@
   "lineage": "Mid-1980s heavy-metal subgenre emphasizing extreme tempo and virtuoso guitar-playing while retaining melodic-vocal lines and traditional heavy-metal song-structure (vs the simultaneously-emerging thrash metal's harsher vocal-and-rhythmic-aggression). Motörhead's 1979-onward catalog inaugurated the style; Helloween (Hamburg, 1984-onward), Iced Earth, and (especially in 1990s extension) the Italian power-metal scene continued the lineage. Distinguished from thrash metal by speed metal's retention of melodic-vocal lines and traditional metal harmonic-vocabulary.",
   "recipe": "classic North American modern speed metal, distorted Rock, thrash branch, power metal. thick, breath veiled tone, straight note core, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, brushes-and-sticks drum kit. san francisco bay area thrash 1983-1991 indie-commercial bay area thrash metal studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay ibanez tube screamer TS9 / TS808.",
   "recipe_chars": 657,
-  "score": 329.786,
+  "score": 321.891,
   "config": {
     "traditions": [
       "speed_metal",
@@ -40,8 +40,8 @@
           "voice_vibrato": 4.0555,
           "voice_articulation": 10.854999999999995,
           "voice_microtone": 11.699999999999992,
-          "voice_tradition": 6.070500000000001,
-          "voice_mechanism_compound": 42.65600000000002,
+          "voice_tradition": 6.0455000000000005,
+          "voice_mechanism_compound": 41.40600000000002,
           "voice_estill_quality": 4.8575,
           "voice_speech_song": 12.934999999999995,
           "voice_ensemble_config": 14.508249999999993,
@@ -69,19 +69,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 47.55625000000001,
-          "amp_make": 20.03725,
-          "body_wood": 20.588250000000006,
+          "electric_technique": 45.656250000000014,
+          "amp_make": 18.96725,
+          "body_wood": 19.518250000000005,
           "neck_wood": 1.69,
           "fretboard": 1.625,
           "pickup_magnet": 0.845,
           "pickup_winding": 0.0735,
           "string_material": 0.1365,
           "bridge": 1.69,
-          "scale_length": 18.788000000000004,
+          "scale_length": 17.823000000000004,
           "string_gauge": 1.69,
           "finish": 0.04875,
-          "string_tuning": 28.031750000000002
+          "string_tuning": 26.416750000000004
         }
       },
       {

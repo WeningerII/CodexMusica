@@ -5,7 +5,7 @@
   "lineage": "Spoken-rhythmic-narrative blues form codified by Chris Bouchillon in 1926 (his Talking Blues 78 being the founding commercial recording) and extended through the Dust Bowl Ballads era by Woody Guthrie (his 1940 RCA Victor Dust Bowl Ballads sessions the founding documents), then carried forward through the post-WWII folk revival via Pete Seeger, Phil Ochs, and the early Bob Dylan (Talkin New York 1962, Talkin John Birch Paranoid Blues 1962 — the Dylan talking-blues period)",
   "recipe": "classic Midwestern American mid-1920s talking blues, ballad Poetry, talking blues branch, us hip hop MC rhythm conscious hip-hop gangsta rap. thick, rap, wide pitch sway, narrative. mahogany flatwound thomastik slide acoustic guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. us dustbowl outdoor woody guthrie. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 454,
-  "score": 379.348,
+  "score": 371.998,
   "config": {
     "traditions": [
       "talking_blues_dustbowl",
@@ -35,20 +35,20 @@
         },
         "scores": {
           "voice_register": 39.57000000000001,
-          "voice_quality": 31.86,
+          "voice_quality": 29.259999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 26.04500000000001,
-          "voice_articulation": 20.654999999999998,
+          "voice_articulation": 19.904999999999998,
           "voice_microtone": 22.950000000000006,
           "voice_tradition": 14.005000000000003,
           "voice_mechanism_compound": 2.4050000000000002,
           "voice_estill_quality": 6.220000000000001,
-          "voice_speech_song": 31.955000000000002,
+          "voice_speech_song": 29.955000000000002,
           "voice_ensemble_config": 18.72,
           "voice_ornament_system": 4.875000000000002,
           "voice_pitch_organization": 2.6975,
-          "voice_processing_chain": 21.134999999999998,
+          "voice_processing_chain": 19.134999999999998,
           "voice_multitrack_stack": 7.14
         }
       },

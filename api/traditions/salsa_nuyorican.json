@@ -5,7 +5,7 @@
   "lineage": "New York Puerto Rican-Cuban-Latin diaspora dance-music codified through the Fania All-Stars canon (1968-1977) with Hector Lavoe, Willie Colón, Celia Cruz, Eddie Palmieri, Rubén Blades",
   "recipe": "classic North American mid-1970s salsa, groove Percussion, son salsa branch, American jazz bop cool jazz / west coast bebop. thick, breath veiled tone, straight onset, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator grand piano, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, bronze open slap hand drum timbales, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, bach stradivarius 180 canonical American orchestral lyrical jazz balance trumpet, bach 42 canonical American orchestral tenor student commercial trombone, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris lyrical continuous-airflow saxophone, claves, cencerro. nuyorican fania canon 1968-1977 mid tier fania la tierra studios ny. shure SM57, API 312 op-amp pre, MCI JH-636 US 70s indie/jazz.",
   "recipe_chars": 991,
-  "score": 342.038,
+  "score": 317.233,
   "config": {
     "traditions": [
       "salsa_nuyorican",
@@ -34,14 +34,14 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 16.269,
+          "voice_register": 15.018999999999998,
           "voice_quality": 5.622500000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 15.191500000000001,
+          "voice_vibrato": 13.941500000000001,
           "voice_articulation": 4.29,
-          "voice_microtone": 15.125,
-          "voice_tradition": 19.360500000000002,
+          "voice_microtone": 13.875,
+          "voice_tradition": 17.8105,
           "voice_mechanism_compound": 2.34,
           "voice_estill_quality": 1.4949999999999999,
           "voice_speech_song": 4.29,
@@ -68,7 +68,7 @@
         "scores": {
           "keyboard_technique": 0.9750000000000001,
           "grand_piano_size": 0.845,
-          "grand_piano_brand": 0.6509999999999999,
+          "grand_piano_brand": 0.5459999999999999,
           "piano_hammer": 3.7050000000000005,
           "piano_rim": 3.7050000000000005,
           "piano_soundboard": -0.035,
@@ -92,10 +92,10 @@
           "amp_make": 5.3950000000000005,
           "body_wood": 0.5459999999999999,
           "pickup_config": 0.195,
-          "string_type": 17.9755,
+          "string_type": 16.4255,
           "scale_length_b": 0.27299999999999996,
           "fretted_or_not": 0,
-          "bass_technique": 15.375000000000002
+          "bass_technique": 14.125000000000002
         }
       },
       {
@@ -122,7 +122,7 @@
         },
         "scores": {
           "percussion_technique": 3.513,
-          "timbales_shell": 7.995,
+          "timbales_shell": 7.345000000000001,
           "timbales_context": 1.04
         }
       },
@@ -153,11 +153,11 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 7.324999999999999,
+          "wind_articulation": 5.924999999999999,
           "brass_size": 0.3505,
-          "trumpet_mouthpiece": 17.9755,
-          "brass_mute": 3.3799999999999994,
-          "trumpet_technique": 5.249999999999999,
+          "trumpet_mouthpiece": 16.4255,
+          "brass_mute": 2.7299999999999995,
+          "trumpet_technique": 4,
           "trumpet_bell_metal": 0.845,
           "trumpet_maker_school": 4.615
         }
@@ -174,9 +174,9 @@
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 5.249999999999999,
-          "trombone_type": 15.375000000000002,
-          "trombone_mouthpiece": 15.566500000000001,
+          "wind_articulation": 4,
+          "trombone_type": 14.125000000000002,
+          "trombone_mouthpiece": 14.316500000000001,
           "trombone_mute": 0,
           "trombone_technique": 1.04,
           "trombone_bell_metal": 0.845,
@@ -195,13 +195,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 7.324999999999999,
-          "sax_size": 5.600499999999999,
+          "wind_articulation": 5.924999999999999,
+          "sax_size": 4.3505,
           "sax_reed": 0.3505,
-          "sax_body_alloy": 15.570000000000002,
+          "sax_body_alloy": 14.320000000000002,
           "sax_mouthpiece": 0.3505,
-          "sax_technique": 15.375000000000002,
-          "sax_maker_school": 17.317500000000003
+          "sax_technique": 14.125000000000002,
+          "sax_maker_school": 15.767500000000002
         }
       },
       {
@@ -211,7 +211,7 @@
           "claves_wood": "claves_cuban_hardwood"
         },
         "scores": {
-          "claves_pattern": 7.995,
+          "claves_pattern": 7.345000000000001,
           "claves_wood": 0.2415
         }
       },

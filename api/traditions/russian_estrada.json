@@ -3,9 +3,9 @@
   "name": "Russian estrada",
   "family": "global",
   "lineage": "Soviet-era (1940s-1991) and post-Soviet (1991-onward) Russian-language commercial-stage popular song — Edita Piekha, Joseph Kobzon, Lev Leshchenko, Alla Pugacheva (Pesnya goda annual TV festival regular), Sofia Rotaru, Filipp Kirkorov; characterized by sentimental minor-key lyrical content, orchestrated arrangements with strings and brass, and the centralized State-controlled distribution through Melodiya / Soviet TV / Radio infrastructure",
-  "recipe": "classic Eastern European modern russian estrada, functional Song, europop branch, pop rock functional song new wave folk rock. thick, breath veiled tone, breath pulsed, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, b system buttons stradella bass Russian tradition estrada stage Soviet era bayan russian, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles choir ensemble, steel modern alternative Soviet orchestra canon strummed balalaika, rhythmic dance rhythm strummed domra. moscow state label 1964-present major-flagship moscow melodiya studio. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
-  "recipe_chars": 907,
-  "score": 500.86,
+  "recipe": "classic Eastern European modern russian estrada, functional Song, europop branch, pop rock functional song new wave folk rock. thick, breath veiled tone, straight note core, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, b system buttons stradella bass Russian tradition estrada stage Soviet era bayan russian, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles choir ensemble, steel modern alternative Soviet orchestra canon strummed balalaika, rhythmic dance rhythm strummed domra. moscow state label 1964-present major-flagship moscow melodiya studio. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
+  "recipe_chars": 912,
+  "score": 487.382,
   "config": {
     "traditions": [
       "russian_estrada",
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "diaphragm_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
@@ -34,13 +34,13 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 52.625000000000014,
+          "voice_register": 50.125000000000014,
           "voice_quality": 10.724999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.8999999999999995,
+          "voice_vibrato": 3.3475,
           "voice_articulation": 18.39499999999999,
-          "voice_microtone": 39.07500000000001,
+          "voice_microtone": 37.82500000000001,
           "voice_tradition": 24.244999999999997,
           "voice_mechanism_compound": 4.030000000000001,
           "voice_estill_quality": 7.1825,
@@ -86,7 +86,7 @@
           "bayan_russian_reed_voicing": "bayan_russian_dry_unison"
         },
         "scores": {
-          "free_reed_technique": 13.874999999999996,
+          "free_reed_technique": 12.624999999999996,
           "bayan_russian_model": 6.979999999999999,
           "bayan_russian_context": 12.639999999999999,
           "bayan_russian_reed_voicing": 0
@@ -104,13 +104,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 12.089999999999998,
+          "amp_make": 11.439999999999998,
           "body_wood": 2.08,
           "pickup_config": 0.195,
-          "string_type": 29.4125,
+          "string_type": 27.7875,
           "scale_length_b": 2.47,
           "fretted_or_not": 0.195,
-          "bass_technique": 26.865
+          "bass_technique": 25.615
         }
       },
       {
@@ -121,7 +121,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 22.67,
+          "drum_technique": 21.42,
           "drumhead": 17.84,
           "drum_kit_kick_pedal": 0
         }
@@ -151,7 +151,7 @@
           "balalaika_tradition": "balalaika_soviet_orchestra"
         },
         "scores": {
-          "plucked_traditional_technique": 12.014999999999999,
+          "plucked_traditional_technique": 10.764999999999999,
           "balalaika_size": 0.39,
           "balalaika_strings": 1.2349999999999999,
           "balalaika_body_wood": 0,
@@ -168,8 +168,8 @@
           "domra_strings": "domra_steel_modern"
         },
         "scores": {
-          "plucked_traditional_technique": 12.014999999999999,
-          "domra_courses": 5.784999999999999,
+          "plucked_traditional_technique": 10.764999999999999,
+          "domra_courses": 5.134999999999998,
           "domra_size": 0.66,
           "domra_body_wood": 0,
           "domra_strings": 0.39

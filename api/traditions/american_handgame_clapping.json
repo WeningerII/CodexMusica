@@ -5,7 +5,7 @@
   "lineage": "African-American-and-American-English hand-game clapping-rhyme tradition continuous from African-diasporic and African-American children's play-song origins through 20th-century continuous performance across American childhood-and-playground-practice; the canonical \"Miss Mary Mack\" and broader hand-game repertoire is documented as one of the most-durable American children's-play-traditions",
   "recipe": "classic early-1940s american hand-game clapping rhymes, nursery Rhyme, americas branch, sub saharan African nursery rhyme, Brazilian groove percussion, sub saharan African protest song yoruba ọmọ-iya nursery and play-song. thick, breath veiled tone, straight onset, interlocked note trading. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 383,
-  "score": 181.052,
+  "score": 173.252,
   "config": {
     "traditions": [
       "american_handgame_clapping",
@@ -35,19 +35,19 @@
         },
         "scores": {
           "voice_register": 4.320000000000001,
-          "voice_quality": 33.39,
+          "voice_quality": 32.14,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.9825000000000002,
-          "voice_articulation": 17.29,
-          "voice_microtone": 17.939999999999994,
-          "voice_tradition": 36.99999999999999,
+          "voice_articulation": 16.639999999999997,
+          "voice_microtone": 17.289999999999992,
+          "voice_tradition": 35.599999999999994,
           "voice_mechanism_compound": 1.69,
           "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 22.424999999999997,
-          "voice_ensemble_config": 17.615,
-          "voice_ornament_system": 14.269999999999998,
-          "voice_pitch_organization": 10.579999999999997,
+          "voice_speech_song": 21.124999999999996,
+          "voice_ensemble_config": 16.965,
+          "voice_ornament_system": 13.619999999999997,
+          "voice_pitch_organization": 9.329999999999997,
           "voice_processing_chain": 4.575,
           "voice_multitrack_stack": 4.030000000000001
         }

@@ -5,7 +5,7 @@
   "lineage": "Early-1960s Liverpool-and-Merseyside beat-music style emerging from the convergence of skiffle, American R&B, and rock-and-roll into the canonical guitar-bass-drums-and-vocal-harmony four-piece beat-group format. The Beatles, Gerry and the Pacemakers, the Searchers, the Merseybeats, and Cilla Black constituted the canonical roster; the Cavern Club Liverpool and the Star-Club Hamburg anchored the institutional performance circuit. Distinguished from broader British Invasion by Merseybeat's Liverpool-specific geographic-cultural identity.",
   "recipe": "classic British merseybeat, distorted Rock, classic branch, regional distorted rock aussie pub rock greek rock. thick, breath veiled tone, straight note core, interlocked note trading. marshall plexi amp British rock amp soft down tuning power chord single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, sticky pad plucked sustained chord comping hohner pianet. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, tube pre, German tube console. tape 15ips echo plate reverb spring reverb.",
   "recipe_chars": 593,
-  "score": 362.039,
+  "score": 343.489,
   "config": {
     "traditions": [
       "merseybeat",
@@ -34,14 +34,14 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 26.79999999999999,
+          "voice_register": 24.29999999999999,
           "voice_quality": 24.115000000000006,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.0602500000000004,
           "voice_articulation": 20.084999999999997,
-          "voice_microtone": 24.744999999999994,
-          "voice_tradition": 16.255749999999995,
+          "voice_microtone": 22.244999999999994,
+          "voice_tradition": 15.005749999999997,
           "voice_mechanism_compound": 5.070000000000002,
           "voice_estill_quality": 1.1815,
           "voice_speech_song": 20.084999999999997,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 1.345,
           "voice_pitch_organization": 5.08025,
           "voice_processing_chain": 8.528,
-          "voice_multitrack_stack": 10.334999999999999
+          "voice_multitrack_stack": 10.184999999999999
         }
       },
       {
@@ -70,7 +70,7 @@
         },
         "scores": {
           "electric_technique": 11.5375,
-          "amp_make": 14.04,
+          "amp_make": 12.739999999999998,
           "body_wood": 0.2415,
           "neck_wood": 0.845,
           "fretboard": 0.845,
@@ -80,7 +80,7 @@
           "bridge": 0,
           "scale_length": 0.48300000000000004,
           "finish": 0.168,
-          "string_tuning": 19.11
+          "string_tuning": 17.81
         }
       },
       {
@@ -95,13 +95,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 14.105,
+          "amp_make": 12.805,
           "body_wood": 0.48300000000000004,
           "pickup_config": 0,
-          "string_type": 31.2,
+          "string_type": 27.95,
           "scale_length_b": 0.2415,
           "fretted_or_not": 0.195,
-          "bass_technique": 23.995
+          "bass_technique": 21.495
         }
       },
       {
@@ -112,7 +112,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 24,
+          "drum_technique": 21.5,
           "drumhead": 0.845,
           "drum_kit_kick_pedal": 0
         }

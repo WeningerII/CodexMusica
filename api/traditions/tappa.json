@@ -5,7 +5,7 @@
   "lineage": "Hindustani semi-classical vocal genre originating in late-18th-century Punjab through Mian Ghulam Nabi Shori (Shori Mian), who adapted Punjabi camel-driver folk songs into a fast-melisma classical-vocal genre — characterized by its rapid-fire intricate ornamental melisma patterns (different from khayal sustained-then-fast structure) and continued through the Banaras gharana lineage (Girija Devi, Naina Devi, Shobha Gurtu)",
   "recipe": "classic South Asian early-1950s tappa, improv On Frame, indian classical improv branch, south Asian art music kutiyattam sanskrit recitation sinhala vannama. vocal fry, breath veiled tone, slow rate, interlocked note trading. indian rosewood rosewood copper tabla, vocal male straight harmonium indian, gut 3 main playing strings tun cedar legato sarangi. varanasi benares gharana baithak. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
   "recipe_chars": 456,
-  "score": 295.431,
+  "score": 294.081,
   "config": {
     "traditions": [
       "tappa",
@@ -38,16 +38,16 @@
           "voice_quality": 13.714999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 22.367,
+          "voice_vibrato": 21.907,
           "voice_articulation": 9.945,
           "voice_microtone": 10.594999999999994,
-          "voice_tradition": 30.210499999999996,
+          "voice_tradition": 30.060499999999998,
           "voice_mechanism_compound": 17.65,
           "voice_estill_quality": 18.668999999999997,
           "voice_speech_song": 18.289999999999996,
           "voice_ensemble_config": 11.114999999999997,
-          "voice_ornament_system": 27.685999999999996,
-          "voice_pitch_organization": 22.282499999999995,
+          "voice_ornament_system": 27.095999999999997,
+          "voice_pitch_organization": 22.132499999999997,
           "voice_processing_chain": 3.705,
           "voice_multitrack_stack": 5.069999999999999
         }

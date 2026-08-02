@@ -3,9 +3,9 @@
   "name": "Tarab (Egyptian classical)",
   "family": "global",
   "lineage": "The specifically Egyptian branch of the broader Arab tarab tradition — built on the takht ensemble (oud, qanun, ney, riq, kamancheh) plus the 20th-century Egyptian innovation of adding a large Western violin section for the 1945-1970 Umm Kulthum / Mohammed Abdel Wahab era recordings; pre-WWII figures Sayed Darwish, Mohammed al-Qasabgi, Zakariya Ahmed, then the post-WWII Golden Age anchored by Umm Kulthum (1898-1975), Mohammed Abdel Wahab (1902-1991), Abdel Halim Hafez (1929-1977)",
-  "recipe": "classic North African mid-1950s tarab, improv On Frame, Persian arab improv branch, middle eastern classical art music, Sufi ritual devotional armenian liturgical and folk andalusī nūba. thick, breath veiled tone, slow rate, interlocked note trading. padauk Egyptian Syrian premium Lebanese cedar eastern Mediterranean pyramid oud, metal finger picks rosewood body arab premium goat skin bridge plate qanun, brass nickel silver Egyptian modern hassan kassai canonical 20th century Persian radif continuous-airflow legato ney, court tradition pre twentieth century takht arab, traditional kanun kanun, half rectified carpathian spruce European maple sycamore maple oil varnish violin orchestral. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
-  "recipe_chars": 896,
-  "score": 429.067,
+  "recipe": "classic North African mid-1950s tarab, improv On Frame, Persian arab improv branch, middle eastern classical art music, Sufi ritual devotional armenian liturgical and folk andalusī nūba. thick, breath veiled tone, slow rate, interlocked note trading. padauk Egyptian Syrian premium Lebanese cedar eastern Mediterranean pyramid oud, metal finger picks rosewood body arab premium goat skin bridge plate qanun, brass nickel silver Egyptian modern hassan kassai canonical 20th century Persian radif continuous-airflow legato ney, court tradition pre twentieth century takht arab, kanun kanun, half rectified carpathian spruce European maple sycamore maple oil varnish violin orchestral. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
+  "recipe_chars": 884,
+  "score": 425.147,
   "config": {
     "traditions": [
       "tarab_egyptian",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 5.1,
+          "voice_register": 3.8500000000000005,
           "voice_quality": 13.389999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 16.185,
-          "voice_articulation": 7.735,
-          "voice_microtone": 32.37,
+          "voice_articulation": 7.085,
+          "voice_microtone": 31.72,
           "voice_tradition": 27.332499999999996,
           "voice_mechanism_compound": 20.015,
           "voice_estill_quality": 16.104999999999997,
           "voice_speech_song": 12.334999999999997,
-          "voice_ensemble_config": 8.125,
-          "voice_ornament_system": 21.755,
-          "voice_pitch_organization": 23.015,
+          "voice_ensemble_config": 7.475,
+          "voice_ornament_system": 21.605,
+          "voice_pitch_organization": 22.865,
           "voice_processing_chain": 2.73,
           "voice_multitrack_stack": 2.2099999999999995
         }
@@ -126,12 +126,12 @@
         "id": "kanun",
         "slots": {
           "plucked_traditional_technique": "plucked_classical_idiom",
-          "kanun_school": "kanun_armenian",
+          "kanun_school": "kanun_arab",
           "kanun_articulation": "kanun_tortoiseshell_pick"
         },
         "scores": {
           "plucked_traditional_technique": 12,
-          "kanun_school": 7.159999999999998,
+          "kanun_school": 6.739999999999999,
           "kanun_articulation": 0.5199999999999999
         }
       },

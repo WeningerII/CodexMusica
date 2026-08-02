@@ -5,7 +5,7 @@
   "lineage": "Atlantic Canadian (Cape Breton, Nova Scotia) Scottish Gaelic balladic continuation tradition — milling frolics (òrain luaidh) sung by groups of women while pounding (waulking) wool tweed cloth, with call-and-response solo-and-chorus structure in Scottish Gaelic language; preserved through the Cape Breton Gaelic community and the Beaton family tradition",
   "recipe": "classic Northern European early-1940s cape breton milling-frolic, ballad Poetry, cape breton Gaelic branch, christian gospel sacred harp sacred harp singing. thick, breath veiled tone, straight note core, interlocked note trading. a cappella small 3 to 8 one per part call response single leader group response sub saharan call response ostinato polyrhythmic sacred liturgical global choir ensemble. connemara kitchen sean nos. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 502,
-  "score": 119.944,
+  "score": 119.282,
   "config": {
     "traditions": [
       "cape_breton_milling",
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 3.53725,
           "voice_estill_quality": 3.4250000000000003,
           "voice_speech_song": 8.6455,
-          "voice_ensemble_config": 9.434999999999999,
+          "voice_ensemble_config": 9.4225,
           "voice_ornament_system": 22.466499999999996,
           "voice_pitch_organization": 1.68525,
           "voice_processing_chain": 4.66475,
@@ -63,7 +63,7 @@
           "choir_size": 2.871,
           "choir_polyphonic_configuration": 3.8537500000000002,
           "choir_regional_canonical_configuration": 2.9000000000000004,
-          "choir_ensemble_repertoire": 4.7175
+          "choir_ensemble_repertoire": 4.0675
         }
       }
     ],

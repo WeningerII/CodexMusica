@@ -5,7 +5,7 @@
   "lineage": "Texas songwriter narrative-folk tradition centered around Townes Van Zandt, Guy Clark, Steve Earle, Jerry Jeff Walker, Lyle Lovett, Robert Earl Keen, Slaid Cleaves, James McMurtry — storytelling-foregrounded songwriting often tracked in Austin and Nashville",
   "recipe": "classic Southern American mid-1970s texas country-folk storyteller, ballad Poetry, country folk story branch, outlaw country. thick, breath veiled tone, straight note core, interlocked note trading. narrative fingerpicked acoustic guitar, double stops fiddle, Fender tweed amp American 50s amp tweed breakup fingerpicked electric bass, ride-driven brushes-and-sticks drum kit, bowl back Italian k and k twin internal mounted acoustic faithful mandolin, low overtone rich traditional pearwood marine band tradition harmonica. rural louisiana pine forest 1973-present mid tier in the country bogalusa. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 731,
-  "score": 261.454,
+  "score": 252.666,
   "config": {
     "traditions": [
       "texas_country_folk_storyteller",
@@ -33,16 +33,16 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 27.902499999999993,
+          "voice_register": 26.652499999999993,
           "voice_quality": 7.345000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 17.826249999999998,
+          "voice_vibrato": 16.576249999999998,
           "voice_articulation": 6.852499999999999,
           "voice_microtone": 6.727499999999999,
           "voice_tradition": 13.78,
           "voice_mechanism_compound": 1.4300000000000002,
-          "voice_estill_quality": 17.878749999999997,
+          "voice_estill_quality": 16.628749999999997,
           "voice_speech_song": 11.474999999999996,
           "voice_ensemble_config": 6.823749999999999,
           "voice_ornament_system": 1.85875,
@@ -78,7 +78,7 @@
           "fiddle_articulation": "sul_pont"
         },
         "scores": {
-          "bowed_technique": 17.159999999999997,
+          "bowed_technique": 15.909999999999998,
           "fiddle_strings": 0.2575,
           "fiddle_bow": 0.06,
           "fiddle_mute": 0.49499999999999994,
@@ -97,13 +97,13 @@
           "bass_technique": "fingerpicked_country_b"
         },
         "scores": {
-          "amp_make": 16.406249999999996,
+          "amp_make": 15.156249999999998,
           "body_wood": 0.65,
           "pickup_config": 0,
           "string_type": 0.9249999999999999,
           "scale_length_b": 0.65,
           "fretted_or_not": 0,
-          "bass_technique": 18.83125
+          "bass_technique": 17.58125
         }
       },
       {
@@ -156,9 +156,9 @@
           "harmonica_type": 0.65,
           "harmonica_comb": 2.24,
           "harmonica_reed": 0.52,
-          "harmonica_technique": 30.601249999999997,
+          "harmonica_technique": 29.351249999999997,
           "harmonica_maker_school": 0.0625,
-          "harmonica_tuning": 0.34125000000000005
+          "harmonica_tuning": 0.30374999999999996
         }
       }
     ],

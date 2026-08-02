@@ -3,9 +3,9 @@
   "name": "Bahamian Junkanoo",
   "family": "global",
   "lineage": "Bahamian Junkanoo tradition continuous from late-18th-and-19th-century Bahamian-African Christmas-and-Boxing-Day celebration practice through 20th-century continuous performance into modern Bahamas Boxing-Day-and-New-Year's-Day Junkanoo continuous practice; Junkanoo is documented as having African origins (possibly West-African origin via the slave trade) integrated with Caribbean-British Boxing-Day timing",
-  "recipe": "classic Caribbean modern bahamian junkanoo, carnival Processional, Caribbean branch, American south carnival processional, Brazilian carnival processional, African diasporic wedding yoruba aso ebi wedding music brazilian samba-school enredo. thick, breath veiled tone, straight onset, interlocked note trading. walnut bent frame canonical Iranian synthetic remo modern tar frame drum. trinidad calypso panyard outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 481,
-  "score": 165.63,
+  "recipe": "classic Caribbean modern bahamian junkanoo, carnival Processional, Caribbean branch, American south carnival processional, Brazilian carnival processional, African diasporic wedding yoruba aso ebi wedding music brazilian samba-school enredo. vocal fry, breath veiled tone, straight onset, interlocked note trading. walnut bent frame canonical Iranian synthetic remo modern tar frame drum. trinidad calypso panyard outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 485,
+  "score": 159.454,
   "config": {
     "traditions": [
       "caribbean_junkanoo",
@@ -16,7 +16,7 @@
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "vocal_fry",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 2.5737499999999995,
-          "voice_quality": 23.409785714285714,
+          "voice_register": 2.21,
+          "voice_quality": 20.909785714285707,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 5.135,
           "voice_articulation": 13.519999999999992,
           "voice_microtone": 13.32499999999999,
-          "voice_tradition": 43.44401785714286,
+          "voice_tradition": 42.03151785714286,
           "voice_mechanism_compound": 1.885,
           "voice_estill_quality": 1.6899999999999997,
           "voice_speech_song": 15.079999999999993,
           "voice_ensemble_config": 13.259999999999993,
-          "voice_ornament_system": 5.004999999999999,
-          "voice_pitch_organization": 10.897089285714282,
+          "voice_ornament_system": 4.3549999999999995,
+          "voice_pitch_organization": 9.647089285714282,
           "voice_processing_chain": 2.6325000000000003,
           "voice_multitrack_stack": 4.842500000000001
         }

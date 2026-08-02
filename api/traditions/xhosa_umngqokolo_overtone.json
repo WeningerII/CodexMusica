@@ -5,7 +5,7 @@
   "lineage": "Xhosa overtone-singing tradition of the Lumko / Ngqoko region of the Eastern Cape, South Africa — one of only a handful of split-tone overtone vocal practices documented globally and the only sub-Saharan African instance. Women produce a sustained chest-register fundamental while shaping mouth-resonance to amplify upper partials of the harmonic series into a clearly audible whistle-tone melody floating above the fundamental. The uhadi gourd-resonator mouth-bow accompanies, with the player's mouth serving as a second resonance chamber that the bow's single struck string excites — producing a parallel split-tone effect in the instrumental voice. Dave Dargie's 1985-1988 Lumko fieldwork (Xhosa Music: Its Techniques and Instruments, David Philip 1988) and his AIMP / VDE-Gallo CD-879 South Africa: Xhosa Women's Songs (1996) constitute the documentary canon, with NoFinishi Dywili as the principal informant. The Ngqoko Women's Ensemble (founded 1983) has carried the tradition into the international circuit, with NoWayilethi Mbizweni among the second-generation performers. Distinguished from Tuvan and Mongolian khoomei by Xhosa's women-only practice and chest-register (rather than throat-tension) fundamental production; distinguished from Sardinian cantu a tenore guttural overtone by Xhosa's single-voice split-tone vs Sardinian four-voice ensemble configuration.",
   "recipe": "classic Southern African 1985-1988 xhosa umngqokolo overtone singing, drone Modal, overtone branch, vocal drone modal corsican paghjella three-voice unaccompanied albanian iso-polyphony. sygyt, breath veiled tone, breath pulsed, interlocked note trading. gourd resonator single string struck mouth overtone canonical xhosa umngqokolo overtone singing canonical eastern cape uhadi. eastern cape outdoor grassland. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 475,
-  "score": 361.602,
+  "score": 357.052,
   "config": {
     "traditions": [
       "xhosa_umngqokolo_overtone",
@@ -39,16 +39,16 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 8.9545,
-          "voice_articulation": 29.3475,
+          "voice_articulation": 28.3725,
           "voice_microtone": 23.725,
           "voice_tradition": 27.625,
           "voice_mechanism_compound": 17.659999999999997,
           "voice_estill_quality": 10.399999999999997,
           "voice_speech_song": 22.685,
-          "voice_ensemble_config": 47.41750000000001,
-          "voice_ornament_system": 14.494999999999997,
+          "voice_ensemble_config": 45.14250000000001,
+          "voice_ornament_system": 13.844999999999999,
           "voice_pitch_organization": 28.076999999999998,
-          "voice_processing_chain": 16.444999999999997,
+          "voice_processing_chain": 15.794999999999998,
           "voice_multitrack_stack": 6.695
         }
       },

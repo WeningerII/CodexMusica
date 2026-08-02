@@ -5,7 +5,7 @@
   "lineage": "Anatolian-Romani urban entertainment tradition centered around the Sulukule and Edirnekapı Romani quarters of Istanbul and the broader Turkish Romani diaspora across Anatolia; characteristic instrument the çümbüş (a banjo-oud hybrid invented 1930 by Zeynel Abidin Cümbüş), performed alongside kanun, darbuka, clarinet, violin for wedding-and-celebration repertoire",
   "recipe": "classic Central European early-1930s turkish-romani çümbüş music, improv On Frame, Persian arab improv branch, med east poetic ballad poetry, klezmer improv improv on frame ethiopian azmari minstrel-poet pontic greek music. vocal fry, breath veiled tone, pure, interlocked note trading. aluminum rim zeynel abidin skin head modern banjo like nylon oud courses strummed cumbus, kanun tortoiseshell traditional kanun, goat skin Turkish darbuka regional Turkish darbuka split finger smaller goat skin darbuka, ebonite hard rubber klezmer tradition clarinet. budapest carpathian csarda tavern. large-diaphragm condenser, transformer-coupled solid-state pre, colored vintage console, vari-mu, passive program EQ. vinyl master cut tape echo spring reverb germanium fuzz wah / envelope filter.",
   "recipe_chars": 786,
-  "score": 230.414,
+  "score": 224.214,
   "config": {
     "traditions": [
       "turkish_romani_cumbus",
@@ -41,13 +41,13 @@
           "voice_vibrato": 1.69,
           "voice_articulation": 18.005000000000003,
           "voice_microtone": 30.257499999999997,
-          "voice_tradition": 24.180000000000007,
+          "voice_tradition": 20.929999999999996,
           "voice_mechanism_compound": 4.225,
           "voice_estill_quality": 3.185,
           "voice_speech_song": 19.240000000000002,
           "voice_ensemble_config": 17.94,
           "voice_ornament_system": 4.04,
-          "voice_pitch_organization": 30.36,
+          "voice_pitch_organization": 27.709999999999994,
           "voice_processing_chain": 5.85,
           "voice_multitrack_stack": 3.685625
         }
@@ -95,8 +95,8 @@
         "scores": {
           "percussion_technique": 1.56,
           "darbuka_material": 0.845,
-          "darbuka_skin": 7.119999999999999,
-          "darbuka_regional_style": 5.63
+          "darbuka_skin": 6.97,
+          "darbuka_regional_style": 5.4799999999999995
         }
       },
       {

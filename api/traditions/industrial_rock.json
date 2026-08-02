@@ -5,7 +5,7 @@
   "lineage": "Late-1980s and 1990s American heavy-rock subgenre integrating industrial-electronic-production with rock-band-instrumentation. Nine Inch Nails (Trent Reznor, Cleveland 1988-onward) is the canonical type-specimen with Pretty Hate Machine (1989) and The Downward Spiral (1994); Ministry (Chicago, parallel scene), Filter, Stabbing Westward, Marilyn Manson (industrial-rock-glam-hybrid), and the broader Nothing Records and TVT Records label rosters anchor the canonical industrial rock roster.",
   "recipe": "classic North American industrial rock, distorted Rock, avant branch, industrial noise experimental electric dark electro / aggrotech. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, analog synth. mid manhattan 1975-1985 mid-major late70s nyc commercial. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
   "recipe_chars": 573,
-  "score": 322.343,
+  "score": 319.999,
   "config": {
     "traditions": [
       "industrial_rock",
@@ -48,8 +48,8 @@
           "voice_ensemble_config": 14.949999999999996,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 4.875,
-          "voice_processing_chain": 20.043999999999997,
-          "voice_multitrack_stack": 11.823749999999999
+          "voice_processing_chain": 18.794,
+          "voice_multitrack_stack": 11.693749999999998
         }
       },
       {
@@ -71,7 +71,7 @@
         },
         "scores": {
           "electric_technique": 15.829,
-          "amp_make": 12.526499999999997,
+          "amp_make": 12.396499999999996,
           "body_wood": 7.084999999999999,
           "neck_wood": 0.168,
           "fretboard": 0.168,
@@ -81,7 +81,7 @@
           "bridge": 0.0315,
           "scale_length": 7.084999999999999,
           "string_gauge": 0.0315,
-          "finish": 0.65,
+          "finish": 0.1815,
           "string_tuning": 19.305
         }
       },
@@ -97,10 +97,10 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 13.371500000000001,
+          "amp_make": 13.2415,
           "body_wood": 0.063,
           "pickup_config": 0.105,
-          "string_type": 25.845,
+          "string_type": 25.715,
           "scale_length_b": 0.105,
           "fretted_or_not": 0.0765,
           "bass_technique": 23.45
@@ -131,7 +131,7 @@
         "scores": {
           "electronic_technique": 1.4949999999999999,
           "oscillator": 1.69,
-          "filter_topology": 2.405,
+          "filter_topology": 2.3,
           "envelope": 0.41175,
           "modulation": 0.09
         }

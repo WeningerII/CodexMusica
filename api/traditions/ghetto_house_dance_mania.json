@@ -5,7 +5,7 @@
   "lineage": "Mid-1990s Chicago house subgenre developed at Dance Mania Records (founded 1985), characterized by minimal-aggressive production, explicit-sexual chant-vocal sampling, and stripped-back four-on-the-floor structural framework. DJ Funk, DJ Deeon, Robert Armani, Parris Mitchell, and Paul Johnson constitute the canonical Dance Mania roster. Direct precursor of juke and footwork.",
   "recipe": "classic North American 1994-1996 ghetto house, electronic Dance, house branch, footwork electronic dance juke jersey club. vocal fry, breath veiled tone, slow rate, interlocked note trading. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, analog synth. mid manhattan 1975-1985 mid-major late70s nyc commercial. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
   "recipe_chars": 461,
-  "score": 102.613,
+  "score": 101.963,
   "config": {
     "traditions": [
       "ghetto_house_dance_mania",
@@ -61,7 +61,7 @@
         },
         "scores": {
           "tr808_voice": 1.1374999999999997,
-          "drum_machine_808_context": 4.29,
+          "drum_machine_808_context": 3.6399999999999997,
           "tr808_production_origin": 2.47
         }
       },

@@ -5,7 +5,7 @@
   "lineage": "The broad jazz tradition — African-American improvised-ensemble art music codified from early-20th-century New Orleans through swing, bebop, and modal jazz",
   "recipe": "classic North American mid-1970s jazz, improv On Frame, bop branch. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, bach stradivarius 180 canonical American orchestral jazz balance trumpet, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, growly gut upright bass, vintage ambassador asymmetric brushes drum kit. converted armenian church 1949-1981 major-flagship columbia 30th street studio nyc. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 621,
-  "score": 161.852,
+  "score": 160.923,
   "config": {
     "traditions": [
       "jazz"
@@ -29,7 +29,7 @@
           "sax_body_alloy": 16.034714285714287,
           "sax_mouthpiece": 0.35025,
           "sax_technique": 16.0325,
-          "sax_maker_school": 16.183285714285713
+          "sax_maker_school": 15.912571428571427
         }
       },
       {
@@ -46,10 +46,10 @@
         "scores": {
           "wind_articulation": 2.5,
           "brass_size": 0.35025,
-          "trumpet_mouthpiece": 18.048035714285714,
-          "brass_mute": 0.5957142857142858,
+          "trumpet_mouthpiece": 17.77732142857143,
+          "brass_mute": 0.4907142857142856,
           "trumpet_technique": 2.5,
-          "trumpet_bell_metal": 0.28667857142857145,
+          "trumpet_bell_metal": 0.27417857142857144,
           "trumpet_maker_school": 3.25
         }
       },
@@ -98,7 +98,7 @@
         },
         "scores": {
           "drum_technique": 16,
-          "drumhead": 18.025892857142857,
+          "drumhead": 17.75517857142857,
           "drum_kit_kick_pedal": 0
         }
       }

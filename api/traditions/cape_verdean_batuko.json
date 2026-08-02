@@ -5,7 +5,7 @@
   "lineage": "Cape Verdean batuko (also tabanka and finaçon) Afro-Atlantic women's percussive-vocal tradition of Santiago Island, the historically-and-demographically central island of the Cape Verde archipelago. Batuko configuration: a circle of women seated, each playing a tchabeta — a tightly-rolled cloth bundle held between the legs and struck with the open hand to produce a deep slap-tone — while one woman in the center (the txabetadeira-lead or \"the one who is dancing batuko\") sings the verse-text and dances in the center of the circle, with the surrounding women responding antiphonally and clapping in cross-rhythmic patterns over the tchabeta pulse. The tradition is genealogically connected to the West-African Mandinka and Wolof women's drum-and-dance circles that the Portuguese slave-trade transported to Santiago Island in the sixteenth and seventeenth centuries; the absence of true membrane drums in the post-arrival diaspora (slave-traders banned drums in transport and on early plantations) led to the substitution of the cloth-bundle as percussion surface, an organological adaptation of considerable interest. Vocal repertoire spans batuko (the strophic dance-rhythm song), finaçon (the slower more elaborated solo-singer-with-circle improvisatory-praise form), and txabeta (the rhythm-only instrumental cycles between vocal sections). Modal vocabulary draws on the broader Cape Verdean-creole regional folk tonal system. Santiago Island batuko ensembles such as Finaçon-bidjus and the women's associations of the Santa Catarina and Tarrafal municipalities maintain active transmission. Distinguished from morna and coladera (Cape Verde's other principal traditions) by batuko's women-only Santiago-Island-specific Afro-Atlantic percussive-vocal (vs the morna's acoustic-guitar-and-cavaquinho ballad) functional configuration; distinguished from Guinea-Bissau Manjak women's drum-circles by Cape Verdean-creole linguistic-cultural identity.",
   "recipe": "classic West African modern cape verdean batuko of santiago island, ballad Poetry, morna branch, tropical song functional song merengue urbano garifuna punta-rock. vocal fry, breath veiled tone, slow rate, interlocked note trading. batuko outdoor village. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 318,
-  "score": 233.109,
+  "score": 232.559,
   "config": {
     "traditions": [
       "cape_verdean_batuko",
@@ -39,8 +39,8 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.925,
-          "voice_articulation": 29.292000000000005,
-          "voice_microtone": 29.909750000000003,
+          "voice_articulation": 29.267000000000003,
+          "voice_microtone": 29.884750000000004,
           "voice_tradition": 19.77975,
           "voice_mechanism_compound": 8.46675,
           "voice_estill_quality": 6.9715,

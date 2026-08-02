@@ -5,7 +5,7 @@
   "lineage": "The debtera is the learned non-ordained cleric of the Ethiopian Orthodox Tewahedo Church, trained for many years in the church schools to master the Ge'ez liturgy, the zema chant of Saint Yared, aquaquam liturgical dance, and qene sacred poetry. Beyond the sanctioned liturgy, debtera are also the authors and reciters of asmat prayers and protective magical scrolls (ketab), an esoteric incantatory practice invoking secret names of God and angels for healing and protection. Their liturgical voice moves in the three qenet modal families of Ethiopian chant. The tradition is documented in Ge'ez manuscript scholarship and ethnographies of Ethiopian Christianity, and is a sibling of the Coptic Egyptian rite.",
   "recipe": "classic East African modern ethiopian debtera liturgical incantation, ritual Devotional, coptic branch, christian gospel ritual devotional coptic orthodox liturgical chant ethiopian tewahedo zema chant. thick, breath veiled tone, straight note core, interlocked note trading. lalibela rock hewn church. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 365,
-  "score": 308.389,
+  "score": 306.299,
   "config": {
     "traditions": [
       "ethiopian_debtera_incantation",
@@ -23,7 +23,7 @@
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "polynesian_oli_tradition",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -41,13 +41,13 @@
           "voice_vibrato": 7.442499999999999,
           "voice_articulation": 28.665,
           "voice_microtone": 48.78250000000001,
-          "voice_tradition": 16.509999999999994,
+          "voice_tradition": 15.924999999999997,
           "voice_mechanism_compound": 15.795000000000002,
           "voice_estill_quality": 11.117999999999999,
           "voice_speech_song": 28.665,
           "voice_ensemble_config": 31.98,
           "voice_ornament_system": 12.075,
-          "voice_pitch_organization": 25.232999999999997,
+          "voice_pitch_organization": 23.727999999999994,
           "voice_processing_chain": 22.295,
           "voice_multitrack_stack": 6.825
         }

@@ -5,7 +5,7 @@
   "lineage": "Indian Holi (festival of colors) and Diwali (festival of lights) processional tradition continuous from premodern Indian festival celebration practice through 19th-20th century continuous performance into modern Indian-and-Indian-diaspora continuous festival-practice; Holi processional integrates extensive dholak-and-shehnai-and-vocal participation alongside color-throwing, Diwali integrates devotional kirtan-and-bhajan with lamp-procession",
   "recipe": "classic modern indian holi-and-diwali festival processional, carnival Processional, south Asian branch, indian subcontinent praise song, south Asian wedding, hindu ritual devotional hindu stuti and bhajan indian sangeet. thick, declaimed, straight onset, interlocked note trading. synthetic remo modern stable bolt tuned modern concert stable dholak, mid 20th century banaras shehnai virtuoso naubat ensemble wedding context processional sheesham indian rosewood canonical Hindustani shehnai, pitched indian rosewood rosewood tabla, dhol. festival stage. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 617,
-  "score": 274.064,
+  "score": 263.436,
   "config": {
     "traditions": [
       "indian_holi_diwali_processional",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 4.0924999999999985,
-          "voice_quality": 18.181249999999995,
+          "voice_register": 3.342499999999999,
+          "voice_quality": 16.931249999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.6400000000000006,
-          "voice_articulation": 18.070000000000004,
-          "voice_microtone": 18.622500000000002,
-          "voice_tradition": 31.037499999999994,
+          "voice_articulation": 17.42,
+          "voice_microtone": 17.9725,
+          "voice_tradition": 29.96,
           "voice_mechanism_compound": 3.055,
           "voice_estill_quality": 2.8600000000000008,
-          "voice_speech_song": 23.725000000000005,
-          "voice_ensemble_config": 18.200000000000003,
+          "voice_speech_song": 23.075000000000003,
+          "voice_ensemble_config": 17.550000000000004,
           "voice_ornament_system": 9.00625,
-          "voice_pitch_organization": 8.9,
-          "voice_processing_chain": 4.7775,
+          "voice_pitch_organization": 8.450000000000001,
+          "voice_processing_chain": 4.1274999999999995,
           "voice_multitrack_stack": 3.055
         }
       },
@@ -78,8 +78,8 @@
         },
         "scores": {
           "shehnai_register": 9.684999999999999,
-          "shehnai_use": 12.48,
-          "shehnai_body_wood": 15.989999999999997,
+          "shehnai_use": 11.83,
+          "shehnai_body_wood": 15.339999999999996,
           "shehnai_reed": 0.5399999999999999,
           "shehnai_lineage": 1.13625
         }
@@ -92,7 +92,7 @@
           "tabla_syahi": "aged_syahi"
         },
         "scores": {
-          "tabla_dayan": 15.729999999999997,
+          "tabla_dayan": 15.079999999999997,
           "tabla_bayan": 0.9099999999999999,
           "tabla_syahi": 0.195
         }
@@ -105,8 +105,8 @@
           "dhol_shell": "dhol_fiberglass"
         },
         "scores": {
-          "dhol_form": 18.135000000000005,
-          "dhol_repertoire": 15.519999999999998,
+          "dhol_form": 17.485000000000003,
+          "dhol_repertoire": 14.269999999999998,
           "dhol_shell": 3.2500000000000004
         }
       }

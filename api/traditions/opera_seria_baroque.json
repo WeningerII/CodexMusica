@@ -3,9 +3,9 @@
   "name": "Opera seria (Baroque heroic opera)",
   "family": "classical",
   "lineage": "Italian-language Baroque opera type focused on serious classical-mythological-and-historical subjects, codified by librettist Pietro Metastasio (1698-1782) whose libretti were set hundreds of times by Baroque composers. Performance configuration: three acts with strict da capo aria-and-recitative alternation, six characters (with castrato voices in the leading male hero roles), and minimal chorus. Handel's Giulio Cesare (1724) and Vivaldi's Orlando furioso (1727) are canonical type-specimens. Distinguished from later opera buffa by opera seria's elevated dramatic register.",
-  "recipe": "classic British early-1690s opera seria, art Music, western early branch, western common practice art music bel canto opera verismo opera. thick, close mic intimate, slow rate, interlocked note trading. beech laminated maple laminated European tradition European spruce norway spruce grand piano, synthetic Italian alpine spruce val di fiemme European maple bosnian source violin orchestral, deep vaulted back double bourdon early Italian baroque guitar, sympathetic halo d major tuned aria partner gut over wire legato viola damore, muffled stopped central crook classical natural horn. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
+  "recipe": "classic British early-1690s opera seria, art Music, western early branch, western common practice art music bel canto opera verismo opera. thick, close mic intimate, slow rate, interlocked note trading. beech laminated maple laminated European tradition European spruce norway spruce grand piano, synthetic Italian alpine spruce val di fiemme European maple bosnian source violin orchestral, canonical Spanish double bourdon early Italian baroque guitar, sympathetic halo d major tuned aria partner gut over wire legato viola damore, muffled stopped central crook classical natural horn. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
   "recipe_chars": 667,
-  "score": 522.416,
+  "score": 493.391,
   "config": {
     "traditions": [
       "opera_seria_baroque",
@@ -35,19 +35,19 @@
         },
         "scores": {
           "voice_register": 4.449999999999999,
-          "voice_quality": 5.0375000000000005,
+          "voice_quality": 4.387500000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 11.569999999999999,
           "voice_articulation": 13.324999999999996,
           "voice_microtone": 11.43999999999999,
-          "voice_tradition": 28.96125,
+          "voice_tradition": 24.71125,
           "voice_mechanism_compound": 8.149999999999999,
-          "voice_estill_quality": 40.435,
-          "voice_speech_song": 37.879999999999995,
+          "voice_estill_quality": 34.885,
+          "voice_speech_song": 35.379999999999995,
           "voice_ensemble_config": 12.414999999999994,
-          "voice_ornament_system": 43.59375,
-          "voice_pitch_organization": 18.556874999999998,
+          "voice_ornament_system": 37.21875,
+          "voice_pitch_organization": 16.950624999999995,
           "voice_processing_chain": 7.6049999999999995,
           "voice_multitrack_stack": 3.3799999999999994
         }
@@ -68,10 +68,10 @@
         "scores": {
           "keyboard_technique": 8.25,
           "grand_piano_size": 1.8199999999999998,
-          "grand_piano_brand": 6.37,
+          "grand_piano_brand": 5.07,
           "piano_hammer": 11.504999999999997,
-          "piano_rim": 10.593124999999997,
-          "piano_soundboard": 11.333749999999998,
+          "piano_rim": 10.443124999999998,
+          "piano_soundboard": 11.183749999999998,
           "piano_pinblock": 8.35,
           "piano_plate": 8.29,
           "piano_pitch_standard": 10.82
@@ -94,27 +94,27 @@
         "scores": {
           "bowed_technique": 8.25,
           "orch_strings": 1.8199999999999998,
-          "orch_top_wood": 24.621249999999996,
+          "orch_top_wood": 23.246249999999996,
           "orch_back_wood": 18.590625,
           "orch_varnish": 15.474999999999998,
           "orch_setup_period": 10.76,
-          "orch_bow": 1.3606249999999998,
+          "orch_bow": 0.8668750000000001,
           "orch_bow_stick": 10.594999999999999,
           "orch_articulation": 2.6649999999999996,
-          "orch_rosin": 22.519374999999997
+          "orch_rosin": 21.144375
         }
       },
       {
         "id": "baroque_guitar",
         "slots": {
-          "baroque_guitar_form": "baroque_guitar_sellas_venetian",
+          "baroque_guitar_form": "baroque_guitar_spanish_sanz",
           "baroque_guitar_style": "baroque_guitar_continuo",
           "baroque_guitar_stringing": "baroque_guitar_double_bourdons"
         },
         "scores": {
-          "baroque_guitar_form": 5.525,
+          "baroque_guitar_form": 4.225,
           "baroque_guitar_style": 0.39,
-          "baroque_guitar_stringing": 9.815
+          "baroque_guitar_stringing": 7.865
         }
       },
       {

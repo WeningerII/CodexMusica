@@ -5,7 +5,7 @@
   "lineage": "Metal-orchestral-choral hybrid subgenre codified through Nightwish (Oceanborn 1998), Within Temptation (Mother Earth 2000), Epica (The Phantom Agony 2003), Therion, and Edenbridge; characterized by operatic-soprano-led-vocal performances, full-orchestral arrangements (often with film-score session ensembles), choral-backing-vocal stacks, and fantasy-and-mythology lyrical subject-matter tradition",
   "recipe": "classic late-1990s symphonic metal, distorted Rock, symphonic branch, western common practice art music grand opera the mighty handful. thick, breath veiled tone, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, polyrhythmic vocal layering independent cycles kakhetian three voice two soloists choral drone choir ensemble, string quartet inst, synthetic carpathian spruce European maple sycamore maple oil varnish violin orchestral, mallets timpani. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 817,
-  "score": 336.627,
+  "score": 330.067,
   "config": {
     "traditions": [
       "symphonic_metal_classic",
@@ -35,7 +35,7 @@
         },
         "scores": {
           "voice_register": 7.0500000000000025,
-          "voice_quality": 6.890000000000002,
+          "voice_quality": 6.240000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.25,
@@ -43,10 +43,10 @@
           "voice_microtone": 13.51999999999999,
           "voice_tradition": 9.5225,
           "voice_mechanism_compound": 18.39999999999999,
-          "voice_estill_quality": 9.979999999999999,
+          "voice_estill_quality": 8.729999999999999,
           "voice_speech_song": 14.007499999999997,
           "voice_ensemble_config": 14.884999999999993,
-          "voice_ornament_system": 8.625,
+          "voice_ornament_system": 7.375,
           "voice_pitch_organization": 2.4000000000000004,
           "voice_processing_chain": 4.55,
           "voice_multitrack_stack": 5.07
@@ -128,10 +128,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_romantic"
         },
         "scores": {
-          "choir_size": 6.88,
+          "choir_size": 6.38,
           "choir_polyphonic_configuration": 3.4849999999999994,
-          "choir_regional_canonical_configuration": 3.8349999999999995,
-          "choir_ensemble_repertoire": 11.46
+          "choir_regional_canonical_configuration": 3.6849999999999996,
+          "choir_ensemble_repertoire": 10.399999999999999
         }
       },
       {
@@ -144,7 +144,7 @@
         "scores": {
           "bowed_technique": 2.5,
           "quartet_school": 0.845,
-          "string_quartet_inst_era": 5.069999999999999
+          "string_quartet_inst_era": 3.77
         }
       },
       {
@@ -168,7 +168,7 @@
           "orch_back_wood": 4.605,
           "orch_varnish": 3.375,
           "orch_setup_period": 4.395,
-          "orch_bow": 1.32,
+          "orch_bow": 1.17,
           "orch_bow_stick": 4.3225,
           "orch_articulation": 3.8999999999999995,
           "orch_rosin": 10.174999999999997

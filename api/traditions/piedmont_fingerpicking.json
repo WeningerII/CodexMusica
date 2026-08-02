@@ -5,7 +5,7 @@
   "lineage": "Eastern-seaboard fingerpicked country blues tradition that flourished in the Piedmont region (Virginia, the Carolinas, Georgia) from the early 20th century — distinguished from the Mississippi Delta blues tradition (which is harder-edged and rhythmically heavier) by its lighter ragtime-derived right-hand fingerpicking, brighter harmonic vocabulary, and parlor-music influence; codified through Blind Boy Fuller (the Piedmont voice, recorded 1935-40), Blind Blake, the Reverend Gary Davis, Brownie McGhee, Sonny Terry, Etta Baker, Elizabeth Cotten (Freight Train, Shake Sugaree)",
   "recipe": "classic Midwestern American mid-1930s piedmont fingerpicking blues, ballad Poetry, piedmont narrative branch, blues acoustic functional song piedmont blues. thick, worn fold, wide pitch sway, interlocked note trading. open g tuning slide acoustic guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, narrative fingerpicked mountain dulcimer. us dustbowl outdoor woody guthrie. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 515,
-  "score": 344.13,
+  "score": 331.15,
   "config": {
     "traditions": [
       "piedmont_fingerpicking",
@@ -33,17 +33,17 @@
           "voice_multitrack_stack": "voice_multitrack_unison_double_take"
         },
         "scores": {
-          "voice_register": 32.8975,
-          "voice_quality": 24.549999999999997,
+          "voice_register": 31.647499999999997,
+          "voice_quality": 23.799999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 28.875,
+          "voice_vibrato": 27.625,
           "voice_articulation": 8.001749999999998,
-          "voice_microtone": 24.849999999999998,
-          "voice_tradition": 11.240499999999999,
+          "voice_microtone": 23.599999999999998,
+          "voice_tradition": 10.590499999999999,
           "voice_mechanism_compound": 2.40825,
           "voice_estill_quality": 6.3031250000000005,
-          "voice_speech_song": 9.219,
+          "voice_speech_song": 9.188999999999998,
           "voice_ensemble_config": 8.29575,
           "voice_ornament_system": 1.4495,
           "voice_pitch_organization": 2.2950000000000004,
@@ -61,11 +61,11 @@
           "acoustic_om_technique": "om_bottleneck_slide"
         },
         "scores": {
-          "string_tuning": 15.974999999999998,
+          "string_tuning": 15.224999999999998,
           "top_wood": 0.0045,
           "back_sides": 0.0045,
           "string_acoustic": 0.49499999999999994,
-          "acoustic_om_technique": 32.625
+          "acoustic_om_technique": 31.375
         }
       },
       {
@@ -80,11 +80,11 @@
         },
         "scores": {
           "harmonica_type": 0.05749999999999999,
-          "harmonica_comb": 28.207999999999995,
-          "harmonica_reed": 24.3385,
-          "harmonica_technique": 29.6385,
-          "harmonica_maker_school": 23.24,
-          "harmonica_tuning": 10.665
+          "harmonica_comb": 26.957999999999995,
+          "harmonica_reed": 23.0885,
+          "harmonica_technique": 28.3885,
+          "harmonica_maker_school": 21.84,
+          "harmonica_tuning": 10.015
         }
       },
       {

@@ -3,14 +3,14 @@
   "name": "Yiddish vigndlid (cradle song)",
   "family": "global",
   "lineage": "Yiddish-Ashkenazi cradle-song tradition continuous from medieval-and-early-modern shtetl domestic practice through 19th-and-20th-century Yiddish-theater and Klezmer-vocal-music intersection",
-  "recipe": "classic modern yiddish vigndlid, lullaby, European branch, middle eastern lullaby, Jewish ritual devotional, chanson fado ballad poetry persian lālā'ī arabic tahwidah. vocal fry, breath veiled tone, slow rate, interlocked note trading. klezmer ensemble. carpeted bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 334,
-  "score": 184.967,
+  "recipe": "classic modern yiddish vigndlid, lullaby, European branch, middle eastern lullaby, Jewish ritual devotional, chanson fado ballad poetry morna cape verdean batuko of santiago island. vocal fry, breath veiled tone, straight note core, interlocked note trading. klezmer ensemble. carpeted bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 357,
+  "score": 188.117,
   "config": {
     "traditions": [
       "yiddish_vigndlid",
-      "persian_lalai",
-      "arabic_tahwidah"
+      "morna",
+      "cape_verdean_batuko"
     ],
     "instruments": [
       {
@@ -20,46 +20,46 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "persian_dastgah_tradition",
-          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_persian_tahrir",
-          "voice_pitch_organization": "voice_pitch_persian_dastgah",
-          "voice_processing_chain": "voice_processing_plate_reverb_medium",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
         },
         "scores": {
-          "voice_register": 4.03,
-          "voice_quality": 9.100000000000001,
+          "voice_register": 5.329999999999999,
+          "voice_quality": 27.69,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.11,
-          "voice_articulation": 12.804999999999994,
-          "voice_microtone": 34.1575,
-          "voice_tradition": 20.914999999999996,
-          "voice_mechanism_compound": 15.419999999999998,
-          "voice_estill_quality": 6.045,
-          "voice_speech_song": 21.904999999999994,
-          "voice_ensemble_config": 12.739999999999995,
-          "voice_ornament_system": 16.275,
-          "voice_pitch_organization": 16.904999999999998,
-          "voice_processing_chain": 3.9000000000000004,
-          "voice_multitrack_stack": 4.42
+          "voice_vibrato": 3.8100000000000005,
+          "voice_articulation": 25.09,
+          "voice_microtone": 27.235,
+          "voice_tradition": 17.225,
+          "voice_mechanism_compound": 5.265,
+          "voice_estill_quality": 4.5825,
+          "voice_speech_song": 30.8425,
+          "voice_ensemble_config": 23.985,
+          "voice_ornament_system": 2.7499999999999996,
+          "voice_pitch_organization": 6.285,
+          "voice_processing_chain": 7.605000000000003,
+          "voice_multitrack_stack": 6.57
         }
       },
       {
         "id": "klezmer_ensemble",
         "slots": {
-          "sections": "klez_violin_lead",
+          "sections": "klez_trumpet_lead",
           "rhythm_section": "klez_accordion"
         },
         "scores": {
-          "sections": 0.045,
+          "sections": 1.3449999999999998,
           "rhythm_section": 0.345
         }
       }

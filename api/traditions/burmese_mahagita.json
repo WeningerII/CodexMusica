@@ -5,7 +5,7 @@
   "lineage": "Burmese mahagita (\"great song\") classical Burmese art-music canon, comprising the codified repertoire of the late-Konbaung-dynasty (eighteenth-nineteenth century) royal court at Mandalay. The mahagita corpus is organized through several song-categories (kyò devotional-style, bwèh ceremonial-style, thachingan classical-song-form, etc.) with distinct modal-and-rhythmic conventions per category. Performance configuration ranges from solo voice with saung gauk arched-harp accompaniment (the most refined chamber form) to fuller ensembles with pat-tala xylophone, hsaing-waing drum-circle, and additional wind-instruments. The post-1885 British annexation of Burma terminated the royal-court patronage; the post-1962 Burma Socialist Programme cultural-policy and the State School of Music and Drama anchor modern transmission.",
   "recipe": "classic Southeast Asian mid-1880s burmese mahagita, art Music, southeast Asian branch, east Asian art music beijing opera tibetan ache lhamo opera. thick, breath veiled tone, slow rate, interlocked note trading. sanxian, indoor lead melodic drums hsaing waing ensemble, court classical saung gauk, ornate gilded pattala. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 488,
-  "score": 515.42,
+  "score": 508.87,
   "config": {
     "traditions": [
       "burmese_mahagita",
@@ -41,12 +41,12 @@
           "voice_vibrato": 21.18,
           "voice_articulation": 21.06,
           "voice_microtone": 22.749999999999996,
-          "voice_tradition": 42.785000000000004,
+          "voice_tradition": 42.485,
           "voice_mechanism_compound": 18.549999999999997,
-          "voice_estill_quality": 34.599999999999994,
+          "voice_estill_quality": 31.649999999999995,
           "voice_speech_song": 29.314999999999998,
           "voice_ensemble_config": 25.154999999999994,
-          "voice_ornament_system": 27.75,
+          "voice_ornament_system": 25.25,
           "voice_pitch_organization": 19.159999999999997,
           "voice_processing_chain": 3.12,
           "voice_multitrack_stack": 3.4450000000000003
@@ -64,7 +64,7 @@
         },
         "scores": {
           "plucked_traditional_technique": 18.09,
-          "sanxian_size": 4.68,
+          "sanxian_size": 4.029999999999999,
           "sanxian_context": 4.615,
           "sanxian_head": 0.78,
           "sanxian_strings": 0.845,
@@ -94,7 +94,7 @@
         "scores": {
           "saung_gauk_form": 22.025,
           "saung_gauk_role": 20.279999999999998,
-          "saung_gauk_strings": 9.33
+          "saung_gauk_strings": 9.18
         }
       },
       {

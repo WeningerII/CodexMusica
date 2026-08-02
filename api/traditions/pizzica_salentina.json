@@ -5,7 +5,7 @@
   "lineage": "Pizzica salentina Southern Italian folk-dance-and-music tradition of the Salento peninsula (southern Puglia), historically tied to the tarantismo ritual-healing tradition where the pizzica dance ostensibly cured tarantism. Characterized by fast 12/8 or 6/8 meter, virtuoso tamburello frame-drum lead, and characteristic call-and-response courtship-and-warrior-dance choreography. Performance contexts include the annual Notte della Taranta festival in Melpignano (founded 1998, now drawing 200,000+ attendees), the canonical Salento-village wedding-and-festival cycle, and (post-2000) the international neo-folk revival circuit. Distinguished from Neapolitan tarantella by pizzica's Salentine regional dialect register and slower tempo-of-instrumental-acceleration arc.",
   "recipe": "classic Southern European late-1990s pizzica salentina, ballad Poetry, Mediterranean ballad branch, indigenous ritual devotional, Brazilian groove percussion shipibo-conibo icaros healing songs mapuche tayil genealogical chant. thick, breath veiled tone, fast rate, interlocked note trading. tambourine orch, bowl back Italian Italian alpine spruce brescian calace big leaf maple modern American mandolin, sitka spruce spirit varnish shellac alcohol violin orchestral. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 622,
-  "score": 282.295,
+  "score": 282.145,
   "config": {
     "traditions": [
       "pizzica_salentina",
@@ -81,7 +81,7 @@
           "mandolin_top": 1.45,
           "mandolin_back": 1.3,
           "mandolin_bracing": 0.585,
-          "mandolin_strings": 0.6900000000000001,
+          "mandolin_strings": 0.54,
           "mandolin_fingerboard": 1.69,
           "mandolin_pickup": 25.610000000000003
         }

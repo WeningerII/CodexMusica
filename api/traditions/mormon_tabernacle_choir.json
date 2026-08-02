@@ -3,9 +3,9 @@
   "name": "Mormon Tabernacle Choir tradition",
   "family": "classical",
   "lineage": "Mormon Tabernacle Choir of the LDS Church (founded 1847 in Salt Lake City, Utah) liturgical-and-concert choral tradition, comprising approximately 360 unpaid volunteer LDS Church-member singers. The choir performs at LDS General Conference biannual sessions and weekly Music & the Spoken Word radio broadcasts (continuous since 1929). Repertoire spans Mormon-specific liturgical hymns from the LDS Hymnbook, broader Christian-Protestant hymn tradition, and twentieth-century American-Western art-music. Distinguished by its 360-voice scale and the Salt Lake Tabernacle Aeolian-Skinner pipe-organ.",
-  "recipe": "classic North American late-1840s mormon tabernacle choir tradition, ritual Devotional, christian gospel branch, western common practice art music bel canto opera early romantic. thick, breath veiled tone, slow rate, interlocked note trading. mixed satb canonical 4 part western five voice polyphonic regional kakhetian three voice two soloists choral drone choir ensemble, skinner aeolian skinner canonical American eclectic early 20th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque pneumatic canonical late 19th century romantic legato pipe organ. cathedral. passive ribbon, tube pre, German tube console. Studer 30ips tape.",
-  "recipe_chars": 712,
-  "score": 213.872,
+  "recipe": "classic North American late-1840s mormon tabernacle choir tradition, ritual Devotional, christian gospel branch, western common practice art music bel canto opera early romantic. thick, breath veiled tone, slow rate, interlocked note trading. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone choir ensemble, skinner aeolian skinner canonical American eclectic early 20th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque electric pneumatic canonical 20th century American legato pipe organ. cathedral. passive ribbon, tube pre, German tube console. Studer 30ips tape.",
+  "recipe_chars": 716,
+  "score": 200.862,
   "config": {
     "traditions": [
       "mormon_tabernacle_choir",
@@ -43,10 +43,10 @@
           "voice_microtone": 11.43999999999999,
           "voice_tradition": 12.74,
           "voice_mechanism_compound": 4.9,
-          "voice_estill_quality": 9.83,
+          "voice_estill_quality": 7.280000000000001,
           "voice_speech_song": 13.227499999999996,
           "voice_ensemble_config": 17.939999999999994,
-          "voice_ornament_system": 12.075,
+          "voice_ornament_system": 8.525,
           "voice_pitch_organization": 4.9,
           "voice_processing_chain": 5.005000000000001,
           "voice_multitrack_stack": 2.600000000000001
@@ -56,15 +56,15 @@
         "id": "choir_ensemble",
         "slots": {
           "choir_size": "mixed_4_part_satb",
-          "choir_polyphonic_configuration": "choir_polyphony_five_voice_polyphonic",
+          "choir_polyphonic_configuration": "choir_polyphony_four_voice_polyphonic",
           "choir_regional_canonical_configuration": "choir_regional_kakhetian_three_voice",
           "choir_ensemble_repertoire": "choir_ensemble_romantic"
         },
         "scores": {
           "choir_size": 7.54,
-          "choir_polyphonic_configuration": 4.12,
-          "choir_regional_canonical_configuration": 3.38,
-          "choir_ensemble_repertoire": 6.5649999999999995
+          "choir_polyphonic_configuration": 4.105,
+          "choir_regional_canonical_configuration": 3.335,
+          "choir_ensemble_repertoire": 5.915
         }
       },
       {
@@ -76,16 +76,16 @@
           "pipe_organ_voicing_school": "pipe_organ_skinner_american",
           "pipe_organ_pipe_alloy": "pipe_organ_zinc_pedal",
           "pipe_organ_temperament": "pipe_organ_meantone_quarter",
-          "pipe_organ_action": "pipe_organ_pneumatic"
+          "pipe_organ_action": "pipe_organ_electric_pneumatic"
         },
         "scores": {
           "keyboard_technique": 5,
           "pipe_organ_class": 0.435,
           "pipe_organ_context": 18.07,
-          "pipe_organ_voicing_school": 13.24,
-          "pipe_organ_pipe_alloy": 8.059999999999999,
-          "pipe_organ_temperament": 4.68,
-          "pipe_organ_action": 9.555
+          "pipe_organ_voicing_school": 11.59,
+          "pipe_organ_pipe_alloy": 6.759999999999999,
+          "pipe_organ_temperament": 3.3799999999999994,
+          "pipe_organ_action": 7.604999999999999
         }
       }
     ],

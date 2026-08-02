@@ -5,7 +5,7 @@
   "lineage": "Moroccan Sufi-trance ceremonial tradition with West-African Bambara-Soussi-Hausa-Songhai lineage tracing to sub-Saharan enslaved peoples brought to Morocco — codified through the lila ceremony with master-musician maâlem leading sintir-bass-lute and qarqaba-iron-castanets ensemble; canonical lineage through Mahmoud Guinia (Marrakech), Mustapha Baqbou, and the Essaouira Gnaoua festival (founded 1998) as the genre’s international showcase",
   "recipe": "classic North African late-1990s gnawa, drone Modal, string branch, Afro-diasporic ritual devotional, Sufi ritual devotional palo mayombe kongo mambo ritual chant lukumí ceremonial. thick, breath veiled tone, slow rate, interlocked note trading. sersara gut gut string call-and-response sintir, gnawa traditional iron metallic clang dominant ritual qarqaba, tbel, gut juniper bent frame canonical Maghrebi goat skin tacked canonical Sufi bendir, castanets, apricot canonical Maghrebi arundo donax canonical Maghrebi ghaita. stone plaster medina room. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 692,
-  "score": 271.577,
+  "score": 267.543,
   "config": {
     "traditions": [
       "gnawa",
@@ -72,7 +72,7 @@
           "sintir_body_wood": 0.15,
           "sintir_neck_wood": 0.15,
           "sintir_technique": 0.845,
-          "sintir_context": 12.870000000000001
+          "sintir_context": 12.22
         }
       },
       {
@@ -86,8 +86,8 @@
         "scores": {
           "qarqaba_construction": 4.495,
           "qarqaba_playing_style": 3.45,
-          "qarqaba_size": 8.45,
-          "qarqaba_context": 4.55
+          "qarqaba_size": 7.8,
+          "qarqaba_context": 3.765
         }
       },
       {
@@ -110,8 +110,8 @@
           "bendir_head": "bendir_goat_skin_canonical"
         },
         "scores": {
-          "bendir_snares": 2.925,
-          "bendir_context": 2.535,
+          "bendir_snares": 2.275,
+          "bendir_context": 1.885,
           "bendir_shell_wood": 2.34,
           "bendir_head": 5.3
         }
@@ -139,7 +139,7 @@
         "scores": {
           "wind_articulation": -0.15000000000000002,
           "ghaita_region": 2.8600000000000003,
-          "ghaita_context": 8.06,
+          "ghaita_context": 7.41,
           "ghaita_body_wood": 2.1,
           "ghaita_reed": 2.1
         }

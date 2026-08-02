@@ -5,7 +5,7 @@
   "lineage": "Fijian meke collective chant-and-dance tradition of the Fijian iTaukei (indigenous Fijian) population. The meke comprises several sub-forms: meke wesi (spear-dance, male-warriors), meke iri (fan-dance, women), meke ni vakatara (sitting-dance), and seasea (women's standing-dance), each with distinct choreographic vocabulary and song-accompaniment. Performance involves a vakatara dance-troupe with parallel singing chorus and slit-drum-and-bamboo-stamping-tube percussion. The canonical post-independence Fiji-1970 cultural-revival under the Fiji Museum and the Pacific Theatre formed institutional preservation infrastructure. Distinguished from neighboring Tongan lakalaka by Fijian meke's warrior-and-women parallel-track choreographic structure and Fijian-language repertoire.",
   "recipe": "classic Southeast Asian early-1970s fijian meke, ritual Devotional, indigenous branch, west African groove percussion, vocal drone modal georgian three-voice polyphony macedonian glasoechko male diaphonic. kargyraa, breath veiled tone, straight note core, interlocked note trading. high pitched fast dance interlocking pacific slit gong. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 495,
-  "score": 280.28,
+  "score": 278.28,
   "config": {
     "traditions": [
       "fijian_meke",
@@ -45,10 +45,10 @@
           "voice_mechanism_compound": 12.454999999999998,
           "voice_estill_quality": 9,
           "voice_speech_song": 32.17500000000001,
-          "voice_ensemble_config": 43.83000000000002,
-          "voice_ornament_system": 10.545000000000002,
+          "voice_ensemble_config": 42.83000000000002,
+          "voice_ornament_system": 10.045,
           "voice_pitch_organization": 6.25,
-          "voice_processing_chain": 11.095000000000002,
+          "voice_processing_chain": 10.595,
           "voice_multitrack_stack": 6.500000000000001
         }
       },

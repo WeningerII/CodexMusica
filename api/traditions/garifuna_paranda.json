@@ -5,7 +5,7 @@
   "lineage": "Garifuna (Black-Carib) Spanish-Latin-influenced ballad tradition performed across the Garifuna diaspora in Belize, Honduras, Guatemala, Nicaragua, and the Garifuna emigrant communities in New York and Los Angeles — codified through Andy Palacio (the Belizean Garifuna paranda voice, 2007 Wátina album, his death in 2008 marking the end of the second-generation paranda era), Aurelio Martinez, the broader Stonetree Records catalog",
   "recipe": "classic Caribbean late-2000s paranda, ritual Devotional, Afro-diasporic branch, west African griot ballad poetry hausa court music wassoulou. thick, breath veiled tone, straight note core, interlocked note trading. cedar concert modern carbon fiber fingerpicked classical nylon-string guitar, plastic synthetic maracas, durable synthetic oak staved modern atabaque, gourd seeds hardwood handle canonical garifuna paranda accompaniment canonical garifuna sisera, interlocking song accompaniment hardwood shell deerskin head garaon. trinidad calypso panyard outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 694,
-  "score": 196.595,
+  "score": 196.295,
   "config": {
     "traditions": [
       "garifuna_paranda",
@@ -63,7 +63,7 @@
           "attack_technique_cl": "fingertip_only_cl"
         },
         "scores": {
-          "acoustic_technique": 3.4450000000000003,
+          "acoustic_technique": 3.295,
           "string_tuning": 0,
           "top_wood_classical": 4.68,
           "bracing_classical": 1.235,
@@ -115,7 +115,7 @@
         },
         "scores": {
           "garaon_drum": 26.064999999999998,
-          "garaon_repertoire": 23.095,
+          "garaon_repertoire": 22.945,
           "garaon_build": 14.194999999999999
         }
       }

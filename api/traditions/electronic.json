@@ -5,7 +5,7 @@
   "lineage": "The broad electronic-music tradition — synthesizer- and drum-machine-based music built on programmed sequencing and studio production, descended from mid-20th-century tape experiments and synth and dance music",
   "recipe": "classic Asian mid-1980s electronic, experimental Elec, idm glitch branch. drum machine analog, analog synth, sampler drum machine. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay TC electronic 2290 delay pitch shifter ring modulator.",
   "recipe_chars": 334,
-  "score": 20.566,
+  "score": 20.461,
   "config": {
     "traditions": [
       "electronic"
@@ -55,7 +55,7 @@
           "electronic_technique": 0.26,
           "sample_bitdepth": 0.02839285714285714,
           "sample_swing": 9.75,
-          "sample_processing": 1.2662767857142856
+          "sample_processing": 1.1612767857142856
         }
       }
     ],

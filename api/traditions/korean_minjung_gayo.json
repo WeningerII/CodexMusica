@@ -5,7 +5,7 @@
   "lineage": "Korean minjung gayo (\"people's song\") democracy-movement protest-song tradition continuous from late-1970s anti-Park-Chung-hee resistance through the May 1980 Gwangju Uprising through 1980s anti-Chun-Doo-hwan student-and-labor-movement era; canonical anthems include \"Imjin River\" and \"Marching for our beloved\" (\"님을 위한 행진곡\")",
   "recipe": "classic 1977-1979 korean minjung gayo, protest Song, east Asian branch, anglo American protest song, east Asian pop functional song, indian bard ballad poetry shidaiqu enka. thick, breath veiled tone, straight onset, interlocked note trading. indian rosewood rosewood flatwound thomastik fingerpicked acoustic guitar. gymnasium. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 403,
-  "score": 241.84,
+  "score": 235.03,
   "config": {
     "traditions": [
       "korean_minjung_gayo",
@@ -22,7 +22,7 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "japanese_min_yo_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 21.67499999999999,
+          "voice_register": 19.17499999999999,
           "voice_quality": 23.465,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 9.049999999999999,
+          "voice_vibrato": 7.649999999999999,
           "voice_articulation": 20.99500000000001,
-          "voice_microtone": 22.894999999999996,
+          "voice_microtone": 22.035000000000007,
           "voice_tradition": 31.687500000000004,
           "voice_mechanism_compound": 2.4699999999999998,
           "voice_estill_quality": 3.185,
           "voice_speech_song": 36.85500000000001,
           "voice_ensemble_config": 23.660000000000007,
           "voice_ornament_system": 13.774999999999999,
-          "voice_pitch_organization": 9.894999999999996,
-          "voice_processing_chain": 11.205,
+          "voice_pitch_organization": 8.645,
+          "voice_processing_chain": 11.055,
           "voice_multitrack_stack": 10.86
         }
       },
@@ -65,7 +65,7 @@
           "string_tuning": 0,
           "top_wood": 0.845,
           "back_sides": 2.1399999999999997,
-          "string_acoustic": 3.5749999999999993,
+          "string_acoustic": 2.9249999999999994,
           "acoustic_om_technique": 2.0699999999999994
         }
       }

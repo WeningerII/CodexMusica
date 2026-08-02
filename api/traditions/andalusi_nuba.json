@@ -5,7 +5,7 @@
   "lineage": "Moroccan-Maghrebi Andalusi classical music tradition (al-ala / musique andalouse) descended from the 11-12th century cultural heritage of Muslim-ruled Iberian Andalusia, brought to North Africa with the post-1492 Iberian Muslim and Jewish expulsion and preserved in Fez, Tetouan, Tangier, Rabat — codified through 11 surviving nūba multi-section suites in the Moroccan corpus (sister lineages: Algerian gharnati, Tunisian malouf)",
   "recipe": "classic North African early-1490s andalusī nūba, art Music, middle eastern classical branch, vocal drone modal. vocal fry, breath veiled tone, slow rate, interlocked note trading. walnut ribs canonical mid tier Lebanese cedar eastern Mediterranean pyramid oud, metal finger picks walnut body canonical decorative goat skin bridge plate qanun, heterophonic melodic lead legato rabab maghribi, darbuka, riq, juniper bent frame canonical Maghrebi synthetic remo modern world music bendir, three voice polyphonic regional svanetian complex three voice highland polyphonic global traditional polyphonic choir ensemble. fez andalusi palace riad. large-diaphragm condenser, German V72 tube pre, German tube console. tape 15ips.",
   "recipe_chars": 720,
-  "score": 229.125,
+  "score": 226.425,
   "config": {
     "traditions": [
       "andalusi_nuba"
@@ -43,10 +43,10 @@
           "voice_mechanism_compound": 12.584999999999999,
           "voice_estill_quality": 13.699999999999998,
           "voice_speech_song": 10.839999999999996,
-          "voice_ensemble_config": 5.55,
+          "voice_ensemble_config": 5.1,
           "voice_ornament_system": 12.945,
           "voice_pitch_organization": 13.485,
-          "voice_processing_chain": 4.095,
+          "voice_processing_chain": 3.6449999999999996,
           "voice_multitrack_stack": 1.7850000000000001
         }
       },
@@ -164,8 +164,8 @@
         },
         "scores": {
           "choir_size": 4.58,
-          "choir_polyphonic_configuration": 10.08,
-          "choir_regional_canonical_configuration": 8.069999999999999,
+          "choir_polyphonic_configuration": 9.179999999999998,
+          "choir_regional_canonical_configuration": 7.170000000000001,
           "choir_ensemble_repertoire": 4.14
         }
       }

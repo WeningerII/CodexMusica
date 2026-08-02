@@ -5,7 +5,7 @@
   "lineage": "Court-poetry recitation of the Viking-Age and medieval Scandinavian skald, the named professional poet attached to a king or jarl who composed and delivered praise-poems (drapa) in the intricate drottkvaett 'court metre' — a syllable-counting, internally-rhymed, alliterative stanza dense with kennings and heiti. Flourishing c. 9th-13th centuries in Norway and Iceland, the corpus survives through Icelandic manuscript transmission, above all Snorri Sturluson's Prose Edda (Skaldskaparmal) and the kings' sagas (Heimskringla), where verses of skalds such as Egill Skallagrimsson and Bragi Boddason are quoted. Delivery was fixed spoken declamation of an exactly-wrought text rather than improvised song.",
   "recipe": "classic modern old norse skaldic recitation, ballad Poetry, Slavic bard branch jeju haenyeo songs irish filí / bardic recitation. thick, breath veiled tone, straight onset, interlocked note trading. wooden barn. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 274,
-  "score": 201.252,
+  "score": 199.952,
   "config": {
     "traditions": [
       "old_norse_skaldic",
@@ -46,7 +46,7 @@
           "voice_estill_quality": 7.02,
           "voice_speech_song": 33.085,
           "voice_ensemble_config": 22.229999999999997,
-          "voice_ornament_system": 9.736499999999998,
+          "voice_ornament_system": 8.4365,
           "voice_pitch_organization": 7.6,
           "voice_processing_chain": 12.48,
           "voice_multitrack_stack": 1.8849999999999996

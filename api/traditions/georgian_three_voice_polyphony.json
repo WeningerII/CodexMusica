@@ -5,7 +5,7 @@
   "lineage": "Georgian Caucasian three-voice unaccompanied polyphonic tradition — comprising four regional sub-traditions each with distinct three-voice configuration: Kakhetian table-song (two soloists carrying upper voices over a sustained choral drone bani, the eastern-Georgian wine-toast supra context), Gurian three-voice with krimanchuli (the western-Georgian high-yodeling M1-M2-alternation upper voice over mtkmeli lead and bani drone, the most contrapuntally complex regional style), Megrelian funeral lament (the western-coastal-Georgian three-voice with text-carrying mtkmeli), and Svanetian highland complex three-voice (the upper-mountain Svaneti regional style with archaic non-tempered fifth-and-fourth harmony); twentieth-century preservation through the Anchiskhati Choir Tbilisi, Rustavi Choir, the ethnomusicology lineage of Joseb Jordania, Edisher Garaqanidze, and the Tbilisi State Conservatoire folk-polyphony research program; performed in church-and-supra contexts using non-tempered Pythagorean-leaning fifths and fourths, the harmonic vocabulary distinct from Western tempered choral practice",
   "recipe": "classic Eastern European early-1940s georgian three-voice polyphony, drone Modal, vocal branch, Mediterranean ballad ballad poetry sardinian cantu a tenore and launeddas croatian klapa dalmatian close-harmony. sygyt, breath veiled tone, breath pulsed, interlocked note trading. drone bass choir georgian polyphonic. parish church. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
   "recipe_chars": 464,
-  "score": 383.692,
+  "score": 377.028,
   "config": {
     "traditions": [
       "georgian_three_voice_polyphony",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 4.545000000000001,
-          "voice_quality": 32.24000000000001,
+          "voice_quality": 31.59000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.5500000000000003,
-          "voice_articulation": 34.06,
-          "voice_microtone": 30.874999999999996,
-          "voice_tradition": 39.87,
+          "voice_articulation": 32.7275,
+          "voice_microtone": 30.224999999999994,
+          "voice_tradition": 38.47,
           "voice_mechanism_compound": 16.055,
           "voice_estill_quality": 10.464999999999996,
-          "voice_speech_song": 27.105,
-          "voice_ensemble_config": 58.435000000000024,
+          "voice_speech_song": 26.455000000000002,
+          "voice_ensemble_config": 57.10250000000002,
           "voice_ornament_system": 14.140000000000004,
           "voice_pitch_organization": 10.649999999999999,
           "voice_processing_chain": 15.185000000000004,
-          "voice_multitrack_stack": 10.464999999999998
+          "voice_multitrack_stack": 9.814999999999998
         }
       },
       {

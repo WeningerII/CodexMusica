@@ -5,7 +5,7 @@
   "lineage": "Sardinian a cappella four-voice polyphonic tradition — cantu a tenore (male four-voice with bassu, contra, mesa voche, and boche solo lead) and cantu a chiterra (vocal-with-guitar shepherd song), preserved through the village traditions of Bitti, Nuoro, and Logudoro, with the Tenores di Bitti Mialinu Pira ensemble as the canonical late-twentieth-century preservation lineage",
   "recipe": "classic modern sardinian polyphony, drone Modal, vocal branch, Mediterranean ballad ballad poetry croatian klapa dalmatian close-harmony sardinian cantu a tenore and launeddas. vocal fry, false fold engaged, slow rate, interlocked note trading. a tenores quartet. parish church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 408,
-  "score": 274.968,
+  "score": 266.157,
   "config": {
     "traditions": [
       "sardinian_polyphony",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+          "voice_multitrack_stack": "voice_multitrack_granular_texture"
         },
         "scores": {
           "voice_register": 6.159999999999998,
-          "voice_quality": 36.375,
+          "voice_quality": 33.875,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.5025,
-          "voice_articulation": 24.96,
-          "voice_microtone": 24.374999999999996,
-          "voice_tradition": 48.76999999999998,
+          "voice_articulation": 24.31,
+          "voice_microtone": 23.724999999999994,
+          "voice_tradition": 47.36999999999998,
           "voice_mechanism_compound": 13.844999999999999,
           "voice_estill_quality": 10.334999999999999,
-          "voice_speech_song": 19.174999999999997,
-          "voice_ensemble_config": 39.585,
+          "voice_speech_song": 18.525,
+          "voice_ensemble_config": 38.935,
           "voice_ornament_system": 7.64,
           "voice_pitch_organization": 5.370000000000001,
-          "voice_processing_chain": 9.425,
-          "voice_multitrack_stack": 7.865
+          "voice_processing_chain": 8.775,
+          "voice_multitrack_stack": 7.504999999999999
         }
       },
       {
@@ -59,7 +59,7 @@
           "a_tenores_quartet_context": "a_tenores_quartet_revival"
         },
         "scores": {
-          "voices": 8.059999999999999,
+          "voices": 6.759999999999999,
           "a_tenores_quartet_context": 5.85
         }
       }

@@ -5,7 +5,7 @@
   "lineage": "Rio de Janeiro 1980s-onward backyard urban-samba subgenre with small-roda informal performance setting — codified through Beth Carvalho discovering and promoting the Cacique de Ramos sambistas, Zeca Pagodinho’s rise from that scene to mainstream stardom (Pagode do Zeca 1986 onward), and Almir Guineto and Jovelina Pérola Negra — characterized by the tantã, banjo-cavaco, and repique-de-mão small-ensemble instrumentation",
   "recipe": "classic Southern American mid-1980s pagode, groove Percussion, pagode branch, Brazilian song functional song bossa nova brega and tecnobrega. thick, breath veiled tone, straight onset, interlocked note trading. cedar nylon classical nylon-string guitar, samba foundation mahogany samba canon cavaquinho, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro, nylon canonical rio carnival aluminum canonical modern rio escola surdo, multi rod cluster canonical samba aluminum canonical rio escola tamborim, choro tradition nylon Brazilian rosewood pre 1992 choro violao 7 cordas, snappy samba tradition metal construction reco reco. phonogram brasil studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 878,
-  "score": 296.774,
+  "score": 289.396,
   "config": {
     "traditions": [
       "pagode",
@@ -35,18 +35,18 @@
         },
         "scores": {
           "voice_register": 5.320000000000002,
-          "voice_quality": 37.38374999999999,
+          "voice_quality": 35.38374999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 4.81,
-          "voice_articulation": 17.939999999999998,
-          "voice_microtone": 17.354999999999993,
+          "voice_articulation": 17.289999999999996,
+          "voice_microtone": 16.70499999999999,
           "voice_tradition": 4.745,
           "voice_mechanism_compound": 4.875,
           "voice_estill_quality": 4.680000000000001,
-          "voice_speech_song": 23.074999999999996,
-          "voice_ensemble_config": 17.484999999999992,
-          "voice_ornament_system": 2.1449999999999996,
+          "voice_speech_song": 22.424999999999997,
+          "voice_ensemble_config": 16.834999999999994,
+          "voice_ornament_system": 1.4949999999999999,
           "voice_pitch_organization": 1.0399999999999998,
           "voice_processing_chain": 6.11,
           "voice_multitrack_stack": 8.060000000000002
@@ -60,7 +60,7 @@
           "top_wood_classical": "cedar_cl",
           "bracing_classical": "double_top_cl",
           "string_classical": "nylon_normal_cl",
-          "attack_technique_cl": "thumb_attack_cl"
+          "attack_technique_cl": "fingertip_only_cl"
         },
         "scores": {
           "acoustic_technique": 2.3231249999999997,
@@ -68,7 +68,7 @@
           "top_wood_classical": 2.08,
           "bracing_classical": 0.78,
           "string_classical": 1.17,
-          "attack_technique_cl": 2.375
+          "attack_technique_cl": 1.2349999999999999
         }
       },
       {
@@ -82,9 +82,9 @@
         },
         "scores": {
           "plucked_traditional_technique": 1.56,
-          "cavaquinho_origin": 10.334999999999997,
-          "cavaquinho_context": 25.934999999999995,
-          "cavaquinho_body_wood": 7.994999999999998,
+          "cavaquinho_origin": 10.281249999999998,
+          "cavaquinho_context": 25.284999999999993,
+          "cavaquinho_body_wood": 7.989999999999998,
           "cavaquinho_strings": 0.945
         }
       },
@@ -100,7 +100,7 @@
         },
         "scores": {
           "percussion_technique": 0.825,
-          "pandeiro_size": 7.994999999999998,
+          "pandeiro_size": 7.964999999999999,
           "pandeiro_context": 5.784999999999999,
           "pandeiro_head": 7.54,
           "pandeiro_shell_wood": 7.54,

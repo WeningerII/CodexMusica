@@ -3,9 +3,9 @@
   "name": "Dubstep (140 bass-music)",
   "family": "global",
   "lineage": "Mid-2000s south London electronic-dance genre evolved from UK garage through tempo deceleration to 140 bpm and the introduction of the dubstep half-step rhythmic feel — codified through Skream (Skream! 2006), Benga, Burial (Burial 2006, Untrue 2007), Mala, Coki, Loefah, Plastician, and the FWD>> club and DMZ night which served as the genre's incubator",
-  "recipe": "classic British 2004-2006 dubstep, bass System, uk soundsystem branch, intl hip hop MC rhythm uk grime korean hip-hop. chopped sampler, TR-909, sub bass digital subtractive, ampeg b15 amp American 60s bass amp flip top character mahogany pyramid electric bass. treated studio. shure SM58, console-strip pre, brick-wall limiter, graphic EQ. lossy MP3 high-gain distortion hall reverb.",
-  "recipe_chars": 383,
-  "score": 113.822,
+  "recipe": "classic British 2004-2006 dubstep, bass System, uk soundsystem branch, intl hip hop MC rhythm uk grime korean hip-hop. chopped sampler, TR-909, sub bass digital subtractive, ampeg b15 amp American 60s bass amp flip top character alder pyramid electric bass. treated studio. shure SM58, console-strip pre, brick-wall limiter, graphic EQ. lossy MP3 high-gain distortion hall reverb.",
+  "recipe_chars": 380,
+  "score": 106.557,
   "config": {
     "traditions": [
       "dubstep_140",
@@ -20,14 +20,14 @@
           "sampler_archetypes": "ensoniq_asr10",
           "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
           "sampler_workflow": "sampler_chopped_breaks",
-          "sampler_classic_context": "sampler_classic_hiphop"
+          "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 7.4815000000000005,
-          "sampler_archetypes": 13,
-          "sampler_bit_depth": 1.955,
-          "sampler_workflow": 9.106499999999999,
-          "sampler_classic_context": 21.839999999999996
+          "electronic_technique": 6.7315000000000005,
+          "sampler_archetypes": 11.7,
+          "sampler_bit_depth": 1.305,
+          "sampler_workflow": 8.3565,
+          "sampler_classic_context": 21.18999999999999
         }
       },
       {
@@ -51,7 +51,7 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 19.560499999999998,
+          "electronic_technique": 18.705499999999997,
           "va_archetypes": 0.3,
           "digital_subtractive_context": 12.479999999999997
         }
@@ -60,7 +60,7 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_b15",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "soapbar",
           "string_type": "pyramid_pure_nickel",
           "scale_length_b": "short_scale_b",
@@ -68,11 +68,11 @@
           "bass_technique": "thumb_muted"
         },
         "scores": {
-          "amp_make": 6.350999999999999,
-          "body_wood": 2.1,
+          "amp_make": 6.2459999999999996,
+          "body_wood": 1.3,
           "pickup_config": 0.39,
-          "string_type": 7.606,
-          "scale_length_b": 3.25,
+          "string_type": 6.850999999999999,
+          "scale_length_b": 2.6,
           "fretted_or_not": 0,
           "bass_technique": 0.7
         }

@@ -5,7 +5,7 @@
   "lineage": "Early-nineteenth-century Italian operatic style characterized by virtuoso ornamental melodic-line writing, expanded coloratura vocal-technique, and dramatic emotional-vocal-projection. Gioachino Rossini, Vincenzo Bellini, and Gaetano Donizetti are the canonical bel canto composers (1810s-1840s active period). Bellini's Norma (1831), Donizetti's Lucia di Lammermoor (1835), and Rossini's Il barbiere di Siviglia (1816) are canonical type-specimens. Direct ancestor of mid-nineteenth-century Verdi-Wagner operatic maximalism.",
   "recipe": "classic British mid-1810s bel canto opera, art Music, western common practice branch, Mediterranean ballad ballad poetry kabyle music cretan lyra. vocal fry, breath veiled tone, straight note core, interlocked note trading. cold pressed weikert felt oversize maple tension resonator European spruce grand piano, Italian alpine spruce val di fiemme European maple bosnian source flamed figure violin orchestral. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
   "recipe_chars": 490,
-  "score": 242.325,
+  "score": 241.875,
   "config": {
     "traditions": [
       "bel_canto_opera",
@@ -41,7 +41,7 @@
           "voice_vibrato": 8.67,
           "voice_articulation": 9.945,
           "voice_microtone": 10.594999999999994,
-          "voice_tradition": 20.93,
+          "voice_tradition": 20.779999999999998,
           "voice_mechanism_compound": 4.0249999999999995,
           "voice_estill_quality": 13.545,
           "voice_speech_song": 12.479999999999997,
@@ -74,7 +74,7 @@
           "piano_soundboard": 7.897499999999999,
           "piano_pinblock": 4.075,
           "piano_plate": 4.12,
-          "piano_pitch_standard": 7.499999999999999
+          "piano_pitch_standard": 7.35
         }
       },
       {
@@ -94,7 +94,7 @@
         "scores": {
           "bowed_technique": 4.125,
           "orch_strings": 0.7999999999999999,
-          "orch_top_wood": 10.489999999999998,
+          "orch_top_wood": 10.339999999999998,
           "orch_back_wood": 4.735,
           "orch_varnish": 4.2250000000000005,
           "orch_setup_period": 4.585,

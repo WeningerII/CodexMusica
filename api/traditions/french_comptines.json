@@ -5,7 +5,7 @@
   "lineage": "French-language children's play-song and counting-out-rhyme tradition continuous from medieval-and-early-modern French folk-play-song origins through 19th-century French-Republic school-curriculum codification into modern continuous French-and-French-Canadian-and-Francophone-African childhood-practice",
   "recipe": "classic modern french comptines, nursery Rhyme, European branch, americas nursery rhyme, European lullaby, chanson fado ballad poetry morna cape verdean batuko of santiago island. thick, breath veiled tone, straight onset, interlocked note trading. parlor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 319,
-  "score": 191.345,
+  "score": 190.495,
   "config": {
     "traditions": [
       "french_comptines",
@@ -39,16 +39,16 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.9,
-          "voice_articulation": 26.8975,
+          "voice_articulation": 26.7225,
           "voice_microtone": 28.404999999999998,
           "voice_tradition": 21.4925,
           "voice_mechanism_compound": 5.52,
           "voice_estill_quality": 3.9924999999999997,
           "voice_speech_song": 35.5225,
-          "voice_ensemble_config": 26.182499999999997,
+          "voice_ensemble_config": 26.007499999999997,
           "voice_ornament_system": 1.3,
           "voice_pitch_organization": 4.6000000000000005,
-          "voice_processing_chain": 7.587500000000003,
+          "voice_processing_chain": 7.087500000000003,
           "voice_multitrack_stack": 4.8725000000000005
         }
       }

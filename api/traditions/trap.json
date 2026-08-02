@@ -5,7 +5,7 @@
   "lineage": "The trap tradition — a Southern US hip-hop subgenre built on 808 sub-bass, rapid hi-hat rolls, and dark synth, codified in Atlanta",
   "recipe": "classic Los Angeles modern trap, mc Rhythm, southern branch. vocal fry, rap, narrative, neutral third half flat. TR-808, sub bass analog synth. neve paired 1970-1995 mid-major la rock 70s 90s. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
   "recipe_chars": 317,
-  "score": 76.589,
+  "score": 76.379,
   "config": {
     "traditions": [
       "trap"
@@ -47,7 +47,7 @@
           "voice_ornament_system": 2.860000000000001,
           "voice_pitch_organization": 1.4995,
           "voice_processing_chain": 4.6315,
-          "voice_multitrack_stack": 1.703
+          "voice_multitrack_stack": 1.493
         }
       },
       {

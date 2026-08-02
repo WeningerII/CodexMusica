@@ -5,7 +5,7 @@
   "lineage": "Early-1990s Berlin techno subgenre developed by Moritz von Oswald and Mark Ernestus through Basic Channel (1993-onward, parallel labels Maurizio, Chain Reaction, Burial Mix). Characterized by dense Jamaican-dub-influenced delay-and-reverb processing, gradual-evolving texture (often single tracks 8-20 minutes), heavy bass-emphasis, and minimal-yet-immersive arrangement. The genre anchored the canonical 1990s Berlin underground-techno aesthetic and influenced subsequent minimal techno and ambient-techno scenes.",
   "recipe": "classic modern berlin techno / basic channel dub-techno, electronic Dance, techno branch, ambient experimental electric darksynth mallsoft. behringer rd 8 modern clone analog circuit reproduction TR-808, pad like pad analog synth. no single room 2015-present distributed distributed production. FET condenser, console-strip pre, colored vintage console, optical compressor, parametric EQ. vinyl master cut tape echo analog bucket-brigade delay spring reverb.",
   "recipe_chars": 458,
-  "score": 26.35,
+  "score": 25.675,
   "config": {
     "traditions": [
       "berlin_techno_basic_channel",
@@ -38,7 +38,7 @@
         "scores": {
           "electronic_technique": 8.985,
           "oscillator": 1.3900000000000001,
-          "filter_topology": 3.7874999999999996,
+          "filter_topology": 3.1125,
           "envelope": 4.55,
           "modulation": 0.045
         }

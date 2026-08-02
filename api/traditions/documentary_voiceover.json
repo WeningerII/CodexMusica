@@ -5,7 +5,7 @@
   "lineage": "Authoritative scripted narration read over documentary picture, descending from 1930s-40s newsreel narration such as Westbrook Van Voorhis's reads for The March of Time into postwar television nature and history documentary. Canonical exemplars include David Attenborough's intimate-authoritative BBC natural-history narration (Life on Earth, 1979, through the Planet Earth series), David McCullough's narration of Ken Burns's The Civil War (1990) and Peter Coyote's later Burns work, and Morgan Freeman's March of the Penguins (2005) as the popular touchstone of the warm 'voice of God' register. The performer reads alone to picture in a dry, treated studio, balancing measured pacing and low, resonant delivery against the score and location-sound bed.",
   "recipe": "classic mid-1930s documentary voiceover, spoken Word, narration branch audiobook narration old-time radio announcer. vocal fry, breath veiled tone, slow rate, interlocked note trading. treated studio. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 299,
-  "score": 161.822,
+  "score": 161.172,
   "config": {
     "traditions": [
       "documentary_voiceover",
@@ -31,7 +31,7 @@
           "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+          "voice_multitrack_stack": "voice_multitrack_unison_double_take"
         },
         "scores": {
           "voice_register": 2.535,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 3.2500000000000004,
           "voice_pitch_organization": 2.34,
           "voice_processing_chain": 15.014999999999993,
-          "voice_multitrack_stack": 2.34
+          "voice_multitrack_stack": 1.69
         }
       }
     ],

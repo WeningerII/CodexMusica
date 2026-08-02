@@ -5,7 +5,7 @@
   "lineage": "Gothenburg Swedish melodic death metal canon that emerged in the early 1990s — codified at Studio Fredman (Fredrik Nordström producer-engineer) through In Flames (The Jester Race 1996, Whoracle 1997), Dark Tranquillity (The Gallery 1995), At the Gates (Slaughter of the Soul 1995, the post-Heartwork melodic death recording), Soilwork; characterized by twin-guitar harmony NWOBHM-influenced melodic leads over death metal rhythm-section foundation, growled vocals retained from death metal but with cleaner production aesthetic",
   "recipe": "classic Northern European 1990-1993 melodic death metal, distorted Rock, death branch, power metal. thick, breath veiled tone, straight note core, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit. gothenburg Swedish metal defining 1992-present indie-commercial gothenburg swedish melodic death studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 685,
-  "score": 290.504,
+  "score": 284.104,
   "config": {
     "traditions": [
       "melodic_death_metal",
@@ -30,19 +30,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 38.698499999999996,
-          "amp_make": 15.859999999999996,
-          "body_wood": 15.47,
+          "electric_technique": 36.7985,
+          "amp_make": 15.209999999999997,
+          "body_wood": 14.82,
           "neck_wood": 0.7807499999999999,
           "fretboard": 0.39,
           "pickup_magnet": 0.845,
           "pickup_winding": 0.2415,
           "string_material": 0.39,
           "bridge": 0.7807499999999999,
-          "scale_length": 15.860000000000001,
+          "scale_length": 15.21,
           "string_gauge": 0.7807499999999999,
           "finish": 0.3,
-          "string_tuning": 25.415
+          "string_tuning": 24.115000000000002
         }
       },
       {
@@ -108,7 +108,7 @@
           "voice_articulation": 6.305,
           "voice_microtone": 10.5,
           "voice_tradition": 2.49275,
-          "voice_mechanism_compound": 36.240750000000006,
+          "voice_mechanism_compound": 34.990750000000006,
           "voice_estill_quality": 3.5395000000000003,
           "voice_speech_song": 8.874749999999997,
           "voice_ensemble_config": 7.279999999999999,

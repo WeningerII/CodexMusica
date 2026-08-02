@@ -5,7 +5,7 @@
   "lineage": "Persian Shi'a Islamic mourning-recitation tradition codified from the 16th-century Safavid period forward; centered on the recitation-and-lamentation of the martyrdom of Imam Husayn at Karbala (680 CE); the rowzeh-khwāni (rowzeh-reciter) is a professional religious-vocalist role with continuous practice across Iran, Iraqi-Shi'a, and broader Shi'a-diaspora communities",
   "recipe": "classic Middle Eastern modern persian rowzeh-khwāni, funeral Lament, middle eastern branch, islamic ritual devotional, vocal drone modal, middle eastern classical art music persian dastgāh andalusī nūba. vocal fry, breath veiled tone, slow rate, interlocked note trading. tehran classical dastgah context. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 368,
-  "score": 243.03,
+  "score": 237.88,
   "config": {
     "traditions": [
       "persian_rowzehkhwani",
@@ -41,13 +41,13 @@
           "voice_vibrato": 14.16,
           "voice_articulation": 10.074999999999998,
           "voice_microtone": 24.1475,
-          "voice_tradition": 34.365,
-          "voice_mechanism_compound": 30.15,
-          "voice_estill_quality": 15.444999999999999,
+          "voice_tradition": 33.115,
+          "voice_mechanism_compound": 28.9,
+          "voice_estill_quality": 15.294999999999998,
           "voice_speech_song": 14.165,
           "voice_ensemble_config": 10.399999999999995,
-          "voice_ornament_system": 30.494999999999997,
-          "voice_pitch_organization": 31.68,
+          "voice_ornament_system": 29.244999999999997,
+          "voice_pitch_organization": 30.43,
           "voice_processing_chain": 5.2,
           "voice_multitrack_stack": 3.77
         }

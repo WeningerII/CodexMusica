@@ -5,7 +5,7 @@
   "lineage": "English Anglican choral evensong service-music tradition codified in the Book of Common Prayer (1549, 1662) with characteristic Magnificat and Nunc Dimittis canticle settings — sung daily across the cathedral foundations of the Church of England with characteristic boy-treble-and-adult-male-alto-tenor-bass voicing, Anglican-chant psalmody, and an unbroken liturgical-music transmission from the Reformation through the present including settings by Tallis, Gibbons, Stanford, Howells, and Britten",
   "recipe": "classic European late-1540s anglican choral evensong, ritual Devotional, anglican choral branch, western early art music burgundian school renaissance madrigal. thick, breath veiled tone, straight note core, interlocked note trading. a cappella small 3 to 8 one per part four voice polyphonic regional kakhetian three voice two soloists choral drone global traditional polyphonic choir ensemble, silbermann saxon canonical bach era central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque mechanical tracker canonical Baroque direct touch pipe organ, choir cathedral satb. cathedral. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
   "recipe_chars": 768,
-  "score": 199.542,
+  "score": 188.542,
   "config": {
     "traditions": [
       "anglican_choral_evensong",
@@ -53,16 +53,16 @@
           "voice_quality": 16.119999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.525000000000001,
+          "voice_vibrato": 4.550000000000001,
           "voice_articulation": 15.274999999999993,
           "voice_microtone": 15.079999999999991,
-          "voice_tradition": 9.1,
+          "voice_tradition": 7.475,
           "voice_mechanism_compound": 3.445,
-          "voice_estill_quality": 13.2925,
+          "voice_estill_quality": 11.6675,
           "voice_speech_song": 15.274999999999993,
           "voice_ensemble_config": 18.849999999999994,
-          "voice_ornament_system": 8.625,
-          "voice_pitch_organization": 9.294999999999998,
+          "voice_ornament_system": 7.375,
+          "voice_pitch_organization": 7.02,
           "voice_processing_chain": 7.215000000000001,
           "voice_multitrack_stack": 1.755
         }
@@ -82,9 +82,9 @@
           "keyboard_technique": 2.8,
           "pipe_organ_class": 0.845,
           "pipe_organ_context": 10.01,
-          "pipe_organ_voicing_school": 6.695,
-          "pipe_organ_pipe_alloy": 2.34,
-          "pipe_organ_temperament": 5.85,
+          "pipe_organ_voicing_school": 5.3950000000000005,
+          "pipe_organ_pipe_alloy": 1.69,
+          "pipe_organ_temperament": 4.55,
           "pipe_organ_action": 2.535
         }
       },

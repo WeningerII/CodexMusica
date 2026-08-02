@@ -5,7 +5,7 @@
   "lineage": "1980s-onward commercial jazz format characterized by polished pop-production, mid-tempo grooves, melodic-rather-than-improvisational soloing, and radio-friendly song-form structures. Emerged from late-1970s jazz-fusion through Grover Washington Jr., George Benson, and Kenny G's consistent commercial success. Distinguished from broader jazz by smooth jazz's explicit commercial-radio-targeting and reduced improvisational-emphasis.",
   "recipe": "classic Los Angeles smooth jazz, improv On Frame, smooth vocal branch, pop rock functional song sophisti-pop skiffle. thick, close mic intimate, straight onset, interlocked note trading. nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, ampeg b15 amp American 60s bass amp flip top character alder thomastik infeld electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
   "recipe_chars": 722,
-  "score": 654.248,
+  "score": 625.623,
   "config": {
     "traditions": [
       "smooth_jazz_80s",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 74.40000000000003,
-          "voice_quality": 8.06,
+          "voice_register": 71.90000000000002,
+          "voice_quality": 7.5600000000000005,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 34.32,
+          "voice_vibrato": 32.32,
           "voice_articulation": 13.454999999999997,
-          "voice_microtone": 63.97500000000001,
-          "voice_tradition": 39.18,
+          "voice_microtone": 61.475000000000016,
+          "voice_tradition": 36.83,
           "voice_mechanism_compound": 1.8850000000000002,
           "voice_estill_quality": 1.69,
-          "voice_speech_song": 19.109999999999996,
+          "voice_speech_song": 18.459999999999997,
           "voice_ensemble_config": 13.584999999999997,
           "voice_ornament_system": 0.045,
           "voice_pitch_organization": 0.8449999999999999,
           "voice_processing_chain": 18.699999999999996,
-          "voice_multitrack_stack": 12.772499999999999
+          "voice_multitrack_stack": 11.147499999999999
         }
       },
       {
@@ -65,12 +65,12 @@
         },
         "scores": {
           "wind_articulation": 2.1775,
-          "sax_size": 3.185,
+          "sax_size": 2.535,
           "sax_reed": 0.18,
-          "sax_body_alloy": 29.415,
+          "sax_body_alloy": 28.165,
           "sax_mouthpiece": 0.18,
-          "sax_technique": 29.375,
-          "sax_maker_school": 30.245
+          "sax_technique": 28.125,
+          "sax_maker_school": 28.995
         }
       },
       {
@@ -87,12 +87,12 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 24.895000000000007,
-          "grand_piano_size": 4.995000000000001,
-          "grand_piano_brand": 5.265000000000001,
-          "piano_hammer": 24.655,
-          "piano_rim": 25.060000000000006,
-          "piano_soundboard": 24.520000000000007,
+          "keyboard_technique": 23.645000000000007,
+          "grand_piano_size": 4.495,
+          "grand_piano_brand": 4.615,
+          "piano_hammer": 23.405,
+          "piano_rim": 23.810000000000006,
+          "piano_soundboard": 23.270000000000007,
           "piano_pinblock": -0.035,
           "piano_plate": 1.56,
           "piano_pitch_standard": 1.17
@@ -111,12 +111,12 @@
         },
         "scores": {
           "amp_make": 8.780000000000001,
-          "body_wood": 3.38,
+          "body_wood": 2.73,
           "pickup_config": 0.375,
-          "string_type": 30.65,
-          "scale_length_b": 3.185,
+          "string_type": 29.4,
+          "scale_length_b": 2.535,
           "fretted_or_not": 0.045,
-          "bass_technique": 29.375
+          "bass_technique": 28.125
         }
       },
       {
@@ -127,8 +127,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 32.89,
-          "drumhead": 31.29,
+          "drum_technique": 32.24,
+          "drumhead": 30.04,
           "drum_kit_kick_pedal": 0
         }
       }

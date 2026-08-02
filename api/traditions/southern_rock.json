@@ -5,7 +5,7 @@
   "lineage": "Late-1960s through 1970s American Southern blues-rock genre — codified through the Allman Brothers Band (Live at Fillmore East 1971), Lynyrd Skynyrd (Pronounced Leh-Nerd Skin-Nerd 1973, Sweet Home Alabama 1974), the Marshall Tucker Band, Wet Willie, the Charlie Daniels Band, ZZ Top (the Texas extension), Molly Hatchet; twin-lead-guitar harmony foreground, blues-rock harmonic foundation extended with country and gospel-influenced songwriting",
   "recipe": "classic Southern American 1967-1969 southern rock, distorted Rock, southern rock branch, classic distorted rock, country rock country hard rock. thick, breath veiled tone, wide pitch sway, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple humbucker electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative gospel runs fast tremolo tonewheel organ, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano. converted coffin warehouse 1969-1979 mid tier muscle shoals sound studio. passive ribbon, Neve 1073 inductor pre.",
   "recipe_chars": 984,
-  "score": 1106.718,
+  "score": 1061.853,
   "config": {
     "traditions": [
       "southern_rock",
@@ -34,16 +34,16 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 95.11450000000004,
+          "voice_register": 91.36450000000004,
           "voice_quality": 16.249999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 37.359999999999985,
+          "voice_vibrato": 35.95999999999999,
           "voice_articulation": 13.129999999999992,
-          "voice_microtone": 52.42500000000004,
+          "voice_microtone": 49.92500000000004,
           "voice_tradition": 11.431999999999997,
           "voice_mechanism_compound": 6.435000000000001,
-          "voice_estill_quality": 25.523499999999995,
+          "voice_estill_quality": 24.273499999999995,
           "voice_speech_song": 17.029999999999994,
           "voice_ensemble_config": 14.039999999999992,
           "voice_ornament_system": 2.3395000000000006,
@@ -69,8 +69,8 @@
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 21.624999999999996,
-          "amp_make": 30.84250000000001,
+          "electric_technique": 20.374999999999996,
+          "amp_make": 29.542500000000008,
           "body_wood": 0.885,
           "neck_wood": 2.4895,
           "fretboard": 2.4895,
@@ -80,7 +80,7 @@
           "bridge": 0,
           "scale_length": 1.7700000000000002,
           "finish": 0.435,
-          "string_tuning": 35.360000000000014
+          "string_tuning": 34.06000000000002
         }
       },
       {
@@ -101,8 +101,8 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 21.624999999999996,
-          "amp_make": 30.84250000000001,
+          "electric_technique": 20.374999999999996,
+          "amp_make": 29.542500000000008,
           "body_wood": 0.885,
           "neck_wood": 2.4895,
           "fretboard": 2.4895,
@@ -113,7 +113,7 @@
           "scale_length": 1.7700000000000002,
           "string_gauge": 0.885,
           "finish": 0.435,
-          "string_tuning": 31.98000000000001
+          "string_tuning": 30.68000000000001
         }
       },
       {
@@ -128,13 +128,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 30.29000000000001,
+          "amp_make": 28.99000000000001,
           "body_wood": 1.7700000000000002,
           "pickup_config": 0,
-          "string_type": 61.66900000000003,
+          "string_type": 58.25400000000003,
           "scale_length_b": 0.65,
           "fretted_or_not": 0,
-          "bass_technique": 52.91850000000002
+          "bass_technique": 50.41850000000002
         }
       },
       {
@@ -145,7 +145,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 51.994500000000016,
+          "drum_technique": 49.494500000000016,
           "drumhead": 2.4895,
           "drum_kit_kick_pedal": 0
         }
@@ -163,14 +163,14 @@
           "pedal_steel_strings": "pedal_steel_george_l_e9"
         },
         "scores": {
-          "electric_technique": 25.704999999999995,
-          "amp_make": 25.953999999999994,
+          "electric_technique": 24.454999999999995,
+          "amp_make": 24.703999999999994,
           "pickup_steel": 0.885,
-          "string_setup": 13.129999999999997,
+          "string_setup": 12.479999999999997,
           "bar_material": 4.1695,
-          "pedal_steel_brand": 27.767499999999995,
-          "pedal_steel_neck_config": 23.244999999999997,
-          "pedal_steel_strings": 21.82
+          "pedal_steel_brand": 26.517499999999995,
+          "pedal_steel_neck_config": 21.844999999999995,
+          "pedal_steel_strings": 20.57
         }
       },
       {
@@ -185,10 +185,10 @@
         },
         "scores": {
           "keyboard_technique": 3.2,
-          "drawbar_setting": 52.54350000000002,
-          "rotary_speed": 55.00000000000003,
-          "percussion_setting": 26.91000000000001,
-          "tonewheel_model": 28.405000000000012,
+          "drawbar_setting": 50.04350000000002,
+          "rotary_speed": 52.50000000000003,
+          "percussion_setting": 25.610000000000014,
+          "tonewheel_model": 27.10500000000001,
           "leslie_cabinet_model": 2.4000000000000004
         }
       },
@@ -209,8 +209,8 @@
           "keyboard_technique": 3.2,
           "grand_piano_size": 0.9300000000000002,
           "grand_piano_brand": 2.4895,
-          "piano_hammer": 29.315000000000012,
-          "piano_rim": 29.51000000000001,
+          "piano_hammer": 27.36500000000001,
+          "piano_rim": 27.56000000000001,
           "piano_soundboard": 2.4250000000000003,
           "piano_pinblock": 0.695,
           "piano_plate": 0.12999999999999998,

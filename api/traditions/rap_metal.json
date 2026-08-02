@@ -5,7 +5,7 @@
   "lineage": "Early-1990s-and-onward American heavy-rock subgenre integrating hip-hop vocal-delivery and rhythmic-foundation with heavy-metal guitar-bass-drum aesthetic. Rage Against the Machine (Los Angeles, 1991-2000, 2007-onward) is the canonical type-specimen, with explicit revolutionary-political lyric content; the parallel Body Count (Ice-T project) and (later) the 2000s wave of Hed PE and Sevendust extended the genre.",
   "recipe": "classic Los Angeles rap metal, distorted Rock, avant branch, us hip hop conscious rap conscious hip-hop. thick, rap, straight onset, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character ernie ball slinky electric bass, fiberskyn synthetic calf brushes-and-sticks drum kit. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape digitech whammy.",
   "recipe_chars": 629,
-  "score": 304.516,
+  "score": 301.16,
   "config": {
     "traditions": [
       "rap_metal",
@@ -34,20 +34,20 @@
         },
         "scores": {
           "voice_register": 14.711749999999995,
-          "voice_quality": 25.02875,
+          "voice_quality": 24.27875,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.029999999999999,
+          "voice_vibrato": 5.924999999999999,
           "voice_articulation": 15.34,
           "voice_microtone": 15.144999999999998,
-          "voice_tradition": 11.36125,
+          "voice_tradition": 10.61125,
           "voice_mechanism_compound": 14.607499999999998,
           "voice_estill_quality": 3.9655,
-          "voice_speech_song": 24.25875,
+          "voice_speech_song": 23.50875,
           "voice_ensemble_config": 15.275,
           "voice_ornament_system": 2.3900000000000006,
           "voice_pitch_organization": 4.2787500000000005,
-          "voice_processing_chain": 19.724999999999998,
+          "voice_processing_chain": 18.974999999999998,
           "voice_multitrack_stack": 8.4655
         }
       },
@@ -96,10 +96,10 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 9.81175,
+          "amp_make": 9.70675,
           "body_wood": 0.195,
           "pickup_config": 0.45499999999999996,
-          "string_type": 9.5875,
+          "string_type": 9.442,
           "scale_length_b": 0.8449999999999999,
           "fretted_or_not": 0.0315,
           "bass_technique": 7.52

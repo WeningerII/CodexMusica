@@ -3,14 +3,14 @@
   "name": "American folk-revival protest song",
   "family": "global",
   "lineage": "American protest-song tradition continuous from Industrial-Workers-of-the-World early-20th-century labor anthems (Joe Hill, \"Solidarity Forever\") through the 1930s Almanac Singers and Popular Front lineage through 1960s civil-rights-and-anti-war folk-revival continuous into the modern indie-protest singer-songwriter scene",
-  "recipe": "classic North American mid-1930s american folk-revival protest song, protest Song, anglo American branch, iberian Latin protest song, European protest song, anglo singer song ballad poetry, americana country texas country-folk storyteller indie folk. thick, breath veiled tone, straight note core, interlocked note trading. martin lifespan fingerpicked acoustic guitar, bamboo stainless steel steel harmonica, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string. dry but alive 1948-1965 indie-commercial early tape us small. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 635,
-  "score": 269.585,
+  "recipe": "classic North American mid-1930s american folk-revival protest song, protest Song, anglo American branch, iberian Latin protest song, European protest song, anglo singer song ballad poetry, americana country indie folk freak folk. thick, breath veiled tone, straight note core, interlocked note trading. martin lifespan fingerpicked acoustic guitar, bamboo stainless steel steel harmonica, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string. dry but alive 1948-1965 indie-commercial early tape us small. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 615,
+  "score": 252.85,
   "config": {
     "traditions": [
       "american_folk_revival_protest",
-      "texas_country_folk_storyteller",
-      "indie_folk_2000s"
+      "indie_folk_2000s",
+      "freak_folk_2000s"
     ],
     "instruments": [
       {
@@ -25,7 +25,7 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
@@ -34,39 +34,39 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 34.57,
-          "voice_quality": 11.309999999999995,
+          "voice_register": 29.819999999999993,
+          "voice_quality": 13.519999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 9.746374999999999,
-          "voice_articulation": 12.674999999999994,
-          "voice_microtone": 12.47999999999999,
-          "voice_tradition": 27.476624999999995,
+          "voice_vibrato": 3.496375,
+          "voice_articulation": 13.129999999999992,
+          "voice_microtone": 12.93499999999999,
+          "voice_tradition": 27.42662499999999,
           "voice_mechanism_compound": 1.17,
-          "voice_estill_quality": 9.236249999999997,
-          "voice_speech_song": 24.699999999999996,
-          "voice_ensemble_config": 13.194999999999993,
+          "voice_estill_quality": 5.291250000000001,
+          "voice_speech_song": 24.894999999999992,
+          "voice_ensemble_config": 13.649999999999993,
           "voice_ornament_system": 3.7250000000000005,
-          "voice_pitch_organization": 3.5749999999999993,
+          "voice_pitch_organization": 3.3799999999999994,
           "voice_processing_chain": 3.38,
-          "voice_multitrack_stack": 4.030000000000001
+          "voice_multitrack_stack": 6.955000000000001
         }
       },
       {
         "id": "acoustic_guitar_om",
         "slots": {
           "string_tuning": "drop_d",
-          "top_wood": "mahogany_top_om",
-          "back_sides": "mahogany_bs_om",
+          "top_wood": "cedar_om",
+          "back_sides": "walnut_bs_om",
           "string_acoustic": "martin_lifespan_om",
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
           "string_tuning": 1.85,
-          "top_wood": 0.39,
-          "back_sides": 0.39,
+          "top_wood": 0.65,
+          "back_sides": 0.65,
           "string_acoustic": 2.08,
-          "acoustic_om_technique": 33.099374999999995
+          "acoustic_om_technique": 31.149374999999996
         }
       },
       {
@@ -81,10 +81,10 @@
         },
         "scores": {
           "harmonica_type": 0.39,
-          "harmonica_comb": 3.8605,
+          "harmonica_comb": 3.7105,
           "harmonica_reed": 3.295,
-          "harmonica_technique": 32.00699999999999,
-          "harmonica_maker_school": 0.7349999999999999,
+          "harmonica_technique": 24.731999999999996,
+          "harmonica_maker_school": 0.5849999999999999,
           "harmonica_tuning": 0.39
         }
       },
@@ -105,14 +105,14 @@
         "scores": {
           "banjo_back": 0.39,
           "tone_ring": 0.39,
-          "banjo_head": 13.259999999999996,
+          "banjo_head": 13.714999999999996,
           "banjo_pot": 0.39,
           "banjo_play": 0,
           "banjo_rim_wood": 0.048749999999999995,
-          "banjo_neck_wood": 0.52,
+          "banjo_neck_wood": 0.65,
           "banjo_strings": 0,
           "banjo_bridge": 0,
-          "banjo_setup_period": 12.804999999999994
+          "banjo_setup_period": 13.259999999999994
         }
       }
     ],

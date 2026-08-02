@@ -5,7 +5,7 @@
   "lineage": "British-and-international compositional school emerging in 1970s-80s centered on Brian Ferneyhough's notational-and-technical maximalism, with extremely complex rhythmic-and-articulation specification often exceeding what performers can literally execute. Distinguished from Darmstadt total-serialism by New Complexity's expressionist-and-virtuoso (rather than rationally-structural) orientation. Ferneyhough's Time and Motion Studies (1973-77) and his Carceri d'Invenzione cycle (1981-86) constitute the canonical type-specimens.",
   "recipe": "classic British new complexity, art Music, western modern branch, western common practice art music the mighty handful early romantic. thick, breath veiled tone, slow rate, interlocked note trading. synthetic sitka spruce bigleaf maple western maple oil varnish violin orchestral. shoebox concert hall. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 448,
-  "score": 213.511,
+  "score": 211.549,
   "config": {
     "traditions": [
       "new_complexity",
@@ -35,7 +35,7 @@
         },
         "scores": {
           "voice_register": 7.525,
-          "voice_quality": 5.330000000000002,
+          "voice_quality": 4.6800000000000015,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 6.5,
@@ -48,8 +48,8 @@
           "voice_ensemble_config": 14.949999999999992,
           "voice_ornament_system": 4.945,
           "voice_pitch_organization": 4.9,
-          "voice_processing_chain": 9.58,
-          "voice_multitrack_stack": 7.28
+          "voice_processing_chain": 9.43,
+          "voice_multitrack_stack": 6.98
         }
       },
       {
@@ -61,7 +61,7 @@
           "orch_back_wood": "bigleaf_western_maple_violin",
           "orch_varnish": "oil_amber_varnish_violin",
           "orch_setup_period": "modern_setup_violin",
-          "orch_bow": "modern_bow",
+          "orch_bow": "baroque_bow",
           "orch_bow_stick": "pernambuco_stick_orch",
           "orch_articulation": "arco_orch",
           "orch_rosin": "magic_rosin_orch"
@@ -73,8 +73,8 @@
           "orch_back_wood": 12.870000000000001,
           "orch_varnish": 10.5,
           "orch_setup_period": 9.72875,
-          "orch_bow": 1.4949999999999999,
-          "orch_bow_stick": 13.584999999999999,
+          "orch_bow": 0.845,
+          "orch_bow_stick": 13.372499999999999,
           "orch_articulation": 2.2099999999999995,
           "orch_rosin": 12.610000000000001
         }

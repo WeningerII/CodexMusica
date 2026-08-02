@@ -5,7 +5,7 @@
   "lineage": "Long-form atmospheric electronic-music genre codified by Brian Eno from 1975 onward — Discreet Music 1975, then the Ambient series Ambient 1: Music for Airports 1978 establishing both the genre name and the founding aesthetic of music as functional environment-shaping; extended through Apollo: Atmospheres and Soundtracks 1983 with Daniel Lanois and Roger Eno, Harold Budd collaborations, the modern continuation through Stars of the Lid, William Basinski (The Disintegration Loops 2002), Tim Hecker, Grouper",
   "recipe": "classic Central European mid-1970s ambient, experimental Elec, ambient branch, modal electric drone modal. pad like pad analog synth, tape replay keyboard, handpan, structures sonores lasry baschet original experimental cristal wet finger friction legato glassy cristal baschet. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb analog bucket-brigade delay.",
   "recipe_chars": 544,
-  "score": 39.943,
+  "score": 39.838,
   "config": {
     "traditions": [
       "ambient"
@@ -23,7 +23,7 @@
         "scores": {
           "electronic_technique": 14.685142857142854,
           "oscillator": 1.8265,
-          "filter_topology": 0.5374285714285714,
+          "filter_topology": 0.43242857142857144,
           "envelope": 7.409999999999999,
           "modulation": 0.3
         }

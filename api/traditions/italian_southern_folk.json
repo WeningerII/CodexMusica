@@ -5,7 +5,7 @@
   "lineage": "Southern Italian traditional dance-and-song heritage — tarantella (the broad family of Southern Italian fast 6/8 dance-music, regional variants from Campania, Calabria, Apulia, Sicily), pizzica (the Salentine Apulian variant historically associated with tarantismo, the cultural-spider-bite-ritual of bitten women dancing the trance out of their bodies), and broader Italian southern pastoral tradition with zampogna (Southern Italian bagpipe with two chanters and drones) and ciaramella (the small shawm partner of zampogna in the Christmas-novena outdoor piping-couple); modern revival through the Notte della Taranta festival (Melpignano, since 1998) and the figures Antonio Castrignanò, Mauro Durante, Alla Bua",
   "recipe": "classic Southern European late-1990s italian southern folk, ballad Poetry, Mediterranean ballad branch, christian gospel ritual devotional, Celtic balladic ballad poetry black gospel ethiopian debtera liturgical incantation. thick, breath veiled tone, wide pitch sway, interlocked note trading. olive wood canonical southern Italian cane arundo donax canonical Italian whole goatskin canonical southern Italian pastoral melodic zampogna, dance driving ciaramella, central Italian healing rite synthetic head tammorra. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 681,
-  "score": 341.104,
+  "score": 332.679,
   "config": {
     "traditions": [
       "italian_southern_folk",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 25.67,
+          "voice_register": 24.42,
           "voice_quality": 25.48,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.325,
           "voice_articulation": 19.759999999999998,
           "voice_microtone": 22.684999999999995,
-          "voice_tradition": 26.715000000000003,
+          "voice_tradition": 25.090000000000003,
           "voice_mechanism_compound": 6.175,
-          "voice_estill_quality": 18.350000000000005,
+          "voice_estill_quality": 17.100000000000005,
           "voice_speech_song": 22.749999999999996,
-          "voice_ensemble_config": 25.414999999999996,
+          "voice_ensemble_config": 24.764999999999997,
           "voice_ornament_system": 13.899999999999999,
-          "voice_pitch_organization": 6.625,
-          "voice_processing_chain": 12.739999999999998,
-          "voice_multitrack_stack": 2.144999999999999
+          "voice_pitch_organization": 5.375,
+          "voice_processing_chain": 12.089999999999998,
+          "voice_multitrack_stack": 1.494999999999999
         }
       },
       {
@@ -64,11 +64,11 @@
         },
         "scores": {
           "wind_articulation": 4.385,
-          "zampogna_region": 14.139999999999999,
-          "zampogna_context": 7.345000000000001,
-          "zampogna_chanter_wood": 12.944999999999999,
+          "zampogna_region": 13.989999999999998,
+          "zampogna_context": 6.695,
+          "zampogna_chanter_wood": 12.795,
           "zampogna_reed": 5.6,
-          "zampogna_bag": 14.245
+          "zampogna_bag": 14.095
         }
       },
       {

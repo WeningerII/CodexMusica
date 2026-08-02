@@ -5,7 +5,7 @@
   "lineage": "Ethiopian azmari itinerant minstrel-poet tradition, etymologically from Amharic mazammar (to sing), with centuries-old documentation. Compared in performance-economic role to medieval European troubadours and West African griots — improvisational extemporaneous-poetry minstrel performing for patrons in tej bet (honey-wine houses) and after the 1970s in dedicated azmari bet performance venues. Canonical instruments: masenqo one-string bowed lute (held vertically on the knee, virtuosic) and krar five-or-six-string bowl-lyre (held against the chest), with kebero conical drum and washint end-blown notched flute in larger ensembles. Modal vocabulary built on the Ethiopian qenet pentatonic mode-system: tizita (the nostalgic mode), bati (the praise-mode), ambassel (the festive-mode), anchihoye (the mournful-mode), all in pure-temperament (not equal-tempered). Eskista shoulder-dance characteristic accompaniment-form. Famous twentieth-century azmari include Asnaketch Worku (krar player and Ethiopia's first theatre actress), Bahru Qäññé, and Yerga Dubalä. Kazanchis district of Addis Ababa peaked at approximately seventeen azmari venues in the 1970s, with Fendika (founded 1990s, under Melaku Belay since 2008) now the last-bastion of the district's azmari-bet performers' styles and teacher's teacher transmission lineage. Distinguished from West African griot by Ethiopian qenet pentatonic-mode vocabulary and masenqo-and-krar instrumental signature; distinguished from Sudanese azmari-cognate traditions by Amhara-language repertoire and Addis-Ababa-Kazanchis venue-context",
   "recipe": "classic East African mid-1970s ethiopian azmari minstrel-poet, ballad Poetry, med east poetic branch, west African griot ballad poetry tigrinya music donsongoni hunter's harp. extended whistle, breath veiled tone, pure, interlocked note trading. curved horsehair bow canonical ethiopian azmari canonical ethiopian minstrel masenqo, gut ethiopian historical krar, washint, calfskin canonical ethiopian orthodox ethiopian olive canonical conical staved orthodox tewahedo liturgy kebero. addis kazanchis azmari bet tej house. dynamic moving-coil, transformer-coupled solid-state pre, BBC broadcast console, optical compressor, passive program EQ. indian/lebanese/greek vinyl pressing spring reverb.",
   "recipe_chars": 695,
-  "score": 336.675,
+  "score": 327.6,
   "config": {
     "traditions": [
       "azmari_ethiopian",
@@ -41,13 +41,13 @@
           "voice_vibrato": 3.835,
           "voice_articulation": 24.31000000000001,
           "voice_microtone": 25.805000000000007,
-          "voice_tradition": 53.43000000000001,
+          "voice_tradition": 51.80500000000001,
           "voice_mechanism_compound": 10.14,
           "voice_estill_quality": 8.255,
           "voice_speech_song": 26.000000000000007,
           "voice_ensemble_config": 24.245000000000008,
-          "voice_ornament_system": 6.4350000000000005,
-          "voice_pitch_organization": 62.23500000000001,
+          "voice_ornament_system": 5.785,
+          "voice_pitch_organization": 59.435,
           "voice_processing_chain": 6.744999999999999,
           "voice_multitrack_stack": 6.54
         }
@@ -65,8 +65,8 @@
           "bowed_technique": -0.035,
           "masenqo_body": 0.24,
           "masenqo_string": 0,
-          "masenqo_bow": 7.344999999999999,
-          "masenqo_tradition": 20.59
+          "masenqo_bow": 6.544999999999999,
+          "masenqo_tradition": 19.79
         }
       },
       {
@@ -79,7 +79,7 @@
         "scores": {
           "krar_strings": 0.045,
           "krar_body": 0.045,
-          "krar_string_material": 5.6499999999999995
+          "krar_string_material": 4.85
         }
       },
       {
@@ -99,8 +99,8 @@
           "kebero_tradition": "kebero_orthodox_tewahedo"
         },
         "scores": {
-          "kebero_skin": 7.344999999999999,
-          "kebero_shell_wood": 8.645,
+          "kebero_skin": 6.544999999999999,
+          "kebero_shell_wood": 7.844999999999999,
           "kebero_tradition": 1.645
         }
       }

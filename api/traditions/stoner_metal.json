@@ -5,7 +5,7 @@
   "lineage": "Southern California desert-rock-derived heavy-blues-revival genre that emerged in early-1990s Palm Desert and Los Angeles — codified through Kyuss (the founding band from Palm Desert, Welcome to Sky Valley 1994), Queens of the Stone Age (Josh Hommes post-Kyuss continuation, Songs for the Deaf 2002), Sleep (the Bay Area parallel canon, Sleeps Holy Mountain 1992 and the legendary 60-minute single-track Dopesmoker 2003), Fu Manchu, Monster Magnet; built on Sabbath chord vocabulary plus blues-rock pentatonic vocabulary plus down-tuned heavy-fuzz amplifier worship",
   "recipe": "classic Midwestern American 1990-1993 stoner metal, distorted Rock, doom branch, sludge metal post-metal. thick, larynx lowered, wide pitch sway, interlocked note trading. orange amp British heavy crunch basswood maple pau ferro humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi proco RAT.",
   "recipe_chars": 561,
-  "score": 481.606,
+  "score": 447.907,
   "config": {
     "traditions": [
       "stoner_metal",
@@ -31,19 +31,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 34.009499999999996,
-          "amp_make": 32.354499999999994,
-          "body_wood": 13,
-          "neck_wood": 2.7624999999999997,
-          "fretboard": 2.7624999999999997,
+          "electric_technique": 30.2595,
+          "amp_make": 29.854499999999998,
+          "body_wood": 11.05,
+          "neck_wood": 2.1125,
+          "fretboard": 2.1125,
           "pickup_magnet": 0.1365,
           "pickup_winding": 1.625,
-          "string_material": 2.7805,
+          "string_material": 2.1304999999999996,
           "bridge": 1.0665,
-          "scale_length": 16.444999999999997,
+          "scale_length": 13.844999999999999,
           "string_gauge": 2.405,
           "finish": 0,
-          "string_tuning": 33.995
+          "string_tuning": 30.744999999999997
         }
       },
       {
@@ -58,13 +58,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 32.354499999999994,
+          "amp_make": 29.854499999999998,
           "body_wood": 1.17,
           "pickup_config": 0,
-          "string_type": 31.9635,
+          "string_type": 30.3535,
           "scale_length_b": 1.2974999999999999,
           "fretted_or_not": 0.036,
-          "bass_technique": 28.5115
+          "bass_technique": 27.2615
         }
       },
       {
@@ -75,8 +75,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 27.1295,
-          "drumhead": 2.7624999999999997,
+          "drum_technique": 25.8795,
+          "drumhead": 2.1125,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -97,25 +97,25 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 38.13600000000002,
-          "voice_quality": 25.199999999999992,
+          "voice_register": 36.88600000000002,
+          "voice_quality": 22.7,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 8.406499999999998,
           "voice_articulation": 14.624999999999993,
-          "voice_microtone": 27.904999999999994,
+          "voice_microtone": 26.654999999999994,
           "voice_tradition": 5.329999999999999,
-          "voice_mechanism_compound": 36.094,
+          "voice_mechanism_compound": 32.344,
           "voice_estill_quality": 2.4004999999999996,
           "voice_speech_song": 15.599999999999993,
           "voice_ensemble_config": 17.159999999999993,
-          "voice_ornament_system": 2.6125000000000003,
+          "voice_ornament_system": 1.9624999999999997,
           "voice_pitch_organization": 2.7300000000000004,
-          "voice_processing_chain": 6.467500000000001,
+          "voice_processing_chain": 5.428,
           "voice_multitrack_stack": 4.647
         }
       }

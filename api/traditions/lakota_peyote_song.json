@@ -5,7 +5,7 @@
   "lineage": "Lakota peyote-meeting songs of the Native American Church tradition: the canonical liturgical-song repertoire for the all-night peyote-sacrament ceremony shared across many North American Native nations through the post-1900 Native American Church organization. Performance: a singer using gourd-rattle and water-drum (small drum with water inside producing a distinctive pitched-glissando-able sound), in seated-circle configuration with the participants taking turns leading songs through the night. Repertoire combines Lakota-language songs with vocables-only material and (post-1920s) songs incorporating English-language Christian themes. Distinguished from broader powwow song by peyote-meeting's sacrament-specific liturgical context and the water-drum-and-gourd-rattle (vs powwow-drum) instrumental configuration.",
   "recipe": "classic Northeast Asian mid-1920s lakota peyote songs, ritual Devotional, indigenous branch, blues narrative work song jeju haenyeo songs bahraini fjiri. thick, breath veiled tone, wide pitch sway, interlocked note trading. cast iron three legged daybreak morning water peyote water drum. open steppe outdoor. acoustic horn. wax cylinder.",
   "recipe_chars": 338,
-  "score": 179.435,
+  "score": 178.785,
   "config": {
     "traditions": [
       "lakota_peyote_song",
@@ -44,7 +44,7 @@
           "voice_tradition": 10.432500000000001,
           "voice_mechanism_compound": 8.254999999999999,
           "voice_estill_quality": 8.06,
-          "voice_speech_song": 29.445000000000004,
+          "voice_speech_song": 28.795,
           "voice_ensemble_config": 15.469999999999999,
           "voice_ornament_system": 4.525,
           "voice_pitch_organization": 2.9530000000000003,

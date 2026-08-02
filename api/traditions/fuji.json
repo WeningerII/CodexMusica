@@ -5,7 +5,7 @@
   "lineage": "Yoruba-Nigerian Muslim popular music genre codified through Sikiru Ayinde Barrister (1965-onward founder), Ayinde Kollington (Wasiu Ayinde Marshal Kollington Ayinla, then KWAM-1 / King Wasiu Ayinde Marshal), Pasuma Wonder, Saheed Osupa — derived from the Yoruba Muslim were tradition (pre-dawn Ramadan religious-rousing songs) extended into secular celebration music, with the dundun talking-drum battery expanded to 6-8 drummers and percussion-only acoustic instrumentation (no electric instruments)",
   "recipe": "classic African modern fújì, groove Percussion, west African branch, islamic ritual devotional acehnese saman were music. extended whistle, breath veiled tone, straight note core, interlocked note trading. omo cedrela odorata canonical Yoruba dundun goat skin leather tension cords canonical pressure bend talking drum, secular cedar canonical Yoruba lucumi synthetic aberinkula secular only bata, agogo, shekere. large tropical 1965-1985 mid-major EMI. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 595,
-  "score": 238.966,
+  "score": 233.166,
   "config": {
     "traditions": [
       "fuji",
@@ -41,13 +41,13 @@
           "voice_vibrato": 2.145,
           "voice_articulation": 15.079999999999995,
           "voice_microtone": 17.062499999999993,
-          "voice_tradition": 48.63399999999999,
+          "voice_tradition": 46.78399999999999,
           "voice_mechanism_compound": 3.38,
           "voice_estill_quality": 3.185000000000001,
           "voice_speech_song": 16.769999999999992,
           "voice_ensemble_config": 14.169999999999993,
           "voice_ornament_system": 11.454999999999998,
-          "voice_pitch_organization": 20.057999999999993,
+          "voice_pitch_organization": 18.807999999999993,
           "voice_processing_chain": 3.665,
           "voice_multitrack_stack": 3.185
         }
@@ -63,7 +63,7 @@
         "scores": {
           "talking_drum_origin": 0.39,
           "talking_drum_context": 2.535,
-          "talking_drum_shell_wood": 10.774499999999998,
+          "talking_drum_shell_wood": 10.124499999999998,
           "talking_drum_head": 1.2349999999999999
         }
       },
@@ -78,8 +78,8 @@
         "scores": {
           "bata_set": 0.363,
           "bata_use": 6.2195,
-          "bata_shell_wood": 9.474499999999999,
-          "bata_head_material": 3.3400000000000003
+          "bata_shell_wood": 8.824499999999999,
+          "bata_head_material": 3.1900000000000004
         }
       },
       {
@@ -101,7 +101,7 @@
         },
         "scores": {
           "shekere_size": 2.08,
-          "shekere_beads": 17.999999999999996
+          "shekere_beads": 16.749999999999996
         }
       }
     ],

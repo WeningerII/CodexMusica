@@ -5,7 +5,7 @@
   "lineage": "Asturian gaita Iberian Celtic-bagpipe tradition of Asturias (northern Spain), the canonical Asturian regional-folk-music instrumental signature. The gaita asturiana is a mouth-blown single-drone bagpipe distinct from the larger Galician gaita gallega and the Scottish Highland pipes in tuning and ornament-vocabulary. Performance: solo gaita or gaita-and-tambor (drum-pair) accompanying voice, dance, or solo instrumental display. Repertoire spans foliada wedding-celebration repertoire, vaqueirada cattle-herder dance-music, and the canonical Asturian-Celtic revival-period compositions of the late-twentieth century. Distinguished from Galician gaita gallega by Asturian-specific tuning and ornamental conventions. The Asturian Cultural Council and the parallel Galician Real Academia de la Gaita anchor institutional preservation.",
   "recipe": "classic modern asturian gaita, ballad Poetry, Celtic balladic branch, wind pipe drone modal. gaita galega three drone muiñeira dance driving gaita galega, tambourine orch. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 251,
-  "score": 99.169,
+  "score": 98.491,
   "config": {
     "traditions": [
       "asturian_gaita"
@@ -23,8 +23,8 @@
         },
         "scores": {
           "wind_articulation": 16.1815,
-          "gaita_galega_drones": 34.163250000000005,
-          "gaita_galega_use": 25.007500000000004,
+          "gaita_galega_drones": 33.86325000000001,
+          "gaita_galega_use": 24.628750000000004,
           "gaita_galega_chanter_wood": 7.700374999999999,
           "gaita_galega_reed": 7.700374999999999,
           "gaita_galega_bag": 7.700374999999999

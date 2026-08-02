@@ -5,7 +5,7 @@
   "lineage": "Mexican son tradition centered on Jalisco-Nayarit highlands and codified through the early-20th-century studio era (1930s-1950s commercial recording boom) into the standardized mariachi-orquesta of two trumpets, three-to-six violins, vihuela rhythm-chord, guitarrón six-string acoustic-bass, and Spanish guitar. Derived from rural son jalisciense and son alteño fiddle-and-vihuela ensembles, transformed by 1907-onward Cocula-and-Tecalitlán municipal contests, professionalized via the 1925-onward Mexico City cantina circuit, and globalized through 1930s-onward Mexican golden-age cinema. The bolero-ranchera-and-son repertoire alternates 6/8-against-3/4 hemiola with vocally projected open-throat ranchera belting over instrumental triadic-and-harmonic-third doublings.",
   "recipe": "classic Southwestern American modern mariachi, functional Song, tejano border branch, Mexican functional song, americas wedding andean matrimonio huayno bolero mexicano. thick, full chest belt, straight note core, interlocked note trading. plain gut beef gut varnished sitka spruce European maple violin orchestral, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral unison standard rim orchestral balance trumpet, cedar strummed open chord ringing overtones classical nylon-string guitar, cedar caoba paracho mixed string set nylon treble steel bass guitarron mexicano, mahogany canonical mariachi nylon octave doubled canonical mariachi strummed vihuela mexicana, foundational rural mariachi full. mariachi and bolero defining room 1948-1975 mid tier mexico peerless musart 50s 60s. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 946,
-  "score": 243.547,
+  "score": 238.159,
   "config": {
     "traditions": [
       "mariachi",
@@ -41,12 +41,12 @@
           "voice_vibrato": 2.805,
           "voice_articulation": 15.872249999999998,
           "voice_microtone": 16.892874999999997,
-          "voice_tradition": 21.588749999999994,
+          "voice_tradition": 18.888749999999995,
           "voice_mechanism_compound": 3.77,
-          "voice_estill_quality": 8.399999999999999,
+          "voice_estill_quality": 7.1499999999999995,
           "voice_speech_song": 20.604999999999997,
           "voice_ensemble_config": 17.71725,
-          "voice_ornament_system": 16.83,
+          "voice_ornament_system": 15.429999999999998,
           "voice_pitch_organization": 4.45,
           "voice_processing_chain": 5.865,
           "voice_multitrack_stack": 4.183375000000001
@@ -72,7 +72,7 @@
           "orch_top_wood": 3.7965,
           "orch_back_wood": 2.793,
           "orch_varnish": 2.5115,
-          "orch_setup_period": 3.140125,
+          "orch_setup_period": 3.121375,
           "orch_bow": 2.275,
           "orch_bow_stick": 3.5115,
           "orch_articulation": 0.31124999999999997,
@@ -129,7 +129,7 @@
           "guitarron_technique": "guitarron_octave_pair_plucking"
         },
         "scores": {
-          "guitarron_body": 1.5595,
+          "guitarron_body": 1.54075,
           "guitarron_body_wood": 4.906499999999999,
           "guitarron_strings": 1.832125,
           "guitarron_string_material": 2.8600000000000003,

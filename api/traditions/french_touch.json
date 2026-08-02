@@ -5,7 +5,7 @@
   "lineage": "Parisian filter-house tradition running from the mid-1990s to the mid-2000s, built from disco, funk and soul loops lifted off vinyl into an Ensoniq ASR-10 or Akai sampler and reshaped by resonant band-pass and low-pass filter sweeps, phasing and heavy kick-keyed pumping compression, the filter gesture itself carrying the arrangement — codified through Motorbass (Philippe Zdar and Étienne de Crécy, Pansoul 1996), de Crécy's Super Discount (1996) and the Solid label, Thomas Bangalter and Daft Punk (Da Funk on Soma 1995, Homework 1997, Discovery 2001) and Bangalter's Roulé label (Spinal Scratch 1995, Trax on da Rocks 1995-1997), Alan Braxe (Vertigo 1997), Stardust's Music Sounds Better With You (Roulé 1998, Bangalter with Braxe and Benjamin Diamond over a Chaka Khan Fate loop), Cassius (Zdar with Hubert \"Boom Bass\" Blanc-Francard, the album 1999 in 1999), Bob Sinclar (Gym Tonic 1998), Alex Gopher (The Child 1999), Guy-Manuel de Homem-Christo's Crydamoure, and Modjo (Lady Hear Me Tonight 2000, over Chic's Soup for One); an apartment-studio culture with no tracking room and no live band, summing sampled loops through a colored analog desk to DAT and cutting the club 12-inch at Paris lacquer houses",
   "recipe": "classic 1995-1997 french touch / filter house, electronic Dance, continental branch, house electronic dance, soul R&B functional song, funk percussive groove percussion chicago house northern soul and motown. thick, breath veiled tone, slow rate, interlocked note trading. sampler, turntable, TR-909, fast decay focused low lead analog synth, vocoder. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, console-strip pre, colored vintage console, pumping sidechain, parametric EQ. vinyl master cut phaser wah / envelope filter.",
   "recipe_chars": 577,
-  "score": 404.823,
+  "score": 394.198,
   "config": {
     "traditions": [
       "french_touch",
@@ -27,7 +27,7 @@
           "sampler_archetypes": 3.25,
           "sampler_bit_depth": 5.995,
           "sampler_workflow": 0.52,
-          "sampler_classic_context": 59.05750000000001
+          "sampler_classic_context": 57.30750000000001
         }
       },
       {
@@ -49,8 +49,8 @@
           "tr909_production_origin": "tr909_tr_8s_modern"
         },
         "scores": {
-          "tr909_voice": 17.125,
-          "drum_machine_909_context": 7.734999999999999,
+          "tr909_voice": 15.874999999999998,
+          "drum_machine_909_context": 7.084999999999999,
           "tr909_production_origin": 0.78
         }
       },
@@ -105,18 +105,18 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 24.184999999999995,
+          "voice_register": 22.934999999999995,
           "voice_quality": 24.278500000000008,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 5.315,
-          "voice_articulation": 34.51500000000002,
-          "voice_microtone": 34.320000000000014,
-          "voice_tradition": 20.1355,
+          "voice_articulation": 33.865000000000016,
+          "voice_microtone": 33.670000000000016,
+          "voice_tradition": 18.8855,
           "voice_mechanism_compound": 6.964499999999999,
-          "voice_estill_quality": 19.224999999999994,
-          "voice_speech_song": 38.41500000000002,
-          "voice_ensemble_config": 36.725000000000016,
+          "voice_estill_quality": 17.974999999999994,
+          "voice_speech_song": 37.765000000000015,
+          "voice_ensemble_config": 36.07500000000002,
           "voice_ornament_system": 2.045,
           "voice_pitch_organization": 1.345,
           "voice_processing_chain": 16.445,

@@ -5,7 +5,7 @@
   "lineage": "Romanian mourning-song tradition continuous from medieval Wallachian-and-Moldavian rural practice through 19th-20th century documented performance by bocitoare (Romanian professional women keeners); regionally distributed across Maramureș, Bukovina, Transylvania, Oltenia, and Banat",
   "recipe": "classic early-1890s romanian bocet, funeral Lament, European branch, vocal drone modal, Mediterranean ballad ballad poetry, Slavic bard ballad poetry silbo gomero whistled language skolt sámi leuʹdd. vocal fry, breath veiled tone, wide pitch sway, interlocked note trading. bedroom. acoustic horn. wax cylinder.",
   "recipe_chars": 311,
-  "score": 148.17,
+  "score": 148.02,
   "config": {
     "traditions": [
       "romanian_bocet",
@@ -46,7 +46,7 @@
           "voice_estill_quality": 5.330000000000001,
           "voice_speech_song": 15.274999999999999,
           "voice_ensemble_config": 12.61,
-          "voice_ornament_system": 4.07,
+          "voice_ornament_system": 3.9200000000000004,
           "voice_pitch_organization": 7.800000000000001,
           "voice_processing_chain": 8.125000000000004,
           "voice_multitrack_stack": 8.059999999999999

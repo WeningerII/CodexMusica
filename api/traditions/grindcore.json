@@ -5,7 +5,7 @@
   "lineage": "UK and US extreme-metal-and-hardcore fusion that emerged in the mid-late 1980s — codified through Napalm Death (Birmingham UK, Scum 1987 the foundational album with You Suffer the 28-second-song sonic-economy gesture), Carcass (Liverpool UK gore-grindcore, Reek of Putrefaction 1988), Repulsion (Michigan US founding band, Horrified 1989), the modern continuation through Pig Destroyer, Magrudergrind; hardcore-punks compressed-song-format extended to its logical conclusion",
   "recipe": "classic Midwestern American 1987-1989 grindcore, distorted Rock, death branch, punk distorted rock crust punk d-beat. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, kevlar aramid extreme tension brushes-and-sticks drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 597,
-  "score": 376.972,
+  "score": 367.122,
   "config": {
     "traditions": [
       "grindcore",
@@ -31,8 +31,8 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 28.75,
-          "amp_make": 35.809999999999995,
+          "electric_technique": 27.5,
+          "amp_make": 33.010000000000005,
           "body_wood": 9.684999999999999,
           "neck_wood": 2.535,
           "fretboard": 2.4699999999999998,
@@ -64,7 +64,7 @@
           "string_type": 17.550000000000004,
           "scale_length_b": 2.535,
           "fretted_or_not": 0.045,
-          "bass_technique": 29.520000000000003
+          "bass_technique": 28.270000000000003
         }
       },
       {
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 22.424999999999997,
-          "drumhead": 6.0249999999999995,
+          "drumhead": 5.875,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -101,7 +101,7 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 15.139999999999997,
+          "voice_register": 14.489999999999997,
           "voice_quality": 6.76,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -109,10 +109,10 @@
           "voice_articulation": 18.849999999999994,
           "voice_microtone": 17.87499999999999,
           "voice_tradition": 3.0550000000000006,
-          "voice_mechanism_compound": 34.135,
+          "voice_mechanism_compound": 32.88499999999999,
           "voice_estill_quality": 3.7250000000000005,
           "voice_speech_song": 21.839999999999993,
-          "voice_ensemble_config": 27.48,
+          "voice_ensemble_config": 24.98,
           "voice_ornament_system": 0.8949999999999999,
           "voice_pitch_organization": 1.7549999999999994,
           "voice_processing_chain": 5.279999999999999,

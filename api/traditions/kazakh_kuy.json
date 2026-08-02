@@ -3,9 +3,9 @@
   "name": "Kazakh küy (instrumental dombyra art)",
   "family": "classical",
   "lineage": "Kazakh küy classical instrumental art-music tradition of Kazakhstan, performed on dombyra two-string long-necked fretted plucked lute as solo virtuoso narrative-programmatic compositions. Each küy narrates a historical-mythological story through purely instrumental means: the canonical \"Aksak Kulan\" tells of a son's death announced through dombyra after no one dared speak the news. Two regional schools: Western tökpe (more rhythmically vigorous) and Eastern shertpe (more lyrical-contemplative). Kurmangazy Sagyrbayuly (1818-1889) and Tattimbet Kazangapuly (1815-1862) are canonical composers.",
-  "recipe": "classic Northeast Asian early-1810s kazakh küy, art Music, middle eastern classical branch, Slavic bard ballad poetry icelandic rímur kyrgyz manas epic-recital. turkmen long necked bagshy tradition silk canonical pre modern shashmaqam bukharan shashmaqam canonical uzbek tajik classical dutar, spade shaped driving strummed dombyra. open steppe outdoor. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
-  "recipe_chars": 487,
-  "score": 46.815,
+  "recipe": "classic Northeast Asian early-1810s kazakh küy, art Music, middle eastern classical branch, Slavic bard ballad poetry icelandic rímur kyrgyz manas epic-recital. turkmen long necked bagshy tradition silk canonical pre modern shashmaqam bukharan shashmaqam canonical uzbek tajik classical dutar, spade shaped delicate finger plucked lyrical dombyra. open steppe outdoor. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
+  "recipe_chars": 502,
+  "score": 46.79,
   "config": {
     "traditions": [
       "kazakh_kuy",
@@ -30,12 +30,12 @@
         "id": "dombyra",
         "slots": {
           "dombyra_form": "dombyra_eastern",
-          "dombyra_style": "dombyra_tokpe",
+          "dombyra_style": "dombyra_shertpe",
           "dombyra_strings": "dombyra_gut"
         },
         "scores": {
           "dombyra_form": 12.825,
-          "dombyra_style": 15.054999999999996,
+          "dombyra_style": 15.030000000000001,
           "dombyra_strings": -0.035
         }
       }

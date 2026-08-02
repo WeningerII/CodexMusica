@@ -5,7 +5,7 @@
   "lineage": "Cuban son tradition, the canonical Afro-Cuban song-form that became the foundational template for salsa, mambo, cha-cha-chá, and most Caribbean-Latin popular music 1900s-onward. Originated in eastern Cuban Oriente-province (Santiago de Cuba and Guantánamo region) late-19th-century out of changüí proto-son rural-Afro-Spanish-fusion, with classic ensemble of tres (small three-double-course guitar), Spanish guitar, bass (originally botija jug-bass, later contrabass), bongos, claves, and maracas. Migrated to Havana in the 1920s where the sexteto-and-septeto urban-commercial codification (adding trumpet) made son the international Cuban-music ambassador. The clave 3-2 (or reversed 2-3) two-bar wood-block rhythm anchors all son derivatives; the verse-montuno structure (canto verse-section, montuno call-and-response open-improvisation section) defines all subsequent Caribbean popular-song architectures.",
   "recipe": "classic Caribbean mid-1900s son cubano, groove Percussion, son salsa branch, rumba Cuban rumba cubana yambú. kargyraa, breath veiled tone, slow rate, interlocked note trading. cedar canonical Cuban octave doubled bronze steel rural traditional strummed tres cubano, low mid rich spectrum cedar classical nylon-string guitar, upright bass, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, regional wood hardwood claves, maracas, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble shallow cup lead trumpet trumpet, low mouthed timbale mounted mambo section montuno lift coro section cencerro, son changui anchor walking bass runs melodic bass movement forged iron tongues marimbula. pre revolutionary cuba 1944-1960 mid tier panart puchito havana pre 1959. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 965,
-  "score": 293.464,
+  "score": 293.359,
   "config": {
     "traditions": [
       "son_cubano",
@@ -109,7 +109,7 @@
         },
         "scores": {
           "percussion_technique": 14.553,
-          "bongos_skin": 32.99325,
+          "bongos_skin": 32.88825,
           "bongos_context": 0.6765,
           "bongos_shell_wood": 13.975
         }

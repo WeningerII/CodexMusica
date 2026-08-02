@@ -5,7 +5,7 @@
   "lineage": "Ifugao hudhud chant tradition of the Cordillera mountain region of northern Luzon, Philippines. The hudhud is a sung narrative-recital cycle performed by an elder female cantor (mumbaki) with chorus response, during agricultural work in the rice terraces (rice-transplanting and rice-harvesting), at wakes for the dead, and during the bogwa exhumation-and-reburial ceremony. Individual hudhud recitations can extend to days, and the canonical hudhud cycles narrate the deeds of culture-heroes Aliguyon, Bugan, and other Ifugao mytho-historical figures across hundreds of episodes. Performance involves the cantor's solo recitative-melodic line answered by the choral group in unison-or-octave response, with characteristic terminal pitch-drop closing each verse and a narrow-range melodic vocabulary built around three-to-five pitches. The Ifugao language is a Northern Philippine Cordilleran language; the hudhud repertoire preserves archaic Ifugao narrative-poetic conventions. Father Francis Lambrecht (Belgian CICM missionary, 1950s-1960s Kiangan-region fieldwork) produced the foundational documentation; the Kiangan municipality cantor lineage continues active transmission. Distinguished from neighboring Cordilleran traditions (Kalinga, Bontoc, Kankanaey, Tinguian) by Ifugao's narrow-range narrative-recital cycle and rice-terrace-work functional context; distinguished from lowland Philippine vocal traditions by Cordilleran-mountain-region pre-colonial continuity.",
   "recipe": "classic mid-1950s hudhud chants of the ifugao, ritual Devotional, indigenous branch, Slavic bard ballad poetry karelian rune-singing russian byliny. vocal fry, breath veiled tone, straight note core, interlocked note trading. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 305,
-  "score": 166.77,
+  "score": 166.12,
   "config": {
     "traditions": [
       "ifugao_hudhud_chants",
@@ -41,7 +41,7 @@
           "voice_vibrato": 3.6400000000000006,
           "voice_articulation": 17.614999999999995,
           "voice_microtone": 17.224999999999994,
-          "voice_tradition": 15.697500000000002,
+          "voice_tradition": 15.047500000000001,
           "voice_mechanism_compound": 4.525,
           "voice_estill_quality": 7.344999999999999,
           "voice_speech_song": 19.304999999999993,

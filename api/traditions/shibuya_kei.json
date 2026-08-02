@@ -5,7 +5,7 @@
   "lineage": "1990s Japanese eclectic-pop subgenre centered on Tokyo’s Shibuya district record-store scene — codified through Pizzicato Five, Cornelius (Keigo Oyamada), Fantastic Plastic Machine, and Kahimi Karie; characterized by sampledelic crate-digger production, sixties-French-pop and bossa-nova references, and ironic-cosmopolitan pop sensibility",
   "recipe": "classic Asian mid-1990s shibuya-kei, functional Song, east Asian pop branch, pop experimental experimental electric hyperpop. extended whistle, breath veiled tone, straight onset, interlocked note trading. field textural sampler, centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric, clean strummed single coil electric guitar, ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, samba bateria. treated studio. Neumann U87, console-strip pre, SSL inline console, SMART research c1/c2, SSL surgical EQ. 16-bit digital eventide harmonizer TC electronic 2290 delay digital delay.",
   "recipe_chars": 645,
-  "score": 292.814,
+  "score": 291.516,
   "config": {
     "traditions": [
       "shibuya_kei",
@@ -33,14 +33,14 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 31.09375,
+          "voice_register": 30.549999999999997,
           "voice_quality": 9.879999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.145,
           "voice_articulation": 11.894999999999992,
           "voice_microtone": 27.39275,
-          "voice_tradition": 31.658874999999995,
+          "voice_tradition": 31.010124999999995,
           "voice_mechanism_compound": 1.1264999999999998,
           "voice_estill_quality": 0.39,
           "voice_speech_song": 15.274999999999993,
@@ -65,7 +65,7 @@
           "sampler_archetypes": 0.42,
           "sampler_bit_depth": 0.195,
           "sampler_workflow": 7.6271249999999995,
-          "sampler_classic_context": 25.605
+          "sampler_classic_context": 25.5
         }
       },
       {
@@ -123,7 +123,7 @@
         "slots": {
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
-          "pickup_config": "soapbar",
+          "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",

@@ -5,7 +5,7 @@
   "lineage": "Post-1960s European and American non-idiomatic improvisation tradition — codified through Derek Bailey’s Improvisation: Its Nature and Practice in Music (1980) as theoretical foundation, the Spontaneous Music Ensemble (London 1966 onward), AMM, Music Improvisation Company, the Globe Unity Orchestra, and the Bay Area / Knitting Factory NYC American scenes — characterized by genre-disavowal posture, no-pre-arranged-material premise, and timbre-and-extended-technique-foreground performance",
   "recipe": "classic European mid-1960s free improvisation, improv On Frame, jam free branch, musique concrete experimental electric musique concrète electroacoustic composition. extended whistle, breath veiled tone, fast rate, interlocked note trading. alto yellow brass modern standard saxophone, steel plywood laminate European maple sycamore maple double bass, pre muffled edge muffled brushes-and-sticks drum kit, glitched textural granular synth, whale song waterphone. treated studio. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
   "recipe_chars": 586,
-  "score": 135.718,
+  "score": 135.592,
   "config": {
     "traditions": [
       "free_improvisation",
@@ -46,9 +46,9 @@
           "voice_estill_quality": 0.1975,
           "voice_speech_song": 10.594999999999995,
           "voice_ensemble_config": 10.529999999999994,
-          "voice_ornament_system": 2.9495673076923086,
+          "voice_ornament_system": 2.943798076923078,
           "voice_pitch_organization": 0.6134615384615384,
-          "voice_processing_chain": 3.835000000000001,
+          "voice_processing_chain": 3.715113636363637,
           "voice_multitrack_stack": 5.072889277389279
         }
       },

@@ -5,7 +5,7 @@
   "lineage": "Post-war European avant-garde composer movement centered on the Internationale Ferienkurse für Neue Musik in Darmstadt (founded 1946), extending Webern's serial-row organization to all musical parameters (pitch, rhythm, dynamics, articulation, register) — \"total serialism\" or \"integral serialism.\" Boulez's Structures Ia (1952), Stockhausen's Kreuzspiel (1951), and Nono's Il canto sospeso (1956) constitute the canonical type-specimens. The Darmstadt School defined the European-modernist mainstream of 1950s-1960s.",
   "recipe": "classic European mid-1950s darmstadt school, art Music, western modern branch, musique concrete experimental electric acousmatic music soundscape composition. thick, breath veiled tone, slow rate, interlocked note trading. beech laminated maple laminated European tradition European spruce norway spruce grand piano, synthetic carpathian spruce European maple sycamore maple oil varnish violin orchestral. shoebox concert hall. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
   "recipe_chars": 515,
-  "score": 230.638,
+  "score": 230.403,
   "config": {
     "traditions": [
       "darmstadt_school_total_serialism",
@@ -41,13 +41,13 @@
           "voice_vibrato": 6.5,
           "voice_articulation": 6.5649999999999995,
           "voice_microtone": 7.403,
-          "voice_tradition": 9.195250000000001,
+          "voice_tradition": 9.07775,
           "voice_mechanism_compound": 4.9,
           "voice_estill_quality": 7.398750000000001,
           "voice_speech_song": 9.555,
           "voice_ensemble_config": 4.8100000000000005,
           "voice_ornament_system": 6.2,
-          "voice_pitch_organization": 6.3175,
+          "voice_pitch_organization": 6.2,
           "voice_processing_chain": 2.333,
           "voice_multitrack_stack": 1.8524999999999998
         }

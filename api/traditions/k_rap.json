@@ -5,7 +5,7 @@
   "lineage": "Korean hip-hop subgenre codified through Drunken Tiger (1999-onward), Tiger JK, Outsider, and the early-2000s Korean hip-hop scene that later expanded through Epik High, Verbal Jint, Dynamic Duo — characterized by Korean-language flows over US-and-Korean-hybrid production, the Show Me the Money television format as institutional vehicle",
   "recipe": "classic modern korean rap, mc Rhythm, intl hip hop branch, east Asian pop functional song shidaiqu korean trot. thick, breath veiled tone, straight onset, interlocked note trading. TR-808, singing lead analog poly synth, sampled chopped sampler drum machine. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 403,
-  "score": 314.573,
+  "score": 302.373,
   "config": {
     "traditions": [
       "k_rap",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 21.899999999999995,
+          "voice_register": 19.399999999999995,
           "voice_quality": 26.585000000000004,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 9.705,
+          "voice_vibrato": 8.304999999999998,
           "voice_articulation": 17.94,
-          "voice_microtone": 21.419999999999998,
-          "voice_tradition": 40.08,
+          "voice_microtone": 18.919999999999998,
+          "voice_tradition": 38.67999999999999,
           "voice_mechanism_compound": 4.614999999999999,
           "voice_estill_quality": 3.575,
           "voice_speech_song": 23.335,
           "voice_ensemble_config": 20.02,
-          "voice_ornament_system": 33.55,
-          "voice_pitch_organization": 11.749999999999996,
+          "voice_ornament_system": 32.3,
+          "voice_pitch_organization": 10.499999999999996,
           "voice_processing_chain": 11.899999999999999,
           "voice_multitrack_stack": 10.757499999999999
         }
@@ -61,7 +61,7 @@
         },
         "scores": {
           "tr808_voice": 8.384999999999998,
-          "drum_machine_808_context": 4.875,
+          "drum_machine_808_context": 4.225,
           "tr808_production_origin": 0.9749999999999996
         }
       },
@@ -74,7 +74,7 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 13.945000000000002,
+          "electronic_technique": 12.695000000000002,
           "poly_archetypes": 0.6900000000000001,
           "poly_voices": 0.52,
           "poly_maker_lineage": -0.07000000000000003

@@ -3,14 +3,14 @@
   "name": "Appalachian square-dance calling",
   "family": "country",
   "lineage": "The caller's rhythmic patter directing figures for old-time Appalachian square and big-circle dances, delivered in strict time over a string band of fiddle and banjo. It descends from Anglo-Celtic and French quadrille calling adapted in the southern mountains, where the caller became an improvising rhythmic voice rather than a mere prompter. The running-set dancing that underlies it was documented by Cecil Sharp during his 1916 to 1918 Appalachian fieldwork, and figures such as Bascom Lamar Lunsford institutionalized the practice through the Asheville Mountain Dance and Folk Festival from 1928. Calls are locked to the reel's meter, blending fixed figure-names with spontaneous filler.",
-  "recipe": "classic mid-1910s appalachian square-dance calling, ballad Poetry, anglo singer song branch cape verdean batuko of santiago island berber ahidus and ahwash. thick, breath veiled tone, straight note core, interlocked note trading. wooden barn. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 317,
-  "score": 248.642,
+  "recipe": "classic mid-1910s appalachian square-dance calling, ballad Poetry, anglo singer song branch cape verdean batuko of santiago island classic blues women. thick, breath veiled tone, wide pitch sway, interlocked note trading. wooden barn. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 309,
+  "score": 251.603,
   "config": {
     "traditions": [
       "appalachian_square_dance_calling",
       "cape_verdean_batuko",
-      "berber_ahidus_ahwash"
+      "classic_blues_women"
     ],
     "instruments": [
       {
@@ -20,36 +20,36 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "oscillating_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 7.340500000000001,
-          "voice_quality": 39.52,
+          "voice_register": 28.665500000000005,
+          "voice_quality": 37.9275,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.216500000000001,
-          "voice_articulation": 31.134999999999998,
-          "voice_microtone": 32.434999999999995,
-          "voice_tradition": 24.244999999999997,
-          "voice_mechanism_compound": 9.815000000000001,
-          "voice_estill_quality": 11.634999999999998,
-          "voice_speech_song": 36.79,
-          "voice_ensemble_config": 31.915,
-          "voice_ornament_system": 5.131,
-          "voice_pitch_organization": 3.5100000000000016,
-          "voice_processing_chain": 5.655000000000003,
-          "voice_multitrack_stack": 7.349
+          "voice_vibrato": 18.04500000000001,
+          "voice_articulation": 25.21999999999999,
+          "voice_microtone": 25.479999999999993,
+          "voice_tradition": 24.31,
+          "voice_mechanism_compound": 6.565000000000001,
+          "voice_estill_quality": 10.334999999999999,
+          "voice_speech_song": 28.729999999999997,
+          "voice_ensemble_config": 26.194999999999997,
+          "voice_ornament_system": 5.581000000000001,
+          "voice_pitch_organization": 3.250000000000001,
+          "voice_processing_chain": 5.199999999999999,
+          "voice_multitrack_stack": 7.749
         }
       }
     ],

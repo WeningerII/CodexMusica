@@ -5,7 +5,7 @@
   "lineage": "Brega and tecnobrega Brazilian popular-music genres of the northern Brazilian Amazonian Pará state (especially Belém). Brega (\"kitsch\") originated as a mid-late-twentieth-century commercial sentimental-popular music; tecnobrega is its 2000s-onward electronic-DIY remix-and-production reformulation, with characteristic synthesizer-and-808-drum-machine production, fast tempo, and an outdoor-aparelhagem sound-system street-party performance context. Distinguished from sertanejo by brega's northern-Amazonian-Brazilian regional base.",
   "recipe": "classic Southern American mid-2000s brega and tecnobrega, functional Song, Brazilian song branch, reggaeton MC rhythm moombahton. thick, breath veiled tone, straight onset, interlocked note trading. TR-808, fast decay focused low short envelope analog synth, basswood mahogany rosewood alnico lower tension down tuning humbucker electric guitar. estudio rozenblit recife. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 501,
-  "score": 151.608,
+  "score": 146.958,
   "config": {
     "traditions": [
       "brega_tecnobrega",
@@ -38,18 +38,18 @@
           "voice_quality": 6.955000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.6180000000000003,
-          "voice_articulation": 12.999999999999995,
-          "voice_microtone": 13.454999999999993,
+          "voice_vibrato": 2.9680000000000004,
+          "voice_articulation": 12.349999999999994,
+          "voice_microtone": 12.804999999999993,
           "voice_tradition": 4.615,
           "voice_mechanism_compound": 3.5100000000000002,
           "voice_estill_quality": 3.315000000000001,
-          "voice_speech_song": 16.899999999999995,
-          "voice_ensemble_config": 12.739999999999995,
+          "voice_speech_song": 16.249999999999996,
+          "voice_ensemble_config": 12.089999999999995,
           "voice_ornament_system": 4.355,
           "voice_pitch_organization": 2.3399999999999994,
           "voice_processing_chain": 9.2615,
-          "voice_multitrack_stack": 9.07175
+          "voice_multitrack_stack": 7.671750000000002
         }
       },
       {

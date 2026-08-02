@@ -5,7 +5,7 @@
   "lineage": "2010s online-distributed electronic micro-genre nostalgically recontextualizing 1980s-1990s corporate-mall-and-soft-rock background music through pitch-shifting, chopping, and ironic-commentary visual presentation — codified through Macintosh Plus (Floral Shoppe 2011, the founding vaporwave album), Vektroid, Saint Pepsi, Blank Banshee, and continuing through the broader online-aesthetic vaporwave subscene",
   "recipe": "classic mid-2010s vaporwave, experimental Elec, lofi branch, retro aesthetic experimental electric synthwave. sampler drum string machine, tape replay keyboard, singing lead analog synth. tape echo chamber. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 305,
-  "score": 24.829,
+  "score": 23.434,
   "config": {
     "traditions": [
       "vaporwave",
@@ -22,7 +22,7 @@
         },
         "scores": {
           "electronic_technique": 0.26,
-          "sample_bitdepth": 0.8451249999999999,
+          "sample_bitdepth": 0.700125,
           "sample_swing": 7.25,
           "sample_processing": 1.1549999999999998
         }
@@ -65,7 +65,7 @@
           "modulation": "lfo_pitch"
         },
         "scores": {
-          "electronic_technique": 5.625,
+          "electronic_technique": 4.375,
           "oscillator": 0.65,
           "filter_topology": 0.975,
           "envelope": 0.39,

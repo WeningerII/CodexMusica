@@ -5,7 +5,7 @@
   "lineage": "Pan-Indian Hindu devotional song tradition setting Sanskrit, Hindi, Braj Bhasha, Marathi, Bengali, Tamil and other Indian-language devotional poetry by Surdas, Mirabai, Tulsidas, Tukaram, Kabir, the Alvar saints — performed in temple-and-domestic-shrine contexts across regional Hindu sub-traditions; modern voices Anup Jalota, Jagjit Singh (the late ghazal-bhajan crossover canon), and the Pushti Marg haveli sangeet tradition",
   "recipe": "classic South Asian mid-1980s bhajan, ritual Devotional, hindu branch, vocal drone modal, indian subcontinent praise song hindu stuti and bhajan sikh shabad kirtan. vocal fry, declaimed, straight onset, interlocked note trading. low overtone rich vocal male harmonium indian, indian rosewood rosewood copper tabla, synthetic remo modern stable bolt tuned modern concert stable dholak, small steady tala keeping ashtadhatu manjira, clear drone bright brass reed resonant teak shruti box. vrindavan braj mandir bhajan. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
   "recipe_chars": 655,
-  "score": 243.347,
+  "score": 233.747,
   "config": {
     "traditions": [
       "bhajan",
@@ -35,20 +35,20 @@
         },
         "scores": {
           "voice_register": 1.885,
-          "voice_quality": 31.79499999999999,
+          "voice_quality": 29.29499999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 4.04,
-          "voice_articulation": 14.884999999999996,
-          "voice_microtone": 13.909999999999993,
-          "voice_tradition": 17.875,
+          "voice_articulation": 14.234999999999994,
+          "voice_microtone": 13.25999999999999,
+          "voice_tradition": 16.575,
           "voice_mechanism_compound": 2.5349999999999993,
           "voice_estill_quality": 3.7049999999999996,
-          "voice_speech_song": 22.879999999999995,
-          "voice_ensemble_config": 12.934999999999995,
+          "voice_speech_song": 22.229999999999993,
+          "voice_ensemble_config": 12.284999999999993,
           "voice_ornament_system": 16.65,
           "voice_pitch_organization": 3.6725000000000003,
-          "voice_processing_chain": 4.095,
+          "voice_processing_chain": 3.6449999999999996,
           "voice_multitrack_stack": 4.680000000000001
         }
       },
@@ -104,7 +104,7 @@
         },
         "scores": {
           "manjira_form": 17.419999999999998,
-          "manjira_stroke": 14.125,
+          "manjira_stroke": 11.624999999999998,
           "manjira_metal": 5.8100000000000005
         }
       },

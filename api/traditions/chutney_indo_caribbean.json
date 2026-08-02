@@ -5,7 +5,7 @@
   "lineage": "Indo-Caribbean Trinidadian-and-Guyanese popular-music developed in late-twentieth-century Trinidad from synthesis of Bhojpuri-Hindi folk-song of the post-indenture Indian-laborer community with Trinidadian calypso-and-soca. Voice (often female), dholak, dhantal, tassa, electric-instruments. Sundar Popo's 1968 \"Nana and Nani\" is the canonical foundational chutney recording.",
   "recipe": "classic North American late-1960s chutney, functional Song, south Asian pop branch, tropical song functional song garifuna punta-rock champeta. thick, breath veiled tone, straight onset, interlocked note trading. goat skin syahi rope laced steel ring dholak, indian rosewood rosewood clay tabla, goat skin rope and fire canonical indo Trinidadian metal modern Caribbean carnival hindu wedding tassa indo Caribbean tassa drum. port of spain community studio. sennheiser MD421, transformer-coupled solid-state pre, MCI JH-636 US 70s indie/jazz, dbx 160 VCA, parametric EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 616,
-  "score": 160.38,
+  "score": 153.884,
   "config": {
     "traditions": [
       "chutney_indo_caribbean",
@@ -22,7 +22,7 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -34,14 +34,14 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 13.856499999999993,
+          "voice_register": 11.8565,
           "voice_quality": 4.680000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.0550000000000006,
+          "voice_vibrato": 2.4050000000000002,
           "voice_articulation": 9.099999999999998,
-          "voice_microtone": 9.919499999999998,
-          "voice_tradition": 10.656,
+          "voice_microtone": 8.905,
+          "voice_tradition": 9.1,
           "voice_mechanism_compound": 3.3799999999999994,
           "voice_estill_quality": 3.185,
           "voice_speech_song": 18.459999999999994,
@@ -89,7 +89,7 @@
         },
         "scores": {
           "tassa_skin": 17.355,
-          "tassa_shell": 6.629999999999999,
+          "tassa_shell": 5.9799999999999995,
           "tassa_lineage": 8.2265
         }
       }

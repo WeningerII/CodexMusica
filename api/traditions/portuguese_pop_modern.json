@@ -5,7 +5,7 @@
   "lineage": "Modern Portuguese mainstream pop tradition extending past the fado canon — codified through Madredeus, Mariza’s fado-fusion, the 2000s Buraka Som Sistema kuduro crossover, and contemporary artists like Sara Tavares, David Carreira; characterized by Portuguese-language vocals over electronic-and-organic hybrid production",
   "recipe": "classic mid-2000s portuguese pop, functional Song, iberian branch, chanson fado ballad poetry cape verdean batuko of santiago island morna. extended whistle, breath veiled tone, straight onset, interlocked note trading. martin lifespan fingerpicked acoustic mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier wenge single coil electric guitar, modeled amp modern rig mahogany stainless steel roundwound electric bass, pre muffled edge muffled brushes-and-sticks drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 665,
-  "score": 342.576,
+  "score": 341.642,
   "config": {
     "traditions": [
       "portuguese_pop_modern",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 11.868249999999996,
+          "voice_register": 11.725749999999994,
           "voice_quality": 29.770000000000003,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 6.1027499999999995,
           "voice_articulation": 24.96,
           "voice_microtone": 25.285,
-          "voice_tradition": 20.646,
+          "voice_tradition": 20.5035,
           "voice_mechanism_compound": 6.044999999999999,
           "voice_estill_quality": 4.94,
           "voice_speech_song": 31.2325,
           "voice_ensemble_config": 23.854999999999997,
           "voice_ornament_system": 5.597999999999999,
           "voice_pitch_organization": 5.816250000000001,
-          "voice_processing_chain": 14.365,
+          "voice_processing_chain": 13.715,
           "voice_multitrack_stack": 13.324999999999998
         }
       },

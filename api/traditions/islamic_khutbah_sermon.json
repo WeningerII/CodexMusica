@@ -3,14 +3,14 @@
   "name": "Islamic khutbah sermon",
   "family": "global",
   "lineage": "The formal Friday (jumuah) and Eid sermon delivered by the khatib from the minbar, a two-part homily of praise, Qur'anic citation, exhortation, and supplication codified from the earliest Medinan community. It is delivered in heightened, projected Arabic oratory that frequently cadences into maqam-inflected dua and quoted Qur'anic verse. The rhetorical structure — opening hamd and salawat, admonition, and closing prayer for the community — is preserved across the Sunni and Shia worlds. It stands alongside the adhan and tajwid recitation as a central genre of Islamic vocal practice, though speech-centered rather than fully melodic.",
-  "recipe": "classic North African modern islamic khutbah sermon, ritual Devotional, islamic branch sufi inshad shipibo-conibo icaros healing songs. vocal fry, breath veiled tone, straight note core, interlocked note trading. stone plaster medina room. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe": "classic North African modern islamic khutbah sermon, ritual Devotional, islamic branch shipibo-conibo icaros healing songs sufi inshad. vocal fry, breath veiled tone, straight note core, interlocked note trading. stone plaster medina room. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 302,
-  "score": 240.989,
+  "score": 235.309,
   "config": {
     "traditions": [
       "islamic_khutbah_sermon",
-      "sufi_inshad_egyptian",
-      "shipibo_icaros"
+      "shipibo_icaros",
+      "sufi_inshad_egyptian"
     ],
     "instruments": [
       {
@@ -35,18 +35,18 @@
         },
         "scores": {
           "voice_register": 3.185,
-          "voice_quality": 36.335,
+          "voice_quality": 36.33500000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.145,
           "voice_articulation": 24.44,
-          "voice_microtone": 45.246500000000005,
-          "voice_tradition": 18.85,
+          "voice_microtone": 43.996500000000005,
+          "voice_tradition": 16.575,
           "voice_mechanism_compound": 5.700000000000001,
-          "voice_estill_quality": 5.547499999999999,
-          "voice_speech_song": 28.470000000000002,
+          "voice_estill_quality": 5.2924999999999995,
+          "voice_speech_song": 27.820000000000004,
           "voice_ensemble_config": 25.025,
-          "voice_ornament_system": 22.9845,
+          "voice_ornament_system": 21.7345,
           "voice_pitch_organization": 8.933500000000002,
           "voice_processing_chain": 13.389999999999999,
           "voice_multitrack_stack": 5.525

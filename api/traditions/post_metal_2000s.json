@@ -3,9 +3,9 @@
   "name": "Post-metal (2000s post-rock-meets-sludge extended-instrumental metal)",
   "family": "rock_punk",
   "lineage": "2000s heavy-metal subgenre developed from post-rock instrumental-architecture and sludge-metal heavy-distortion. Characterized by extended-instrumental compositions (typically 8-15 minutes), gradual-crescendo dynamic-architecture, melodic-and-screamed vocal-alternation, and explicit-progressive-cinematic compositional ambition. Neurosis (foundational Bay Area 1985-onward), Isis (Boston 1997-2010), Cult of Luna (Sweden), Pelican (Chicago, instrumental), and the broader Hydra Head Records and Robotic Empire roster anchor the canonical post-metal roster.",
-  "recipe": "classic Midwestern American post-metal, distorted Rock, sludge branch, western modern art music polish avant-garde / sonorism indeterminacy and aleatoric. thick, larynx lowered, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, orange amp British heavy crunch alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit. stoner doom garage amplifier room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 639,
-  "score": 329.7,
+  "recipe": "classic Midwestern American post-metal, distorted Rock, sludge branch, western modern art music polish avant-garde / sonorism indeterminacy and aleatoric. thick, larynx lowered, pure, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit. stoner doom garage amplifier room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 628,
+  "score": 323.605,
   "config": {
     "traditions": [
       "post_metal_2000s",
@@ -20,7 +20,7 @@
           "voice_quality": "lowered_larynx_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "straight_tone",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
@@ -38,17 +38,17 @@
           "voice_quality": 9.589999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.4350000000000005,
-          "voice_articulation": 13.129999999999997,
+          "voice_vibrato": 5.9399999999999995,
+          "voice_articulation": 12.479999999999997,
           "voice_microtone": 19.475,
           "voice_tradition": 7.085000000000001,
           "voice_mechanism_compound": 21.849999999999998,
           "voice_estill_quality": 4.8100000000000005,
-          "voice_speech_song": 15.144999999999998,
-          "voice_ensemble_config": 13.064999999999996,
+          "voice_speech_song": 14.494999999999997,
+          "voice_ensemble_config": 12.414999999999996,
           "voice_ornament_system": 4.94,
           "voice_pitch_organization": 2.7900000000000005,
-          "voice_processing_chain": 11.184999999999997,
+          "voice_processing_chain": 11.034999999999997,
           "voice_multitrack_stack": 8.415
         }
       },
@@ -71,14 +71,14 @@
         },
         "scores": {
           "electric_technique": 22.924999999999997,
-          "amp_make": 17.29,
-          "body_wood": 15.665000000000001,
+          "amp_make": 16.639999999999997,
+          "body_wood": 15.015,
           "neck_wood": 2.54,
           "fretboard": 3.9,
           "pickup_magnet": 2.8600000000000003,
           "pickup_winding": 2.8600000000000003,
           "string_material": 3.9,
-          "bridge": 0.65,
+          "bridge": 0.585,
           "scale_length": 18.004999999999995,
           "string_gauge": 1.8199999999999998,
           "finish": 0,
@@ -89,7 +89,7 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_british_orange",
-          "body_wood": "alder_b",
+          "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "extra_long_b",
@@ -97,8 +97,8 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 14.209999999999997,
-          "body_wood": 1.56,
+          "amp_make": 13.559999999999999,
+          "body_wood": 0.9750000000000001,
           "pickup_config": 3.7700000000000005,
           "string_type": 11.235,
           "scale_length_b": 2.8600000000000003,
@@ -114,7 +114,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 13.194999999999999,
+          "drum_technique": 12.544999999999998,
           "drumhead": 7.140000000000001,
           "drum_kit_kick_pedal": 0
         }

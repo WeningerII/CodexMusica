@@ -5,7 +5,7 @@
   "lineage": "Yoruba wedding-music tradition continuous from pre-colonial Yoruba ritual-practice through 19th-20th century continuous performance into modern Yoruba-and-Yoruba-diaspora domestic practice across southwestern Nigeria, Benin, Togo, and the Atlantic Afro-diaspora; the aso ebi (unified-dress) wedding tradition emphasizes group-celebration vocal-and-drumming participation",
   "recipe": "classic modern yoruba aso ebi wedding music, wedding, African diasporic branch, south Asian wedding, African pop functional song, west African groove percussion yoruba dùndún surrogate speech congolese rumba. thick, breath veiled tone, straight onset, interlocked note trading. omo cedrela odorata canonical Yoruba dundun goat skin leather tension cords canonical pressure bend talking drum, iroko west African premium cowhide rope lacing canonical mande dunun, shekere. festival stage. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 549,
-  "score": 296.757,
+  "score": 289.907,
   "config": {
     "traditions": [
       "yoruba_aso_ebi_wedding",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 12.429999999999998,
+          "voice_register": 11.929999999999998,
           "voice_quality": 21.319999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 7.3774999999999995,
           "voice_articulation": 18.33,
           "voice_microtone": 17.744999999999994,
-          "voice_tradition": 63.884999999999984,
+          "voice_tradition": 62.18499999999999,
           "voice_mechanism_compound": 0.585,
           "voice_estill_quality": 3.575,
-          "voice_speech_song": 25.284999999999993,
+          "voice_speech_song": 24.634999999999994,
           "voice_ensemble_config": 18.524999999999995,
-          "voice_ornament_system": 9.849999999999996,
-          "voice_pitch_organization": 27.96999999999999,
+          "voice_ornament_system": 9.349999999999996,
+          "voice_pitch_organization": 26.71999999999999,
           "voice_processing_chain": 9.115,
           "voice_multitrack_stack": 4.875000000000001
         }
@@ -61,9 +61,9 @@
           "talking_drum_head": "talking_drum_goat_skin_canonical"
         },
         "scores": {
-          "talking_drum_origin": 2.2499999999999996,
+          "talking_drum_origin": 1.7499999999999998,
           "talking_drum_context": 3.5100000000000002,
-          "talking_drum_shell_wood": 10.934999999999999,
+          "talking_drum_shell_wood": 10.434999999999999,
           "talking_drum_head": 2.3850000000000002
         }
       },
@@ -90,7 +90,7 @@
         },
         "scores": {
           "shekere_size": 1.365,
-          "shekere_beads": 25.15
+          "shekere_beads": 23.9
         }
       }
     ],

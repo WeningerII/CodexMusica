@@ -5,7 +5,7 @@
   "lineage": "East-Asian Pure-Land (Jingtu / Jodo) devotional chant tradition centered on the Amitabha nembutsu (recitation of Amitabha’s name) — codified through 5th-century Chinese teacher Tan Luan, formalized as separate school by Shan Tao (613-681), studio-recorded 1960-1980, then Honen (1133-1212) establishing Jōdo-shū in Japan, and Shinran (1173-1263) founding Jōdo Shinshū; characterized by repetitive nianfo / nembutsu name-chanting practice in slow-tempo melismatic delivery",
   "recipe": "classic Northeast Asian mid-1970s pure land buddhist chant, ritual Devotional, buddhist branch, east Asian art music beijing opera tibetan ache lhamo opera. thick, breath veiled tone, slow rate, interlocked note trading. tibetan monastery assembly. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 321,
-  "score": 185.657,
+  "score": 180.017,
   "config": {
     "traditions": [
       "pure_land_buddhist",
@@ -26,7 +26,7 @@
           "voice_tradition": "chinese_classical_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
-          "voice_speech_song": "voice_recitative_free_rhythm",
+          "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
@@ -43,10 +43,10 @@
           "voice_microtone": 15.599999999999998,
           "voice_tradition": 36.9525,
           "voice_mechanism_compound": 7.049999999999999,
-          "voice_estill_quality": 21.799999999999994,
-          "voice_speech_song": 16.714999999999996,
+          "voice_estill_quality": 18.849999999999998,
+          "voice_speech_song": 16.25,
           "voice_ensemble_config": 18.004999999999995,
-          "voice_ornament_system": 17.279999999999998,
+          "voice_ornament_system": 15.055,
           "voice_pitch_organization": 7.66,
           "voice_processing_chain": 6.5,
           "voice_multitrack_stack": 3.25

@@ -5,7 +5,7 @@
   "lineage": "Aboriginal Australian songlines tradition embedding the didgeridoo (Yolngu yiḏaki) as both instrument and oral-historical-mnemonic system mapping landscape across Arnhem Land (Northern Territory) and the broader Top End. The yiḏaki is a hollowed eucalyptus-trunk natural-trumpet played with constant-airflow circular-breathing technique. Performance contexts span the manikay public ceremonial-song tradition (which is sung-vocal with clapsticks plus yiḏaki accompaniment) and the more specialized initiation-ceremony repertoire restricted to initiated men. Each manikay cycle maps a specific songline-route across the country, encoding geographic and ancestral knowledge. Distinguished from the broader generic didgeridoo-solo by manikay's ceremonial-functional context and Yolngu-specific yiḏaki performance lineage.",
   "recipe": "classic Southeast Asian modern aboriginal didgeridoo solo songlines, ritual Devotional, indigenous branch, wind pipe drone modal yidaki solo gaita galega solo. eucalyptus tetrodonta yidaki canon northeast arnhem drone like circular breathing didgeridoo, heavy one piece matched to monette horn trumpet. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 460,
-  "score": 57.839,
+  "score": 54.039,
   "config": {
     "traditions": [
       "australian_didgeridoo_yidaki_extended",
@@ -23,8 +23,8 @@
         },
         "scores": {
           "wind_articulation": 20.355999999999998,
-          "didj_material": 17.065,
-          "didj_mouthpiece": 13.264,
+          "didj_material": 15.165000000000001,
+          "didj_mouthpiece": 11.363999999999999,
           "didj_technique": 6.5745
         }
       },

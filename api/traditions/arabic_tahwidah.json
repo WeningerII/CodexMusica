@@ -5,7 +5,7 @@
   "lineage": "Pan-Arab lullaby tradition (the term tahwidah cognate with the Arabic verb hawwada, 'to lull/soothe'), regional variants across Levantine, Maghrebi, Egyptian, Yemeni, and Gulf-Arabian traditions. Sung by mothers-and-grandmothers in informal domestic-context with no instrumental accompaniment, the tahwidah employs free-rhythm slow-tempo melismatic-ornamentation drawing on classical-maqam modal-vocabulary (Bayati, Rast, and Hijaz being the most common for lullabies). Lyrics typically address the child directly (often with regional-dialectal diminutives) and reference religious-protection invocations, mother's-and-grandmother's wishes-for-the-child, and pastoral imagery. The tradition has been disproportionately preserved by ethnomusicological field-recordings since the 1960s due to its private-domestic context being underrepresented in commercial-recording.",
   "recipe": "classic mid-1960s arabic tahwidah, lullaby, middle eastern branch, middle eastern classical art music, vocal drone modal, med east poetic ballad poetry persian dastgāh andalusī nūba. vocal fry, breath veiled tone, slow rate, interlocked note trading. carpeted bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 331,
-  "score": 316.17,
+  "score": 314.77,
   "config": {
     "traditions": [
       "arabic_tahwidah",
@@ -40,9 +40,9 @@
           "voice_effort": 0,
           "voice_vibrato": 22.587499999999995,
           "voice_articulation": 13.714999999999995,
-          "voice_microtone": 52.04,
+          "voice_microtone": 51.89,
           "voice_tradition": 41.91,
-          "voice_mechanism_compound": 26.689999999999994,
+          "voice_mechanism_compound": 25.44,
           "voice_estill_quality": 20.079999999999995,
           "voice_speech_song": 18.259999999999994,
           "voice_ensemble_config": 13.649999999999993,

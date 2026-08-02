@@ -5,7 +5,7 @@
   "lineage": "The mainstream commercial pop tradition — the broad radio-and-chart center of recorded popular music: vocal-forward, hook-driven song spanning the postwar Brill Building era through the streaming age",
   "recipe": "classic modern pop, functional Song, pop rock branch. extended whistle, breath veiled tone, interlocked note trading, equal tempered. singing lead analog synth, TR-808, ernie ball slinky electric bass, heavy bus compression glue post 2010 multitrack vocal stack. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 456,
-  "score": 116.965,
+  "score": 116.65,
   "config": {
     "traditions": [
       "pop"
@@ -77,7 +77,7 @@
         "scores": {
           "tr808_voice": 0.325,
           "drum_machine_808_context": 2.08,
-          "tr808_production_origin": 0.2415
+          "tr808_production_origin": 0.1365
         }
       },
       {
@@ -94,9 +94,9 @@
         "scores": {
           "amp_make": 1.885,
           "body_wood": 0.378,
-          "pickup_config": 0.4095,
+          "pickup_config": 0.3045,
           "string_type": 4.875,
-          "scale_length_b": 0.273,
+          "scale_length_b": 0.168,
           "fretted_or_not": 0.0315,
           "bass_technique": 3.805
         }

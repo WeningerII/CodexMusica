@@ -5,7 +5,7 @@
   "lineage": "Brazilian instrumental urban-popular-music tradition originating 1870s-onward in Rio de Janeiro from European salon-dance (polka, schottische, waltz, mazurka) re-rhythmicized through Afro-Brazilian syncopation (especially habanera-derived). The canonical regional-choro ensemble: solo lead (flute, clarinet, or mandolin), seven-string guitar (violão-de-sete) providing baixaria walking-bass-line, six-string guitar accompanying-harmony, cavaquinho four-double-course soprano-guitar rhythmic-strum, and pandeiro frame-drum-with-jingles. The repertoire layers virtuosic compositional pieces (often modulating through multiple keys with rapid 16th-note arpeggios) with roda-de-choro participatory jam-session-tradition. Three historical phases: foundational late-19th-century, golden-age 1920s-1940s, and bossa-nova-and-modern-revival 1950s-onward.",
   "recipe": "classic mid-1870s choro, improv On Frame, string improv branch, Brazilian groove percussion samba tropicália. Brazilian flat back European spruce choro luthier canon Brazilian rosewood pre 1992 vintage bandolim, choro tradition nylon Brazilian rosewood pre 1992 choro cedar canonical choro violao 7 cordas, cedar strummed open chord ringing overtones classical nylon-string guitar, samba foundation mahogany samba canon steel modern strummed cavaquinho, powell boston canonical American orchestral flute, ebonite hard rubber klezmer tradition clarinet, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro, choro group. parlor. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 776,
-  "score": 229.718,
+  "score": 227.767,
   "config": {
     "traditions": [
       "choro",
@@ -77,9 +77,9 @@
         },
         "scores": {
           "plucked_traditional_technique": 5.1025,
-          "cavaquinho_origin": 9.945,
+          "cavaquinho_origin": 9.294999999999998,
           "cavaquinho_context": 28.07999999999999,
-          "cavaquinho_body_wood": 6.4350000000000005,
+          "cavaquinho_body_wood": 5.784999999999999,
           "cavaquinho_strings": 1.3
         }
       },
@@ -129,7 +129,7 @@
         },
         "scores": {
           "percussion_technique": 2.45,
-          "pandeiro_size": 7.735,
+          "pandeiro_size": 7.084999999999999,
           "pandeiro_context": 4.68,
           "pandeiro_head": 13.454999999999997,
           "pandeiro_shell_wood": 13.454999999999997,

@@ -5,7 +5,7 @@
   "lineage": "Early-2010s atmospheric-trap experimental hip-hop subgenre extending cloud-rap aesthetic through more ambient-arrangement, washed-out post-rock textures, and surreal lyrical content — codified through early Lil B (Rain in England 2010), Yung Lean (Unknown Death 2013), Sad Boys, Spaceghostpurrp, Awful Records, with the form serving as a key conduit for the late-2010s online-distributed rap scene",
   "recipe": "classic Southern American 2010-2013 cloud rap, mc Rhythm, experimental branch, lofi experimental electric chillwave hypnagogic pop. thick, rap, straight onset, interlocked note trading. glitched textural sampler, singing lead digital subtractive, TR-808. treated studio. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay lexicon 224 / 480L.",
   "recipe_chars": 414,
-  "score": 204.551,
+  "score": 200.417,
   "config": {
     "traditions": [
       "cloud_rap_experimental",
@@ -22,7 +22,7 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "microtonal_31tet_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -34,13 +34,13 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 10.498624999999993,
-          "voice_quality": 13.053749999999999,
+          "voice_register": 9.248624999999993,
+          "voice_quality": 12.614999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.0149999999999997,
           "voice_articulation": 8.774999999999999,
-          "voice_microtone": 10.424999999999997,
+          "voice_microtone": 9.229999999999999,
           "voice_tradition": 17.284000000000002,
           "voice_mechanism_compound": 3.38,
           "voice_estill_quality": 3.185000000000001,
@@ -77,7 +77,7 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 7.2815,
+          "electronic_technique": 6.0315,
           "va_archetypes": 0.845,
           "digital_subtractive_context": 9.359999999999996
         }

@@ -3,9 +3,9 @@
   "name": "Classic blues women",
   "family": "blues_gospel",
   "lineage": "1920s vaudeville female-blues piano-led jazz-combo tradition codified through Mamie Smith’s \"Crazy Blues\" (1920, the first commercial blues recording), Bessie Smith (\"Downhearted Blues\" 1923, \"St. Louis Blues\" 1925 with Louis Armstrong), Ma Rainey, Ethel Waters, Alberta Hunter, Ida Cox, and Sippie Wallace — characterized by jazz-band accompaniment, theatrical-stage delivery, and the African-American TOBA vaudeville circuit context",
-  "recipe": "classic mid-1920s classic blues women, ballad Poetry, classic blues women branch, blues narrative hokum blues, American jazz early new orleans jazz. thick, blues-shouter, wide pitch sway, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, yellow brass canonical brass band conn vintage early jazz canon front line cornet, ebonite hard rubber klezmer tradition front line clarinet, alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, red brass 90 10 darker orchestral bach 42 canonical American orchestral tenor ensemble student commercial trombone, growly gut upright bass, compensated bridge snuffy smith scruggs stelling bluegrass setup mastertone flathead banjo 5 string, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre.",
-  "recipe_chars": 1000,
-  "score": 773.204,
+  "recipe": "classic mid-1920s classic blues women, ballad Poetry, classic blues women branch, blues narrative hokum blues, American jazz early new orleans jazz. thick, blues-shouter, wide pitch sway, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, yellow brass canonical brass band conn vintage early jazz canon cornet, ebonite hard rubber klezmer tradition clarinet, alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, red brass 90 10 darker orchestral bach 42 canonical American orchestral tenor ensemble student commercial trombone, growly gut upright bass, compensated bridge snuffy smith scruggs stelling bluegrass setup mastertone flathead banjo 5 string, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console.",
+  "recipe_chars": 999,
+  "score": 747.694,
   "config": {
     "traditions": [
       "classic_blues_women",
@@ -23,7 +23,7 @@
           "voice_vibrato": "oscillating_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "bend_inflected",
-          "voice_tradition": "jazz_scat_tradition",
+          "voice_tradition": "gospel_pentecostal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 68.12512500000001,
-          "voice_quality": 17.672375,
+          "voice_register": 65.62512500000001,
+          "voice_quality": 17.507375,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 47.250000000000014,
+          "voice_vibrato": 46.000000000000014,
           "voice_articulation": 16.34049999999999,
-          "voice_microtone": 45.86950000000001,
-          "voice_tradition": 23.235625,
+          "voice_microtone": 44.61950000000001,
+          "voice_tradition": 22.07125,
           "voice_mechanism_compound": 4.745,
           "voice_estill_quality": 6.99025,
           "voice_speech_song": 16.89999999999999,
           "voice_ensemble_config": 16.73037499999999,
           "voice_ornament_system": 0.9749999999999994,
           "voice_pitch_organization": 3.7050000000000005,
-          "voice_processing_chain": 7.890000000000001,
+          "voice_processing_chain": 7.74,
           "voice_multitrack_stack": 2.1254999999999997
         }
       },
@@ -87,11 +87,11 @@
           "cornet_maker_school": "cornet_conn_vintage"
         },
         "scores": {
-          "wind_articulation": 3.51,
-          "cornet_pitch": 16.97875,
+          "wind_articulation": 2.76,
+          "cornet_pitch": 16.07875,
           "cornet_context": 5.46,
           "cornet_bell_metal": 5.59,
-          "cornet_maker_school": 13.584999999999999
+          "cornet_maker_school": 12.934999999999999
         }
       },
       {
@@ -104,7 +104,7 @@
           "clarinet_articulation": "doina_clarinet"
         },
         "scores": {
-          "wind_articulation": 3.51,
+          "wind_articulation": 2.76,
           "clarinet_body": 3.2500000000000004,
           "clarinet_size": 0.993125,
           "clarinet_reed": 0.9500000000000001,
@@ -126,10 +126,10 @@
           "wind_articulation": 3.5244999999999997,
           "sax_size": 1.85,
           "sax_reed": 0.9500000000000001,
-          "sax_body_alloy": 19.174999999999997,
+          "sax_body_alloy": 17.924999999999997,
           "sax_mouthpiece": 1.8499999999999999,
-          "sax_technique": 18.6295,
-          "sax_maker_school": 20.360625
+          "sax_technique": 17.3795,
+          "sax_maker_school": 18.660625
         }
       },
       {
@@ -145,8 +145,8 @@
         },
         "scores": {
           "wind_articulation": 3.5244999999999997,
-          "trombone_type": 18.630625,
-          "trombone_mouthpiece": 19.7745,
+          "trombone_type": 17.380625,
+          "trombone_mouthpiece": 18.5245,
           "trombone_mute": 0.6,
           "trombone_technique": 0.39,
           "trombone_bell_metal": 2.145,
@@ -160,8 +160,8 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 18.625,
-          "upright_play": 18.625
+          "upright_strings": 17.375,
+          "upright_play": 17.375
         }
       },
       {
@@ -202,12 +202,12 @@
           "harmonica_tuning": "harmonica_richter_canonical"
         },
         "scores": {
-          "harmonica_type": 9.684999999999999,
-          "harmonica_comb": 53.65400000000002,
-          "harmonica_reed": 46.164375000000014,
-          "harmonica_technique": 46.130625000000016,
-          "harmonica_maker_school": 50.24800000000001,
-          "harmonica_tuning": 20.103000000000005
+          "harmonica_type": 9.034999999999998,
+          "harmonica_comb": 52.25400000000002,
+          "harmonica_reed": 44.914375000000014,
+          "harmonica_technique": 44.880625000000016,
+          "harmonica_maker_school": 48.683000000000014,
+          "harmonica_tuning": 19.438000000000002
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Portuguese cradle-song tradition continuous from medieval-and-early-modern Iberian cradle-song practice through 19th-century Romantic folksong collection and into modern Lusophone domestic practice in Portugal and Lusophone Africa",
   "recipe": "classic modern portuguese acalanto, lullaby, European branch, Mediterranean ballad ballad poetry, iberian functional song, chanson fado ballad poetry morna cape verdean batuko of santiago island. vocal fry, breath veiled tone, straight onset, interlocked note trading. carpeted bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 349,
-  "score": 188.562,
+  "score": 187.912,
   "config": {
     "traditions": [
       "portuguese_acalanto",
@@ -48,7 +48,7 @@
           "voice_ensemble_config": 24.764999999999997,
           "voice_ornament_system": 6.574999999999999,
           "voice_pitch_organization": 4.95,
-          "voice_processing_chain": 8.645000000000003,
+          "voice_processing_chain": 7.995000000000004,
           "voice_multitrack_stack": 5.525
         }
       }

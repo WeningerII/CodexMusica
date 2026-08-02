@@ -5,7 +5,7 @@
   "lineage": "1920s through 1940s African-American piano-blues idiom built on left-hand ostinato bass figures (walking-eighths or rolling-octaves) under right-hand blues melody — codified through Pinetop Smith’s \"Pinetop’s Boogie Woogie\" (1928), the Carnegie Hall From Spirituals to Swing concert (1938) bringing Albert Ammons, Meade Lux Lewis, and Pete Johnson to white audiences, and the wartime crossover into jump blues",
   "recipe": "classic mid-1920s boogie-woogie, improv On Frame, boogie woogie branch, American jazz pre jazz ragtime, blues acoustic functional song piedmont blues. thick, blues-shouter, wide pitch sway, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator European spruce grand stride upright stride tack piano. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 467,
-  "score": 291.942,
+  "score": 287.531,
   "config": {
     "traditions": [
       "boogie_woogie",
@@ -72,14 +72,14 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 47.5555267857143,
-          "voice_quality": 15.167589285714278,
+          "voice_register": 46.3055267857143,
+          "voice_quality": 14.51758928571428,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 27.923214285714284,
+          "voice_vibrato": 26.673214285714284,
           "voice_articulation": 17.716866071428562,
-          "voice_microtone": 26.648214285714282,
-          "voice_tradition": 18.764285714285712,
+          "voice_microtone": 25.398214285714282,
+          "voice_tradition": 18.753571428571426,
           "voice_mechanism_compound": 3.003330357142857,
           "voice_estill_quality": 4.3303303571428575,
           "voice_speech_song": 19.447312499999992,

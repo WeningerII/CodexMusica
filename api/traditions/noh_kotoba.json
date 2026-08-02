@@ -5,7 +5,7 @@
   "lineage": "In noh, the classical masked music-drama codified by Kan'ami and Zeami in 14th-century Japan, kotoba denotes the spoken (rather than chanted) passages of the text, delivered in a heightened, slow, resonant declamation with a characteristically lowered larynx and darkened timbre. Kotoba alternates with the melodic utai chant and is set against the hayashi ensemble of flute and drums, but is itself stylized speech governed by the strict schools Kanze, Hosho, Konparu, Kongo, and Kita. It is transmitted through hereditary iemoto lineages and preserved in centuries of utaibon libretti. It is documented in the National Noh Theatre records and the Nogaku UNESCO inscription.",
   "recipe": "classic East Asian modern noh kotoba spoken declamation, art Music, east Asian branch thai classical beijing opera. thick, breath veiled tone, slow rate, interlocked note trading. noh stage japanese. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 262,
-  "score": 304.458,
+  "score": 293.203,
   "config": {
     "traditions": [
       "noh_kotoba",
@@ -38,16 +38,16 @@
           "voice_quality": 23.465,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 22.800499999999996,
+          "voice_vibrato": 21.550499999999996,
           "voice_articulation": 25.350000000000005,
           "voice_microtone": 25.154999999999998,
-          "voice_tradition": 40.5925,
-          "voice_mechanism_compound": 17.399999999999995,
-          "voice_estill_quality": 30.41474999999999,
+          "voice_tradition": 38.9675,
+          "voice_mechanism_compound": 16.149999999999995,
+          "voice_estill_quality": 27.659749999999992,
           "voice_speech_song": 31.460000000000004,
           "voice_ensemble_config": 26.064999999999998,
-          "voice_ornament_system": 24.58499999999999,
-          "voice_pitch_organization": 19.360499999999995,
+          "voice_ornament_system": 22.08499999999999,
+          "voice_pitch_organization": 18.110499999999995,
           "voice_processing_chain": 9.36,
           "voice_multitrack_stack": 7.345000000000001
         }

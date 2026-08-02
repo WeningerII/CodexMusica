@@ -3,14 +3,14 @@
   "name": "Sufi sama (Indian-subcontinental Sufi devotional ceremony)",
   "family": "global",
   "lineage": "Chishti-order Sufi devotional ceremony tradition centered on sama (Arabic for listening), the practice of group listening to qawwali-style devotional poetry-singing as a path toward divine union; performed at dargah (Sufi shrine) settings across the Indian subcontinent, with the Nizamuddin Auliya shrine in Delhi and the Khwaja Moinuddin Chishti shrine in Ajmer as the principal pilgrimage sites",
-  "recipe": "classic North African early-1940s sufi sama, ritual Devotional, Sufi branch, Persian arab improv improv on frame, indian classical improv improv on frame iraqi maqam tarab. vocal fry, declaimed, slow rate, interlocked note trading. indian rosewood rosewood copper tabla, vocal female harmonium indian, gut 3 main playing strings legato sarangi, qawwal voice, walnut bent frame canonical Iranian goat skin canonical Sufi tar frame drum. fez andalusi palace riad. large-diaphragm condenser, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips echo spring reverb.",
-  "recipe_chars": 579,
-  "score": 250.754,
+  "recipe": "classic North African early-1940s sufi sama, ritual Devotional, Sufi branch, Persian arab improv improv on frame, indian classical improv improv on frame iraqi maqam tarana. vocal fry, declaimed, slow rate, interlocked note trading. indian rosewood rosewood copper tabla, vocal female harmonium indian, gut 3 main playing strings legato sarangi, qawwal voice, walnut bent frame canonical Iranian goat skin canonical Sufi tar frame drum. fez andalusi palace riad. large-diaphragm condenser, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips echo spring reverb.",
+  "recipe_chars": 580,
+  "score": 236.191,
   "config": {
     "traditions": [
       "sufi_sama",
       "iraqi_maqam",
-      "tarab_egyptian"
+      "tarana"
     ],
     "instruments": [
       {
@@ -26,30 +26,30 @@
           "voice_tradition": "qawwali_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
-          "voice_speech_song": "voice_recitative_free_rhythm",
-          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_speech_song": "voice_non_lexical_vocable",
+          "voice_ensemble_config": "voice_ensemble_solo_over_choral_drone",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
           "voice_processing_chain": "voice_processing_stutter_edit",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 1.885,
+          "voice_register": 2.9899999999999998,
           "voice_quality": 16.97767857142857,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 8.97,
-          "voice_articulation": 2.7950000000000004,
-          "voice_microtone": 21.352499999999996,
-          "voice_tradition": 28.177964285714285,
-          "voice_mechanism_compound": 14.16125,
-          "voice_estill_quality": 10.24775,
-          "voice_speech_song": 7.163214285714287,
-          "voice_ensemble_config": 3.7700000000000005,
-          "voice_ornament_system": 17.486250000000002,
-          "voice_pitch_organization": 17.685,
-          "voice_processing_chain": 3.1200000000000006,
-          "voice_multitrack_stack": 1.885
+          "voice_vibrato": 7.9625,
+          "voice_articulation": 2.405,
+          "voice_microtone": 7.8,
+          "voice_tradition": 27.12796428571428,
+          "voice_mechanism_compound": 11.13625,
+          "voice_estill_quality": 10.272749999999998,
+          "voice_speech_song": 8.515,
+          "voice_ensemble_config": 3.5100000000000002,
+          "voice_ornament_system": 15.524999999999999,
+          "voice_pitch_organization": 13.434999999999999,
+          "voice_processing_chain": 4.7265,
+          "voice_multitrack_stack": 3.3799999999999994
         }
       },
       {
@@ -60,9 +60,9 @@
           "tabla_syahi": "aged_syahi"
         },
         "scores": {
-          "tabla_dayan": 6.955000000000001,
-          "tabla_bayan": 3.5100000000000002,
-          "tabla_syahi": 3.25
+          "tabla_dayan": 7.605,
+          "tabla_bayan": 3.185,
+          "tabla_syahi": 3.445
         }
       },
       {
@@ -75,9 +75,9 @@
         },
         "scores": {
           "free_reed_technique": 0,
-          "harmonium_action": 1.885,
-          "harmonium_voicing": 1.885,
-          "harmonium_use": 5.3950000000000005
+          "harmonium_action": 2.9899999999999998,
+          "harmonium_voicing": 2.9899999999999998,
+          "harmonium_use": 6.175
         }
       },
       {
@@ -91,11 +91,11 @@
           "sarangi_body_wood": "sarangi_tun_body"
         },
         "scores": {
-          "bowed_technique": 6.955714285714286,
-          "sarangi_belly": 2.0799999999999996,
+          "bowed_technique": 6.3307142857142855,
+          "sarangi_belly": 2.9899999999999998,
           "sarangi_taraf": 0.045,
           "sarangi_bow": 0.24,
-          "sarangi_main_strings": 2.4699999999999998,
+          "sarangi_main_strings": 3.575,
           "sarangi_body_wood": 0.65
         }
       },
@@ -106,7 +106,7 @@
           "qawwal_voice_context": "qawwal_voice_shrine"
         },
         "scores": {
-          "qawwal_role": 34.09767857142857,
+          "qawwal_role": 33.94767857142857,
           "qawwal_voice_context": 5.3705
         }
       },
@@ -122,7 +122,7 @@
         "scores": {
           "percussion_technique": -0.1,
           "tar_size": 6.910499999999999,
-          "tar_frame_drum_context": 3.5100000000000002,
+          "tar_frame_drum_context": 3.185,
           "tar_frame_shell_wood": 4.42,
           "tar_frame_head": 7.5729999999999995
         }

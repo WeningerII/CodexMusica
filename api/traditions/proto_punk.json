@@ -5,7 +5,7 @@
   "lineage": "Late-1960s-early-1970s American-and-European rock styles prefiguring punk's 1976-77 emergence. The Velvet Underground & Nico (1967), the Stooges (1969), the MC5 (1969), the New York Dolls (1973), and the Modern Lovers (recorded 1971-72) constitute the canonical American proto-punk core; the Detroit-MC5-Stooges nexus and the New York Velvet Underground-Dolls scene defined the principal geographic-cultural axes.",
   "recipe": "classic North American 1967-1969 proto-punk, distorted Rock, punk branch, classic distorted rock merseybeat. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. eighth street greenwich village 1970-present major-flagship electric lady studios nyc. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 652,
-  "score": 323.394,
+  "score": 321.199,
   "config": {
     "traditions": [
       "proto_punk",
@@ -31,7 +31,7 @@
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
           "voice_register": 19.244999999999994,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 0.845,
           "voice_pitch_organization": 8.71,
           "voice_processing_chain": 6.955000000000001,
-          "voice_multitrack_stack": 7.280000000000001
+          "voice_multitrack_stack": 6.385000000000001
         }
       },
       {
@@ -71,7 +71,7 @@
         },
         "scores": {
           "electric_technique": 12.7,
-          "amp_make": 26.974999999999994,
+          "amp_make": 26.324999999999996,
           "body_wood": 3.965,
           "neck_wood": 0.99,
           "fretboard": 0.135,
@@ -97,7 +97,7 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 10.464999999999996,
+          "amp_make": 9.815,
           "body_wood": 1.9800000000000002,
           "pickup_config": 0,
           "string_type": 20.637499999999996,

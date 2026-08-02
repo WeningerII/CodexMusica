@@ -5,7 +5,7 @@
   "lineage": "1930s-1940s American jazz orchestra format with sectional brass-and-reed arrangement, 14-18 musicians, and dance-band repertoire emphasis. The Swing Era dominated American popular music c.1935-1945, with Benny Goodman, Count Basie, Duke Ellington, Glenn Miller, Tommy Dorsey, and Artie Shaw orchestras as canonical bandleaders. Distinguished from earlier hot-jazz by swing big band's formal-arranged composition (vs improvisational-collective) framework and dance-floor commercial-orientation.",
   "recipe": "classic North American mid-1940s swing big band, improv On Frame, early branch, American jazz kansas city kansas city swing. thick, blues-shouter, straight onset, interlocked note trading. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral jazz balance trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor student commercial trombone, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, cold pressed wurzen felt oversize maple tension resonator grand piano, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. voluminous 1935-1955 major-flagship swing live room. passive ribbon, tube pre, German tube console. Studer 30ips tape.",
   "recipe_chars": 806,
-  "score": 441.903,
+  "score": 439.406,
   "config": {
     "traditions": [
       "swing_big_band",
@@ -34,13 +34,13 @@
         },
         "scores": {
           "voice_register": 23.745499999999996,
-          "voice_quality": 8.161500000000002,
+          "voice_quality": 7.411500000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 20.205250000000003,
           "voice_articulation": 11.699999999999996,
           "voice_microtone": 21.1565,
-          "voice_tradition": 24.642875,
+          "voice_tradition": 24.309125,
           "voice_mechanism_compound": 3.3051249999999994,
           "voice_estill_quality": 3.172625,
           "voice_speech_song": 11.894999999999996,
@@ -65,7 +65,7 @@
         "scores": {
           "wind_articulation": 1.9000000000000001,
           "brass_size": 0.585,
-          "trumpet_mouthpiece": 24.133,
+          "trumpet_mouthpiece": 23.79925,
           "brass_mute": 0,
           "trumpet_technique": 0.75,
           "trumpet_bell_metal": 3.198625,
@@ -111,7 +111,7 @@
           "sax_body_alloy": 21.3825,
           "sax_mouthpiece": 0.585,
           "sax_technique": 21.375,
-          "sax_maker_school": 23.592625
+          "sax_maker_school": 23.258875000000003
         }
       },
       {
@@ -130,7 +130,7 @@
         "scores": {
           "keyboard_technique": 1.9743750000000002,
           "grand_piano_size": 1.4608750000000001,
-          "grand_piano_brand": 2.015,
+          "grand_piano_brand": 1.91,
           "piano_hammer": 9.31375,
           "piano_rim": 10.7805,
           "piano_soundboard": 0.975,
@@ -158,8 +158,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 22.879999999999995,
-          "drumhead": 24.12675,
+          "drum_technique": 22.57275,
+          "drumhead": 23.793000000000003,
           "drum_kit_kick_pedal": 0
         }
       }

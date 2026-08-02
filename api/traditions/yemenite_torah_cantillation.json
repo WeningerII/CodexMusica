@@ -5,7 +5,7 @@
   "lineage": "Yemenite Jewish liturgical Torah-cantillation tradition that preserves what scholars consider one of the most archaic surviving teamim (Masoretic cantillation-sign) reading traditions, descended from the Yemenite Jewish community continuously resident in Yemen from at least the 5th century until the Operation Magic Carpet mass-emigration to Israel 1949-50; characterized by Saadia Gaon-derived liturgical Hebrew pronunciation and microtonal modal vocabulary distinct from Ashkenazi or Sephardi traditions",
   "recipe": "classic Middle Eastern late-1940s yemenite torah cantillation, ritual Devotional, Jewish branch, med east poetic ballad poetry arabic hakawati coffeehouse storytelling kurdish dengbêj. extended whistle, breath veiled tone, wide pitch sway, interlocked note trading. call ritual shofar. mediterranean sephardi synagogue. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 382,
-  "score": 96.838,
+  "score": 91.69,
   "config": {
     "traditions": [
       "yemenite_torah_cantillation",
@@ -25,11 +25,11 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_pitch_organization": "voice_pitch_turkish_makam_53_comma",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
@@ -40,14 +40,14 @@
           "voice_effort": 0,
           "voice_vibrato": 1.395,
           "voice_articulation": 8.515,
-          "voice_microtone": 13.487499999999995,
-          "voice_tradition": 8.06,
+          "voice_microtone": 11.797499999999996,
+          "voice_tradition": 7.41,
           "voice_mechanism_compound": 3.8349999999999995,
-          "voice_estill_quality": 2.6000000000000005,
+          "voice_estill_quality": 2.3399999999999994,
           "voice_speech_song": 8.515,
           "voice_ensemble_config": 9.295,
-          "voice_ornament_system": 4.95,
-          "voice_pitch_organization": 2.645,
+          "voice_ornament_system": 3.65,
+          "voice_pitch_organization": 2.0475,
           "voice_processing_chain": 4.42,
           "voice_multitrack_stack": 2.7300000000000004
         }
@@ -62,7 +62,7 @@
         "scores": {
           "wind_articulation": 7.409999999999999,
           "shofar_shape": 2.3,
-          "shofar_context": 3.185
+          "shofar_context": 2.535
         }
       }
     ],

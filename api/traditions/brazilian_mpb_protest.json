@@ -5,7 +5,7 @@
   "lineage": "Brazilian Música Popular Brasileira (MPB) protest-song tradition continuous from 1964-1985 Brazilian-military-dictatorship-era political-songwriter scene; centered on Chico Buarque (the foundational figure whose subtle-allegorical anti-dictatorship songs evaded censorship most consistently), Caetano Veloso, Gilberto Gil, Geraldo Vandré, Milton Nascimento, Edu Lobo",
   "recipe": "classic Southern American mid-1970s brazilian mpb-era protest, protest Song, iberian Latin branch, European protest song, Brazilian song functional song, Latin am troubadour ballad poetry milonga greek éntechno politicized. thick, breath veiled tone, slow rate, interlocked note trading. cedar fingerpicked classical nylon-string guitar, jacaranda rosewood canonical Portuguese strummed cavaquinho. estudios scatena sp. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
   "recipe_chars": 555,
-  "score": 164.036,
+  "score": 161.761,
   "config": {
     "traditions": [
       "brazilian_mpb_protest",
@@ -41,7 +41,7 @@
           "voice_vibrato": 1.2613392857142856,
           "voice_articulation": 11.634999999999994,
           "voice_microtone": 11.992499999999993,
-          "voice_tradition": 16.444999999999997,
+          "voice_tradition": 14.819999999999999,
           "voice_mechanism_compound": 2.8599999999999994,
           "voice_estill_quality": 2.6650000000000005,
           "voice_speech_song": 22.81499999999999,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 4.575,
           "voice_pitch_organization": 4.225,
           "voice_processing_chain": 1.885,
-          "voice_multitrack_stack": 8.19
+          "voice_multitrack_stack": 7.54
         }
       },
       {

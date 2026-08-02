@@ -5,7 +5,7 @@
   "lineage": "Founding commercial-recording era of hip-hop — pre-sampling-technology, when hip-hop tracks were built with live session-band recreations of the breakbeats that DJs had isolated and looped from existing records during the Bronx block-party era. Recordings include the Sugar Hill Gang Rappers Delight 1979 (the commercial breakthrough, built on a session-band recreation of Chics Good Times bassline), Grandmaster Flash and the Furious Five The Message 1982 (the socially-conscious hip-hop breakthrough), Afrika Bambaataa Planet Rock 1982 (the Kraftwerk-Trans-Europe-Express-derived electro-funk hip-hop fusion), Run-DMC self-titled debut 1984",
   "recipe": "classic North American pre-sampling hip-hop, mc Rhythm, east coast branch, soul R&B functional song contemporary r&b doo-wop. thick, rap, straight onset, narrative. sampled chopped turntable, pre muffled edge muffled brushes-and-sticks drum kit, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, Fender blackface amp American 60s amp spring reverb bright chicken-scratch single coil electric guitar, drum machine 606, cheap paired with 303 chicago foundational TR-707. bronx harlem hip hop pioneer defining 1979-1991 indie-commercial nyc bronx hip hop block party studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 762,
-  "score": 315.977,
+  "score": 314.32,
   "config": {
     "traditions": [
       "pre_sampling_hip_hop_1979_1985",
@@ -31,14 +31,14 @@
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
-          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
           "voice_register": 21.599999999999998,
           "voice_quality": 12.899999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.1025,
+          "voice_vibrato": 3.4775000000000005,
           "voice_articulation": 21.795,
           "voice_microtone": 15.599999999999994,
           "voice_tradition": 17.4,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 3.185000000000001,
           "voice_pitch_organization": 2.0475000000000003,
           "voice_processing_chain": 12.45,
-          "voice_multitrack_stack": 5.102500000000001
+          "voice_multitrack_stack": 5.0699999999999985
         }
       },
       {

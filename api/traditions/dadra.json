@@ -3,9 +3,9 @@
   "name": "Dadra (Hindustani semi-classical light-vocal)",
   "family": "global",
   "lineage": "Hindustani semi-classical light-vocal genre cast in the dadra tala (six-beat rhythmic cycle, 3+3 grouping) — typically performed at the end of a thumri concert as a lighter-mood companion piece, with romantic-and-devotional Brij Bhasha and Awadhi lyrical content",
-  "recipe": "classic South Asian early-1950s dadra, improv On Frame, indian classical improv branch, hindu ritual devotional javali kriti. light, declaimed, slow rate, interlocked note trading. indian rosewood rosewood copper tabla, low overtone rich vocal male harmonium indian, gut 3 main playing strings legato sarangi. varanasi benares gharana baithak. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
-  "recipe_chars": 410,
-  "score": 271.554,
+  "recipe": "classic South Asian early-1950s dadra, improv On Frame, indian classical improv branch, hindu ritual devotional javali kriti. vocal fry, declaimed, slow rate, interlocked note trading. indian rosewood rosewood copper tabla, low overtone rich vocal male harmonium indian, gut 3 main playing strings legato sarangi. varanasi benares gharana baithak. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 414,
+  "score": 250.506,
   "config": {
     "traditions": [
       "dadra",
@@ -16,7 +16,7 @@
       {
         "id": "voice",
         "slots": {
-          "voice_register": "head_voice",
+          "voice_register": "vocal_fry",
           "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_recitative_free_rhythm",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_carnatic_gamaka",
+          "voice_ornament_system": "voice_ornament_hindustani_meend_gamak",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_plate_reverb_medium",
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 3.8524999999999996,
-          "voice_quality": 11.769499999999999,
+          "voice_register": 3.8349999999999995,
+          "voice_quality": 10.519499999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 18.15,
+          "voice_vibrato": 16.575,
           "voice_articulation": 8.45,
           "voice_microtone": 8.255,
-          "voice_tradition": 28.153999999999996,
-          "voice_mechanism_compound": 15.649999999999999,
-          "voice_estill_quality": 22.049999999999997,
-          "voice_speech_song": 15.649999999999999,
+          "voice_tradition": 24.598999999999997,
+          "voice_mechanism_compound": 14.399999999999999,
+          "voice_estill_quality": 20.799999999999997,
+          "voice_speech_song": 14.399999999999999,
           "voice_ensemble_config": 8.385,
-          "voice_ornament_system": 23.887,
-          "voice_pitch_organization": 24.756999999999998,
+          "voice_ornament_system": 20.694,
+          "voice_pitch_organization": 20.366999999999997,
           "voice_processing_chain": 3.705,
-          "voice_multitrack_stack": 5.135
+          "voice_multitrack_stack": 5.067
         }
       },
       {
@@ -60,8 +60,8 @@
           "tabla_syahi": "aged_syahi"
         },
         "scores": {
-          "tabla_dayan": 11.569999999999999,
-          "tabla_bayan": 8.115,
+          "tabla_dayan": 10.919999999999998,
+          "tabla_bayan": 7.4399999999999995,
           "tabla_syahi": 3.575
         }
       },
@@ -77,7 +77,7 @@
           "free_reed_technique": 0.8449999999999999,
           "harmonium_action": 3.8349999999999995,
           "harmonium_voicing": 3.8349999999999995,
-          "harmonium_use": 11.987
+          "harmonium_use": 11.312
         }
       },
       {
@@ -91,7 +91,7 @@
           "sarangi_body_wood": "sarangi_tun_body"
         },
         "scores": {
-          "bowed_technique": 15.75,
+          "bowed_technique": 14.5,
           "sarangi_belly": 3.8349999999999995,
           "sarangi_taraf": 0.195,
           "sarangi_bow": 0,

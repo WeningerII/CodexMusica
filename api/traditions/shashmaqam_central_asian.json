@@ -5,7 +5,7 @@
   "lineage": "Bukharan Central Asian classical six-modal-cycle tradition shared between Tajikistan and Uzbekistan. The six modal cycles — Buzruk, Rost, Navo, Dugoh, Segoh, Iroq — each a multi-movement suite structure. Origin in Bukhara city under the Bukharan emirate, present form crystallized in the eighteenth century. Canonical instrumentation: tanbur long-necked plucked lute as the primary maqom voice carrier, dutar two-string fretted lute, sato bowed tanbur, ghijak spike fiddle (analogue to Azerbaijani kamancha), doira frame-drum with internal jingles, nay end-blown reed flute. The Bukharan Jewish community preserved the most archaic transmission layer through Soviet-era suppression and subsequent diaspora-recovery in the United States and Israel. Twentieth-century master Turgun Alimatov (tanbur, dutar, sato virtuoso) anchored the post-Soviet revival. Distinguished from Azerbaijani mugham by six-maqom-cycle structure (vs Azerbaijani seven-dastgah); distinguished from Persian dastgah-i radif by Bukharan ensemble configuration and Tajik-Persian-language sufyiana-poetry textual base; distinguished from Uyghur muqam by Bukharan-Tajik dialect-specific cadential and modal vocabulary",
   "recipe": "classic Central Asian early-1940s shashmaqam, art Music, middle eastern classical branch, Persian arab improv improv on frame tarab turkish-romani çümbüş music. extended whistle, breath veiled tone, slow rate, interlocked note trading. mulberry bowl canonical kurdish steel modern tanbur persian, mulberry pear body canonical bukharan shashmaqam silk canonical pre modern shashmaqam bukharan shashmaqam canonical uzbek tajik classical dutar, mulberry pear body long neck bowed tanbur shashmaqam canonical bukhara samarkand classical legato sato, walnut bowl skin faced canonical caucasian four string silk or steel canonical mugham trio Persian radif tradition tehran conservatory legato kamancha, walnut bent frame canonical Persian goat skin tacked brass rings canonical Iranian daf, carved mulberry muqam ensemble melodic bright metallic rubab. bukhara shashmaqam courtyard chamber. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ.",
   "recipe_chars": 995,
-  "score": 516.408,
+  "score": 496.236,
   "config": {
     "traditions": [
       "shashmaqam_central_asian",
@@ -38,16 +38,16 @@
           "voice_quality": 18.85,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 22.810499999999998,
+          "voice_vibrato": 21.012999999999998,
           "voice_articulation": 14.949999999999996,
-          "voice_microtone": 36.709125,
-          "voice_tradition": 47.69175,
-          "voice_mechanism_compound": 33.22,
-          "voice_estill_quality": 22.881999999999994,
-          "voice_speech_song": 18.7515,
+          "voice_microtone": 33.909125,
+          "voice_tradition": 45.89425,
+          "voice_mechanism_compound": 31.97,
+          "voice_estill_quality": 21.631999999999994,
+          "voice_speech_song": 17.5015,
           "voice_ensemble_config": 15.079999999999995,
-          "voice_ornament_system": 34.89425,
-          "voice_pitch_organization": 37.6315,
+          "voice_ornament_system": 33.64425,
+          "voice_pitch_organization": 36.3815,
           "voice_processing_chain": 7.54,
           "voice_multitrack_stack": 4.680000000000001
         }
@@ -62,7 +62,7 @@
           "tanbur_persian_string_material": "tanbur_steel_modern"
         },
         "scores": {
-          "plucked_traditional_technique": 18.25,
+          "plucked_traditional_technique": 17,
           "tanbur_use": 0.255,
           "tanbur_persian_strings": 6.109999999999999,
           "tanbur_persian_body_wood": 1.69,
@@ -79,7 +79,7 @@
         "scores": {
           "dutar_body": 10.085374999999999,
           "dutar_strings": 3.185,
-          "dutar_tradition": 25.749375
+          "dutar_tradition": 24.701875
         }
       },
       {
@@ -90,9 +90,9 @@
           "sato_tradition": "sato_shashmaqam_canonical"
         },
         "scores": {
-          "bowed_technique": 18.25,
+          "bowed_technique": 17,
           "sato_body": 7.19675,
-          "sato_tradition": 14.169999999999998
+          "sato_tradition": 13.519999999999998
         }
       },
       {
@@ -104,7 +104,7 @@
           "kamancha_tradition": "kamancha_persian_radif"
         },
         "scores": {
-          "bowed_technique": 18.25,
+          "bowed_technique": 17,
           "kamancha_body": 1.69,
           "kamancha_string": 5.07,
           "kamancha_tradition": 11.115
@@ -121,7 +121,7 @@
         },
         "scores": {
           "daf_rings": 0.2415,
-          "daf_context": 16.64,
+          "daf_context": 15.34,
           "daf_shell_wood": 12.934999999999999,
           "daf_head_material": 1.69,
           "daf_jingle_metal": 1.69
@@ -135,8 +135,8 @@
           "rubab_strings": "rubab_steel"
         },
         "scores": {
-          "rubab_form": 9.36,
-          "rubab_style": 10.4115,
+          "rubab_form": 8.71,
+          "rubab_style": 10.281500000000001,
           "rubab_strings": 3.25
         }
       }

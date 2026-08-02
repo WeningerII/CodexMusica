@@ -5,7 +5,7 @@
   "lineage": "Swedish polska traditional fiddle-dance tradition of Sweden, comprising several regional sub-types: åttondelspolska (eighth-note-pulse polska), sextondelspolska (sixteenth-note-pulse polska), Slängpolska (swing-polska), and several regional named variants. Performance configuration: solo fiddle, twin-fiddles (svenska låtspel), nyckelharpa (keyed fiddle), or small ensembles of these instruments. Distinguished by the canonical Swedish-fiddle ornamental conventions and the asymmetrical-triple-meter dance-pulse where the second beat is shortened. The post-1970s Swedish folk-music revival under the spelmanslag fiddler-group network consolidated institutional preservation; the annual Riksspelmansträff and Bingsjöstämman fiddle-festivals anchor performance circuit.",
   "recipe": "classic mid-1970s swedish polska, ballad Poetry, Celtic balladic branch, string drone modal polish village fiddle. double stops fiddle, traditional spruce maple canonical Swedish gut pre modern Swedish nyckelharpa, dance pulse sackpipa. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 316,
-  "score": 93.987,
+  "score": 92.737,
   "config": {
     "traditions": [
       "swedish_polska_traditional",
@@ -22,7 +22,7 @@
           "fiddle_articulation": "sul_tasto"
         },
         "scores": {
-          "bowed_technique": 23.619999999999994,
+          "bowed_technique": 22.369999999999994,
           "fiddle_strings": 0.25087499999999996,
           "fiddle_bow": 0.4875,
           "fiddle_mute": 0.9099999999999999,

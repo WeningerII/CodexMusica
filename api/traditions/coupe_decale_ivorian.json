@@ -5,7 +5,7 @@
   "lineage": "Coupé-décalé Ivorian dance-pop genre emerging in early-2000s Paris among the Ivorian diaspora club scene and rapidly transferred back to Abidjan. The name derives from Nouchi street-slang (\"couper\" to grab money, \"décaler\" to slip away) describing the get-rich-and-flee aspirational lifestyle. Production centers on hard four-on-the-floor digital kick with Nouchi-French lyrical content, simple call-and-response chorus, and electronic synth-bass. The death of founding figure Stéphane Hamidou Doukouré (Douk Saga) in 2006 mythologized the Paris-Abidjan founder-generation.",
   "recipe": "classic West African 2000-2003 coupé-décalé, electronic Dance, African dance branch, Afro-diasporic MC rhythm south african kwaito kwaito. extended whistle, breath veiled tone, straight note core, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, sub bass analog synth, ampeg svt amp rock bass amp alder pyramid pure nickel bass electric bass. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 582,
-  "score": 170.043,
+  "score": 168.498,
   "config": {
     "traditions": [
       "coupe_decale_ivorian",
@@ -23,7 +23,7 @@
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_tradition": "southern_african_bantu_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -41,7 +41,7 @@
           "voice_vibrato": 2.3772500000000005,
           "voice_articulation": 14.494999999999996,
           "voice_microtone": 14.299999999999994,
-          "voice_tradition": 21.193999999999996,
+          "voice_tradition": 19.6485,
           "voice_mechanism_compound": 2.925,
           "voice_estill_quality": 4.634,
           "voice_speech_song": 14.494999999999996,

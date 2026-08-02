@@ -5,7 +5,7 @@
   "lineage": "Late-1970s through early-1980s underground rock movement extending punk's rejection of rock-tradition conventions through more harmonic-and-rhythmic experimentation, dub-and-disco bass-and-rhythm sensibility, and intellectualized lyrical content — codified through Wire (Pink Flag 1977), Joy Division (Unknown Pleasures 1979), Gang of Four (Entertainment! 1979), The Fall, Public Image Ltd (Metal Box 1979), Magazine, Talking Heads (Remain in Light 1980)",
   "recipe": "classic British 1977-1979 post-punk, distorted Rock, punk branch, alternative distorted rock math rock and post-rock. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alder single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation 28 625 inch baritone electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, pad like sub bass analog synth. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb chorus boss DS-1.",
   "recipe_chars": 818,
-  "score": 603.375,
+  "score": 572.225,
   "config": {
     "traditions": [
       "post_punk",
@@ -34,18 +34,18 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 44.20500000000003,
+          "voice_register": 40.45500000000003,
           "voice_quality": 20.8,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.7700000000000005,
-          "voice_articulation": 24.114999999999995,
-          "voice_microtone": 40.42500000000001,
+          "voice_articulation": 23.464999999999996,
+          "voice_microtone": 36.67500000000001,
           "voice_tradition": 4.29,
           "voice_mechanism_compound": 13.5525,
           "voice_estill_quality": 6.760000000000003,
-          "voice_speech_song": 26.324999999999996,
-          "voice_ensemble_config": 29.769999999999996,
+          "voice_speech_song": 25.674999999999997,
+          "voice_ensemble_config": 29.119999999999997,
           "voice_ornament_system": 1.575,
           "voice_pitch_organization": 2.6000000000000005,
           "voice_processing_chain": 9.469999999999999,
@@ -70,7 +70,7 @@
         },
         "scores": {
           "electric_technique": 18.229999999999993,
-          "amp_make": 41.419999999999995,
+          "amp_make": 38.87,
           "body_wood": 1.69,
           "neck_wood": 1.6899999999999997,
           "fretboard": 1.25,
@@ -80,7 +80,7 @@
           "bridge": 0.195,
           "scale_length": 1.04,
           "finish": 0,
-          "string_tuning": 23.335000000000004
+          "string_tuning": 21.385000000000005
         }
       },
       {
@@ -95,13 +95,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 23.887500000000003,
+          "amp_make": 21.937500000000004,
           "body_wood": 1.04,
           "pickup_config": 0,
-          "string_type": 46.605000000000004,
+          "string_type": 41.805,
           "scale_length_b": 1.04,
           "fretted_or_not": 0.105,
-          "bass_technique": 53.5
+          "bass_technique": 49.75
         }
       },
       {
@@ -112,7 +112,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 37.875,
+          "drum_technique": 34.125,
           "drumhead": 2.8949999999999996,
           "drum_kit_kick_pedal": 0
         }
@@ -147,11 +147,11 @@
         },
         "scores": {
           "electric_technique": 18.229999999999993,
-          "amp_make": 41.419999999999995,
+          "amp_make": 38.87,
           "baritone_use": 0.195,
           "baritone_electric_tuning": 1.69,
           "baritone_electric_scale": 2.925,
-          "baritone_electric_strings": 3.4299999999999997,
+          "baritone_electric_strings": 3.28,
           "baritone_electric_pickup": 4.55
         }
       }

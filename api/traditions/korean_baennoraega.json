@@ -5,7 +5,7 @@
   "lineage": "Korean baennoraega (뱃노래, \"boatmen's song\") and broader Korean women's-domestic-labor song tradition continuous from premodern Korean-rural domestic-labor practice through Joseon-dynasty continuous performance into modern Korean-folk-revival",
   "recipe": "classic East Asian modern korean baennoraega and domestic-women's song, domestic Rhythm, east Asian arctic branch, Celtic hebridean domestic rhythm, east Asian field work, atlantic Southeast Asian shanty vietnamese hò japanese taue-uta. thick, breath veiled tone, straight onset, interlocked note trading. korean gugak hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 387,
-  "score": 158.55,
+  "score": 156.5,
   "config": {
     "traditions": [
       "korean_baennoraega",
@@ -41,13 +41,13 @@
           "voice_vibrato": 3.2500000000000004,
           "voice_articulation": 12.544999999999998,
           "voice_microtone": 12.544999999999996,
-          "voice_tradition": 39.383750000000006,
+          "voice_tradition": 39.23375,
           "voice_mechanism_compound": 3.95,
           "voice_estill_quality": 0.8449999999999999,
-          "voice_speech_song": 20.604999999999997,
+          "voice_speech_song": 19.955,
           "voice_ensemble_config": 12.479999999999997,
           "voice_ornament_system": 26.374999999999996,
-          "voice_pitch_organization": 9.586249999999996,
+          "voice_pitch_organization": 8.33625,
           "voice_processing_chain": 1.0399999999999998,
           "voice_multitrack_stack": 1.8199999999999996
         }

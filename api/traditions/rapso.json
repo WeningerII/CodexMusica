@@ -3,9 +3,9 @@
   "name": "Rapso",
   "family": "global",
   "lineage": "Trinidadian chantwell spoken-word over soca-derived rhythm bed — codified through Brother Resistance (Lutalo Masimba) and the Network Riddum Band starting late 1970s, then Brother Marvin and the broader 3 Canal collective bringing rapso into Trinidad’s carnival mainstream; characterized by oratorical-political rapso-flow delivery over Caribbean percussion-and-electronic-instrument production",
-  "recipe": "classic Western European 1977-1979 rapso, ballad Poetry, anglo singer song branch, Afro-diasporic electric groove percussion afrobeat kompa. thick, breath veiled tone, straight onset, interlocked note trading. thomastik infeld low tension jazz warm fingerstyle locked electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, bell like soca engine room iron trinidadian iron, goat skin rope and fire canonical indo Trinidadian metal modern Caribbean carnival modern Trinidadian carnival fusion tassa drum, steelpan, Fender blackface amp American 60s amp spring reverb bright maple pau ferro single coil electric guitar, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble shallow cup lead trumpet trumpet, roland jupiter lineage canonical jupiter 8 1981 osaka analog poly synth. brent black community studio london.",
+  "recipe": "classic Western European 1977-1979 rapso, ballad Poetry, anglo singer song branch, Afro-diasporic electric groove percussion afrobeat kompa. thick, breath veiled tone, straight onset, interlocked note trading. thomastik infeld low tension jazz warm walking fingerstyle electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, bell like soca engine room iron trinidadian iron, goat skin rope and fire canonical indo Trinidadian metal modern Caribbean carnival modern Trinidadian carnival fusion tassa drum, steelpan, Fender blackface amp American 60s amp spring reverb bright maple pau ferro single coil electric guitar, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble shallow cup lead trumpet trumpet, roland jupiter lineage canonical jupiter 8 1981 osaka analog poly synth. brent black community studio london.",
   "recipe_chars": 994,
-  "score": 266.207,
+  "score": 258.536,
   "config": {
     "traditions": [
       "rapso",
@@ -41,7 +41,7 @@
           "voice_vibrato": 4.7215,
           "voice_articulation": 14.949999999999992,
           "voice_microtone": 15.92499999999999,
-          "voice_tradition": 11.0175,
+          "voice_tradition": 11.004,
           "voice_mechanism_compound": 4.81,
           "voice_estill_quality": 5.005000000000001,
           "voice_speech_song": 19.369999999999994,
@@ -61,7 +61,7 @@
           "string_type": "thomastik_jazz_bass_flat",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "fingerstyle_locked"
+          "bass_technique": "fingerstyle_walking"
         },
         "scores": {
           "amp_make": 1.755,
@@ -70,7 +70,7 @@
           "string_type": 3.0999999999999996,
           "scale_length_b": 0.9,
           "fretted_or_not": 0.3315,
-          "bass_technique": 3.7745
+          "bass_technique": 2.563
         }
       },
       {
@@ -81,7 +81,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 20.149999999999995,
+          "drum_technique": 18.524999999999995,
           "drumhead": 3.194,
           "drum_kit_kick_pedal": 0
         }
@@ -139,7 +139,7 @@
         },
         "scores": {
           "electric_technique": 7.425000000000001,
-          "amp_make": 3.7175000000000002,
+          "amp_make": 3.6125000000000003,
           "body_wood": 0.975,
           "neck_wood": 1.4949999999999999,
           "fretboard": 1.4949999999999999,
@@ -156,7 +156,7 @@
         "id": "saxophone",
         "slots": {
           "wind_articulation": "wind_punchy_ensemble",
-          "sax_size": "tenor_sax",
+          "sax_size": "alto_sax",
           "sax_reed": "soft_reed",
           "sax_body_alloy": "phosphor_bronze_sax",
           "sax_mouthpiece": "metal_mp",
@@ -164,8 +164,8 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 4.4430000000000005,
-          "sax_size": 2.1700000000000004,
+          "wind_articulation": 3.1525000000000003,
+          "sax_size": 1.4299999999999997,
           "sax_reed": 1.4949999999999999,
           "sax_body_alloy": 3.15,
           "sax_mouthpiece": 1.4949999999999999,
@@ -185,11 +185,11 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 4.4430000000000005,
+          "wind_articulation": 3.1525000000000003,
           "brass_size": 1.4949999999999999,
           "trumpet_mouthpiece": 3.706,
           "brass_mute": 0.7215,
-          "trumpet_technique": 4.4430000000000005,
+          "trumpet_technique": 3.1525000000000003,
           "trumpet_bell_metal": 1.7315,
           "trumpet_maker_school": 1.2349999999999999
         }
@@ -205,7 +205,7 @@
         "scores": {
           "electronic_technique": 1.5214999999999999,
           "poly_archetypes": 0.39,
-          "poly_voices": 0.4095,
+          "poly_voices": 0.3045,
           "poly_maker_lineage": 2.34
         }
       }

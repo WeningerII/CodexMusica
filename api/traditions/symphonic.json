@@ -5,7 +5,7 @@
   "lineage": "Western orchestral classical music tradition spanning the Classical period (Haydn, Mozart symphonic forms ca. 1760-1800), Romantic period (Beethoven through Mahler, ca. 1800-1910), and twentieth-century continuation — characterized by the standardized symphony orchestra ensemble of strings-winds-brass-percussion, the multi-movement symphony, concerto, and tone-poem forms, and the conductor-led-large-ensemble performance model",
   "recipe": "classic British early-1760s late romantic symphonic, art Music, western common practice branch, western early art music, western modern art music baroque period-instrument historically-informed performance recording. silver wound lamb gut core norway spruce European alpine European maple violin mallets marimba orchestral, beech laminated maple laminated European tradition European spruce norway spruce grand piano, legato celesta, brass mallets glockenspiel, mallets xylophone, calfskin mallets timpani, continuous-airflow legato bassoon, continuous-airflow legato contrabassoon, continuous-airflow legato english brass continuous-airflow legato french horn, boxwood canonical Baroque classical pre 1850 loree paris canonical American school continuous-airflow legato oboe, American orchestral brass yellow brass canonical orchestral rotary valves canonical German orchestral besson sovereign British brass band tuba.",
   "recipe_chars": 920,
-  "score": 635.425,
+  "score": 625.656,
   "config": {
     "traditions": [
       "symphonic",
@@ -21,7 +21,7 @@
           "orch_top_wood": "norway_spruce_alpine_violin",
           "orch_back_wood": "bosnian_flamed_maple_violin",
           "orch_varnish": "cremonese_pre_1750_varnish_violin",
-          "orch_setup_period": "baroque_setup_violin",
+          "orch_setup_period": "modern_setup_violin",
           "orch_bow": "baroque_bow",
           "orch_bow_stick": "pernambuco_stick_orch",
           "orch_articulation": "arco_orch",
@@ -30,14 +30,14 @@
         "scores": {
           "bowed_technique": 20.5,
           "orch_strings": 1.6417307692307692,
-          "orch_top_wood": 21.759230769230765,
-          "orch_back_wood": 22.14923076923077,
-          "orch_varnish": 21.2925,
-          "orch_setup_period": 20.241923076923076,
-          "orch_bow": 6.633461538461538,
+          "orch_top_wood": 20.509230769230765,
+          "orch_back_wood": 20.89923076923077,
+          "orch_varnish": 20.042499999999997,
+          "orch_setup_period": 18.190961538461536,
+          "orch_bow": 5.977692307692308,
           "orch_bow_stick": 20.442499999999995,
           "orch_articulation": 4.355,
-          "orch_rosin": 27.064423076923074
+          "orch_rosin": 24.702884615384612
         }
       },
       {
@@ -190,8 +190,8 @@
           "wind_articulation": 16.75,
           "oboe_reed": 1.6,
           "oboe_class": 2.395,
-          "oboe_body_wood": 8.905000000000001,
-          "oboe_maker_school": 2.6399999999999997
+          "oboe_body_wood": 8.254999999999999,
+          "oboe_maker_school": 2.34
         }
       },
       {

@@ -5,7 +5,7 @@
   "lineage": "Mexican adaptation of the broader Latin-American bolero, developed in mid-twentieth-century Mexico City through Agustín Lara (born 1897) and the 1940s-1950s Mexican-cinema golden-age. Solo voice with piano-or-trio accompaniment, slow 2/4 meter with the canonical bolero rhythmic figure, intensely romantic-melancholic register. Distinguished from Cuban bolero by Mexican-Spanish lyrical register and elaborate harmonic-vocabulary.",
   "recipe": "classic Mexican mid-1940s bolero mexicano, functional Song, Mexican branch, Latin am troubadour ballad poetry milonga filin. thick, full chest belt, straight onset, interlocked note trading. cedar phosphor bronze bronze fingerpicked parlor acoustic guitar, cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, growly gut upright bass. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 563,
-  "score": 155.281,
+  "score": 149.137,
   "config": {
     "traditions": [
       "bolero_mexicano",
@@ -23,7 +23,7 @@
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "jazz_scat_tradition",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -34,14 +34,14 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 11.389999999999997,
+          "voice_register": 10.14,
           "voice_quality": 11.599999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.9125,
+          "voice_vibrato": 4.6625,
           "voice_articulation": 11.439999999999994,
           "voice_microtone": 10.399999999999991,
-          "voice_tradition": 6.37625,
+          "voice_tradition": 5.2325,
           "voice_mechanism_compound": 5.915,
           "voice_estill_quality": 5.915000000000001,
           "voice_speech_song": 14.689999999999994,
@@ -101,8 +101,8 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 5.375,
-          "upright_play": 5.375
+          "upright_strings": 4.125,
+          "upright_play": 4.125
         }
       }
     ],

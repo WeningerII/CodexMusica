@@ -5,7 +5,7 @@
   "lineage": "2010s heavy-metal subgenre integrating black-metal extreme-vocal-and-percussion aggression with shoegaze-and-post-rock textural-and-melodic-arrangement. Alcest (France, 2000-onward) inaugurated the canonical sound; Deafheaven's Sunbather (2013) consolidated international visibility and the broader 2010s blackgaze wave through Bosse-de-Nage, Astronoid, Underling, and adjacent acts. Distinguished from atmospheric black metal by blackgaze's explicit shoegaze-textural-influence and major-key/melodic-emphasis.",
   "recipe": "classic blackgaze, distorted Rock, death branch, alternative distorted rock madchester / baggy math rock. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, kevlar aramid extreme tension sticks backbeat drum kit. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 620,
-  "score": 391.402,
+  "score": 382.077,
   "config": {
     "traditions": [
       "blackgaze",
@@ -34,13 +34,13 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 24.654999999999994,
+          "voice_register": 23.404999999999994,
           "voice_quality": 13.129999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.185,
           "voice_articulation": 18.004999999999995,
-          "voice_microtone": 24.124999999999996,
+          "voice_microtone": 22.874999999999996,
           "voice_tradition": 3.6725000000000008,
           "voice_mechanism_compound": 24.319999999999997,
           "voice_estill_quality": 2.34,
@@ -71,18 +71,18 @@
         },
         "scores": {
           "electric_technique": 30.66,
-          "amp_make": 14.007499999999999,
+          "amp_make": 13.357499999999998,
           "body_wood": 15.534999999999998,
           "neck_wood": 0.845,
           "fretboard": 0.8,
-          "pickup_magnet": 0.345,
+          "pickup_magnet": 0.195,
           "pickup_winding": 1.02,
           "string_material": 0.8,
           "bridge": 0.845,
-          "scale_length": 14.934999999999999,
+          "scale_length": 14.634999999999998,
           "string_gauge": 0.845,
           "finish": 0,
-          "string_tuning": 28.21
+          "string_tuning": 27.56
         }
       },
       {
@@ -97,13 +97,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 13.389999999999999,
+          "amp_make": 12.739999999999998,
           "body_wood": 0.845,
-          "pickup_config": 0.8850000000000001,
-          "string_type": 31.6875,
+          "pickup_config": 0.585,
+          "string_type": 30.0625,
           "scale_length_b": 0.845,
           "fretted_or_not": 0.105,
-          "bass_technique": 24.325
+          "bass_technique": 23.075
         }
       },
       {
@@ -114,7 +114,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 24.375,
+          "drum_technique": 23.125,
           "drumhead": 1.625,
           "drum_kit_kick_pedal": 0
         }

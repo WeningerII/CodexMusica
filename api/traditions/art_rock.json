@@ -5,7 +5,7 @@
   "lineage": "Late-1960s through 1980s art-school avant-garde-influenced rock genre — codified through David Bowie (the Hunky Dory through Scary Monsters arc 1971-1980, with the Berlin Trilogy Low / Heroes / Lodger 1977-79 as the Brian-Eno-collaboration period), Roxy Music (Roxy Music 1972, For Your Pleasure 1973), Brian Eno (the post-Roxy solo canon Another Green World 1975, Music for Airports 1978), Talking Heads (the Eno-produced trilogy More Songs About Buildings and Food 1978, Fear of Music 1979, Remain in Light 1980), Peter Gabriel (his post-Genesis Eno-influenced canon)",
   "recipe": "classic Northern European mid-1970s art rock, distorted Rock, art rock branch, experimental distorted rock, classic distorted rock psychedelic rock britpop. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, fast decay focused low short envelope analog synth, mellotron m400 canonical 1970 1980 prog rock standard 35 key polyester base quarter inch iron oxide canonical mellotron block chord mellotron, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, gold brass warmer tone multiphonic saxophone, string machine. London major flagship studio 1968-1985 major-flagship uk 70s hard rock arena studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical.",
   "recipe_chars": 987,
-  "score": 624.075,
+  "score": 612.075,
   "config": {
     "traditions": [
       "art_rock",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 44.14000000000002,
+          "voice_register": 42.89000000000002,
           "voice_quality": 18.004999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 5.59,
           "voice_articulation": 15.469999999999992,
-          "voice_microtone": 44.13,
+          "voice_microtone": 42.88,
           "voice_tradition": 8.684999999999999,
           "voice_mechanism_compound": 6.825,
           "voice_estill_quality": 4.160000000000001,
           "voice_speech_song": 17.02999999999999,
           "voice_ensemble_config": 16.70499999999999,
-          "voice_ornament_system": 3.325,
+          "voice_ornament_system": 3.1750000000000003,
           "voice_pitch_organization": 3.6399999999999997,
           "voice_processing_chain": 11.200000000000001,
-          "voice_multitrack_stack": 17.005
+          "voice_multitrack_stack": 16.854999999999997
         }
       },
       {
@@ -70,7 +70,7 @@
         },
         "scores": {
           "electric_technique": 9.099999999999998,
-          "amp_make": 22.944999999999997,
+          "amp_make": 22.294999999999998,
           "body_wood": 2.9899999999999998,
           "neck_wood": 2.9899999999999998,
           "fretboard": 2.925,
@@ -80,7 +80,7 @@
           "bridge": 1,
           "scale_length": 2.9899999999999998,
           "finish": 0.435,
-          "string_tuning": 22.360000000000003
+          "string_tuning": 21.710000000000004
         }
       },
       {
@@ -95,13 +95,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 21.06,
+          "amp_make": 20.41,
           "body_wood": 2.9899999999999998,
           "pickup_config": 0,
-          "string_type": 43.975,
+          "string_type": 41.825,
           "scale_length_b": 2.9899999999999998,
           "fretted_or_not": 0,
-          "bass_technique": 35.885
+          "bass_technique": 34.635
         }
       },
       {
@@ -112,7 +112,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 34.34,
+          "drum_technique": 33.09,
           "drumhead": 8.79,
           "drum_kit_kick_pedal": 0
         }
@@ -145,9 +145,9 @@
         },
         "scores": {
           "keyboard_technique": 9.074999999999998,
-          "mellotron_voice": 18.59,
+          "mellotron_voice": 17.94,
           "mellotron_context": 3.12,
-          "mellotron_model": 23.79,
+          "mellotron_model": 23.14,
           "mellotron_tape_material": 1.8849999999999996
         }
       },
@@ -168,8 +168,8 @@
           "keyboard_technique": 9.25,
           "grand_piano_size": 2.9899999999999998,
           "grand_piano_brand": 3.3799999999999994,
-          "piano_hammer": 20.345000000000002,
-          "piano_rim": 20.93,
+          "piano_hammer": 19.695000000000004,
+          "piano_rim": 20.28,
           "piano_soundboard": 8.79,
           "piano_pinblock": 1.95,
           "piano_plate": 1.9949999999999999,

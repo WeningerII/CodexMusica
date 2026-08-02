@@ -5,7 +5,7 @@
   "lineage": "NYC-centered fusion of Afro-Cuban rhythmic spine (clave, montuno, tumbao) with bebop / post-bop harmonic language, codified through Machito-Bauzá Cubop (1940s), Cal Tjader-Mongo Santamaría West Coast Latin jazz (1950s-60s), and Eddie Palmieri / Tito Puente / Chucho Valdés modern Latin jazz canon",
   "recipe": "classic North American mid-1940s latin jazz, improv On Frame, Latin jazz branch, American jazz bop, tropical song functional song, Brazilian song functional song bebop modal jazz. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, bach stradivarius 180 canonical American orchestral jazz balance trumpet, bach 42 canonical American orchestral tenor student commercial trombone, cold pressed wurzen felt oversize maple tension resonator sitka spruce grand piano, growly gut upright bass, vintage ambassador asymmetric brushes drum kit, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, bronze open slap hand drum timbales, claves, shekere. nyc jazz vocal engineered 1958-1998 mid tier a and r recording nyc. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ.",
   "recipe_chars": 1000,
-  "score": 700.016,
+  "score": 678.166,
   "config": {
     "traditions": [
       "latin_jazz",
@@ -25,13 +25,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 8.75,
-          "sax_size": 9.47,
+          "wind_articulation": 7.5,
+          "sax_size": 8.22,
           "sax_reed": 0.3,
-          "sax_body_alloy": 47.62500000000003,
-          "sax_mouthpiece": 0.9299999999999999,
-          "sax_technique": 45.12500000000003,
-          "sax_maker_school": 46.69000000000003
+          "sax_body_alloy": 46.37500000000003,
+          "sax_mouthpiece": 0.78,
+          "sax_technique": 43.87500000000003,
+          "sax_maker_school": 45.14000000000003
         }
       },
       {
@@ -46,11 +46,11 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 8.75,
+          "wind_articulation": 7.5,
           "brass_size": 0.195,
-          "trumpet_mouthpiece": 47.76500000000003,
+          "trumpet_mouthpiece": 46.215000000000025,
           "brass_mute": 0.39,
-          "trumpet_technique": 8.75,
+          "trumpet_technique": 7.5,
           "trumpet_bell_metal": 0.7799999999999998,
           "trumpet_maker_school": 6.044999999999999
         }
@@ -67,9 +67,9 @@
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 8.75,
-          "trombone_type": 45.12500000000003,
-          "trombone_mouthpiece": 45.42000000000003,
+          "wind_articulation": 7.5,
+          "trombone_type": 43.87500000000003,
+          "trombone_mouthpiece": 44.17000000000003,
           "trombone_mute": 0,
           "trombone_technique": 6.045,
           "trombone_bell_metal": 0.39,
@@ -92,7 +92,7 @@
         "scores": {
           "keyboard_technique": 2.34,
           "grand_piano_size": 0.39,
-          "grand_piano_brand": 0.54,
+          "grand_piano_brand": 0.39,
           "piano_hammer": 5.59,
           "piano_rim": 5.9799999999999995,
           "piano_soundboard": 3.035,
@@ -108,8 +108,8 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 45.12500000000003,
-          "upright_play": 45.12500000000003
+          "upright_strings": 43.87500000000003,
+          "upright_play": 43.87500000000003
         }
       },
       {
@@ -120,8 +120,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 45.12500000000003,
-          "drumhead": 49.86500000000003,
+          "drum_technique": 43.87500000000003,
+          "drumhead": 48.31500000000003,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -151,7 +151,7 @@
         "scores": {
           "percussion_technique": 21.729999999999997,
           "bongos_skin": 5.319999999999999,
-          "bongos_context": 1.275,
+          "bongos_context": 1.125,
           "bongos_shell_wood": 3.6399999999999997
         }
       },
@@ -164,7 +164,7 @@
         },
         "scores": {
           "percussion_technique": 21.729999999999997,
-          "timbales_shell": 20.690000000000012,
+          "timbales_shell": 19.89000000000001,
           "timbales_context": 1.395
         }
       },
@@ -175,7 +175,7 @@
           "claves_wood": "claves_rosewood"
         },
         "scores": {
-          "claves_pattern": 20.885000000000012,
+          "claves_pattern": 20.08500000000001,
           "claves_wood": 0.45062499999999994
         }
       },
@@ -187,7 +187,7 @@
         },
         "scores": {
           "shekere_size": 4.6987499999999995,
-          "shekere_beads": 1.3199999999999998
+          "shekere_beads": 1.17
         }
       }
     ],

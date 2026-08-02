@@ -5,7 +5,7 @@
   "lineage": "Saharan Tamasheq ishumar / tishoumaren electric-guitar tradition codified through Tinariwen (formed 1979 in Algerian refugee camps among Tuareg exiles) — characterized by hypnotic modal pentatonic guitar figures, call-and-response Tamasheq vocals, and dry desert-room production aesthetic; Bombino, Mdou Moctar, and Etran Finatawa extending the lineage post-2000s",
   "recipe": "classic North African mid-2000s tuareg desert blues, drone Modal, modal electric branch, west African groove percussion palm-wine guitar jùjú. thick, breath veiled tone, wide pitch sway, interlocked note trading. dry roasted maple maple single coil electric guitar, rock canon ernie ball slinky electric bass, foundational low fundamental tuning deep calabash inverted calabash, horsehair bow canonical tuareg tuareg women canonical solo imzad, call-and-response xalam. cement block broadcast booth. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 629,
-  "score": 255.176,
+  "score": 254.366,
   "config": {
     "traditions": [
       "desert_blues",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 10.279999999999994,
+          "voice_register": 10.129999999999994,
           "voice_quality": 8.06,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -43,7 +43,7 @@
           "voice_microtone": 22.55499999999999,
           "voice_tradition": 48.1,
           "voice_mechanism_compound": 8.76625,
-          "voice_estill_quality": 5.4399999999999995,
+          "voice_estill_quality": 5.289999999999999,
           "voice_speech_song": 20.409999999999993,
           "voice_ensemble_config": 16.769999999999992,
           "voice_ornament_system": 7.312499999999999,
@@ -55,7 +55,7 @@
       {
         "id": "electric_guitar_single_coil",
         "slots": {
-          "electric_technique": "electric_palm_muted_chug",
+          "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_soldano_slo100",
           "body_wood": "mahogany",
           "neck_wood": "roasted_maple",
@@ -69,7 +69,7 @@
           "string_tuning": "dadgad"
         },
         "scores": {
-          "electric_technique": 2.2099999999999995,
+          "electric_technique": 1.6999999999999997,
           "amp_make": 1.0399999999999998,
           "body_wood": 0.8449999999999999,
           "neck_wood": 1,

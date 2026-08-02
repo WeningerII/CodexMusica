@@ -5,7 +5,7 @@
   "lineage": "Japanese matsuri (祭, festival) drumming tradition continuous from premodern Shinto-Buddhist festival-procession practice through Edo-period (1603-1868) codification of canonical city-festival drumming (the Tokyo-Asakusa Sanja Matsuri, Kyoto Gion Matsuri, Osaka Tenjin Matsuri, Aomori Nebuta Matsuri) into modern Japanese-and-Japanese-diaspora continuous festival-practice",
   "recipe": "classic East Asian early-1600s japanese matsuri festival drumming, carnival Processional, east Asian branch, European carnival processional, buddhist ritual devotional, east Asian wedding chinese xǐqìng (喜慶) wedding music tibetan chöd rite. thick, breath veiled tone, straight note core, interlocked note trading. cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk oedo sukeroku canonical kumi daiko modern ensemble taiko drum, acrylic red sandalwood premium nylon modern tsugaru shamisen, madake bamboo phyllostachys canonical Japanese root section kinko ryu canonical edo period concert continuous-airflow legato shakuhachi. kabuki theater japanese. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 746,
-  "score": 180.001,
+  "score": 174.217,
   "config": {
     "traditions": [
       "japanese_matsuri_taiko",
@@ -24,8 +24,8 @@
         },
         "scores": {
           "taiko_size": 0.845,
-          "taiko_skin": 9.12,
-          "taiko_shell_wood": 9.51,
+          "taiko_skin": 8.969999999999999,
+          "taiko_shell_wood": 9.36,
           "taiko_lineage": 3.1200000000000006,
           "taiko_technique": 5.005
         }
@@ -64,7 +64,7 @@
           "wind_articulation": 3.7512499999999998,
           "shaku_length": 0,
           "shaku_technique": 5.915,
-          "shakuhachi_body_material": 9.165,
+          "shakuhachi_body_material": 9.015,
           "shakuhachi_lineage": 7.44125
         }
       },
@@ -78,7 +78,7 @@
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_tradition": "japanese_min_yo_tradition",
           "voice_mechanism_compound": "voice_mechanism_ventricular_subharmonic",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -94,13 +94,13 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 4.8100000000000005,
-          "voice_articulation": 12.349999999999994,
-          "voice_microtone": 12.154999999999992,
-          "voice_tradition": 23.86875,
-          "voice_mechanism_compound": 2.62,
+          "voice_articulation": 11.699999999999996,
+          "voice_microtone": 11.504999999999992,
+          "voice_tradition": 22.534999999999997,
+          "voice_mechanism_compound": 1.8699999999999997,
           "voice_estill_quality": 2.3399999999999994,
-          "voice_speech_song": 12.349999999999994,
-          "voice_ensemble_config": 14.169999999999993,
+          "voice_speech_song": 11.699999999999996,
+          "voice_ensemble_config": 12.869999999999994,
           "voice_ornament_system": 5.04875,
           "voice_pitch_organization": 3.8962499999999998,
           "voice_processing_chain": 2.925000000000001,

@@ -5,7 +5,7 @@
   "lineage": "West African 1970s polyrhythmic horn-driven big-band genre fusing Yoruba highlife, jazz, and James Brown funk — codified by Fela Kuti at his Shrine club in Lagos with Tony Allen on drums (Afrika 70 and Egypt 80 ensembles), characterized by extended jam-form arrangements, political-protest lyrics, and the dense polyrhythmic interlock that became the genre signature",
   "recipe": "classic African mid-1970s afrobeat, groove Percussion, Afro-diasporic electric branch, American jazz fusion, Afro-diasporic MC rhythm acid jazz. thick, breath veiled tone, straight onset, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright maple pau ferro single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 145 smaller 25w tube home club ostinato slow chorale tonewheel organ, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet, foundational bass rhythm calabash shekere, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas.",
   "recipe_chars": 978,
-  "score": 701.17,
+  "score": 676.339,
   "config": {
     "traditions": [
       "afrobeat",
@@ -59,10 +59,10 @@
           "amp_make": 8.6775,
           "body_wood": 0.933,
           "pickup_config": 0.0315,
-          "string_type": 32.85000000000001,
+          "string_type": 30.7,
           "scale_length_b": 0.195,
           "fretted_or_not": 0.03375,
-          "bass_technique": 26.625000000000007
+          "bass_technique": 25.375
         }
       },
       {
@@ -73,8 +73,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 47.7425,
-          "drumhead": 32.81875,
+          "drum_technique": 45.467499999999994,
+          "drumhead": 30.668750000000003,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -90,10 +90,10 @@
         },
         "scores": {
           "keyboard_technique": 8.875,
-          "drawbar_setting": 27.123000000000008,
+          "drawbar_setting": 25.873,
           "rotary_speed": 5.981,
-          "percussion_setting": 26.625000000000007,
-          "tonewheel_model": 35.002500000000005,
+          "percussion_setting": 25.375,
+          "tonewheel_model": 33.347125,
           "leslie_cabinet_model": 3.6799999999999997
         }
       },
@@ -112,10 +112,10 @@
           "wind_articulation": 9.13825,
           "sax_size": 5.7315000000000005,
           "sax_reed": 2.46375,
-          "sax_body_alloy": 27.630625000000006,
+          "sax_body_alloy": 26.380625,
           "sax_mouthpiece": 2.46375,
-          "sax_technique": 26.65650000000001,
-          "sax_maker_school": 32.635000000000005
+          "sax_technique": 25.4065,
+          "sax_maker_school": 30.485
         }
       },
       {
@@ -132,7 +132,7 @@
         "scores": {
           "wind_articulation": 9.13825,
           "brass_size": 2.46375,
-          "trumpet_mouthpiece": 32.85000000000001,
+          "trumpet_mouthpiece": 30.7,
           "brass_mute": 0.063,
           "trumpet_technique": 9.13825,
           "trumpet_bell_metal": 2.145,
@@ -160,21 +160,21 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 34.15800000000001,
+          "voice_register": 32.90800000000001,
           "voice_quality": 5.655000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 26.433000000000003,
+          "voice_vibrato": 25.183000000000003,
           "voice_articulation": 15.274999999999995,
-          "voice_microtone": 31.705000000000002,
-          "voice_tradition": 33.04500000000001,
+          "voice_microtone": 30.455,
+          "voice_tradition": 30.895,
           "voice_mechanism_compound": 3.77,
           "voice_estill_quality": 3.99,
           "voice_speech_song": 16.119999999999994,
           "voice_ensemble_config": 15.014999999999993,
           "voice_ornament_system": 2.31375,
           "voice_pitch_organization": 5.444500000000001,
-          "voice_processing_chain": 15.485125,
+          "voice_processing_chain": 15.335125,
           "voice_multitrack_stack": 5.468375
         }
       },

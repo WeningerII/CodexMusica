@@ -5,7 +5,7 @@
   "lineage": "Haitian rural-and-popular acoustic-song tradition emerging in early-twentieth-century Haiti from synthesis of Cuban son and bolero, Dominican merengue tipico, and Haitian rural folk-song. Acoustic-guitar, marímbula, mandolin, accordion, manouba scraper, voice. Working-class counterpart to elite-class urban kompa direct big-band tradition. Post-1980 acoustic-revival under Ti Coca, Manno Charlemagne, Beethova Obas.",
   "recipe": "classic Caribbean early-1980s twoubadou, ballad Poetry, Latin am troubadour branch, chanson fado ballad poetry cape verdean batuko of santiago island french musette. thick, breath veiled tone, straight note core, interlocked note trading. fingerpicked parlor acoustic guitar, castagnari Italian premium folk music straight accordion, bowl back Italian big leaf maple modern American x brace modern mandolin mandolin. port au prince Haitian recording 1970-2000 indie-commercial port au prince haitian kompa studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 576,
-  "score": 252.759,
+  "score": 250.809,
   "config": {
     "traditions": [
       "twoubadou_haitian",
@@ -48,7 +48,7 @@
           "voice_ensemble_config": 21.84,
           "voice_ornament_system": 1.5250000000000001,
           "voice_pitch_organization": 3.835000000000001,
-          "voice_processing_chain": 9.360000000000003,
+          "voice_processing_chain": 8.710000000000004,
           "voice_multitrack_stack": 4.29
         }
       },
@@ -84,7 +84,7 @@
           "free_reed_technique": 7.113,
           "accordion_reed_material": 0.54,
           "musette_offset": 1.625,
-          "reed_config": 5.525,
+          "reed_config": 4.225,
           "bellows": 0.39,
           "voicing_chamber": 1.45,
           "accordion_maker_school": 5.720000000000001

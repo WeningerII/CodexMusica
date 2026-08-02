@@ -5,7 +5,7 @@
   "lineage": "2010s deep-and-progressive-house subgenre emphasizing melodic-and-harmonic-development over rhythmic-and-functional dance-floor utility. The Anjunadeep label (founded 2005 as Anjunabeats deep-house sublabel, ran by Above & Beyond) consolidated the canonical melodic house roster. Yotto, Lane 8, Eli & Fur, Jody Wisternoff, and the broader Anjunadeep-Mango Alley-Last Night On Earth label network extended the genre into ambient-leaning deep-house adjacency.",
   "recipe": "classic melodic house, electronic Dance, house branch, ambient experimental electric outrun / synthwave vaporwave aesthetic. extended whistle, breath veiled tone, straight note core, interlocked note trading. behringer rd 8 modern clone analog circuit reproduction TR-808, pad like pad analog synth, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 584,
-  "score": 175.05,
+  "score": 174.445,
   "config": {
     "traditions": [
       "melodic_house",
@@ -77,7 +77,7 @@
         "scores": {
           "electronic_technique": 8.985,
           "oscillator": 1.69,
-          "filter_topology": 0.6299999999999999,
+          "filter_topology": 0.48000000000000004,
           "envelope": 4.55,
           "modulation": 0.045
         }
@@ -87,7 +87,7 @@
         "slots": {
           "keyboard_technique": "keyboard_avant_prepared",
           "grand_piano_size": "grand_7_foot",
-          "grand_piano_brand": "bosendorfer",
+          "grand_piano_brand": "yamaha_cfx",
           "piano_hammer": "japanese_1980s_hammer",
           "piano_rim": "asian_laminated_rim_birch_maple",
           "piano_soundboard": "asian_spruce_soundboard",
@@ -97,8 +97,8 @@
         },
         "scores": {
           "keyboard_technique": 7.200000000000001,
-          "grand_piano_size": 0.585,
-          "grand_piano_brand": 1.995,
+          "grand_piano_size": 0.435,
+          "grand_piano_brand": 1.69,
           "piano_hammer": 2.5700000000000003,
           "piano_rim": 2.465,
           "piano_soundboard": 1.8150000000000002,

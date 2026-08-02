@@ -5,7 +5,7 @@
   "lineage": "Isan (Northeast Thailand) and Lao traditional and popular vocal-and-khaen tradition — mor lam literally means expert singer in Lao; the Isan/Lao genre built on the khaen (bamboo mouth-organ with 16 pipes in two rows) and the lead-vocal improvising long-form Lao-language sung-poetry over the khaen drone-and-melody foundation; figures Banyen Rakkaen, Pornsak Songsang, Chaweewan Damnern, and the modern Jintara Poonlarp",
   "recipe": "classic Southeast Asian modern mor lam, drone Modal, vocal branch, med east poetic ballad poetry pontic greek music ethiopian azmari minstrel-poet. vocal fry, breath veiled tone, slow rate, interlocked note trading. khaen, bamboo bars low register canonical pinpeat second voice pinpeat counterpoint to roneat ek lead roneat thung, festive dance driving phin. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 584,
-  "score": 313.723,
+  "score": 308.272,
   "config": {
     "traditions": [
       "mor_lam",
@@ -41,13 +41,13 @@
           "voice_vibrato": 2.6649999999999996,
           "voice_articulation": 27.495000000000008,
           "voice_microtone": 30.582500000000003,
-          "voice_tradition": 28.685000000000002,
+          "voice_tradition": 26.034999999999993,
           "voice_mechanism_compound": 7.865,
-          "voice_estill_quality": 5.025,
+          "voice_estill_quality": 4.875,
           "voice_speech_song": 30.160000000000004,
           "voice_ensemble_config": 25.350000000000005,
           "voice_ornament_system": 2.09,
-          "voice_pitch_organization": 30.36,
+          "voice_pitch_organization": 27.709999999999994,
           "voice_processing_chain": 5.05,
           "voice_multitrack_stack": 6.565000000000001
         }

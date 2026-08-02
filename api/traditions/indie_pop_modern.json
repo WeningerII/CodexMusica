@@ -5,7 +5,7 @@
   "lineage": "Post-2000 streaming-era indie-pop with bedroom-recording aesthetic and DIY production — codified through Vampire Weekend (Vampire Weekend 2008), Beach House (Teen Dream 2010), Grimes (Visions 2012), and the broader Pitchfork-canonical indie ecosystem; characterized by reverb-soaked guitars, drum-machine programming, and confessional first-person lyrical register",
   "recipe": "classic early-2000s indie pop, functional Song, pop rock branch, alternative distorted rock bedroom pop dreampop. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation clean single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric marshall plexi amp British rock amp humbucker roundwound short-scale short scale bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog poly synth, ukulele. live tracking. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital klon centaur.",
   "recipe_chars": 677,
-  "score": 354.49,
+  "score": 334.025,
   "config": {
     "traditions": [
       "indie_pop_modern",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 31.204999999999995,
+          "voice_register": 29.954999999999995,
           "voice_quality": 5.850000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.444999999999999,
+          "voice_vibrato": 4.795,
           "voice_articulation": 13.129999999999992,
-          "voice_microtone": 30.674999999999997,
-          "voice_tradition": 27.944999999999997,
+          "voice_microtone": 29.424999999999997,
+          "voice_tradition": 25.294999999999998,
           "voice_mechanism_compound": 3.5100000000000007,
           "voice_estill_quality": 2.275,
           "voice_speech_song": 15.989999999999991,
           "voice_ensemble_config": 13.06499999999999,
           "voice_ornament_system": 0.7149999999999997,
           "voice_pitch_organization": 1.9499999999999997,
-          "voice_processing_chain": 13.16,
-          "voice_multitrack_stack": 15.1125
+          "voice_processing_chain": 12.26,
+          "voice_multitrack_stack": 12.5125
         }
       },
       {
@@ -62,23 +62,23 @@
           "fretboard": "ebony_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
-          "string_gauge": "g_11",
+          "string_gauge": "g_10",
           "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 19.439999999999994,
+          "electric_technique": 18.189999999999994,
           "amp_make": 6.175000000000001,
-          "body_wood": 0.9750000000000001,
-          "neck_wood": 0.9750000000000001,
+          "body_wood": 0.825,
+          "neck_wood": 0.825,
           "fretboard": 0.3,
           "pickup_magnet": 0.15,
           "string_material": 0.15,
-          "string_gauge": 0.9750000000000001,
-          "bridge": 2.145,
-          "scale_length": 1.9500000000000002,
+          "string_gauge": 0.9099999999999999,
+          "bridge": 1.495,
+          "scale_length": 1.6500000000000004,
           "finish": 0,
           "string_tuning": 8.190000000000001
         }
@@ -96,10 +96,10 @@
         },
         "scores": {
           "amp_make": 6.37,
-          "body_wood": 1.9500000000000002,
-          "pickup_config": 3.185,
+          "body_wood": 1.6500000000000004,
+          "pickup_config": 2.535,
           "string_type": 15.1125,
-          "scale_length_b": 2.34,
+          "scale_length_b": 1.69,
           "fretted_or_not": 0.105,
           "bass_technique": 11.575
         }
@@ -113,7 +113,7 @@
         },
         "scores": {
           "drum_technique": 14.039999999999994,
-          "drumhead": 23.944999999999997,
+          "drumhead": 21.444999999999997,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -126,7 +126,7 @@
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 19.349999999999994,
+          "electronic_technique": 18.099999999999994,
           "poly_archetypes": 6.4350000000000005,
           "poly_voices": 0.95,
           "poly_maker_lineage": 0.3249999999999998
@@ -145,10 +145,10 @@
         "scores": {
           "electric_technique": 2.425,
           "amp_make": 5.265000000000001,
-          "short_scale_bass_model": 1.77,
-          "short_scale_bass_context": 8.564999999999998,
-          "short_scale_bass_pickup": 1.17,
-          "short_scale_bass_strings": 1.95
+          "short_scale_bass_model": 1.32,
+          "short_scale_bass_context": 8.064999999999998,
+          "short_scale_bass_pickup": 1.02,
+          "short_scale_bass_strings": 1.3
         }
       },
       {

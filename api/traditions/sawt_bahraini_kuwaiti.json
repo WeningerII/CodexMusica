@@ -5,7 +5,7 @@
   "lineage": "Sawt classical Arabian-Gulf urban-chamber song tradition of Bahrain and Kuwait, developed in eighteenth-nineteenth centuries through cultural and trade connections between Gulf merchant-class urban centers and Yemen (with Yemeni-Sanaani musical influence) and East Africa (Zanzibari merchant-class exchange). Performance configuration: male solo singer accompanying himself on oud, with mirwas small drum and hand-clapping from a small audience. Repertoire organizes around sawt arabi (longer, complex modal cycle) and sawt shami (shorter, lighter modal cycle).",
   "recipe": "classic Middle Eastern modern sawt, art Music, middle eastern classical branch, med east poetic ballad poetry ethiopian azmari minstrel-poet pontic greek music. vocal fry, breath veiled tone, slow rate, interlocked note trading. Lebanese cedar eastern Mediterranean oud, goat skin Turkish darbuka regional Egyptian sombaty canonical mid east open slap hand drum darbuka. qat chew majlis room. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 455,
-  "score": 273.537,
+  "score": 267.712,
   "config": {
     "traditions": [
       "sawt_bahraini_kuwaiti",
@@ -41,13 +41,13 @@
           "voice_vibrato": 11.864999999999998,
           "voice_articulation": 25.155,
           "voice_microtone": 34.3525,
-          "voice_tradition": 24.585000000000008,
+          "voice_tradition": 21.71,
           "voice_mechanism_compound": 11.7,
-          "voice_estill_quality": 13.774999999999999,
+          "voice_estill_quality": 13.624999999999998,
           "voice_speech_song": 28.990000000000002,
           "voice_ensemble_config": 23.4,
-          "voice_ornament_system": 12.239999999999998,
-          "voice_pitch_organization": 30.36,
+          "voice_ornament_system": 12.09,
+          "voice_pitch_organization": 27.709999999999994,
           "voice_processing_chain": 5.719999999999999,
           "voice_multitrack_stack": 3.9650000000000003
         }

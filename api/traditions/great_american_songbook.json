@@ -3,9 +3,9 @@
   "name": "Great American Songbook (vocal jazz pop)",
   "family": "global",
   "lineage": "1920s-1950s American popular-song repertoire from Tin Pan Alley, Broadway, and Hollywood (Gershwin, Berlin, Porter, Kern, Rodgers-and-Hart-and-Hammerstein) as interpreted by mid-century vocal jazz singers — Sinatra, Ella Fitzgerald, Sarah Vaughan, Tony Bennett, Nat King Cole",
-  "recipe": "classic North American mid-1920s great american songbook, functional Song, crooners branch, American jazz smooth vocal cool jazz vocal modern vocal jazz. thick, close mic intimate, straight onset, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, growly gut upright bass, vintage ambassador asymmetric brushes drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris lyrical continuous-airflow saxophone, bach stradivarius 180 canonical American orchestral lyrical jazz balance trumpet, bach 42 canonical American orchestral tenor student commercial trombone. capitol tower 1750 vine 1956-present major-flagship capitol tower studios la. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 823,
-  "score": 412.465,
+  "recipe": "classic North American mid-1920s great american songbook, functional Song, crooners branch, American jazz smooth vocal cool jazz vocal modern vocal jazz. thick, close mic intimate, straight onset, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, growly gut upright bass, vintage ambassador asymmetric brushes drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, bach stradivarius 180 canonical American orchestral jazz balance trumpet, bach 42 canonical American orchestral tenor student commercial trombone. capitol tower 1750 vine 1956-present major-flagship capitol tower studios la. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 814,
+  "score": 358.925,
   "config": {
     "traditions": [
       "great_american_songbook",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 21.881499999999996,
-          "voice_quality": 16.117499999999996,
+          "voice_register": 19.381499999999996,
+          "voice_quality": 14.498749999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 21.314875,
+          "voice_vibrato": 18.146124999999998,
           "voice_articulation": 4.875,
-          "voice_microtone": 22.173499999999997,
-          "voice_tradition": 21.873625,
+          "voice_microtone": 19.673499999999997,
+          "voice_tradition": 18.879875,
           "voice_mechanism_compound": 1.625,
           "voice_estill_quality": 2.363000000000001,
           "voice_speech_song": 8.58,
-          "voice_ensemble_config": 8.905000000000001,
+          "voice_ensemble_config": 7.605,
           "voice_ornament_system": 0.1035,
           "voice_pitch_organization": 0.195,
-          "voice_processing_chain": 8.905000000000001,
-          "voice_multitrack_stack": 9.035
+          "voice_processing_chain": 7.605,
+          "voice_multitrack_stack": 7.735
         }
       },
       {
@@ -71,10 +71,10 @@
           "grand_piano_brand": 2.0799999999999996,
           "piano_hammer": 6.24,
           "piano_rim": 6.629999999999999,
-          "piano_soundboard": 5,
-          "piano_pinblock": 2.5,
-          "piano_plate": 2.5,
-          "piano_pitch_standard": 3.14275
+          "piano_soundboard": 3.75,
+          "piano_pinblock": 1.25,
+          "piano_plate": 1.25,
+          "piano_pitch_standard": 1.625
         }
       },
       {
@@ -84,8 +84,8 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 19,
-          "upright_play": 19
+          "upright_strings": 16.5,
+          "upright_play": 16.5
         }
       },
       {
@@ -96,8 +96,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 19,
-          "drumhead": 23.525124999999996,
+          "drum_technique": 16.5,
+          "drumhead": 20.531374999999997,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -113,13 +113,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 3.7364999999999995,
+          "wind_articulation": 2.3115,
           "sax_size": 1.885,
-          "sax_reed": 0.24712499999999996,
-          "sax_body_alloy": 21.5,
+          "sax_reed": 0.142125,
+          "sax_body_alloy": 17.75,
           "sax_mouthpiece": 0.0195,
-          "sax_technique": 19.0045,
-          "sax_maker_school": 22.498624999999997
+          "sax_technique": 16.5045,
+          "sax_maker_school": 19.504875
         }
       },
       {
@@ -134,10 +134,10 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 3.7364999999999995,
+          "wind_articulation": 2.3115,
           "brass_size": 0.21,
-          "trumpet_mouthpiece": 21.873625,
-          "brass_mute": 1.6899999999999997,
+          "trumpet_mouthpiece": 18.879875,
+          "brass_mute": 1.04,
           "trumpet_technique": 0.06499999999999999,
           "trumpet_bell_metal": 0.0315,
           "trumpet_maker_school": 6.305
@@ -156,11 +156,11 @@
         },
         "scores": {
           "wind_articulation": 0.06499999999999999,
-          "trombone_type": 19.21,
-          "trombone_mouthpiece": 22.4165,
+          "trombone_type": 16.71,
+          "trombone_mouthpiece": 19.7665,
           "trombone_mute": 0.0045,
           "trombone_technique": 0.063,
-          "trombone_bell_metal": 0.30449999999999994,
+          "trombone_bell_metal": 0.1995,
           "trombone_maker_school": 6.305
         }
       }

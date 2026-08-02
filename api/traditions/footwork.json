@@ -5,7 +5,7 @@
   "lineage": "Chicago footwork dance-music genre evolved from juke and ghetto-house through the late-2000s — characterized by 160 bpm syncopated triplet-based programming, chopped-and-pitched sampled vocals, sparse arrangement designed for the underground dance-battle-circuit footwork dance — codified through DJ Rashad (Double Cup 2013, the genre's breakthrough album), DJ Spinn, Traxman, RP Boo, and the Teklife crew",
   "recipe": "classic 2007-2009 footwork, electronic Dance, footwork branch, us hip hop modern cloud rap. behringer rd 8 modern clone analog circuit reproduction TR-808, chopped sampler, sub bass digital subtractive. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 347,
-  "score": 70.729,
+  "score": 70.687,
   "config": {
     "traditions": [
       "footwork",
@@ -21,7 +21,7 @@
         },
         "scores": {
           "tr808_voice": 4.429874999999999,
-          "drum_machine_808_context": 3.8999999999999995,
+          "drum_machine_808_context": 3.8576249999999996,
           "tr808_production_origin": 2.6750000000000003
         }
       },

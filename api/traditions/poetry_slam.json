@@ -5,7 +5,7 @@
   "lineage": "Competitive performance-poetry format created by Chicago poet Marc Kelly Smith, who launched the Uptown Poetry Slam at the Green Mill jazz club in 1986 after workshopping the format at the Get Me High Lounge. Poets perform original memorized work within a time limit, scored by randomly selected audience judges, and the format spread through New York's Nuyorican Poets Cafe and the National Poetry Slam (from 1990). Delivery favors rhythmic build, anaphora, and projected direct address, drawing on Beat reading culture, Black Arts spoken word, and hip-hop cadence; Saul Williams and HBO's Def Poetry Jam carried the style to wide audiences.",
   "recipe": "classic mid-1980s poetry slam / performance poetry, spoken Word, stage performance branch old-time radio announcer sports play-by-play commentary. thick, breath veiled tone, straight onset, interlocked note trading. jazz club. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 356,
-  "score": 143.13,
+  "score": 142.48,
   "config": {
     "traditions": [
       "poetry_slam",
@@ -49,7 +49,7 @@
           "voice_ornament_system": 1.5250000000000001,
           "voice_pitch_organization": 2.34,
           "voice_processing_chain": 6.077500000000001,
-          "voice_multitrack_stack": 3.7700000000000005
+          "voice_multitrack_stack": 3.1200000000000006
         }
       }
     ],

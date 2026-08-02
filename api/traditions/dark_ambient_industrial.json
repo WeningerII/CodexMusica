@@ -5,7 +5,7 @@
   "lineage": "1980s and 1990s ambient subgenre developed through industrial-music adjacent scene, characterized by drone-and-texture-based composition emphasizing menacing, dark, foreboding atmospheric content. Lustmord (Brian Williams), Coil, Nurse With Wound, and the broader Cold Spring Records and Side Effects label rosters anchor the canonical sound. Distinguished from broader ambient by dark ambient's explicit horror-cinematic-and-occult thematic orientation.",
   "recipe": "classic dark ambient, experimental Elec, ambient branch, industrial noise experimental electric dark electro / aggrotech. pad like pad analog synth, field textural sampler, ritual bronze rods canonical aquasonic waterphone. isolated rural 2005-present isolation diy isolation cabin diy. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
   "recipe_chars": 374,
-  "score": 110.907,
+  "score": 109.407,
   "config": {
     "traditions": [
       "dark_ambient_industrial",
@@ -56,9 +56,9 @@
           "waterphone_construction": "waterphone_bronze_stainless"
         },
         "scores": {
-          "waterphone_model": 12.875,
+          "waterphone_model": 12.125,
           "waterphone_excitation": 0.045,
-          "waterphone_context": 12.9905,
+          "waterphone_context": 12.2405,
           "waterphone_construction": 2.535
         }
       }

@@ -3,9 +3,9 @@
   "name": "Industrial metal (1980s-1990s electro-industrial heavy rock)",
   "family": "rock_punk",
   "lineage": "1980s-and-1990s heavy-metal subgenre integrating industrial-electronic production techniques (drum-machine programming, sampling, distorted-synthesizer textures) with heavy-metal guitar-and-vocal aesthetic. Ministry's The Land of Rape and Honey (1988), Nine Inch Nails' The Downward Spiral (1994), and Rammstein's 1995-onward German-language work constitute canonical type-specimens. Distinguished from broader industrial by integration of guitar-band rock framework.",
-  "recipe": "classic North American industrial metal, distorted Rock, avant branch, industrial noise experimental electric dark electro / aggrotech. thick, breath veiled tone, straight note core, interlocked note trading. orange amp British heavy crunch basswood power chord humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, brushes-and-sticks drum kit, analog synth, field textural sampler. mid manhattan 1975-1985 mid-major late70s nyc commercial. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 621,
-  "score": 317.105,
+  "recipe": "classic North American industrial metal, distorted Rock, avant branch, industrial noise experimental electric dark electro / aggrotech. thick, breath veiled tone, breath pulsed, interlocked note trading. orange amp British heavy crunch basswood power chord humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, brushes-and-sticks drum kit, analog synth, field textural sampler. mid manhattan 1975-1985 mid-major late70s nyc commercial. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 616,
+  "score": 314.3,
   "config": {
     "traditions": [
       "industrial_metal",
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "diaphragm_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "microtonal_31tet_tradition",
@@ -38,18 +38,18 @@
           "voice_quality": 6.37,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.7129999999999999,
+          "voice_vibrato": 0.5115000000000001,
           "voice_articulation": 14.169999999999996,
           "voice_microtone": 13.974999999999993,
           "voice_tradition": 7.15,
-          "voice_mechanism_compound": 26.178749999999997,
+          "voice_mechanism_compound": 26.02875,
           "voice_estill_quality": 1.4949999999999999,
           "voice_speech_song": 14.169999999999996,
           "voice_ensemble_config": 14.949999999999996,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 3.185000000000001,
-          "voice_processing_chain": 19.116499999999995,
-          "voice_multitrack_stack": 9.756499999999999
+          "voice_processing_chain": 17.7615,
+          "voice_multitrack_stack": 9.546499999999998
         }
       },
       {
@@ -81,7 +81,7 @@
           "bridge": 0.0315,
           "scale_length": 10.075,
           "string_gauge": 0.0315,
-          "finish": 0.65,
+          "finish": 0.1815,
           "string_tuning": 15.924999999999995
         }
       },
@@ -100,7 +100,7 @@
           "amp_make": 7.474999999999999,
           "body_wood": 0.063,
           "pickup_config": 0.105,
-          "string_type": 14.119499999999997,
+          "string_type": 13.909499999999996,
           "scale_length_b": 0.105,
           "fretted_or_not": 0.0765,
           "bass_technique": 11.199999999999996
@@ -147,7 +147,7 @@
         },
         "scores": {
           "electronic_technique": 5.450000000000001,
-          "sampler_archetypes": 1.2,
+          "sampler_archetypes": 0.99,
           "sampler_bit_depth": 0.345,
           "sampler_workflow": 6.02375,
           "sampler_classic_context": 32.875

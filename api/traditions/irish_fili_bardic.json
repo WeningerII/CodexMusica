@@ -5,7 +5,7 @@
   "lineage": "Recitation practice of the Gaelic learned poet — the fili (plural filid) and later bard — of medieval and early-modern Ireland (and Gaelic Scotland), a hereditary professional trained for years in bardic schools to compose in the strict syllabic metres of dan direach. The fili's social power lay in praise-poetry for a chieftain patron and in the feared aer (satire) believed capable of raising blisters or destroying reputation; the tradition ran from the early medieval period to the collapse of the Gaelic order after 1600, documented in the Book of the Dean of Lismore and the bardic duanaireacht. Poems were declaimed, often to harp accompaniment by a separate reacaire (reciter), as measured heightened speech.",
   "recipe": "classic Northern European early-1600s irish filí / bardic recitation, ballad Poetry, Celtic balladic branch jeju haenyeo songs indian dastangoi / qissa urdu storytelling. thick, breath veiled tone, straight note core, interlocked note trading. connemara kitchen sean nos. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 334,
-  "score": 243.432,
+  "score": 243.177,
   "config": {
     "traditions": [
       "irish_fili_bardic",
@@ -42,7 +42,7 @@
           "voice_articulation": 23.985,
           "voice_microtone": 23.789999999999996,
           "voice_tradition": 23.79,
-          "voice_mechanism_compound": 4.118,
+          "voice_mechanism_compound": 3.863,
           "voice_estill_quality": 8.820375,
           "voice_speech_song": 33.767500000000005,
           "voice_ensemble_config": 23.919999999999998,

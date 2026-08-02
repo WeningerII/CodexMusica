@@ -5,7 +5,7 @@
   "lineage": "The Met Office marine weather bulletin broadcast on BBC radio since the mid-1920s, read in a measured, deliberately calm cadence over long wave for mariners around the British Isles. The forecast names its 31 sea areas in a fixed roughly clockwise order — Viking, North Utsire, South Utsire, Forties, Cromarty, Forth, Tyne, Dogger, Fisher, German Bight and onward — within a strict word limit, so the litany's rhythm barely varies from bulletin to bulletin. The 0048 Radio 4 broadcast, preceded by the light-orchestral tune 'Sailing By', has become a secular bedtime liturgy for British listeners far beyond its maritime audience, its cadence quoted by poets and musicians alike. Delivery is neutral continuity-announcer speech: unhurried, evenly stressed, pitch-flat, with terminal falls closing each area's report.",
   "recipe": "classic British 1924-1926 shipping forecast cadence, spoken Word, broadcast branch numbers-station shortwave broadcast podcast conversation. thick, breath veiled tone, slow rate, interlocked note trading. am radio booth. large-diaphragm condenser, tube pre, German tube console. tape 15ips echo plate reverb.",
   "recipe_chars": 308,
-  "score": 130.69,
+  "score": 130.614,
   "config": {
     "traditions": [
       "shipping_forecast_cadence",
@@ -48,7 +48,7 @@
           "voice_ensemble_config": 14.559999999999995,
           "voice_ornament_system": 1.56,
           "voice_pitch_organization": 5.720000000000001,
-          "voice_processing_chain": 6.76,
+          "voice_processing_chain": 6.683625,
           "voice_multitrack_stack": 7.507500000000002
         }
       }

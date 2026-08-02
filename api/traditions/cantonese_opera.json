@@ -5,7 +5,7 @@
   "lineage": "Mid-19th-century onward Pearl-River-Delta Cantonese yueju operatic tradition centered on Guangdong, Guangzhou, and Hong Kong — codified through the 19th-century touring red-boat troupes (hongchuan) and the early-20th-century Hong Kong commercial recording era — characterized by literary-Cantonese sung text, gaohu-fiddle-and-percussion accompaniment, and the male / female / clown role types of jingju adapted to Cantonese language and aesthetic",
   "recipe": "classic East Asian mid-1930s cantonese opera, art Music, Cantonese opera branch, east Asian beijing opera, east Asian Tibetan ritual tibetan ache lhamo opera. thick, pressed, slow rate, interlocked note trading. yueqin, Cantonese silk and bamboo legato gaohu, silk mahogany commercial grade pipa, percussion section ban clapper luogu, yangqin. chinese traditional teahouse. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 446,
-  "score": 432.478,
+  "score": 417.852,
   "config": {
     "traditions": [
       "cantonese_opera",
@@ -35,18 +35,18 @@
         },
         "scores": {
           "voice_register": 2.63125,
-          "voice_quality": 31.049999999999997,
+          "voice_quality": 27.549999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 12.869999999999997,
+          "voice_vibrato": 12.857499999999998,
           "voice_articulation": 22.03875,
           "voice_microtone": 22.118749999999995,
-          "voice_tradition": 40.966249999999995,
+          "voice_tradition": 40.95374999999999,
           "voice_mechanism_compound": 11.244999999999997,
-          "voice_estill_quality": 36.775,
-          "voice_speech_song": 30.949999999999996,
+          "voice_estill_quality": 33.9375,
+          "voice_speech_song": 28.449999999999996,
           "voice_ensemble_config": 25.54,
-          "voice_ornament_system": 30.949999999999996,
+          "voice_ornament_system": 28.449999999999996,
           "voice_pitch_organization": 25.016249999999992,
           "voice_processing_chain": 5.6362499999999995,
           "voice_multitrack_stack": 4.36375
@@ -94,7 +94,7 @@
         "scores": {
           "plucked_traditional_technique": 10.499999999999998,
           "pipa_frets": 0.50625,
-          "pipa_strings": 8.6675,
+          "pipa_strings": 8.655,
           "pipa_pick": 0.012499999999999999,
           "pipa_body_wood": 1.91875
         }
@@ -106,8 +106,8 @@
           "luogu_sections": "luogu_full_jingju"
         },
         "scores": {
-          "luogu_use": 19.8825,
-          "luogu_sections": 10.787500000000001
+          "luogu_use": 17.8825,
+          "luogu_sections": 9.5375
         }
       },
       {

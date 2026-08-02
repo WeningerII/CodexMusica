@@ -5,7 +5,7 @@
   "lineage": "Academic male-student fado tradition centered on the University of Coimbra (Portugals oldest university, founded in the 13th century) — distinct from fado de Lisboa in vocal register (male tenor/baritone), repertoire (poetry-set songs, student songs, serenata), and performance context (outdoor stone-paved quadrangle and Sé Velha cathedral steps rather than intimate tavern); performers wear the traditional black student capa-e-batina cape",
   "recipe": "classic Iberian mid-1930s fado de coimbra, ballad Poetry, fado coimbra branch, chanson fado fado lisboa, chanson fado classic chanson chanson classique. vocal fry, lament wail, slow rate, interlocked note trading. bowl back Italian German spruce classical leaning European maple loar canon mandolin, cedar nylon fingerpicked classical nylon-string guitar, lower tuned fado coimbra tradition jacaranda Portuguese rosewood spruce canonical fado steel canonical Portuguese guitarra portuguesa. coimbra university outdoor quad. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 596,
-  "score": 212.519,
+  "score": 209.244,
   "config": {
     "traditions": [
       "fado_coimbra_university",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 3.2487500000000002,
-          "voice_quality": 34.050000000000004,
+          "voice_register": 3.23375,
+          "voice_quality": 32.800000000000004,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.9575,
           "voice_articulation": 10.828999999999995,
           "voice_microtone": 10.940249999999992,
-          "voice_tradition": 9.750125,
+          "voice_tradition": 9.720125000000001,
           "voice_mechanism_compound": 2.05875,
           "voice_estill_quality": 2.9575000000000005,
           "voice_speech_song": 13.617499999999994,
           "voice_ensemble_config": 11.231499999999993,
           "voice_ornament_system": 1.6749999999999996,
           "voice_pitch_organization": 1.5087499999999996,
-          "voice_processing_chain": 5.076875000000001,
-          "voice_multitrack_stack": 3.655625
+          "voice_processing_chain": 5.061875000000001,
+          "voice_multitrack_stack": 3.640625
         }
       },
       {
@@ -104,11 +104,11 @@
           "guitarra_technique": "guitarra_pluck_with_metal_fingerpicks"
         },
         "scores": {
-          "guitarra_tuning_school": 25.070125000000004,
+          "guitarra_tuning_school": 24.420125000000002,
           "guitarra_body_wood": 3.3199999999999994,
-          "guitarra_top_wood": 14.508125000000003,
+          "guitarra_top_wood": 13.858125000000003,
           "guitarra_strings": 3.759999999999999,
-          "guitarra_technique": 14.331875000000004
+          "guitarra_technique": 13.681875000000003
         }
       }
     ],

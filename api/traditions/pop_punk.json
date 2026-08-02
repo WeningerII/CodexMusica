@@ -5,7 +5,7 @@
   "lineage": "Mid-1970s onward pop-melody punk hybrid genre fusing punk's tempo, distortion, and DIY ethos with pop's harmonic and melodic vocabulary — codified through the Ramones (Ramones 1976), Buzzcocks (Singles Going Steady 1979), and the 1990s commercial breakthrough with Green Day (Dookie 1994), The Offspring (Smash 1994), Blink-182 (Enema of the State 1999), continuing through 2000s emo-adjacent revivals",
   "recipe": "classic North American 1974-1976 pop-punk, distorted Rock, pop punk branch, alternative distorted rock grunge. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 598,
-  "score": 612.638,
+  "score": 603.838,
   "config": {
     "traditions": [
       "pop_punk",
@@ -34,13 +34,13 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 58.89000000000003,
+          "voice_register": 57.49000000000003,
           "voice_quality": 28.08,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 4.735,
           "voice_articulation": 25.609999999999992,
-          "voice_microtone": 52.80000000000002,
+          "voice_microtone": 51.55000000000002,
           "voice_tradition": 27.52,
           "voice_mechanism_compound": 19.66,
           "voice_estill_quality": 6.864999999999999,
@@ -48,8 +48,8 @@
           "voice_ensemble_config": 34.605000000000004,
           "voice_ornament_system": 3.5750000000000006,
           "voice_pitch_organization": 3.1300000000000012,
-          "voice_processing_chain": 9.915,
-          "voice_multitrack_stack": 12.285
+          "voice_processing_chain": 9.765,
+          "voice_multitrack_stack": 12.135
         }
       },
       {
@@ -71,7 +71,7 @@
         },
         "scores": {
           "electric_technique": 28,
-          "amp_make": 48.535,
+          "amp_make": 47.735,
           "body_wood": 7.215000000000001,
           "neck_wood": 2.535,
           "fretboard": 2.47,
@@ -82,7 +82,7 @@
           "scale_length": 2.535,
           "string_gauge": 2.535,
           "finish": 0.195,
-          "string_tuning": 18.785000000000004
+          "string_tuning": 18.135000000000005
         }
       },
       {
@@ -97,13 +97,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 17.452500000000004,
+          "amp_make": 16.802500000000002,
           "body_wood": 3.705,
           "pickup_config": 1.17,
-          "string_type": 34.07500000000001,
+          "string_type": 32.82500000000001,
           "scale_length_b": 2.535,
           "fretted_or_not": 0.3,
-          "bass_technique": 55.170000000000016
+          "bass_technique": 53.920000000000016
         }
       },
       {
@@ -114,7 +114,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 28.75000000000001,
+          "drum_technique": 27.50000000000001,
           "drumhead": 24.199999999999996,
           "drum_kit_kick_pedal": 0
         }

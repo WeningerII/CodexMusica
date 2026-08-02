@@ -5,7 +5,7 @@
   "lineage": "Korean drinking-and-celebration song tradition continuous from premodern Korean banquet-and-tavern song-tradition through Japanese-colonial-era and post-1945 continuous performance into modern Korean-and-Korean-diaspora continuous noraebang (가요방, song-room) and drinking-establishment practice; the broader Korean drinking-culture integrates extensive trot (트로트) and folk-drinking-song repertoire",
   "recipe": "classic mid-1940s korean jubu-ga, drinking Song, east Asian branch, European drinking song, east Asian pop functional song, east Asian protest song shidaiqu enka. thick, breath veiled tone, straight onset, interlocked note trading. flatwound thomastik fingerpicked acoustic guitar. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 355,
-  "score": 303.2,
+  "score": 297.55,
   "config": {
     "traditions": [
       "korean_jubu_ga",
@@ -34,11 +34,11 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 27.974999999999994,
+          "voice_register": 25.474999999999994,
           "voice_quality": 23.465,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 11.94375,
+          "voice_vibrato": 10.69375,
           "voice_articulation": 29.445000000000014,
           "voice_microtone": 30.095000000000013,
           "voice_tradition": 37.4625,
@@ -47,7 +47,7 @@
           "voice_speech_song": 47.90500000000003,
           "voice_ensemble_config": 32.110000000000014,
           "voice_ornament_system": 28.8,
-          "voice_pitch_organization": 8.912499999999996,
+          "voice_pitch_organization": 7.6625,
           "voice_processing_chain": 8.665000000000001,
           "voice_multitrack_stack": 7.5862500000000015
         }
@@ -65,7 +65,7 @@
           "string_tuning": 0.12499999999999997,
           "top_wood": 0.9099999999999999,
           "back_sides": 0.9099999999999999,
-          "string_acoustic": 3.5749999999999993,
+          "string_acoustic": 2.9249999999999994,
           "acoustic_om_technique": 3.62
         }
       }

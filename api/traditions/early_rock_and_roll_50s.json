@@ -5,7 +5,7 @@
   "lineage": "Mid-1950s rhythm-and-blues into rock-and-roll transitional zone — codified through Bill Haley and His Comets (\"Rock Around the Clock\" 1954), Chuck Berry (\"Maybellene\" 1955), Elvis Presley’s Sun Records sessions (1954-55) and RCA crossover (1956), Little Richard (\"Tutti Frutti\" 1955), Fats Domino, and Jerry Lee Lewis — characterized by 12-bar-blues form adapted to teen-pop subject matter, electric-guitar-led instrumentation, and the Sun / Chess / Specialty / Atlantic indie-label distribution ecosystem",
   "recipe": "classic North American early rock-and-roll, distorted Rock, classic branch, blues electric functional song chicago blues jump blues. thick, blues-shouter, wide pitch sway, interlocked note trading. Fender tweed amp American 50s amp tweed breakup dearmond vintage jazz archtop, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, soft felt lacquer voiced 17 ply hard rock maple Asian spruce grand piano, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone. dry but alive 1948-1965 indie-commercial early tape us small. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 690,
-  "score": 251.85,
+  "score": 241,
   "config": {
     "traditions": [
       "early_rock_and_roll_50s",
@@ -34,14 +34,14 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 41.23150000000001,
-          "voice_quality": 14.118999999999991,
+          "voice_register": 38.73150000000001,
+          "voice_quality": 12.068999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 26.604249999999997,
+          "voice_vibrato": 24.104249999999997,
           "voice_articulation": 14.169999999999998,
-          "voice_microtone": 24.156499999999998,
-          "voice_tradition": 12.129999999999995,
+          "voice_microtone": 21.656499999999998,
+          "voice_tradition": 10.829999999999997,
           "voice_mechanism_compound": 2.4699999999999998,
           "voice_estill_quality": 2.2749999999999995,
           "voice_speech_song": 17.614999999999995,

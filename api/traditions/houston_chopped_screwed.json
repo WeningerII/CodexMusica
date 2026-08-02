@@ -5,7 +5,7 @@
   "lineage": "Houston Texas hip-hop production-style invented by DJ Screw (born 1971) in early 1990s, in which existing hip-hop tracks are slowed dramatically (typically to 60-70% of original tempo) and chopped (rearranged in cut-and-paste sequence with repeats and skips). DJ Screw's Screwed Up Click crew (including Lil' Keke, Big Moe, Z-Ro, Lil' Flip) defined the canonical roster. Distinguished by the chopped-and-screwed technique's production-method-as-genre identity.",
   "recipe": "classic Los Angeles 1990-1993 houston chopped and screwed, mc Rhythm, southern branch, bass descendants bass system, ambient experimental electric witch house broken beat. thick, rap, straight onset, interlocked note trading. chopped sampler, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
   "recipe_chars": 523,
-  "score": 221.575,
+  "score": 219.95,
   "config": {
     "traditions": [
       "houston_chopped_screwed",
@@ -66,7 +66,7 @@
           "sampler_archetypes": 9.649999999999999,
           "sampler_bit_depth": 0,
           "sampler_workflow": 11.604999999999999,
-          "sampler_classic_context": 30.16
+          "sampler_classic_context": 28.535
         }
       },
       {

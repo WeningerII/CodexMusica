@@ -5,7 +5,7 @@
   "lineage": "2019-onward subgenre extending plugg with explicit R&B-soul melodic-vocal influence, slower romantic tempos, and reverb-drenched-Auto-Tune-emotional delivery. Producer Sxlxmxn defined much of the early pluggnb sound; Summrs, Autumn!, kankan, and TaTa constitute canonical artists. Distinguished from plugg by pluggnb's explicit R&B-melodic emphasis and romantic-relationship lyrical content.",
   "recipe": "classic modern pluggnb, mc Rhythm, southern branch, soul R&B functional song doo-wop alt-r&b. thick, breath veiled tone, straight note core, interlocked note trading. singing lead analog synth, TR-808. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
   "recipe_chars": 390,
-  "score": 168.522,
+  "score": 168.015,
   "config": {
     "traditions": [
       "pluggnb",
@@ -31,7 +31,7 @@
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_plate_reverb_medium",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
           "voice_register": 19.174999999999997,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 2.1449999999999996,
           "voice_pitch_organization": 5.915000000000001,
           "voice_processing_chain": 7.54,
-          "voice_multitrack_stack": 9.5225
+          "voice_multitrack_stack": 9.165
         }
       },
       {
@@ -79,7 +79,7 @@
         "scores": {
           "tr808_voice": 3.15,
           "drum_machine_808_context": 1.8850000000000002,
-          "tr808_production_origin": 0.8999999999999999
+          "tr808_production_origin": 0.75
         }
       }
     ],

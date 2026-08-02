@@ -5,7 +5,7 @@
   "lineage": "Andean Quechua-and-Aymara wedding-music tradition continuous from pre-Columbian Andean ritual-practice through colonial-period syncretic continuous performance into modern Quechua-and-Aymara-speaking domestic practice across Peru, Bolivia, Ecuador, and the Andean diaspora; the huayno is the canonical Andean dance-form across multiple ceremonial contexts including weddings",
   "recipe": "classic Andean modern andean matrimonio huayno, wedding, americas branch, south Asian wedding, Latin am groove percussion, Latin am troubadour ballad poetry milonga indian sangeet. thick, forward-resonance, straight note core, interlocked note trading. naranjillo andean premium wood cedar andean andean classical charango, bone continuous-airflow legato quena, andean tradition paired rows interlocking siku panpipes, castagnari Italian premium folk music bellows articulated accordion. andean altiplano outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 576,
-  "score": 289.897,
+  "score": 287.909,
   "config": {
     "traditions": [
       "andean_matrimonio_huayno",
@@ -66,7 +66,7 @@
           "charango_back": 7.369999999999999,
           "charango_top_wood": 10.214999999999998,
           "charango_strings": 7.988124999999998,
-          "charango_string_material": 8.308124999999999
+          "charango_string_material": 7.6393749999999985
         }
       },
       {
@@ -78,7 +78,7 @@
         },
         "scores": {
           "wind_articulation": 5.059374999999999,
-          "quena_material": 4.288124999999999,
+          "quena_material": 3.6193750000000002,
           "quena_pitch": 9
         }
       },
@@ -111,7 +111,7 @@
           "reed_config": 0.195,
           "bellows": 0.39,
           "voicing_chamber": 0.45499999999999996,
-          "accordion_maker_school": 7.540000000000001
+          "accordion_maker_school": 6.890000000000001
         }
       }
     ],

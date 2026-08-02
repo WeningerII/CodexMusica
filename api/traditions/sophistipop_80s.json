@@ -5,7 +5,7 @@
   "lineage": "Mid-1980s UK pop subgenre integrating jazz-and-soul harmonic vocabulary with sophisticated-glamorous-adult-pop aesthetic. Sade's Diamond Life (1984), the Style Council (Paul Weller post-Jam project), Everything but the Girl, Prefab Sprout, Working Week, and the broader UK-mainstream 1985-1989 chart-pop sophisti-pop wave constitute the canonical roster. Distinguished from broader 80s pop by sophisti-pop's explicit jazz-influence and adult-contemporary cultural orientation.",
   "recipe": "classic British sophisti-pop, functional Song, pop rock branch, American jazz smooth vocal modern vocal jazz. thick, close mic intimate, straight onset, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, ampeg b15 amp American 60s bass amp flip top character mahogany thomastik infeld electric bass, pre muffled edge muffled brushes drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 744,
-  "score": 645.757,
+  "score": 603.707,
   "config": {
     "traditions": [
       "sophistipop_80s",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 65.16150000000003,
-          "voice_quality": 10.573999999999998,
+          "voice_register": 62.66150000000003,
+          "voice_quality": 8.474,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 31.552999999999997,
+          "voice_vibrato": 28.298,
           "voice_articulation": 7.8,
-          "voice_microtone": 61.97500000000002,
-          "voice_tradition": 44.438500000000005,
+          "voice_microtone": 59.47500000000002,
+          "voice_tradition": 41.548500000000004,
           "voice_mechanism_compound": 2.535,
           "voice_estill_quality": 3.2600000000000007,
           "voice_speech_song": 12.804999999999996,
           "voice_ensemble_config": 7.735,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 1.4949999999999999,
-          "voice_processing_chain": 10.809,
-          "voice_multitrack_stack": 11.972999999999999
+          "voice_processing_chain": 9.559,
+          "voice_multitrack_stack": 10.572999999999999
         }
       },
       {
@@ -69,12 +69,12 @@
           "keyboard_technique": 32.254500000000014,
           "grand_piano_size": 4.443,
           "grand_piano_brand": 4.6739999999999995,
-          "piano_hammer": 33.63600000000002,
-          "piano_rim": 34.77150000000001,
-          "piano_soundboard": 34.500000000000014,
-          "piano_pinblock": 2.5130000000000003,
-          "piano_plate": 2.5130000000000003,
-          "piano_pitch_standard": 2.5945
+          "piano_hammer": 32.13100000000001,
+          "piano_rim": 33.52150000000001,
+          "piano_soundboard": 33.250000000000014,
+          "piano_pinblock": 1.263,
+          "piano_plate": 1.263,
+          "piano_pitch_standard": 1.3445
         }
       },
       {
@@ -92,10 +92,10 @@
           "amp_make": 9.267,
           "body_wood": 3.7479999999999998,
           "pickup_config": 0,
-          "string_type": 28.2075,
+          "string_type": 25.2575,
           "scale_length_b": 3.3714999999999997,
           "fretted_or_not": 0,
-          "bass_technique": 25.5
+          "bass_technique": 23
         }
       },
       {
@@ -106,8 +106,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 25.5,
-          "drumhead": 34.531500000000015,
+          "drum_technique": 23,
+          "drumhead": 33.281500000000015,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -126,10 +126,10 @@
           "wind_articulation": 3.3915,
           "sax_size": 3.3714999999999997,
           "sax_reed": 0.0315,
-          "sax_body_alloy": 28.0945,
+          "sax_body_alloy": 24.3445,
           "sax_mouthpiece": 0.105,
-          "sax_technique": 25.5,
-          "sax_maker_school": 27.8175
+          "sax_technique": 23,
+          "sax_maker_school": 24.8675
         }
       }
     ],

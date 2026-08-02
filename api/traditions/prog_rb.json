@@ -5,7 +5,7 @@
   "lineage": "2010s and 2020s R&B subgenre characterized by virtuoso-instrumental playing (especially electric bass), jazz-and-fusion harmonic complexity, lo-fi-and-experimental production aesthetic, and explicit Los-Angeles-Brainfeeder-scene cultural affiliation. Thundercat (Stephen Bruner, born 1984) anchored the canonical sound through Drunk (2017); Steve Lacy (The Internet), Hiatus Kaiyote (Australian, parallel scene), and the broader Brainfeeder, Stones Throw, and Anticon label rosters extended the genre.",
   "recipe": "classic progressive r&b, functional Song, soul R&B branch, American jazz fusion acid jazz nu jazz / electro-jazz. thick, breath veiled tone, straight onset, interlocked note trading. ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 632,
-  "score": 453.549,
+  "score": 422.334,
   "config": {
     "traditions": [
       "prog_rb",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 39.05250000000002,
+          "voice_register": 35.30250000000001,
           "voice_quality": 10.594999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 31.473000000000006,
+          "voice_vibrato": 27.618000000000002,
           "voice_articulation": 17.549999999999997,
-          "voice_microtone": 32.90500000000001,
-          "voice_tradition": 37.025000000000006,
+          "voice_microtone": 29.155,
+          "voice_tradition": 32.375,
           "voice_mechanism_compound": 1.69,
           "voice_estill_quality": 9.294999999999998,
           "voice_speech_song": 19.954999999999995,
           "voice_ensemble_config": 18.329999999999995,
           "voice_ornament_system": 2.19,
           "voice_pitch_organization": 3.185000000000001,
-          "voice_processing_chain": 6.890999999999999,
+          "voice_processing_chain": 6.786,
           "voice_multitrack_stack": 10.634499999999997
         }
       },
@@ -67,10 +67,10 @@
           "amp_make": 16.914,
           "body_wood": 0.7889999999999999,
           "pickup_config": 1.69,
-          "string_type": 36.830000000000005,
-          "scale_length_b": 0.615,
+          "string_type": 32.18,
+          "scale_length_b": 0.51,
           "fretted_or_not": 0.0315,
-          "bass_technique": 30.500000000000007
+          "bass_technique": 26.75
         }
       },
       {
@@ -81,8 +81,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 52.38999999999999,
-          "drumhead": 36.885000000000005,
+          "drum_technique": 50.44,
+          "drumhead": 32.23500000000001,
           "drum_kit_kick_pedal": 0
         }
       },

@@ -3,9 +3,9 @@
   "name": "Shoegaze",
   "family": "rock_punk",
   "lineage": "UK underground guitar-pop genre that emerged 1988-1991 — named for the bands characteristic stage posture of staring down at effect-pedal boards rather than engaging the audience; codified through My Bloody Valentine (Loveless 1991, the wall-of-guitars masterpiece tracked over 2 years across 19 studios with Kevin Shields perfectionism), Slowdive (Just for a Day 1991, Souvlaki 1993), Ride (Nowhere 1990), Lush, Chapterhouse, the Pale Saints; built on dense overlapping guitar tracks with reverb / delay / tremolo / flanger / phaser processing and buried-in-mix vocals",
-  "recipe": "classic Northern European 1988-1991 shoegaze, distorted Rock, alternative branch, modal electric drone modal tuareg desert blues. thick, breath veiled tone, wide pitch sway, interlocked note trading. lower tension down tuning clean strummed single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit. UK 4ad and creation shoegaze 1986-1995 indie-commercial dream pop shoegaze 4ad studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi proco RAT electro-harmonix deluxe memory man.",
-  "recipe_chars": 677,
-  "score": 154.526,
+  "recipe": "classic Northern European 1988-1991 shoegaze, distorted Rock, alternative branch, modal electric drone modal tuareg desert blues. thick, breath veiled tone, straight note core, interlocked note trading. lower tension down tuning clean strummed single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit. UK 4ad and creation shoegaze 1986-1995 indie-commercial dream pop shoegaze 4ad studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi proco RAT electro-harmonix deluxe memory man.",
+  "recipe_chars": 680,
+  "score": 151.381,
   "config": {
     "traditions": [
       "shoegaze",
@@ -19,7 +19,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "oscillating_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "mande_jeli_vocal_tradition",
@@ -33,11 +33,11 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 13.465999999999994,
+          "voice_register": 12.215999999999994,
           "voice_quality": 6.76,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.8950000000000005,
+          "voice_vibrato": 1.755,
           "voice_articulation": 8.319999999999999,
           "voice_microtone": 13.129999999999992,
           "voice_tradition": 12.609999999999996,
@@ -79,7 +79,7 @@
           "bridge": 0.195,
           "scale_length": 0.195,
           "finish": 0,
-          "string_tuning": 5.654999999999999
+          "string_tuning": 5.005
         }
       },
       {
@@ -95,7 +95,7 @@
         },
         "scores": {
           "amp_make": 3.055,
-          "body_wood": 0.546,
+          "body_wood": 0.441,
           "pickup_config": 0,
           "string_type": 7.5075,
           "scale_length_b": 0.39,

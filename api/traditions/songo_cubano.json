@@ -5,7 +5,7 @@
   "lineage": "Cuban dance-music developed in 1970s-1980s Havana by Los Van Van under Juan Formell, synthesizing son montuno, changüí, North American funk, and Cuban folkloric rumba. Introduced drum-kit alongside canonical timbales and congas, electric-bass with funk-derived ostinato, extended sectional structures. Directly informed subsequent 1990s timba emergence.",
   "recipe": "classic Caribbean songo, groove Percussion, son salsa branch, Brazilian song functional song lambada and carimbó forró pé-de-serra. extended whistle, breath veiled tone, fast rate, interlocked note trading. cold pressed wurzen felt birch laminated maple laminated Asian spruce grand piano, ampeg b15 amp American 60s bass amp flip top character pyramid pure nickel bass electric bass, brass open slap hand drum timbales, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, pre muffled edge muffled brushes-and-sticks drum kit, handheld montuno lift coro section cencerro. Cuban state recording 1962-present mid tier estudios areito havana. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 806,
-  "score": 161.918,
+  "score": 158.63,
   "config": {
     "traditions": [
       "songo_cubano",
@@ -34,18 +34,18 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 3.7375000000000007,
+          "voice_register": 3.7,
           "voice_quality": 5.1675,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.5715,
-          "voice_articulation": 8.905,
-          "voice_microtone": 7.865,
+          "voice_articulation": 8.254999999999999,
+          "voice_microtone": 7.215,
           "voice_tradition": 4.16,
           "voice_mechanism_compound": 2.535,
           "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 13.779999999999998,
-          "voice_ensemble_config": 10.529999999999994,
+          "voice_speech_song": 13.129999999999997,
+          "voice_ensemble_config": 9.879999999999999,
           "voice_ornament_system": 1.1949999999999998,
           "voice_pitch_organization": 3.185,
           "voice_processing_chain": 18.529999999999998,
@@ -134,7 +134,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 11.439999999999998,
+          "drum_technique": 10.79,
           "drumhead": 1.7700000000000002,
           "drum_kit_kick_pedal": 0
         }

@@ -5,7 +5,7 @@
   "lineage": "German cradle-song tradition documented from medieval Marian-cradle hymns through Romantic-era Volkslied collection by Brentano-and-Arnim (Des Knaben Wunderhorn 1805-1808) and through Brahms' 1868 art-song setting that became globally iconic",
   "recipe": "classic 1805-1808 german wiegenlied, lullaby, European branch, western common practice art music, chanson fado ballad poetry, europop functional song morna cape verdean batuko of santiago island. vocal fry, breath veiled tone, slow rate, interlocked note trading. parlor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 334,
-  "score": 167.62,
+  "score": 166.82,
   "config": {
     "traditions": [
       "german_wiegenlied",
@@ -41,14 +41,14 @@
           "voice_vibrato": 3.3474999999999997,
           "voice_articulation": 21.84,
           "voice_microtone": 23.725,
-          "voice_tradition": 15.824999999999996,
+          "voice_tradition": 15.674999999999997,
           "voice_mechanism_compound": 4.755,
           "voice_estill_quality": 4.829999999999999,
           "voice_speech_song": 30.18,
           "voice_ensemble_config": 20.735,
           "voice_ornament_system": 1.48,
           "voice_pitch_organization": 4.74,
-          "voice_processing_chain": 8.255000000000003,
+          "voice_processing_chain": 7.605000000000003,
           "voice_multitrack_stack": 6.435000000000001
         }
       }

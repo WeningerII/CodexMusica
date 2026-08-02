@@ -5,7 +5,7 @@
   "lineage": "Mid-twentieth-century compositional movement (term coined 1957 by Gunther Schuller) explicitly synthesizing classical-art-music compositional procedures with jazz-improvisational practice. Schuller's own compositions, John Lewis's Modern Jazz Quartet recordings (especially with Gunther Schuller orchestrations), and the broader 1957-1972 Lenox School of Jazz workshop activity constitute the canonical core.",
   "recipe": "classic Los Angeles mid-1960s third stream, improv On Frame, fusion branch, western modern art music neoclassicism. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral continuous-airflow legato shallow cup trumpet, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, growly gut upright bass, silver wound lamb gut core sitka spruce European maple sycamore maple violin orchestral. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 762,
-  "score": 430.714,
+  "score": 430.546,
   "config": {
     "traditions": [
       "third_stream",
@@ -74,7 +74,7 @@
           "grand_piano_brand": 5.07,
           "piano_hammer": 19.629375,
           "piano_rim": 17.435,
-          "piano_soundboard": 17.16875,
+          "piano_soundboard": 17,
           "piano_pinblock": 17,
           "piano_plate": 17.871875,
           "piano_pitch_standard": 17.39

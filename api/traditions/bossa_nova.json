@@ -5,7 +5,7 @@
   "lineage": "Rio de Janeiro 1958-1965 chamber-samba intimate-vocal tradition — codified through João Gilberto’s Chega de Saudade (1959) defining the genre’s syncopated guitar batida, Antônio Carlos Jobim’s compositions, Vinícius de Moraes’s lyrics, and the Stan Getz / João Gilberto Getz/Gilberto (1964) international crossover; characterized by close-miked whispered-vocal aesthetic, jazz-chord harmonic vocabulary, and Zona Sul apartment-recording origin",
   "recipe": "classic mid-1960s bossa nova, functional Song, Brazilian song branch, Latin am troubadour ballad poetry milonga tango. thick, breath veiled tone, straight onset, interlocked note trading. cedar fingerpicked classical nylon-string guitar, no chemical hardener t rivet oversize maple tension resonator European spruce grand piano, vintage ambassador asymmetric brushes-and-sticks drum kit, growly gut upright bass. parlor. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
   "recipe_chars": 556,
-  "score": 189.98,
+  "score": 189.875,
   "config": {
     "traditions": [
       "bossa_nova",
@@ -58,7 +58,7 @@
           "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "standard_tuning",
           "top_wood_classical": "cedar_cl",
-          "bracing_classical": "fan_torres_cl",
+          "bracing_classical": "double_top_cl",
           "string_classical": "nylon_normal_cl",
           "attack_technique_cl": "thumb_attack_cl"
         },
@@ -66,7 +66,7 @@
           "acoustic_technique": 6.220000000000001,
           "string_tuning": 0,
           "top_wood_classical": 1.2349999999999999,
-          "bracing_classical": 0.69,
+          "bracing_classical": 0.585,
           "string_classical": 0.325,
           "attack_technique_cl": 4.75
         }

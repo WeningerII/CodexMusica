@@ -5,7 +5,7 @@
   "lineage": "Burmese hsaing waing percussion-led ensemble tradition, the canonical Burmese folk-and-ceremonial instrumental form. The ensemble centers on the pat waing tuned-drum-circle (twenty-one tuned drums arranged in a horseshoe around the seated lead player) plus kyi waing tuned-gong-circle, hne double-reed shawm, chauk lon bat double-headed drum-pair, si small cymbals, and wa wooden-clappers. The pat waing drum-circle player is the de-facto ensemble leader, with the player simultaneously delivering melodic, rhythmic, and ensemble-cueing functions. Performance contexts span weddings, religious-festival celebrations, theatrical accompaniment (zat pwe), and the classical mahagita repertoire performance. Distinguished from neighboring Thai pi phat and Khmer pinpeat ensembles by Burmese hsaing waing's tuned-drum-circle (vs gong-circle-led) instrumental hierarchy.",
   "recipe": "classic Southeast Asian mid-1930s burmese hsaing waing, groove Percussion, east Asian branch, southeast Asian Thai classical. indoor lead melodic drums hsaing waing ensemble, ensemble lead hne, singing tone precisely tuned pat waing. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 401,
-  "score": 214.722,
+  "score": 210.067,
   "config": {
     "traditions": [
       "burmese_hsaing_waing",
@@ -20,8 +20,8 @@
           "hsaing_waing_ensemble_roles": "hsaing_waing_ensemble_pat_waing_lead"
         },
         "scores": {
-          "hsaing_waing_ensemble_lineup": 29.57,
-          "hsaing_waing_ensemble_context": 30.375,
+          "hsaing_waing_ensemble_lineup": 28.32,
+          "hsaing_waing_ensemble_context": 28.975,
           "hsaing_waing_ensemble_roles": 23.881249999999998
         }
       },
@@ -34,7 +34,7 @@
         },
         "scores": {
           "hne_form": 15.237999999999998,
-          "hne_style": 29.596999999999994,
+          "hne_style": 29.491999999999994,
           "hne_reed": 12.999999999999998
         }
       },
@@ -46,8 +46,8 @@
           "pat_waing_head": "pat_waing_head_pahsa"
         },
         "scores": {
-          "pat_waing_set": 22.64142857142857,
-          "pat_waing_context": 32.949999999999996,
+          "pat_waing_set": 21.99142857142857,
+          "pat_waing_context": 31.699999999999996,
           "pat_waing_head": 19.693999999999996
         }
       }

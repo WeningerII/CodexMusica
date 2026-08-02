@@ -5,7 +5,7 @@
   "lineage": "Tahitian and Cook-Island congregational polyphonic Christian-hymn tradition that emerged through the post-1797 London Missionary Society Protestant evangelization of French Polynesia — fusing pre-contact Polynesian vocal practice with Western hymn-text structure; the canonical himene tarava is a three-or-more-voice unaccompanied congregational form sung by maohi communities across Tahiti, Moorea, Raiatea, and the Cook Islands, with named voice-parts including the marû (high female voice carrying ornament), the tahito (text-leading voice), the haamana (bass anchor), and the falsetto-break leo-kiekie octave-leap as a deliberate ornament-figure; parallel forms include Tahitian aparima (sung-with-gesture form), ute (humorous improvisational form), and Cook-Island ute and akaau congregational hymns; preserved through annual Heiva i Tahiti festival competition and the Cook Islands National Arts Theatre cultural-preservation infrastructure",
   "recipe": "classic late-1790s polynesian himene tarava, ritual Devotional, indigenous branch, vocal drone modal georgian three-voice polyphony bulgarian women's choir. vocal fry, breath veiled tone, breath pulsed, interlocked note trading. mixed satb canonical 4 part western three voice polyphonic regional kakhetian three voice two soloists choral drone global traditional polyphonic choir ensemble. country church. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 469,
-  "score": 307.077,
+  "score": 300.792,
   "config": {
     "traditions": [
       "polynesian_himene_tarava",
@@ -28,7 +28,7 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_ornament_system": "voice_ornament_polynesian_falsetto",
           "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
           "voice_processing_chain": "voice_processing_tape_saturation",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
@@ -45,10 +45,10 @@
           "voice_mechanism_compound": 11.57,
           "voice_estill_quality": 8.06,
           "voice_speech_song": 21.96999999999999,
-          "voice_ensemble_config": 42.73750000000001,
-          "voice_ornament_system": 14.559999999999999,
+          "voice_ensemble_config": 40.787499999999994,
+          "voice_ornament_system": 14.099999999999998,
           "voice_pitch_organization": 6.955000000000001,
-          "voice_processing_chain": 16.25,
+          "voice_processing_chain": 15.6,
           "voice_multitrack_stack": 7.280000000000002
         }
       },
@@ -62,8 +62,8 @@
         },
         "scores": {
           "choir_size": 6.694999999999999,
-          "choir_polyphonic_configuration": 30.81,
-          "choir_regional_canonical_configuration": 31.784999999999993,
+          "choir_polyphonic_configuration": 29.509999999999998,
+          "choir_regional_canonical_configuration": 30.484999999999992,
           "choir_ensemble_repertoire": 7.41
         }
       }
