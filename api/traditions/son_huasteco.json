@@ -3,14 +3,14 @@
   "name": "Son huasteco (Huasteca trio)",
   "family": "global",
   "lineage": "Regional Mexican son tradition of the Huasteca cultural region (Veracruz, Hidalgo, San Luis Potosí, Tamaulipas, Querétaro). Trio of huapanguero violin (with high-falsetto vocal ornament and improvisatory melodic-doubling), quinta huapanguera five-string acoustic-bass-guitar, and jarana huasteca five-string rhythm-guitar. Alternating violin-improvisation and falsetto-vocal-improvisation sections define the canonical huapango.",
-  "recipe": "classic Mexican modern son huasteco, ballad Poetry, Latin am troubadour branch, indigenous ritual devotional shipibo-conibo icaros healing songs samoan siva and fagufagu. vocal fry, breath veiled tone, straight note core, interlocked note trading. sitka spruce French Polish shellac pad modern setup longer neck violin orchestral, cedrillo canonical veracruz nylon modern strummed jarana jarocha, son huasteco standard nylon wound modern cedro rojo canonical huasteca quinta huapanguera. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 634,
-  "score": 215.935,
+  "recipe": "classic Mexican modern son huasteco, ballad Poetry, Latin am troubadour branch, indigenous ritual devotional shipibo-conibo icaros healing songs mongolian böö shamanic invocation. vocal fry, breath veiled tone, straight note core, interlocked note trading. sitka spruce spirit varnish shellac alcohol modern setup longer neck violin orchestral, nylon modern cedro rojo canonical huasteca jarana huasteca, son huasteco standard nylon wound modern cedro rojo canonical huasteca quinta huapanguera. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 642,
+  "score": 219.88,
   "config": {
     "traditions": [
       "son_huasteco",
       "shipibo_icaros",
-      "samoan_siva_fagufagu"
+      "mongolian_boo_invocation"
     ],
     "instruments": [
       {
@@ -25,7 +25,7 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "polynesian_oli_tradition",
           "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
-          "voice_estill_quality": "voice_estill_falsetto",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 5.329999999999999,
-          "voice_quality": 27.04,
+          "voice_register": 4.029999999999999,
+          "voice_quality": 28.73,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.145,
-          "voice_articulation": 19.174999999999997,
-          "voice_microtone": 17.744999999999994,
-          "voice_tradition": 19.89,
-          "voice_mechanism_compound": 9.520000000000001,
-          "voice_estill_quality": 3.8349999999999995,
-          "voice_speech_song": 19.434999999999995,
-          "voice_ensemble_config": 18.914999999999996,
-          "voice_ornament_system": 7.15,
+          "voice_articulation": 21.905,
+          "voice_microtone": 20.019999999999996,
+          "voice_tradition": 18.070000000000004,
+          "voice_mechanism_compound": 13.895000000000001,
+          "voice_estill_quality": 4.68,
+          "voice_speech_song": 21.06,
+          "voice_ensemble_config": 21.644999999999996,
+          "voice_ornament_system": 8.025000000000002,
           "voice_pitch_organization": 2.145,
-          "voice_processing_chain": 13.389999999999999,
-          "voice_multitrack_stack": 7.669999999999999
+          "voice_processing_chain": 14.235,
+          "voice_multitrack_stack": 6.369999999999999
         }
       },
       {
@@ -58,8 +58,8 @@
           "bowed_technique": "bowed_legato_classical",
           "orch_strings": "synthetic_orch",
           "orch_top_wood": "sitka_spruce_violin_top",
-          "orch_back_wood": "european_maple_general_violin",
-          "orch_varnish": "french_polish_violin",
+          "orch_back_wood": "bigleaf_western_maple_violin",
+          "orch_varnish": "spirit_varnish_violin",
           "orch_setup_period": "modern_setup_violin",
           "orch_bow": "baroque_bow",
           "orch_bow_stick": "carbon_fiber_stick_orch",
@@ -68,32 +68,30 @@
         },
         "scores": {
           "bowed_technique": -0.035,
-          "orch_strings": 0.65,
+          "orch_strings": 0,
           "orch_top_wood": 4.8100000000000005,
-          "orch_back_wood": 0.7149999999999999,
-          "orch_varnish": 2.47,
+          "orch_back_wood": 0.585,
+          "orch_varnish": 2.2749999999999995,
           "orch_setup_period": 1.56,
-          "orch_bow": 3.1849999999999996,
+          "orch_bow": 1.17,
           "orch_bow_stick": -0.035,
           "orch_articulation": 2.34,
           "orch_rosin": 0.585
         }
       },
       {
-        "id": "jarana_jarocha",
+        "id": "jarana_huasteca",
         "slots": {
           "plucked_traditional_technique": "plucked_folk_strummed",
-          "jarana_size": "jarana_segunda",
-          "jarana_jarocha_context": "jarana_jarocha_revival",
-          "jarana_jarocha_body_wood": "jarana_cedrillo",
-          "jarana_jarocha_strings": "jarana_nylon_modern"
+          "jarana_huasteca_context": "jarana_huasteca_topada",
+          "jarana_huasteca_strings": "jarana_huasteca_nylon",
+          "jarana_huasteca_body_wood": "jarana_huasteca_cedro"
         },
         "scores": {
-          "plucked_traditional_technique": 5.46,
-          "jarana_size": 2.3,
-          "jarana_jarocha_context": 1.69,
-          "jarana_jarocha_body_wood": 3.9850000000000003,
-          "jarana_jarocha_strings": 2.34
+          "plucked_traditional_technique": 2.275,
+          "jarana_huasteca_context": 0.885,
+          "jarana_huasteca_strings": 2.34,
+          "jarana_huasteca_body_wood": 6.284999999999999
         }
       },
       {
@@ -105,8 +103,8 @@
           "quinta_huapanguera_body_wood": "quinta_huapanguera_cedro"
         },
         "scores": {
-          "quinta_huapanguera_form": 4.25,
-          "quinta_huapanguera_context": 0.45499999999999996,
+          "quinta_huapanguera_form": 3.5999999999999996,
+          "quinta_huapanguera_context": 0.885,
           "quinta_huapanguera_strings": 2.34,
           "quinta_huapanguera_body_wood": 6.284999999999999
         }
@@ -149,10 +147,9 @@
       "orch_setup_period": "modern_setup_violin",
       "orch_bow": "modern_bow",
       "plucked_traditional_technique": "plucked_folk_strummed",
-      "jarana_size": "jarana_segunda",
-      "jarana_jarocha_context": "jarana_jarocha_fandango",
-      "jarana_jarocha_body_wood": "jarana_cedrillo",
-      "jarana_jarocha_strings": "jarana_nylon_modern"
+      "jarana_huasteca_context": "jarana_huasteca_trio",
+      "jarana_huasteca_body_wood": "jarana_huasteca_cedro",
+      "jarana_huasteca_strings": "jarana_huasteca_nylon"
     },
     "chain_mic": "condenser_sdc",
     "chain_pre": "pre_field_recorder_portable",

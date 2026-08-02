@@ -1,11 +1,11 @@
 {
   "id": "screamo_skramz",
-  "name": "Screamo / skramz (90s-2000s)",
+  "name": "Scramz / screamo",
   "family": "rock_punk",
   "lineage": "1990s emocore and 2000s screamo subgenre developed from hardcore-punk emotional-aggressive register, characterized by screamed-and-melodic vocal alternation, dynamic-contrasted song structure, and confessional-emotional lyrical content. Saetia, City of Caterpillar, Pg.99, Orchid, and Hot Cross constitute the canonical American skramz roster; the parallel European screamo scene (Funeral Diner, Envy from Japan) extended international reach.",
-  "recipe": "classic screamo / skramz, distorted Rock, emo branch, thrash metal groove metal speed metal. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, brushes-and-sticks drum kit. isolated rural 2005-present isolation diy isolation cabin diy. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi proco RAT.",
-  "recipe_chars": 621,
-  "score": 344.079,
+  "recipe": "classic mid-1990s scramz / screamo, distorted Rock, emo branch, thrash metal groove metal speed metal. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, brushes-and-sticks drum kit. isolated rural 2005-present isolation diy isolation cabin diy. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi proco RAT.",
+  "recipe_chars": 631,
+  "score": 343.813,
   "config": {
     "traditions": [
       "screamo_skramz",
@@ -31,7 +31,7 @@
           "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
           "voice_register": 11.016749999999995,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 1.5250000000000001,
           "voice_pitch_organization": 3.185,
           "voice_processing_chain": 4.68,
-          "voice_multitrack_stack": 7.871250000000001
+          "voice_multitrack_stack": 7.6049999999999995
         }
       },
       {

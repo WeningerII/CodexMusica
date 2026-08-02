@@ -1,11 +1,11 @@
 {
   "id": "polish_sung_poetry_protest",
-  "name": "Polish poezja śpiewana and Solidarność-era protest (1960s-1980s)",
+  "name": "Polish poezja śpiewana and Solidarność-era protest",
   "family": "global",
   "lineage": "Polish poezja śpiewana (\"sung poetry\") and piosenka literacka (\"literary song\") protest-song tradition continuous from 1960s-1980s Communist-era Polish political-songwriter scene; centered on Jacek Kaczmarski (the Solidarność-aligned songwriter-bard whose \"Mury\" 1978 became the Solidarność anthem), Przemysław Gintrowski, Zbigniew Łapiński, Wojciech Bellon",
-  "recipe": "classic Central European polish poezja śpiewana and solidarność-era protest, protest Song, European branch, anglo American protest song, Slavic bard ballad poetry, chanson fado ballad poetry morna cape verdean batuko of santiago island. vocal fry, breath veiled tone, slow rate, interlocked note trading. martin lifespan fingerpicked acoustic guitar. warsaw state label studio 1956-1990 mid tier polish polskie nagrania muza. dynamic moving-coil, tube pre. Walkman cassette.",
-  "recipe_chars": 474,
-  "score": 207.5,
+  "recipe": "classic Central European mid-1960s polish poezja śpiewana and solidarność-era protest, protest Song, European branch, anglo American protest song, Slavic bard ballad poetry, chanson fado ballad poetry morna cape verdean batuko of santiago island. vocal fry, breath veiled tone, slow rate, interlocked note trading. martin lifespan fingerpicked acoustic guitar. warsaw state label studio 1956-1990 mid tier polish polskie nagrania muza. dynamic moving-coil, tube pre. Walkman cassette.",
+  "recipe_chars": 484,
+  "score": 205,
   "config": {
     "traditions": [
       "polish_sung_poetry_protest",
@@ -49,7 +49,7 @@
           "voice_ornament_system": 1.3,
           "voice_pitch_organization": 3.185000000000001,
           "voice_processing_chain": 6.045000000000003,
-          "voice_multitrack_stack": 11.434999999999997
+          "voice_multitrack_stack": 8.935
         }
       },
       {

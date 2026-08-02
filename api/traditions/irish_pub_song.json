@@ -5,7 +5,7 @@
   "lineage": "Irish pub-song / drinking-song tradition continuous from 18th-19th century pub-and-shebeen drinking-song tradition through 20th-century Dubliners-and-Clancy-Brothers-era folk-revival into modern Irish-pub-session continuous practice; foundational repertoire includes \"Whiskey in the Jar,\" \"The Wild Rover,\" \"All for Me Grog,\" \"Whiskey, You're the Devil,\" \"The Parting Glass\"",
   "recipe": "classic modern irish pub song / drinking song, drinking Song, European branch, americas drinking song, European protest song, anglo singer song ballad poetry indie folk freak folk. thick, breath veiled tone, straight onset, interlocked note trading. cedar walnut phosphor bronze bronze fingerpicked acoustic guitar, synthetic magic rosin modern acrylic base drone like fiddle, brass tube plastic fipple canonical generation feadog clarke melodic tin whistle, goat skin canonical Irish birch ply canonical modern Irish bodhran. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 600,
-  "score": 297.009,
+  "score": 295.759,
   "config": {
     "traditions": [
       "irish_pub_song",
@@ -49,7 +49,7 @@
           "voice_ornament_system": 13.389999999999997,
           "voice_pitch_organization": 3.4125000000000005,
           "voice_processing_chain": 5.140625,
-          "voice_multitrack_stack": 8.519999999999998
+          "voice_multitrack_stack": 7.27
         }
       },
       {

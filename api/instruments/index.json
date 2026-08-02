@@ -1,5 +1,5 @@
 {
-  "count": 870,
+  "count": 872,
   "items": [
     {
       "id": "choir_ensemble",
@@ -183,7 +183,7 @@
     },
     {
       "id": "classical_nylon_string_guitar",
-      "name": "Classical / nylon-string guitar",
+      "name": "Classical guitar",
       "family": "acoustic_strings",
       "href": "instruments/classical_nylon_string_guitar.json"
     },
@@ -699,7 +699,7 @@
     },
     {
       "id": "violin_orchestral",
-      "name": "Orchestral violin / viola / cello",
+      "name": "Orchestral violin",
       "family": "bowed",
       "href": "instruments/violin_orchestral.json"
     },
@@ -2180,6 +2180,12 @@
       "href": "instruments/siku_panpipes.json"
     },
     {
+      "id": "melanesian_panpipes",
+      "name": "Melanesian panpipes (Are'are / Highlands bamboo ensemble pipes)",
+      "family": "wind",
+      "href": "instruments/melanesian_panpipes.json"
+    },
+    {
       "id": "cajon_peruano",
       "name": "Cajón peruano (Peruvian box drum)",
       "family": "percussion",
@@ -3564,6 +3570,12 @@
       "name": "Quinta huapanguera (Huastecan deep-bodied bass guitar)",
       "family": "plucked_traditional",
       "href": "instruments/quinta_huapanguera.json"
+    },
+    {
+      "id": "jarana_huasteca",
+      "name": "Jarana huasteca (Huastecan five-string rhythm guitar)",
+      "family": "plucked_traditional",
+      "href": "instruments/jarana_huasteca.json"
     },
     {
       "id": "saw_duang",

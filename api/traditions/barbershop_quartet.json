@@ -3,9 +3,9 @@
   "name": "American barbershop quartet",
   "family": "global",
   "lineage": "American close-harmony unaccompanied male-vocal quartet tradition codified through the SPEBSQSA (Society for the Preservation and Encouragement of Barber Shop Quartet Singing in America, founded 1938 Tulsa Oklahoma, renamed Barbershop Harmony Society 2004) — descended from late-19th-century African-American barbershop-and-saloon harmony singing, with the chord structure of tenor (above melody-lead), lead, baritone, bass; codified canon includes the Buffalo Bills, the Suntones, the Vocal Majority, the modern continuation through the international annual contest circuit",
-  "recipe": "classic North American late-1930s american barbershop quartet, functional Song, crooners branch, christian gospel southern gospel, country functional song country rock pre-commercial country roots. thick, breath veiled tone, wide pitch sway, interlocked note trading. choir barbershop quartet, khoisan click articulated song syllables vocal percussion solo lead humming melody simultaneous percussion dissociated airflow vocal percussion voice. us uk civic amateur band hall. passive ribbon, tube pre, German tube console. Studer 30ips tape.",
-  "recipe_chars": 541,
-  "score": 237.02,
+  "recipe": "classic North American late-1930s american barbershop quartet, functional Song, crooners branch, christian gospel southern gospel, country functional song country rock pre-commercial country roots. thick, breath veiled tone, wide pitch sway, interlocked note trading. choir barbershop quartet. us uk civic amateur band hall. passive ribbon, tube pre, German tube console. Studer 30ips tape.",
+  "recipe_chars": 390,
+  "score": 223.505,
   "config": {
     "traditions": [
       "barbershop_quartet",
@@ -62,21 +62,6 @@
           "voices": 5.1,
           "choir_barbershop_quartet_context": 1.3
         }
-      },
-      {
-        "id": "vocal_percussion_voice",
-        "slots": {
-          "vocal_percussion_airstream_mechanism": "vocal_percussion_pulmonic_egressive",
-          "vocal_percussion_beatbox_articulation": "beatbox_humming_melody_dissociated",
-          "vocal_percussion_syllabic_drum_system": "syllabic_khoisan_click_song",
-          "vocal_percussion_context": "vocal_percussion_context_solo"
-        },
-        "scores": {
-          "vocal_percussion_airstream_mechanism": 0,
-          "vocal_percussion_beatbox_articulation": 1,
-          "vocal_percussion_syllabic_drum_system": 5.785,
-          "vocal_percussion_context": 6.7299999999999995
-        }
       }
     ],
     "room": "us_uk_civic_amateur_band_hall",
@@ -113,11 +98,7 @@
       "voice_vibrato": "fast_vibrato",
       "voice_mechanism_compound": "voice_mechanism_single_source",
       "voices": "barbershop_lead",
-      "choir_barbershop_quartet_context": "choir_barbershop_quartet_comp",
-      "vocal_percussion_airstream_mechanism": "vocal_percussion_pulmonic_egressive",
-      "vocal_percussion_beatbox_articulation": "beatbox_kick_bilabial_ejective",
-      "vocal_percussion_syllabic_drum_system": "syllabic_system_none",
-      "vocal_percussion_context": "vocal_percussion_context_ensemble"
+      "choir_barbershop_quartet_context": "choir_barbershop_quartet_comp"
     },
     "chain_mic": "condenser_ldc",
     "chain_pre": "pre_tube_german_v72",

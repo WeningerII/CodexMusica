@@ -5,7 +5,7 @@
   "lineage": "Atmospheric-trap subgenre codified through early-2010s East Coast underground hip-hop — washed-out reverbed beats with extended ambient pads, hi-pass-filtered drums, atmospheric-vocal-treatment with heavy reverb-and-delay; A$AP Rocky’s LiveLoveA$AP (2011), Lil B, and the broader Soundcloud-era post-blog-rap aesthetic",
   "recipe": "classic Southern American 2010-2013 cloud rap, mc Rhythm, modern branch, ambient experimental electric witch house vaporwave aesthetic. thick, rap, straight onset, interlocked note trading. drum machine analog, pad like pad analog synth. tape echo chamber. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
   "recipe_chars": 381,
-  "score": 154.692,
+  "score": 150.142,
   "config": {
     "traditions": [
       "cloud_rap",
@@ -47,9 +47,9 @@
           "voice_speech_song": 13.364999999999998,
           "voice_ensemble_config": 13.064999999999994,
           "voice_ornament_system": 1.1999999999999997,
-          "voice_pitch_organization": 5.785,
+          "voice_pitch_organization": 4.485,
           "voice_processing_chain": 13.099999999999998,
-          "voice_multitrack_stack": 15.437499999999998
+          "voice_multitrack_stack": 12.187499999999998
         }
       },
       {

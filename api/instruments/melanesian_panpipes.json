@@ -1,0 +1,322 @@
+{
+  "id": "melanesian_panpipes",
+  "name": "Melanesian panpipes (Are'are / Highlands bamboo ensemble pipes)",
+  "family": "wind",
+  "class": "flute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": 1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "Melanesian panpipes",
+  "parts": [
+    {
+      "id": "melanesian_panpipes_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "melanesian_panpipes_areare",
+          "default": true,
+          "name": "'Au tahana (Are'are raft-panpipe, southern Malaita)",
+          "descriptors": [
+            "bamboo",
+            "raft-bound",
+            "ensemble-timekeeper"
+          ],
+          "match_tokens": [
+            "panpipe",
+            "interlocking",
+            "breathy"
+          ],
+          "canonical_tags": [
+            "melanesia",
+            "solomon_islands"
+          ]
+        },
+        {
+          "id": "melanesian_panpipes_bundle",
+          "name": "'Au paina (bundle panpipe, deep bamboo stopped tubes)",
+          "descriptors": [
+            "bundled",
+            "deep-toned",
+            "resonant"
+          ],
+          "match_tokens": [
+            "panpipe",
+            "interlocking",
+            "wood-toned"
+          ],
+          "canonical_tags": [
+            "melanesia",
+            "solomon_islands"
+          ]
+        },
+        {
+          "id": "melanesian_panpipes_highlands",
+          "name": "New Guinea Highlands bamboo pipes (Eastern Highlands / Chimbu)",
+          "descriptors": [
+            "highland",
+            "breathy",
+            "overblown"
+          ],
+          "match_tokens": [
+            "panpipe",
+            "breathy",
+            "bright"
+          ],
+          "canonical_tags": [
+            "melanesia",
+            "png"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "melanesian_panpipes_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "melanesian_panpipes_interlock",
+          "default": true,
+          "name": "Interlocking hocket part (one player, one pitch-set, alternating)",
+          "descriptors": [
+            "interlocking",
+            "hocketed",
+            "ensemble-timekeeper"
+          ],
+          "match_tokens": [
+            "panpipe",
+            "interlocking"
+          ],
+          "canonical_tags": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "melanesian_panpipes_drone",
+          "name": "Sustained low drone-bass under the ensemble",
+          "descriptors": [
+            "sustained",
+            "foundational",
+            "deep-toned"
+          ],
+          "match_tokens": [
+            "panpipe",
+            "drone"
+          ],
+          "canonical_tags": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "melanesian_panpipes_melody",
+          "name": "Lead melodic line above the interlock",
+          "descriptors": [
+            "melodic",
+            "high-pitched",
+            "cutting"
+          ],
+          "match_tokens": [
+            "panpipe",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "melanesian_panpipes_technique",
+      "surface": false,
+      "name": "Blowing technique",
+      "variants": [
+        {
+          "id": "melanesian_panpipes_blown",
+          "default": true,
+          "name": "Directly blown across the tube rim",
+          "descriptors": [
+            "breathy",
+            "airy-attack"
+          ],
+          "match_tokens": [
+            "panpipe",
+            "breathy"
+          ]
+        },
+        {
+          "id": "melanesian_panpipes_struck",
+          "name": "Struck stopped tubes (sandal-slapped bamboo)",
+          "descriptors": [
+            "struck",
+            "percussive",
+            "popped"
+          ],
+          "match_tokens": [
+            "panpipe",
+            "struck",
+            "wood-toned"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "melanesian_panpipes_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "melanesian_panpipes_areare",
+          "default": true,
+          "name": "'Au tahana (Are'are raft-panpipe, southern Malaita)",
+          "descriptors": [
+            "bamboo",
+            "raft-bound",
+            "ensemble-timekeeper"
+          ],
+          "match_tokens": [
+            "panpipe",
+            "interlocking",
+            "breathy"
+          ],
+          "canonical_tags": [
+            "melanesia",
+            "solomon_islands"
+          ]
+        },
+        {
+          "id": "melanesian_panpipes_bundle",
+          "name": "'Au paina (bundle panpipe, deep bamboo stopped tubes)",
+          "descriptors": [
+            "bundled",
+            "deep-toned",
+            "resonant"
+          ],
+          "match_tokens": [
+            "panpipe",
+            "interlocking",
+            "wood-toned"
+          ],
+          "canonical_tags": [
+            "melanesia",
+            "solomon_islands"
+          ]
+        },
+        {
+          "id": "melanesian_panpipes_highlands",
+          "name": "New Guinea Highlands bamboo pipes (Eastern Highlands / Chimbu)",
+          "descriptors": [
+            "highland",
+            "breathy",
+            "overblown"
+          ],
+          "match_tokens": [
+            "panpipe",
+            "breathy",
+            "bright"
+          ],
+          "canonical_tags": [
+            "melanesia",
+            "png"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "melanesian_panpipes_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "melanesian_panpipes_interlock",
+          "default": true,
+          "name": "Interlocking hocket part (one player, one pitch-set, alternating)",
+          "descriptors": [
+            "interlocking",
+            "hocketed",
+            "ensemble-timekeeper"
+          ],
+          "match_tokens": [
+            "panpipe",
+            "interlocking"
+          ],
+          "canonical_tags": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "melanesian_panpipes_drone",
+          "name": "Sustained low drone-bass under the ensemble",
+          "descriptors": [
+            "sustained",
+            "foundational",
+            "deep-toned"
+          ],
+          "match_tokens": [
+            "panpipe",
+            "drone"
+          ],
+          "canonical_tags": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "melanesian_panpipes_melody",
+          "name": "Lead melodic line above the interlock",
+          "descriptors": [
+            "melodic",
+            "high-pitched",
+            "cutting"
+          ],
+          "match_tokens": [
+            "panpipe",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "melanesian_panpipes_technique",
+      "surface": false,
+      "name": "Blowing technique",
+      "variants": [
+        {
+          "id": "melanesian_panpipes_blown",
+          "default": true,
+          "name": "Directly blown across the tube rim",
+          "descriptors": [
+            "breathy",
+            "airy-attack"
+          ],
+          "match_tokens": [
+            "panpipe",
+            "breathy"
+          ]
+        },
+        {
+          "id": "melanesian_panpipes_struck",
+          "name": "Struck stopped tubes (sandal-slapped bamboo)",
+          "descriptors": [
+            "struck",
+            "percussive",
+            "popped"
+          ],
+          "match_tokens": [
+            "panpipe",
+            "struck",
+            "wood-toned"
+          ]
+        }
+      ]
+    }
+  ]
+}

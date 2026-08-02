@@ -1,11 +1,11 @@
 {
   "id": "modern_indie_rock_2010s",
-  "name": "Modern indie rock (2010s)",
+  "name": "Modern indie rock",
   "family": "rock_punk",
   "lineage": "2010s indie rock continuation of the broader 2000s blogosphere indie wave, characterized by mid-fi production, broad-melodic guitar-and-vocal arrangements, and explicit-festival-targeting commercial visibility. Tame Impala's 2010-onward Australian psych-rock-pop hybrid, Vampire Weekend's Afro-influenced indie, the War on Drugs, Real Estate, and the broader Domino Records and Secretly Canadian label rosters anchor the canonical 2010s indie rock roster.",
-  "recipe": "classic modern indie rock, distorted Rock, alternative branch, experimental distorted rock chillwave post-rock. thick, breath veiled tone, slow rate, interlocked note trading. marshall plexi amp British rock amp basswood mahogany rosewood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 580,
-  "score": 366.522,
+  "recipe": "classic modern modern indie rock, distorted Rock, alternative branch, experimental distorted rock chillwave post-rock. thick, breath veiled tone, slow rate, interlocked note trading. marshall plexi amp British rock amp basswood mahogany rosewood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 587,
+  "score": 364.022,
   "config": {
     "traditions": [
       "modern_indie_rock_2010s",
@@ -49,7 +49,7 @@
           "voice_ornament_system": 3.1700000000000004,
           "voice_pitch_organization": 4.030000000000001,
           "voice_processing_chain": 10.31975,
-          "voice_multitrack_stack": 18.608499999999996
+          "voice_multitrack_stack": 16.1085
         }
       },
       {

@@ -1,6 +1,6 @@
 {
   "id": "classical_nylon_string_guitar",
-  "name": "Classical / nylon-string guitar",
+  "name": "Classical guitar",
   "family": "acoustic_strings",
   "class": "plucked_string_lead",
   "axes": {
@@ -14,7 +14,7 @@
     "transduction": -2,
     "dynamics": -1
   },
-  "short": "classical / nylon-string guitar",
+  "short": "classical guitar",
   "parts": [
     {
       "id": "acoustic_technique",

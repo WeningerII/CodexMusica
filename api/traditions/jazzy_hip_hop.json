@@ -5,7 +5,7 @@
   "lineage": "2010s lo-fi hip-hop subgenre developed through YouTube streaming-channel infrastructure (especially the canonical ChilledCow / Lofi Girl 24/7 stream launched 2017, and parallel College Music, Chillhop Music streams). Characterized by jazz-piano-and-trumpet sampling, mellow-and-relaxed drum-machine production, lo-fi-cassette-tape distortion aesthetic, and explicit \"study music\" and \"ambient productivity\" functional context. Nujabes (foundational, 1974-2010), J Dilla (foundational), Idealism, Jinsang, and the broader Lofi Girl roster anchor the canonical lo-fi hip-hop roster.",
   "recipe": "classic early-1970s jazzy hip-hop / lo-fi hip-hop, mc Rhythm, us hip hop branch, ambient experimental electric vaporwave aesthetic outrun / synthwave. thick, rap, straight onset, interlocked note trading. chopped sampler, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral shallow cup lead trumpet trumpet. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 742,
-  "score": 276.7,
+  "score": 274.425,
   "config": {
     "traditions": [
       "jazzy_hip_hop",
@@ -47,9 +47,9 @@
           "voice_speech_song": 16.704999999999995,
           "voice_ensemble_config": 17.484999999999992,
           "voice_ornament_system": 1.1999999999999997,
-          "voice_pitch_organization": 6.369999999999999,
+          "voice_pitch_organization": 5.720000000000001,
           "voice_processing_chain": 10.575,
-          "voice_multitrack_stack": 12.415
+          "voice_multitrack_stack": 10.79
         }
       },
       {

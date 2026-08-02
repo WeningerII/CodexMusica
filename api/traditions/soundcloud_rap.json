@@ -5,7 +5,7 @@
   "lineage": "2015-2018 hip-hop wave defined less by sonic-stylistic conventions than by distribution-platform — the SoundCloud upload-and-share infrastructure that allowed bedroom-producers and amateur rappers to bypass traditional A&R gatekeeping. The wave produced Lil Pump, Smokepurpp, 6ix9ine, Ski Mask the Slump God, and the broader Florida-NYC-Chicago younger-generation rapper roster. Aesthetically marked by deliberately-amateurish vocal delivery, mumble-rap convention, face-tattoos, and explicit drug-and-violence lyrical content.",
   "recipe": "classic 2015-2018 soundcloud rap, mc Rhythm, southern branch, emo distorted rock post-hardcore emo revival. thick, breath veiled tone, straight onset, interlocked note trading. TR-808, sub bass analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
   "recipe_chars": 396,
-  "score": 150.594,
+  "score": 148.969,
   "config": {
     "traditions": [
       "soundcloud_rap",
@@ -49,7 +49,7 @@
           "voice_ornament_system": 1.5599999999999996,
           "voice_pitch_organization": 2.34,
           "voice_processing_chain": 9.931499999999998,
-          "voice_multitrack_stack": 9.4575
+          "voice_multitrack_stack": 7.832500000000001
         }
       },
       {

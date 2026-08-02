@@ -1,6 +1,6 @@
 {
   "name": "Codex Musica — browse index (Tier-1 data for the lazy-loaded app)",
-  "generated": "2026-07-31",
+  "generated": "2026-08-02",
   "axisKeys": [
     "harm",
     "pitch",
@@ -9874,7 +9874,7 @@
     },
     {
       "id": "city_pop",
-      "name": "City pop (Japanese)",
+      "name": "City pop",
       "family": "global",
       "lineage": "Japanese 1976-1986 sophisticated urban-adult-pop genre fusing late-1970s American AOR (adult-oriented rock), funk, fusion-jazz, and disco-soul into a distinct Tokyo-bubble-era mature-pop aesthetic. The instrumentation features electric-piano (Rhodes-and-Wurlitzer), fretless-bass, clean-electric-guitar (often with chorus pedal), brass section (often Roland JX-3P synth-brass), and breathy-intimate close-miked vocal-style. Lyrically focused on urban-leisure: nighttime-driving, summer-resort-and-beach, romantic-rendezvous-in-cafes-and-bars, and Tokyo-Yokohama-Shōnan coastal lifestyle. Originally a quiet commercial-niche aimed at the Japanese middle-class consumer-boom audience, city-pop gained massive 2010s-onward Western internet-re-discovery via vaporwave and YouTube-algorithmic-suggestion.",
       "parent": "functionalSong.eastAsianPop",
@@ -10200,7 +10200,7 @@
     },
     {
       "id": "schlager_german",
-      "name": "Schlager (German)",
+      "name": "Schlager",
       "family": "global",
       "lineage": "German-language popular sentimental song genre with 1920s Weimar cabaret roots, mid-century commercial extension (Heino, Roy Black, Freddy Quinn), and modern continuation (Helene Fischer, Andrea Berg) — major-key sentimental melodies, accordion-and-strings-and-occasional-yodel arrangements, lyrical content concerning love, home country (Heimat), nostalgia, holidays, alpine landscapes; distinct from Liedermacher (politically engaged literary-cabaret tradition)",
       "parent": "functionalSong.europop",
@@ -12937,7 +12937,7 @@
     },
     {
       "id": "uilleann_pipe_solo",
-      "name": "Uilleann pipe solo (Irish)",
+      "name": "Uilleann pipe solo",
       "family": "global",
       "lineage": "Irish bellows-blown indoor bagpipe (uilleann pipes, formerly called union pipes) solo virtuoso tradition codified through Leo Rowsome, Seamus Ennis, Willie Clancy, Liam OFlynn, Paddy Keenan, Davy Spillane — the most complex bagpipe instrument in the world with three drones, three regulators (chord-producing keys operated by the elbow), and a chanter capable of full chromatic range",
       "parent": "droneModal.windPipe",
@@ -13347,7 +13347,7 @@
     },
     {
       "id": "antifolk_nyc",
-      "name": "Anti-folk (NYC)",
+      "name": "Anti-folk",
       "family": "global",
       "lineage": "Late-1980s onward New York underground folk-revival movement positioning itself against the mainstream-Greenwich-Village folk tradition through deliberate amateurism, ironic-and-deadpan vocal delivery, and DIY anti-commercial cultural posture — codified through Lach (the AntiHoot open-mic series at the Sidewalk Café), Kimya Dawson and The Moldy Peaches, Beck (Mellow Gold 1994, an early commercial breakthrough), Adam Green, Jeffrey Lewis",
       "parent": "balladPoetry.angloSingerSong.antiFolk",
@@ -13383,7 +13383,7 @@
     },
     {
       "id": "indie_folk_2000s",
-      "name": "Indie folk (2000s)",
+      "name": "Indie folk",
       "family": "global",
       "lineage": "2000s American indie-folk subgenre characterized by acoustic-guitar-led intimate arrangement, literate-introspective lyrical content, and indie-rock-derived production aesthetic — codified through Iron and Wine (The Creek Drank the Cradle 2002), Sufjan Stevens (Illinois 2005), Bon Iver (For Emma Forever Ago 2007), Fleet Foxes (Fleet Foxes 2008), and the broader Sub Pop and Saddle Creek roster of the period",
       "parent": "balladPoetry.angloSingerSong.indieFolk",
@@ -14802,7 +14802,7 @@
     },
     {
       "id": "hot_country_2010s",
-      "name": "Hot country (2010s mainstream)",
+      "name": "Hot country",
       "family": "global",
       "lineage": "2010s mainstream country radio format dominated by Nashville Music Row major-label production — Carrie Underwood, Miranda Lambert, Eric Church, Jason Aldean, and the radio-format Top 40 country chart; characterized by stadium-pop production scale, modern country-vocal performance, and the moving boundary between country and rock-pop crossover",
       "parent": "functionalSong.country.contempMain",
@@ -19352,8 +19352,7 @@
       ],
       "instruments": [
         "voice",
-        "choir_barbershop_quartet",
-        "vocal_percussion_voice"
+        "choir_barbershop_quartet"
       ],
       "description": "American barbershop-quartet tradition, pre-WWI African-American urban informal-male-vocal-harmony origin formalized by SPEBSQSA (1938, now Barbershop Harmony Society) into competition-codified mainstream-American practice. Four-part male-voice unaccompanied harmony (tenor, lead, baritone, bass) with characteristic chord-vocabulary (dominant-seventh-chord-resolution-by-fifth, swipe ornament). Repertoire: Tin Pan Alley standard-material reharmonized to barbershop-arrangement convention. Distinguished from doo-wop (later, R&B-rooted, often-mixed-tempo dance-floor-context) and from Sweet-Adelines female-quartet (parallel-female-organization).",
       "exemplars": [
@@ -24590,7 +24589,8 @@
         1
       ],
       "instruments": [
-        "voice"
+        "voice",
+        "melanesian_panpipes"
       ],
       "description": "Papua New Guinean polyphonic vocal-and-panpipe traditions across the New Guinea Highlands (Eastern Highlands, Western Highlands, Chimbu, Enga regions), with each linguistic-cultural group preserving distinct multi-part vocal-or-instrumental polyphonic conventions. The Huli yodel-and-cyclic-clap, the Hagen courtship-chants, the Enga sandalu and tee public-ceremony chants, and the Chimbu collective-flute ensembles each represent distinct contributions to the broader New Guinea polyphonic-music register. Performance contexts span bridewealth-negotiation ceremonies, mourning-rituals, harvest-festivals, and (post-1975 independence) the National Cultural Commission and University of Papua New Guinea ethnomusicology archive preservation work. Distinguished from neighboring Melanesian musical traditions by New Guinea Highlands-specific polyphonic-density and dialect-specific intonation vocabularies.",
       "exemplars": [
@@ -24625,7 +24625,8 @@
         1
       ],
       "instruments": [
-        "voice"
+        "voice",
+        "melanesian_panpipes"
       ],
       "description": "Solomon Islands panpipe ensemble tradition of the Are'are people of southern Malaita island and adjacent Solomons communities, featuring large coordinated ensembles of stopped-bamboo-pipes-arranged-in-rafts played in interlocking hocketed polyphonic patterns. The au tahana (raft-panpipe) and au kuita (bundle-panpipe) instrumental categories support distinct repertoire layers. Performance contexts span feast-day celebrations, mourning-rituals, and (post-1978 independence) international-festival and recording-circuit work through the canonical Narasirato Pan Pipers ensemble formed in the 1990s. The genre is one of the most internationally circulated Melanesian musical traditions through twentieth-century ethnomusicological recording.",
       "exemplars": [
@@ -26438,7 +26439,7 @@
       "instruments": [
         "voice",
         "violin_orchestral",
-        "jarana_jarocha",
+        "jarana_huasteca",
         "quinta_huapanguera"
       ],
       "description": "Regional Mexican son tradition of the Huasteca cultural region (Veracruz, Hidalgo, San Luis Potosí, Tamaulipas, Querétaro). Trio of huapanguero violin (with high-falsetto vocal ornament and improvisatory melodic-doubling), quinta huapanguera five-string acoustic-bass-guitar, and jarana huasteca five-string rhythm-guitar. Alternating violin-improvisation and falsetto-vocal-improvisation sections define the canonical huapango.",
@@ -29153,7 +29154,7 @@
     },
     {
       "id": "chicago_jazz_1920s",
-      "name": "Chicago jazz (1920s)",
+      "name": "Chicago jazz",
       "family": "jazz",
       "lineage": "Late-1920s jazz style developed in Chicago by young white musicians influenced by the New Orleans tradition transplanted to Chicago through the 1917 closure of Storyville. Characterized by greater solo-improvisation emphasis (vs Dixieland collective-improvisation), introduction of tenor saxophone, four-beat-to-the-bar rhythm (vs Dixieland's two-beat), and harder-edged \"Chicago bite\" articulation. The Austin High Gang (Bud Freeman, Frank Teschemacher, Jimmy McPartland) is the canonical Chicago school.",
       "parent": "improvOnFrame.americanJazz.early",
@@ -29195,7 +29196,7 @@
     },
     {
       "id": "swing_big_band",
-      "name": "Swing big band (1930s-40s)",
+      "name": "Swing big band",
       "family": "jazz",
       "lineage": "1930s-1940s American jazz orchestra format with sectional brass-and-reed arrangement, 14-18 musicians, and dance-band repertoire emphasis. The Swing Era dominated American popular music c.1935-1945, with Benny Goodman, Count Basie, Duke Ellington, Glenn Miller, Tommy Dorsey, and Artie Shaw orchestras as canonical bandleaders. Distinguished from earlier hot-jazz by swing big band's formal-arranged composition (vs improvisational-collective) framework and dance-floor commercial-orientation.",
       "parent": "improvOnFrame.americanJazz.early",
@@ -29239,7 +29240,7 @@
     },
     {
       "id": "cool_jazz_west_coast",
-      "name": "Cool jazz / West Coast (1950s)",
+      "name": "Cool jazz / West Coast",
       "family": "jazz",
       "lineage": "Late-1940s-1950s jazz substyle emerging in response to bebop's frenetic energy, characterized by lighter timbral palette, restrained dynamic register, and arrangement-heavy compositional approach. Miles Davis's Birth of the Cool sessions (1949-1950) established the canonical sound; the West Coast cool subgenre developed in 1950s Los Angeles through Gerry Mulligan, Chet Baker, Lennie Niehaus, Shorty Rogers, and Dave Brubeck. Distinguished from bebop by cool's slower-and-more-relaxed (vs frenetic) emotional register.",
       "parent": "improvOnFrame.americanJazz.bop",
@@ -29892,7 +29893,7 @@
     },
     {
       "id": "screamo_skramz",
-      "name": "Screamo / skramz (90s-2000s)",
+      "name": "Scramz / screamo",
       "family": "rock_punk",
       "lineage": "1990s emocore and 2000s screamo subgenre developed from hardcore-punk emotional-aggressive register, characterized by screamed-and-melodic vocal alternation, dynamic-contrasted song structure, and confessional-emotional lyrical content. Saetia, City of Caterpillar, Pg.99, Orchid, and Hot Cross constitute the canonical American skramz roster; the parallel European screamo scene (Funeral Diner, Envy from Japan) extended international reach.",
       "parent": "distortedRock.emo",
@@ -30057,7 +30058,7 @@
     },
     {
       "id": "midwest_emo",
-      "name": "Midwest emo (90s)",
+      "name": "Midwest emo",
       "family": "rock_punk",
       "lineage": "Mid-1990s American emo subgenre developed in the American Midwest (Champaign-Urbana, Kinsella-family-related Chicago, Milwaukee, and St. Louis) characterized by intricate twinkly-guitar arpeggios, math-rock-derived rhythmic complexity, and confessional-emotional vocal-delivery. Cap'n Jazz (1989-1995, Chicago) inaugurated the style; American Football (1997, Champaign-Urbana, Mike Kinsella), the Promise Ring, Mineral, and Sunny Day Real Estate (Pacific Northwest cognate) constitute the canonical roster.",
       "parent": "distortedRock.emo",
@@ -30177,7 +30178,7 @@
     },
     {
       "id": "britpop",
-      "name": "Britpop (90s)",
+      "name": "Britpop",
       "family": "rock_punk",
       "lineage": "Mid-1990s British rock movement (peaking 1994-1997) characterized by deliberate British-cultural-identity assertion against American grunge dominance, melodic guitar-pop influences from the Kinks-and-Beatles British-Invasion era, and explicit working-and-middle-class British lyrical content. Blur, Oasis, Pulp, Suede, Elastica, and the Verve constitute the canonical roster; the 1995 Blur-vs-Oasis chart-rivalry constitutes the canonical cultural-event.",
       "parent": "distortedRock.classic",
@@ -30340,7 +30341,7 @@
     },
     {
       "id": "baroque_pop_60s",
-      "name": "Baroque pop (60s)",
+      "name": "Baroque pop",
       "family": "rock_punk",
       "lineage": "1960s pop substyle integrating harpsichord, classical-orchestral-strings, woodwinds, and other Baroque-and-Classical-period instrumental textures into pop-song structures. Procol Harum's A Whiter Shade of Pale (1967), the Beatles' Eleanor Rigby (1966) and broader Sgt. Pepper's (1967) deployments, the Left Banke's Walk Away Renée (1966), and the Zombies' Odessey and Oracle (1968) constitute the canonical type-specimens.",
       "parent": "distortedRock.artRock",
@@ -30957,7 +30958,7 @@
     },
     {
       "id": "aussie_pub_rock",
-      "name": "Aussie pub rock (70s-80s)",
+      "name": "Aussie pub rock",
       "family": "rock_punk",
       "lineage": "1970s-and-1980s Australian rock subgenre developed through the working-class pub-circuit performance economy of Sydney, Melbourne, Adelaide, and Perth. Cold Chisel, the Angels, Rose Tattoo, Midnight Oil, and AC/DC (Sydney-formed) constitute the canonical roster; the Australian-Crawl and (later) INXS extended the genre into international circulation. Distinguished by tight-rhythm-section-and-melodic-vocal pub-band aesthetic and Australian-cultural-identity lyrical content.",
       "parent": "distortedRock.regional",
@@ -31238,7 +31239,7 @@
     },
     {
       "id": "atlanta_trap_modern",
-      "name": "Atlanta trap modern (2010s-20s)",
+      "name": "Atlanta trap modern",
       "family": "hip_hop",
       "lineage": "Modern Atlanta trap subgenre developed in 2010s as evolution of classic Atlanta trap, characterized by melodic-singing-rapping hybrid vocal delivery, more elaborate keyboard-and-string production, and Auto-Tune integration. Future's 2014-onward catalog inaugurated the canonical modern trap sound; Migos, Young Thug, 21 Savage, Lil Baby, and Gunna anchor the canonical contemporary roster. Producer Metro Boomin defines the dominant late-2010s production aesthetic.",
       "parent": "mcRhythm.usHipHop.southern",
@@ -31363,7 +31364,7 @@
     },
     {
       "id": "new_jack_swing",
-      "name": "New jack swing (late 80s)",
+      "name": "New jack swing",
       "family": "pop",
       "lineage": "Late-1980s-and-early-1990s R&B-and-hip-hop hybrid genre invented by producer Teddy Riley (born 1967), characterized by syncopated-swing-eighth-note hip-hop drum-programming, R&B vocal-delivery, and explicit hip-hop production-aesthetic-and-fashion integration. Bobby Brown's Don't Be Cruel (1988), Guy's self-titled debut (1988), Bell Biv DeVoe's Poison (1990), and the early Mary J. Blige and Jodeci catalogs constitute the canonical core. Direct precursor of broader 1990s R&B and hip-hop-soul.",
       "parent": "functionalSong.soulRb",
@@ -31718,7 +31719,7 @@
     },
     {
       "id": "chicago_drill",
-      "name": "Chicago drill (early 2010s)",
+      "name": "Chicago drill",
       "family": "hip_hop",
       "lineage": "Early-2010s Chicago hip-hop subgenre emerging from the South Side of Chicago, characterized by ominous-keyboard-and-strings production, slower mid-tempo drilling-hi-hat patterns, and explicit street-violence-and-gang-life lyrical content addressing the Chicago South Side gang-violence epidemic. Chief Keef (born 1995) and producer Young Chop inaugurated the canonical sound through \"I Don't Like\" (2012); Lil Durk, Lil Reese, King Louie, and (later) Polo G, Lil Bibby, and G Herbo constitute the canonical roster.",
       "parent": "mcRhythm.usHipHop.southern",
@@ -31758,7 +31759,7 @@
     },
     {
       "id": "brooklyn_drill",
-      "name": "Brooklyn drill (late 2010s)",
+      "name": "Brooklyn drill",
       "family": "hip_hop",
       "lineage": "Late-2010s Brooklyn New York City hip-hop subgenre derived from UK drill production-style imported through producers AXL Beats, 808Melo, and Ghosty (UK-based producers serving Brooklyn artists). Characterized by sliding-Roland-808 bass patterns, dark melodic-key production, and aggressive Brooklyn-street-life lyrical content. Pop Smoke (1999-2020, killed in 2020 home-invasion) inaugurated the canonical Brooklyn drill sound through Welcome to the Party (2019); Sheff G, Sleepy Hallow, and Fivio Foreign anchor the canonical roster.",
       "parent": "mcRhythm.usHipHop.eastCoast",
@@ -32197,7 +32198,7 @@
     },
     {
       "id": "electro_house_2000s",
-      "name": "Electro house (2000s)",
+      "name": "Electro house",
       "family": "electronic",
       "lineage": "Mid-to-late-2000s house subgenre characterized by aggressive distorted-synth-lead production, heavy compression, four-on-the-floor beat with prominent off-beat bass, and explicit big-room festival-targeting. Justice's Cross (2007), Daft Punk's Discovery-influenced production legacy, and the broader French house lineage anchored the canonical aesthetic. The genre spawned the broader EDM-festival era of 2008-2012.",
       "parent": "electronicDance.house",
@@ -33638,7 +33639,7 @@
     },
     {
       "id": "witch_house_2010s",
-      "name": "Witch house (early 2010s)",
+      "name": "Witch house",
       "family": "electronic",
       "lineage": "Early-2010s electronic subgenre developed through online-distributed-production scene integrating chopped-and-screwed Houston hip-hop slowed-down vocal-aesthetic, dark-occult-Goth-aesthetic, and trip-hop-influenced atmospheric production. Salem (Detroit), Crystal Castles (associated), oOoOO, White Ring, and the broader Tri Angle Records and Disaro Records rosters anchor the canonical sound. Notable for its triangle, cross, and runic-Unicode visual-aesthetic.",
       "parent": "experimentalElec.ambient",
@@ -34151,7 +34152,7 @@
     },
     {
       "id": "modern_indie_rock_2010s",
-      "name": "Modern indie rock (2010s)",
+      "name": "Modern indie rock",
       "family": "rock_punk",
       "lineage": "2010s indie rock continuation of the broader 2000s blogosphere indie wave, characterized by mid-fi production, broad-melodic guitar-and-vocal arrangements, and explicit-festival-targeting commercial visibility. Tame Impala's 2010-onward Australian psych-rock-pop hybrid, Vampire Weekend's Afro-influenced indie, the War on Drugs, Real Estate, and the broader Domino Records and Secretly Canadian label rosters anchor the canonical 2010s indie rock roster.",
       "parent": "distortedRock.alternative",
@@ -34271,7 +34272,7 @@
     },
     {
       "id": "post_hardcore_90s",
-      "name": "Post-hardcore (90s)",
+      "name": "Post-hardcore",
       "family": "rock_punk",
       "lineage": "Late-1980s and 1990s American post-hardcore subgenre developed from 1980s hardcore-punk through more melodic and experimental compositional approach. Fugazi (Washington D.C., 1987-2003), Drive Like Jehu, Quicksand, Refused, At the Drive-In, and the broader Dischord Records label roster anchor the canonical American post-hardcore roster. Direct ancestor of 2000s screamo, midwest emo, and broader emocore developments.",
       "parent": "distortedRock.emo",
@@ -34311,7 +34312,7 @@
     },
     {
       "id": "emo_revival_2010s",
-      "name": "Emo revival (2010s)",
+      "name": "Emo revival",
       "family": "rock_punk",
       "lineage": "Early-2010s revival of late-1990s midwest emo aesthetic through new bands continuing the Cap'n Jazz, American Football, and Promise Ring lineage. The World Is a Beautiful Place & I Am No Longer Afraid to Die (2009-onward), Algernon Cadwallader, Snowing, Joyce Manor, and the broader Topshelf Records and Run for Cover Records label rosters anchor the canonical roster. The 2014 American Football reunion and 1999-album re-release consolidated the revival's historical lineage.",
       "parent": "distortedRock.emo",
@@ -34680,7 +34681,7 @@
     },
     {
       "id": "vapor_aesthetic",
-      "name": "Vaporwave aesthetic (early 2010s)",
+      "name": "Vaporwave aesthetic",
       "family": "electronic",
       "lineage": "Early-2010s internet-distributed electronic subgenre characterized by slowed-down chopped-and-screwed sampling of 1980s-1990s American smooth-jazz, Muzak, corporate-advertising music, and Japanese city-pop, with explicit ironic-melancholic engagement with consumer-capitalist visual-aesthetic. Macintosh Plus's Floral Shoppe (2011), Chuck Person's Eccojams Vol. 1 (2010), and the broader Beer on the Rug netlabel scene anchor the canonical vaporwave aesthetic.",
       "parent": "experimentalElec.ambient",
@@ -35320,7 +35321,7 @@
     },
     {
       "id": "post_punk_revival",
-      "name": "Post-punk revival (2000s)",
+      "name": "Post-punk revival",
       "family": "rock_punk",
       "lineage": "Early-2000s indie rock subgenre revisiting late-1970s and early-1980s post-punk aesthetic (Joy Division, Wire, Gang of Four, the Fall) with explicit angular-guitar-and-driving-bass arrangement. Interpol (NYC 2002-onward), Franz Ferdinand (Glasgow), Bloc Party, the Editors, the Killers, the Strokes (parallel garage-rock-revival), and the broader 2002-2006 NME-promoted UK-American post-punk-revival wave consolidated the canonical sound.",
       "parent": "distortedRock.alternative",
@@ -35360,7 +35361,7 @@
     },
     {
       "id": "synthpop_classic_80s",
-      "name": "Synthpop classic (80s)",
+      "name": "Synthpop classic",
       "family": "pop",
       "lineage": "Early-1980s pop subgenre developed primarily in the UK through Depeche Mode, the Human League, Soft Cell, Yazoo, Heaven 17, and the Vince Clarke-related extended catalog. Characterized by all-synthesizer instrumentation (sometimes with drum-machine), melodic-pop song-form structure, and explicit electronic-future-aesthetic. The 1981-1984 chart-pop peak through Don't You Want Me, Tainted Love, Just Can't Get Enough constitutes the canonical commercial-mainstream emergence of synthpop as dominant chart-pop production aesthetic.",
       "parent": "functionalSong.popRock",
@@ -37895,7 +37896,7 @@
     },
     {
       "id": "polish_sung_poetry_protest",
-      "name": "Polish poezja śpiewana and Solidarność-era protest (1960s-1980s)",
+      "name": "Polish poezja śpiewana and Solidarność-era protest",
       "family": "global",
       "lineage": "Polish poezja śpiewana (\"sung poetry\") and piosenka literacka (\"literary song\") protest-song tradition continuous from 1960s-1980s Communist-era Polish political-songwriter scene; centered on Jacek Kaczmarski (the Solidarność-aligned songwriter-bard whose \"Mury\" 1978 became the Solidarność anthem), Przemysław Gintrowski, Zbigniew Łapiński, Wojciech Bellon",
       "parent": "protestSong.european",

@@ -5,7 +5,7 @@
   "lineage": "Late-2000s UK-and-American house subgenre characterized by hyperactive cut-and-paste vocal-sample manipulation, glitchy-shifted rhythmic-displacement, and aggressive-funky bass-line emphasis. Switch (Dave Taylor) and Sinden (Sam Sintron) inaugurated the canonical sound through their 2007 Get Familiar mix and parallel Hercules Recordings releases; the genre intersected with broader bassline UK garage and informed the subsequent Major Lazer and Diplo-led commercial moombahton hybrid.",
   "recipe": "classic 2007-2009 fidget house, electronic Dance, house branch, uk soundsystem bass system bassline future garage. vocal fry, breath veiled tone, straight onset, interlocked note trading. TR-808, sub bass analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 412,
-  "score": 166.392,
+  "score": 166.287,
   "config": {
     "traditions": [
       "fidget_house",
@@ -49,7 +49,7 @@
           "voice_ornament_system": 2.8600000000000003,
           "voice_pitch_organization": 6.565000000000001,
           "voice_processing_chain": 13.399999999999999,
-          "voice_multitrack_stack": 7.853000000000001
+          "voice_multitrack_stack": 7.748000000000001
         }
       },
       {

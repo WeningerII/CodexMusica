@@ -5,7 +5,7 @@
   "lineage": "Extreme-slow doom-metal sub-style codified through Thergothon (Finnish, Stream from the Heavens 1994), Skepticism, Mournful Congregation, and Esoteric — characterized by sub-30 BPM tempo, sustained heavy-distortion guitar drones, glacial drumming, and bell-like cathedral-organ accents; ritual-funereal lyrical and visual identity",
   "recipe": "classic North American mid-1990s funeral doom, distorted Rock, doom branch, ambient experimental electric witch house vaporwave aesthetic. thick, larynx lowered, straight onset, interlocked note trading. orange amp British heavy crunch basswood lower tension down tuning power chord humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky sub heavy electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, roland jupiter lineage canonical jupiter 8 1981 osaka pad analog poly synth. cathedral. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 687,
-  "score": 230.562,
+  "score": 225.422,
   "config": {
     "traditions": [
       "funeral_doom",
@@ -29,13 +29,13 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
           "voice_processing_chain": "voice_processing_stutter_edit",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 6.735000000000001,
-          "voice_quality": 17.009999999999994,
+          "voice_quality": 15.509999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.2199999999999998,
@@ -47,9 +47,9 @@
           "voice_speech_song": 13.584999999999994,
           "voice_ensemble_config": 13.194999999999993,
           "voice_ornament_system": 2.495,
-          "voice_pitch_organization": 4.485,
+          "voice_pitch_organization": 4.095,
           "voice_processing_chain": 8.625,
-          "voice_multitrack_stack": 8.775000000000002
+          "voice_multitrack_stack": 5.525000000000001
         }
       },
       {

@@ -1,11 +1,11 @@
 {
   "id": "brooklyn_drill",
-  "name": "Brooklyn drill (late 2010s)",
+  "name": "Brooklyn drill",
   "family": "hip_hop",
   "lineage": "Late-2010s Brooklyn New York City hip-hop subgenre derived from UK drill production-style imported through producers AXL Beats, 808Melo, and Ghosty (UK-based producers serving Brooklyn artists). Characterized by sliding-Roland-808 bass patterns, dark melodic-key production, and aggressive Brooklyn-street-life lyrical content. Pop Smoke (1999-2020, killed in 2020 home-invasion) inaugurated the canonical Brooklyn drill sound through Welcome to the Party (2019); Sheff G, Sleepy Hallow, and Fivio Foreign anchor the canonical roster.",
-  "recipe": "classic brooklyn drill, mc Rhythm, east coast branch, uk soundsystem bass system bassline future garage. extended whistle, rap, straight onset, interlocked note trading. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, sub bass analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 489,
-  "score": 151.884,
+  "recipe": "classic mid-2010s brooklyn drill, mc Rhythm, east coast branch, uk soundsystem bass system bassline future garage. extended whistle, rap, straight onset, interlocked note trading. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, sub bass analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 499,
+  "score": 148.159,
   "config": {
     "traditions": [
       "brooklyn_drill",
@@ -38,7 +38,7 @@
           "voice_quality": 10.6995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.63,
+          "voice_vibrato": 2.4050000000000002,
           "voice_articulation": 9.945,
           "voice_microtone": 10.594999999999994,
           "voice_tradition": 6.848,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 2.8600000000000003,
           "voice_pitch_organization": 7.747999999999999,
           "voice_processing_chain": 6.478000000000001,
-          "voice_multitrack_stack": 11.028999999999998
+          "voice_multitrack_stack": 8.529000000000002
         }
       },
       {

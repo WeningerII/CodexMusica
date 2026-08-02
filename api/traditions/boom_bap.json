@@ -5,7 +5,7 @@
   "lineage": "East Coast 1990s sample-based hip-hop production aesthetic — codified through DJ Premier (Gang Starr, Jay-Z’s Reasonable Doubt 1996), Pete Rock, Large Professor, and Q-Tip’s A Tribe Called Quest production work; characterized by 90-95 BPM tempo, hard-snare-and-kick \"boom bap\" drum signature, jazz and soul sample loops, and East Coast lyrical-virtuoso emcee tradition",
   "recipe": "classic North American mid-1990s boom bap, mc Rhythm, east coast branch, soul R&B functional song contemporary r&b doo-wop. thick, breath veiled tone, straight onset, narrative. sampled chopped sampler drum machine, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, sampled chopped turntable. concrete basement. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 502,
-  "score": 309.245,
+  "score": 309.095,
   "config": {
     "traditions": [
       "boom_bap",
@@ -38,7 +38,7 @@
           "voice_quality": 16.64000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 8.99,
+          "voice_vibrato": 8.84,
           "voice_articulation": 19.945,
           "voice_microtone": 19.75999999999999,
           "voice_tradition": 17.319999999999997,

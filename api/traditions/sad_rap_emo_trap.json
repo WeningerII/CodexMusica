@@ -5,7 +5,7 @@
   "lineage": "Late-2010s hip-hop subgenre integrating emo-rock melancholic-emotional register with trap production. Characterized by Auto-Tune sung-rapping, depression-and-relationship-loss lyrical content, electric-guitar samples integrated with 808 drums, and high-emotional-intensity vocal performance. Lil Peep (1996-2017) and Juice WRLD (1998-2019) — both deceased of overdoses — constitute the canonical type-specimens; XXXTentacion (1998-2018), Trippie Redd, and Iann Dior anchor the broader roster.",
   "recipe": "classic mid-2000s sad rap / emo trap, mc Rhythm, southern branch, emo distorted rock post-hardcore emo revival. thick, breath veiled tone, straight onset, interlocked note trading. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, sub bass analog synth, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 623,
-  "score": 193.165,
+  "score": 191.54,
   "config": {
     "traditions": [
       "sad_rap_emo_trap",
@@ -49,7 +49,7 @@
           "voice_ornament_system": 1.5599999999999996,
           "voice_pitch_organization": 4.030000000000001,
           "voice_processing_chain": 6.6815,
-          "voice_multitrack_stack": 10.3025
+          "voice_multitrack_stack": 8.6775
         }
       },
       {

@@ -6,6 +6,66 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Fixed — catalog naming and roster accuracy
+
+A naming pass that started as cosmetic turned up a scoring defect underneath it.
+
+- **Nine instruments printed their id where their name belongs.** The recipe
+  renderer labels a card `inst.short || inst.name`, and nine `short` values had
+  never been written as prose — `irish_bouzouki`, `tenor_banjo`, `slit_gong`,
+  `native_american_flute`, `pat_waing`, `dan_nguyet`, `bombo_leguero`,
+  `peyote_water_drum`, `border_pipes`. Every other display field in the catalog
+  is clean: 0 underscores across tradition, room, tuning, preface, part and
+  variant names. (Tradition `family` is a taxonomy key, not a label — the app
+  renders it through `FamName()`, which already replaces underscores.)
+- **Two instruments printed the same label as another instrument.** A recipe
+  naming "marimba" or "smallpipes" gave the reader no way to tell which record
+  had been chosen. Now `Guatemalan marimba` vs `marimba`, and `Scottish
+  smallpipes` vs `Northumbrian smallpipes`. Short labels are unique catalog-wide.
+- **27 superfluous parenthetical tags removed from tradition names** — bare
+  decade and place tags that restated what the name already said (`Anti-folk
+  (NYC)`, `Emo revival (2010s)`, `Britpop (90s)`). Precise year ranges are kept:
+  `Classic R&B (1948-1962 era)`, `Early rock-and-roll (1954–1958)` and
+  `Early Romantic (1800-1850)` narrow the name rather than repeat it. Kept for
+  disambiguation: `(European)` on power and folk metal.
+- **A tradition's decade tag was hijacking its SIBLINGS' gear.** This is the
+  finding under the cosmetics, and the same class as the earlier up-tempo →
+  carnival-tuning hijack. A tradition is scored against a stack that includes
+  its crossRef siblings at half weight, and `buildContext` feeds the sibling's
+  NAME into that stack as prose tokens. `Aussie pub rock (70s-80s)` therefore
+  put `70s` and `80s` into `merseybeat`'s scoring context — and the Marshall
+  JCM800 variant, described as a "British 80s rock amp", won on that token.
+  A Liverpool tradition dated **1962-1968** was being recorded through a **1981
+  amplifier**, with a 1970s hydraulic drumhead to match. Dropping the
+  parenthetical drops the tokens: `merseybeat` and `mod_60s_british` now pick
+  `amp_british_late_60s_marshall_plexi` and `single_clear`. Both traditions'
+  own records are untouched — only a sibling's name changed. Note the corrected
+  picks score *lower* (14.04 vs 14.56); the old winner was being subsidised.
+- **`son huasteco` rostered the wrong regional instrument.** It listed
+  `jarana_jarocha` — the Veracruz son-jarocho instrument — where the trío
+  huasteco uses the jarana huasteca. The record's own lineage prose already said
+  "jarana huasteca five-string rhythm-guitar"; only the roster was wrong. Added
+  `jarana_huasteca` and repointed the pins.
+- **Two panpipe traditions rostered no panpipe.** `solomon_islands_panpipe` and
+  `papua_new_guinean_polyphony` both carried `['voice']` alone, because the only
+  panpipes in the catalog were Andean (`siku_panpipes`) and ancient Greek
+  (`syrinx_greek`). Substituting either would have misrepresented the tradition,
+  so `melanesian_panpipes` was added (Are'are raft-panpipe, bundle panpipe,
+  New Guinea Highlands pipes) and wired into both.
+- **Barbershop carried vocal percussion.** SPEBSQSA barbershop is strictly
+  unaccompanied four-part harmony; vocal percussion belongs to contemporary and
+  collegiate a cappella. Removed from `barbershop_quartet` (retained on
+  `doo_wop`, where the bass vamp earns it).
+
+Not defects, checked and left alone: `string_quartet`'s three-instrument roster
+is correct — a roster is a set of distinct instrument *cards*, and 0 of 1167
+rosters list a duplicate id, so "two violins" is unrepresentable by design. The
+vocal quartets (`barbershop_quartet`, `jubilee_quartet`,
+`southern_gospel_quartet`) pair a solo-voice card with an ensemble card for the
+same reason. Of the 203 traditions with a roster of one, all but the two panpipe
+records are solo vocal or spoken traditions where `['voice']` is the whole
+ensemble.
+
 ### Fixed — connector correctness
 
 An adversarial deliberation on the connector's tool surface (should it be one

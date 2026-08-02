@@ -1,6 +1,6 @@
 {
   "id": "violin_orchestral",
-  "name": "Orchestral violin / viola / cello",
+  "name": "Orchestral violin",
   "family": "bowed",
   "class": "bowed_string",
   "axes": {
@@ -14,7 +14,7 @@
     "transduction": -2,
     "dynamics": 1
   },
-  "short": "orchestral bowed string",
+  "short": "orchestral violin",
   "parts": [
     {
       "id": "bowed_technique",

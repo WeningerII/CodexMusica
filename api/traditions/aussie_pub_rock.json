@@ -1,11 +1,11 @@
 {
   "id": "aussie_pub_rock",
-  "name": "Aussie pub rock (70s-80s)",
+  "name": "Aussie pub rock",
   "family": "rock_punk",
   "lineage": "1970s-and-1980s Australian rock subgenre developed through the working-class pub-circuit performance economy of Sydney, Melbourne, Adelaide, and Perth. Cold Chisel, the Angels, Rose Tattoo, Midnight Oil, and AC/DC (Sydney-formed) constitute the canonical roster; the Australian-Crawl and (later) INXS extended the genre into international circulation. Distinguished by tight-rhythm-section-and-melodic-vocal pub-band aesthetic and Australian-cultural-identity lyrical content.",
-  "recipe": "classic Los Angeles mid-1970s aussie pub rock, distorted Rock, regional branch, classic distorted rock merseybeat. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, oil filled brushes-and-sticks drum kit. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
-  "recipe_chars": 606,
-  "score": 327.284,
+  "recipe": "classic Los Angeles mid-1970s aussie pub rock, distorted Rock, regional branch, classic distorted rock merseybeat. thick, breath veiled tone, straight note core, interlocked note trading. marshall plexi amp British rock amp basswood maple pau ferro humbucker electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, oil filled brushes-and-sticks drum kit. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
+  "recipe_chars": 571,
+  "score": 325.113,
   "config": {
     "traditions": [
       "aussie_pub_rock",
@@ -56,7 +56,7 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_power_chord",
-          "amp_make": "amp_british_marshall_jcm800",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "basswood_h",
           "neck_wood": "maple_neck_h",
           "fretboard": "pau_ferro_fb_h",
@@ -71,7 +71,7 @@
         },
         "scores": {
           "electric_technique": 11.992499999999996,
-          "amp_make": 12.934999999999995,
+          "amp_make": 11.764999999999997,
           "body_wood": 4.225,
           "neck_wood": 1.435,
           "fretboard": 1.435,
@@ -115,7 +115,7 @@
         },
         "scores": {
           "drum_technique": 20.994999999999997,
-          "drumhead": 2.445,
+          "drumhead": 1.445,
           "drum_kit_kick_pedal": 0
         }
       }

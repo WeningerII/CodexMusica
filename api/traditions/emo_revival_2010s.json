@@ -1,11 +1,11 @@
 {
   "id": "emo_revival_2010s",
-  "name": "Emo revival (2010s)",
+  "name": "Emo revival",
   "family": "rock_punk",
   "lineage": "Early-2010s revival of late-1990s midwest emo aesthetic through new bands continuing the Cap'n Jazz, American Football, and Promise Ring lineage. The World Is a Beautiful Place & I Am No Longer Afraid to Die (2009-onward), Algernon Cadwallader, Snowing, Joyce Manor, and the broader Topshelf Records and Run for Cover Records label rosters anchor the canonical roster. The 2014 American Football reunion and 1999-album re-release consolidated the revival's historical lineage.",
-  "recipe": "classic emo revival, distorted Rock, emo branch, alternative distorted rock funk metal madchester / baggy. thick, breath veiled tone, straight onset, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright basswood mahogany humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 599,
-  "score": 315.885,
+  "recipe": "classic modern emo revival, distorted Rock, emo branch, alternative distorted rock funk metal madchester / baggy. thick, breath veiled tone, straight onset, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright basswood mahogany humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 606,
+  "score": 312.635,
   "config": {
     "traditions": [
       "emo_revival_2010s",
@@ -49,7 +49,7 @@
           "voice_ornament_system": 2.3400000000000003,
           "voice_pitch_organization": 8.254999999999999,
           "voice_processing_chain": 13.194999999999999,
-          "voice_multitrack_stack": 11.504999999999995
+          "voice_multitrack_stack": 8.255
         }
       },
       {

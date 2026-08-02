@@ -1450,11 +1450,11 @@ const INSTRUMENTS = [
   },
   {
     id: 'classical_nylon_string_guitar',
-    name: 'Classical / nylon-string guitar',
+    name: 'Classical guitar',
     family: 'acoustic_strings',
     class: 'plucked_string_lead',
     axes: { pitchFix: 0, sustain: -1, polyphony: 1, harmonicity: 1, register: 0, range: 1, articulation: 2, transduction: -2, dynamics: -1 },
-    short: 'classical / nylon-string guitar',
+    short: 'classical guitar',
     parts: [
       { id: 'top_wood_classical', surface: false, name: 'Top wood', variants: [
         { id: 'cedar_cl', default: true, name: 'Cedar', descriptors: ['low-mid-rich-spectrum', 'broken-in-fast', 'soft-attack', 'cedar'], match_tokens: ['plucked', 'fingerpicked', 'classical-trained'] },
@@ -4034,11 +4034,11 @@ const INSTRUMENTS = [
   },
   {
     id: 'violin_orchestral',
-    name: 'Orchestral violin / viola / cello',
+    name: 'Orchestral violin',
     family: 'bowed',
     class: 'bowed_string',
     axes: { pitchFix: -2, sustain: 2, polyphony: -1, harmonicity: 1, register: 1, range: 2, articulation: 2, transduction: -2, dynamics: 1 },
-    short: 'orchestral bowed string',
+    short: 'orchestral violin',
     parts: [
       { id: 'orch_strings', surface: false, name: 'Strings', variants: [
         { id: 'gut_strings_orch', name: 'Gut', descriptors: ['overtone-rich', 'gut'], match_tokens: ['orchestral', 'bowed', 'sustained-tone', 'classical-trained'], canonical_tags: ['baroque-leaning'] },
@@ -10136,6 +10136,30 @@ const INSTRUMENTS = [
     ]
   },
   {
+    id: 'melanesian_panpipes',
+    name: 'Melanesian panpipes (Are\'are / Highlands bamboo ensemble pipes)',
+    family: 'wind',
+    class: 'flute',
+    axes: { pitchFix: 1, sustain: 0, polyphony: -1, harmonicity: -1, register: 1, range: 1, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'Melanesian panpipes',
+    parts: [
+      { id: 'melanesian_panpipes_form', name: 'Regional form', variants: [
+        { id: 'melanesian_panpipes_areare', default: true, name: "'Au tahana (Are'are raft-panpipe, southern Malaita)", descriptors: ['bamboo', 'raft-bound', 'ensemble-timekeeper'], match_tokens: ['panpipe', 'interlocking', 'breathy'], canonical_tags: ['melanesia', 'solomon_islands'] },
+        { id: 'melanesian_panpipes_bundle', name: "'Au paina (bundle panpipe, deep bamboo stopped tubes)", descriptors: ['bundled', 'deep-toned', 'resonant'], match_tokens: ['panpipe', 'interlocking', 'wood-toned'], canonical_tags: ['melanesia', 'solomon_islands'] },
+        { id: 'melanesian_panpipes_highlands', name: 'New Guinea Highlands bamboo pipes (Eastern Highlands / Chimbu)', descriptors: ['highland', 'breathy', 'overblown'], match_tokens: ['panpipe', 'breathy', 'bright'], canonical_tags: ['melanesia', 'png'] },
+      ] },
+      { id: 'melanesian_panpipes_role', name: 'Ensemble role', variants: [
+        { id: 'melanesian_panpipes_interlock', default: true, name: 'Interlocking hocket part (one player, one pitch-set, alternating)', descriptors: ['interlocking', 'hocketed', 'ensemble-timekeeper'], match_tokens: ['panpipe', 'interlocking'], canonical_tags: ['ensemble'] },
+        { id: 'melanesian_panpipes_drone', name: 'Sustained low drone-bass under the ensemble', descriptors: ['sustained', 'foundational', 'deep-toned'], match_tokens: ['panpipe', 'drone'], canonical_tags: ['ensemble'] },
+        { id: 'melanesian_panpipes_melody', name: 'Lead melodic line above the interlock', descriptors: ['melodic', 'high-pitched', 'cutting'], match_tokens: ['panpipe', 'melodic'], canonical_tags: ['ensemble'] },
+      ] },
+      { id: 'melanesian_panpipes_technique', surface: false, name: 'Blowing technique', variants: [
+        { id: 'melanesian_panpipes_blown', default: true, name: 'Directly blown across the tube rim', descriptors: ['breathy', 'airy-attack'], match_tokens: ['panpipe', 'breathy'] },
+        { id: 'melanesian_panpipes_struck', name: 'Struck stopped tubes (sandal-slapped bamboo)', descriptors: ['struck', 'percussive', 'popped'], match_tokens: ['panpipe', 'struck', 'wood-toned'] },
+      ] },
+    ]
+  },
+  {
     id: 'cajon_peruano',
     name: 'Cajón peruano (Peruvian box drum)',
     family: 'percussion',
@@ -10285,7 +10309,7 @@ const INSTRUMENTS = [
     family: 'wind',
     class: 'reed-bagpipe',
     axes: { pitchFix: 1, sustain: 1, polyphony: 0, harmonicity: 0, register: 0, range: 0, articulation: 0, transduction: -2, dynamics: -1 },
-    short: 'smallpipes',
+    short: 'Scottish smallpipes',
     parts: [
       { id: 'smallpipes_bellows_blown', name: 'Air source', variants: [
         { id: 'smallpipes_bellows_blown', default: true, name: 'Bellows-blown (modern Scottish smallpipes)', descriptors: ['bellows-blown', 'indoor-volume', 'session-amenable', 'celtic-tradition'], match_tokens: ['bellows-driven', 'bagpipe', 'celtic-tradition'] },
@@ -18106,7 +18130,7 @@ const INSTRUMENTS = [
     family: 'percussion',
     class: 'tuned_idiophone',
     axes: { pitchFix: 2, sustain: -1, polyphony: 2, harmonicity: -1, register: 0, range: 2, articulation: 1, transduction: -2, dynamics: 1 },
-    short: 'marimba',
+    short: 'Guatemalan marimba',
     parts: [
       { id: 'marimba_centroamericana_form', name: 'Regional form / type', variants: [
         { id: 'marimba_centroamericana_doble', default: true, name: 'Marimba doble (grande, chromatic double-keyboard)', descriptors: ['chromatic', 'full-range', 'ensemble-grande', 'resonant'], match_tokens: ['struck', 'tuned-bars', 'buzzing-resonator'], canonical_tags: ['guatemala', 'chiapas'] },
@@ -18209,7 +18233,7 @@ const INSTRUMENTS = [
     family: 'percussion',
     class: 'tuned_drum_circle',
     axes: { pitchFix: 1, sustain: -1, polyphony: 1, harmonicity: 1, register: 0, range: 2, articulation: 1, transduction: -2, dynamics: 0 },
-    short: 'pat_waing',
+    short: 'pat waing',
     parts: [
       { id: 'pat_waing_set', name: 'Set size & configuration', variants: [
         { id: 'pat_waing_set_21', default: true, name: 'Standard 21-drum classical set', descriptors: ['full-range', 'classical', 'three-octave'], match_tokens: ['struck', 'tuned-drums', 'melodic-lead'], canonical_tags: ['burmese', 'southeast-asian'] },
@@ -18331,7 +18355,7 @@ const INSTRUMENTS = [
     family: 'wind',
     class: 'duct_flute',
     axes: { pitchFix: 1, sustain: 2, polyphony: -2, harmonicity: 1, register: 0, range: 0, articulation: 0, transduction: -2, dynamics: -1 },
-    short: 'native_american_flute',
+    short: 'Native American flute',
     parts: [
       { id: 'native_american_flute_form', name: 'Regional form / size', variants: [
         { id: 'native_american_flute_plains', default: true, name: 'Plains courting flute (key of A, mid register)', descriptors: ['courting', 'warm', 'mid-register'], match_tokens: ['wind-driven', 'fipple-flute', 'breathy'], canonical_tags: ['plains', 'lakota'] },
@@ -18356,7 +18380,7 @@ const INSTRUMENTS = [
     family: 'wind',
     class: 'bellows_bagpipe',
     axes: { pitchFix: 1, sustain: 1, polyphony: 0, harmonicity: 1, register: 1, range: 1, articulation: 2, transduction: -2, dynamics: -1 },
-    short: 'smallpipes',
+    short: 'Northumbrian smallpipes',
     parts: [
       { id: 'northumbrian_smallpipes_chanter_set', name: 'Chanter set', variants: [
         { id: 'northumbrian_smallpipes_seventeen_key', default: true, name: '17-keyed chanter (standard modern set)', descriptors: ['chromatic', 'refined', 'full-compass'], match_tokens: ['reed-driven', 'closed-chanter', 'staccato'], canonical_tags: ['british_isles', 'northumbria'] },
@@ -18702,7 +18726,7 @@ const INSTRUMENTS = [
     family: 'plucked_traditional',
     class: 'plucked_lute',
     axes: { pitchFix: 1, sustain: -1, polyphony: 0, harmonicity: 1, register: 0, range: 1, articulation: 1, transduction: -2, dynamics: 0 },
-    short: 'dan_nguyet',
+    short: 'đàn nguyệt',
     parts: [
       { id: 'dan_nguyet_form', name: 'Regional form', variants: [
         { id: 'dan_nguyet_northern', default: true, name: 'Northern đàn nguyệt (chầu văn & ca Huế chamber)', descriptors: ['bright', 'ceremonial', 'crisply-ornamented'], match_tokens: ['plucked', 'fretted', 'bright-tone'], canonical_tags: ['vietnam', 'northern'] },
@@ -18820,7 +18844,7 @@ const INSTRUMENTS = [
     family: 'percussion',
     class: 'slit_gong',
     axes: { pitchFix: -2, sustain: -2, polyphony: -2, harmonicity: -1, register: 0, range: -1, articulation: 2, transduction: -2, dynamics: 1 },
-    short: 'slit_gong',
+    short: 'Pacific slit-gong',
     parts: [
       { id: 'pacific_slit_gong_form', name: 'Regional form / size', variants: [
         { id: 'pacific_slit_gong_pate', default: true, name: 'Pate (Samoan / Cook Islands ensemble slit-gong)', descriptors: ['ensemble-timekeeper', 'bright', 'interlocking'], match_tokens: ['struck', 'slit-gong', 'interlocking'], canonical_tags: ['polynesia', 'samoa', 'cook_islands'] },
@@ -18922,7 +18946,7 @@ const INSTRUMENTS = [
     family: 'percussion',
     class: 'bass_drum',
     axes: { pitchFix: 0, sustain: -1, polyphony: -2, harmonicity: 0, register: -1, range: -1, articulation: 2, transduction: -2, dynamics: 2 },
-    short: 'bombo_leguero',
+    short: 'bombo legüero',
     parts: [
       { id: 'bombo_leguero_form', name: 'Form / size', variants: [
         { id: 'bombo_leguero_santiagueno', default: true, name: 'Santiagueño (Santiago del Estero ceibo-trunk bombo)', descriptors: ['earthy', 'folkloric', 'deep'], match_tokens: ['struck', 'bass-drum'], canonical_tags: ['argentine', 'santiago-del-estero'] },
@@ -18947,7 +18971,7 @@ const INSTRUMENTS = [
     family: 'percussion',
     class: 'water_drum',
     axes: { pitchFix: 0, sustain: -2, polyphony: -2, harmonicity: 0, register: 1, range: -1, articulation: 2, transduction: -2, dynamics: 0 },
-    short: 'peyote_water_drum',
+    short: 'peyote water drum',
     parts: [
       { id: 'peyote_water_drum_vessel', name: 'Vessel form', variants: [
         { id: 'peyote_water_drum_iron_kettle', default: true, name: 'Cast-iron three-legged kettle', descriptors: ['cast-iron', 'three-legged', 'classic'], match_tokens: ['struck', 'kettle-drum', 'water-drum'], canonical_tags: ['native-american-church', 'plains'] },
@@ -19238,7 +19262,7 @@ const INSTRUMENTS = [
     family: 'plucked_traditional',
     class: 'plucked_banjo',
     axes: { pitchFix: 2, sustain: -2, polyphony: 0, harmonicity: 0, register: 0, range: 1, articulation: 2, transduction: -2, dynamics: 1 },
-    short: 'tenor_banjo',
+    short: 'Irish tenor banjo',
     parts: [
       { id: 'tenor_banjo_irish_form', name: 'Scale / type', variants: [
         { id: 'tenor_banjo_irish_19fret', default: true, name: '19-fret long-scale tenor (Barney McKenna standard)', descriptors: ['long-scale', 'full-toned', 'resonant'], match_tokens: ['plucked', 'bright-cutting', 'drumhead-tone'], canonical_tags: ['irish', 'celtic'] },
@@ -19899,7 +19923,7 @@ const INSTRUMENTS = [
     family: 'wind',
     class: 'bellows_bagpipe',
     axes: { pitchFix: 1, sustain: 2, polyphony: 0, harmonicity: 1, register: 0, range: 0, articulation: 0, transduction: -2, dynamics: 1 },
-    short: 'border_pipes',
+    short: 'border pipes',
     parts: [
       { id: 'border_pipes_form', name: 'Type & pitch', variants: [
         { id: 'border_pipes_a_revival', default: true, name: 'Border pipes in A (modern revival standard)', descriptors: ['conical-bore', 'bright-reedy', 'session-ready'], match_tokens: ['bellows-blown', 'reed-driven', 'drone-foundation', 'conical-bore'], canonical_tags: ['scottish', 'lowland', 'borders'] },
@@ -19948,7 +19972,7 @@ const INSTRUMENTS = [
     family: 'plucked_traditional',
     class: 'plucked_lute',
     axes: { pitchFix: 2, sustain: 0, polyphony: 1, harmonicity: 1, register: 0, range: 1, articulation: 1, transduction: -2, dynamics: 0 },
-    short: 'irish_bouzouki',
+    short: 'Irish bouzouki',
     parts: [
       { id: 'irish_bouzouki_form', name: 'Type / size', variants: [
         { id: 'irish_bouzouki_standard', default: true, name: 'Standard four-course flat-back (GDAD)', descriptors: ['flat-back', 'gdad-tuned', 'ringing'], match_tokens: ['plucked', 'steel-string', 'chordal-backing'], canonical_tags: ['celtic_irish_trad'] },
@@ -20432,6 +20456,30 @@ const INSTRUMENTS = [
       { id: 'quinta_huapanguera_body_wood', surface: false, name: 'Body wood', variants: [
         { id: 'quinta_huapanguera_cedro', default: true, name: 'Cedro rojo (canonical Huasteca)', descriptors: ['cedro-rojo-canonical-huasteca'], match_tokens: ['plucked', 'low-register'] },
         { id: 'quinta_huapanguera_palo_escrito', name: 'Palo escrito (Mexican rosewood, premium)', descriptors: ['palo-escrito-mexican-rosewood'], match_tokens: ['plucked', 'low-register'], canonical_tags: ['cites-app-ii'] },
+      ] },
+    ]
+  },
+  {
+    id: 'jarana_huasteca',
+    name: 'Jarana huasteca (Huastecan five-string rhythm guitar)',
+    family: 'plucked_traditional',
+    class: 'plucked_string_lead',
+    axes: { pitchFix: 2, sustain: -1, polyphony: 1, harmonicity: 1, register: 1, range: 0, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'jarana huasteca',
+    parts: [
+      { id: 'plucked_traditional_technique', default_variant: 'plucked_folk_strummed' },
+      { id: 'jarana_huasteca_context', name: 'Playing context', variants: [
+        { id: 'jarana_huasteca_trio', default: true, name: 'Trío huasteco mánico (driving offbeat strum against the huapanguera)', descriptors: ['syncopated', 'driving', 'offbeat'], match_tokens: ['plucked', 'strummed', 'string-attack'] },
+        { id: 'jarana_huasteca_topada', name: 'Topada arribeña (all-night poetic duel)', descriptors: ['marathon', 'narrative', 'competitive'], match_tokens: ['plucked', 'strummed'] },
+        { id: 'jarana_huasteca_escenario', name: 'Modern stage / recorded huapango', descriptors: ['concert', 'contemporary', 'polished'], match_tokens: ['plucked', 'strummed'] },
+      ] },
+      { id: 'jarana_huasteca_strings', surface: false, name: 'String material', variants: [
+        { id: 'jarana_huasteca_nylon', default: true, name: 'Nylon (modern canonical)', descriptors: ['nylon-modern-canonical'], match_tokens: ['plucked', 'strummed'] },
+        { id: 'jarana_huasteca_gut', name: 'Gut (pre-1950s historical Huasteca)', descriptors: ['gut-pre-1950s'], match_tokens: ['plucked', 'period-performance'], canonical_tags: ['historical-gut'] },
+      ] },
+      { id: 'jarana_huasteca_body_wood', surface: false, name: 'Body wood', variants: [
+        { id: 'jarana_huasteca_cedro', default: true, name: 'Cedro rojo (canonical Huasteca)', descriptors: ['cedro-rojo-canonical-huasteca'], match_tokens: ['plucked', 'strummed'] },
+        { id: 'jarana_huasteca_palo_escrito', name: 'Palo escrito (Mexican rosewood, premium)', descriptors: ['palo-escrito-mexican-rosewood'], match_tokens: ['plucked', 'strummed'], canonical_tags: ['cites-app-ii'] },
       ] },
     ]
   },

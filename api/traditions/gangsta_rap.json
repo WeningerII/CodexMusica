@@ -5,7 +5,7 @@
   "lineage": "Mid-1980s onward American hip-hop street-narrative subgenre codified through Schoolly D (\"PSK What Does It Mean?\" 1985), Ice-T (Rhyme Pays 1987), and the N.W.A. Straight Outta Compton (1988) breakthrough — characterized by first-person street-life narratives, hardened drum-machine production, sample-based foundations, and explicit anti-establishment lyrical content driving the late-80s/early-90s West Coast scene",
   "recipe": "classic North American 1984-1986 gangsta rap, mc Rhythm, gangsta branch, us hip hop west coast, us hip hop east coast boom bap pre-sampling hip-hop. thick, rap, straight onset, narrative. sampled chopped sampler drum machine, chopped sampler, low sub bass analog synth, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass. treated studio. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 493,
-  "score": 393.472,
+  "score": 393.222,
   "config": {
     "traditions": [
       "gangsta_rap",
@@ -31,14 +31,14 @@
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
-          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
           "voice_register": 10.4725,
           "voice_quality": 30.820500000000003,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.21,
+          "voice_vibrato": 5.0600000000000005,
           "voice_articulation": 22.830000000000005,
           "voice_microtone": 15.469999999999988,
           "voice_tradition": 16.470000000000002,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 5.915000000000002,
           "voice_pitch_organization": 1.4625,
           "voice_processing_chain": 23.8795,
-          "voice_multitrack_stack": 5.819500000000001
+          "voice_multitrack_stack": 5.719999999999999
         }
       },
       {

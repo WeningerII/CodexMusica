@@ -5,7 +5,7 @@
   "lineage": "Mid-1970s through 1980 dance-floor evolution of Philly Soul orchestral pop, NYC club culture, and 4/4 thump rhythm — codified through Donna Summer / Giorgio Moroder collaborations (I Feel Love 1977, Munich Musicland), Chic (Nile Rodgers and Bernard Edwards at Atlantic / Power Station NYC), Bee Gees Saturday Night Fever (RSO 1977), KC and the Sunshine Band, Sister Sledge, the entire Studio 54 NYC era catalog",
   "recipe": "classic North American 1974-1976 disco, electronic Dance, continental branch, soul R&B functional song, eurodance electronic dance northern soul and motown doo-wop. thick, breath veiled tone, slow rate, narrative. Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, pre muffled edge muffled sticks pocket drum kit, string machine, tremolo raymac steel tine premium 1970s vintage replacement neoprene rubber tips canonical Rhodes stage suitcase mid 1970s gospel runs rhodes electric, singing lead analog synth. philadelphia 212 north 12th street 1968-2003 mid tier sigma sound studios philadelphia. large-diaphragm condenser, console-strip pre, MCI JH-636 US 70s indie/jazz, 1176 FET, API proportional-Q EQ. vinyl master cut tape echo plate reverb.",
   "recipe_chars": 892,
-  "score": 459.719,
+  "score": 459.569,
   "config": {
     "traditions": [
       "disco",
@@ -129,7 +129,7 @@
           "voice_ornament_system": 3.1200000000000014,
           "voice_pitch_organization": 0.8449999999999999,
           "voice_processing_chain": 11.854,
-          "voice_multitrack_stack": 11.329
+          "voice_multitrack_stack": 11.179000000000002
         }
       },
       {
