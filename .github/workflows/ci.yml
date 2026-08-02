@@ -35,6 +35,16 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # The connector's own dependency tree. mcp/ is a separate package (the
+      # Docker image installs it independently), and its deps — zod, express, the
+      # MCP SDK — are not in the root lockfile. Nothing needed them until the REST
+      # adapter arrived: mcp/test.mjs only imports engine.js, which has no
+      # dependencies at all, so the connector tests passed here for months without
+      # this step. check_rest_parity validates against the shared zod schemas, so
+      # it does need them.
+      - name: Install connector dependencies
+        run: npm ci --prefix mcp
+
       - name: Install Chromium (for UI reachability)
         run: npx playwright install --with-deps chromium
 
@@ -62,6 +72,9 @@ jobs:
       - name: Authoring dead-token gate (every preface token reaches a tradition-default card)
         run: npm run check:dead-tokens
 
+      - name: Adapter parity (REST and MCP agree on every answer AND every refusal)
+        run: npm run check:rest
+
       - name: Audit data quality
         run: npm run audit
 
@@ -88,6 +101,16 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      # The connector's own dependency tree. mcp/ is a separate package (the
+      # Docker image installs it independently), and its deps — zod, express, the
+      # MCP SDK — are not in the root lockfile. Nothing needed them until the REST
+      # adapter arrived: mcp/test.mjs only imports engine.js, which has no
+      # dependencies at all, so the connector tests passed here for months without
+      # this step. check_rest_parity validates against the shared zod schemas, so
+      # it does need them.
+      - name: Install connector dependencies
+        run: npm ci --prefix mcp
 
       # faults.js injects a defect into codex.html and asserts check_mobile_layout
       # catches it — that gate drives a real browser, so this job needs one too.

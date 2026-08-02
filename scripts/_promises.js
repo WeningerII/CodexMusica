@@ -80,6 +80,12 @@ module.exports = [
     claim: 'every format render_recipe offers returns exactly what the app shows',
   },
   {
+    id: 'adapter-parity',
+    doc: 'AGENTS.md',
+    gate: 'check_rest_parity.js',
+    claim: 'the REST adapter and the MCP connector agree on every answer AND on every refusal',
+  },
+  {
     id: 'mobile-layout-usable',
     doc: 'README.md',
     gate: 'check_mobile_layout.js',

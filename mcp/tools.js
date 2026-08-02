@@ -10,72 +10,12 @@
 // what a human sees in the app.
 
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
-import { z } from 'zod';
 import * as E from './engine.js';
-import { RECIPE_CHAR_CEILING } from './engine.js';
+import { TOOL_SCHEMAS } from './schemas.js';
 
-const renderShape = {
-  format: z
-    .enum(['rich', 'tags', 'prose', 'compact'])
-    .optional()
-    .describe(
-      'Recipe view. Default "rich" — the app\'s Current Recipe (preface label + full descriptor stack).'
-    ),
-  max_chars: z
-    .number()
-    .int()
-    .positive()
-    .max(RECIPE_CHAR_CEILING)
-    .optional()
-    .describe(
-      `Trim the recipe to at most this many characters. ${RECIPE_CHAR_CEILING} is the hard product-wide recipe ceiling (the app's Current Recipe cap) — both the default and the maximum; pass a smaller value only to shorten. Values above ${RECIPE_CHAR_CEILING} are rejected.`
-    ),
-};
-
-const workspaceSchema = z
-  .object({ cards: z.array(z.any()) })
-  .describe('The workspace returned by the previous recipe call. Thread it through unchanged.');
-
-const editSchema = z.object({
-  action: z
-    .enum([
-      'add_tradition',
-      'remove_tradition',
-      'add_instrument',
-      'remove_instrument',
-      'set_variant',
-      'set_environment',
-      'set_preface',
-    ])
-    .describe('Which edit to apply.'),
-  tradition: z
-    .string()
-    .optional()
-    .describe(
-      'Tradition id — for add_tradition / remove_tradition, or as context for add_instrument.'
-    ),
-  instrument: z.string().optional().describe('Instrument id — for add_instrument.'),
-  card: z
-    .string()
-    .optional()
-    .describe(
-      'Card reference (the `card` id from a prior response, or an instrument id) — for remove_instrument / set_variant / set_environment / set_preface.'
-    ),
-  part: z.string().optional().describe('Part id — for set_variant (see get_instrument).'),
-  variant: z.string().optional().describe('Variant id — for set_variant (see get_instrument).'),
-  preface: z
-    .string()
-    .optional()
-    .describe(
-      "Preface id — for set_preface (see search_prefaces). Deterministically re-derives the card's settings toward it, then labels it verbatim."
-    ),
-  room: z.string().optional().describe('Room id — for set_environment.'),
-  tuning: z.string().optional().describe('Tuning id — for set_environment.'),
-  chain: z
-    .record(z.string(), z.string())
-    .optional()
-    .describe('Chain stage overrides — for set_environment, e.g. {"mic":"<id>","medium":"<id>"}.'),
-});
+// Re-exported so existing importers keep working; the definitions live in
+// schemas.js, which does not import the MCP SDK.
+export { renderShape, workspaceSchema, editSchema, TOOL_SCHEMAS } from './schemas.js';
 
 function jsonResult(value) {
   return { content: [{ type: 'text', text: JSON.stringify(value, null, 2) }] };
@@ -116,16 +56,7 @@ export function registerTools(server) {
         'gear, a space, an era), follow with edit_recipe to realize them before presenting. First tradition is primary; any ' +
         "others are explicit staples (NOT auto-added). Returns the recipe string, a per-card summary (with each instrument's " +
         'preface), and the `workspace` to thread into edit_recipe. Resolve tradition names to ids with search_catalog first.',
-      inputSchema: {
-        traditions: z
-          .array(z.string())
-          .min(1)
-          .describe(
-            'Tradition ids, resolved with search_catalog. ORDER IS MEANINGFUL: the first is named first in ' +
-              'the header and is the last to lose material if the recipe reaches the character ceiling.'
-          ),
-        ...renderShape,
-      },
+      inputSchema: TOOL_SCHEMAS.start_recipe.shape,
     },
     (a) => E.startRecipe(a)
   );
@@ -143,11 +74,7 @@ export function registerTools(server) {
         'remove_instrument (any instrument into any tradition), add_tradition / remove_tradition. Pass the `workspace` from the ' +
         'previous call; get back the edited workspace + new recipe. Iterate until the recipe reflects every word the user said, ' +
         'then present the final `recipe` string VERBATIM.',
-      inputSchema: {
-        workspace: workspaceSchema,
-        edits: z.array(editSchema).min(1).describe('Edits applied in order.'),
-        ...renderShape,
-      },
+      inputSchema: TOOL_SCHEMAS.edit_recipe.shape,
     },
     (a) => E.editRecipe(a)
   );
@@ -159,7 +86,7 @@ export function registerTools(server) {
       title: 'Re-render the workspace',
       description:
         'Render an existing workspace again — e.g. a different format or max_chars — without editing it.',
-      inputSchema: { workspace: workspaceSchema, ...renderShape },
+      inputSchema: TOOL_SCHEMAS.render_recipe.shape,
     },
     (a) => E.renderRecipe(a)
   );
@@ -177,32 +104,7 @@ export function registerTools(server) {
         'material, a space, an era — and never guess an id. For MOOD and FEEL adjectives reach for search_prefaces instead: it ' +
         'searches the same prefaces but returns their token profiles, which is what you need to choose between near-synonyms. ' +
         'Hits on an id or name outrank hits in descriptor prose, and matching every term outranks matching some.',
-      inputSchema: {
-        query: z.string().describe('Words from the request, e.g. "garage rock fuzz".'),
-        types: z
-          .array(
-            z.enum([
-              'tradition',
-              'instrument',
-              'variant',
-              'room',
-              'tuning',
-              'arrangement',
-              'aesthetic',
-              'preface',
-              'chain',
-            ])
-          )
-          .optional()
-          .describe('Restrict to these record types.'),
-        limit: z
-          .number()
-          .int()
-          .positive()
-          .max(50)
-          .optional()
-          .describe('Max results (default 20, max 50).'),
-      },
+      inputSchema: TOOL_SCHEMAS.search_catalog.shape,
     },
     (a) => E.searchCatalog(a)
   );
@@ -216,16 +118,7 @@ export function registerTools(server) {
         'Search the named prefaces (aesthetic/technique/delivery signatures: satirical, keening, brooding, …) by mood/feel words. ' +
         'Reach for this whenever the user says ANY stylistic adjective — then realize the winning id on each relevant instrument ' +
         'via edit_recipe set_preface. Any preface can target any instrument.',
-      inputSchema: {
-        query: z.string().describe('Mood/feel words, e.g. "worn bitter struggling".'),
-        limit: z
-          .number()
-          .int()
-          .positive()
-          .max(50)
-          .optional()
-          .describe('Max results (default 15, max 50).'),
-      },
+      inputSchema: TOOL_SCHEMAS.search_prefaces.shape,
     },
     (a) => E.searchPrefaces(a)
   );
@@ -241,24 +134,7 @@ export function registerTools(server) {
         'table, so each part reports its full `variant_count` and sets `truncated` when you are seeing a ' +
         'slice. Narrow it rather than raising `limit`: `query` filters variants by name and descriptor ' +
         '("mahogany", "phosphor bronze"), `part` focuses one part. The default variant is always included.',
-      inputSchema: {
-        id: z.string().describe('Instrument id (see search_catalog).'),
-        part: z
-          .string()
-          .optional()
-          .describe('Show only this part. Use when you already know which knob you are turning.'),
-        query: z
-          .string()
-          .optional()
-          .describe('Filter variants by name/descriptor words, e.g. "mahogany" or "nylon gut".'),
-        limit: z
-          .number()
-          .int()
-          .positive()
-          .max(200)
-          .optional()
-          .describe('Max variants per part (default: a shared budget across the parts; max 200).'),
-      },
+      inputSchema: TOOL_SCHEMAS.get_instrument.shape,
     },
     (a) => E.getInstrument(a)
   );
@@ -270,7 +146,7 @@ export function registerTools(server) {
       title: 'Get one tradition',
       description:
         'Full record for one tradition: name, family, lineage, axis profile, default instruments, raw row.',
-      inputSchema: { id: z.string().describe('Tradition id (see search_catalog).') },
+      inputSchema: TOOL_SCHEMAS.get_tradition.shape,
     },
     (a) => E.getTradition(a)
   );
@@ -282,12 +158,7 @@ export function registerTools(server) {
       title: 'List / browse traditions',
       description:
         'List or substring-filter traditions (by id/name and/or family). Paginated. For free-text use search_catalog.',
-      inputSchema: {
-        query: z.string().optional(),
-        family: z.string().optional(),
-        limit: z.number().int().positive().optional(),
-        offset: z.number().int().nonnegative().optional(),
-      },
+      inputSchema: TOOL_SCHEMAS.list_traditions.shape,
     },
     (a) => E.listTraditions(a)
   );
@@ -299,21 +170,7 @@ export function registerTools(server) {
       title: 'Enumerate an override space',
       description:
         'Valid ids for an override space: rooms, tunings, chain_sections, archetypes, aesthetics, arrangements, instrument_families, tradition_families, axes.',
-      inputSchema: {
-        kind: z
-          .enum([
-            'rooms',
-            'tunings',
-            'chain_sections',
-            'archetypes',
-            'aesthetics',
-            'arrangements',
-            'instrument_families',
-            'tradition_families',
-            'axes',
-          ])
-          .describe('Which option space to enumerate.'),
-      },
+      inputSchema: TOOL_SCHEMAS.list_options.shape,
     },
     (a) => E.listOptions(a)
   );
