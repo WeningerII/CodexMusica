@@ -38102,6 +38102,92 @@ function rmCard(id, opts) {
   renderAll();
 }
 
+// ---- Tradition → card configuration ----
+// An instrument belonging to a tradition gets the same treatment whether it
+// arrived WITH the tradition (importTradition) or was added to the group
+// afterwards from the sidebar's "Add instrument to tradition" button. These
+// helpers are the single derivation both paths run through, so the two can't
+// drift into producing differently-configured cards for the same pairing.
+
+// TRADITION_CHAIN_OVERRIDES survives as a runtime stopgap hook — empty by
+// default. Anything you put in here wins over the tradition row, useful only
+// when you need to test a chain change without editing the tradition data.
+// In normal operation it does nothing.
+function _traditionChainOverride(tradId) {
+  return (typeof TRADITION_CHAIN_OVERRIDES !== 'undefined' && TRADITION_CHAIN_OVERRIDES[tradId]) || {};
+}
+
+// Resolve the recording chain for a tradition. The data of record is the
+// tradition row itself (chain_mic, chain_pre, chain_comp, chain_eq,
+// chain_medium, chain_console, chain_fx), with the override layer on top.
+// `amp` stays null here — it is per-instrument, see _traditionAmpVariant.
+function _traditionChain(trad, chainOverride) {
+  chainOverride = chainOverride || {};
+  return {
+    fx: Array.isArray(chainOverride.fx) ? chainOverride.fx.slice() : (Array.isArray(trad.chain_fx) ? trad.chain_fx.slice() : []),
+    amp: null,
+    mic: chainOverride.mic || trad.chain_mic || null,
+    pre: chainOverride.pre || trad.chain_pre || null,
+    comp: chainOverride.comp || trad.chain_comp || null,
+    eq: chainOverride.eq || trad.chain_eq || null,
+    medium: chainOverride.medium || trad.chain_medium || null,
+    console: chainOverride.console || trad.chain_console || null,
+  };
+}
+
+// Compute the amp variant for one specific instrument under one tradition.
+// Candidate sources, in precedence order: (1) chainOverride.amp_bass /
+// amp_guitar / amp from the stopgap map, (2) trad.chain_amp_bass /
+// chain_amp_guitar / chain_amp from the tradition row itself. Each candidate
+// is tried against the instrument's amp_make variants list; the first that's a
+// valid variant for this instrument wins. This is how bass-class instruments
+// get bass amps and guitar-class instruments get guitar amps when a tradition
+// specifies different canon amps for each.
+function _traditionAmpVariant(instrumentId, trad, chainOverride) {
+  chainOverride = chainOverride || {};
+  const inst = Inst(instrumentId);
+  const ampPart = inst ? (inst.parts || []).find(p => p.id === 'amp_make') : null;
+  if (!ampPart) return null;
+  const ampValidIds = new Set(ampPart.variants.map(v => v.id));
+  const isBassClass = instrumentId.includes('bass') || instrumentId.includes('contrabass');
+  const candidates = [];
+  // Class-specific keys win first (override layer, then tradition data)
+  if (isBassClass) {
+    if (chainOverride.amp_bass) candidates.push(chainOverride.amp_bass);
+    if (trad.chain_amp_bass) candidates.push(trad.chain_amp_bass);
+  } else {
+    if (chainOverride.amp_guitar) candidates.push(chainOverride.amp_guitar);
+    if (trad.chain_amp_guitar) candidates.push(trad.chain_amp_guitar);
+  }
+  // Then the general amp key (override layer, then tradition data)
+  const generalAmp = chainOverride.amp !== undefined ? chainOverride.amp : trad.chain_amp;
+  if (Array.isArray(generalAmp)) candidates.push(...generalAmp);
+  else if (typeof generalAmp === 'string') candidates.push(generalAmp);
+  // Pick the first candidate that's actually in the instrument's amp_make variants
+  return candidates.find(a => ampValidIds.has(a)) || null;
+}
+
+// Full makeCard options for `instrumentId` joining `tradId`: the tradition's
+// tuning and room, its recording chain, its voice-part overrides and the amp
+// that suits this instrument — i.e. exactly what importTradition would have
+// seeded the card with. Reads the CACHED full row like importTradition does,
+// so lazy-mode callers must await Catalog.ensureFull(tradId) first; returns
+// null when the full row isn't loaded.
+function traditionCardOpts(tradId, instrumentId) {
+  const trad = Catalog.fullSync(tradId);
+  if (!trad) return null;
+  const chainOverride = _traditionChainOverride(tradId);
+  const partsOverride = _voicePartsForTradition(trad);
+  const amp = _traditionAmpVariant(instrumentId, trad, chainOverride);
+  return {
+    traditionId: tradId,
+    tuning: trad.tuning,
+    room: trad.room,
+    chain: _traditionChain(trad, chainOverride),
+    partsOverride: amp ? Object.assign({}, partsOverride, { amp_make: amp }) : partsOverride,
+  };
+}
+
 function importTradition(tradId) {
   // SYNC by design (tandem's sandbox checks call it directly): reads the full
   // row from the Catalog CACHE. Embedded mode pre-caches everything; in lazy
@@ -38121,64 +38207,23 @@ function importTradition(tradId) {
   // and any explicit trad.parts — this is what fixes the "every imported
   // tradition reads as modern_pop_vocal_training" problem.
   const partsOverride = _voicePartsForTradition(trad);
-  // Resolve the recording chain for this tradition. The data of record is
-  // the tradition row itself (chain_mic, chain_pre, chain_comp, chain_eq,
-  // chain_medium, chain_console, chain_fx, chain_amp / chain_amp_guitar /
-  // chain_amp_bass on the tradition).
-  //
-  // TRADITION_CHAIN_OVERRIDES survives as a runtime stopgap hook — empty by
-  // default. Anything you put in here wins over the tradition row, useful
-  // only when you need to test a chain change without editing the tradition
-  // data. In normal operation it does nothing.
-  const chainOverride = (typeof TRADITION_CHAIN_OVERRIDES !== 'undefined' && TRADITION_CHAIN_OVERRIDES[tradId]) || {};
-  const finalChain = {
-    fx: Array.isArray(chainOverride.fx) ? chainOverride.fx.slice() : (Array.isArray(trad.chain_fx) ? trad.chain_fx.slice() : []),
-    amp: null,
-    mic: chainOverride.mic || trad.chain_mic || null,
-    pre: chainOverride.pre || trad.chain_pre || null,
-    comp: chainOverride.comp || trad.chain_comp || null,
-    eq: chainOverride.eq || trad.chain_eq || null,
-    medium: chainOverride.medium || trad.chain_medium || null,
-    console: chainOverride.console || trad.chain_console || null,
-  };
+  // Resolve the recording chain for this tradition (chain_mic, chain_pre,
+  // chain_comp, chain_eq, chain_medium, chain_console, chain_fx on the
+  // tradition row, plus the chain_amp / chain_amp_guitar / chain_amp_bass
+  // family which resolves per-instrument below).
+  const chainOverride = _traditionChainOverride(tradId);
   const created = [];
   (trad.instruments || []).forEach((iid) => {
-    // Compute the amp variant for this specific instrument. Candidate sources,
-    // in precedence order: (1) chainOverride.amp_bass / amp_guitar / amp from
-    // the stopgap map, (2) trad.chain_amp_bass / chain_amp_guitar /
-    // chain_amp from the tradition row itself. Each candidate is tried
-    // against the instrument's amp_make variants list; the first that's a
-    // valid variant for this instrument wins. This is how bass-class
-    // instruments get bass amps and guitar-class instruments get guitar amps
-    // when a tradition specifies different canon amps for each.
-    const inst = Inst(iid);
-    const ampPart = inst ? (inst.parts || []).find(p => p.id === 'amp_make') : null;
-    const ampValidIds = ampPart ? new Set(ampPart.variants.map(v => v.id)) : null;
-    let ampVariant = null;
-    if (ampValidIds) {
-      const isBassClass = iid.includes('bass') || iid.includes('contrabass');
-      const candidates = [];
-      // Class-specific keys win first (override layer, then tradition data)
-      if (isBassClass) {
-        if (chainOverride.amp_bass) candidates.push(chainOverride.amp_bass);
-        if (trad.chain_amp_bass) candidates.push(trad.chain_amp_bass);
-      } else {
-        if (chainOverride.amp_guitar) candidates.push(chainOverride.amp_guitar);
-        if (trad.chain_amp_guitar) candidates.push(trad.chain_amp_guitar);
-      }
-      // Then the general amp key (override layer, then tradition data)
-      const generalAmp = chainOverride.amp !== undefined ? chainOverride.amp : trad.chain_amp;
-      if (Array.isArray(generalAmp)) candidates.push(...generalAmp);
-      else if (typeof generalAmp === 'string') candidates.push(generalAmp);
-      // Pick the first candidate that's actually in the instrument's amp_make variants
-      ampVariant = candidates.find(a => ampValidIds.has(a)) || null;
-    }
+    const ampVariant = _traditionAmpVariant(iid, trad, chainOverride);
     const cardPartsOverride = ampVariant ? Object.assign({}, partsOverride, { amp_make: ampVariant }) : partsOverride;
     const c = addCard(iid, {
       traditionId: tradId,
       tuning: trad.tuning,
       room: trad.room,
-      chain: finalChain,
+      // Fresh chain object per card: cards own their chain and edit it in
+      // place, so sharing one object across a tradition's cards would make
+      // an edit on one card leak into all its siblings.
+      chain: _traditionChain(trad, chainOverride),
       partsOverride: cardPartsOverride,
       skipHistory: true
     });
@@ -50377,14 +50422,24 @@ function dropCardOnTradition(cardId, targetTradId) {
   if (!card || !targetTradId || targetTradId === '__ungrouped__') return false;
   if (card.traditionId === targetTradId) return false;
   card.traditionId = targetTradId;
+  _placeCardAfterTraditionRun(card, targetTradId);
+  return true;
+}
+
+// Move `card` to sit directly after the last card of `tradId`'s run, so it
+// reads as appended to that genre rather than inserted at a random depth.
+// app.cards order IS the sidebar's group order (groups render in order of
+// first appearance), so a card left at the end of the array would sit in the
+// right group but drag the whole run's ordering around behind it. Shared by
+// the drag-drop reparent and by adding an instrument straight into a group.
+function _placeCardAfterTraditionRun(card, tradId) {
   app.cards = app.cards.filter((c) => c.id !== card.id);
   let lastIdx = -1;
   for (let i = 0; i < app.cards.length; i++) {
-    if (app.cards[i].traditionId === targetTradId) lastIdx = i;
+    if (app.cards[i].traditionId === tradId) lastIdx = i;
   }
   if (lastIdx === -1) app.cards.push(card);
   else app.cards.splice(lastIdx + 1, 0, card);
-  return true;
 }
 
 // Move a whole genre's run of cards above or below another genre's run.
@@ -51841,6 +51896,9 @@ function handleAction(action, card) {
   } else if (action === 'similar') {
     app.similarInstFor = card.instrumentId;
     app.pickerSearch = '';
+    // Browsing alternatives to a card is its own entry into modal-add — clear
+    // any leftover sidebar "add to tradition" context so the pick lands loose.
+    app._addToTradition = null;
     const si = document.getElementById('search-inst');
     if (si) si.value = '';
     renderInstPicker();
@@ -52302,6 +52360,9 @@ function _initApp() {
   document.getElementById('btn-add').addEventListener('click', () => {
     app.pickerSearch = '';
     app.similarInstFor = null;
+    // A plain add is a loose add: drop any tradition context left behind by a
+    // sidebar "Add instrument to tradition" click that was dismissed.
+    app._addToTradition = null;
     document.getElementById('search-inst').value = '';
     renderInstPicker();
     openModal('modal-add');
@@ -53030,6 +53091,45 @@ function normalizeSearch(s) {
     .trim();
 }
 
+// Toast text for a picker add. Names the destination genre when the card
+// joined one, so "Add instrument to tradition" visibly confirms WHERE the
+// instrument landed rather than just that something was added.
+function _addedInstrumentMessage(instrumentId, card) {
+  const name = Inst(instrumentId)?.short || instrumentId;
+  const trad = card && card.traditionId ? Tradition(card.traditionId) : null;
+  return trad ? `Added ${name} to ${trad.name}` : `Added ${name}`;
+}
+
+// Add one instrument from the Add-Instrument modal, honouring the pending
+// "Add instrument to tradition" context set by the sidebar's per-group button.
+// Without that context this is a loose add and the card is ungrouped (the
+// #btn-add / empty-state route); WITH it the card joins that genre's group and
+// is configured from the tradition exactly as importTradition would have
+// seeded it. The context is consumed here so a subsequent plain add can't
+// inherit it. Returns the created card, or null if the instrument is unknown.
+async function addInstrumentFromPicker(instrumentId) {
+  const tradId = app._addToTradition || null;
+  app._addToTradition = null;
+  if (!tradId) return addCard(instrumentId);
+  // Lazy mode keeps only light tradition rows in memory; the chain / tuning /
+  // room fields this needs live on the full row. Resolves immediately in
+  // embedded mode and for any tradition already imported into the workspace.
+  try { await Catalog.ensureFull(tradId); }
+  catch { /* fall through: opts stays null and the card is added ungrouped */ }
+  const opts = traditionCardOpts(tradId, instrumentId);
+  if (!opts) return addCard(instrumentId);
+  // skipHistory + explicit pushHistory: the card is repositioned into its
+  // group's run after creation, and history must snapshot the FINAL order or
+  // undo/redo would restore the card at the end of the list instead.
+  const card = addCard(instrumentId, Object.assign({}, opts, { skipHistory: true }));
+  if (!card) return null;
+  _placeCardAfterTraditionRun(card, tradId);
+  // A group you just added to should be readable, even if it was collapsed.
+  if (app.collapsedTraditionGroups) app.collapsedTraditionGroups.delete(tradId);
+  if (typeof pushHistory === 'function') pushHistory();
+  return card;
+}
+
 function renderInstPicker() {
   const c = document.getElementById('picker-inst');
   if (!c) return;
@@ -53148,13 +53248,13 @@ function renderInstPicker() {
     app.instrumentAxisFilters.clear();
     renderInstPicker();
   });
-  c.querySelectorAll('[data-add]').forEach(b => b.addEventListener('click', () => {
+  c.querySelectorAll('[data-add]').forEach(b => b.addEventListener('click', async () => {
     const iid = b.dataset.add;
-    const card = addCard(iid);
+    const card = await addInstrumentFromPicker(iid);
     if (!card) { showToast(`Unknown instrument: ${iid}`, 'error'); return; }
     closeModal('modal-add');
     renderAll();
-    showToast(`Added ${Inst(iid)?.short || iid}`, 'success');
+    showToast(_addedInstrumentMessage(iid, card), 'success');
     setTimeout(() => {
       const el = document.querySelector(`[data-card-id="${card.id}"]`);
       if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -53427,15 +53527,15 @@ function wireSimilarInstrumentEvents(container) {
     renderInstPicker();
   });
   container.querySelectorAll('[data-add-inst]').forEach(el => {
-    el.addEventListener('click', e => {
+    el.addEventListener('click', async e => {
       e.stopPropagation();
       const iid = el.dataset.addInst;
-      const card = addCard(iid);
+      const card = await addInstrumentFromPicker(iid);
       if (!card) { showToast(`Unknown instrument: ${iid}`, 'error'); return; }
       closeModal('modal-add');
       app.similarInstFor = null;
       renderAll();
-      showToast(`Added ${Inst(iid)?.short || iid}`, 'success');
+      showToast(_addedInstrumentMessage(iid, card), 'success');
       setTimeout(() => {
         const elc = document.querySelector(`[data-card-id="${card.id}"]`);
         if (elc) elc.scrollIntoView({ behavior: 'smooth', block: 'center' });
