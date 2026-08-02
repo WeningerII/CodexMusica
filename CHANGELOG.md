@@ -6,6 +6,32 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Fixed — "Add instrument to tradition" dropped the instrument into Ungrouped
+
+The sidebar's per-genre "Add instrument to tradition" button stashed the target
+genre on `app._addToTradition` and opened the instrument picker — but no code
+ever read that field back. The picker's add handlers called `addCard(iid)` with
+no options, so the new card got `traditionId: null` and the sidebar filed it
+under the `__ungrouped__` pseudo-group. The button's entire premise, choosing
+*which* genre the instrument joins, had no effect on the result.
+
+- The picker's two add paths (the instrument list and the similar-instruments
+  view) now go through `addInstrumentFromPicker`, which consumes the pending
+  genre context, configures the card from that tradition — tuning, room,
+  recording chain, voice-part overrides and the amp variant that suits the
+  instrument's class — and places it after the group's last card so it appends
+  to the run rather than trailing the workspace. Adds without the context (the
+  toolbar's Add button, the empty state) still produce a loose ungrouped card.
+- The tradition→card derivation is now shared with `importTradition` rather
+  than duplicated, so an instrument added by hand and one that shipped with the
+  genre can't drift into different configurations.
+- Each card in an imported tradition now gets its OWN chain object. They
+  previously shared one, so editing one card's chain silently changed every
+  other card in that tradition.
+- Undo/redo snapshots the final position (the add is a single history entry),
+  the target group expands if it was collapsed, and the toast names the
+  destination: "Added harmonica to Garage rock".
+
 ### Fixed — catalog naming and roster accuracy
 
 A naming pass that started as cosmetic turned up a scoring defect underneath it.

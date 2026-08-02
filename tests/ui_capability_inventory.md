@@ -254,6 +254,12 @@ surface: sidebar — per-tradition-group "+ Add instrument to tradition" button
 implementation: opens modal-add with traditionId pre-context
 status: reachable
 precondition: 1+ cards
+notes: The instrument picked from the modal joins THAT group — it is configured
+  from the tradition (tuning, room, chain, voice parts, amp) exactly as
+  importTradition seeds it, and is placed after the group's last card. The
+  pre-context is consumed on add and cleared by every other modal-add entry
+  point (#btn-add, the card "similar" action), so a later plain add stays
+  ungrouped.
 ```
 
 ### Sidebar — staple
