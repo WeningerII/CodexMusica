@@ -1,11 +1,11 @@
 {
   "id": "chicago_drill",
-  "name": "Chicago drill (early 2010s)",
+  "name": "Chicago drill",
   "family": "hip_hop",
   "lineage": "Early-2010s Chicago hip-hop subgenre emerging from the South Side of Chicago, characterized by ominous-keyboard-and-strings production, slower mid-tempo drilling-hi-hat patterns, and explicit street-violence-and-gang-life lyrical content addressing the Chicago South Side gang-violence epidemic. Chief Keef (born 1995) and producer Young Chop inaugurated the canonical sound through \"I Don't Like\" (2012); Lil Durk, Lil Reese, King Louie, and (later) Polo G, Lil Bibby, and G Herbo constitute the canonical roster.",
-  "recipe": "classic chicago drill, mc Rhythm, southern branch, us hip hop gangsta. extended whistle, rap, slow rate, interlocked note trading. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, pad like sub bass analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 459,
-  "score": 169.009,
+  "recipe": "classic 2010-2013 chicago drill, mc Rhythm, southern branch, us hip hop gangsta. extended whistle, rap, slow rate, interlocked note trading. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, pad like sub bass analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 469,
+  "score": 164.459,
   "config": {
     "traditions": [
       "chicago_drill",
@@ -46,9 +46,9 @@
           "voice_speech_song": 18.761000000000003,
           "voice_ensemble_config": 15.274999999999993,
           "voice_ornament_system": 4.550000000000002,
-          "voice_pitch_organization": 6.825,
+          "voice_pitch_organization": 5.525,
           "voice_processing_chain": 12.901499999999999,
-          "voice_multitrack_stack": 11.049999999999997
+          "voice_multitrack_stack": 7.800000000000001
         }
       },
       {

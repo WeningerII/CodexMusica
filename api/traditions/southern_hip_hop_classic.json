@@ -5,7 +5,7 @@
   "lineage": "Late-1980s-and-onward Southern US hip-hop tradition spanning Houston (Geto Boys, Rap-A-Lot Records), Atlanta (Outkast, Dungeon Family), Miami (2 Live Crew, Miami Bass), and Memphis (Three 6 Mafia). Characterized by drawled vocal-delivery, Roland 808-prominent production, and explicit Southern-cultural-identity assertion against the East Coast / West Coast geographic dichotomy. Outkast's Aquemini (1998) and Geto Boys' We Can't Be Stopped (1991) consolidated regional visibility.",
   "recipe": "classic Los Angeles 1987-1989 southern hip-hop, mc Rhythm, southern branch, funk percussive groove percussion, soul R&B functional song new jack swing doo-wop. thick, rap, straight onset, interlocked note trading. pitched chopped sampler, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, sub bass analog synth. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
   "recipe_chars": 542,
-  "score": 292.244,
+  "score": 290.906,
   "config": {
     "traditions": [
       "southern_hip_hop_classic",
@@ -38,7 +38,7 @@
           "voice_quality": 16.13625,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.095000000000001,
+          "voice_vibrato": 3.4450000000000003,
           "voice_articulation": 19.369999999999997,
           "voice_microtone": 17.744999999999994,
           "voice_tradition": 18.308749999999996,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 3.445000000000001,
           "voice_pitch_organization": 3.38,
           "voice_processing_chain": 13.325,
-          "voice_multitrack_stack": 10.29
+          "voice_multitrack_stack": 9.6025
         }
       },
       {

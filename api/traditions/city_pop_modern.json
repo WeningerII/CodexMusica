@@ -5,7 +5,7 @@
   "lineage": "2010s-and-2020s international revival of late-1970s and 1980s Japanese city-pop genre through internet-distributed YouTube algorithm-circulation (especially the 2017 viral revival of Mariya Takeuchi's \"Plastic Love\"). Characterized by sophisticated jazz-and-fusion harmonic vocabulary, broad-AOR aesthetic (West-Coast Los Angeles 1970s session-musician influence transmitted through Tatsuro Yamashita and Haruomi Hosono), and explicit Tokyo-urban-1980s-economic-bubble nostalgia. Tomoo Nagai, Yumi Matsutoya, Anri are foundational; the modern revival scene includes Ginger Root, Night Tempo (city-pop edits), and broader vaporwave-adjacent producers.",
   "recipe": "classic 1977-1979 city pop modern revival, functional Song, east Asian pop branch, American jazz fusion acid jazz nu jazz / electro-jazz. thick, breath veiled tone, straight onset, interlocked note trading. roland jc120 amp solid state stereo chorus basswood alnico clean humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, singing lead analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 768,
-  "score": 610.565,
+  "score": 610.25,
   "config": {
     "traditions": [
       "city_pop_modern",
@@ -136,12 +136,12 @@
           "keyboard_technique": 15.262999999999998,
           "grand_piano_size": 0.258,
           "grand_piano_brand": 0.845,
-          "piano_hammer": 23.923,
-          "piano_rim": 23.822499999999998,
+          "piano_hammer": 23.817999999999998,
+          "piano_rim": 23.717499999999998,
           "piano_soundboard": 23.382,
           "piano_pinblock": 5.855,
           "piano_plate": 8.2045,
-          "piano_pitch_standard": 8.463
+          "piano_pitch_standard": 8.357999999999999
         }
       },
       {

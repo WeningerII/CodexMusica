@@ -5,7 +5,7 @@
   "lineage": "Japanese-language hip-hop tradition emerging in 1980s and 1990s through Vibrastone, ECD, and the broader Tokyo-based underground scene. The 2000s commercial peak through KICK THE CAN CREW, KREVA, and the Mary Joy Recordings roster brought J-rap into mainstream-J-pop visibility. The 2010s-2020s wave through KOHH, Awich, JP THE WAVY, and the Bad Hop crew consolidated the contemporary scene. Distinguished by Japanese-language wordplay-density and explicit Japanese-cultural lyrical content.",
   "recipe": "classic East Asian mid-1980s japanese hip-hop, mc Rhythm, intl hip hop branch, us hip hop east coast brooklyn drill east coast hip-hop. thick, rap, straight onset, interlocked note trading. chopped sampler, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 507,
-  "score": 275.161,
+  "score": 272.886,
   "config": {
     "traditions": [
       "japanese_hip_hop",
@@ -38,7 +38,7 @@
           "voice_quality": 25.439500000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.175,
+          "voice_vibrato": 4.5249999999999995,
           "voice_articulation": 15.014999999999997,
           "voice_microtone": 14.819999999999993,
           "voice_tradition": 14.3425,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 4.875000000000002,
           "voice_pitch_organization": 4.03,
           "voice_processing_chain": 16.5865,
-          "voice_multitrack_stack": 11.147499999999999
+          "voice_multitrack_stack": 9.522500000000003
         }
       },
       {

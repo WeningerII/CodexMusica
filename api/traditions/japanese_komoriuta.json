@@ -5,7 +5,7 @@
   "lineage": "Japanese cradle-song tradition continuous from Edo-period (and pre-Edo) domestic-vocal practice through Meiji-and-Showa-era folksong collection (Yanagida Kunio, Machida Kashō) into modern Japanese domestic singing; distinct regional variants documented in Itsuki (Kumamoto), Chūgoku, Akita, Edo, and Takeda",
   "recipe": "classic East Asian modern japanese komoriuta, lullaby, east Asian branch, east Asian pop functional song, east Asian art music, vocal drone modal shidaiqu enka. thick, breath veiled tone, straight onset, interlocked note trading. tatami parlor japanese. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 316,
-  "score": 252.377,
+  "score": 252.227,
   "config": {
     "traditions": [
       "japanese_komoriuta",
@@ -41,7 +41,7 @@
           "voice_vibrato": 10.354999999999999,
           "voice_articulation": 21.905000000000012,
           "voice_microtone": 24.595,
-          "voice_tradition": 55.964999999999996,
+          "voice_tradition": 55.815,
           "voice_mechanism_compound": 3.77,
           "voice_estill_quality": 3.5750000000000006,
           "voice_speech_song": 33.60500000000001,

@@ -1,6 +1,6 @@
 {
-  "id": "vihuela_mexicana",
-  "name": "Vihuela (Mexican mariachi)",
+  "id": "jarana_huasteca",
+  "name": "Jarana huasteca (Huastecan five-string rhythm guitar)",
   "family": "plucked_traditional",
   "class": "plucked_string_lead",
   "axes": {
@@ -8,13 +8,13 @@
     "sustain": -1,
     "polyphony": 1,
     "harmonicity": 1,
-    "register": 0,
-    "range": 1,
-    "articulation": 0,
+    "register": 1,
+    "range": 0,
+    "articulation": 1,
     "transduction": -2,
     "dynamics": 0
   },
-  "short": "vihuela",
+  "short": "jarana huasteca",
   "parts": [
     {
       "id": "plucked_traditional_technique",
@@ -139,138 +139,74 @@
       "_fromFamily": true
     },
     {
-      "id": "vihuela_mexicana_back",
-      "name": "Back shape",
+      "id": "jarana_huasteca_context",
+      "name": "Playing context",
       "variants": [
         {
-          "id": "vihuela_mexicana_arched",
+          "id": "jarana_huasteca_trio",
           "default": true,
-          "name": "Arched back (traditional)",
+          "name": "Trío huasteco mánico (driving offbeat strum against the huapanguera)",
           "descriptors": [
-            "projecting",
-            "mariachi-standard"
+            "syncopated",
+            "driving",
+            "offbeat"
           ],
           "match_tokens": [
             "plucked",
-            "tremolo"
+            "strummed",
+            "string-attack"
           ]
         },
         {
-          "id": "vihuela_mexicana_flat",
-          "name": "Flat back (variant)",
+          "id": "jarana_huasteca_topada",
+          "name": "Topada arribeña (all-night poetic duel)",
           "descriptors": [
-            "modern",
-            "simpler-construction",
-            "alternative"
+            "marathon",
+            "narrative",
+            "competitive"
           ],
           "match_tokens": [
             "plucked",
-            "tremolo"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "vihuela_mexicana_context",
-      "surface": false,
-      "name": "Use context",
-      "variants": [
-        {
-          "id": "vihuela_mexicana_mariachi",
-          "default": true,
-          "name": "Mariachi rhythm (canonical)",
-          "descriptors": [
-            "standard",
-            "rasgueado-foundation",
-            "foundational"
-          ],
-          "match_tokens": [
-            "plucked",
-            "tremolo"
+            "strummed"
           ]
         },
         {
-          "id": "vihuela_mexicana_huasteca",
-          "name": "Huasteca / regional son",
+          "id": "jarana_huasteca_escenario",
+          "name": "Modern stage / recorded huapango",
           "descriptors": [
-            "traditional",
-            "older-style",
-            "distinct"
-          ],
-          "match_tokens": [
-            "plucked",
-            "tremolo"
-          ]
-        },
-        {
-          "id": "vihuela_mexicana_modern",
-          "name": "Modern arrangement",
-          "descriptors": [
+            "concert",
             "contemporary",
-            "cross-genre",
-            "flexible"
+            "polished"
           ],
           "match_tokens": [
-            "modern",
             "plucked",
-            "tremolo"
+            "strummed"
           ]
         }
       ]
     },
     {
-      "id": "vihuela_mexicana_body_wood",
-      "surface": false,
-      "name": "Body wood",
-      "variants": [
-        {
-          "id": "vihuela_mexicana_mahogany",
-          "default": true,
-          "name": "Mahogany (canonical mariachi)",
-          "descriptors": [
-            "mahogany-canonical-mariachi"
-          ],
-          "match_tokens": [
-            "plucked",
-            "tremolo"
-          ]
-        },
-        {
-          "id": "vihuela_mexicana_cedar",
-          "name": "Cedar (warmer alternative)",
-          "descriptors": [
-            "cedar"
-          ],
-          "match_tokens": [
-            "plucked",
-            "tremolo"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "vihuela_mexicana_strings",
+      "id": "jarana_huasteca_strings",
       "surface": false,
       "name": "String material",
       "variants": [
         {
-          "id": "vihuela_mexicana_nylon",
+          "id": "jarana_huasteca_nylon",
           "default": true,
-          "name": "Nylon with octave-doubled middle courses (canonical)",
+          "name": "Nylon (modern canonical)",
           "descriptors": [
-            "nylon-octave-doubled",
-            "canonical-mariachi"
+            "nylon-modern-canonical"
           ],
           "match_tokens": [
             "plucked",
-            "tremolo"
+            "strummed"
           ]
         },
         {
-          "id": "vihuela_mexicana_gut_historical",
-          "name": "Gut (pre-modern historical)",
+          "id": "jarana_huasteca_gut",
+          "name": "Gut (pre-1950s historical Huasteca)",
           "descriptors": [
-            "gut-pre-modern"
+            "gut-pre-1950s"
           ],
           "match_tokens": [
             "plucked",
@@ -278,6 +214,39 @@
           ],
           "canonical_tags": [
             "historical-gut"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jarana_huasteca_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "jarana_huasteca_cedro",
+          "default": true,
+          "name": "Cedro rojo (canonical Huasteca)",
+          "descriptors": [
+            "cedro-rojo-canonical-huasteca"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed"
+          ]
+        },
+        {
+          "id": "jarana_huasteca_palo_escrito",
+          "name": "Palo escrito (Mexican rosewood, premium)",
+          "descriptors": [
+            "palo-escrito-mexican-rosewood"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
           ]
         }
       ]
@@ -289,138 +258,74 @@
       "default_variant": "plucked_folk_strummed"
     },
     {
-      "id": "vihuela_mexicana_back",
-      "name": "Back shape",
+      "id": "jarana_huasteca_context",
+      "name": "Playing context",
       "variants": [
         {
-          "id": "vihuela_mexicana_arched",
+          "id": "jarana_huasteca_trio",
           "default": true,
-          "name": "Arched back (traditional)",
+          "name": "Trío huasteco mánico (driving offbeat strum against the huapanguera)",
           "descriptors": [
-            "projecting",
-            "mariachi-standard"
+            "syncopated",
+            "driving",
+            "offbeat"
           ],
           "match_tokens": [
             "plucked",
-            "tremolo"
+            "strummed",
+            "string-attack"
           ]
         },
         {
-          "id": "vihuela_mexicana_flat",
-          "name": "Flat back (variant)",
+          "id": "jarana_huasteca_topada",
+          "name": "Topada arribeña (all-night poetic duel)",
           "descriptors": [
-            "modern",
-            "simpler-construction",
-            "alternative"
+            "marathon",
+            "narrative",
+            "competitive"
           ],
           "match_tokens": [
             "plucked",
-            "tremolo"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "vihuela_mexicana_context",
-      "surface": false,
-      "name": "Use context",
-      "variants": [
-        {
-          "id": "vihuela_mexicana_mariachi",
-          "default": true,
-          "name": "Mariachi rhythm (canonical)",
-          "descriptors": [
-            "standard",
-            "rasgueado-foundation",
-            "foundational"
-          ],
-          "match_tokens": [
-            "plucked",
-            "tremolo"
+            "strummed"
           ]
         },
         {
-          "id": "vihuela_mexicana_huasteca",
-          "name": "Huasteca / regional son",
+          "id": "jarana_huasteca_escenario",
+          "name": "Modern stage / recorded huapango",
           "descriptors": [
-            "traditional",
-            "older-style",
-            "distinct"
-          ],
-          "match_tokens": [
-            "plucked",
-            "tremolo"
-          ]
-        },
-        {
-          "id": "vihuela_mexicana_modern",
-          "name": "Modern arrangement",
-          "descriptors": [
+            "concert",
             "contemporary",
-            "cross-genre",
-            "flexible"
+            "polished"
           ],
           "match_tokens": [
-            "modern",
             "plucked",
-            "tremolo"
+            "strummed"
           ]
         }
       ]
     },
     {
-      "id": "vihuela_mexicana_body_wood",
-      "surface": false,
-      "name": "Body wood",
-      "variants": [
-        {
-          "id": "vihuela_mexicana_mahogany",
-          "default": true,
-          "name": "Mahogany (canonical mariachi)",
-          "descriptors": [
-            "mahogany-canonical-mariachi"
-          ],
-          "match_tokens": [
-            "plucked",
-            "tremolo"
-          ]
-        },
-        {
-          "id": "vihuela_mexicana_cedar",
-          "name": "Cedar (warmer alternative)",
-          "descriptors": [
-            "cedar"
-          ],
-          "match_tokens": [
-            "plucked",
-            "tremolo"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "vihuela_mexicana_strings",
+      "id": "jarana_huasteca_strings",
       "surface": false,
       "name": "String material",
       "variants": [
         {
-          "id": "vihuela_mexicana_nylon",
+          "id": "jarana_huasteca_nylon",
           "default": true,
-          "name": "Nylon with octave-doubled middle courses (canonical)",
+          "name": "Nylon (modern canonical)",
           "descriptors": [
-            "nylon-octave-doubled",
-            "canonical-mariachi"
+            "nylon-modern-canonical"
           ],
           "match_tokens": [
             "plucked",
-            "tremolo"
+            "strummed"
           ]
         },
         {
-          "id": "vihuela_mexicana_gut_historical",
-          "name": "Gut (pre-modern historical)",
+          "id": "jarana_huasteca_gut",
+          "name": "Gut (pre-1950s historical Huasteca)",
           "descriptors": [
-            "gut-pre-modern"
+            "gut-pre-1950s"
           ],
           "match_tokens": [
             "plucked",
@@ -428,6 +333,39 @@
           ],
           "canonical_tags": [
             "historical-gut"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jarana_huasteca_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "jarana_huasteca_cedro",
+          "default": true,
+          "name": "Cedro rojo (canonical Huasteca)",
+          "descriptors": [
+            "cedro-rojo-canonical-huasteca"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed"
+          ]
+        },
+        {
+          "id": "jarana_huasteca_palo_escrito",
+          "name": "Palo escrito (Mexican rosewood, premium)",
+          "descriptors": [
+            "palo-escrito-mexican-rosewood"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
           ]
         }
       ]

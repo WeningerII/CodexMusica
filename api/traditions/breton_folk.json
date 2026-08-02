@@ -5,7 +5,7 @@
   "lineage": "Breton traditional dance-and-song tradition — comprising kan ha diskan (Breton paired-vocal call-and-response, two singers alternating phrases for unaccompanied dance-song) and the biniou-and-bombarde pipe-couple (biniou koz the small Breton bagpipe, bombarde the Breton shawm, played in parallel octaves for outdoor fest-noz dance contexts); 20th-century revival figures the Goadec sisters (Sœurs Goadec), Alan Stivell (the Celtic-revival harper from 1971 onward), Yann-Fañch Kemener, Tri Yann",
   "recipe": "classic Northern European early-1970s breton folk, ballad Poetry, Celtic balladic branch, western early art music, anglo singer song ballad poetry freak folk indie folk. thick, breath veiled tone, straight note core, interlocked note trading. African blackwood canonical breton modern cane arundo donax canonical breton goatskin canonical breton melodic biniou, paired melodic bombarde, French trad petromax pignol rosin canonical French steel modern bal folk French bal folk pignol tritonik hurdy gurdy. brittany fest noz outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 594,
-  "score": 309.1,
+  "score": 307.85,
   "config": {
     "traditions": [
       "breton_folk",
@@ -49,7 +49,7 @@
           "voice_ornament_system": 9.739999999999997,
           "voice_pitch_organization": 2.7624999999999993,
           "voice_processing_chain": 3.380000000000001,
-          "voice_multitrack_stack": 9.159999999999997
+          "voice_multitrack_stack": 7.91
         }
       },
       {

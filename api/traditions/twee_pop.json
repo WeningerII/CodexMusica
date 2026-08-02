@@ -5,7 +5,7 @@
   "lineage": "1980s-onward fey indie-pop subgenre codified through C86 cassette (NME 1986) and the Sarah Records (Bristol 1987-1995) lineage — characterized by jangly minor-key guitar, soft male and female vocals, lo-fi production aesthetic, and twee-romantic lyrical subject matter; Belle and Sebastian, Tullycraft, Stars, and Camera Obscura extending the canon into the 2000s",
   "recipe": "classic mid-1990s twee pop, functional Song, pop rock branch, anglo singer song indie folk freak folk. thick, breath veiled tone, straight note core, interlocked note trading. cedar walnut phosphor bronze bronze fingerpicked acoustic marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, ukulele, original omnichord. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 619,
-  "score": 343.02,
+  "score": 341.62,
   "config": {
     "traditions": [
       "twee_pop",
@@ -49,7 +49,7 @@
           "voice_ornament_system": 3.150000000000001,
           "voice_pitch_organization": 3.7375,
           "voice_processing_chain": 5.135,
-          "voice_multitrack_stack": 12.885749999999998
+          "voice_multitrack_stack": 11.485749999999998
         }
       },
       {

@@ -1,11 +1,11 @@
 {
   "id": "witch_house_2010s",
-  "name": "Witch house (early 2010s)",
+  "name": "Witch house",
   "family": "electronic",
   "lineage": "Early-2010s electronic subgenre developed through online-distributed-production scene integrating chopped-and-screwed Houston hip-hop slowed-down vocal-aesthetic, dark-occult-Goth-aesthetic, and trip-hop-influenced atmospheric production. Salem (Detroit), Crystal Castles (associated), oOoOO, White Ring, and the broader Tri Angle Records and Disaro Records rosters anchor the canonical sound. Notable for its triangle, cross, and runic-Unicode visual-aesthetic.",
-  "recipe": "classic witch house, experimental Elec, ambient branch, idm glitch experimental electric chiptune / 8-bit breakcore. vocal fry, breath veiled tone, straight onset, interlocked note trading. pad like pad analog synth, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 513,
-  "score": 137.707,
+  "recipe": "classic 2010-2013 witch house, experimental Elec, ambient branch, idm glitch experimental electric chiptune / 8-bit breakcore. vocal fry, breath veiled tone, straight onset, interlocked note trading. pad like pad analog synth, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 523,
+  "score": 133.579,
   "config": {
     "traditions": [
       "witch_house_2010s",
@@ -31,7 +31,7 @@
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_stutter_edit",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
           "voice_register": 1.3315000000000001,
@@ -47,9 +47,9 @@
           "voice_speech_song": 15.859999999999994,
           "voice_ensemble_config": 16.639999999999993,
           "voice_ornament_system": 0.105,
-          "voice_pitch_organization": 7.865,
+          "voice_pitch_organization": 6.565000000000001,
           "voice_processing_chain": 18.6325,
-          "voice_multitrack_stack": 9.815
+          "voice_multitrack_stack": 6.9875
         }
       },
       {

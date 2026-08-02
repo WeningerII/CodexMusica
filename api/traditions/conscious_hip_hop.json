@@ -5,7 +5,7 @@
   "lineage": "Late-1980s onward American politically-engaged hip-hop with jazz-and-soul-sample foundation — codified through Public Enemy (It Takes a Nation of Millions to Hold Us Back 1988), A Tribe Called Quest, De La Soul, KRS-One / Boogie Down Productions, and the Native Tongues collective; characterized by Afrocentric/Black-liberationist lyrical content, jazz-and-Stax sample beds, and didactic emcee tradition",
   "recipe": "classic North American 1987-1989 conscious hip-hop, mc Rhythm, conscious rap branch, us hip hop east coast, us hip hop modern boom bap east coast hip-hop. thick, rap, straight onset, narrative. sampled chopped sampler drum machine, chopped sampler, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, jazz trio piano, centered tine pickup gap canonical balanced Rhodes voicing ostinato rhodes electric. treated studio. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 589,
-  "score": 508.992,
+  "score": 508.692,
   "config": {
     "traditions": [
       "conscious_hip_hop",
@@ -38,7 +38,7 @@
           "voice_quality": 38.11824999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 13.784999999999997,
+          "voice_vibrato": 13.634999999999998,
           "voice_articulation": 28.994999999999997,
           "voice_microtone": 22.308875,
           "voice_tradition": 17.216874999999998,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 5.785000000000001,
           "voice_pitch_organization": 1.4949999999999997,
           "voice_processing_chain": 29.494999999999994,
-          "voice_multitrack_stack": 6.657125000000001
+          "voice_multitrack_stack": 6.507125000000001
         }
       },
       {

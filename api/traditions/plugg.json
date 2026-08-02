@@ -5,7 +5,7 @@
   "lineage": "Late-2010s and 2020s hip-hop subgenre characterized by dreamlike-floating ambient-keyboard production with sparse Roland 808 percussion, slow-to-mid tempo, and melodic-or-deadpan vocal-delivery. Originated through Atlanta-and-Memphis SoundCloud production scene; producer MexikoDro is credited with inventing the canonical plugg-sound. Future-and-Lil-Uzi-Vert circle of producers extended the style into broader trap mainstream.",
   "recipe": "classic 2017-2019 plugg, mc Rhythm, southern branch, soul R&B functional song, ambient experimental electric doo-wop witch house. thick, breath veiled tone, slow rate, interlocked note trading. pad like sub bass analog synth, roland tr 8s modern aira digital recreation TR-808. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
   "recipe_chars": 466,
-  "score": 194.357,
+  "score": 192.082,
   "config": {
     "traditions": [
       "plugg",
@@ -47,9 +47,9 @@
           "voice_speech_song": 18.979999999999997,
           "voice_ensemble_config": 16.379999999999995,
           "voice_ornament_system": 2.1449999999999996,
-          "voice_pitch_organization": 4.875000000000001,
+          "voice_pitch_organization": 4.225000000000001,
           "voice_processing_chain": 12.81,
-          "voice_multitrack_stack": 12.057499999999997
+          "voice_multitrack_stack": 10.432499999999997
         }
       },
       {

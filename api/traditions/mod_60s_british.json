@@ -3,9 +3,9 @@
   "name": "Mod (1960s British)",
   "family": "rock_punk",
   "lineage": "Early-1960s British youth-subculture and associated music style centered on sharp-suited working-class London-and-southern-English youth, characterized by integration of American R&B, soul, and Jamaican ska influences. The Who's My Generation (1965), Small Faces' Itchycoo Park (1967), and the broader Carnaby Street fashion-and-music nexus consolidated the canonical sound. The 1979 Mod revival under The Jam, Secret Affair, and The Chords renewed institutional visibility.",
-  "recipe": "classic British mod, distorted Rock, classic branch, regional distorted rock greek rock aussie pub rock. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation soft down tuning single coil electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, oil filled sticks backbeat drum kit, psychedelic foregrounded organ driven rock Leslie rotary combo organ. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
-  "recipe_chars": 678,
-  "score": 317.281,
+  "recipe": "classic British mod, distorted Rock, classic branch, regional distorted rock greek rock aussie pub rock. thick, breath veiled tone, straight note core, interlocked note trading. marshall plexi amp British rock amp soft down tuning power chord single coil electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, sticks backbeat drum kit, psychedelic foregrounded organ driven rock Leslie rotary combo organ. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
+  "recipe_chars": 628,
+  "score": 316.176,
   "config": {
     "traditions": [
       "mod_60s_british",
@@ -56,7 +56,7 @@
         "id": "electric_guitar_single_coil",
         "slots": {
           "electric_technique": "electric_power_chord",
-          "amp_make": "amp_british_marshall_jcm800",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "mahogany",
           "neck_wood": "maple",
           "fretboard": "pau_ferro_fb",
@@ -70,7 +70,7 @@
         },
         "scores": {
           "electric_technique": 9.002500000000001,
-          "amp_make": 14.169999999999998,
+          "amp_make": 13.65,
           "body_wood": 0.2415,
           "neck_wood": 0.845,
           "fretboard": 0.845,
@@ -108,12 +108,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "hydraulic",
+          "drumhead": "single_clear",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
           "drum_technique": 20.75,
-          "drumhead": 1.4299999999999997,
+          "drumhead": 0.845,
           "drum_kit_kick_pedal": 0
         }
       },

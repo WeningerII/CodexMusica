@@ -1,11 +1,11 @@
 {
   "id": "hot_country_2010s",
-  "name": "Hot country (2010s mainstream)",
+  "name": "Hot country",
   "family": "global",
   "lineage": "2010s mainstream country radio format dominated by Nashville Music Row major-label production — Carrie Underwood, Miranda Lambert, Eric Church, Jason Aldean, and the radio-format Top 40 country chart; characterized by stadium-pop production scale, modern country-vocal performance, and the moving boundary between country and rock-pop crossover",
-  "recipe": "classic hot country, functional Song, contemp main branch, pop rock functional song folk rock new wave. thick, breath veiled tone, straight note core, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, Fender blackface amp American 60s amp spring reverb bright classic country brass pedal steel, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, synthetic magic rosin modern acrylic base double stops fiddle. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 726,
-  "score": 637.881,
+  "recipe": "classic mid-2010s hot country, functional Song, contemp main branch, pop rock functional song folk rock new wave. thick, breath veiled tone, straight note core, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, Fender blackface amp American 60s amp spring reverb bright classic country brass pedal steel, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, synthetic magic rosin modern acrylic base double stops fiddle. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 736,
+  "score": 634.631,
   "config": {
     "traditions": [
       "hot_country_2010s",
@@ -49,7 +49,7 @@
           "voice_ornament_system": 0.45499999999999996,
           "voice_pitch_organization": 1.1049999999999998,
           "voice_processing_chain": 8.338750000000001,
-          "voice_multitrack_stack": 15.827499999999997
+          "voice_multitrack_stack": 12.577499999999999
         }
       },
       {

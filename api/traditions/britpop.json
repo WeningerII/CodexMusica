@@ -1,11 +1,11 @@
 {
   "id": "britpop",
-  "name": "Britpop (90s)",
+  "name": "Britpop",
   "family": "rock_punk",
   "lineage": "Mid-1990s British rock movement (peaking 1994-1997) characterized by deliberate British-cultural-identity assertion against American grunge dominance, melodic guitar-pop influences from the Kinks-and-Beatles British-Invasion era, and explicit working-and-middle-class British lyrical content. Blur, Oasis, Pulp, Suede, Elastica, and the Verve constitute the canonical roster; the 1995 Blur-vs-Oasis chart-rivalry constitutes the canonical cultural-event.",
   "recipe": "classic British 1994-1997 britpop, distorted Rock, classic branch, alternative distorted rock modern indie rock slacker rock. thick, breath veiled tone, breath pulsed, interlocked note trading. marshall plexi amp British rock amp basswood mahogany rosewood humbucker electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 629,
-  "score": 376.05,
+  "score": 374.425,
   "config": {
     "traditions": [
       "britpop",
@@ -49,7 +49,7 @@
           "voice_ornament_system": 0.39,
           "voice_pitch_organization": 6.369999999999999,
           "voice_processing_chain": 8.024999999999999,
-          "voice_multitrack_stack": 10.009999999999998
+          "voice_multitrack_stack": 8.384999999999998
         }
       },
       {

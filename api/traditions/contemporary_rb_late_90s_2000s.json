@@ -5,7 +5,7 @@
   "lineage": "Late-1990s-and-2000s producer-team-era contemporary R&B aesthetic codified by the Darkchild, Jam-and-Lewis (later Flyte Tyme), Timbaland, She'kspere, and Rodney Jerkins production-lineage. Built on the breath-admixed close-miked intimate-vocal-aesthetic with stacked harmony backgrounds (typically 4-to-8 voice layered), neo-soul jazz-extended chord-vocabulary (minor-9, major-7-sharp-11, sus-2, sus-4 voicings), and programmed drum-machine kit (typically Roland TR-909, Akai MPC60-3000, or Korg M1) playing swung-and-shuffled hi-hat-and-snare-with-808-kick. The genre layered Atlanta-Memphis-NYC studio-clusters and bridged classic-Motown-and-Philly-soul lineage to 2010s-modern-R&B and trap-soul.",
   "recipe": "classic contemporary r&b, functional Song, soul R&B branch, us hip hop east coast golden-age sample-collage hip-hop boom bap. thick, breath admixed, straight onset, narrative. roland tr 8s modern aira digital recreation TR-808, chopped sampler, roland jupiter lineage canonical jupiter 8 1981 osaka sub bass analog poly synth, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 580,
-  "score": 364.585,
+  "score": 364.435,
   "config": {
     "traditions": [
       "contemporary_rb_late_90s_2000s",
@@ -38,7 +38,7 @@
           "voice_quality": 12.11,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 8.472999999999999,
+          "voice_vibrato": 8.323,
           "voice_articulation": 22.37,
           "voice_microtone": 21.96999999999999,
           "voice_tradition": 16.517500000000002,

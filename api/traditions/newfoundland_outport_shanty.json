@@ -5,7 +5,7 @@
   "lineage": "Newfoundland-Labrador outport (Atlantic-fishing-village) sea-shanty and work-song tradition continuous from 17th-onward English-and-Irish-immigrant Newfoundland-cod-fishery work-song practice through 20th-century Newfoundland-folk-revival into modern Atlantic-Canadian-folk continuous practice; foundational repertoire includes \"I'se the B'y\" (canonical), \"The Squid-Jiggin' Ground,\" \"Lukey's Boat\"",
   "recipe": "classic early-1940s newfoundland outport sea-shanty and work-song, sea Shanty, atlantic branch, americas drinking song, American south field work, anglo singer song ballad poetry indie folk freak folk. thick, breath veiled tone, slow rate, interlocked note trading. cedar walnut phosphor bronze bronze fingerpicked acoustic guitar, magic rosin modern acrylic base drone like fiddle, Celtic Irish straight concertina. irish pub. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 502,
-  "score": 260.427,
+  "score": 259.177,
   "config": {
     "traditions": [
       "newfoundland_outport_shanty",
@@ -49,7 +49,7 @@
           "voice_ornament_system": 3.3300000000000005,
           "voice_pitch_organization": 5.882499999999999,
           "voice_processing_chain": 6.927499999999999,
-          "voice_multitrack_stack": 8.3
+          "voice_multitrack_stack": 7.050000000000001
         }
       },
       {

@@ -1,11 +1,11 @@
 {
   "id": "new_jack_swing",
-  "name": "New jack swing (late 80s)",
+  "name": "New jack swing",
   "family": "pop",
   "lineage": "Late-1980s-and-early-1990s R&B-and-hip-hop hybrid genre invented by producer Teddy Riley (born 1967), characterized by syncopated-swing-eighth-note hip-hop drum-programming, R&B vocal-delivery, and explicit hip-hop production-aesthetic-and-fashion integration. Bobby Brown's Don't Be Cruel (1988), Guy's self-titled debut (1988), Bell Biv DeVoe's Poison (1990), and the early Mary J. Blige and Jodeci catalogs constitute the canonical core. Direct precursor of broader 1990s R&B and hip-hop-soul.",
   "recipe": "classic Los Angeles 1987-1989 new jack swing, functional Song, soul R&B branch, us hip hop MC rhythm conscious hip-hop gangsta rap. thick, rap, straight onset, narrative. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, low sub bass analog synth, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 694,
-  "score": 422.335,
+  "score": 420.335,
   "config": {
     "traditions": [
       "new_jack_swing",
@@ -38,7 +38,7 @@
           "voice_quality": 36.665,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 10.163749999999997,
+          "voice_vibrato": 9.163749999999999,
           "voice_articulation": 31.305,
           "voice_microtone": 24.114999999999995,
           "voice_tradition": 20.275000000000002,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 6.1750000000000025,
           "voice_pitch_organization": 4.835,
           "voice_processing_chain": 28.31,
-          "voice_multitrack_stack": 12.877499999999998
+          "voice_multitrack_stack": 11.877499999999998
         }
       },
       {

@@ -1,11 +1,11 @@
 {
   "id": "schlager_german",
-  "name": "Schlager (German)",
+  "name": "Schlager",
   "family": "global",
   "lineage": "German-language popular sentimental song genre with 1920s Weimar cabaret roots, mid-century commercial extension (Heino, Roy Black, Freddy Quinn), and modern continuation (Helene Fischer, Andrea Berg) — major-key sentimental melodies, accordion-and-strings-and-occasional-yodel arrangements, lyrical content concerning love, home country (Heimat), nostalgia, holidays, alpine landscapes; distinct from Liedermacher (politically engaged literary-cabaret tradition)",
   "recipe": "classic Central European mid-1920s schlager, functional Song, europop branch, crooners functional song brill building pop american barbershop quartet. thick, breath veiled tone, wide pitch sway, interlocked note trading. weltmeister east German mid tier vintage volk straight accordion, Fender tweed amp American 50s amp tweed breakup alder pyramid electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog poly synth. german liedermacher kabarett berlin. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
   "recipe_chars": 574,
-  "score": 209.059,
+  "score": 208.059,
   "config": {
     "traditions": [
       "schlager_german",
@@ -70,7 +70,7 @@
           "reed_config": 0.9824999999999998,
           "bellows": 0,
           "voicing_chamber": 0,
-          "accordion_maker_school": 6.281624999999999
+          "accordion_maker_school": 5.281625
         }
       },
       {

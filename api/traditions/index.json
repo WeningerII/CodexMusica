@@ -1455,7 +1455,7 @@
     },
     {
       "id": "city_pop",
-      "name": "City pop (Japanese)",
+      "name": "City pop",
       "family": "global",
       "href": "traditions/city_pop.json"
     },
@@ -1503,7 +1503,7 @@
     },
     {
       "id": "schlager_german",
-      "name": "Schlager (German)",
+      "name": "Schlager",
       "family": "global",
       "href": "traditions/schlager_german.json"
     },
@@ -1929,7 +1929,7 @@
     },
     {
       "id": "uilleann_pipe_solo",
-      "name": "Uilleann pipe solo (Irish)",
+      "name": "Uilleann pipe solo",
       "family": "global",
       "href": "traditions/uilleann_pipe_solo.json"
     },
@@ -1995,13 +1995,13 @@
     },
     {
       "id": "antifolk_nyc",
-      "name": "Anti-folk (NYC)",
+      "name": "Anti-folk",
       "family": "global",
       "href": "traditions/antifolk_nyc.json"
     },
     {
       "id": "indie_folk_2000s",
-      "name": "Indie folk (2000s)",
+      "name": "Indie folk",
       "family": "global",
       "href": "traditions/indie_folk_2000s.json"
     },
@@ -2217,7 +2217,7 @@
     },
     {
       "id": "hot_country_2010s",
-      "name": "Hot country (2010s mainstream)",
+      "name": "Hot country",
       "family": "global",
       "href": "traditions/hot_country_2010s.json"
     },
@@ -4467,19 +4467,19 @@
     },
     {
       "id": "chicago_jazz_1920s",
-      "name": "Chicago jazz (1920s)",
+      "name": "Chicago jazz",
       "family": "jazz",
       "href": "traditions/chicago_jazz_1920s.json"
     },
     {
       "id": "swing_big_band",
-      "name": "Swing big band (1930s-40s)",
+      "name": "Swing big band",
       "family": "jazz",
       "href": "traditions/swing_big_band.json"
     },
     {
       "id": "cool_jazz_west_coast",
-      "name": "Cool jazz / West Coast (1950s)",
+      "name": "Cool jazz / West Coast",
       "family": "jazz",
       "href": "traditions/cool_jazz_west_coast.json"
     },
@@ -4575,7 +4575,7 @@
     },
     {
       "id": "screamo_skramz",
-      "name": "Screamo / skramz (90s-2000s)",
+      "name": "Scramz / screamo",
       "family": "rock_punk",
       "href": "traditions/screamo_skramz.json"
     },
@@ -4599,7 +4599,7 @@
     },
     {
       "id": "midwest_emo",
-      "name": "Midwest emo (90s)",
+      "name": "Midwest emo",
       "family": "rock_punk",
       "href": "traditions/midwest_emo.json"
     },
@@ -4617,7 +4617,7 @@
     },
     {
       "id": "britpop",
-      "name": "Britpop (90s)",
+      "name": "Britpop",
       "family": "rock_punk",
       "href": "traditions/britpop.json"
     },
@@ -4641,7 +4641,7 @@
     },
     {
       "id": "baroque_pop_60s",
-      "name": "Baroque pop (60s)",
+      "name": "Baroque pop",
       "family": "rock_punk",
       "href": "traditions/baroque_pop_60s.json"
     },
@@ -4731,7 +4731,7 @@
     },
     {
       "id": "aussie_pub_rock",
-      "name": "Aussie pub rock (70s-80s)",
+      "name": "Aussie pub rock",
       "family": "rock_punk",
       "href": "traditions/aussie_pub_rock.json"
     },
@@ -4773,7 +4773,7 @@
     },
     {
       "id": "atlanta_trap_modern",
-      "name": "Atlanta trap modern (2010s-20s)",
+      "name": "Atlanta trap modern",
       "family": "hip_hop",
       "href": "traditions/atlanta_trap_modern.json"
     },
@@ -4791,7 +4791,7 @@
     },
     {
       "id": "new_jack_swing",
-      "name": "New jack swing (late 80s)",
+      "name": "New jack swing",
       "family": "pop",
       "href": "traditions/new_jack_swing.json"
     },
@@ -4845,13 +4845,13 @@
     },
     {
       "id": "chicago_drill",
-      "name": "Chicago drill (early 2010s)",
+      "name": "Chicago drill",
       "family": "hip_hop",
       "href": "traditions/chicago_drill.json"
     },
     {
       "id": "brooklyn_drill",
-      "name": "Brooklyn drill (late 2010s)",
+      "name": "Brooklyn drill",
       "family": "hip_hop",
       "href": "traditions/brooklyn_drill.json"
     },
@@ -4917,7 +4917,7 @@
     },
     {
       "id": "electro_house_2000s",
-      "name": "Electro house (2000s)",
+      "name": "Electro house",
       "family": "electronic",
       "href": "traditions/electro_house_2000s.json"
     },
@@ -5139,7 +5139,7 @@
     },
     {
       "id": "witch_house_2010s",
-      "name": "Witch house (early 2010s)",
+      "name": "Witch house",
       "family": "electronic",
       "href": "traditions/witch_house_2010s.json"
     },
@@ -5217,7 +5217,7 @@
     },
     {
       "id": "modern_indie_rock_2010s",
-      "name": "Modern indie rock (2010s)",
+      "name": "Modern indie rock",
       "family": "rock_punk",
       "href": "traditions/modern_indie_rock_2010s.json"
     },
@@ -5235,13 +5235,13 @@
     },
     {
       "id": "post_hardcore_90s",
-      "name": "Post-hardcore (90s)",
+      "name": "Post-hardcore",
       "family": "rock_punk",
       "href": "traditions/post_hardcore_90s.json"
     },
     {
       "id": "emo_revival_2010s",
-      "name": "Emo revival (2010s)",
+      "name": "Emo revival",
       "family": "rock_punk",
       "href": "traditions/emo_revival_2010s.json"
     },
@@ -5295,7 +5295,7 @@
     },
     {
       "id": "vapor_aesthetic",
-      "name": "Vaporwave aesthetic (early 2010s)",
+      "name": "Vaporwave aesthetic",
       "family": "electronic",
       "href": "traditions/vapor_aesthetic.json"
     },
@@ -5391,13 +5391,13 @@
     },
     {
       "id": "post_punk_revival",
-      "name": "Post-punk revival (2000s)",
+      "name": "Post-punk revival",
       "family": "rock_punk",
       "href": "traditions/post_punk_revival.json"
     },
     {
       "id": "synthpop_classic_80s",
-      "name": "Synthpop classic (80s)",
+      "name": "Synthpop classic",
       "family": "pop",
       "href": "traditions/synthpop_classic_80s.json"
     },
@@ -5781,7 +5781,7 @@
     },
     {
       "id": "polish_sung_poetry_protest",
-      "name": "Polish poezja śpiewana and Solidarność-era protest (1960s-1980s)",
+      "name": "Polish poezja śpiewana and Solidarność-era protest",
       "family": "global",
       "href": "traditions/polish_sung_poetry_protest.json"
     },

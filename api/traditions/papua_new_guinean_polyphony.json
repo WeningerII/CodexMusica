@@ -3,9 +3,9 @@
   "name": "Papua New Guinean panpipe and polyphonic singing",
   "family": "global",
   "lineage": "Papua New Guinean polyphonic vocal-and-panpipe traditions across the New Guinea Highlands (Eastern Highlands, Western Highlands, Chimbu, Enga regions), with each linguistic-cultural group preserving distinct multi-part vocal-or-instrumental polyphonic conventions. The Huli yodel-and-cyclic-clap, the Hagen courtship-chants, the Enga sandalu and tee public-ceremony chants, and the Chimbu collective-flute ensembles each represent distinct contributions to the broader New Guinea polyphonic-music register. Performance contexts span bridewealth-negotiation ceremonies, mourning-rituals, harvest-festivals, and (post-1975 independence) the National Cultural Commission and University of Papua New Guinea ethnomusicology archive preservation work. Distinguished from neighboring Melanesian musical traditions by New Guinea Highlands-specific polyphonic-density and dialect-specific intonation vocabularies.",
-  "recipe": "classic Southeast Asian mid-1970s papua new guinean panpipe and polyphonic singing, drone Modal, heterophonic branch, indigenous ritual devotional shipibo-conibo icaros healing songs mongolian böö shamanic invocation. vocal fry, breath veiled tone, pure, interlocked note trading. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 438,
-  "score": 223.893,
+  "recipe": "classic Southeast Asian mid-1970s papua new guinean panpipe and polyphonic singing, drone Modal, heterophonic branch, indigenous ritual devotional shipibo-conibo icaros healing songs mongolian böö shamanic invocation. vocal fry, breath veiled tone, pure, interlocked note trading. melanesian panpipes. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 459,
+  "score": 224.407,
   "config": {
     "traditions": [
       "papua_new_guinean_polyphony",
@@ -50,6 +50,19 @@
           "voice_pitch_organization": 3.4450000000000003,
           "voice_processing_chain": 12.544999999999998,
           "voice_multitrack_stack": 4.68
+        }
+      },
+      {
+        "id": "melanesian_panpipes",
+        "slots": {
+          "melanesian_panpipes_form": "melanesian_panpipes_areare",
+          "melanesian_panpipes_role": "melanesian_panpipes_melody",
+          "melanesian_panpipes_technique": "melanesian_panpipes_blown"
+        },
+        "scores": {
+          "melanesian_panpipes_form": -0.07,
+          "melanesian_panpipes_role": 0.585,
+          "melanesian_panpipes_technique": 0
         }
       }
     ],

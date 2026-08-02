@@ -5,7 +5,7 @@
   "lineage": "Japanese min'yō (\"folk song of the people\") encompasses the regional-traditional song repertoire of Japan, with distinct regional canons across Tohoku (northern Honshu, distinctive for vigorous work-song and sake-brewing-song lineages), Kyushu (with the Itsuki Lullaby and broader Kyushu-folk repertoire), Okinawa (separate from mainland Japanese min'yō with sanshin-and-ryuka-poetic-meter tradition), and Hokkaido (Soran Bushi the canonical Hokkaido min'yō, originally an Okhotsk Sea herring-fishing work-song). Performance configuration: solo voice with shamisen, shakuhachi flute, and taiko drum accompaniment. The post-1920s commercial-recording period at Nippon Columbia and Polydor Japan documented canonical regional repertoires.",
   "recipe": "classic East Asian mid-1920s japanese min'yō, functional Song, east Asian pop branch, blues narrative work song coco brasileiro bahraini fjiri. thick, breath veiled tone, straight note core, interlocked note trading. dog skin red sandalwood premium silk nagauta jiuta shamisen, madake bamboo phyllostachys canonical Japanese root section kinko ryu canonical edo period concert shakuhachi, cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk oedo sukeroku canonical kumi daiko outdoor traditional taiko drum. kabuki theater japanese. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 679,
-  "score": 272.59,
+  "score": 272.354,
   "config": {
     "traditions": [
       "japanese_minyo",
@@ -41,7 +41,7 @@
           "voice_vibrato": 5.930000000000001,
           "voice_articulation": 15.014999999999997,
           "voice_microtone": 14.819999999999993,
-          "voice_tradition": 31.074999999999996,
+          "voice_tradition": 30.97,
           "voice_mechanism_compound": 10.139999999999999,
           "voice_estill_quality": 9.945,
           "voice_speech_song": 34.254999999999995,
@@ -86,7 +86,7 @@
           "wind_articulation": -0.07,
           "shaku_length": 0,
           "shaku_technique": 4.225,
-          "shakuhachi_body_material": 8.059999999999999,
+          "shakuhachi_body_material": 8.03375,
           "shakuhachi_lineage": 5.77025
         }
       },
@@ -101,7 +101,7 @@
         },
         "scores": {
           "taiko_size": 0.7080000000000001,
-          "taiko_skin": 8.00225,
+          "taiko_skin": 7.89725,
           "taiko_shell_wood": 8.059999999999999,
           "taiko_lineage": 3.2899999999999996,
           "taiko_technique": 1.3
