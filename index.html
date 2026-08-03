@@ -71,9 +71,8 @@
         For AI agents / LLMs: everything you need is plain text below and in the
         linked JSON. Do NOT fetch codex.html — it is a ~4 MB GUI shell that
         itself lazy-loads this same JSON, and it carries no instructions for you.
-        If you can only make HTTP requests, use the live engine listed first
-        below: https://codex-musica-mcp.onrender.com/ explains its whole grammar
-        in one hop and needs nothing installed.
+        The editable engine is the MCP connector listed first below; the JSON is
+        the read-only mirror of its default answers.
       -->
       <section class="agents">
         <h2>For AI agents / LLMs</h2>
@@ -84,23 +83,13 @@
         </p>
         <ul>
           <li>
-            <strong>Live editable engine over plain HTTP — start here:</strong>
-            <a href="https://codex-musica-mcp.onrender.com/"
-              ><code>https://codex-musica-mcp.onrender.com/</code></a
-            >
-            — nothing to install, no client config, no auth. Every operation is one URL, so
-            any assistant that can fetch a URL can seed a recipe <em>and edit it</em>:
-            <code>/v1/recipe?traditions=country&amp;edit=set_preface;card=voice;preface=worn</code>,
-            <code>/v1/catalog?q=fuzz</code> to resolve a word to an id, and
-            <code>/openapi.json</code> for the machine contract. The base URL above
-            documents the whole grammar in one hop.
-          </li>
-          <li>
-            <strong>Live MCP connector (same engine, for MCP clients):</strong>
+            <strong>Live editable engine (MCP connector) — start here:</strong>
             <code>https://codex-musica-mcp.onrender.com/mcp</code> — Streamable HTTP, no
-            auth. Add it in Claude (Settings → Connectors → Add custom connector). Use this
-            only if your client can register an MCP server; otherwise use the HTTP endpoint
-            above, which is the same nine operations.
+            auth. Add it in Claude (Settings → Connectors → Add custom connector); any MCP
+            client registers it the same way. Nine tools: seed a recipe from any tradition,
+            then re-pick prefaces, swap part variants, override room/chain/tuning, and
+            add/remove instruments or traditions. The JSON below is the read-only mirror —
+            editing needs the connector.
           </li>
           <li>
             <strong>All recipes in one fetch:</strong>

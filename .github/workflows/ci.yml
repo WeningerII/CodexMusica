@@ -37,11 +37,11 @@ jobs:
 
       # The connector's own dependency tree. mcp/ is a separate package (the
       # Docker image installs it independently), and its deps — zod, express, the
-      # MCP SDK — are not in the root lockfile. Nothing needed them until the REST
-      # adapter arrived: mcp/test.mjs only imports engine.js, which has no
-      # dependencies at all, so the connector tests passed here for months without
-      # this step. check_rest_parity validates against the shared zod schemas, so
-      # it does need them.
+      # MCP SDK — are not in the root lockfile. Most of mcp/test.mjs only imports
+      # engine.js, which has no dependencies at all, but its last check builds the
+      # real McpServer and SKIPS ITSELF when the SDK is absent. Without this step
+      # that check is silently vacuous, so the one assertion that the tool
+      # registrations actually load would never run in CI.
       - name: Install connector dependencies
         run: npm ci --prefix mcp
 
@@ -71,9 +71,6 @@ jobs:
 
       - name: Authoring dead-token gate (every preface token reaches a tradition-default card)
         run: npm run check:dead-tokens
-
-      - name: Adapter parity (REST and MCP agree on every answer AND every refusal)
-        run: npm run check:rest
 
       # Renaming a record must never move a DIFFERENT record's picks. This was a
       # real defect: a sibling tradition's "(70s-80s)" name tag put `80s` into
@@ -118,11 +115,11 @@ jobs:
 
       # The connector's own dependency tree. mcp/ is a separate package (the
       # Docker image installs it independently), and its deps — zod, express, the
-      # MCP SDK — are not in the root lockfile. Nothing needed them until the REST
-      # adapter arrived: mcp/test.mjs only imports engine.js, which has no
-      # dependencies at all, so the connector tests passed here for months without
-      # this step. check_rest_parity validates against the shared zod schemas, so
-      # it does need them.
+      # MCP SDK — are not in the root lockfile. Most of mcp/test.mjs only imports
+      # engine.js, which has no dependencies at all, but its last check builds the
+      # real McpServer and SKIPS ITSELF when the SDK is absent. Without this step
+      # that check is silently vacuous, so the one assertion that the tool
+      # registrations actually load would never run in CI.
       - name: Install connector dependencies
         run: npm ci --prefix mcp
 

@@ -59,10 +59,10 @@ const NEIGHBOR_BONUS_CAP_RATIO = 0.3; // neighbor bonus can never exceed this fr
 const _buildContextCache = new Map();
 function buildContext(tradId, opts) {
   const includeName = !opts || opts.includeName !== false;
-  // Distinct cache slot per mode. A space cannot occur in a tradition id (the
-  // delimiter precondition in check_rest_parity re-measures that every run), so
-  // the suffixed key can never collide with a real id.
-  const key = includeName ? tradId : tradId + ' noname';
+  // Distinct cache slot per mode. The mode is a PREFIX rather than a suffix so
+  // the two namespaces are disjoint by construction: no id, whatever characters
+  // it contains, can make a named entry collide with a nameless one.
+  const key = (includeName ? 'named:' : 'noname:') + tradId;
   const cached = _buildContextCache.get(key);
   if (cached !== undefined) return cached;
   const result = _buildContextUncached(tradId, includeName);

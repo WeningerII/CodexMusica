@@ -2,18 +2,15 @@
 //
 // These objects define what a valid request looks like for all nine operations.
 // They live apart from tools.js because tools.js imports the MCP server SDK, and
-// the things that need to VALIDATE do not: rest.js is a REST adapter and has no
-// business dragging in an MCP server, and scripts/check_rest_parity.js compares
-// the two adapters without standing either one up. Keeping the contract in a
-// module whose only dependency is zod is what lets those callers exist.
+// a caller that only needs to VALIDATE has no business dragging in a whole MCP
+// server to do it. Keeping the contract in a module whose only dependency is zod
+// is what lets such a caller exist.
 //
 // engine.js validates nothing — it trusts its caller — so whatever calls it must
 // parse against these first. Skipping that does not throw, it degrades silently:
 // `format: "RICH"` falls through the format dispatch and renders 358 characters
 // of prose where "rich" gives 998, and `max_chars: -1` returns 26. Both come back
-// as ordinary successful answers. One definition, imported by every adapter, so
-// the surfaces cannot disagree about what is valid — and check_rest_parity
-// asserts they agree about what is INVALID too.
+// as ordinary successful answers.
 
 import { z } from 'zod';
 import { RECIPE_CHAR_CEILING } from './engine.js';
@@ -92,11 +89,9 @@ export const editSchema = z.object({
 // error; `max_chars: -1` returns 26. That is the same shape as the bug where the
 // compact format quietly dropped the room the user asked for.
 //
-// So the schemas are exported rather than inlined at their registration sites,
-// and every adapter — MCP here, REST in rest.js — parses against THESE objects
-// before calling the engine. One definition, so the two cannot disagree about
-// what is valid, and scripts/check_rest_parity.js asserts they agree about what
-// is INVALID too.
+// So the schemas are exported rather than inlined at their registration sites:
+// anything that calls the engine parses against THESE objects first. One
+// definition, so a second caller can never drift from what the connector accepts.
 export const TOOL_SCHEMAS = {
   start_recipe: z.object({
     traditions: z

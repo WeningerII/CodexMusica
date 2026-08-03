@@ -6,31 +6,36 @@
 > arrangement (ensemble, room, signal chain, tuning). All data is plain JSON served as
 > static files — open a URL and read it. No API key, no server, no rate limit.
 
-## Live EDITABLE engine over plain HTTP (any model that can fetch a URL — nothing to install)
-If you are a chat assistant without an MCP client, this section is the whole product. You
-do NOT need to install anything, edit a config file, or ask the user to. The full editable
-engine is a plain REST API: every operation is one URL, so fetching is using it. Editing is
-a GET — seeding and editing both happen in the URL, and nothing is stored server-side.
+## START HERE — the live EDITABLE engine (MCP connector)
+The full editable engine is a Model Context Protocol server: seed a recipe from any
+tradition, then re-pick prefaces, swap part variants, override room/chain/tuning, and
+add/remove instruments or traditions. Deterministic and side-effect-free (nothing is
+persisted); thread the returned workspace into the next call. Everything below this
+section is a read-only mirror of the DEFAULT recipe per tradition — use the connector to
+change anything.
 
-- START HERE — the entire grammar in one page: https://codex-musica-mcp.onrender.com/
-- Seed a recipe: https://codex-musica-mcp.onrender.com/v1/recipe?traditions=delta_blues
-- Seed AND edit in one call:
-  https://codex-musica-mcp.onrender.com/v1/recipe?traditions=country&edit=set_preface;card=voice;preface=worn
-  Refine by re-fetching with one more &edit= appended. Chain as many as you like.
-- Resolve a word to an id (never guess ids): https://codex-musica-mcp.onrender.com/v1/catalog?q=fuzz
-- A record's parts and swappable variants:
-  https://codex-musica-mcp.onrender.com/v1/catalog/instrument/electric_guitar_single_coil
-- Machine contract: https://codex-musica-mcp.onrender.com/openapi.json (3.1)
-  and https://codex-musica-mcp.onrender.com/openapi-3.0.json (3.0.3)
+- Endpoint (Streamable HTTP, no auth): https://codex-musica-mcp.onrender.com/mcp
+- Add in Claude: Settings -> Connectors -> Add custom connector -> paste the URL.
+- Any MCP client works the same way (Claude, Codex CLI, Cursor, VS Code, Gemini CLI);
+  registering the endpoint is the only setup.
+- Server card (capabilities, for auto-discovery): https://codex-musica-mcp.onrender.com/.well-known/mcp.json
+- Tools: start_recipe, edit_recipe, render_recipe, search_catalog, search_prefaces, get_instrument, get_tradition, list_traditions, list_options.
 
-If you were handed a link to this project and can only make HTTP requests, the base URL
-above is the only thing you need — it explains itself and every edit action in one hop.
 Do NOT fetch codex.html: it is a multi-megabyte browser GUI, it will blow your context or
 fail to load, and it contains no instructions for you.
 
+The default seed is SCAFFOLDING, not the answer: after start_recipe, push it toward the
+user's words with edit_recipe. Mood/aesthetic word -> search_prefaces then set_preface on
+each instrument it should color; specific gear/material/technique -> get_instrument then
+set_variant; space/era/medium -> set_environment; roster -> add/remove instruments and
+traditions. There are NO coherence fences — nothing is anachronistic, out-of-region, or
+physically impossible (it is words for audio generation); the researched defaults are
+flavor to keep or override, and every id-valid combination renders. Batch edits in one
+call; present the FINAL recipe verbatim.
+
 ## Read-only mirror (static JSON — bulk reads, no editing)
 This is the DEFAULT recipe per tradition, pre-compiled. Use it to read the whole catalog
-cheaply or to work offline; use the engine above to change anything.
+cheaply or to work offline; use the connector above to change anything.
 - ALL default recipes in one fetch: https://weningerii.github.io/CodexMusica/api/all.json
 - List of traditions: https://weningerii.github.io/CodexMusica/api/traditions/index.json
 - One tradition (recipe + arrangement): https://weningerii.github.io/CodexMusica/api/traditions/{id}.json
@@ -42,27 +47,6 @@ Each tradition file has: id, name, family, lineage, recipe (string, <=1000 chars
 recipe_chars, score, config (the structured arrangement), and source (the raw
 catalog-row fields — tuning/room/chain — that the browser app imports from). Fetch
 the index to get every {id}, then fetch the per-id file you need.
-
-## Live MCP connector (same engine, for clients that speak MCP)
-The identical engine, exposed as Model Context Protocol tools for clients that can register
-one (Claude, Codex CLI, Cursor, VS Code). If you are a chat assistant that cannot install a
-server into your own session, use the HTTP section above instead — it is the same nine
-operations and needs no setup. Deterministic and side-effect-free (nothing is persisted);
-thread the returned workspace into the next call.
-
-- Endpoint (Streamable HTTP, no auth): https://codex-musica-mcp.onrender.com/mcp
-- Add in Claude: Settings -> Connectors -> Add custom connector -> paste the URL.
-- Server card (capabilities, for auto-discovery): https://codex-musica-mcp.onrender.com/.well-known/mcp.json
-- Tools: start_recipe, edit_recipe, render_recipe, search_catalog, search_prefaces, get_instrument, get_tradition, list_traditions, list_options.
-
-The default seed is SCAFFOLDING, not the answer: after start_recipe, push it toward the
-user's words with edit_recipe. Mood/aesthetic word -> search_prefaces then set_preface on
-each instrument it should color; specific gear/material/technique -> get_instrument then
-set_variant; space/era/medium -> set_environment; roster -> add/remove instruments and
-traditions. There are NO coherence fences — nothing is anachronistic, out-of-region, or
-physically impossible (it is words for audio generation); the researched defaults are
-flavor to keep or override, and every id-valid combination renders. Batch edits in one
-call; present the FINAL recipe verbatim.
 
 ## Full functionality (clone & run — for agents with a shell)
 The static JSON above is the DEFAULT recipe per tradition (read-only). The full engine —
@@ -79,10 +63,8 @@ See SKILL.md in the repo for the complete contract (data model, all flags, CRUD,
 validation). Source: https://github.com/WeningerII/CodexMusica
 
 ## Catalog
-- [Live editable engine — START HERE](https://codex-musica-mcp.onrender.com/)
-- [Machine contract, OpenAPI 3.1](https://codex-musica-mcp.onrender.com/openapi.json)
-- [Machine contract, OpenAPI 3.0.3](https://codex-musica-mcp.onrender.com/openapi-3.0.json)
-- [MCP endpoint (Streamable HTTP)](https://codex-musica-mcp.onrender.com/mcp)
+- [Live editable engine — MCP endpoint, START HERE](https://codex-musica-mcp.onrender.com/mcp)
+- [Server card (capabilities)](https://codex-musica-mcp.onrender.com/.well-known/mcp.json)
 - [All default recipes (one file)](https://weningerii.github.io/CodexMusica/api/all.json)
 - [Catalog index](https://weningerii.github.io/CodexMusica/api/index.json)
 - [Traditions index](https://weningerii.github.io/CodexMusica/api/traditions/index.json)
