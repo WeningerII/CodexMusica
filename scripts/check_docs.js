@@ -277,7 +277,9 @@ for (const { rel, content } of activeMarkdowns) {
 
 // ───────────────────────── Script-reference check ─────────────────────────
 
-const SCRIPT_REF_RE = /scripts\/([a-z_0-9]+\.js)/g;
+// The trailing boundary matters: without it `scripts/_duplicate_rulings.json`
+// matches as `_duplicate_rulings.js` and is reported as a missing script.
+const SCRIPT_REF_RE = /scripts\/([a-z_0-9]+\.js)(?![a-z0-9])/g;
 const scriptRefs = new Map(); // script → array of {file, line}
 
 for (const { rel, content } of activeMarkdowns) {
