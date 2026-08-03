@@ -106,6 +106,7 @@ jobs:
           # main's tip rather than the ref that produced _dist/ — that is why the
           # auto-publish commit message named a commit it had never built from,
           # and why two stale publishes went unnoticed.
+          export BUILT_SHA
           BUILT_SHA=$(git rev-parse HEAD)
           echo "Built from $BUILT_SHA"
 
