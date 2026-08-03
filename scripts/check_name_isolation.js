@@ -49,8 +49,8 @@ const args = process.argv.slice(2);
 const VERBOSE = args.includes('--verbose');
 const sampleFlag = args.find((a) => a.startsWith('--sample='));
 // 24 by default. Each observer costs two full compiles (~1.2s), and this gate
-// runs twice per CI pass — once inside `npm run test`, once as its own step, the
-// same shape check:rest already has. 24 keeps that under a minute total while
+// runs twice per CI pass — once inside `npm run test`, once as its own step.
+// 24 keeps that under a minute total while
 // staying far above the detection threshold: with the fix reverted, 10 of 12
 // sampled traditions drift, so a 24-sample run cannot plausibly miss it.
 const SAMPLE = sampleFlag ? parseInt(sampleFlag.slice('--sample='.length), 10) : 24;
