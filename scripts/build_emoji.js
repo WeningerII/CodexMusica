@@ -49,6 +49,10 @@ function main() {
     if (family.startsWith('_')) continue;
     referencedCodepoints.add(map._family_fallback[family]);
   }
+  for (const family of Object.keys(map._family_header || {})) {
+    if (family.startsWith('_')) continue;
+    referencedCodepoints.add(map._family_header[family]);
+  }
 
   for (const codepoint of referencedCodepoints) {
     const svgPath = path.join(EMOJI_DIR, codepoint + '.svg');
@@ -85,6 +89,27 @@ function main() {
     familyFallback[family] = codepoint;
   }
 
+  // Per-family HEADING glyphs. Separate from the fallbacks because a heading
+  // only earns its glyph if it differs from its neighbours': three families
+  // legitimately fall back to the guitar for card art, which would put the same
+  // picture on three adjacent headings.
+  const familyHeader = {};
+  const headerSpec = map._family_header || {};
+  for (const family of Object.keys(headerSpec)) {
+    if (family.startsWith('_')) continue;
+    const codepoint = headerSpec[family];
+    if (!svgs[codepoint]) {
+      console.warn('  ! family header ' + family + ' missing ' + codepoint);
+      continue;
+    }
+    familyHeader[family] = codepoint;
+  }
+  const headerCps = Object.values(familyHeader);
+  if (new Set(headerCps).size !== headerCps.length) {
+    console.error('build_emoji: FAIL — family heading glyphs must be mutually distinct');
+    process.exit(1);
+  }
+
   if (missingFiles.length) {
     console.error('Missing SVG files for codepoints: ' + missingFiles.join(', '));
     process.exit(1);
@@ -107,7 +132,20 @@ function main() {
 
   // Emit registry block
   const existing = fs.readFileSync(MANIFEST, 'utf8');
-  const cleaned = existing.replace(/\n\/\/ ─{3,} EMOJI_REGISTRY ─{3,}[\s\S]*$/m, '\n');
+  // Strip a previously emitted block before re-emitting. This must match the
+  // heading this script actually writes below — when the two drift apart the
+  // strip silently no-ops and the block is APPENDED instead of replaced, which
+  // redeclares `const EMOJI_SVGS` and is a hard syntax error in the browser
+  // build. Matches both the current heading and the historical one.
+  const cleaned = existing.replace(
+    /\n\/\/ ─{3,} EMOJI (?:registries|REGISTRY) ─{3,}[\s\S]*$/m,
+    '\n'
+  );
+  if (/const EMOJI_SVGS/.test(cleaned)) {
+    console.error('build_emoji: FAIL — could not strip the previous emoji block;');
+    console.error('  the heading in this script and the one in the manifest have drifted.');
+    process.exit(1);
+  }
 
   const lines = [];
   lines.push('');
@@ -141,6 +179,12 @@ function main() {
   lines.push('const FAMILY_FALLBACK_EMOJI = {');
   for (const f of Object.keys(familyFallback).sort()) {
     lines.push('  ' + JSON.stringify(f) + ': ' + JSON.stringify(familyFallback[f]) + ',');
+  }
+  lines.push('};');
+  lines.push('');
+  lines.push('const FAMILY_HEADER_EMOJI = {');
+  for (const f of Object.keys(familyHeader).sort()) {
+    lines.push('  ' + JSON.stringify(f) + ': ' + JSON.stringify(familyHeader[f]) + ',');
   }
   lines.push('};');
   lines.push('');
