@@ -14168,11 +14168,22 @@ function renderSidebarRecipePreview() {
   // Below 900px this box is pinned to the bottom of the viewport, so it is the
   // one surface guaranteed to be on screen at every scroll position. Undo,
   // redo and copy therefore ride here rather than in the app bar — a phone has
-  // no Ctrl+Z, and they are thumb-reachable at the bottom edge. `.rp-tool` and
-  // `.rp-expand` are display:none above 900px, where the app bar already
-  // carries undo/redo and the panel is permanently open.
+  // no Ctrl+Z, and they are thumb-reachable at the bottom edge. `.rp-tool` is
+  // display:none above 900px, where the app bar already carries undo/redo.
+  //
+  // The expander runs at both widths, but the two layouts start from opposite
+  // states: the phone sheet opens CLOSED, the desktop panel has always opened
+  // EXPANDED. One shared flag would therefore have silently flipped one of
+  // those defaults the moment the control appeared on desktop, so each layout
+  // keeps its own and each keeps the default it already had. Nothing changes
+  // for anyone until they press the chevron.
+  const mobile = isMobileLayout();
   const expanded = !!app._recipeSheetOpen;
+  const collapsed = !mobile && !!app._recipeDeskCollapsed;
+  // What the button will do next, expressed as the state it is in now.
+  const isOpen = mobile ? expanded : !collapsed;
   host.classList.toggle('is-expanded', expanded);
+  host.classList.toggle('is-collapsed', collapsed);
   host.innerHTML =
     '<div class="rp-head">' +
       icon('diamond', 12) +
@@ -14181,9 +14192,9 @@ function renderSidebarRecipePreview() {
       '<button class="icon-btn rp-tool" data-proxy="btn-undo" aria-label="Undo">' + icon('undo', 14) + '</button>' +
       '<button class="icon-btn rp-tool" data-proxy="btn-redo" aria-label="Redo">' + icon('redo', 14) + '</button>' +
       '<button class="icon-btn rp-copy" id="sb-recipe-copy" data-tooltip="Copy recipe" data-tooltip-pos="bottom" aria-label="Copy recipe">' + icon('copy', 12) + '</button>' +
-      '<button class="icon-btn rp-expand" id="sb-recipe-expand" aria-expanded="' + expanded + '" ' +
+      '<button class="icon-btn rp-expand" id="sb-recipe-expand" aria-expanded="' + isOpen + '" ' +
         // chevron-up is not vendored; the glyph is chevron-down rotated by CSS.
-        'aria-label="' + (expanded ? 'Collapse recipe' : 'Expand recipe') + '">' + icon('chevron-down', 14) + '</button>' +
+        'aria-label="' + (isOpen ? 'Collapse recipe' : 'Expand recipe') + '">' + icon('chevron-down', 14) + '</button>' +
     '</div>' +
     '<div class="rp-progress"><div class="rp-progress-fill ' + band + '" style="width: ' + pct + '%;"></div></div>' +
     (text
@@ -14193,7 +14204,11 @@ function renderSidebarRecipePreview() {
 
   const expandBtn = document.getElementById('sb-recipe-expand');
   if (expandBtn) expandBtn.addEventListener('click', () => {
-    app._recipeSheetOpen = !app._recipeSheetOpen;
+    // Read the layout at click time, not render time: a resize across 900px
+    // does not repaint this panel, so the flag the button owns is decided by
+    // the width it is actually being pressed at.
+    if (isMobileLayout()) app._recipeSheetOpen = !app._recipeSheetOpen;
+    else app._recipeDeskCollapsed = !app._recipeDeskCollapsed;
     renderSidebarRecipePreview();
     _syncRecipeBarHeight();
   });
@@ -14332,8 +14347,22 @@ function renderDetail() {
 const DND_LONG_PRESS_MS = 350; // touch: hold this long to pick up
 const DND_MOUSE_ARM_PX = 5; // mouse: move this far to pick up
 const DND_TOUCH_CANCEL_PX = 12; // touch: move this far first = scroll, not drag
-const DND_EDGE_PX = 72; // auto-scroll band at the viewport edges
+const DND_EDGE_PX = 72; // auto-scroll band at the scroller's edges
 const DND_EDGE_SPEED = 16; // px per frame at the very edge
+
+// The box that actually scrolls the tree, or null for "the viewport does".
+// This is layout-dependent and cannot be hard-coded: above 900px the tree
+// lives in a viewport-tall pane whose inner #sidebar-scroll owns the overflow,
+// while below 900px that same box is `overflow: visible` and the PAGE scrolls
+// (see the MOBILE MODEL block in the template). Walking up from the tree finds
+// whichever one is live, so the edge band drives the right thing in both.
+function _dndScrollParent(el) {
+  for (let n = el && el.parentElement; n && n !== document.body; n = n.parentElement) {
+    const oy = getComputedStyle(n).overflowY;
+    if ((oy === 'auto' || oy === 'scroll') && n.scrollHeight > n.clientHeight) return n;
+  }
+  return null;
+}
 
 // ── Drop appliers ──────────────────────────────────────────────────────────
 // The two mutations a drop can perform. Kept as named functions so the drag
@@ -14394,6 +14423,117 @@ function dropTraditionOnTradition(sourceId, targetId, dropAbove) {
         : [...remaining.slice(0, last + 1), ...sourceCards, ...remaining.slice(last + 1)];
   }
   return true;
+}
+
+// ── Non-drag path to the same mutation ─────────────────────────────────────
+// Dragging is *a* way to reparent a card, not the only one it may be. Two
+// reasons this exists:
+//
+//   1. Reach. A drag can only end somewhere the pointer can get to. With half
+//      a dozen genres in the tree the one you want is often scrolled out of
+//      the pane, and even with edge auto-scroll working that is a long, fiddly
+//      gesture held under one button.
+//   2. Access. WCAG 2.2 SC 2.5.7 (Dragging Movements, AA) asks that anything
+//      achievable by dragging also be achievable with a single pointer that
+//      does not drag — and a keyboard has no drag at all. Genre *reorder*
+//      already had this escape hatch in the ↑/↓ movers; card *reparent* had
+//      none, so this was the one tree operation with no non-drag route.
+//
+// Both paths call dropCardOnTradition, so drag and menu cannot drift apart.
+
+// The genres this card could move to: every tradition group in the workspace
+// except its own, in the order the tree shows them (first appearance in
+// app.cards — the same ordering renderSidebarTraditions derives). __ungrouped__
+// is excluded because it is a pseudo-group, exactly as it is for a drop.
+function _moveTargetsFor(card) {
+  if (!card) return [];
+  const seen = [];
+  for (const c of app.cards) {
+    if (!c.traditionId || c.traditionId === card.traditionId) continue;
+    if (seen.indexOf(c.traditionId) === -1) seen.push(c.traditionId);
+  }
+  return seen;
+}
+
+// Popup listing those genres. Built on the same .more-menu furniture as the app
+// bar's overflow sheet — including its 44px item height, which is what makes it
+// thumb-usable on a phone — but constructed per-open rather than living in the
+// template, because its items are workspace state and change with every edit.
+function openMoveToGenreMenu(card, anchor) {
+  if (!card || !anchor) return;
+  const targets = _moveTargetsFor(card);
+  if (!targets.length) return;
+
+  const menu = document.createElement('div');
+  menu.className = 'more-menu';
+  menu.setAttribute('role', 'menu');
+  menu.setAttribute('aria-label', 'Move to genre');
+  menu.innerHTML = targets
+    .map((tid) => {
+      const t = Tradition(tid);
+      return (
+        '<button class="more-menu-item" role="menuitem" data-move-target="' + esc(tid) + '">' +
+        icon('folder-open', 15) + esc(t ? t.name : tid) +
+        '</button>'
+      );
+    })
+    .join('');
+  document.body.appendChild(menu);
+
+  const backdrop = document.createElement('div');
+  backdrop.className = 'more-menu-backdrop';
+  document.body.appendChild(backdrop);
+
+  // Same clamped placement the overflow sheet uses: hung under the trigger,
+  // right edges aligned, nudged back inside the viewport at either margin.
+  const r = anchor.getBoundingClientRect();
+  const w = menu.offsetWidth;
+  menu.style.top = r.bottom + 6 + 'px';
+  menu.style.left = Math.max(8, Math.min(r.right - w, window.innerWidth - w - 8)) + 'px';
+  // A long roster would otherwise run off the bottom of the screen.
+  menu.style.maxHeight = Math.max(120, window.innerHeight - r.bottom - 16) + 'px';
+  menu.style.overflowY = 'auto';
+
+  const close = () => {
+    menu.remove();
+    backdrop.remove();
+    document.removeEventListener('keydown', onKey, true);
+    anchor.setAttribute('aria-expanded', 'false');
+    if (document.body.contains(anchor)) anchor.focus();
+  };
+
+  function onKey(e) {
+    if (e.key === 'Escape') { e.preventDefault(); close(); return; }
+    if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp') return;
+    e.preventDefault();
+    const items = [...menu.querySelectorAll('.more-menu-item')];
+    if (!items.length) return;
+    const at = items.indexOf(document.activeElement);
+    const next = e.key === 'ArrowDown' ? at + 1 : at - 1;
+    items[(next + items.length) % items.length].focus();
+  }
+
+  backdrop.addEventListener('click', close);
+  document.addEventListener('keydown', onKey, true);
+  menu.addEventListener('click', (e) => {
+    const item = e.target.closest('[data-move-target]');
+    if (!item) return;
+    const targetId = item.dataset.moveTarget;
+    close();
+    // Identical to the drop path in onUp: mutate, snapshot for undo, repaint,
+    // confirm. The toast wording matches too, so the two routes read the same.
+    if (!dropCardOnTradition(card.id, targetId)) return;
+    if (typeof pushHistory === 'function') pushHistory();
+    renderAll();
+    if (typeof showToast === 'function') {
+      const t = Tradition(targetId);
+      showToast('Moved to ' + (t ? t.name : targetId), 'success');
+    }
+  });
+
+  anchor.setAttribute('aria-expanded', 'true');
+  const first = menu.querySelector('.more-menu-item');
+  if (first) first.focus();
 }
 
 // ── Controller ─────────────────────────────────────────────────────────────
@@ -14459,17 +14599,39 @@ function wireTreeDragAndDrop() {
     }
   };
 
-  // Auto-scroll when the pointer nears a viewport edge — without it, a drag on a
-  // long tree can only reach what was already on screen when it started.
+  // Auto-scroll when the pointer nears the scroller's edge — without it, a drag
+  // on a long tree can only reach what was already on screen when it started.
+  //
+  // The band is measured against the SCROLLER's rect, not the viewport's. On
+  // desktop those are different boxes: the pane is inset below the app bar and
+  // above the pinned recipe stack, so a viewport-relative band put the trigger
+  // zone in the wrong place *and* pushed the page instead of the pane — the
+  // tree under the pointer never moved, and a genre off the top of a six-genre
+  // workspace was simply unreachable by drag. d.y is viewport-relative
+  // (clientY), so it compares directly against the rect once we have it.
   const edgeScroll = () => {
     const d = app._dnd;
     if (!d || !d.armed) return;
-    const vh = window.innerHeight;
+    let top = 0;
+    let bottom = window.innerHeight;
+    if (d.scroller) {
+      const r = d.scroller.getBoundingClientRect();
+      top = r.top;
+      bottom = r.bottom;
+    }
+    // A short pane must not end up all edge band and no neutral middle.
+    const band = Math.min(DND_EDGE_PX, (bottom - top) / 3);
     let dy = 0;
-    if (d.y < DND_EDGE_PX) dy = -DND_EDGE_SPEED * (1 - d.y / DND_EDGE_PX);
-    else if (d.y > vh - DND_EDGE_PX) dy = DND_EDGE_SPEED * (1 - (vh - d.y) / DND_EDGE_PX);
+    if (band > 0) {
+      if (d.y < top + band) dy = -DND_EDGE_SPEED * (1 - (d.y - top) / band);
+      else if (d.y > bottom - band) dy = DND_EDGE_SPEED * (1 - (bottom - d.y) / band);
+    }
     if (dy) {
-      window.scrollBy(0, dy);
+      // Past the edge the ramp overshoots (the pointer can leave the box
+      // entirely), so cap it — otherwise the tree rockets away from the finger.
+      dy = Math.max(-DND_EDGE_SPEED, Math.min(DND_EDGE_SPEED, dy));
+      if (d.scroller) d.scroller.scrollTop += dy;
+      else window.scrollBy(0, dy);
       paintTarget(resolveTarget(d.x, d.y));
     }
     d.raf = requestAnimationFrame(edgeScroll);
@@ -14494,6 +14656,10 @@ function wireTreeDragAndDrop() {
     document.body.appendChild(ghost);
     d.ghost = ghost;
     d.source.classList.add('is-dragging');
+    // Resolved from the tree host rather than the dragged row: the host is a
+    // stable child of the scroller, whereas a row's own offset parent changes
+    // with the layout. Resolved once — the answer cannot change mid-gesture.
+    d.scroller = _dndScrollParent(host);
     document.body.classList.add('is-dnd-active');
     document.addEventListener('touchmove', blockScroll, { passive: false });
     // A short buzz is the only "you picked it up" signal a finger gets — the
@@ -14602,6 +14768,7 @@ function wireTreeDragAndDrop() {
       ghost: null,
       timer: null,
       raf: null,
+      scroller: null,
     };
     document.addEventListener('pointermove', onMove);
     document.addEventListener('pointerup', onUp);
@@ -14713,9 +14880,18 @@ function renderDetailBreadcrumb(card, _inst) {
   }
   wrap.appendChild(left);
 
+  // Sits first, next to the breadcrumb that names the card's current genre —
+  // this is the control that changes what that breadcrumb says. Disabled when
+  // the workspace has nowhere else to put the card, which is the honest state:
+  // a menu that opens onto "no options" is worse than a greyed-out button.
+  const moveTargets = _moveTargetsFor(card);
   const actions = document.createElement('div');
   actions.className = 'detail-actions';
   actions.innerHTML =
+    '<button class="icon-btn" data-action="move-genre"' + (moveTargets.length ? '' : ' disabled') +
+      ' aria-haspopup="menu" aria-expanded="false"' +
+      ' data-tooltip="' + (moveTargets.length ? 'Move to another genre' : 'No other genre in this workspace') + '"' +
+      ' aria-label="Move to another genre">' + icon('folder-open', 14) + '</button>' +
     '<button class="icon-btn" data-action="pin" data-tooltip="' + (card.pinned ? 'Unpin' : 'Pin') + '" aria-label="' + (card.pinned ? 'Unpin' : 'Pin') + '">' + icon('pin', 14) + '</button>' +
     '<button class="icon-btn" data-action="similar" data-tooltip="Find similar" aria-label="Find similar">' + icon('network', 14) + '</button>' +
     '<button class="icon-btn" data-action="drift" data-tooltip="Drift this card" aria-label="Drift">' + icon('shuffle', 14) + '</button>' +
@@ -15767,11 +15943,13 @@ function handleCardClick(e, card) {
     return;
   }
   if (t.dataset.action) {
-    handleAction(t.dataset.action, card);
+    // The element comes along because a menu-opening action has to anchor its
+    // popup to the button that was pressed; every other action ignores it.
+    handleAction(t.dataset.action, card, t);
   }
 }
 
-function handleAction(action, card) {
+function handleAction(action, card, trigger) {
   if (action === 'drift') {
     const candidates = buildDriftCandidates(card);
     if (candidates.length === 0) {
@@ -15832,6 +16010,8 @@ function handleAction(action, card) {
     card.pinned = !card.pinned;
     renderAll();
     showToast(card.pinned ? 'Pinned to top' : 'Unpinned', 'success');
+  } else if (action === 'move-genre') {
+    openMoveToGenreMenu(card, trigger);
   }
 }
 
