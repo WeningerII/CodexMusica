@@ -6,6 +6,48 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Fixed — a superseded build could overwrite the live site
+
+The publish workflow had no gate on it, and it shipped a stale artifact to
+production twice on consecutive merge pairs without anything going red.
+
+- **What was happening.** `sync-pages.yml` checks out the exact commit CI
+  validated, builds `codex.html` from it, then does `git checkout -B main
+  origin/main` and copies that build onto whatever main is at push time. Those
+  are two different trees the moment main advances in between. Publishes are
+  serialized but **not ordered** (`concurrency: cancel-in-progress: false`), so
+  when two PRs merge minutes apart the older run can land last and overwrite the
+  live artifact with a build made before the newer merge existed. It did: once
+  dropping PR #106's CSS, then again dropping an **823 KB** `09_nav_glyphs.js`
+  data block, leaving the live app without its navigation glyph assets.
+- **Why nobody caught it.** The auto-publish commit message was
+  `"...from $(git rev-parse --short HEAD)"`, evaluated *after* the branch switch —
+  so it always named main's tip and could never reveal that the artifact came
+  from somewhere older. Every stale publish announced itself with the right sha.
+- **The fix.** `scripts/publish_guard.sh` stands the job down when main carries
+  source the artifact was not built from. It compares **source**, not shas, and
+  that distinction is the whole design: main's tip is almost always an
+  auto-publish commit, which by construction rewrites only the generated outputs
+  and never reverts source, so a sha comparison would refuse every legitimate
+  publish while a source comparison sees straight through it. Generated outputs
+  (`codex.html`, `llms.txt`, `sitemap.xml`, `robots.txt`, `api/`) are excluded
+  from the diff — they are what is about to be overwritten. `index.html` and
+  `AGENTS.md` are deliberately *not* excluded: sync-pages copies both through
+  verbatim from the built ref, so they are inputs.
+- **Standing down is a no-op, not a failure.** Exit 10 means the newer commit has
+  its own CI run and that run publishes it. The final `git push` stays a plain
+  push, never a force: if main advances in the seconds after the guard runs, the
+  push is no longer a fast-forward and git refuses it. The guard closes the wide
+  window; non-fast-forward closes the narrow one.
+- **New gate: `npm run check:publish`** (`scripts/check_publish_guard.js`) builds
+  throwaway git repositories and replays the sequence — nothing moved, a newer
+  merge, an auto-publish commit on top, a newer merge hidden *under* an
+  auto-publish commit, a landing-page edit, and a missing or bogus `BUILT_SHA`.
+  Verified two-sided in both directions: reverting the guard to always-publish
+  fails 3 cases, and implementing it the obvious way — comparing shas — fails the
+  auto-publish case, which is to say the naive fix would have silently blocked
+  every real publish.
+
 ### Added — a navigation glyph vocabulary for rooms and prefaces
 
 The tradition tree is fast to scan because every row carries a pair of
