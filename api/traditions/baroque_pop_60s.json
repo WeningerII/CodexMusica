@@ -5,7 +5,7 @@
   "lineage": "1960s pop substyle integrating harpsichord, classical-orchestral-strings, woodwinds, and other Baroque-and-Classical-period instrumental textures into pop-song structures. Procol Harum's A Whiter Shade of Pale (1967), the Beatles' Eleanor Rigby (1966) and broader Sgt. Pepper's (1967) deployments, the Left Banke's Walk Away Renée (1966), and the Zombies' Odessey and Oracle (1968) constitute the canonical type-specimens.",
   "recipe": "classic British mid-1960s baroque pop, distorted Rock, art rock branch, western common practice art music classical period grand opera. thick, breath veiled tone, slow rate, interlocked note trading. marshall plexi amp British rock amp alder pau ferro nickel plated steel single coil electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, 18 ply hard rock maple vintage production European spruce norway spruce grand piano, synthetic norway spruce European alpine European maple bosnian source violin orchestral, French blanchet taskin paris canonical late 18th century galant soft leather plectra canonical French 18th century alternative vallotti canonical late Baroque Italian well temperament legato harpsichord. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
   "recipe_chars": 999,
-  "score": 628.555,
+  "score": 589.94,
   "config": {
     "traditions": [
       "baroque_pop_60s",
@@ -38,16 +38,16 @@
           "voice_quality": 11.43999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 16.455,
+          "voice_vibrato": 14.905,
           "voice_articulation": 16.70499999999999,
           "voice_microtone": 26.729999999999997,
-          "voice_tradition": 26.095,
-          "voice_mechanism_compound": 13.399999999999999,
-          "voice_estill_quality": 20.33,
-          "voice_speech_song": 26.675,
+          "voice_tradition": 24.195,
+          "voice_mechanism_compound": 12.149999999999999,
+          "voice_estill_quality": 17.83,
+          "voice_speech_song": 24.175,
           "voice_ensemble_config": 16.639999999999993,
-          "voice_ornament_system": 19.625,
-          "voice_pitch_organization": 13.399999999999999,
+          "voice_ornament_system": 17.125,
+          "voice_pitch_organization": 12.149999999999999,
           "voice_processing_chain": 3.0350000000000006,
           "voice_multitrack_stack": 3.6700000000000004
         }
@@ -70,7 +70,7 @@
         },
         "scores": {
           "electric_technique": 8.95,
-          "amp_make": 3.4850000000000003,
+          "amp_make": 3.3350000000000004,
           "body_wood": 1.7550000000000001,
           "neck_wood": 0.195,
           "fretboard": 1.7550000000000001,
@@ -95,7 +95,7 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 3.4850000000000003,
+          "amp_make": 3.3350000000000004,
           "body_wood": 1.7550000000000001,
           "pickup_config": 0.045,
           "string_type": 10.11,
@@ -131,15 +131,15 @@
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 13.5,
+          "keyboard_technique": 12.25,
           "grand_piano_size": 3.4450000000000003,
           "grand_piano_brand": 1.69,
-          "piano_hammer": 17.609999999999996,
-          "piano_rim": 16.99,
-          "piano_soundboard": 16.58,
-          "piano_pinblock": 13.6,
-          "piano_plate": 13.54,
-          "piano_pitch_standard": 18.759999999999998
+          "piano_hammer": 16.059999999999995,
+          "piano_rim": 15.739999999999998,
+          "piano_soundboard": 15.18,
+          "piano_pinblock": 12.35,
+          "piano_plate": 12.29,
+          "piano_pitch_standard": 17.509999999999998
         }
       },
       {
@@ -157,16 +157,16 @@
           "orch_rosin": "galeazzi_1791_baroque_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 18.375,
+          "bowed_technique": 17.125,
           "orch_strings": 1.7550000000000001,
-          "orch_top_wood": 22.11,
-          "orch_back_wood": 22.11,
-          "orch_varnish": 20.985,
-          "orch_setup_period": 15.545,
-          "orch_bow": 4.029999999999999,
-          "orch_bow_stick": 16.61,
+          "orch_top_wood": 20.86,
+          "orch_back_wood": 20.86,
+          "orch_varnish": 19.084999999999997,
+          "orch_setup_period": 14.295,
+          "orch_bow": 3.3799999999999994,
+          "orch_bow_stick": 15.059999999999999,
           "orch_articulation": 0.9099999999999999,
-          "orch_rosin": 24.095
+          "orch_rosin": 22.195
         }
       },
       {
@@ -180,12 +180,12 @@
           "harpsichord_temperament": "harpsichord_vallotti"
         },
         "scores": {
-          "keyboard_technique": 13.5,
-          "harpsichord_register": 7.02,
+          "keyboard_technique": 12.25,
+          "harpsichord_register": 6.369999999999999,
           "harpsichord_context": 10.27,
-          "harpsichord_maker_school": 8.059999999999999,
-          "harpsichord_plectrum": 7.080000000000001,
-          "harpsichord_temperament": 7.67
+          "harpsichord_maker_school": 6.76,
+          "harpsichord_plectrum": 5.915,
+          "harpsichord_temperament": 7.37
         }
       }
     ],

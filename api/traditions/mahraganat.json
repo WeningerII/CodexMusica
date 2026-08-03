@@ -5,7 +5,7 @@
   "lineage": "Cairo working-class digital-electronic shaabi descendant tradition — codified circa 2007-2010 through the working-class districts of Salam City and El-Marg, with DJ Figo, Sadat, Alaa Fifty Cent, Oka, and Wegz as the canonical exponents — characterized by Casio-and-FL-Studio-produced backing tracks, autotuned street-vernacular Arabic vocals, wedding-party performance context, and the Mahraganat festival circuit",
   "recipe": "classic 2007-2010 mahraganat, functional Song, mid east n African pop branch, intl hip hop MC rhythm gengetone french rap. extended whistle, rap, slow rate, interlocked note trading. behringer rd 8 modern clone analog circuit reproduction TR-808, sub bass analog poly synth, pitched chopped sampler. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 438,
-  "score": 205.113,
+  "score": 200.913,
   "config": {
     "traditions": [
       "mahraganat",
@@ -35,7 +35,7 @@
         },
         "scores": {
           "voice_register": 6.9225,
-          "voice_quality": 19.9015,
+          "voice_quality": 18.351499999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.885,
@@ -44,11 +44,11 @@
           "voice_tradition": 11.245000000000003,
           "voice_mechanism_compound": 2.8369999999999997,
           "voice_estill_quality": 2.0054999999999996,
-          "voice_speech_song": 17.685,
+          "voice_speech_song": 16.435,
           "voice_ensemble_config": 13.324999999999996,
           "voice_ornament_system": 3.8350000000000017,
           "voice_pitch_organization": 3.3710000000000004,
-          "voice_processing_chain": 12.594999999999999,
+          "voice_processing_chain": 11.344999999999999,
           "voice_multitrack_stack": 5.135
         }
       },
@@ -92,7 +92,7 @@
         "scores": {
           "electronic_technique": 6.475,
           "sampler_archetypes": 12.577499999999999,
-          "sampler_bit_depth": 2.9274999999999998,
+          "sampler_bit_depth": 2.7775,
           "sampler_workflow": 6.725499999999999,
           "sampler_classic_context": 20.7675
         }

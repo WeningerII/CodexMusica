@@ -5,7 +5,7 @@
   "lineage": "1990s American ska-punk hybrid synthesizing third-wave ska revival with American hardcore-and-pop-punk aesthetic. Operation Ivy (Berkeley 1987-1989), Rancid, NOFX (ska-tinged), Less Than Jake, Reel Big Fish, and the Mighty Mighty Bosstones constitute the canonical roster. Distinguished from earlier two-tone British ska revival by third-wave ska-punk's American-suburban (vs British-multicultural-protest) cultural orientation and faster-aggressive tempi.",
   "recipe": "classic North American 1987-1989 third-wave ska punk, distorted Rock, pop punk branch, Jamaican bass system jamaican dancehall reggae roots. thick, breath veiled tone, breath pulsed, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation palm muted humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character pyramid pure nickel bass electric bass, pre muffled edge muffled sticks drum kit, gold brass warmer tone split tone overblown saxophone, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor student commercial trombone. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 966,
-  "score": 351.566,
+  "score": 351.348,
   "config": {
     "traditions": [
       "ska_punk_third_wave",
@@ -41,7 +41,7 @@
           "voice_vibrato": 3.6487499999999997,
           "voice_articulation": 11.439999999999996,
           "voice_microtone": 15.729999999999993,
-          "voice_tradition": 8.003499999999999,
+          "voice_tradition": 7.8984999999999985,
           "voice_mechanism_compound": 5.2635000000000005,
           "voice_estill_quality": 2.0799999999999996,
           "voice_speech_song": 11.829999999999995,
@@ -71,7 +71,7 @@
         },
         "scores": {
           "electric_technique": 16.02125,
-          "amp_make": 23.260999999999996,
+          "amp_make": 23.223499999999998,
           "body_wood": 0.845,
           "neck_wood": 0.845,
           "fretboard": 0.78,
@@ -97,7 +97,7 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 7.93925,
+          "amp_make": 7.901750000000001,
           "body_wood": 0.845,
           "pickup_config": 0.2445,
           "string_type": 8.385,
@@ -177,7 +177,7 @@
           "trombone_type": 0.195,
           "trombone_mouthpiece": 7.25,
           "trombone_mute": 0,
-          "trombone_technique": 0.32625,
+          "trombone_technique": 0.28875,
           "trombone_bell_metal": 2.08,
           "trombone_maker_school": 5.786499999999999
         }

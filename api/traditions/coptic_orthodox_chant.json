@@ -5,7 +5,7 @@
   "lineage": "Coptic Orthodox liturgical chant tradition of the Egyptian Christian community, the canonical sacred-music tradition of the Coptic Orthodox Church (founded by tradition by Saint Mark in Alexandria in the first century, with continuous liturgical-music transmission from at least the Hellenistic-late-antique period). The Coptic liturgical year follows an eight-mode oktoechos modal-cycle structure (parallel to but distinct from the Byzantine and Syriac oktoechoi), with mode-specific cadential formulae governing each of the canonical liturgical hours and the principal cycles of the Sundays of Lent, the Holy Week, the Easter season, and the regular Sunday Divine Liturgy. Performance configuration: a male choir of cantor-and-chorus (the muallim head-cantor with his assistant cantors and the broader congregation), with characteristic percussion-only instrumental accompaniment — sanj small bronze paired hand-cymbals, muthallath metal triangle struck with rod, and the canonical kūz pottery-jar struck on specific Lenten and funeral hymns. Vocal architecture features microtonal modal-melodic vocabulary with characteristic shifted-third intervals and quarter-tone-and-three-quarter-tone microtonal inflections that no Western tempered transcription captures faithfully — Ragheb Moftah (1898-2001) led the twentieth-century institutional preservation project at the Institute of Coptic Studies (Cairo, 1926-2001), with English transcription-and-notation collaborator Ernest Newlandsmith (Cairo transcriptions 1926-1936) and Hungarian musicologist Margit Tóth (from 1970 onward) producing the canonical published documentary corpus, culminating in the 1998 AUC Press publication The Coptic Orthodox Liturgy of St. Basil: With Complete Musical Transcription. Distinguished from Byzantine chant by Coptic's Egyptian-Arabic-and-Coptic-Bohairic liturgical-language base (vs Greek), characteristic Coptic cymbal-and-triangle percussion accompaniment, and Egyptian-specific modal vocabulary; distinguished from Ethiopian Tewahedo zema by Coptic's eight-mode oktoechos system (vs Tewahedo's threefold ge'ez-ezel-araray); distinguished from Syriac and Maronite chant by Coptic's Egyptian regional rite and characteristic instrumental percussion presence.",
   "recipe": "classic North African early-1890s coptic orthodox liturgical chant, ritual Devotional, coptic branch, western early art music ars antiqua and organum renaissance sacred polyphony. thick, breath veiled tone, straight note core, interlocked note trading. mixed satb canonical 4 part western three voice polyphonic regional andean three voice parallel thirds quechua aymara sacred liturgical global choir ensemble, paired bronze small canonical coptic orthodox coptic liturgical hymn canonical Egyptian orthodox sanj, metal triangle struck rod canonical coptic liturgical coptic specific hymn canonical Egyptian orthodox muthallath. coptic basilica. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 709,
-  "score": 541.127,
+  "score": 533.352,
   "config": {
     "traditions": [
       "coptic_orthodox_chant",
@@ -38,16 +38,16 @@
           "voice_quality": 39.845,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 12.439999999999998,
-          "voice_articulation": 35.7825,
-          "voice_microtone": 57.015000000000015,
+          "voice_vibrato": 12.29,
+          "voice_articulation": 34.1575,
+          "voice_microtone": 56.21500000000002,
           "voice_tradition": 16.964999999999996,
           "voice_mechanism_compound": 18.735,
           "voice_estill_quality": 13.100000000000001,
-          "voice_speech_song": 32.63,
-          "voice_ensemble_config": 48.10000000000001,
+          "voice_speech_song": 31.979999999999997,
+          "voice_ensemble_config": 45.825,
           "voice_ornament_system": 7.950000000000001,
-          "voice_pitch_organization": 22.36,
+          "voice_pitch_organization": 20.735,
           "voice_processing_chain": 18.525000000000002,
           "voice_multitrack_stack": 13.389999999999997
         }
@@ -64,7 +64,7 @@
           "choir_size": 11.83,
           "choir_polyphonic_configuration": 15.34,
           "choir_regional_canonical_configuration": 6.825,
-          "choir_ensemble_repertoire": 14.109999999999998
+          "choir_ensemble_repertoire": 13.459999999999997
         }
       },
       {

@@ -5,7 +5,7 @@
   "lineage": "Mid-1980s onward Latino-and-Italian-American urban-dance genre developed in New York and Miami clubs, characterized by 808-drum-machine programming, electronic sub-bass, and emotional Latino-soul vocal lead — codified through Shannon (Let the Music Play 1983), Lisa Lisa and Cult Jam (I Wonder If I Take You Home 1984), Exposé, The Cover Girls, Stevie B, Sa-Fire",
   "recipe": "classic Asian 1984-1986 freestyle music, electronic Dance, eurodance branch, us hip hop MC rhythm conscious hip-hop gangsta rap. thick, rap, straight onset, interlocked note trading. low sub bass analog poly synth, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, pitched chopped sampler. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
   "recipe_chars": 492,
-  "score": 316.3,
+  "score": 303.772,
   "config": {
     "traditions": [
       "freestyle_music",
@@ -35,20 +35,20 @@
         },
         "scores": {
           "voice_register": 13.844999999999997,
-          "voice_quality": 29.06,
+          "voice_quality": 26.459999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 7.919999999999998,
           "voice_articulation": 20.019999999999996,
           "voice_microtone": 19.434999999999995,
-          "voice_tradition": 12.399999999999999,
+          "voice_tradition": 11.649999999999999,
           "voice_mechanism_compound": 3.185,
           "voice_estill_quality": 7.994999999999999,
-          "voice_speech_song": 27.255,
+          "voice_speech_song": 25.255,
           "voice_ensemble_config": 19.759999999999998,
           "voice_ornament_system": 4.875000000000002,
           "voice_pitch_organization": 1.825,
-          "voice_processing_chain": 20.509999999999994,
+          "voice_processing_chain": 18.509999999999994,
           "voice_multitrack_stack": 9.340000000000002
         }
       },
@@ -61,7 +61,7 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 15.449999999999998,
+          "electronic_technique": 14.699999999999998,
           "poly_archetypes": 0.345,
           "poly_voices": 0.345,
           "poly_maker_lineage": 0.49
@@ -75,7 +75,7 @@
           "tr808_production_origin": "tr808_roland_osaka_canonical"
         },
         "scores": {
-          "tr808_voice": 13.264999999999999,
+          "tr808_voice": 12.514999999999999,
           "drum_machine_808_context": 9.155000000000001,
           "tr808_production_origin": 3.2500000000000004
         }
@@ -87,14 +87,14 @@
           "sampler_archetypes": "ensoniq_asr10",
           "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
           "sampler_workflow": "sampler_one_shot_pitched",
-          "sampler_classic_context": "sampler_classic_hiphop"
+          "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 9.759999999999998,
-          "sampler_archetypes": 16.769999999999996,
+          "electronic_technique": 9.009999999999998,
+          "sampler_archetypes": 15.469999999999999,
           "sampler_bit_depth": 1.9399999999999997,
-          "sampler_workflow": 10.589999999999998,
-          "sampler_classic_context": 32.402499999999996
+          "sampler_workflow": 9.839999999999998,
+          "sampler_classic_context": 31.524999999999995
         }
       }
     ],

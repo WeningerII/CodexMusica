@@ -3,14 +3,14 @@
   "name": "Jubilee quartet",
   "family": "blues_gospel",
   "lineage": "Late-19th-century African-American close-harmony sacred quartet tradition originating from the Fisk Jubilee Singers (Fisk University Nashville, founded 1871 to raise funds for the historically Black university through their groundbreaking 1871-onward concert tours of spirituals) — established the male-quartet template that became foundational for both Black gospel quartet tradition and the secular-derivative doo-wop tradition. Notable groups include the Hampton Institute Quartet, Tuskegee Institute Singers, the Fisk Jubilee Quartet recordings 1909-onward",
-  "recipe": "classic Southern American modern jubilee quartet, ritual Devotional, jubilee quartet branch, christian gospel spirituals, christian gospel black gospel, soul R&B doowop gospel quartet. thick, declaimed, wide pitch sway, leader call answered. choir doo wop group, a cappella small 3 to 8 one per part antiphonal double choir alternating andean three voice parallel thirds quechua aymara choir ensemble. southern black church gospel choir. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 510,
-  "score": 341.227,
+  "recipe": "classic Southern American modern jubilee quartet, ritual Devotional, jubilee quartet branch, christian gospel spirituals, christian gospel black gospel, soul R&B doowop african-american spirituals gospel quartet. thick, declaimed, wide pitch sway, leader call answered. choir doo wop group, four voice polyphonic regional andean three voice parallel thirds quechua aymara sacred liturgical global choir ensemble. southern black church gospel choir. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 521,
+  "score": 286.204,
   "config": {
     "traditions": [
       "jubilee_quartet",
-      "gospel_quartet_male",
-      "black_gospel_choir"
+      "spirituals_african_american",
+      "gospel_quartet_male"
     ],
     "instruments": [
       {
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 49.17625000000001,
-          "voice_quality": 48.28500000000002,
+          "voice_register": 39.57625000000001,
+          "voice_quality": 41.66000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.1237500000000002,
-          "voice_articulation": 37.08687500000001,
-          "voice_microtone": 13.259999999999993,
-          "voice_tradition": 50.496875,
-          "voice_mechanism_compound": 2.8600000000000003,
-          "voice_estill_quality": 41.35750000000001,
-          "voice_speech_song": 15.859999999999994,
-          "voice_ensemble_config": 38.09437500000001,
-          "voice_ornament_system": 11.775,
-          "voice_pitch_organization": 1.1575,
-          "voice_processing_chain": 8.645,
-          "voice_multitrack_stack": 6.24
+          "voice_vibrato": 3.2487500000000002,
+          "voice_articulation": 30.161875,
+          "voice_microtone": 11.244999999999994,
+          "voice_tradition": 40.784375000000004,
+          "voice_mechanism_compound": 3.25,
+          "voice_estill_quality": 32.1075,
+          "voice_speech_song": 14.039999999999996,
+          "voice_ensemble_config": 30.319375,
+          "voice_ornament_system": 13.525000000000002,
+          "voice_pitch_organization": 0.9324999999999999,
+          "voice_processing_chain": 4.745,
+          "voice_multitrack_stack": 6.37
         }
       },
       {
@@ -59,23 +59,23 @@
           "arrangement": "doo_wop_with_band"
         },
         "scores": {
-          "voices": 0.78,
-          "arrangement": 2.92875
+          "voices": 1.308125,
+          "arrangement": 3.4287500000000004
         }
       },
       {
         "id": "choir_ensemble",
         "slots": {
-          "choir_size": "a_cappella_small_ensemble_3_8",
-          "choir_polyphonic_configuration": "choir_polyphony_antiphonal_double_choir",
+          "choir_size": "mens_chorus",
+          "choir_polyphonic_configuration": "choir_polyphony_four_voice_polyphonic",
           "choir_regional_canonical_configuration": "choir_regional_andean_three_voice_parallel_thirds",
-          "choir_ensemble_repertoire": "choir_ensemble_romantic"
+          "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
         },
         "scores": {
-          "choir_size": 3.6399999999999997,
-          "choir_polyphonic_configuration": 4.029999999999999,
-          "choir_regional_canonical_configuration": 3.25,
-          "choir_ensemble_repertoire": 4.03
+          "choir_size": 3.4418750000000005,
+          "choir_polyphonic_configuration": 3.3149999999999995,
+          "choir_regional_canonical_configuration": 2.5999999999999996,
+          "choir_ensemble_repertoire": 3.7700000000000005
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "The oldest surviving North Indian classical vocal genre, dating from the 12-13th centuries and preserved through the Dagar Bani (Dagar family lineage, the modern dhrupad school) and the Bishnupur and Talwandi sub-traditions; characterized by an extended alap (40+ minutes free-meter), the dhamar / chautal / sultal metric sections with pakhawaj accompaniment, and the use of rudra veena, surbahar, or sursingar as alternative melodic instruments to vocal",
   "recipe": "classic South Asian early-1950s dhrupad, improv On Frame, indian classical improv branch, south Asian art music, hindu ritual devotional kutiyattam sanskrit recitation telugu kirtana. vocal fry, breath veiled tone, slow rate, interlocked note trading. suited to female vocal wooden body miraj style tanpura, dagar dhrupad lineage pakhawaj, steel brass teak alternative dagar bani canonical dhrupad rudra veena. varanasi benares gharana baithak. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
   "recipe_chars": 511,
-  "score": 340.862,
+  "score": 334.512,
   "config": {
     "traditions": [
       "dhrupad",
@@ -38,16 +38,16 @@
           "voice_quality": 28.535000000000004,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 17.080000000000002,
+          "voice_vibrato": 16.78,
           "voice_articulation": 14.494999999999994,
           "voice_microtone": 15.14499999999999,
-          "voice_tradition": 36.955,
+          "voice_tradition": 35.555,
           "voice_mechanism_compound": 14.400000000000002,
           "voice_estill_quality": 17.425,
-          "voice_speech_song": 18.394999999999992,
+          "voice_speech_song": 17.744999999999994,
           "voice_ensemble_config": 15.209999999999992,
-          "voice_ornament_system": 30.82,
-          "voice_pitch_organization": 30.865000000000002,
+          "voice_ornament_system": 28.82,
+          "voice_pitch_organization": 28.865000000000002,
           "voice_processing_chain": 6.499999999999999,
           "voice_multitrack_stack": 5.674999999999999
         }

@@ -5,7 +5,7 @@
   "lineage": "Javanese bronze-percussion court-and-village tradition tuned in slendro five-tone-and-pelog seven-tone systems, with two parallel lineages: the kraton-court refined-style of Yogyakarta and Surakarta (16th-century onward, Mataram successor sultanates) and the village kemasan rural-ensemble style. The full court gamelan comprises 30-to-40 instruments organized into balungan core-melody bonang-saron, panerusan elaborating-melody gender-rebab-suling, and gong-kempul colotomic-structural-time-markers, performed cyclically through gendhing pieces of nested 8-16-32-64-128 beat irama tempo-density levels. The wayang shadow-puppet performance is the canonical embedding context, where gamelan accompanies dalang puppeteer-narration through pathet modal sections aligned to night-narrative time.",
   "recipe": "classic Southeast Asian early-1940s javanese gamelan, art Music, southeast Asian branch, east Asian art music beijing opera tibetan ache lhamo opera. thick, breath veiled tone, slow rate, interlocked note trading. gamelan foundational carved hardwood canonical javanese goat skin canonical javanese silk pre modern gamelan legato rebab, bamboo rattan band fipple canonical javanese balinese continuous-airflow legato suling, bonang, gender, pentatonic slendro tuning saron gamelan, foundational low fundamental tuning slendro tuning slenthem, colotomic marker slendro tuning kenong, gamelan javanese teak premium javanese court buffalo hide rattan lacing canonical javanese kendang indonesian, gamelan javanese full. javanese pendopo pavilion. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 818,
-  "score": 432.051,
+  "score": 426.451,
   "config": {
     "traditions": [
       "javanese_gamelan",
@@ -43,10 +43,10 @@
           "voice_microtone": 25.219999999999988,
           "voice_tradition": 38.38250000000001,
           "voice_mechanism_compound": 11.049999999999997,
-          "voice_estill_quality": 28.105624999999996,
+          "voice_estill_quality": 25.155624999999993,
           "voice_speech_song": 27.169999999999995,
           "voice_ensemble_config": 28.92499999999999,
-          "voice_ornament_system": 20.249999999999996,
+          "voice_ornament_system": 17.749999999999996,
           "voice_pitch_organization": 26.25281249999999,
           "voice_processing_chain": 4.29,
           "voice_multitrack_stack": 4.595
@@ -146,7 +146,7 @@
           "kendang_head": "kendang_buffalo_hide_canonical"
         },
         "scores": {
-          "kendang_size": 4.784999999999999,
+          "kendang_size": 4.634999999999999,
           "kendang_context": 8.584999999999999,
           "kendang_shell_wood": 8.537187499999998,
           "kendang_head": 6.6949999999999985

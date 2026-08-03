@@ -5,7 +5,7 @@
   "lineage": "Lebanese-and-pan-Arab wedding-music tradition centered on the takht (small classical Arabic ensemble of oud, qanun, riq or tabla, violin or rebab, and vocalist); continuous from 19th-century Levantine-Arab classical-and-domestic-music practice through 20th-century Beirut-Cairo-Damascus golden-age wedding-music recording",
   "recipe": "classic North African mid-1960s lebanese-arab wedding takht, wedding, middle eastern branch, European wedding, middle eastern classical art music, Persian arab improv improv on frame tarab andalusī nūba. vocal fry, breath veiled tone, slow rate, interlocked note trading. padauk Egyptian Syrian premium Lebanese cedar eastern Mediterranean pyramid oud, metal finger picks rosewood body arab premium qanun, rosewood mop inlay canonical Egyptian takht fish skin canonical Egyptian light responsive brass jingles canonical takht riq, spun aluminum Egyptian sombaty Egyptian sombaty canonical mid east darbuka, sustained legato fiddle, sustained legato rabab maghribi, indian rosewood rosewood copper tabla. stone plaster medina room. Neumann U47, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb hall reverb.",
   "recipe_chars": 840,
-  "score": 511.668,
+  "score": 488.418,
   "config": {
     "traditions": [
       "lebanese_arab_takht_wedding",
@@ -38,16 +38,16 @@
           "voice_quality": 7.930000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 24.499999999999996,
+          "voice_vibrato": 22.949999999999996,
           "voice_articulation": 10.009999999999998,
-          "voice_microtone": 38.349999999999994,
-          "voice_tradition": 39.455,
-          "voice_mechanism_compound": 29.039999999999996,
-          "voice_estill_quality": 23.089999999999993,
-          "voice_speech_song": 20.754999999999995,
+          "voice_microtone": 36.724999999999994,
+          "voice_tradition": 37.83,
+          "voice_mechanism_compound": 27.789999999999996,
+          "voice_estill_quality": 21.84,
+          "voice_speech_song": 19.504999999999995,
           "voice_ensemble_config": 10.614999999999998,
-          "voice_ornament_system": 40.769999999999996,
-          "voice_pitch_organization": 41.055,
+          "voice_ornament_system": 39.02,
+          "voice_pitch_organization": 39.305,
           "voice_processing_chain": 3.0550000000000006,
           "voice_multitrack_stack": 3.575
         }
@@ -64,13 +64,13 @@
           "oud_string_material": "oud_pyramid_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 20.764999999999997,
-          "oud_school": 4.8100000000000005,
-          "oud_strings": 10.79,
+          "plucked_traditional_technique": 19.514999999999997,
+          "oud_school": 4.16,
+          "oud_strings": 10.14,
           "oud_pick": 0.195,
           "oud_body_wood": 1.8449999999999998,
           "oud_soundboard_wood": 7.67,
-          "oud_string_material": 8.42
+          "oud_string_material": 7.92
         }
       },
       {
@@ -85,11 +85,11 @@
           "qanun_string_material": "qanun_fluorocarbon"
         },
         "scores": {
-          "plucked_traditional_technique": 20.764999999999997,
-          "qanun_strings": 10.594999999999999,
+          "plucked_traditional_technique": 19.514999999999997,
+          "qanun_strings": 9.945,
           "qanun_levers": -1.05,
-          "qanun_pick": 10.79,
-          "qanun_body_wood": 7.305,
+          "qanun_pick": 10.14,
+          "qanun_body_wood": 6.805,
           "qanun_bridge_skin": 0.39,
           "qanun_string_material": 0
         }
@@ -104,7 +104,7 @@
           "riq_jingles": "riq_brass_jingles"
         },
         "scores": {
-          "riq_size": 15.014999999999997,
+          "riq_size": 14.364999999999998,
           "riq_context": 0.78,
           "riq_shell_wood": 5.76,
           "riq_head_material": 2.0799999999999996,
@@ -123,7 +123,7 @@
           "percussion_technique": -0.07,
           "darbuka_material": 2.0799999999999996,
           "darbuka_skin": 0.585,
-          "darbuka_regional_style": 4.029999999999999
+          "darbuka_regional_style": 3.3799999999999994
         }
       },
       {
@@ -136,7 +136,7 @@
           "fiddle_articulation": "arco"
         },
         "scores": {
-          "bowed_technique": 20.419999999999998,
+          "bowed_technique": 19.17,
           "fiddle_strings": 0.195,
           "fiddle_bow": 0.195,
           "fiddle_mute": 0.24,
@@ -152,7 +152,7 @@
           "rabab_maghribi_strings": "rabab_maghribi_gut"
         },
         "scores": {
-          "bowed_technique": 20.419999999999998,
+          "bowed_technique": 19.17,
           "rabab_maghribi_form": 4.745,
           "rabab_maghribi_role": 8.574999999999998,
           "rabab_maghribi_strings": -0.035
@@ -166,8 +166,8 @@
           "tabla_syahi": "aged_syahi"
         },
         "scores": {
-          "tabla_dayan": 10.529999999999998,
-          "tabla_bayan": 10.79,
+          "tabla_dayan": 9.879999999999999,
+          "tabla_bayan": 10.14,
           "tabla_syahi": 2.535
         }
       }

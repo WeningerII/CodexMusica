@@ -5,7 +5,7 @@
   "lineage": "Iranian-diaspora Los Angeles-recorded pop tradition (1980-1995) codified by the post-1979-revolution émigré recording industry centered on Westwood / Tarzana — Andy and Kouros, Moein, Dariush, Googoosh’s post-2000 return, with characteristic Farsi-language vocals over Westernized pop-rock production",
   "recipe": "classic Los Angeles mid-1980s tehrangeles persian pop, functional Song, mid east n African pop branch, Persian arab improv improv on frame iraqi maqam malhun. thick, close mic intimate, slow rate, interlocked note trading. oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly synth, mahogany rosewood clean strummed single coil electric guitar, alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
   "recipe_chars": 642,
-  "score": 222.775,
+  "score": 222.475,
   "config": {
     "traditions": [
       "persian_pop_los_angeles",
@@ -41,7 +41,7 @@
           "voice_vibrato": 8.2875,
           "voice_articulation": 5.720000000000001,
           "voice_microtone": 15.949999999999998,
-          "voice_tradition": 19.9385,
+          "voice_tradition": 19.6385,
           "voice_mechanism_compound": 15.7765,
           "voice_estill_quality": 6.194500000000001,
           "voice_speech_song": 7.67,

@@ -3,9 +3,9 @@
   "name": "Libyan maluf (Andalusi classical)",
   "family": "classical",
   "lineage": "Libyan maluf classical Andalusi-Arabic art-music tradition of Tripoli and Benghazi, the Libyan recension of broader Maghrebi-Andalusi nuba descended from the post-1492 al-Andalus expulsion-diaspora. The Libyan repertoire is the smallest of the Maghrebi recensions, comprising suite-cycles shared with Tunisian malouf with Libyan-Arabic poetic-meter and dialect cadential conventions. The post-2011 civil-conflict period disrupted institutional transmission; diaspora-recovery at Royal Conservatory of Music Tripoli is the contemporary anchor.",
-  "recipe": "classic North African early-1490s libyan maluf, art Music, middle eastern classical branch, Persian arab improv improv on frame tarab turkish-romani çümbüş music. vocal fry, breath veiled tone, slow rate, interlocked note trading. nylon plastic rosewood premium iraqi Turkish Lebanese cedar oud, heterophonic melodic lead legato rabab maghribi, spun aluminum Egyptian sombaty goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka. nuba courtyard hall. large-diaphragm condenser, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe": "classic North African early-1490s libyan maluf, art Music, middle eastern classical branch, Persian arab improv improv on frame tarab turkish-romani çümbüş music. vocal fry, breath veiled tone, slow rate, interlocked note trading. nylon plastic padauk Egyptian Syrian premium Lebanese cedar oud, heterophonic melodic lead legato rabab maghribi, spun aluminum Egyptian sombaty goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka. nuba courtyard hall. large-diaphragm condenser, German V72 tube pre, German tube console. tape 15ips.",
   "recipe_chars": 557,
-  "score": 351.644,
+  "score": 331.025,
   "config": {
     "traditions": [
       "libyan_maluf",
@@ -38,16 +38,16 @@
           "voice_quality": 17.159999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 22.959999999999997,
+          "voice_vibrato": 21.051249999999996,
           "voice_articulation": 8.189999999999998,
-          "voice_microtone": 35.350375,
-          "voice_tradition": 35.0675,
-          "voice_mechanism_compound": 26.782999999999998,
-          "voice_estill_quality": 20.296249999999997,
-          "voice_speech_song": 18.2445,
+          "voice_microtone": 32.550374999999995,
+          "voice_tradition": 33.381375,
+          "voice_mechanism_compound": 25.532999999999998,
+          "voice_estill_quality": 19.046249999999997,
+          "voice_speech_song": 16.9945,
           "voice_ensemble_config": 8.319999999999999,
-          "voice_ornament_system": 36.680125,
-          "voice_pitch_organization": 36.461124999999996,
+          "voice_ornament_system": 34.480124999999994,
+          "voice_pitch_organization": 34.26112499999999,
           "voice_processing_chain": 2.8600000000000003,
           "voice_multitrack_stack": 2.145
         }
@@ -59,18 +59,18 @@
           "oud_school": "oud_arab_classic",
           "oud_strings": "oud_eleven",
           "oud_pick": "risha_plastic",
-          "oud_body_wood": "oud_rosewood_body",
+          "oud_body_wood": "oud_padauk_body",
           "oud_soundboard_wood": "oud_lebanese_cedar_face",
           "oud_string_material": "oud_pyramid_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 18.25,
-          "oud_school": 3.575,
-          "oud_strings": 9.685,
+          "plucked_traditional_technique": 17,
+          "oud_school": 2.925,
+          "oud_strings": 9.035,
           "oud_pick": 1.3315000000000001,
-          "oud_body_wood": 2.4699999999999998,
+          "oud_body_wood": 2.145,
           "oud_soundboard_wood": 2.4050000000000002,
-          "oud_string_material": 4.55
+          "oud_string_material": 3.9
         }
       },
       {
@@ -82,7 +82,7 @@
           "rabab_maghribi_strings": "rabab_maghribi_gut"
         },
         "scores": {
-          "bowed_technique": 18.25,
+          "bowed_technique": 17,
           "rabab_maghribi_form": 11.355624999999998,
           "rabab_maghribi_role": 3.8695,
           "rabab_maghribi_strings": -0.035
@@ -99,8 +99,8 @@
         "scores": {
           "percussion_technique": -0.07,
           "darbuka_material": 1.4949999999999999,
-          "darbuka_skin": 2.9249999999999994,
-          "darbuka_regional_style": 3.9
+          "darbuka_skin": 2.275,
+          "darbuka_regional_style": 3.25
         }
       }
     ],

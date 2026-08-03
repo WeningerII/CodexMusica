@@ -3,9 +3,9 @@
   "name": "Contemporary urban gospel",
   "family": "global",
   "lineage": "Late-twentieth-century-onward African-American gospel music tradition modernizing the traditional church-choir-and-piano repertoire through R-and-B, funk, hip-hop, and quiet-storm production techniques — codified through Kirk Franklin (Why We Sing 1993), Mary Mary, Yolanda Adams, Donnie McClurkin, Israel and New Breed, with the genre serving as the contemporary mainstream of African-American sacred music",
-  "recipe": "classic early-1990s contemporary urban gospel, ritual Devotional, black gospel branch, soul R&B functional song doo-wop alt-r&b. thick, declaimed, straight onset, multi note runs per syllable. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles choir ensemble, centered tine pickup gap canonical balanced Rhodes voicing gospel runs rhodes electric, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled brushes-and-sticks drum kit, field textural sampler, contemporary full choir southern black gospel. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 851,
-  "score": 415.77,
+  "recipe": "classic early-1990s contemporary urban gospel, ritual Devotional, black gospel branch, soul R&B functional song doo-wop alt-r&b. thick, declaimed, straight onset, multi note runs per syllable. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles choir ensemble, centered tine pickup gap canonical balanced Rhodes voicing gospel runs rhodes electric, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled brushes-and-sticks drum kit, field sampler, contemporary full choir southern black gospel. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 842,
+  "score": 408.565,
   "config": {
     "traditions": [
       "contemporary_urban_gospel",
@@ -38,8 +38,8 @@
           "voice_quality": 19.704999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.025,
-          "voice_articulation": 23.574999999999996,
+          "voice_vibrato": 5.725,
+          "voice_articulation": 22.074999999999996,
           "voice_microtone": 14.429999999999993,
           "voice_tradition": 24.169999999999998,
           "voice_mechanism_compound": 2.8600000000000003,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 4.525,
           "voice_pitch_organization": 3.825,
           "voice_processing_chain": 6.045000000000002,
-          "voice_multitrack_stack": 8.092500000000001
+          "voice_multitrack_stack": 6.467500000000001
         }
       },
       {
@@ -64,7 +64,7 @@
           "choir_size": 1.17,
           "choir_polyphonic_configuration": 5.329999999999998,
           "choir_regional_canonical_configuration": 0.585,
-          "choir_ensemble_repertoire": 5.9799999999999995
+          "choir_ensemble_repertoire": 5.329999999999999
         }
       },
       {
@@ -102,9 +102,9 @@
         "scores": {
           "keyboard_technique": 23.134999999999998,
           "grand_piano_size": 0.195,
-          "grand_piano_brand": 3.625,
-          "piano_hammer": 5.85,
-          "piano_rim": 8.565,
+          "grand_piano_brand": 3.4749999999999996,
+          "piano_hammer": 5.7,
+          "piano_rim": 8.415,
           "piano_soundboard": 5.25,
           "piano_pinblock": 0.85,
           "piano_plate": 4.029999999999999,
@@ -155,10 +155,10 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 3.7,
+          "electronic_technique": 2.45,
           "sampler_archetypes": 3.38,
           "sampler_bit_depth": 0.39,
-          "sampler_workflow": 5.285,
+          "sampler_workflow": 4.03,
           "sampler_classic_context": 23.984999999999992
         }
       },
@@ -170,7 +170,7 @@
           "era": "gospel_quartet_lineage"
         },
         "scores": {
-          "voices": 0.7775000000000001,
+          "voices": 0.6025,
           "accompaniment": 2.9899999999999998,
           "era": 16.444999999999997
         }

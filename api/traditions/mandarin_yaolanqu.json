@@ -5,7 +5,7 @@
   "lineage": "Mandarin Chinese cradle-song tradition continuous from imperial-era domestic-vocal practice through 20th-century revolutionary-era and post-reform-era domestic singing across mainland China, Taiwan, Singapore Mandarin-speaking communities",
   "recipe": "classic modern mandarin yáolán qǔ, lullaby, east Asian branch, east Asian pop functional song, east Asian art music, vocal drone modal shidaiqu enka. thick, breath veiled tone, straight onset, interlocked note trading. carpeted bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 299,
-  "score": 228.858,
+  "score": 221.718,
   "config": {
     "traditions": [
       "mandarin_yaolanqu",
@@ -22,7 +22,7 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "chinese_classical_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 20.92499999999999,
+          "voice_register": 18.42499999999999,
           "voice_quality": 21.775000000000006,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 9.055,
+          "voice_vibrato": 7.6549999999999985,
           "voice_articulation": 19.69500000000001,
-          "voice_microtone": 22.595,
-          "voice_tradition": 41.555,
+          "voice_microtone": 21.25500000000001,
+          "voice_tradition": 40.905,
           "voice_mechanism_compound": 3.3799999999999994,
           "voice_estill_quality": 3.5750000000000006,
           "voice_speech_song": 31.785000000000007,
           "voice_ensemble_config": 22.360000000000014,
           "voice_ornament_system": 6.550000000000001,
-          "voice_pitch_organization": 21.899999999999995,
+          "voice_pitch_organization": 20.649999999999995,
           "voice_processing_chain": 6.500000000000001,
           "voice_multitrack_stack": 9.619999999999997
         }

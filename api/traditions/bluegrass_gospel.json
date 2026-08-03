@@ -5,7 +5,7 @@
   "lineage": "Bluegrass-derived sacred-song tradition that emerged alongside secular bluegrass through Bill Monroe (his early Blue Grass Boys gospel-quartet sections), the Stanley Brothers (whose sacred-song catalog includes O Death and Angel Band), Lester Flatt and Earl Scruggs (their gospel-song interludes within concert programs), Doyle Lawson and Quicksilver (the modern bluegrass-gospel quartet), Ricky Skaggs (his Bluegrass Rules and Soldier of the Cross gospel-bluegrass crossover work); preserves the high-lonesome harmony vocal aesthetic of bluegrass applied to Protestant Christian sacred-song repertoire",
   "recipe": "classic Southern American mid-1950s bluegrass gospel, ritual Devotional, southern gospel branch, bluegrass improv on frame. thick, declaimed, fast rate, leader call answered. bronze 3 ply maple Gibson mastertone canon maple bluegrass canon banjo 5 string, Gibson f 5 loar scrolled carved adirondack red spruce loar canon mandolin, flatpicked acoustic guitar, magic rosin modern acrylic base double stops fiddle, upright bass. southern white church gospel quartet. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 558,
-  "score": 547.892,
+  "score": 530.157,
   "config": {
     "traditions": [
       "bluegrass_gospel",
@@ -40,7 +40,7 @@
           "voice_vibrato": 1.04,
           "voice_articulation": 23.065,
           "voice_microtone": 9.55625,
-          "voice_tradition": 23.08925,
+          "voice_tradition": 22.85425,
           "voice_mechanism_compound": 1.3,
           "voice_estill_quality": 22.465,
           "voice_speech_song": 14.463249999999999,
@@ -67,15 +67,15 @@
         },
         "scores": {
           "banjo_back": 0.845,
-          "tone_ring": 24.25,
+          "tone_ring": 23,
           "banjo_head": 9.39375,
           "banjo_pot": 1.04,
-          "banjo_play": 10.120000000000001,
-          "banjo_rim_wood": 25.972,
-          "banjo_neck_wood": 24.892500000000002,
-          "banjo_strings": 24.892500000000002,
-          "banjo_bridge": 24.892500000000002,
-          "banjo_setup_period": 36.948750000000004
+          "banjo_play": 9.47,
+          "banjo_rim_wood": 24.722,
+          "banjo_neck_wood": 23.492500000000003,
+          "banjo_strings": 23.492500000000003,
+          "banjo_bridge": 23.492500000000003,
+          "banjo_setup_period": 35.54875
         }
       },
       {
@@ -91,11 +91,11 @@
           "mandolin_pickup": "mandolin_k_k_twin_internal"
         },
         "scores": {
-          "acoustic_technique": 24.715,
-          "mandolin_shape": 24.445000000000004,
-          "mandolin_top": 25.9675,
-          "mandolin_back": 24.472500000000004,
-          "mandolin_bracing": 24.2545,
+          "acoustic_technique": 23.465,
+          "mandolin_shape": 23.195000000000004,
+          "mandolin_top": 24.7175,
+          "mandolin_back": 23.222500000000004,
+          "mandolin_bracing": 23.0045,
           "mandolin_strings": 0.845,
           "mandolin_fingerboard": 0.195,
           "mandolin_pickup": 9.405750000000001
@@ -115,7 +115,7 @@
           "top_wood": 0.015,
           "back_sides": 0.195,
           "string_acoustic": 0.845,
-          "acoustic_om_technique": 24.265
+          "acoustic_om_technique": 23.015
         }
       },
       {
@@ -128,7 +128,7 @@
           "fiddle_articulation": "arco"
         },
         "scores": {
-          "bowed_technique": 26.599999999999998,
+          "bowed_technique": 25.349999999999998,
           "fiddle_strings": 0.845,
           "fiddle_bow": 2.4465,
           "fiddle_mute": 0.49949999999999994,

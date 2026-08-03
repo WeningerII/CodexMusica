@@ -5,7 +5,7 @@
   "lineage": "Rabindra sangeet (\"Tagore songs\") Bengali art-song repertoire composed by Nobel-laureate poet-philosopher Rabindranath Tagore (1861-1941), comprising approximately 2,232 documented songs in the canonical Gitabitan collection across categories: puja, prem, prakriti, swadesh, bichitra. The compositional language synthesizes Hindustani-classical raga-and-tala framework with Bengali kirtan-and-baul folk inflections, Carnatic melodic gestures, and late-period Western-tonal-harmonic elements absorbed through Tagore's European travels. The Visva-Bharati transmission lineage maintains canonical melodic-and-textual readings.",
   "recipe": "classic South Asian early-1860s rabindra sangeet, functional Song, south Asian pop branch, hindu ritual devotional borgeet divya prabandham. thick, breath veiled tone, slow rate, interlocked note trading. indian rosewood rosewood copper tabla. kolkata dum dum EMI hmv 1928-present major-flagship kolkata hmv dum dum studio. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
   "recipe_chars": 390,
-  "score": 161.192,
+  "score": 159.94,
   "config": {
     "traditions": [
       "rabindra_sangeet",
@@ -38,7 +38,7 @@
           "voice_quality": 15.664999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 8.807500000000001,
+          "voice_vibrato": 8.755,
           "voice_articulation": 10.789999999999996,
           "voice_microtone": 10.594999999999994,
           "voice_tradition": 14.592500000000001,
@@ -46,8 +46,8 @@
           "voice_estill_quality": 8.49,
           "voice_speech_song": 14.429999999999996,
           "voice_ensemble_config": 12.414999999999996,
-          "voice_ornament_system": 13.395,
-          "voice_pitch_organization": 14.265,
+          "voice_ornament_system": 12.795,
+          "voice_pitch_organization": 13.665,
           "voice_processing_chain": 4.53,
           "voice_multitrack_stack": 5.069999999999999
         }

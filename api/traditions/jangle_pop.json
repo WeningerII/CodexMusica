@@ -5,7 +5,7 @@
   "lineage": "1980s indie genre extending the 1960s Byrds twelve-string-electric chimey-guitar sound — codified through R.E.M. (the Athens Georgia voice, Murmur 1983, Reckoning 1984, Fables of the Reconstruction 1985), The dB s, the Smiths (the UK parallel canon, with Johnny Marrs Rickenbacker arpeggios over Morrisseys baritone), the Replacements early period, the Feelies, Game Theory, and the broader Paisley Underground Los Angeles scene (Dream Syndicate, Rain Parade, Three OClock); foundational sound: chiming Rickenbacker 12-string-electric over driving rhythm-section and melodic vocal hooks",
   "recipe": "classic North American mid-1980s jangle pop, functional Song, pop rock branch, alternative distorted rock modern indie rock bedroom pop. thick, breath veiled tone, straight note core, interlocked note trading. vox ac amp British 60s amp top boost chime rotosound toaster twelve string electric, marshall plexi amp British rock amp clean strummed single coil electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 694,
-  "score": 384.67,
+  "score": 360.785,
   "config": {
     "traditions": [
       "jangle_pop",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 36.505000000000024,
+          "voice_register": 34.00500000000001,
           "voice_quality": 19.955,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 5.025,
           "voice_articulation": 11.504999999999995,
-          "voice_microtone": 34.42500000000001,
-          "voice_tradition": 19.619999999999997,
+          "voice_microtone": 31.925000000000004,
+          "voice_tradition": 16.919999999999998,
           "voice_mechanism_compound": 3.1200000000000006,
           "voice_estill_quality": 1.885,
           "voice_speech_song": 14.689999999999994,
           "voice_ensemble_config": 13.519999999999992,
           "voice_ornament_system": 0.9999999999999998,
           "voice_pitch_organization": 4.1275,
-          "voice_processing_chain": 6.825,
-          "voice_multitrack_stack": 12.057499999999997
+          "voice_processing_chain": 5.785,
+          "voice_multitrack_stack": 9.3925
         }
       },
       {
@@ -63,7 +63,7 @@
           "twelve_string_electric_pickup": "twelve_string_toaster_rick"
         },
         "scores": {
-          "electric_technique": 19.164999999999996,
+          "electric_technique": 17.915,
           "amp_make": 4.69,
           "twelve_string_electric_model": 7.185000000000001,
           "twelve_string_electric_context": 15.014999999999997,
@@ -88,18 +88,18 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 19.164999999999996,
-          "amp_make": 10.27,
+          "electric_technique": 17.915,
+          "amp_make": 9.62,
           "body_wood": 0.845,
           "neck_wood": 0.845,
           "fretboard": 0.78,
           "pickup_magnet": 0.195,
           "string_material": 0.15,
           "string_gauge": 0.845,
-          "bridge": 0.65,
+          "bridge": 0.195,
           "scale_length": 0.845,
           "finish": 0,
-          "string_tuning": 12.870000000000001
+          "string_tuning": 12.22
         }
       },
       {
@@ -114,13 +114,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 10.27,
+          "amp_make": 9.62,
           "body_wood": 0.845,
-          "pickup_config": 2.34,
-          "string_type": 26.325,
+          "pickup_config": 1.69,
+          "string_type": 24.7,
           "scale_length_b": 0.845,
           "fretted_or_not": 0.105,
-          "bass_technique": 19.2
+          "bass_technique": 17.95
         }
       },
       {
@@ -131,8 +131,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 19.25,
-          "drumhead": 16.82,
+          "drum_technique": 18,
+          "drumhead": 14.27,
           "drum_kit_kick_pedal": 0
         }
       }

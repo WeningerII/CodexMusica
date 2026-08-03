@@ -5,7 +5,7 @@
   "lineage": "Venetian Carnevale tradition documented from medieval-Venetian Carnival celebration (the documented Venetian-Carnevale lineage extends to 11th-12th-century with the canonical post-1268 Doge-mandated Giovedi Grasso celebration) through 18th-century peak-Carnevale era through 1797-Napoleonic suppression through 1979 modern-revival into modern Venice Carnevale continuous practice",
   "recipe": "classic Southern European late-1260s venetian carnevale, carnival Processional, European branch, American south carnival processional, European wedding, Mediterranean ballad ballad poetry croatian klapa dalmatian close-harmony new orleans brass band second-line. thick, breath veiled tone, straight onset, interlocked note trading. cedar concert modern carbon fiber classical nylon-string guitar, synthetic magic rosin modern acrylic base drone like fiddle, grenadilla African blackwood modern premium continuous-airflow legato recorder. outdoor dalmatian square. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 626,
-  "score": 213.237,
+  "score": 211.288,
   "config": {
     "traditions": [
       "venice_carnevale",
@@ -35,7 +35,7 @@
         },
         "scores": {
           "voice_register": 1.9200000000000002,
-          "voice_quality": 19.889999999999997,
+          "voice_quality": 19.239999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 8.284999999999998,
@@ -48,8 +48,8 @@
           "voice_ensemble_config": 20.215,
           "voice_ornament_system": 4.465,
           "voice_pitch_organization": 7.265000000000001,
-          "voice_processing_chain": 8.385000000000002,
-          "voice_multitrack_stack": 6.305000000000001
+          "voice_processing_chain": 7.735000000000001,
+          "voice_multitrack_stack": 5.655000000000001
         }
       },
       {

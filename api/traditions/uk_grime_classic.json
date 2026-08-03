@@ -5,7 +5,7 @@
   "lineage": "East London hip-hop subgenre emerging in early 2000s from convergence of UK garage, jungle, and dancehall into a new aggressive-and-MC-led genre operating at 140 BPM. Wiley (the \"Godfather of Grime\") inaugurated the sound through Eskimo Sound (2002); Dizzee Rascal's Boy in da Corner (2003 Mercury Prize winner) brought the genre mainstream visibility. Skepta, Kano, Lethal Bizzle, JME, and the Boy Better Know crew anchor the canonical 2000s-2010s roster.",
   "recipe": "classic British uk grime, mc Rhythm, intl hip hop branch, bass descendants bass system broken beat future bass. thick, breath veiled tone, straight onset, interlocked note trading. TR-808, sub bass analog synth. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 430,
-  "score": 190.467,
+  "score": 182.482,
   "config": {
     "traditions": [
       "uk_grime_classic",
@@ -41,15 +41,15 @@
           "voice_vibrato": 5.004999999999999,
           "voice_articulation": 14.169999999999996,
           "voice_microtone": 14.819999999999993,
-          "voice_tradition": 8.555,
+          "voice_tradition": 7.994999999999999,
           "voice_mechanism_compound": 1.2899999999999998,
           "voice_estill_quality": 1.8525,
           "voice_speech_song": 14.169999999999996,
           "voice_ensemble_config": 14.104999999999995,
           "voice_ornament_system": 2.8600000000000003,
           "voice_pitch_organization": 5.7200000000000015,
-          "voice_processing_chain": 9.619999999999997,
-          "voice_multitrack_stack": 13.694999999999999
+          "voice_processing_chain": 8.369999999999997,
+          "voice_multitrack_stack": 12.294999999999998
         }
       },
       {
@@ -60,8 +60,8 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 13.519999999999998,
-          "drum_machine_808_context": 8.059999999999999,
+          "tr808_voice": 12.869999999999997,
+          "drum_machine_808_context": 7.409999999999999,
           "tr808_production_origin": 0.845
         }
       },
@@ -75,9 +75,9 @@
           "modulation": "lfo_pitch"
         },
         "scores": {
-          "electronic_technique": 13.389999999999997,
-          "oscillator": 8.059999999999999,
-          "filter_topology": 12.155,
+          "electronic_technique": 12.739999999999997,
+          "oscillator": 7.409999999999999,
+          "filter_topology": 10.855,
           "envelope": 0.495,
           "modulation": 0
         }

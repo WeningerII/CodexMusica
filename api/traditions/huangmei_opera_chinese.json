@@ -5,7 +5,7 @@
   "lineage": "Huangmei opera (Huangmei xi) Chinese regional opera tradition originating in the late nineteenth century in the Huangmei county of Hubei province and developing through the early-twentieth century in Anhui province (especially Anqing region) into one of the five major Chinese opera traditions. Distinguished from the elite kunqu and jingju by accessible vernacular Anhui-and-Hubei dialect language, simple rural-folk melodic vocabulary (developed from tea-picking and rice-planting work songs), and more naturalistic theatrical-realism in staging. The Tianxianpei (\"Heavenly Match\") play is the canonical type-specimen. The post-1949 Anhui Provincial Huangmei Opera Theatre consolidated the modern repertoire.",
   "recipe": "classic Southeast Asian late-1940s huangmei opera, art Music, east Asian branch, east Asian Cantonese opera. thick, pressed, slow rate, interlocked note trading. python skin silk canonical traditional sanxian, silk red sandalwood zitan premium pipa, composite material paulownia canonical Korean horse dog asymmetric canonical Korean pansori godo janggu. wooden pagoda hall. large-diaphragm condenser, German V72 tube pre, German tube console, broadcast loudness EQ. tape 15ips hall reverb.",
   "recipe_chars": 490,
-  "score": 265.354,
+  "score": 258.804,
   "config": {
     "traditions": [
       "huangmei_opera_chinese",
@@ -34,19 +34,19 @@
         },
         "scores": {
           "voice_register": 5.618,
-          "voice_quality": 18.124999999999996,
+          "voice_quality": 17.374999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 6.695,
           "voice_articulation": 12.869999999999996,
           "voice_microtone": 14.364999999999995,
-          "voice_tradition": 29.718500000000002,
+          "voice_tradition": 29.471,
           "voice_mechanism_compound": 4.4,
-          "voice_estill_quality": 33.9985,
-          "voice_speech_song": 30.4045,
+          "voice_estill_quality": 32.196,
+          "voice_speech_song": 29.1545,
           "voice_ensemble_config": 15.079999999999995,
-          "voice_ornament_system": 29.947499999999998,
-          "voice_pitch_organization": 14.288999999999994,
+          "voice_ornament_system": 28.697499999999998,
+          "voice_pitch_organization": 13.038999999999994,
           "voice_processing_chain": 4.01675,
           "voice_multitrack_stack": 4.57325
         }

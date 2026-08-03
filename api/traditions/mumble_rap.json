@@ -5,7 +5,7 @@
   "lineage": "Mid-2010s Atlanta-and-Florida hip-hop subgenre characterized by sing-song melodic vocal delivery, slurred-and-melodic flow, autotune-saturated treatment, and emotional lyrical content — codified through Future (Dirty Sprite 2 2015, FUTURE 2017), Young Thug (Barter 6 2015), Migos (Culture 2017), Lil Uzi Vert (Luv Is Rage 2 2017), Playboi Carti, with the form serving as the late-2010s mainstream rap evolution",
   "recipe": "classic Southern American 2014-2016 mumble rap, mc Rhythm, experimental branch, us hip hop southern plugg pluggnb. vocal fry, rap, straight note core, interlocked note trading. TR-808, pitched chopped sampler, sub bass digital subtractive. vocal booth isolated 2010-present mid-major atlanta trap commercial. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
   "recipe_chars": 433,
-  "score": 250.702,
+  "score": 249.102,
   "config": {
     "traditions": [
       "mumble_rap",
@@ -35,7 +35,7 @@
         },
         "scores": {
           "voice_register": 5.719999999999999,
-          "voice_quality": 21.91,
+          "voice_quality": 21.759999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 5.33,
@@ -60,7 +60,7 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 9.785,
+          "tr808_voice": 9.285,
           "drum_machine_808_context": 2.4699999999999998,
           "tr808_production_origin": 0.845
         }
@@ -75,9 +75,9 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 8.05,
+          "electronic_technique": 7.9,
           "sampler_archetypes": 11.7,
-          "sampler_bit_depth": 1.6649999999999998,
+          "sampler_bit_depth": 1.365,
           "sampler_workflow": 12.65,
           "sampler_classic_context": 24.569999999999997
         }
@@ -90,7 +90,7 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 15.305,
+          "electronic_technique": 14.805,
           "va_archetypes": 0.3,
           "digital_subtractive_context": 12.544999999999998
         }

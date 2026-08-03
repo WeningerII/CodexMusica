@@ -5,7 +5,7 @@
   "lineage": "Mid-2000s onward American extreme metal subgenre fusing death-metal's growl-vocal-and-blast-beat vocabulary with metalcore's breakdown-section conventions and pig-squeal / inhale-scream vocal techniques — codified through Suicide Silence (The Cleansing 2007), Whitechapel (This Is Exile 2008), Job for a Cowboy (Doom EP 2005), Carnifex, Despised Icon (The Healing Process 2005), Thy Art Is Murder",
   "recipe": "classic 2004-2006 deathcore, distorted Rock, death branch, thrash metal djent. thick, breath veiled tone, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, orange amp British heavy crunch alder ernie ball slinky electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 519,
-  "score": 366.64,
+  "score": 345.365,
   "config": {
     "traditions": [
       "deathcore",
@@ -31,19 +31,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 36.254999999999995,
-          "amp_make": 25.837499999999995,
-          "body_wood": 20.864999999999995,
-          "neck_wood": 4.615,
-          "fretboard": 4.55,
+          "electric_technique": 33.754999999999995,
+          "amp_make": 22.262499999999996,
+          "body_wood": 18.915,
+          "neck_wood": 3.965,
+          "fretboard": 3.9,
           "pickup_magnet": 2.73,
           "pickup_winding": 0.8449999999999999,
           "string_material": 0.845,
-          "bridge": 4.615,
-          "scale_length": 16.835,
-          "string_gauge": 5.46,
+          "bridge": 3.965,
+          "scale_length": 15.534999999999998,
+          "string_gauge": 4.81,
           "finish": 0.168,
-          "string_tuning": 22.944999999999997
+          "string_tuning": 21.644999999999996
         }
       },
       {
@@ -58,11 +58,11 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 8.06,
-          "body_wood": 6.11,
+          "amp_make": 7.41,
+          "body_wood": 5.46,
           "pickup_config": 1.8850000000000002,
           "string_type": 15.9885,
-          "scale_length_b": 4.615,
+          "scale_length_b": 3.965,
           "fretted_or_not": 0.845,
           "bass_technique": 16.14125
         }
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 13,
-          "drumhead": 5.525,
+          "drumhead": 4.875,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -105,18 +105,18 @@
           "voice_quality": 8.060000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.55,
+          "voice_vibrato": 3.9,
           "voice_articulation": 13.064999999999994,
           "voice_microtone": 13.78,
           "voice_tradition": 5.654999999999999,
-          "voice_mechanism_compound": 39.573499999999996,
+          "voice_mechanism_compound": 37.0735,
           "voice_estill_quality": 3.3020000000000005,
           "voice_speech_song": 14.039999999999994,
           "voice_ensemble_config": 13.064999999999994,
           "voice_ornament_system": 0.6499999999999999,
           "voice_pitch_organization": 1.2999999999999998,
-          "voice_processing_chain": 5.850000000000001,
-          "voice_multitrack_stack": 8.98325
+          "voice_processing_chain": 5.200000000000001,
+          "voice_multitrack_stack": 7.5832500000000005
         }
       }
     ],

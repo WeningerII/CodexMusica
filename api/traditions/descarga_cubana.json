@@ -5,7 +5,7 @@
   "lineage": "Cuban improvisational ensemble-form developed in 1950s Havana through after-hours jam sessions at Tropicana, Sans Souci, Habana Hilton hotel-clubs. Combines son montuno rhythmic framework with jazz-improvisational solos over canonical guajeo ostinato. Cachao y Su Ritmo Caliente sessions (1957, Israel \"Cachao\" López) are the foundational recorded document. Post-1960 exile to Miami and New York extended into broader Latin-jazz.",
   "recipe": "classic Caribbean mid-1950s descarga, improv On Frame, Latin jazz branch, American jazz fusion nu jazz / electro-jazz acid jazz. thick, breath veiled tone, straight onset, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator grand piano, growly gut upright bass, jazz leaning cedar canonical Cuban strummed tres cubano, bronze open slap hand drum timbales, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas. Cuban state recording 1962-present mid tier estudios areito havana. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 654,
-  "score": 391.606,
+  "score": 364.095,
   "config": {
     "traditions": [
       "descarga_cubana",
@@ -34,14 +34,14 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 39.70000000000002,
+          "voice_register": 35.95000000000001,
           "voice_quality": 5.525000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 36.658,
+          "voice_vibrato": 32.908,
           "voice_articulation": 9.099999999999998,
-          "voice_microtone": 37.35500000000001,
-          "voice_tradition": 45.159000000000006,
+          "voice_microtone": 33.605000000000004,
+          "voice_tradition": 40.299,
           "voice_mechanism_compound": 3.38,
           "voice_estill_quality": 4.203,
           "voice_speech_song": 9.554999999999998,
@@ -84,8 +84,8 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 37.50000000000001,
-          "upright_play": 37.50000000000001
+          "upright_strings": 33.75,
+          "upright_play": 33.75
         }
       },
       {
@@ -100,7 +100,7 @@
         "scores": {
           "plucked_traditional_technique": 5.85,
           "tres_courses": 4.095000000000001,
-          "tres_cubano_context": 19.5,
+          "tres_cubano_context": 17.55,
           "tres_cubano_body_wood": 6.065,
           "tres_cubano_strings": 0.063
         }
@@ -114,7 +114,7 @@
         },
         "scores": {
           "percussion_technique": 7.076999999999999,
-          "timbales_shell": 19.5,
+          "timbales_shell": 17.55,
           "timbales_context": 2.3
         }
       },

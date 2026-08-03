@@ -3,9 +3,9 @@
   "name": "Sadcore (early-1990s American melancholic confessional indie)",
   "family": "rock_punk",
   "lineage": "Early-1990s American indie subgenre adjacent-to-slowcore, with greater compositional-and-melodic-development and confessional-personal lyrical content. Red House Painters (1989-2001, Mark Kozelek), American Music Club, and (later) Kozelek's Sun Kil Moon project constitute the canonical roster. Distinguished from slowcore by sadcore's emphasis on songwriter-confessional content (vs slowcore's sound-texture-and-mood focus).",
-  "recipe": "classic Pacific Northwest sadcore, distorted Rock, alternative branch, anglo singer song confessional60s late-60s interior confessional songwriter 1960s greenwich village confessional folk. thick, incomplete closure resting, straight note core, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright basswood arpeggiated humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character mahogany ernie ball slinky electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit. regional commercial 1985-2005 mid-major pacnw commercial indie. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 744,
-  "score": 171.443,
+  "recipe": "classic Pacific Northwest sadcore, distorted Rock, alternative branch, anglo singer song confessional60s late-60s interior confessional songwriter 1960s greenwich village confessional folk. thick, incomplete closure resting, straight note core, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright basswood arpeggiated humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit. regional commercial 1985-2005 mid-major pacnw commercial indie. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 730,
+  "score": 163.219,
   "config": {
     "traditions": [
       "sadcore",
@@ -34,14 +34,14 @@
           "voice_multitrack_stack": "voice_multitrack_granular_texture"
         },
         "scores": {
-          "voice_register": 14.690999999999997,
-          "voice_quality": 23.3625,
+          "voice_register": 13.440999999999997,
+          "voice_quality": 20.1125,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 4.382,
           "voice_articulation": 8.385,
           "voice_microtone": 8.190000000000001,
-          "voice_tradition": 12.772499999999999,
+          "voice_tradition": 11.147499999999999,
           "voice_mechanism_compound": 2.925,
           "voice_estill_quality": 6.955000000000001,
           "voice_speech_song": 13.194999999999997,
@@ -71,16 +71,16 @@
         },
         "scores": {
           "electric_technique": 5.818,
-          "amp_make": 5.850000000000001,
+          "amp_make": 5.200000000000001,
           "body_wood": 1.69,
-          "neck_wood": 0.5947499999999999,
+          "neck_wood": 0.48974999999999996,
           "fretboard": 0.39,
           "pickup_magnet": 0.1365,
           "pickup_winding": 0.8114999999999999,
           "string_material": 0.39,
-          "bridge": 0.5947499999999999,
+          "bridge": 0.48974999999999996,
           "scale_length": 2.73,
-          "string_gauge": 0.5947499999999999,
+          "string_gauge": 0.48974999999999996,
           "finish": 0,
           "string_tuning": 4.875
         }
@@ -97,9 +97,9 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 7.3125,
-          "body_wood": 1.1894999999999998,
-          "pickup_config": 0.378,
+          "amp_make": 6.6625,
+          "body_wood": 0.9795,
+          "pickup_config": 0.273,
           "string_type": 4.875,
           "scale_length_b": 0.845,
           "fretted_or_not": 0.195,
@@ -110,12 +110,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "brushes_and_sticks",
-          "drumhead": "vintage_ambassador_drumhead",
+          "drumhead": "ec_pre_muffled_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
           "drum_technique": 8.905,
-          "drumhead": 2.0749999999999997,
+          "drumhead": 1.9065,
           "drum_kit_kick_pedal": 0
         }
       }

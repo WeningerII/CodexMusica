@@ -5,7 +5,7 @@
   "lineage": "Hasidic Jewish wordless-melody (niggun, plural niggunim) tradition sung at farbrengen celebratory gatherings, weddings, the Rebbes tisch (table), the third Shabbat meal (seudah shlishit), and post-prayer celebratory contexts across the major Hasidic dynastic courts — Lubavitch (Chabad), Breslov, Bobov, Modzitz (founded 1898, particularly known for its musical-niggun creativity), Vizhnitz, Ger, Satmar; sung communally with the inherited dynasty-specific niggun repertoire, often slow-contemplative accelerating to fast-ecstatic, accompanied by hand-clapping and table-thumping but without instruments on Shabbat or Yom Tov",
   "recipe": "classic Eastern European late-1890s hasidic niggun, ritual Devotional, Jewish branch, Sufi ritual devotional qawwali sufi inshad. vocal fry, declaimed, slow rate, interlocked note trading. a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody global traditional polyphonic choir ensemble. eastern european chassidic farbrengen. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 420,
-  "score": 181.053,
+  "score": 172.253,
   "config": {
     "traditions": [
       "hasidic_niggun",
@@ -35,18 +35,18 @@
         },
         "scores": {
           "voice_register": 1.6899999999999997,
-          "voice_quality": 22.859714285714283,
+          "voice_quality": 20.359714285714283,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 4.8395,
           "voice_articulation": 14.234999999999994,
-          "voice_microtone": 28.0615,
-          "voice_tradition": 34.95049999999999,
+          "voice_microtone": 26.8115,
+          "voice_tradition": 31.8005,
           "voice_mechanism_compound": 3.3799999999999994,
           "voice_estill_quality": 6.5975,
-          "voice_speech_song": 17.029999999999994,
+          "voice_speech_song": 16.379999999999995,
           "voice_ensemble_config": 12.284999999999995,
-          "voice_ornament_system": 19.324999999999996,
+          "voice_ornament_system": 18.074999999999996,
           "voice_pitch_organization": 5.830500000000001,
           "voice_processing_chain": 3.380000000000001,
           "voice_multitrack_stack": 1.8849999999999996

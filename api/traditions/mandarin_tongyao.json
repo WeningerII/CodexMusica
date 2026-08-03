@@ -5,7 +5,7 @@
   "lineage": "Mandarin-Chinese children's rhyme (童謠, tóngyáo) tradition continuous from premodern Chinese folk-play-song origins (the Shijing Book of Songs includes children's-rhyme apparatus from the 11th-7th-century-BCE Zhou-era) through imperial-Chinese continuous performance into modern continuous Mainland-Chinese-and-Taiwanese-and-Chinese-diaspora childhood-practice",
   "recipe": "classic East Asian modern mandarin tóngyáo, nursery Rhyme, east Asian branch, east Asian lullaby, European nursery rhyme, east Asian funeral lament mandarin yáolán qǔ japanese komoriuta. thick, breath veiled tone, straight note core, interlocked note trading. shanghai emi pathe 1930s. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 348,
-  "score": 142.181,
+  "score": 138.981,
   "config": {
     "traditions": [
       "mandarin_tongyao",
@@ -41,13 +41,13 @@
           "voice_vibrato": 3.1525,
           "voice_articulation": 9.489999999999998,
           "voice_microtone": 10.204999999999997,
-          "voice_tradition": 46.248125,
+          "voice_tradition": 45.598125,
           "voice_mechanism_compound": 1.4949999999999999,
           "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 16.834999999999994,
+          "voice_speech_song": 15.534999999999995,
           "voice_ensemble_config": 9.23,
           "voice_ornament_system": 9.540000000000001,
-          "voice_pitch_organization": 17.895624999999995,
+          "voice_pitch_organization": 16.645624999999995,
           "voice_processing_chain": 3.3150000000000004,
           "voice_multitrack_stack": 4.549999999999999
         }

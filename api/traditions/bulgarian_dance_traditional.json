@@ -5,7 +5,7 @@
   "lineage": "Bulgarian village dance tradition built on aksak additive odd-meter rhythms (7/8 rachenitsa, 9/8 devetorka, 11/8 kopanitsa, 13/8 from Shopluk region) — performed at village celebrations, weddings, and (post-1944) on the State Ensemble stage circuit; characteristic instrumentation: gaida (bulgarian bagpipe), kaval (rim-blown flute), tambura, accordion, gadulka (bowed lute)",
   "recipe": "classic Southern European mid-1940s bulgarian dance traditional, groove Percussion, Slavic bard ballad poetry, Mediterranean ballad ballad poetry berber ahidus and ahwash bulería. vocal fry, breath veiled tone, fast rate, interlocked note trading. plum canonical rhodope cane arundo donax single reed canonical bulgarian whole goatskin fleece outside canonical rhodope gaida bulgarian, plum canonical bulgarian kaval, horo dance driving strummed tambura balkan, leather castagnari Italian premium folk music accordion, gadulka, bolt tuned tapan. bulgarian state radio choir hall. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 702,
-  "score": 248.71,
+  "score": 242.61,
   "config": {
     "traditions": [
       "bulgarian_dance_traditional",
@@ -38,15 +38,15 @@
           "voice_quality": 13.194999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.8449999999999998,
-          "voice_articulation": 19.11,
-          "voice_microtone": 19.759999999999998,
+          "voice_vibrato": 1.3449999999999998,
+          "voice_articulation": 18.46,
+          "voice_microtone": 19.11,
           "voice_tradition": 17.485,
           "voice_mechanism_compound": 5.525,
-          "voice_estill_quality": 9.754999999999999,
-          "voice_speech_song": 21.255000000000003,
-          "voice_ensemble_config": 19.435000000000002,
-          "voice_ornament_system": 4.45,
+          "voice_estill_quality": 8.504999999999999,
+          "voice_speech_song": 20.605,
+          "voice_ensemble_config": 18.785,
+          "voice_ornament_system": 3.1999999999999997,
           "voice_pitch_organization": 1.4949999999999997,
           "voice_processing_chain": 5.1000000000000005,
           "voice_multitrack_stack": 3.575
@@ -131,7 +131,7 @@
         "scores": {
           "bowed_technique": -0.05,
           "gadulka_form": 9.7,
-          "gadulka_repertoire": 10.799999999999999,
+          "gadulka_repertoire": 10.299999999999999,
           "gadulka_body": 0.7949999999999999
         }
       },

@@ -5,7 +5,7 @@
   "lineage": "Mid-2010s vaporwave-derived electronic subgenre integrating French house, disco, and Japanese city-pop sampling into accessible, uplifting dance-music. Saint Pepsi (later Skylar Spence), Yung Bae, Macross 82-99, and the broader Business Casual and Local Business label rosters anchor the canonical future funk aesthetic. Distinguished from broader vaporwave by future funk's explicit dance-functional and uplifting (vs vaporwave's ironic-melancholic) emotional register.",
   "recipe": "classic 2014-2016 future funk, groove Percussion, funk percussive branch, east Asian pop functional song, ambient experimental electric enka k-indie. thick, breath veiled tone, slow rate, interlocked note trading. TR-808, fast decay focused low lead analog synth, mahogany ernie ball slinky electric bass. no single room 2015-present distributed distributed production. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 468,
-  "score": 248.565,
+  "score": 247.12,
   "config": {
     "traditions": [
       "future_funk_vaporwave",
@@ -46,7 +46,7 @@
           "voice_estill_quality": 2.34,
           "voice_speech_song": 24.895000000000003,
           "voice_ensemble_config": 20.085000000000004,
-          "voice_ornament_system": 6.175000000000001,
+          "voice_ornament_system": 4.925000000000001,
           "voice_pitch_organization": 3.7375000000000007,
           "voice_processing_chain": 14.909999999999998,
           "voice_multitrack_stack": 9.847500000000002
@@ -62,7 +62,7 @@
         "scores": {
           "tr808_voice": 0.24,
           "drum_machine_808_context": 5.882499999999999,
-          "tr808_production_origin": 0.345
+          "tr808_production_origin": 0.195
         }
       },
       {
@@ -87,7 +87,7 @@
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
-          "pickup_config": "soapbar",
+          "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
@@ -96,7 +96,7 @@
         "scores": {
           "amp_make": 2.4699999999999998,
           "body_wood": 2.535,
-          "pickup_config": 0.24,
+          "pickup_config": 0.195,
           "string_type": 5.1,
           "scale_length_b": 2.2800000000000002,
           "fretted_or_not": 1.5,

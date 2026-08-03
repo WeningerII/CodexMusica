@@ -3,9 +3,9 @@
   "name": "Progressive metal",
   "family": "global",
   "lineage": "Metal-prog-rock hybrid subgenre codified through Queensrÿche (Operation: Mindcrime 1988), Fates Warning (Awaken the Guardian 1986), Dream Theater (Images and Words 1992), Symphony X, and Watchtower; characterized by operatic-clean-vocal performances, virtuosic-twin-guitar lead lines, complex multi-meter compositions, and the conceptual-album / fantasy-narrative lyrical subject-matter tradition",
-  "recipe": "classic North American late-1980s progressive metal, distorted Rock, prog branch, American jazz fusion acid jazz nu jazz / electro-jazz. thick, breath veiled tone, straight onset, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, roland jupiter lineage canonical jupiter 8 1981 osaka analog poly synth. treated studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 734,
-  "score": 428.102,
+  "recipe": "classic North American late-1980s progressive metal, distorted Rock, prog branch, American jazz fusion acid jazz nu jazz / electro-jazz. thick, breath veiled tone, straight onset, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright basswood maple humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, roland jupiter lineage canonical jupiter 8 1981 osaka analog poly synth. treated studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 700,
+  "score": 396.153,
   "config": {
     "traditions": [
       "progressive_metal_classic",
@@ -34,14 +34,14 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 36.445000000000014,
+          "voice_register": 32.69500000000001,
           "voice_quality": 3.770000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 25.961875000000003,
+          "voice_vibrato": 22.211875000000003,
           "voice_articulation": 14.429999999999994,
-          "voice_microtone": 33.91812500000001,
-          "voice_tradition": 31.20562500000001,
+          "voice_microtone": 30.168125,
+          "voice_tradition": 26.555625,
           "voice_mechanism_compound": 14.389374999999996,
           "voice_estill_quality": 4.45875,
           "voice_speech_song": 15.274999999999995,
@@ -56,7 +56,7 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_power_chord",
-          "amp_make": "amp_mesa_dual_rectifier",
+          "amp_make": "amp_american_fender_blackface",
           "body_wood": "basswood_h",
           "neck_wood": "maple_neck_h",
           "fretboard": "pau_ferro_fb_h",
@@ -71,18 +71,18 @@
         },
         "scores": {
           "electric_technique": 16.445,
-          "amp_make": 9.488125,
-          "body_wood": 8.133125,
+          "amp_make": 8.758125,
+          "body_wood": 8.076875,
           "neck_wood": 1.2349999999999999,
           "fretboard": 1.2349999999999999,
           "pickup_magnet": 0.3,
           "pickup_winding": 0.313125,
           "string_material": 1.2349999999999999,
           "bridge": 0.313125,
-          "scale_length": 9.305,
+          "scale_length": 9.24875,
           "string_gauge": 0.66375,
           "finish": 0,
-          "string_tuning": 14.108125
+          "string_tuning": 13.901875
         }
       },
       {
@@ -100,10 +100,10 @@
           "amp_make": 9.55875,
           "body_wood": 0.4125,
           "pickup_config": 0.39,
-          "string_type": 30.97500000000001,
+          "string_type": 26.325,
           "scale_length_b": 0.3,
           "fretted_or_not": 0.305625,
-          "bass_technique": 24.750000000000007
+          "bass_technique": 21
         }
       },
       {
@@ -114,8 +114,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 38.80499999999999,
-          "drumhead": 30.925000000000004,
+          "drum_technique": 36.855,
+          "drumhead": 26.275000000000002,
           "drum_kit_kick_pedal": 0
         }
       },

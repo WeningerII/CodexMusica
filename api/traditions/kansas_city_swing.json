@@ -3,9 +3,9 @@
   "name": "Kansas City swing",
   "family": "jazz",
   "lineage": "1930s-40s Kansas City African-American big-band swing tradition (Count Basie, Bennie Moten, Mary Lou Williams, Lester Young, Charlie Parker) built on blues-frame riff-foreground structure and head arrangements rather than pre-written scores",
-  "recipe": "classic North American mid-1930s kansas city swing, improv On Frame, kansas city branch, American jazz early, American jazz bop, American jazz boogie woogie new orleans jazz boogie-woogie. thick, blues-shouter, straight onset, interlocked note trading. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, red brass 90 10 darkest bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, red brass 90 10 darker orchestral bach 42 canonical American orchestral tenor front line student commercial trombone, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. voluminous 1935-1955 major-flagship swing live room. passive ribbon, tube pre, German tube console. Studer 30ips tape.",
-  "recipe_chars": 873,
-  "score": 597.582,
+  "recipe": "classic North American mid-1930s kansas city swing, improv On Frame, kansas city branch, American jazz early, American jazz bop, American jazz boogie woogie new orleans jazz boogie-woogie. thick, blues-shouter, straight onset, interlocked note trading. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, red brass 90 10 darkest bach stradivarius 180 canonical American orchestral jazz balance trumpet, red brass 90 10 darker orchestral bach 42 canonical American orchestral tenor student commercial trombone, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. voluminous 1935-1955 major-flagship swing live room. passive ribbon, tube pre, German tube console. Studer 30ips tape.",
+  "recipe_chars": 851,
+  "score": 573.779,
   "config": {
     "traditions": [
       "kansas_city_swing",
@@ -28,10 +28,10 @@
           "wind_articulation": 2.405,
           "sax_size": 2.1449999999999996,
           "sax_reed": 0.645,
-          "sax_body_alloy": 25.425624999999997,
+          "sax_body_alloy": 24.175624999999997,
           "sax_mouthpiece": 0.945,
-          "sax_technique": 25.374999999999996,
-          "sax_maker_school": 32.486749999999994
+          "sax_technique": 24.124999999999996,
+          "sax_maker_school": 30.456749999999996
         }
       },
       {
@@ -46,11 +46,11 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 3.63375,
+          "wind_articulation": 2.88375,
           "brass_size": 0.945,
-          "trumpet_mouthpiece": 31.951749999999997,
-          "brass_mute": 0.8306249999999998,
-          "trumpet_technique": 3.63375,
+          "trumpet_mouthpiece": 29.921749999999996,
+          "brass_mute": 0.6806249999999998,
+          "trumpet_technique": 2.88375,
           "trumpet_bell_metal": 1.235,
           "trumpet_maker_school": 12.09
         }
@@ -67,9 +67,9 @@
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 3.63375,
-          "trombone_type": 25.374999999999996,
-          "trombone_mouthpiece": 25.519999999999996,
+          "wind_articulation": 2.88375,
+          "trombone_type": 24.124999999999996,
+          "trombone_mouthpiece": 24.269999999999996,
           "trombone_mute": 0,
           "trombone_technique": 1.17,
           "trombone_bell_metal": 1.235,
@@ -90,9 +90,9 @@
           "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": 9.485,
+          "keyboard_technique": 8.234999999999998,
           "grand_piano_size": 0.195,
-          "grand_piano_brand": 1.17,
+          "grand_piano_brand": 1.11375,
           "piano_hammer": 11.83,
           "piano_rim": 14.95,
           "piano_soundboard": 2.9646250000000003,
@@ -108,8 +108,8 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 25.374999999999996,
-          "upright_play": 25.374999999999996
+          "upright_strings": 24.124999999999996,
+          "upright_play": 24.124999999999996
         }
       },
       {
@@ -120,8 +120,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 31.52499999999999,
-          "drumhead": 31.931749999999994,
+          "drum_technique": 30.87499999999999,
+          "drumhead": 29.901749999999996,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -146,21 +146,21 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 42.00350000000001,
+          "voice_register": 40.75350000000001,
           "voice_quality": 25.93512499999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 24.688999999999997,
+          "voice_vibrato": 23.438999999999997,
           "voice_articulation": 19.109999999999992,
-          "voice_microtone": 26.028124999999992,
-          "voice_tradition": 33.539125,
+          "voice_microtone": 24.759374999999995,
+          "voice_tradition": 31.509124999999994,
           "voice_mechanism_compound": 1.56,
           "voice_estill_quality": 1.8849999999999993,
           "voice_speech_song": 19.75999999999999,
           "voice_ensemble_config": 18.39499999999999,
           "voice_ornament_system": 0.9749999999999996,
           "voice_pitch_organization": 2.6650000000000005,
-          "voice_processing_chain": 5.459999999999999,
+          "voice_processing_chain": 5.4014999999999995,
           "voice_multitrack_stack": 1.1049999999999995
         }
       }

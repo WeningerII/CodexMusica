@@ -3,9 +3,9 @@
   "name": "Doo-wop",
   "family": "blues_gospel",
   "lineage": "Late-1940s through early-1960s African-American (originally) and Italian-American (East Coast urban) vocal-harmony group teen-pop R&B tradition built on the I-vi-IV-V chord cycle and non-lexical vocal syllables (shooby-doo-wop) — the Orioles, the Ravens, the Five Satins, the Penguins (Earth Angel, 1954), the Platters, Frankie Lymon and the Teenagers (Why Do Fools Fall in Love, 1956)",
-  "recipe": "classic North American 1947-1949 doo-wop, functional Song, doowop branch, christian gospel jubilee quartet, pop rock functional song 1960s girl group new wave. thick, breath veiled tone, breath pulsed, interlocked note trading. choir doo wop group, block chord upright piano, Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, upright bass, tenor selmer mark vi canonical 1954 1974 jazz paris ensemble honking attack saxophone, pre muffled edge muffled brushes-and-sticks drum kit, khoisan click articulated song syllables vocal percussion solo lead vocal percussion voice. eleventh floor office converted studio 1947-1976 mid tier atlantic studios nyc. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 803,
-  "score": 453.685,
+  "recipe": "classic North American 1947-1949 doo-wop, functional Song, doowop branch, christian gospel jubilee quartet, pop rock functional song 1960s girl group new wave. thick, breath veiled tone, straight onset, interlocked note trading. choir doo wop group, block chord upright piano, Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, upright bass, tenor selmer mark vi canonical 1954 1974 jazz paris ensemble honking attack saxophone, pre muffled edge muffled brushes-and-sticks drum kit, khoisan click articulated song syllables vocal percussion solo lead vocal percussion voice. eleventh floor office converted studio 1947-1976 mid tier atlantic studios nyc. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 804,
+  "score": 451.667,
   "config": {
     "traditions": [
       "doo_wop",
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "diaphragm_vibrato",
+          "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
@@ -38,7 +38,7 @@
           "voice_quality": 35.880000000000024,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.5999999999999996,
+          "voice_vibrato": 1.9825000000000002,
           "voice_articulation": 23.139999999999993,
           "voice_microtone": 34.800000000000004,
           "voice_tradition": 27.689999999999998,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 2.4000000000000004,
           "voice_pitch_organization": 2.835000000000001,
           "voice_processing_chain": 10.931249999999999,
-          "voice_multitrack_stack": 13.250624999999996
+          "voice_multitrack_stack": 11.850624999999997
         }
       },
       {

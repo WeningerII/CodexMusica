@@ -5,7 +5,7 @@
   "lineage": "African-American vernacular work-song tradition of the agricultural and prison-labor south — including field hollers (solo melismatic vocal under physical labor), call-and-response group work songs (cotton-chopping, railroad-tie-laying, levee-construction), and the related prison work-song tradition documented at Mississippi State Penitentiary at Parchman Farm and Louisiana State Penitentiary at Angola through Alan Lomax's field-recording campaigns of the 1930s-40s",
   "recipe": "classic North American mid-1930s field hollers and work songs, ballad Poetry, work song branch, vocal drone modal, American sacred ritual devotional southern sámi vuelie sámi yoik. vocal fry, breath veiled tone, wide pitch sway, interlocked note trading. open air. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 359,
-  "score": 172.873,
+  "score": 172.222,
   "config": {
     "traditions": [
       "work_songs_hollers",
@@ -46,7 +46,7 @@
           "voice_estill_quality": 3.705,
           "voice_speech_song": 25.35,
           "voice_ensemble_config": 19.369999999999997,
-          "voice_ornament_system": 8.58,
+          "voice_ornament_system": 7.930000000000001,
           "voice_pitch_organization": 3.2175000000000007,
           "voice_processing_chain": 6.5,
           "voice_multitrack_stack": 7.475

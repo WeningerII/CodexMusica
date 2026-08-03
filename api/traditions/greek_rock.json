@@ -5,7 +5,7 @@
   "lineage": "Greek-language rock music developed from 1960s onward, integrating Greek-laiko and rebetiko folk-music influences with broader Western rock vocabulary. The 1960s Pavlos Sidiropoulos and Stamatis Spanoudakis era inaugurated the form; the 1980s-90s \"Greek rock\" wave through Magic de Spell, Trypes, Tripes, Pyx Lax, and the broader post-1981 Athens scene consolidated commercial visibility. Distinguished by Greek-language lyrics and frequent integration of bouzouki/baglamas folk-instruments into rock contexts.",
   "recipe": "classic Southern European mid-1960s greek rock, distorted Rock, regional branch, chanson fado Greek entechno greek éntechno. thick, breath veiled tone, slow rate, interlocked note trading. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, kevlar aramid extreme tension sticks backbeat drum kit, strummed baglamas, walnut staves canonical Greek strummed bouzouki. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 636,
-  "score": 301.346,
+  "score": 297.918,
   "config": {
     "traditions": [
       "greek_rock",
@@ -40,15 +40,15 @@
           "voice_vibrato": 2.46625,
           "voice_articulation": 8.515,
           "voice_microtone": 23.404999999999998,
-          "voice_tradition": 39.327000000000005,
+          "voice_tradition": 38.07699999999999,
           "voice_mechanism_compound": 3.575,
-          "voice_estill_quality": 2.9825000000000004,
+          "voice_estill_quality": 2.9450000000000003,
           "voice_speech_song": 12.772499999999997,
           "voice_ensemble_config": 8.45,
           "voice_ornament_system": 2.5999999999999996,
           "voice_pitch_organization": 3.0550000000000006,
           "voice_processing_chain": 3.6577500000000005,
-          "voice_multitrack_stack": 6.540750000000001
+          "voice_multitrack_stack": 6.4357500000000005
         }
       },
       {
@@ -99,7 +99,7 @@
           "amp_make": 9.945,
           "body_wood": 0,
           "pickup_config": 0,
-          "string_type": 23.564,
+          "string_type": 22.829,
           "scale_length_b": 0.063,
           "fretted_or_not": 0.1365,
           "bass_technique": 19.2315
@@ -130,7 +130,7 @@
         "scores": {
           "plucked_traditional_technique": 8.0345,
           "baglamas_config": 0.845,
-          "baglamas_context": 12.489999999999998,
+          "baglamas_context": 11.84,
           "baglamas_body_wood": 0.65,
           "baglamas_strings": 0.06500000000000011
         }
@@ -148,7 +148,7 @@
           "plucked_traditional_technique": 8.0345,
           "bouzouki_courses": 3.6694999999999998,
           "bouzouki_pick": 0.845,
-          "bouzouki_body_wood": 12.6655,
+          "bouzouki_body_wood": 12.0155,
           "bouzouki_strings": 0.37050000000000005
         }
       }

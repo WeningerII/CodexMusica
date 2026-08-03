@@ -5,7 +5,7 @@
   "lineage": "Early-1990s UK electronic subgenre developed in 1990-1993 London through synthesis of Belgian new-beat, Detroit techno, and US house with chopped-Amen-break percussion, ragga-MC vocal-sampling, and rapidly-accelerating tempo (138-150 BPM and rising toward jungle's 170+). The 1991 Acen \"Trip to the Moon\", 1992 SL2 \"On a Ragga Tip\", and the broader Production House and Suburban Base label rosters consolidated the canonical sound. Direct ancestor of jungle and drum-and-bass.",
   "recipe": "classic British 1990-1993 uk hardcore, bass System, bass descendants branch, eurodance electronic dance freestyle music hi-nrg. thick, breath veiled tone, straight note core, interlocked note trading. TR-808, chopped sampler, low sub bass analog synth. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 471,
-  "score": 248.08,
+  "score": 246.822,
   "config": {
     "traditions": [
       "uk_hardcore_breakbeat",
@@ -38,7 +38,7 @@
           "voice_quality": 10.789999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.9215,
+          "voice_vibrato": 2.9899999999999998,
           "voice_articulation": 19.044999999999998,
           "voice_microtone": 18.264999999999997,
           "voice_tradition": 6.142499999999999,
@@ -76,7 +76,7 @@
         },
         "scores": {
           "electronic_technique": 2.05475,
-          "sampler_archetypes": 2.3725,
+          "sampler_archetypes": 2.29675,
           "sampler_bit_depth": 0.7149999999999999,
           "sampler_workflow": 11.054749999999999,
           "sampler_classic_context": 35.035000000000004

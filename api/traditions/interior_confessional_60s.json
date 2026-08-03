@@ -3,9 +3,9 @@
   "name": "Late-60s interior confessional songwriter",
   "family": "global",
   "lineage": "Late-1960s confessional pop-folk songwriter tradition with intimate first-person lyrical subject matter — Leonard Cohen Songs of Leonard Cohen (1967), James Taylor James Taylor (1968, Apple Records), Joni Mitchell Song to a Seagull (1968) and Clouds (1969), Nick Drake Five Leaves Left (1969), Carole King Tapestry (1971)",
-  "recipe": "classic North American 1967-1969 late-60s interior confessional songwriter, ballad Poetry, 60s confessional, American jazz smooth vocal cool jazz vocal modern vocal jazz. thick, incomplete closure resting, straight onset, interlocked note trading. flatwound thomastik fingerpicked acoustic guitar, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. charlie chaplin studio lot 1966-1999 major-flagship a and m studios hollywood. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 599,
-  "score": 160.005,
+  "recipe": "classic North American 1967-1969 late-60s interior confessional songwriter, ballad Poetry, 60s confessional, American jazz smooth vocal cool jazz vocal modern vocal jazz. thick, incomplete closure resting, straight onset, interlocked note trading. flatwound thomastik fingerpicked acoustic guitar, cold pressed wurzen felt birch laminated maple laminated Asian spruce grand piano. charlie chaplin studio lot 1966-1999 major-flagship a and m studios hollywood. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 591,
+  "score": 135.795,
   "config": {
     "traditions": [
       "interior_confessional_60s",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 17.1405,
-          "voice_quality": 9.4,
+          "voice_register": 14.640499999999998,
+          "voice_quality": 8.65,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 16.7445,
+          "voice_vibrato": 13.5945,
           "voice_articulation": 2.275,
-          "voice_microtone": 14.799999999999997,
-          "voice_tradition": 14.945,
+          "voice_microtone": 12.299999999999997,
+          "voice_tradition": 11.995,
           "voice_mechanism_compound": 2.0204999999999997,
           "voice_estill_quality": 2.9560000000000004,
           "voice_speech_song": 5.98,
-          "voice_ensemble_config": 6.305,
+          "voice_ensemble_config": 5.005,
           "voice_ornament_system": 1.755,
           "voice_pitch_organization": 0.195,
-          "voice_processing_chain": 6.305,
-          "voice_multitrack_stack": 6.434999999999999
+          "voice_processing_chain": 5.005,
+          "voice_multitrack_stack": 5.135
         }
       },
       {
@@ -65,8 +65,8 @@
           "string_tuning": 0,
           "top_wood": 0.195,
           "back_sides": 0.195,
-          "string_acoustic": 6.5,
-          "acoustic_om_technique": 14.621999999999998
+          "string_acoustic": 5.2,
+          "acoustic_om_technique": 13.871999999999998
         }
       },
       {
@@ -75,7 +75,7 @@
           "keyboard_technique": "keyboard_block_chord_pop",
           "grand_piano_size": "grand_7_foot",
           "grand_piano_brand": "bosendorfer",
-          "piano_hammer": "japanese_1980s_hammer",
+          "piano_hammer": "ronsen_wurzen_hammer",
           "piano_rim": "asian_laminated_rim_birch_maple",
           "piano_soundboard": "asian_spruce_soundboard",
           "piano_pinblock": "asian_multi_laminate_pinblock",
@@ -86,12 +86,12 @@
           "keyboard_technique": 5.05,
           "grand_piano_size": 0.39,
           "grand_piano_brand": 0.39,
-          "piano_hammer": 3.8,
-          "piano_rim": 6.4725,
-          "piano_soundboard": 5,
-          "piano_pinblock": 2.5,
-          "piano_plate": 2.5,
-          "piano_pitch_standard": 3.509
+          "piano_hammer": 3.6399999999999997,
+          "piano_rim": 5.2225,
+          "piano_soundboard": 3.75,
+          "piano_pinblock": 1.25,
+          "piano_plate": 1.25,
+          "piano_pitch_standard": 2.259
         }
       }
     ],

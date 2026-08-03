@@ -5,7 +5,7 @@
   "lineage": "Romanian doina free-rhythm extended-melismatic lament-and-pastoral solo vocal-or-instrumental tradition of Romania and Moldova. Performance: solo unaccompanied voice (or solo violin, solo wooden-flute caval, or solo wooden-clarinet) in characteristic free-rhythm parlando-rubato style with extensive ornamental-melismatic figuration on long vowels. The doina has multiple regional sub-traditions: doină de jale (lament-doina), doină ciobănească (shepherd-doina), doină haiducească (outlaw-doina), and doină de dragoste (love-doina), each with characteristic regional intonation conventions. Distinguished from broader Romanian folk-song by doina's strict free-rhythm extended-melismatic structural requirement.",
   "recipe": "classic Southern European early-1890s romanian doina, ballad Poetry, med east poetic branch, vocal drone modal armenian duduk-accompanied chant skolt sámi leuʹdd. vocal fry, breath veiled tone, slow rate, interlocked note trading. silver wound lamb gut core sitka spruce hard rock maple acer saccharum violin orchestral, softer tone ebonite hard rubber klezmer tradition clarinet, rubato free rhythm cobza, rubato glissando nai romanian. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. acoustic horn. wax cylinder.",
   "recipe_chars": 557,
-  "score": 336.155,
+  "score": 336.005,
   "config": {
     "traditions": [
       "romanian_doina",
@@ -46,7 +46,7 @@
           "voice_estill_quality": 9.165,
           "voice_speech_song": 19.239999999999995,
           "voice_ensemble_config": 20.409999999999997,
-          "voice_ornament_system": 16.814999999999994,
+          "voice_ornament_system": 16.664999999999996,
           "voice_pitch_organization": 5.939999999999999,
           "voice_processing_chain": 8.254999999999999,
           "voice_multitrack_stack": 10.53

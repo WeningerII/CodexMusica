@@ -5,7 +5,7 @@
   "lineage": "1953-1965 Blue Note / Prestige-canon African-American jazz movement extending bebop with extended blues, gospel-quoting melody, and elongated solo space — the defining post-bop vocabulary, with Lee Morgan, Wayne Shorter, Horace Silver, Art Blakey Jazz Messengers, Hank Mobley, Kenny Drew, Cannonball Adderley among the era practitioners",
   "recipe": "classic North American mid-1950s hard bop, improv On Frame, hard bop branch, American jazz bop, American jazz soul jazz bebop. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, sterling silver bell premium projecting bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet, sterling silver rare premium bach 42 canonical American orchestral tenor ensemble student commercial trombone, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, growly gut upright bass, vintage ambassador asymmetric brushes drum kit. cedar and redwood vaulted ceiling 1959-2016 mid tier van gelder englewood cliffs. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 810,
-  "score": 564.02,
+  "score": 542.457,
   "config": {
     "traditions": [
       "hard_bop",
@@ -25,13 +25,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 9.037,
-          "sax_size": 10.584624999999999,
+          "wind_articulation": 7.787,
+          "sax_size": 9.334624999999999,
           "sax_reed": 1.284625,
-          "sax_body_alloy": 44.05000000000001,
+          "sax_body_alloy": 42.80000000000001,
           "sax_mouthpiece": 1.284625,
-          "sax_technique": 42.500000000000014,
-          "sax_maker_school": 47.94487500000001
+          "sax_technique": 41.250000000000014,
+          "sax_maker_school": 46.173625000000015
         }
       },
       {
@@ -46,11 +46,11 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 9.037,
+          "wind_articulation": 7.787,
           "brass_size": 1.284625,
-          "trumpet_mouthpiece": 47.19987500000001,
+          "trumpet_mouthpiece": 45.42862500000001,
           "brass_mute": 1.17,
-          "trumpet_technique": 9.037,
+          "trumpet_technique": 7.787,
           "trumpet_bell_metal": 1.6,
           "trumpet_maker_school": 8.338000000000001
         }
@@ -67,9 +67,9 @@
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 9.037,
-          "trombone_type": 42.500000000000014,
-          "trombone_mouthpiece": 42.875000000000014,
+          "wind_articulation": 7.787,
+          "trombone_type": 41.250000000000014,
+          "trombone_mouthpiece": 41.625000000000014,
           "trombone_mute": 0.3,
           "trombone_technique": 2.1687499999999997,
           "trombone_bell_metal": 1.6,
@@ -90,7 +90,7 @@
           "piano_pitch_standard": "a_432_alternative"
         },
         "scores": {
-          "keyboard_technique": 16.65575,
+          "keyboard_technique": 15.40575,
           "grand_piano_size": 0.718125,
           "grand_piano_brand": 1.284625,
           "piano_hammer": 9.11425,
@@ -108,8 +108,8 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 42.500000000000014,
-          "upright_play": 42.500000000000014
+          "upright_strings": 41.250000000000014,
+          "upright_play": 41.250000000000014
         }
       },
       {
@@ -120,8 +120,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 42.500000000000014,
-          "drumhead": 49.381125000000004,
+          "drum_technique": 41.250000000000014,
+          "drumhead": 47.609875,
           "drum_kit_kick_pedal": 0
         }
       }

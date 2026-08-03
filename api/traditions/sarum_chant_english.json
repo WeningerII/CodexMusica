@@ -5,7 +5,7 @@
   "lineage": "Medieval English liturgical chant tradition of the Sarum rite (Use of Salisbury), the dominant English liturgical-use from the eleventh century through the 1549 Reformation imposition of the Book of Common Prayer. Distinguished from broader Roman-rite Gregorian repertoire by Sarum-specific propers, sequences (the canonical Salve mater misericordie Marian sequence), and the elaborate Procession-and-Station liturgical-choreography. Modern liturgical reconstruction by the Cambridge Sarum Group and Anglican-and-Anglo-Catholic communities in England.",
   "recipe": "classic European late-1540s sarum chant, ritual Devotional, christian gospel branch, western early art music ars antiqua and organum renaissance sacred polyphony. thick, breath veiled tone, slow rate, interlocked note trading. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. parish church. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
   "recipe_chars": 472,
-  "score": 230.94,
+  "score": 223.565,
   "config": {
     "traditions": [
       "sarum_chant_english",
@@ -39,15 +39,15 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 6.5,
-          "voice_articulation": 22.9125,
-          "voice_microtone": 19.694999999999997,
+          "voice_articulation": 22.262499999999996,
+          "voice_microtone": 19.044999999999995,
           "voice_tradition": 10.595,
           "voice_mechanism_compound": 4.9,
           "voice_estill_quality": 9.392500000000002,
-          "voice_speech_song": 20.8,
-          "voice_ensemble_config": 31.979999999999997,
+          "voice_speech_song": 20.149999999999995,
+          "voice_ensemble_config": 29.705,
           "voice_ornament_system": 6.575,
-          "voice_pitch_organization": 17.255,
+          "voice_pitch_organization": 14.754999999999999,
           "voice_processing_chain": 9.035,
           "voice_multitrack_stack": 5.590000000000001
         }
@@ -64,7 +64,7 @@
           "choir_size": 6.24,
           "choir_polyphonic_configuration": 9.294999999999998,
           "choir_regional_canonical_configuration": 5.524999999999999,
-          "choir_ensemble_repertoire": 10.809999999999999
+          "choir_ensemble_repertoire": 10.159999999999998
         }
       }
     ],

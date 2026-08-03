@@ -5,7 +5,7 @@
   "lineage": "Late-1980s-and-early-1990s Manchester-based British rock-and-dance subgenre synthesizing indie-rock with acid-house club rhythmic-influence. The Stone Roses, Happy Mondays, Inspiral Carpets, the Charlatans, and James constitute the canonical roster; the Hacienda nightclub (Manchester, opened 1982) provided the canonical performance venue. The 1989 Stone Roses self-titled debut and the parallel Happy Mondays Bummed (1988) consolidated the canonical sound.",
   "recipe": "classic British 1987-1989 madchester / baggy, distorted Rock, alternative branch, house electronic dance deep house tech-house. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character ernie ball slinky electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, sound design field sampler. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb chorus flanger.",
   "recipe_chars": 728,
-  "score": 293.047,
+  "score": 289.955,
   "config": {
     "traditions": [
       "madchester_baggy",
@@ -133,7 +133,7 @@
           "sampler_archetypes": 0.65,
           "sampler_bit_depth": 0.9099999999999999,
           "sampler_workflow": 1.4849999999999999,
-          "sampler_classic_context": 50.055
+          "sampler_classic_context": 46.9625
         }
       }
     ],

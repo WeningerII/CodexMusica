@@ -3,9 +3,9 @@
   "name": "Post-hardcore",
   "family": "rock_punk",
   "lineage": "Late-1980s and 1990s American post-hardcore subgenre developed from 1980s hardcore-punk through more melodic and experimental compositional approach. Fugazi (Washington D.C., 1987-2003), Drive Like Jehu, Quicksand, Refused, At the Drive-In, and the broader Dischord Records label roster anchor the canonical American post-hardcore roster. Direct ancestor of 2000s screamo, midwest emo, and broader emocore developments.",
-  "recipe": "classic North American mid-1990s post-hardcore, distorted Rock, emo branch, punk distorted rock garage punk folk punk. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character ernie ball slinky electric bass, sticks drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 589,
-  "score": 330.241,
+  "recipe": "classic North American mid-1990s post-hardcore, distorted Rock, emo branch, punk distorted rock garage punk folk punk. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, sticks drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 570,
+  "score": 313.361,
   "config": {
     "traditions": [
       "post_hardcore_90s",
@@ -34,18 +34,18 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 18.689999999999994,
+          "voice_register": 17.289999999999992,
           "voice_quality": 15.664999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.4050000000000002,
           "voice_articulation": 12.479999999999997,
           "voice_microtone": 13.124999999999996,
-          "voice_tradition": 8.0875,
+          "voice_tradition": 6.6875,
           "voice_mechanism_compound": 20.0175,
           "voice_estill_quality": 0.6499999999999999,
           "voice_speech_song": 12.934999999999997,
-          "voice_ensemble_config": 32.95375,
+          "voice_ensemble_config": 30.45375,
           "voice_ornament_system": 1.615,
           "voice_pitch_organization": 3.185,
           "voice_processing_chain": 8.33,
@@ -70,8 +70,8 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 19.325,
-          "amp_make": 39.215,
+          "electric_technique": 16.825,
+          "amp_make": 35.915,
           "body_wood": 4.225,
           "neck_wood": 0.845,
           "fretboard": 0.78,
@@ -88,7 +88,7 @@
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_b15",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "mahogany_b",
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
@@ -97,13 +97,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 8.45,
+          "amp_make": 7.67,
           "body_wood": 0.845,
           "pickup_config": 0.39,
           "string_type": 17.387499999999996,
           "scale_length_b": 0.845,
           "fretted_or_not": 0.045,
-          "bass_technique": 32.795
+          "bass_technique": 30.295
         }
       },
       {
@@ -114,7 +114,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 19.375,
+          "drum_technique": 16.875,
           "drumhead": 0.845,
           "drum_kit_kick_pedal": 0
         }

@@ -5,7 +5,7 @@
   "lineage": "Basque-language (Euskera) singer-songwriter tradition emerging from underground anti-Franco protest culture in the late-1960s — codified through Mikel Laboa (the Basque kantautor founder, his 1969 Bost urte and 1974 Gernika releases the founding statements), Benito Lertxundi, Imanol Larzabal, Antton Valverde, Lourdes Iriondo, Xabier Lete; deeply engaged with Basque cultural-linguistic revival under and after Franco-era cultural suppression, with parallel post-1980s extensions through Ruper Ordorika (the post-Franco-era Basque cantautor voice)",
   "recipe": "classic Iberian 1967-1969 basque kantautor, functional Song, iberian branch, chanson fado ballad poetry, European protest song cape verdean batuko of santiago island french musette. thick, breath veiled tone, straight note core, interlocked note trading. fingerpicked acoustic guitar, gaita galega three drone muiñeira dance driving gaita galega, dance driven pandero paired wet tuned musette shimmer detuned tremolo trikitixa, mahogany pyramid pure nickel bass British mid 60s era electric bass. iberian kantautor basque galician club. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
   "recipe_chars": 624,
-  "score": 254.46,
+  "score": 252.41,
   "config": {
     "traditions": [
       "basque_kantautor",
@@ -48,7 +48,7 @@
           "voice_ensemble_config": 20.929999999999996,
           "voice_ornament_system": 3.745,
           "voice_pitch_organization": 4.555000000000001,
-          "voice_processing_chain": 5.070000000000004,
+          "voice_processing_chain": 4.4200000000000035,
           "voice_multitrack_stack": 5.885000000000001
         }
       },
@@ -100,7 +100,7 @@
           "free_reed_technique": 6.595000000000001,
           "trikitixa_form": 0.325,
           "trikitixa_dantza_setting": 16.685,
-          "trikitixa_reed_voicing": 6.859999999999999
+          "trikitixa_reed_voicing": 5.46
         }
       },
       {

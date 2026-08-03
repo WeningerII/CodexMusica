@@ -5,7 +5,7 @@
   "lineage": "Mid-twentieth-century French chanson canon centered on the Left Bank Paris cabaret scene — codified through Édith Piaf, Charles Trenet, Yves Montand, Jacques Brel (Belgian-Flemish but Paris-resident), Georges Brassens, and Léo Ferré; characterized by literary-poetic lyrical register, music-hall accompaniment, and the chanteuse / chansonnier solo performer tradition",
   "recipe": "classic European early-1940s chanson classique, ballad Poetry, classic chanson branch, anglo singer song ballad poetry singaporean xinyao indie folk. thick, close mic intimate, straight note core, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, castagnari Italian premium folk music straight accordion, cedar walnut phosphor bronze bronze fingerpicked acoustic guitar, ebonite hard rubber klezmer tradition clarinet. jazz club. Neumann U47, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 605,
-  "score": 251.184,
+  "score": 236.329,
   "config": {
     "traditions": [
       "chanson_classique",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 23.409999999999993,
+          "voice_register": 20.909999999999993,
           "voice_quality": 6.045000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.78625,
           "voice_articulation": 14.299999999999994,
           "voice_microtone": 14.94999999999999,
-          "voice_tradition": 18.589999999999996,
+          "voice_tradition": 15.339999999999998,
           "voice_mechanism_compound": 2.0149999999999997,
           "voice_estill_quality": 5.720000000000001,
           "voice_speech_song": 18.459999999999994,
           "voice_ensemble_config": 14.429999999999993,
           "voice_ornament_system": 5.2325,
-          "voice_pitch_organization": 7.615,
+          "voice_pitch_organization": 6.365,
           "voice_processing_chain": 5.48,
           "voice_multitrack_stack": 4.2250000000000005
         }
@@ -70,7 +70,7 @@
           "grand_piano_size": 1.63,
           "grand_piano_brand": 1.69,
           "piano_hammer": 6.545,
-          "piano_rim": 10.535625,
+          "piano_rim": 10.385625,
           "piano_soundboard": 8.35,
           "piano_pinblock": 0.945,
           "piano_plate": 1.625,
@@ -89,13 +89,13 @@
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 14.065624999999997,
+          "free_reed_technique": 11.565624999999997,
           "accordion_reed_material": 1.585,
           "musette_offset": 5.75,
           "reed_config": 1.9000000000000001,
           "bellows": 0.225,
           "voicing_chamber": 0.37499999999999994,
-          "accordion_maker_school": 7.474999999999999
+          "accordion_maker_school": 6.174999999999999
         }
       },
       {
@@ -112,7 +112,7 @@
           "top_wood": 1.63,
           "back_sides": 2.02,
           "string_acoustic": 1.585,
-          "acoustic_om_technique": 20.73125
+          "acoustic_om_technique": 18.23125
         }
       },
       {
@@ -121,14 +121,14 @@
           "wind_articulation": "wind_classical_legato",
           "clarinet_body": "ebonite_clarinet",
           "clarinet_size": "e_flat_clarinet",
-          "clarinet_reed": "hard_clarinet_reed",
+          "clarinet_reed": "soft_clarinet_reed",
           "clarinet_articulation": "tongued_clarinet"
         },
         "scores": {
           "wind_articulation": 0.3,
           "clarinet_body": 1.17,
-          "clarinet_size": 5.784999999999999,
-          "clarinet_reed": 0.38999999999999996,
+          "clarinet_size": 4.484999999999999,
+          "clarinet_reed": 0.285,
           "clarinet_articulation": 0.35
         }
       }

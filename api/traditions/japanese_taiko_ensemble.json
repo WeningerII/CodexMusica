@@ -5,7 +5,7 @@
   "lineage": "Japanese modern-concert taiko-ensemble (kumi-daiko) tradition codified 1951-onward by Daihachi Oguchi (Osuwa Daiko, Suwa city, Nagano prefecture) as a deliberate-modernization of older village-festival matsuri-and-shrine taiko-percussion. The canonical concert-ensemble: nagado-daiko medium-barrel-drums, odaiko large-barrel-drum (typically center-stage spectacle-instrument), shime-daiko small-tightly-tensioned drum (rhythmic-keeper), chappa hand-cymbals, and atarigane small-bell. Choreographed-and-virtuosic ensemble-staging differentiates concert-taiko from the older communal-festival-taiko. The 1970s-1980s rise of touring-troupes (Kodo on Sado-island, Ondekoza precursor, San Jose Taiko in North-America) made kumi-daiko a global Japanese-cultural ambassador and seeded an international Japanese-diaspora taiko-community.",
   "recipe": "classic East Asian modern japanese kumi-daiko, groove Percussion, east Asian branch, east Asian art music, buddhist ritual devotional tibetan ache lhamo opera beijing opera. thick, breath veiled tone, slow rate, interlocked note trading. rope tensioned cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk oedo sukeroku canonical kumi daiko modern ensemble taiko drum, madake bamboo phyllostachys canonical Japanese root section kinko ryu canonical edo period concert continuous-airflow legato shakuhachi. noh stage japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 685,
-  "score": 299.203,
+  "score": 294.083,
   "config": {
     "traditions": [
       "japanese_taiko_ensemble",
@@ -27,7 +27,7 @@
           "taiko_skin": 7.734999999999999,
           "taiko_shell_wood": 7.93,
           "taiko_lineage": 14.325,
-          "taiko_technique": 12.365
+          "taiko_technique": 12.215
         }
       },
       {
@@ -62,7 +62,7 @@
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_talkbox",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
@@ -77,10 +77,10 @@
           "voice_microtone": 20.669999999999995,
           "voice_tradition": 33.1175,
           "voice_mechanism_compound": 7.049999999999999,
-          "voice_estill_quality": 21.799999999999994,
+          "voice_estill_quality": 18.849999999999998,
           "voice_speech_song": 25.804999999999996,
           "voice_ensemble_config": 23.464999999999996,
-          "voice_ornament_system": 16.249999999999996,
+          "voice_ornament_system": 14.229999999999999,
           "voice_pitch_organization": 7.66,
           "voice_processing_chain": 5.34,
           "voice_multitrack_stack": 7.085000000000001

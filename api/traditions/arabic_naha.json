@@ -5,7 +5,7 @@
   "lineage": "Pan-Arab mourning-song tradition continuous from pre-Islamic jāhiliyya rithā' (elegy) practice through medieval-Islamic-period continuous performance by nā'iḥa (Arabic professional mourning-women) across Egypt, Levant, Maghreb, and Gulf into 20th-century field-documentation",
   "recipe": "classic North African modern arabic nāḥa, funeral Lament, middle eastern branch, islamic ritual devotional, vocal drone modal, med east poetic ballad poetry silbo gomero whistled language armenian duduk-accompanied chant. vocal fry, breath veiled tone, straight note core, interlocked note trading. stone plaster medina room. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 388,
-  "score": 240.815,
+  "score": 240.515,
   "config": {
     "traditions": [
       "arabic_naha",
@@ -38,12 +38,12 @@
           "voice_quality": 26.585000000000004,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.550000000000001,
+          "voice_vibrato": 5.4,
           "voice_articulation": 18.005000000000003,
           "voice_microtone": 45.260000000000005,
           "voice_tradition": 26.0325,
           "voice_mechanism_compound": 9.879999999999999,
-          "voice_estill_quality": 8.195,
+          "voice_estill_quality": 8.045,
           "voice_speech_song": 23.66,
           "voice_ensemble_config": 18.98,
           "voice_ornament_system": 16.779999999999998,

@@ -3,9 +3,9 @@
   "name": "Classical period (1750-1820)",
   "family": "classical",
   "lineage": "European art-music period c.1750-1820 centered on Vienna, codifying balanced sonata-form, periodic-phrase symmetry, and the Classical orchestra (strings, paired woodwinds and brass, timpani). The Haydn-Mozart-Beethoven trinity established the canonical symphony, string quartet, sonata, and piano concerto repertoires. Distinguished from preceding Baroque by Classical period's homophonic textures, clear cadential punctuation, and dramatic-rhetorical phrase structure.",
-  "recipe": "classic British classical period, art Music, western common practice branch, western early art music renaissance madrigal burgundian school. thick, breath veiled tone, slow rate, interlocked note trading. beech laminated maple laminated European tradition European spruce norway spruce grand piano, synthetic Italian alpine spruce val di fiemme European maple bosnian source violin orchestral, gut Italian alpine spruce val di fiemme European maple bosnian source cello, timpani. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
-  "recipe_chars": 559,
-  "score": 626.58,
+  "recipe": "classic British classical period, art Music, western common practice branch, western early art music renaissance madrigal burgundian school. thick, breath veiled tone, slow rate, interlocked note trading. beech laminated maple laminated European tradition European spruce norway spruce grand piano, synthetic norway spruce European alpine European maple bosnian source violin orchestral, gut norway spruce European alpine European maple bosnian source cello, timpani. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
+  "recipe_chars": 547,
+  "score": 617.965,
   "config": {
     "traditions": [
       "classical_period_18c",
@@ -29,7 +29,7 @@
           "voice_speech_song": "voice_recitative_free_rhythm",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_bel_canto",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_tape_saturation",
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
@@ -41,13 +41,13 @@
           "voice_vibrato": 16.974999999999998,
           "voice_articulation": 13.324999999999996,
           "voice_microtone": 13.129999999999992,
-          "voice_tradition": 26.529999999999998,
+          "voice_tradition": 26.08,
           "voice_mechanism_compound": 13.899999999999999,
-          "voice_estill_quality": 24.559999999999995,
+          "voice_estill_quality": 23.009999999999998,
           "voice_speech_song": 21.085,
           "voice_ensemble_config": 14.949999999999996,
-          "voice_ornament_system": 20.124999999999996,
-          "voice_pitch_organization": 15.21,
+          "voice_ornament_system": 18.874999999999996,
+          "voice_pitch_organization": 14.245,
           "voice_processing_chain": 2.47,
           "voice_multitrack_stack": 0.845
         }
@@ -68,7 +68,7 @@
         "scores": {
           "keyboard_technique": 13.999999999999998,
           "grand_piano_size": 1.8199999999999998,
-          "grand_piano_brand": 4.029999999999999,
+          "grand_piano_brand": 3.3799999999999994,
           "piano_hammer": 18.204999999999995,
           "piano_rim": 16.794999999999995,
           "piano_soundboard": 17.669999999999998,
@@ -82,7 +82,7 @@
         "slots": {
           "bowed_technique": "bowed_legato_classical",
           "orch_strings": "synthetic_orch",
-          "orch_top_wood": "italian_alpine_spruce_violin",
+          "orch_top_wood": "norway_spruce_alpine_violin",
           "orch_back_wood": "bosnian_flamed_maple_violin",
           "orch_varnish": "cremonese_pre_1750_varnish_violin",
           "orch_setup_period": "baroque_setup_violin",
@@ -94,14 +94,14 @@
         "scores": {
           "bowed_technique": 13.999999999999998,
           "orch_strings": 2.6649999999999996,
-          "orch_top_wood": 21.65,
+          "orch_top_wood": 20.999999999999996,
           "orch_back_wood": 21.24,
           "orch_varnish": 21.535,
-          "orch_setup_period": 15.72,
-          "orch_bow": 4.664999999999999,
+          "orch_setup_period": 15.42,
+          "orch_bow": 4.515,
           "orch_bow_stick": 15.834999999999997,
           "orch_articulation": 2.275,
-          "orch_rosin": 25.634999999999998
+          "orch_rosin": 24.534999999999997
         }
       },
       {
@@ -109,7 +109,7 @@
         "slots": {
           "bowed_technique": "bowed_legato_classical",
           "cello_strings": "cello_gut",
-          "cello_top_wood": "italian_alpine_spruce_cello",
+          "cello_top_wood": "norway_spruce_alpine_cello",
           "cello_back_wood": "bosnian_flamed_maple_cello",
           "cello_varnish": "cremonese_pre_1750_varnish_cello",
           "cello_setup_period": "baroque_setup_cello",
@@ -119,13 +119,13 @@
         },
         "scores": {
           "bowed_technique": 13.999999999999998,
-          "cello_strings": 4.664999999999999,
-          "cello_top_wood": 21.65,
+          "cello_strings": 4.515,
+          "cello_top_wood": 20.999999999999996,
           "cello_back_wood": 21.24,
           "cello_varnish": 21.535,
-          "cello_setup_period": 15.72,
+          "cello_setup_period": 15.42,
           "cello_bow_grip": 7.279999999999999,
-          "cello_rosin": 22.86,
+          "cello_rosin": 22.409999999999997,
           "cello_bow_stick": 15.834999999999997
         }
       },

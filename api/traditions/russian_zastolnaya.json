@@ -5,7 +5,7 @@
   "lineage": "Russian zastol'naya pesnya (table-song / drinking-song) tradition continuous from medieval-Russian feast-and-tavern song-tradition through 19th-century Russian-Romantic-era Glinka-and-Mussorgsky-folk-collection through Soviet-era continuous performance into modern Russian-and-Russian-diaspora continuous feast-and-pub practice; foundational repertoire includes \"Калинка\" (Kalinka) and \"Подмосковные вечера\" (Moscow Nights — though both are more broadly folk-popular than strictly drinking-songs)",
   "recipe": "classic modern russian zastol'naya pesnya, drinking Song, European branch, balkan drinking song, Slavic bard ballad poetry, European wedding georgian supra feast-singing macedonian-serbian kafana drinking song. thick, breath veiled tone, straight onset, interlocked note trading. b system buttons stradella bass Russian tradition song accompaniment chastushka dance bayan russian, prima nylon modern spruce maple Soviet orchestra canon strummed balalaika. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 529,
-  "score": 211.05,
+  "score": 209.6,
   "config": {
     "traditions": [
       "russian_zastolnaya",
@@ -41,10 +41,10 @@
           "voice_vibrato": 3.1300000000000003,
           "voice_articulation": 15.729999999999995,
           "voice_microtone": 16.769999999999992,
-          "voice_tradition": 30.824999999999996,
+          "voice_tradition": 30.674999999999997,
           "voice_mechanism_compound": 0.8499999999999999,
           "voice_estill_quality": 0.585,
-          "voice_speech_song": 33.8,
+          "voice_speech_song": 33.14999999999999,
           "voice_ensemble_config": 18.244999999999997,
           "voice_ornament_system": 1.885,
           "voice_pitch_organization": 8.32,
@@ -63,7 +63,7 @@
         "scores": {
           "free_reed_technique": 7.649999999999999,
           "bayan_russian_model": 18.46,
-          "bayan_russian_context": 21.255000000000003,
+          "bayan_russian_context": 20.605,
           "bayan_russian_reed_voicing": 0.195
         }
       },

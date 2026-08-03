@@ -72,6 +72,96 @@ every source drawn from — the published package is 15.0.0 and has been through
 different SVGO pass, so its markup is not byte-identical to the CDN's 15.1.0.
 The package's own MIT licence is deliberately *not* copied over the vendored
 CC-BY text: it covers the packaging, not the artwork.
+### Fixed — "Add instrument to tradition" dropped the instrument into Ungrouped
+
+The sidebar's per-genre "Add instrument to tradition" button stashed the target
+genre on `app._addToTradition` and opened the instrument picker — but no code
+ever read that field back. The picker's add handlers called `addCard(iid)` with
+no options, so the new card got `traditionId: null` and the sidebar filed it
+under the `__ungrouped__` pseudo-group. The button's entire premise, choosing
+*which* genre the instrument joins, had no effect on the result.
+
+- The picker's two add paths (the instrument list and the similar-instruments
+  view) now go through `addInstrumentFromPicker`, which consumes the pending
+  genre context, configures the card from that tradition — tuning, room,
+  recording chain, voice-part overrides and the amp variant that suits the
+  instrument's class — and places it after the group's last card so it appends
+  to the run rather than trailing the workspace. Adds without the context (the
+  toolbar's Add button, the empty state) still produce a loose ungrouped card.
+- The tradition→card derivation is now shared with `importTradition` rather
+  than duplicated, so an instrument added by hand and one that shipped with the
+  genre can't drift into different configurations.
+- Each card in an imported tradition now gets its OWN chain object. They
+  previously shared one, so editing one card's chain silently changed every
+  other card in that tradition.
+- Undo/redo snapshots the final position (the add is a single history entry),
+  the target group expands if it was collapsed, and the toast names the
+  destination: "Added harmonica to Garage rock".
+### Fixed — a tradition's picks no longer depend on what its neighbours are called
+
+The naming pass turned up a coupling: renaming `aussie_pub_rock` silently changed
+`merseybeat` and `mod_60s_british`. This removes the mechanism rather than the
+symptom.
+
+- **What was happening.** `scoreVariant` consults nearest-neighbour traditions
+  (neighbor-bias, `NEIGHBOR_WEIGHT_FACTOR = 0.15`) and the hill-climber staples a
+  primary's crossRef siblings into the scoring stack on its own
+  (`search.js traditionStapleMoves`). `build_static_api.js` seeds with **no**
+  staples, so this is easy to miss by reading the seed — the stack is assembled
+  during the climb. Both paths called `buildContext(otherId)`, which builds the
+  other tradition's FULL context including source 1, `name + lineage`. A
+  neighbour's **label** therefore became prose tokens the focal tradition scored
+  against. `Aussie pub rock (70s-80s)` put `70s` and `80s` into merseybeat's
+  context; the Marshall JCM800, descriptors "British 80s rock amp", collected the
+  bonus. A tradition dated **1962-1968** compiled with a **1981 amplifier**, and a
+  1970s hydraulic drumhead beside it.
+- **Why the era guard didn't catch it.** `scoreVariant` already penalises
+  anachronism, but `_getEraYear` parses only 4-digit years (`ERA_YEAR_RE = /\d{4}/`).
+  "British 80s rock amp" contains no 4-digit year, so the -2.0 era-conflict
+  penalty never fired. The decade form was invisible to the one guard built to
+  stop exactly this. Left as-is here and recorded under Known below — widening it
+  is a separate change with its own blast radius, and it should not ride along in
+  a diff about names.
+- **The fix.** `buildContext(tradId, { includeName: false })` builds the same
+  context without the name half of source 1; lineage, family, parent path, room
+  and archetype all still contribute. Both cross-tradition call sites — staple
+  merge and neighbor-bias — now pass it. A tradition still scores against its
+  **own** name at full weight, because that is self-description and is meant to
+  matter: rename merseybeat and merseybeat moves, which is what anyone expects.
+  What no longer happens is a neighbour's label moving it.
+- **New gate: `npm run check:names`** (`scripts/check_name_isolation.js`,
+  `@promise: name-isolation`). Compiles a sample of traditions twice; the second
+  run first appends `1985 80s 90s modern digital tube tape analog vintage
+  distorted` to every OTHER tradition's name. The observer's compiled config must
+  be byte-identical. Configs are compared rather than recipe strings, because
+  sentence 1 legitimately PRINTS the names of the tradition and its staples — the
+  rendered text is supposed to move when a displayed label moves; the choice is
+  not. Verified two-sided: against the unfixed scorer **10 of 12 sampled
+  traditions drift**, including `historical_informed_performance` reaching for an
+  AI-harmonizer vocal chain. Fault class `foreign-name-in-picks` flips the one
+  word `false` → `true` and asserts the gate catches it.
+- **Blast radius: 180 of 1171 pinned fixtures moved; 168 compiled recipes changed.**
+  Every tradition has neighbours, so a change to how neighbours are read reaches
+  much of the catalog.
+- **What that bought, measured rather than asserted.** Counting picked variants
+  whose descriptors name a decade outside the tradition's era window:
+  **84 → 79** across the recipes that moved, 10 traditions improved against 5
+  worsened. On the narrower 4-digit-year measure it is flat (88 → 87) — and that
+  measure is precisely the one that cannot see this defect class, since "80s"
+  contains no year. So: a modest accuracy gain, roughly two improvements per
+  regression, and it would be overselling to call it more than that. The reason to
+  make the change is not the five fewer anachronisms. It is that a tradition's
+  output is now a function of its own record and its neighbours' *sound*, which
+  means a rename is once again a rename and not a silent edit to someone else's
+  recipe.
+
+Measured and NOT changed: the rendering trust filter
+(`translate.js buildTraditionContextTokens`) also harvests staple names. Holding a
+config fixed and renaming its staples changes the rendered recipe **only** by
+printing those staples' new names in sentence 1 — strip the injected tokens and
+the string is byte-identical, so the filter admitted no additional descriptor
+words. That coupling is display-only and self-evident: it shows you the label it
+is showing you.
 
 ### Fixed — catalog naming and roster accuracy
 
@@ -192,6 +282,15 @@ can actually measure a routing change.
 
 ### Known
 
+- **The era-conflict guard reads years, not decades.** `_getEraYear` matches
+  `/\d{4}/`, so a variant described as "British **80s** rock amp" or "**90s**
+  digital" carries no era signal the guard can see and never draws the -2.0
+  anachronism penalty — only a literal "1981" would. That is why the JCM800 could
+  win a 1962-1968 tradition on a bonus with nothing pushing back. The name leak
+  that supplied the bonus is fixed and gated; the guard's blind spot is not.
+  Widening it to decade forms is a one-line regex change with a large and
+  unmeasured blast radius across the catalog, so it wants its own diff and its own
+  before/after — not a ride-along in a change about names.
 - The tool count is unresolved on purpose. Three judges split 6/6/9, and the one
   who ruled for nine ruled on the state of the evidence rather than the merits:
   nobody has an eval that scores a final recipe against the words the user

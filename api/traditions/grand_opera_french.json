@@ -5,7 +5,7 @@
   "lineage": "Nineteenth-century French operatic style characterized by five-act structure, large historical-or-mythological subjects, elaborate ballet sequences, and massive choral and orchestral forces. Daniel Auber's La muette de Portici (1828), Giacomo Meyerbeer's Les Huguenots (1836) and Le Prophète (1849), and Hector Berlioz's Les Troyens (1858) are canonical type-specimens. The Paris Opéra and the Palais Garnier (opened 1875) constitute the institutional anchors. Distinguished from Italian opera by grand-opera's spectacular-scale and French-language declamatory recitative vocabulary.",
   "recipe": "classic British late-1820s grand opera, art Music, western common practice branch, chanson fado ballad poetry cape verdean batuko of santiago island greek éntechno. thick, breath veiled tone, slow rate, interlocked note trading. beech laminated maple laminated European tradition European spruce norway spruce grand piano, Italian alpine spruce val di fiemme European maple sycamore maple oil varnish violin orchestral. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
   "recipe_chars": 499,
-  "score": 343.764,
+  "score": 342.057,
   "config": {
     "traditions": [
       "grand_opera_french",
@@ -41,9 +41,9 @@
           "voice_vibrato": 6.6625,
           "voice_articulation": 23.854999999999997,
           "voice_microtone": 26.097499999999993,
-          "voice_tradition": 23.99,
+          "voice_tradition": 22.717499999999998,
           "voice_mechanism_compound": 5.329999999999999,
-          "voice_estill_quality": 23.268,
+          "voice_estill_quality": 23.1255,
           "voice_speech_song": 29.672500000000003,
           "voice_ensemble_config": 22.944999999999997,
           "voice_ornament_system": 17.2455,
@@ -94,14 +94,14 @@
         "scores": {
           "bowed_technique": 7.875,
           "orch_strings": 0.79975,
-          "orch_top_wood": 6.7780000000000005,
+          "orch_top_wood": 6.6355,
           "orch_back_wood": 6.54025,
           "orch_varnish": 6.445,
           "orch_setup_period": 5.38,
           "orch_bow": 1.4949999999999999,
           "orch_bow_stick": 7.0175,
           "orch_articulation": 1.4949999999999999,
-          "orch_rosin": 10.435
+          "orch_rosin": 10.285
         }
       }
     ],

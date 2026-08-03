@@ -5,7 +5,7 @@
   "lineage": "Corsican paghjella three-voice male polyphonic singing tradition of Corsica (France). Performance: three male singers in close-position polyphonic configuration: a bassu low-register foundational voice, a sicunda middle-register voice, and a terza high-register ornamental voice, all male-only, performing sacred (especially the canonical Mass-of-the-Dead repertoire) and secular repertoire. The genre nearly disappeared by the mid-twentieth century but was revived through the 1970s riacquistu Corsican-cultural-revival movement under the canonical group A Filetta. Distinguished from Sardinian cantu a tenore by Corsican paghjella's three-voice-male (vs four-voice-with-guttural-bass) configuration.",
   "recipe": "classic North American mid-1970s corsican paghjella modern revival, drone Modal, vocal branch, Mediterranean ballad ballad poetry sardinian cantu a tenore and launeddas croatian klapa dalmatian close-harmony. vocal fry, breath veiled tone, slow rate, interlocked note trading. mountain valley. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 440,
-  "score": 233.34,
+  "score": 227.79,
   "config": {
     "traditions": [
       "corsican_paghjella_modern",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 5.26,
-          "voice_quality": 27.3,
+          "voice_quality": 26.65,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 7.64,
-          "voice_articulation": 19.175,
-          "voice_microtone": 21.124999999999996,
-          "voice_tradition": 37.22,
+          "voice_articulation": 18.525,
+          "voice_microtone": 20.474999999999994,
+          "voice_tradition": 35.82,
           "voice_mechanism_compound": 10.075,
           "voice_estill_quality": 9.469999999999999,
-          "voice_speech_song": 16.64,
-          "voice_ensemble_config": 38.03000000000001,
+          "voice_speech_song": 15.99,
+          "voice_ensemble_config": 37.38000000000001,
           "voice_ornament_system": 11.639999999999999,
           "voice_pitch_organization": 5.875000000000001,
           "voice_processing_chain": 11.09,
-          "voice_multitrack_stack": 6.5
+          "voice_multitrack_stack": 5.85
         }
       }
     ],

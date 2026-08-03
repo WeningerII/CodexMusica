@@ -5,7 +5,7 @@
   "lineage": "Pan-European televised song-contest pop tradition tied to the annual Eurovision Song Contest (founded 1956) — codified through the contest’s evolving format: bombastic-power-ballad and key-change-climax conventions in the 1990s-2000s, then post-2010 electronic-and-quirky entries (Conchita Wurst 2014, Måneskin 2021); a stylistic register more than a genre",
   "recipe": "classic mid-1990s eurovision pop, functional Song, europop branch, pop rock functional song new wave yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. singing lead analog poly synth, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu choir ensemble. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 753,
-  "score": 492.445,
+  "score": 483.22,
   "config": {
     "traditions": [
       "eurovision_pop",
@@ -34,13 +34,13 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 52.400000000000006,
+          "voice_register": 51.150000000000006,
           "voice_quality": 13.552499999999991,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 8.82,
           "voice_articulation": 14.104999999999995,
-          "voice_microtone": 50.599999999999994,
+          "voice_microtone": 49.349999999999994,
           "voice_tradition": 34.96999999999999,
           "voice_mechanism_compound": 2.5349999999999997,
           "voice_estill_quality": 1.8849999999999996,
@@ -62,7 +62,7 @@
         },
         "scores": {
           "electronic_technique": 26.53499999999999,
-          "poly_archetypes": 12.415,
+          "poly_archetypes": 11.764999999999999,
           "poly_voices": 0.65,
           "poly_maker_lineage": 0.19499999999999967
         }
@@ -85,7 +85,7 @@
         },
         "scores": {
           "electric_technique": 27.20499999999999,
-          "amp_make": 17.029999999999998,
+          "amp_make": 16.379999999999995,
           "body_wood": 2.275,
           "neck_wood": 2.275,
           "fretboard": 2.21,
@@ -95,7 +95,7 @@
           "bridge": 0.65,
           "scale_length": 2.275,
           "finish": 0.09,
-          "string_tuning": 14.884999999999998
+          "string_tuning": 14.235
         }
       },
       {
@@ -110,13 +110,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 11.569999999999999,
+          "amp_make": 10.919999999999998,
           "body_wood": 2.275,
           "pickup_config": 0.195,
-          "string_type": 29.0875,
+          "string_type": 27.4625,
           "scale_length_b": 2.275,
           "fretted_or_not": 0.045,
-          "bass_technique": 26.465
+          "bass_technique": 25.215
         }
       },
       {
@@ -127,7 +127,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 22.42,
+          "drum_technique": 21.17,
           "drumhead": 26.089999999999993,
           "drum_kit_kick_pedal": 0
         }

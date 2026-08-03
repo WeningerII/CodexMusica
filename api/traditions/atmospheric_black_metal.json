@@ -5,7 +5,7 @@
   "lineage": "European atmospheric-foregrounded subgenre of black metal that emerged from the Norwegian and Scandinavian second-wave black metal scene in the mid-1990s — codified through Emperor (In the Nightside Eclipse 1994, the symphonic-atmospheric breakthrough), Burzum (Hvis lyset tar oss 1994), Ulver (Bergtatt 1995), early Enslaved, Wolves in the Throne Room (the US Cascadian black metal extension from 2006 onward, Two Hunters 2007); characterized by long-form composition (often 8-15 minute pieces), tremolo-picked melodic-guitar foregrounded over blast-beat percussion, ambient-keyboard-or-synth pads, and false-fold ventricular shriek vocals",
   "recipe": "classic Northern European 1994-1996 atmospheric black metal, distorted Rock, black branch, ambient experimental electric hauntology witch house. thick, false fold engaged, straight note core, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, brushes-and-sticks drum kit. gothenburg Swedish metal defining 1992-present indie-commercial gothenburg swedish melodic death studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 691,
-  "score": 262.07,
+  "score": 261.52,
   "config": {
     "traditions": [
       "atmospheric_black_metal",
@@ -32,8 +32,8 @@
         },
         "scores": {
           "electric_technique": 22.659999999999997,
-          "amp_make": 9.874999999999996,
-          "body_wood": 12.779999999999998,
+          "amp_make": 9.724999999999996,
+          "body_wood": 12.629999999999999,
           "neck_wood": 1.3,
           "fretboard": 1.2349999999999999,
           "pickup_magnet": 0.15,

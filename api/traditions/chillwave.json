@@ -5,7 +5,7 @@
   "lineage": "2009-2012 American online-distributed electronic-and-indie-pop genre characterized by lo-fi summer-nostalgic aesthetics, pitched-down vocal samples, and tape-saturated 1980s production references — codified through Washed Out (Life of Leisure 2009), Toro y Moi (Causers of This 2010), Neon Indian (Psychic Chasms 2009), Memory Tapes, with the David Carr Cole Hipster Runoff Wikipedia coinage providing the genre's name",
   "recipe": "classic 2009-2012 chillwave, experimental Elec, lofi branch, retro aesthetic experimental electric synthwave. extended whistle, breath veiled tone, pure, interlocked note trading. singing lead analog poly synth, soft down tuning clean strummed single coil electric guitar, glitched textural sampler, TR-808. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 415,
-  "score": 169.681,
+  "score": 168.169,
   "config": {
     "traditions": [
       "chillwave",
@@ -33,14 +33,14 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 8.294,
+          "voice_register": 8.0465,
           "voice_quality": 4.030000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.2742499999999999,
           "voice_articulation": 11.634999999999994,
           "voice_microtone": 11.43999999999999,
-          "voice_tradition": 8.542375000000002,
+          "voice_tradition": 8.527375000000001,
           "voice_mechanism_compound": 2.6649999999999996,
           "voice_estill_quality": 2.4699999999999998,
           "voice_speech_song": 12.674999999999995,
@@ -60,7 +60,7 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 9.625,
+          "electronic_technique": 8.375,
           "poly_archetypes": 0.6371249999999999,
           "poly_voices": 0.6371249999999999,
           "poly_maker_lineage": -0.80625

@@ -5,7 +5,7 @@
   "lineage": "Nubian music of the Mahas and Kunuz communities of the Nile Valley between Aswan and Dongola, with post-1964 Aswan High Dam relocation extending diaspora to Cairo and Khartoum. Performance integrates Nubian-language responsorial chorus with tar frame-drum and darbuka, plus twentieth-century urban-oud incorporation. Modal vocabulary draws on Nile Valley pentatonic-leaning tradition with distinct Nubian intervals. The post-1964 diaspora produced an exile-mourning lyric corpus addressing the loss of villages submerged by Lake Nasser. The aragid wedding-dance repertoire constitutes the core ceremonial layer.",
   "recipe": "classic North African mid-1960s nubian music, ballad Poetry, west African griot branch, west African groove percussion indonesian jaipongan fújì. thick, breath veiled tone, straight note core, interlocked note trading. mahogany modern alternative western red cedar oud, clay pre modern traditional fish skin pre modern Egyptian traditional Egyptian sombaty canonical mid east open slap hand drum darbuka, walnut bent frame canonical Iranian calfskin deeper alternative tar frame drum, five string compact strum and damp call-and-response gut tanbura kisir. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 710,
-  "score": 245.132,
+  "score": 243.732,
   "config": {
     "traditions": [
       "nubian_music_nile",
@@ -47,7 +47,7 @@
           "voice_speech_song": 16.314999999999994,
           "voice_ensemble_config": 14.559999999999995,
           "voice_ornament_system": 5.459999999999999,
-          "voice_pitch_organization": 10.269999999999998,
+          "voice_pitch_organization": 8.87,
           "voice_processing_chain": 6.760000000000002,
           "voice_multitrack_stack": 4.745
         }

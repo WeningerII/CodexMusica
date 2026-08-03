@@ -5,7 +5,7 @@
   "lineage": "1980s-and-onward American-Jewish jazz-fusion style integrating klezmer modal-and-melodic vocabulary with jazz-improvisational practice. Don Byron's Plays the Music of Mickey Katz (1993) and the Klezmatics 1980s-onward recordings constitute the canonical type-specimens; the parallel Frank London-led ensembles and David Krakauer's solo work extended the genre. Distinguished from broader klezmer revival by jazz-fusion's explicit jazz-improvisation-and-harmonic emphasis.",
   "recipe": "classic North American mid-1980s klezmer-jazz fusion, improv On Frame, klezmer improv branch, Jewish ritual devotional hasidic niggun sephardi bakkashot. thick, breath veiled tone, straight onset, interlocked note trading. ebonite hard rubber klezmer tradition continuous-airflow legato clarinet, alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, growly gut upright bass, fiberskyn synthetic calf brushes-and-sticks drum kit, klezmer ensemble. nuyorican fania canon 1968-1977 mid tier fania la tierra studios ny. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 809,
-  "score": 408.29,
+  "score": 407.78,
   "config": {
     "traditions": [
       "klezmer_jazz_fusion",
@@ -38,10 +38,10 @@
           "voice_quality": 14.884999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 18.287125,
+          "voice_vibrato": 18.249624999999998,
           "voice_articulation": 15.729999999999995,
-          "voice_microtone": 24.082499999999992,
-          "voice_tradition": 19.644999999999996,
+          "voice_microtone": 24.063374999999994,
+          "voice_tradition": 19.588749999999997,
           "voice_mechanism_compound": 6.955000000000001,
           "voice_estill_quality": 4.4525,
           "voice_speech_song": 16.28249999999999,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 8.9,
           "voice_pitch_organization": 7.3149999999999995,
           "voice_processing_chain": 6.714999999999999,
-          "voice_multitrack_stack": 7.654874999999999
+          "voice_multitrack_stack": 7.579874999999999
         }
       },
       {
@@ -63,7 +63,7 @@
         },
         "scores": {
           "wind_articulation": 5.02,
-          "clarinet_body": 17.655375,
+          "clarinet_body": 17.550375,
           "clarinet_size": 1.4949999999999999,
           "clarinet_reed": 1.3,
           "clarinet_articulation": 12.75
@@ -87,7 +87,7 @@
           "sax_body_alloy": 18.375,
           "sax_mouthpiece": 1.3,
           "sax_technique": 18.195,
-          "sax_maker_school": 17.619375
+          "sax_maker_school": 17.563125
         }
       },
       {
@@ -134,7 +134,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 31.888124999999995,
+          "drum_technique": 31.726874999999993,
           "drumhead": 18.375,
           "drum_kit_kick_pedal": 0
         }

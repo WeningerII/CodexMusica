@@ -5,7 +5,7 @@
   "lineage": "Korean nongak (농악, \"farmer's music\") tradition continuous from premodern Korean-agricultural-village labor-and-festival practice through Japanese-colonial-era and post-1945 continuous performance into modern-recognized Korean-folk continuous practice; the nongak is the canonical Korean village-festival-and-labor music integrating samul (four-instrument) percussion with vocal-and-dance accompaniment",
   "recipe": "classic mid-1940s korean nongak, field Work, east Asian branch, south Asian field work, east Asian wedding, east Asian carnival processional chinese xǐqìng (喜慶) wedding music bengali bhatiali. thick, breath veiled tone, straight onset, interlocked note trading. paulownia canonical Korean horse dog asymmetric canonical Korean pungmul outdoor village pre samul nori janggu, lead kkwaenggwari, reformed dense wood brass belled taepyeongso. forest clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 518,
-  "score": 260.474,
+  "score": 259.809,
   "config": {
     "traditions": [
       "korean_nongak_field",
@@ -44,7 +44,7 @@
           "voice_tradition": 31.759499999999996,
           "voice_mechanism_compound": 2.5945,
           "voice_estill_quality": 1.91425,
-          "voice_speech_song": 17.614999999999995,
+          "voice_speech_song": 16.964999999999993,
           "voice_ensemble_config": 16.704999999999995,
           "voice_ornament_system": 23.525,
           "voice_pitch_organization": 7.6049999999999995,
@@ -87,7 +87,7 @@
         },
         "scores": {
           "taepyeongso_form": 23.5,
-          "taepyeongso_context": 29.60925,
+          "taepyeongso_context": 29.59425,
           "taepyeongso_body": 17
         }
       }

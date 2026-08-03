@@ -5,7 +5,7 @@
   "lineage": "Yoruba were music: pre-dawn Ramadan-procession devotional song-and-drumming tradition of southwestern Nigerian Muslim-Yoruba communities, performed by ajiwere groups moving through Muslim neighborhoods before the suhoor pre-dawn meal during Ramadan. Performance combines unison or call-and-response chorus singing in Yoruba and Arabic (Quranic phrases interpolated into Yoruba praise-poetry) with sákárà frame-drums and small bells. Direct ancestor of fuji music — Alhaji Ayinde Barrister brought the were aesthetic into post-Ramadan secular commercial performance contexts.",
   "recipe": "classic North African modern were music, ritual Devotional, islamic branch, west African groove percussion indonesian jaipongan yoruba dùndún surrogate speech. thick, breath veiled tone, straight note core, interlocked note trading. walnut bent frame canonical Iranian tar frame drum. atlas mountain village square. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 378,
-  "score": 200.777,
+  "score": 196.602,
   "config": {
     "traditions": [
       "were_music_yoruba",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 3.8024999999999998,
+          "voice_register": 3.1525,
           "voice_quality": 19.89,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.9825,
           "voice_articulation": 13.129999999999995,
           "voice_microtone": 17.224999999999994,
-          "voice_tradition": 54.24249999999999,
+          "voice_tradition": 52.61749999999999,
           "voice_mechanism_compound": 3.38,
           "voice_estill_quality": 4.03,
-          "voice_speech_song": 18.004999999999995,
+          "voice_speech_song": 17.354999999999997,
           "voice_ensemble_config": 13.064999999999994,
           "voice_ornament_system": 12.375,
-          "voice_pitch_organization": 24.164999999999996,
+          "voice_pitch_organization": 22.914999999999996,
           "voice_processing_chain": 9.75,
           "voice_multitrack_stack": 3.1200000000000006
         }

@@ -5,7 +5,7 @@
   "lineage": "2020s Africa-meets-Western-pop streaming-era hybrid tradition — codified through Wizkid (\"Essence\" featuring Tems 2020), Burna Boy (African Giant 2019, Twice as Tall 2020), Tems, Rema, Tiwa Savage, and the broader Afrobeats-to-international-mainstream wave; characterized by Afrobeats / amapiano rhythmic foundations under English-and-Pidgin vocals, major-label distribution, and feature collaborations with North American and European pop artists",
   "recipe": "classic mid-2020s globalized african-pop crossover, functional Song, African pop branch, central east south African groove percussion ndombolo chimurenga. extended whistle, breath veiled tone, breath pulsed, interlocked note trading. log drum, TR-808, singing lead analog poly synth, pyramid pure nickel bass British mid 60s era electric bass. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 537,
-  "score": 166.346,
+  "score": 166.136,
   "config": {
     "traditions": [
       "globalized_african_pop_crossover",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 16.432,
+          "voice_register": 16.326999999999998,
           "voice_quality": 9.035,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -73,7 +73,7 @@
         "scores": {
           "tr808_voice": 0.5199999999999999,
           "drum_machine_808_context": 1.17,
-          "tr808_production_origin": 0.5655
+          "tr808_production_origin": 0.4605
         }
       },
       {

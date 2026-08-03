@@ -5,7 +5,7 @@
   "lineage": "Puerto Rican narrative-and-news song tradition originating in Ponce c. 1900 — built on the three sizes of pandereta frame drum (requinto small high-pitched lead, seguidor medium-pitched, segundo bass), plus voice and güiro scraper, performing topical-narrative songs about working-class urban Puerto Rican life and current events (the genres defining periódico cantado newspaper-set-to-music function); codified through Manuel Jiménez Canario (the first commercially-recorded plenero, 1925-onward), Mon Rivera (the mid-20th-century voice), and the modern Plena Libre, Los Pleneros de la 21, and Viento de Agua extensions",
   "recipe": "classic Caribbean modern plena, groove Percussion, Caribbean branch, Latin am troubadour ballad poetry milonga jíbaro. thick, breath veiled tone, slow rate, interlocked note trading. goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian hands layered pandeiro, guiro, cedar nylon fingerpicked classical nylon-string guitar. san juan puerto rican bomba plena yard. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 502,
-  "score": 150.755,
+  "score": 150.65,
   "config": {
     "traditions": [
       "plena_puertorican",
@@ -75,11 +75,11 @@
         "id": "guiro",
         "slots": {
           "guiro_origin": "guiro_puerto_rican",
-          "guiro_striker": "guiro_wood"
+          "guiro_striker": "guiro_comb"
         },
         "scores": {
           "guiro_origin": 5.81,
-          "guiro_striker": 0.495
+          "guiro_striker": 0.39
         }
       },
       {

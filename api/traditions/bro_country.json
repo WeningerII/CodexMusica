@@ -5,7 +5,7 @@
   "lineage": "2010s mainstream country-pop-rap hybrid codified through Florida Georgia Line \"Cruise\" (2012), Luke Bryan, Jason Aldean, and the Nashville radio-format that adopted hip-hop-derived production cues — characterized by 808-bass-and-drum-machine programming, party-celebrating lyrical subject matter, and pop-rock guitar work over country-vocal lead",
   "recipe": "classic mid-2010s bro-country, functional Song, contemp main branch, us hip hop southern plugg pluggnb. thick, rap, straight note core, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright basswood humbucker electric guitar, Fender tweed amp American 50s amp tweed breakup la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled brushes-and-sticks drum kit, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string, pitched chopped sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 672,
-  "score": 318.201,
+  "score": 316.416,
   "config": {
     "traditions": [
       "bro_country",
@@ -75,8 +75,8 @@
           "body_wood": 2.535,
           "neck_wood": 0.845,
           "fretboard": 0.845,
-          "pickup_magnet": 0.585,
-          "pickup_winding": 0.5399999999999999,
+          "pickup_magnet": 0.43499999999999994,
+          "pickup_winding": 0.38999999999999996,
           "string_material": 0.845,
           "bridge": 0.845,
           "scale_length": 2.535,
@@ -92,16 +92,16 @@
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "la_bella_flats_motown",
-          "scale_length_b": "extra_long_b",
+          "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
           "bass_technique": "fingerpicked_country_b"
         },
         "scores": {
           "amp_make": 12.794999999999998,
           "body_wood": 0.845,
-          "pickup_config": 1.3199999999999998,
-          "string_type": 6.272500000000001,
-          "scale_length_b": 0.9299999999999999,
+          "pickup_config": 1.02,
+          "string_type": 5.622500000000001,
+          "scale_length_b": 0.845,
           "fretted_or_not": 0.24,
           "bass_technique": 13.095
         }
@@ -156,9 +156,9 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 6.955000000000001,
+          "electronic_technique": 6.805000000000001,
           "sampler_archetypes": 10.790000000000001,
-          "sampler_bit_depth": 1.6649999999999998,
+          "sampler_bit_depth": 1.365,
           "sampler_workflow": 9.09375,
           "sampler_classic_context": 18.6875
         }

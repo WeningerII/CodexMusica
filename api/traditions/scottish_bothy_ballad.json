@@ -5,7 +5,7 @@
   "lineage": "Scottish bothy-ballad tradition continuous from 19th-century Northeast-Scotland Aberdeenshire-and-Moray farm-laborer (bothy = \"farm-laborer's outbuilding\") drinking-and-grievance-song tradition through 20th-century revival into modern Scottish-folk-revival continuous practice; the bothy-ballads document farm-laborer drinking-and-courting-and-employer-grievance life in agricultural-Scotland 1840s-1900s",
   "recipe": "classic mid-1840s scottish bothy ballad, drinking Song, European branch, Slavic balkan field work, Celtic balladic ballad poetry, European protest song sean-nós solo singing cape breton milling-frolic. thick, breath veiled tone, straight note core, interlocked note trading. dadgad tuning coated nanoweb fingerpicked acoustic guitar, magic rosin modern acrylic base fiddle. irish pub. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 459,
-  "score": 207.896,
+  "score": 207.766,
   "config": {
     "traditions": [
       "scottish_bothy_ballad",
@@ -57,14 +57,14 @@
         "slots": {
           "string_tuning": "dadgad",
           "top_wood": "mahogany_top_om",
-          "back_sides": "rosewood_bs_om",
+          "back_sides": "mahogany_bs_om",
           "string_acoustic": "coated_nano_om",
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
           "string_tuning": 21.225,
           "top_wood": 0.8225,
-          "back_sides": 0.9525,
+          "back_sides": 0.8225,
           "string_acoustic": 1.45,
           "acoustic_om_technique": 13.48
         }

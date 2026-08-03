@@ -5,7 +5,7 @@
   "lineage": "Japanese taue-uta (田植唄, \"rice-planting songs\") tradition continuous from premodern Japanese-agricultural village-labor practice through Edo-period continuous performance into modern Japanese-and-Japanese-diaspora continuous rural practice (where it survives) and into intangible-heritage status for certain regional variants; foundational repertoire integrates rice-paddy planting and weeding-songs with characteristic Japanese-folk pentatonic vocabulary",
   "recipe": "classic modern japanese taue-uta, field Work, east Asian branch, south Asian field work, east Asian wedding, east Asian lullaby japanese komoriuta korean jajanga. thick, breath veiled tone, straight note core, interlocked note trading. acrylic nylon modern tsugaru min yo folk song accompaniment shamisen. forest clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 385,
-  "score": 157.681,
+  "score": 152.431,
   "config": {
     "traditions": [
       "japanese_taue_uta",
@@ -41,12 +41,12 @@
           "voice_vibrato": 4.799,
           "voice_articulation": 10.464999999999996,
           "voice_microtone": 11.309999999999995,
-          "voice_tradition": 50.732499999999995,
+          "voice_tradition": 49.332499999999996,
           "voice_mechanism_compound": 2.5349999999999997,
           "voice_estill_quality": 1.4949999999999997,
-          "voice_speech_song": 14.949999999999996,
+          "voice_speech_song": 13.649999999999995,
           "voice_ensemble_config": 10.789999999999996,
-          "voice_ornament_system": 18.020000000000003,
+          "voice_ornament_system": 16.770000000000003,
           "voice_pitch_organization": 6.76,
           "voice_processing_chain": 2.6000000000000005,
           "voice_multitrack_stack": 2.9899999999999998
@@ -70,7 +70,7 @@
           "shamisen_pick": 2.925,
           "shamisen_neck_wood": 0.12999999999999998,
           "shamisen_strings": 2.925,
-          "shamisen_tradition": 6.759999999999999
+          "shamisen_tradition": 5.459999999999999
         }
       }
     ],

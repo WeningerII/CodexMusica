@@ -5,7 +5,7 @@
   "lineage": "2020s short-form-platform-native pop crafted for algorithmic discovery on TikTok and Instagram Reels — characterized by hook-foregrounded sub-thirty-second song structures, mid-song genre-and-tempo pivots, viral-dance-and-challenge-targeted composition, and rapid-iteration release cycles — exemplars include Olivia Rodrigo (SOUR 2021), Lil Nas X (Old Town Road 2019), Doja Cat, PinkPantheress, Ice Spice, with the form representing a structural shift from album-era pop construction",
   "recipe": "classic mid-2020s tiktok-era streaming pop, functional Song, pop rock branch, pop experimental experimental electric hyperpop. extended whistle, breath veiled tone, straight note core, interlocked note trading. field textural sampler, TR-808, plucked short envelope analog poly synth, ukulele. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 432,
-  "score": 213.909,
+  "score": 212.771,
   "config": {
     "traditions": [
       "tiktok_era_streaming_pop",
@@ -33,7 +33,7 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 27.235,
+          "voice_register": 26.723499999999998,
           "voice_quality": 3.835000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 9.425,
           "voice_ornament_system": 1.15,
           "voice_pitch_organization": 1.3315000000000001,
-          "voice_processing_chain": 8.510000000000002,
+          "voice_processing_chain": 8.405000000000001,
           "voice_multitrack_stack": 5.98
         }
       },
@@ -62,10 +62,10 @@
         },
         "scores": {
           "electronic_technique": 7.2315,
-          "sampler_archetypes": 0.399,
-          "sampler_bit_depth": 1.17,
+          "sampler_archetypes": 0.29400000000000004,
+          "sampler_bit_depth": 1.0679999999999998,
           "sampler_workflow": 8.072999999999999,
-          "sampler_classic_context": 21.2415
+          "sampler_classic_context": 21.1365
         }
       },
       {
@@ -78,7 +78,7 @@
         "scores": {
           "tr808_voice": 1.2815,
           "drum_machine_808_context": 2.2749999999999995,
-          "tr808_production_origin": 0.2415
+          "tr808_production_origin": 0.1365
         }
       },
       {
@@ -92,7 +92,7 @@
         "scores": {
           "electronic_technique": 23.925000000000004,
           "poly_archetypes": 2.6,
-          "poly_voices": 0.4725,
+          "poly_voices": 0.36750000000000005,
           "poly_maker_lineage": -0.7350000000000001
         }
       },

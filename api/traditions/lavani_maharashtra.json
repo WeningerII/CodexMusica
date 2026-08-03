@@ -5,7 +5,7 @@
   "lineage": "Lavani Marathi women's song-and-dance tradition of Maharashtra, characterized by powerful and often erotically suggestive female lead-singer-dancer performance accompanied by dholak two-headed barrel drum and tabla. Two main streams: nirguni lavani (philosophical-devotional) and shringari lavani (romantic-erotic, more popularly known). Performance traditionally occurs in folk-theatre tamasha contexts in nineteenth-and-twentieth-century rural Maharashtra, with the kalavantin dancer-singer holding a respected (if socially marginalized) professional role. Mid-twentieth-century Marathi-cinema adopted lavani as iconic regional cultural-form.",
   "recipe": "classic South Asian early-1940s lavani, functional Song, south Asian pop branch, west African groove percussion indonesian jaipongan fújì. thick, breath veiled tone, slow rate, interlocked note trading. dholak, dark folk clay tabla. mumbai bombay filmi defining 1940-present major-flagship mumbai bombay filmi studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips echo plate reverb.",
   "recipe_chars": 431,
-  "score": 170.81,
+  "score": 169.26,
   "config": {
     "traditions": [
       "lavani_maharashtra",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 9.605,
+          "voice_register": 9.455,
           "voice_quality": 9.23,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -47,7 +47,7 @@
           "voice_speech_song": 19.56499999999999,
           "voice_ensemble_config": 16.249999999999993,
           "voice_ornament_system": 4.9,
-          "voice_pitch_organization": 9.064999999999998,
+          "voice_pitch_organization": 7.664999999999998,
           "voice_processing_chain": 6.044999999999999,
           "voice_multitrack_stack": 6.4025
         }

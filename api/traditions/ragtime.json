@@ -5,7 +5,7 @@
   "lineage": "1890s-1910s composed syncopated piano dance form developed in African-American midwestern saloon and brothel piano tradition — codified through Scott Joplin (Maple Leaf Rag 1899 and The Entertainer 1902) plus Tom Turpin, James Scott and Joseph Lamb, with the form serving as the principal pre-jazz American popular dance music until eclipsed by stride and early jazz around 1920",
   "recipe": "classic mid-1890s ragtime, improv On Frame, pre jazz ragtime branch, American jazz early, crooners functional song swing-era jazz orchestra new orleans jazz. cold pressed wurzen felt oversize maple tension resonator European spruce grand stride upright piano, 3 ply maple Gibson mastertone canon maple bluegrass canon plain gut banjo 5 string, yellow brass canonical brass band conn vintage early jazz canon front line cornet, red brass 90 10 darker orchestral bach 42 canonical American orchestral tenor front line student commercial trombone. parlor. acoustic horn. 78rpm shellac.",
   "recipe_chars": 582,
-  "score": 215.857,
+  "score": 207.002,
   "config": {
     "traditions": [
       "ragtime",
@@ -18,7 +18,7 @@
         "slots": {
           "keyboard_technique": "keyboard_stride_left_hand",
           "grand_piano_size": "grand_7_foot",
-          "grand_piano_brand": "steinway_d",
+          "grand_piano_brand": "bosendorfer",
           "piano_hammer": "ronsen_wurzen_hammer",
           "piano_rim": "mason_hamlin_oversize_rim",
           "piano_soundboard": "european_spruce_soundboard",
@@ -29,7 +29,7 @@
         "scores": {
           "keyboard_technique": 3.1000000000000005,
           "grand_piano_size": 0.9774999999999999,
-          "grand_piano_brand": 1.04,
+          "grand_piano_brand": 1.0274999999999999,
           "piano_hammer": 11.7,
           "piano_rim": 18.135,
           "piano_soundboard": 5.793333333333334,
@@ -88,11 +88,11 @@
           "cornet_maker_school": "cornet_conn_vintage"
         },
         "scores": {
-          "wind_articulation": 4.079999999999999,
-          "cornet_pitch": 13.18,
+          "wind_articulation": 3.33,
+          "cornet_pitch": 12.28,
           "cornet_context": 7.475,
           "cornet_bell_metal": 4.29,
-          "cornet_maker_school": 22.034999999999993
+          "cornet_maker_school": 20.59333333333333
         }
       },
       {
@@ -107,9 +107,9 @@
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 4.079999999999999,
-          "trombone_type": 32.425,
-          "trombone_mouthpiece": 32.42,
+          "wind_articulation": 3.33,
+          "trombone_type": 29.924999999999997,
+          "trombone_mouthpiece": 29.919999999999995,
           "trombone_mute": 0.3158333333333333,
           "trombone_technique": 2.3175,
           "trombone_bell_metal": 1.4299999999999997,

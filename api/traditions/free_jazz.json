@@ -5,7 +5,7 @@
   "lineage": "1960-onward avant-garde jazz dispensing with fixed harmony and steady meter — Ornette Coleman, Cecil Taylor, Albert Ayler, late John Coltrane (Ascension 1965, Meditations 1965), Pharoah Sanders, Sun Ra Arkestra; ESP-Disk, Impulse!, BYG-Actuel, and Strata-East labels",
   "recipe": "classic North American modern free jazz, improv On Frame, avant branch, industrial noise experimental electric, jam free improv on frame noise music free improvisation. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris multiphonic saxophone, bach stradivarius 180 canonical American orchestral multiphonic jazz balance trumpet, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, ebonite hard rubber klezmer tradition multiphonic clarinet. radio city music hall eighth floor 1949-1985 mid tier plaza sound radio city nyc. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 702,
-  "score": 235.808,
+  "score": 227.273,
   "config": {
     "traditions": [
       "free_jazz",
@@ -25,13 +25,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 24.15,
+          "wind_articulation": 22.15,
           "sax_size": 2.21,
           "sax_reed": 1.2349999999999999,
           "sax_body_alloy": 16.499999999999996,
           "sax_mouthpiece": 1.2349999999999999,
-          "sax_technique": 18.375,
-          "sax_maker_school": 16.949499999999997
+          "sax_technique": 17.125,
+          "sax_maker_school": 16.521166666666666
         }
       },
       {
@@ -46,9 +46,9 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 24.15,
+          "wind_articulation": 22.15,
           "brass_size": 1.2349999999999999,
-          "trumpet_mouthpiece": 18.667999999999996,
+          "trumpet_mouthpiece": 18.239666666666665,
           "brass_mute": 0.15,
           "trumpet_technique": 0.8339999999999999,
           "trumpet_bell_metal": 0.502,
@@ -75,7 +75,7 @@
         },
         "scores": {
           "drum_technique": 22.099999999999994,
-          "drumhead": 19.13983333333333,
+          "drumhead": 18.711499999999994,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -89,7 +89,7 @@
           "clarinet_articulation": "tongued_clarinet"
         },
         "scores": {
-          "wind_articulation": 24.15,
+          "wind_articulation": 22.15,
           "clarinet_body": 1.3649999999999998,
           "clarinet_size": 1.2349999999999999,
           "clarinet_reed": 1.2349999999999999,

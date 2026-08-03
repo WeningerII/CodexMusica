@@ -5,7 +5,7 @@
   "lineage": "Electronic-and-rap-influenced Dominican merengue variant emerging in 1990s-2000s. Synthesis of traditional merengue rhythmic pulse with hip-hop production and reggaeton harmonic-rhythmic vocabulary. Drum-machine-and-sampler production, faster 2/4 tempo than traditional merengue, simpler chord-progressions, explicit MC-rapped vocal sections alongside sung verse-and-chorus. Omega \"El Fuerte\" and El Cata anchored the 2000s commercial sound.",
   "recipe": "classic Caribbean mid-1990s merengue urbano, functional Song, tropical song branch, reggaeton MC rhythm moombahton. thick, rap, slow rate, interlocked note trading. TR-808, sub bass analog synth, electric bass. Dominican canon 1970-1995 mid tier dominican capital studio 80s. shure SM58, transformerless solid-state pre, pumping sidechain, parametric EQ. lossy MP3 autotune digital delay.",
   "recipe_chars": 388,
-  "score": 141.814,
+  "score": 136.768,
   "config": {
     "traditions": [
       "merengue_urbano",
@@ -39,17 +39,17 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.47,
-          "voice_articulation": 13.389999999999997,
-          "voice_microtone": 13.844999999999994,
+          "voice_articulation": 12.739999999999997,
+          "voice_microtone": 13.194999999999993,
           "voice_tradition": 4.615,
           "voice_mechanism_compound": 5.2,
           "voice_estill_quality": 3.3150000000000004,
-          "voice_speech_song": 17.289999999999996,
-          "voice_ensemble_config": 13.129999999999995,
+          "voice_speech_song": 16.639999999999997,
+          "voice_ensemble_config": 12.479999999999995,
           "voice_ornament_system": 4.355000000000001,
           "voice_pitch_organization": 2.3399999999999994,
           "voice_processing_chain": 9.075,
-          "voice_multitrack_stack": 11.046499999999996
+          "voice_multitrack_stack": 9.646499999999996
         }
       },
       {
@@ -62,7 +62,7 @@
         "scores": {
           "tr808_voice": 3.185,
           "drum_machine_808_context": 6.117999999999999,
-          "tr808_production_origin": 0.6194999999999999
+          "tr808_production_origin": 0.5145
         }
       },
       {
@@ -75,7 +75,7 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 3.6075000000000004,
+          "electronic_technique": 3.6060000000000003,
           "oscillator": 1.345,
           "filter_topology": 0.65,
           "envelope": 2.7364999999999995,
@@ -96,9 +96,9 @@
         "scores": {
           "amp_make": 0.585,
           "body_wood": 0.546,
-          "pickup_config": 0.4365,
-          "string_type": 0.651,
-          "scale_length_b": 0.3465,
+          "pickup_config": 0.3315,
+          "string_type": 0.546,
+          "scale_length_b": 0.2415,
           "fretted_or_not": 0,
           "bass_technique": 0.325
         }

@@ -5,7 +5,7 @@
   "lineage": "Late-1960s through 1970s jazz-rock hybrid genre electrifying jazz instrumentation and incorporating rock rhythms, funk grooves, modal harmonic language, and extended improvised form — codified through Miles Davis (In a Silent Way 1969, Bitches Brew 1970), Weather Report (Heavy Weather 1977), Mahavishnu Orchestra (Inner Mounting Flame 1971), Return to Forever, Herbie Hancock (Head Hunters 1973)",
   "recipe": "classic Los Angeles 1967-1969 fusion, improv On Frame, fusion branch, American jazz bop bebop modal jazz. pocket ostinato electric piano tine, Fender blackface amp American 60s amp spring reverb bright basswood maple humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, analog synth, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, bach stradivarius 180 canonical American orchestral jazz balance trumpet, raymac steel tine premium 1970s vintage replacement harder neoprene late 1970s bark grit ostinato rhodes electric, Wurlitzer 200a canonical 1974 1982 solid state soft rock canon ostinato wurlitzer ep, five string extended low range warm low c fusion lead electric violin. treated studio. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ.",
   "recipe_chars": 991,
-  "score": 435.542,
+  "score": 415.653,
   "config": {
     "traditions": [
       "fusion",
@@ -56,7 +56,7 @@
           "scale_length": 2.0799999999999996,
           "string_gauge": 0.155625,
           "finish": 0.0045,
-          "string_tuning": 8.905
+          "string_tuning": 8.820375
         }
       },
       {
@@ -74,10 +74,10 @@
           "amp_make": 6.630000000000002,
           "body_wood": 0.31125,
           "pickup_config": 0.22499999999999998,
-          "string_type": 37.944625,
+          "string_type": 35.734625,
           "scale_length_b": 0.39,
           "fretted_or_not": 0.0045,
-          "bass_technique": 31.375
+          "bass_technique": 30.125
         }
       },
       {
@@ -88,8 +88,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 36.00999999999999,
-          "drumhead": 37.9685,
+          "drum_technique": 35.35999999999999,
+          "drumhead": 35.7585,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -122,13 +122,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 4,
-          "sax_size": 5.660375,
+          "wind_articulation": 2.75,
+          "sax_size": 4.410375,
           "sax_reed": 1.65475,
-          "sax_body_alloy": 31.573749999999997,
+          "sax_body_alloy": 30.323749999999997,
           "sax_mouthpiece": 1.65475,
-          "sax_technique": 31.375,
-          "sax_maker_school": 36.646874999999994
+          "sax_technique": 30.125,
+          "sax_maker_school": 34.43687499999999
         }
       },
       {
@@ -143,11 +143,11 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 4,
+          "wind_articulation": 2.75,
           "brass_size": 1.65475,
-          "trumpet_mouthpiece": 37.944625,
+          "trumpet_mouthpiece": 35.734625,
           "brass_mute": 0.39,
-          "trumpet_technique": 4,
+          "trumpet_technique": 2.75,
           "trumpet_bell_metal": 0.7410000000000001,
           "trumpet_maker_school": 5.265000000000001
         }
@@ -164,7 +164,7 @@
         },
         "scores": {
           "keyboard_technique": 4.7,
-          "rhodes_model": 31.530625,
+          "rhodes_model": 30.280625,
           "rhodes_use": 0.260625,
           "rhodes_tine_material": 1.2349999999999999,
           "rhodes_hammer_tip": 3.25,
@@ -183,7 +183,7 @@
         "scores": {
           "keyboard_technique": 4.7,
           "wurlitzer_use": 0,
-          "wurlitzer_ep_voice": 4.161499999999999,
+          "wurlitzer_ep_voice": 4.056499999999999,
           "wurlitzer_model": 4.874999999999999,
           "wurlitzer_reed_material": 0.39
         }
@@ -197,7 +197,7 @@
         },
         "scores": {
           "electric_violin_form": 2.0687499999999996,
-          "electric_violin_context": 8.763499999999999,
+          "electric_violin_context": 8.5535,
           "electric_violin_pickup": 0.469
         }
       }

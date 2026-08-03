@@ -5,7 +5,7 @@
   "lineage": "Norwegian stev solo-singing tradition of inland-Norway (Setesdal, Telemark, and adjacent mountain regions), comprising short improvised-or-traditional four-line quatrains sung unaccompanied. Two main streams: gamlestev (\"old stev\") canonical fixed-traditional-stanzas, and nystev (\"new stev\") improvised-on-occasion stanzas often performed in competitive-dialogic exchange between two singers. Performance: solo unaccompanied voice in characteristic narrow-range Norwegian-pentatonic-and-modal vocabulary with strict stev-meter four-stress-line. The Hilme inland-Norway lineage and the canonical nineteenth-century stev-singers (Jorunn Hilme, Talleiv Røysland) consolidated institutional documentation; the post-1970s Norwegian folk-music revival re-established practice.",
   "recipe": "classic mid-1970s norwegian stev, ballad Poetry, Celtic balladic branch, vocal drone modal northern sámi luohti yoik southern sámi vuelie. vocal fry, breath veiled tone, straight note core, interlocked note trading. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 295,
-  "score": 245.695,
+  "score": 244.195,
   "config": {
     "traditions": [
       "norwegian_stev_solo",
@@ -46,7 +46,7 @@
           "voice_estill_quality": 5.330000000000001,
           "voice_speech_song": 28.795,
           "voice_ensemble_config": 29.770000000000003,
-          "voice_ornament_system": 18.235000000000003,
+          "voice_ornament_system": 16.735,
           "voice_pitch_organization": 5.395000000000001,
           "voice_processing_chain": 11.699999999999996,
           "voice_multitrack_stack": 7.084999999999999

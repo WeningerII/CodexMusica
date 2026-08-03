@@ -5,7 +5,7 @@
   "lineage": "Northeast Arnhem Land Yolŋu ceremonial trumpet tradition — the yidaki (the Yolŋu Matha language name for the instrument that English speakers call didgeridoo) is the Aboriginal Australian ceremonial pipe, played through continuous circular breathing with vocalizations and tongue articulations producing complex polyrhythmic textures; deeply tied to Yolŋu manikay ceremonial song tradition and the broader Aboriginal Australian songline cosmology — 20th-century preservation through Djalu Gurruwiwi (the yidaki master and ceremonial-knowledge holder), Mark Atkins, the Yothu Yindi yidaki tradition extended into popular-music context",
   "recipe": "classic Oceanian modern yidaki solo, drone Modal, wind pipe branch, indigenous ritual devotional aboriginal didgeridoo solo songlines. eucalyptus tetrodonta yidaki canon northeast arnhem drone like circular breathing didgeridoo. arctic arnhem indigenous outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 325,
-  "score": 51.78,
+  "score": 48.03,
   "config": {
     "traditions": [
       "didgeridoo_yidaki_solo",
@@ -21,9 +21,9 @@
           "didj_technique": "circular_breathing"
         },
         "scores": {
-          "wind_articulation": 13.98,
-          "didj_material": 18.674999999999997,
-          "didj_mouthpiece": 15.345,
+          "wind_articulation": 12.73,
+          "didj_material": 17.424999999999997,
+          "didj_mouthpiece": 14.094999999999999,
           "didj_technique": 7.529999999999999
         }
       }

@@ -3,14 +3,14 @@
   "name": "Funk",
   "family": "blues_gospel",
   "lineage": "African-American rhythmic-displacement genre codified by James Brown 1965 onward (Out of Sight, Papas Got a Brand New Bag, Cold Sweat, Funky Drummer) and extended through Sly and the Family Stone, the Meters, Parliament-Funkadelic, Earth Wind and Fire, Tower of Power, Ohio Players, Bootsy Collins, the entire JBs / Maceo / Fred Wesley horn-section canon",
-  "recipe": "classic Midwestern American mid-1960s funk, groove Percussion, funk percussive branch, soul R&B functional song southern soul doo-wop. thick, breath veiled tone, straight note core, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright wenge ebony single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled brushes-and-sticks drum kit, Hammond a 100 built in Leslie home spinet ostinato full spectrum slow chorale tonewheel organ, tenor ensemble honking attack saxophone, bach stradivarius 180 canonical American orchestral ensemble heavy one piece matched to monette horn trumpet, hohner d6 canonical 1971 1981 funk era ostinato clavinet. 1540 brewster avenue cincinnati 1943-1971 indie-commercial king records studios cincinnati. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe": "classic Midwestern American mid-1960s funk, groove Percussion, funk percussive branch, soul R&B functional song doo-wop southern soul. thick, breath veiled tone, straight note core, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright wenge ebony single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled brushes-and-sticks drum kit, Hammond a 100 built in Leslie home spinet ostinato full spectrum slow chorale tonewheel organ, tenor ensemble honking attack saxophone, bach stradivarius 180 canonical American orchestral ensemble heavy one piece matched to monette horn trumpet, hohner d6 canonical 1971 1981 funk era ostinato clavinet. 1540 brewster avenue cincinnati 1943-1971 indie-commercial king records studios cincinnati. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 998,
-  "score": 510.802,
+  "score": 490.427,
   "config": {
     "traditions": [
       "funk",
-      "southern_soul",
-      "doo_wop"
+      "doo_wop",
+      "southern_soul"
     ],
     "instruments": [
       {
@@ -30,8 +30,8 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 21.939999999999994,
-          "amp_make": 26.27999999999999,
+          "electric_technique": 20.689999999999994,
+          "amp_make": 25.02999999999999,
           "body_wood": 0.195,
           "neck_wood": 2.5549999999999997,
           "fretboard": 1.905,
@@ -56,13 +56,13 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "amp_make": 19.464999999999993,
+          "amp_make": 18.214999999999993,
           "body_wood": 0.195,
           "pickup_config": 0,
-          "string_type": 19.987499999999997,
+          "string_type": 18.362499999999997,
           "scale_length_b": 0.195,
           "fretted_or_not": 1.905,
-          "bass_technique": 21.699999999999996
+          "bass_technique": 20.449999999999996
         }
       },
       {
@@ -89,9 +89,9 @@
           "leslie_cabinet_model": "leslie_760_solid_state"
         },
         "scores": {
-          "keyboard_technique": 21.749999999999993,
+          "keyboard_technique": 20.499999999999993,
           "drawbar_setting": 4.125,
-          "rotary_speed": 12.644999999999998,
+          "rotary_speed": 11.394999999999998,
           "percussion_setting": 1.04,
           "tonewheel_model": 7.15,
           "leslie_cabinet_model": 0.195
@@ -109,12 +109,12 @@
           "sax_maker_school": "sax_keilwerth_german"
         },
         "scores": {
-          "wind_articulation": 18.345,
-          "sax_size": 12.399999999999997,
+          "wind_articulation": 17.094999999999995,
+          "sax_size": 11.149999999999997,
           "sax_reed": 1.3,
           "sax_body_alloy": 0.25,
           "sax_mouthpiece": 1.3,
-          "sax_technique": 12.399999999999999,
+          "sax_technique": 11.149999999999999,
           "sax_maker_school": 0
         }
       },
@@ -130,11 +130,11 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 18.345,
+          "wind_articulation": 17.094999999999995,
           "brass_size": 1.3,
           "trumpet_mouthpiece": 4.16,
           "brass_mute": 0.195,
-          "trumpet_technique": 18.345,
+          "trumpet_technique": 17.094999999999995,
           "trumpet_bell_metal": 0.39,
           "trumpet_maker_school": 4.225
         }
@@ -160,16 +160,16 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 23.074999999999992,
+          "voice_register": 21.824999999999992,
           "voice_quality": 21.645000000000007,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.4299999999999997,
           "voice_articulation": 18.914999999999992,
           "voice_microtone": 16.96499999999999,
-          "voice_tradition": 20.044999999999998,
+          "voice_tradition": 18.794999999999998,
           "voice_mechanism_compound": 2.145,
-          "voice_estill_quality": 17.319999999999993,
+          "voice_estill_quality": 16.069999999999997,
           "voice_speech_song": 21.839999999999993,
           "voice_ensemble_config": 17.09499999999999,
           "voice_ornament_system": 2.535000000000001,
@@ -188,7 +188,7 @@
           "clavinet_string_material": "clavinet_steel_string_canonical"
         },
         "scores": {
-          "keyboard_technique": 21.749999999999993,
+          "keyboard_technique": 20.499999999999993,
           "clavinet_pickup": 1.1949999999999998,
           "clavinet_context": 1.905,
           "clavinet_model": 5.719999999999999,

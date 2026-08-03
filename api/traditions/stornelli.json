@@ -5,7 +5,7 @@
   "lineage": "Italian stornelli improvised-couplet folk-song tradition of central Italy (Tuscany, Umbria, Lazio, Marche, Abruzzo) and adjacent regions, in which singer-poets improvise short rhymed verse-couplets (typically tripartite three-line stanzas) on assigned topics, often in competitive dialogic-exchange between two singers. Performance: unaccompanied or minimally-accompanied solo voice, with the canonical poetic-meter conventions strictly governing the improvisation. The genre survived the twentieth-century rural-urbanization period as a vestigial folk practice and entered the post-1970s Italian folk-revival under researchers Roberto Leydi and Diego Carpitella. Distinguished from broader Italian regional-folk-song by stornelli's specifically-improvisational structural framework.",
   "recipe": "classic Southern European mid-1970s stornelli, ballad Poetry, Mediterranean ballad branch, med east poetic ballad poetry cypriot tsiattista basque bertsolaritza. thick, breath veiled tone, straight note core, interlocked note trading. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 388,
-  "score": 179.741,
+  "score": 179.441,
   "config": {
     "traditions": [
       "stornelli",
@@ -41,9 +41,9 @@
           "voice_vibrato": 6.255000000000001,
           "voice_articulation": 14.169999999999996,
           "voice_microtone": 13.974999999999993,
-          "voice_tradition": 36.1575,
+          "voice_tradition": 36.0075,
           "voice_mechanism_compound": 3.38,
-          "voice_estill_quality": 16.89875,
+          "voice_estill_quality": 16.74875,
           "voice_speech_song": 17.549999999999997,
           "voice_ensemble_config": 15.794999999999993,
           "voice_ornament_system": 13.774999999999999,

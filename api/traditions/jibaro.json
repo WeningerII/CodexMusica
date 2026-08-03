@@ -5,7 +5,7 @@
   "lineage": "Rural Puerto Rican mountain (montaña) peasant song tradition rooted in the Spanish décima poetic form (ten-line stanza, 8 syllables per line, ABBAACCDDC rhyme scheme) brought from 17th-century Iberian colonial settlement and preserved in the Puerto Rican mountain interior — performed on the cuatro puertorriqueño (the 10-string national instrument with five double-string courses), classical guitar, güiro, and bongos; figures Ramito (Florencio Morales Ramos, the 20th-century jíbaro voice), Chuíto el de Bayamón, Toño Mayo, and the modern revival through Ecos de Borinquen and the Cuatro Project",
   "recipe": "classic Caribbean mid-1930s jíbaro, ballad Poetry, Latin am troubadour branch, Caribbean groove percussion, crooners functional song parang calypso. thick, breath veiled tone, slow rate, interlocked note trading. mahogany puerto rican traditional cuatro pr, narrative fingerpicked acoustic guitar, guiro, open slap hand drum bongos. san juan puerto rican bomba plena yard. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 445,
-  "score": 135.397,
+  "score": 135.097,
   "config": {
     "traditions": [
       "jibaro",
@@ -65,7 +65,7 @@
           "plucked_traditional_technique": 0.8775,
           "cuatro_pr_config": -0.385,
           "cuatro_pr_context": 4.225,
-          "cuatro_pr_body_wood": 6.1899999999999995,
+          "cuatro_pr_body_wood": 5.889999999999999,
           "cuatro_pr_string_material": -0.35
         }
       },

@@ -5,7 +5,7 @@
   "lineage": "1980s-onward atmospheric guitar pop genre codified through the 4AD label catalog (Cocteau Twins, Treasure 1984, Heaven or Las Vegas 1990 the dream pop album), the Mazzy Star California canon (She Hangs Brightly 1990, So Tonight That I Might See 1993 with Hope Sandoval female-vocal-foreground), Galaxie 500 (the New England slowcore-adjacent canon), Beach House (Baltimore modern dream pop, Teen Dream 2010, Bloom 2012)",
   "recipe": "classic Northern European mid-1980s dream pop, functional Song, pop rock branch, alternative distorted rock bedroom pop. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alder single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, sequential lineage canonical prophet 5 1978 san jose ca lead analog poly yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, original production texture omnichord. UK 4ad and creation shoegaze 1986-1995 indie-commercial dream pop shoegaze 4ad studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb electro-harmonix deluxe memory man chorus.",
   "recipe_chars": 922,
-  "score": 511.018,
+  "score": 491.793,
   "config": {
     "traditions": [
       "dream_pop",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 47.95500000000002,
+          "voice_register": 45.45500000000003,
           "voice_quality": 5.98,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.34,
           "voice_articulation": 17.42,
-          "voice_microtone": 44.17500000000002,
-          "voice_tradition": 25.97,
+          "voice_microtone": 41.67500000000002,
+          "voice_tradition": 24.57,
           "voice_mechanism_compound": 8.027500000000002,
           "voice_estill_quality": 6.630000000000003,
           "voice_speech_song": 21.19,
           "voice_ensemble_config": 20.475,
           "voice_ornament_system": 1.575,
           "voice_pitch_organization": 2.1449999999999996,
-          "voice_processing_chain": 11.36,
+          "voice_processing_chain": 11.209999999999999,
           "voice_multitrack_stack": 13.519999999999998
         }
       },
@@ -69,8 +69,8 @@
           "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 22.964999999999996,
-          "amp_make": 14.105000000000002,
+          "electric_technique": 21.714999999999996,
+          "amp_make": 13.455000000000002,
           "body_wood": 1.69,
           "neck_wood": 1.6899999999999997,
           "fretboard": 0.78,
@@ -80,7 +80,7 @@
           "bridge": 0.195,
           "scale_length": 0.845,
           "finish": 0,
-          "string_tuning": 16.055
+          "string_tuning": 15.405000000000001
         }
       },
       {
@@ -95,13 +95,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 13.682500000000003,
+          "amp_make": 13.032500000000002,
           "body_wood": 0.845,
           "pickup_config": 1.0399999999999998,
-          "string_type": 31.52500000000001,
+          "string_type": 29.90000000000001,
           "scale_length_b": 0.845,
           "fretted_or_not": 0.105,
-          "bass_technique": 23.125000000000007
+          "bass_technique": 21.875000000000007
         }
       },
       {
@@ -112,8 +112,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 22.250000000000007,
-          "drumhead": 24.82,
+          "drum_technique": 21.000000000000007,
+          "drumhead": 23.57,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -126,8 +126,8 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 22.724999999999998,
-          "poly_archetypes": 11.570000000000002,
+          "electronic_technique": 21.474999999999998,
+          "poly_archetypes": 10.920000000000002,
           "poly_voices": 0,
           "poly_maker_lineage": 1.17
         }
@@ -142,11 +142,11 @@
           "fm_model_lineage": "fm_yamaha_dx7"
         },
         "scores": {
-          "electronic_technique": 22.724999999999998,
+          "electronic_technique": 21.474999999999998,
           "fm_algorithm": 2.0799999999999996,
           "fm_modulator_ratio": 0.39,
           "fm_polyphony": 0.845,
-          "fm_model_lineage": 16.574999999999996
+          "fm_model_lineage": 15.924999999999997
         }
       },
       {
@@ -157,7 +157,7 @@
           "omnichord_sound_setting": "omnichord_full_combo"
         },
         "scores": {
-          "omnichord_model": 8.584999999999999,
+          "omnichord_model": 8.285,
           "omnichord_context": 6.86,
           "omnichord_sound_setting": 1.8200000000000003
         }

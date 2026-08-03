@@ -3,9 +3,9 @@
   "name": "Banda sinaloense",
   "family": "global",
   "lineage": "Mexican brass-band tradition of Sinaloa state, derived from late-nineteenth-century German-immigrant military-band tradition adapted to Mexican-rural-popular celebration-music. Large ensemble of clarinets, trumpets, trombones, sousaphone, tambora, tarola, voice — entirely brass-and-percussion. Repertoire spans ranchera, corrido, cumbia. Banda El Recodo (founded 1938) anchors the canonical sound.",
-  "recipe": "classic Mexican late-1930s banda sinaloense, functional Song, Mexican branch, American marching groove percussion american drumline. thick, full chest belt, interlocked note trading, neutral third half flat. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor large cup tenor large trombone, American orchestral brass yellow brass canonical orchestral piston valves American school besson sovereign British brass band tuba, ebonite hard rubber klezmer tradition clarinet, banda sinaloense. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
-  "recipe_chars": 873,
-  "score": 119.489,
+  "recipe": "classic Mexican late-1930s banda sinaloense, functional Song, Mexican branch, American marching groove percussion american drumline. thick, full chest belt, interlocked note trading, neutral third half flat. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor large cup tenor large trombone, compact tuba brass yellow brass canonical orchestral piston valves American school besson sovereign British brass band tuba, ebonite hard rubber klezmer tradition clarinet, banda sinaloense. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 866,
+  "score": 116.461,
   "config": {
     "traditions": [
       "banda_sinaloense",
@@ -69,7 +69,7 @@
           "brass_mute": 0.04875,
           "trumpet_technique": 2.5999999999999996,
           "trumpet_bell_metal": 4.4167499999999995,
-          "trumpet_maker_school": 5.069999999999999
+          "trumpet_maker_school": 4.419999999999999
         }
       },
       {
@@ -90,14 +90,14 @@
           "trombone_mute": 0.04875,
           "trombone_technique": 0.845,
           "trombone_bell_metal": 4.61175,
-          "trombone_maker_school": 5.915
+          "trombone_maker_school": 5.265
         }
       },
       {
         "id": "tuba",
         "slots": {
           "wind_articulation": "wind_classical_legato",
-          "tuba_pitch": "tuba_cc",
+          "tuba_pitch": "tuba_eb",
           "tuba_context": "tuba_brass_band",
           "tuba_bell_metal": "tuba_yellow_brass",
           "tuba_valve_system": "tuba_piston_american",
@@ -105,10 +105,10 @@
         },
         "scores": {
           "wind_articulation": 0.39,
-          "tuba_pitch": 3.3799999999999994,
+          "tuba_pitch": 2.9899999999999993,
           "tuba_context": 9.503,
           "tuba_bell_metal": 4.4167499999999995,
-          "tuba_valve_system": 4.419999999999999,
+          "tuba_valve_system": 3.119999999999999,
           "tuba_maker_school": 7.406749999999999
         }
       },
@@ -123,7 +123,7 @@
         },
         "scores": {
           "wind_articulation": 2.5999999999999996,
-          "clarinet_body": 4.3542499999999995,
+          "clarinet_body": 4.31675,
           "clarinet_size": 0.14625,
           "clarinet_reed": 0.195,
           "clarinet_articulation": 0.45499999999999996

@@ -5,7 +5,7 @@
   "lineage": "Chinese comic dialogue (xiangsheng, 'crosstalk'), most characteristically the two-person duikou form in which a lead funnyman (dougen) and a straight-man feed (penggen) trade rapid witty patter, wordplay, mimicry and song at a small table on stage. A Beijing-Tianjin vernacular art crystallised in the late Qing and Republican eras and canonised through masters such as Hou Baolin, its skills are summed as the four arts of speaking, imitating, teasing and singing (shuo, xue, dou, chang), including tongue-twisting guankou set-pieces. Delivery is fast, rhythmic conversational comedy built on precise timing between the two voices.",
   "recipe": "classic East Asian early-1930s chinese xiangsheng crosstalk, art Music, east Asian branch tibetan ache lhamo opera beijing opera. kargyraa, breath veiled tone, slow rate, interlocked note trading. chinese traditional teahouse. RCA 44-BX, calrec BBC-broadcast pre, BBC broadcast console, Telefunken u73b broadcast comp, broadcast loudness EQ. AM-radio broadcast.",
   "recipe_chars": 361,
-  "score": 231.722,
+  "score": 226.049,
   "config": {
     "traditions": [
       "chinese_xiangsheng",
@@ -43,10 +43,10 @@
           "voice_microtone": 24.43999999999999,
           "voice_tradition": 39.22749999999999,
           "voice_mechanism_compound": 7.049999999999999,
-          "voice_estill_quality": 22.942999999999998,
+          "voice_estill_quality": 20.019999999999996,
           "voice_speech_song": 26.779999999999998,
           "voice_ensemble_config": 26.84499999999999,
-          "voice_ornament_system": 18.8445,
+          "voice_ornament_system": 16.0945,
           "voice_pitch_organization": 8.3605,
           "voice_processing_chain": 3.6399999999999997,
           "voice_multitrack_stack": 4.8100000000000005

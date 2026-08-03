@@ -5,7 +5,7 @@
   "lineage": "Black-American male-quartet gospel tradition that emerged from late-19th-century Fisk Jubilee Singers university choirs and the parallel post-WWI Black Church male-quartet tradition — codified through the Golden Gate Quartet (the pre-WWII quartet, founded 1934), the Soul Stirrers (where Sam Cooke fronted before his secular pop crossover), the Dixie Hummingbirds, the Mighty Clouds of Joy, the Swan Silvertones, the Five Blind Boys of Alabama, the Pilgrim Travelers — most active 1930s-60s, with the modern continuation through the Williams Brothers and the broader gospel-quartet circuit",
   "recipe": "classic Southern American mid-1930s gospel quartet, ritual Devotional, black gospel branch, christian gospel southern gospel bluegrass gospel southern gospel piano-bass. thick, declaimed, straight note core, multi note runs per syllable. a cappella small 3 to 8 one per part five voice polyphonic regional andean three voice parallel thirds quechua aymara sacred liturgical global choir ensemble, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, Hammond b3 canonical 1955 1975 jazz gospel rock standard gospel runs full spectrum fast tremolo tonewheel organ, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled brushes-and-sticks drum kit, tambourine orch. southern black church gospel choir. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 948,
-  "score": 617.223,
+  "score": 585.135,
   "config": {
     "traditions": [
       "gospel_quartet_male",
@@ -34,18 +34,18 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 49.42662500000001,
-          "voice_quality": 49.15712500000003,
+          "voice_register": 46.92662500000001,
+          "voice_quality": 46.65712500000003,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 5.2,
-          "voice_articulation": 41.08500000000001,
+          "voice_articulation": 38.58500000000001,
           "voice_microtone": 9.23,
-          "voice_tradition": 48.192625,
+          "voice_tradition": 44.995125,
           "voice_mechanism_compound": 1.3,
-          "voice_estill_quality": 42.76500000000001,
+          "voice_estill_quality": 40.26500000000001,
           "voice_speech_song": 13.259999999999996,
-          "voice_ensemble_config": 39.31212500000001,
+          "voice_ensemble_config": 36.81212500000001,
           "voice_ornament_system": 9.15,
           "voice_pitch_organization": 0.689,
           "voice_processing_chain": 2.4050000000000002,
@@ -81,11 +81,11 @@
           "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": 47.685249999999996,
+          "keyboard_technique": 44.48775,
           "grand_piano_size": 0.195,
-          "grand_piano_brand": 0.49049999999999994,
+          "grand_piano_brand": 0.36674999999999996,
           "piano_hammer": 5.480875,
-          "piano_rim": 11.5885,
+          "piano_rim": 11.464749999999999,
           "piano_soundboard": 6.625,
           "piano_pinblock": 4.725,
           "piano_plate": 4.27,
@@ -103,11 +103,11 @@
           "leslie_cabinet_model": "leslie_145_smaller"
         },
         "scores": {
-          "keyboard_technique": 47.685249999999996,
-          "drawbar_setting": 39.607124999999996,
-          "rotary_speed": 39.325,
+          "keyboard_technique": 44.48775,
+          "drawbar_setting": 37.107124999999996,
+          "rotary_speed": 36.825,
           "percussion_setting": 0.195,
-          "tonewheel_model": 43.20525,
+          "tonewheel_model": 40.00775,
           "leslie_cabinet_model": 0.585
         }
       },
@@ -123,10 +123,10 @@
           "bass_technique": "sub_bass_synth_blend"
         },
         "scores": {
-          "amp_make": 7.566625,
+          "amp_make": 6.916625000000001,
           "body_wood": 0.08775000000000001,
           "pickup_config": 0.3899999999999998,
-          "string_type": 4.9725,
+          "string_type": 4.3225,
           "scale_length_b": 0.1949999999999999,
           "fretted_or_not": 0.045,
           "bass_technique": 4.125

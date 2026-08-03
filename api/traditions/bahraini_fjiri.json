@@ -5,7 +5,7 @@
   "lineage": "Bahraini fjiri pearl-divers' work-song tradition, performed by the all-male crews of dhow boats conducting the annual ghaws pearl-diving season in the Persian Gulf during the pre-petroleum era (eighteenth-mid-twentieth centuries). Repertoire structured around the diving voyage cycle: departure songs, anchor-hauling songs, noon-prayer-pause songs, diver-hauling songs, homeward-return songs. Architecture features male lead singer (nahham) with chorus response, hand-clapping, tar frame-drum, and jahla clay-jar percussion. The 1930s-1950s closure of natural-pearl industry terminated functional context.",
   "recipe": "classic Middle Eastern mid-1930s bahraini fjiri, ballad Poetry, work song branch, med east poetic ballad poetry pontic greek music cypriot tsiattista. thick, breath veiled tone, wide pitch sway, interlocked note trading. walnut bent frame canonical Iranian tar frame drum. qat chew majlis room. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 357,
-  "score": 135.332,
+  "score": 132.232,
   "config": {
     "traditions": [
       "bahraini_fjiri",
@@ -41,13 +41,13 @@
           "voice_vibrato": 3.895,
           "voice_articulation": 11.634999999999994,
           "voice_microtone": 13.617499999999993,
-          "voice_tradition": 28.910000000000004,
+          "voice_tradition": 26.259999999999998,
           "voice_mechanism_compound": 3.38,
-          "voice_estill_quality": 5.25,
+          "voice_estill_quality": 5.1,
           "voice_speech_song": 16.574999999999996,
           "voice_ensemble_config": 11.569999999999993,
-          "voice_ornament_system": 3.6900000000000004,
-          "voice_pitch_organization": 3.6900000000000004,
+          "voice_ornament_system": 3.5400000000000005,
+          "voice_pitch_organization": 3.5400000000000005,
           "voice_processing_chain": 8.254999999999999,
           "voice_multitrack_stack": 4.8100000000000005
         }

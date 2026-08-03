@@ -5,7 +5,7 @@
   "lineage": "Korean gagok lyric-song tradition. Gagok is the formal courtly literary-chamber lyric-song genre of the Joseon-dynasty literati class (yangban), with origins traced to the late Goryeo through middle-Joseon periods (fifteenth-seventeenth centuries) and the canonical repertoire codified through the Cheong-gu-yeong-eon and Hae-dong-ga-yo song-book anthologies. Performance configuration: solo singer (male or female, with distinct namchang men's-repertoire and yeochang women's-repertoire repertoires) accompanied by the canonical jeongak ensemble — geomungo (six-string fretted board-zither, struck with bamboo plectrum), gayageum (twelve-string moveable-bridge plucked board-zither), daegeum (large bamboo end-blown flute), piri (cylindrical-bore double-reed pipe), haegeum (two-string upright fiddle), and janggu (hourglass barrel-drum). Twenty-six canonical men's songs and fifteen canonical women's songs constitute the core repertoire. Sijo poetic-form (three-line structure: initial verse, parallel verse, conclusion-with-twist) provides the lyric base. Slow tempo (a single song can take ten to fifteen minutes), wide melisma, and characteristic pitch-and-amplitude vibrato (nonghyeon) define the vocal aesthetic. Cho Soon-ja and Lee Dong-gyu among the twentieth-century canonical performers; the National Gugak Center maintains the institutional transmission. Distinguished from sijo (the closely-related but more austere sung-poetry form) by gagok's full ensemble accompaniment and longer melodic-elaboration register; distinguished from gasa (the longer narrative-lyric form) by gagok's strict sijo-poetic-meter base; distinguished from minyo folk-song by gagok's literary-chamber-with-jeongak-ensemble functional context.",
   "recipe": "classic East Asian modern korean gagok lyric-song, art Music, east Asian branch, east Asian beijing opera. thick, breath veiled tone, slow rate, interlocked note trading. silk court paulownia canonical Korean geomungo, court paulownia Korean gayageum, traditional membrane buzz bamboo daegeum, Korean court ensemble small piri higher pitched bamboo canonical Korean arundo donax large canonical Korean gugak piri, silk canonical Korean court paulownia canonical Korean legato haegeum, composite material paulownia canonical Korean horse dog asymmetric canonical Korean pansori godo janggu. korean pungnyu pavilion. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 744,
-  "score": 386.868,
+  "score": 383.604,
   "config": {
     "traditions": [
       "korean_gagok",
@@ -42,10 +42,10 @@
           "voice_microtone": 19.174999999999997,
           "voice_tradition": 27.8525,
           "voice_mechanism_compound": 8.709999999999999,
-          "voice_estill_quality": 20.996999999999996,
+          "voice_estill_quality": 19.343249999999998,
           "voice_speech_song": 30.095,
           "voice_ensemble_config": 22.684999999999995,
-          "voice_ornament_system": 15.105749999999999,
+          "voice_ornament_system": 13.70575,
           "voice_pitch_organization": 7.87925,
           "voice_processing_chain": 8.476624999999999,
           "voice_multitrack_stack": 7.150000000000001
@@ -102,7 +102,7 @@
           "piri_reed": "piri_arundo_large_canonical"
         },
         "scores": {
-          "piri_size": 9.911249999999999,
+          "piri_size": 9.80625,
           "piri_body_wood": 12.284875,
           "piri_reed": 12.114624999999998
         }
@@ -132,7 +132,7 @@
           "janggu_lineage": "janggu_pansori_godo"
         },
         "scores": {
-          "janggu_use": 5.6095,
+          "janggu_use": 5.504499999999999,
           "janggu_construction": 4.615,
           "janggu_shell_wood": 9.961625,
           "janggu_head": 9.856625,

@@ -5,7 +5,7 @@
   "lineage": "Vedic chant — the canonical three-thousand-year-continuous Sanskrit recitation tradition for the four Vedas (Rgveda, Yajurveda, Sāmaveda, Atharvaveda) preserved through the gurukula master-disciple oral-transmission lineage; defined by the three-tone udatta-anudatta-svarita pitch-accent system (udatta the raised pitch, anudatta the lower pitch, svarita the falling-pitch tone) inherited from Proto-Indo-European prosody, with the additional Sāmaveda musical-melodic elaboration (the Sāman chant tradition that uses seven svaras and is considered the source of later Indian classical raga); transmission preserved through the canonical paṭha (recitation-style) variants — Saṃhitā (continuous), Padapāṭha (word-by-word), Krama-pāṭha (interlocking pairs), Jaṭā-pāṭha (woven pattern), and Ghana-pāṭha (dense pattern) — each designed to lock the text against transmission error; the Nambudiri Brahmin community of Kerala preserves the most archaic Sāmavedic chanting layer, with parallel Tamil-Brahmin, Maharashtrian, and Kashi (Banaras) regional preservation lineages",
   "recipe": "classic modern vedic chant, ritual Devotional, hindu branch, south Asian art music sinhala vannama kutiyattam sanskrit recitation. vocal fry, breath veiled tone, slow rate, interlocked note trading. mixed satb canonical 4 part western three voice polyphonic regional andean three voice parallel thirds quechua aymara global traditional polyphonic choir ensemble. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 442,
-  "score": 243.339,
+  "score": 241.91,
   "config": {
     "traditions": [
       "vedic_chant",
@@ -38,15 +38,15 @@
           "voice_quality": 37.659250000000014,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 11.129,
+          "voice_vibrato": 10.919,
           "voice_articulation": 15.794999999999995,
           "voice_microtone": 14.754999999999992,
           "voice_tradition": 20.93,
           "voice_mechanism_compound": 8.9,
           "voice_estill_quality": 11.503,
-          "voice_speech_song": 22.749999999999996,
+          "voice_speech_song": 22.099999999999994,
           "voice_ensemble_config": 18.264999999999993,
-          "voice_ornament_system": 14.614,
+          "voice_ornament_system": 14.044,
           "voice_pitch_organization": 28.3315,
           "voice_processing_chain": 7.799999999999999,
           "voice_multitrack_stack": 6.6315

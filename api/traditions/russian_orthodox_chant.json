@@ -5,7 +5,7 @@
   "lineage": "Russian Orthodox liturgical chant tradition codified across the medieval-Kievan and Muscovite periods, drawing on the Byzantine octoechos modal system through the znamenny notation tradition — characterized by unaccompanied male-choir performance, the four-part choral harmonization style developed from the seventeenth century onward, deep-bass octavist register, and the obikhod and obihod-derived modern liturgical settings used across the Russian Orthodox parish-and-monastic-foundation network",
   "recipe": "classic modern russian orthodox liturgical chant, ritual Devotional, Russian orthodox branch, christian gospel coptic ethiopian tewahedo zema chant syriac orthodox liturgical chant. thick, breath veiled tone, straight note core, interlocked note trading. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble, choir russian orthodox. cathedral. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 575,
-  "score": 276.468,
+  "score": 271.593,
   "config": {
     "traditions": [
       "russian_orthodox_chant",
@@ -25,7 +25,7 @@
           "choir_size": 5.784999999999999,
           "choir_polyphonic_configuration": 5.654999999999999,
           "choir_regional_canonical_configuration": 4.03,
-          "choir_ensemble_repertoire": 14.364999999999998
+          "choir_ensemble_repertoire": 13.714999999999998
         }
       },
       {
@@ -56,13 +56,13 @@
           "voice_vibrato": 7.130250000000001,
           "voice_articulation": 18.654999999999994,
           "voice_microtone": 23.529999999999994,
-          "voice_tradition": 18.394999999999992,
+          "voice_tradition": 17.09499999999999,
           "voice_mechanism_compound": 9.75,
           "voice_estill_quality": 10.239999999999998,
           "voice_speech_song": 20.669999999999995,
           "voice_ensemble_config": 25.057499999999997,
           "voice_ornament_system": 11.724999999999998,
-          "voice_pitch_organization": 11.829999999999997,
+          "voice_pitch_organization": 10.205,
           "voice_processing_chain": 8.255,
           "voice_multitrack_stack": 7.475
         }
@@ -74,8 +74,8 @@
           "use": "orthodox_divine_liturgy"
         },
         "scores": {
-          "voicing": 15.079999999999997,
-          "use": 12.219999999999999
+          "voicing": 14.429999999999996,
+          "use": 11.569999999999999
         }
       }
     ],

@@ -3,9 +3,9 @@
   "name": "Midwest emo",
   "family": "rock_punk",
   "lineage": "Mid-1990s American emo subgenre developed in the American Midwest (Champaign-Urbana, Kinsella-family-related Chicago, Milwaukee, and St. Louis) characterized by intricate twinkly-guitar arpeggios, math-rock-derived rhythmic complexity, and confessional-emotional vocal-delivery. Cap'n Jazz (1989-1995, Chicago) inaugurated the style; American Football (1997, Champaign-Urbana, Mike Kinsella), the Promise Ring, Mineral, and Sunny Day Real Estate (Pacific Northwest cognate) constitute the canonical roster.",
-  "recipe": "classic North American mid-1990s midwest emo, distorted Rock, emo branch, alternative distorted rock modern indie rock slacker rock. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp mahogany rosewood arpeggiated single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, fiberskyn synthetic calf sticks backbeat drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay electro-harmonix deluxe memory man chorus.",
-  "recipe_chars": 663,
-  "score": 327.662,
+  "recipe": "classic North American mid-1990s midwest emo, distorted Rock, emo branch, alternative distorted rock modern indie rock slacker rock. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp mahogany rosewood power chord single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay electro-harmonix deluxe memory man chorus.",
+  "recipe_chars": 668,
+  "score": 301.813,
   "config": {
     "traditions": [
       "midwest_emo",
@@ -34,28 +34,28 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 33.055000000000014,
+          "voice_register": 30.554999999999993,
           "voice_quality": 10.594999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.8100000000000005,
+          "voice_vibrato": 4.16,
           "voice_articulation": 11.634999999999996,
-          "voice_microtone": 31.224999999999998,
+          "voice_microtone": 28.724999999999998,
           "voice_tradition": 4.875000000000001,
           "voice_mechanism_compound": 5.525000000000001,
           "voice_estill_quality": 0.6499999999999999,
           "voice_speech_song": 10.789999999999996,
           "voice_ensemble_config": 10.724999999999994,
           "voice_ornament_system": 3.2,
-          "voice_pitch_organization": 4.680000000000001,
-          "voice_processing_chain": 6.402500000000001,
-          "voice_multitrack_stack": 8.384999999999998
+          "voice_pitch_organization": 4.030000000000001,
+          "voice_processing_chain": 5.3625,
+          "voice_multitrack_stack": 7.344999999999999
         }
       },
       {
         "id": "electric_guitar_single_coil",
         "slots": {
-          "electric_technique": "electric_arpeggiated_clean",
+          "electric_technique": "electric_power_chord",
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
@@ -69,18 +69,18 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 12.389999999999999,
-          "amp_make": 13.649999999999999,
+          "electric_technique": 10.725,
+          "amp_make": 12.349999999999998,
           "body_wood": 2.535,
           "neck_wood": 2.535,
           "fretboard": 2.47,
           "pickup_magnet": 0.195,
           "string_material": 0.15,
           "string_gauge": 2.535,
-          "bridge": 0.65,
+          "bridge": 0.195,
           "scale_length": 2.535,
           "finish": 0,
-          "string_tuning": 17.16
+          "string_tuning": 15.86
         }
       },
       {
@@ -95,25 +95,25 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 13.714999999999998,
+          "amp_make": 12.415,
           "body_wood": 2.535,
-          "pickup_config": 2.9899999999999998,
-          "string_type": 34.45,
+          "pickup_config": 1.69,
+          "string_type": 31.2,
           "scale_length_b": 2.535,
           "fretted_or_not": 0.105,
-          "bass_technique": 26.45
+          "bass_technique": 23.95
         }
       },
       {
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "fiberskyn_drumhead",
+          "drumhead": "vintage_ambassador_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 26.5,
-          "drumhead": 4.5,
+          "drum_technique": 24,
+          "drumhead": 3.35,
           "drum_kit_kick_pedal": 0
         }
       }

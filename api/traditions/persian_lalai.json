@@ -5,7 +5,7 @@
   "lineage": "Persian cradle-song tradition continuous from medieval Persian domestic-vocal practice through pre-revolutionary modern-Iranian domestic singing and diaspora practice in Los Angeles, Stockholm, and Toronto Iranian communities",
   "recipe": "classic Middle Eastern modern persian lālā'ī, lullaby, middle eastern branch, middle eastern classical art music, vocal drone modal, med east poetic ballad poetry andalusī nūba persian dastgāh. vocal fry, breath veiled tone, slow rate, interlocked note trading. tehran classical dastgah context. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 358,
-  "score": 274.472,
+  "score": 268.798,
   "config": {
     "traditions": [
       "persian_lalai",
@@ -41,13 +41,13 @@
           "voice_vibrato": 17.6475,
           "voice_articulation": 9.294999999999998,
           "voice_microtone": 24.1475,
-          "voice_tradition": 50.245,
-          "voice_mechanism_compound": 35.74,
+          "voice_tradition": 48.62,
+          "voice_mechanism_compound": 34.49,
           "voice_estill_quality": 15.58,
           "voice_speech_song": 15.859999999999994,
           "voice_ensemble_config": 9.229999999999999,
-          "voice_ornament_system": 37.48,
-          "voice_pitch_organization": 39.339999999999996,
+          "voice_ornament_system": 36.08,
+          "voice_pitch_organization": 37.94,
           "voice_processing_chain": 4.265000000000001,
           "voice_multitrack_stack": 5.1
         }

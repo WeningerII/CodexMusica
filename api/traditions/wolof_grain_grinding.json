@@ -3,25 +3,25 @@
   "name": "Wolof-Senegambian grain-grinding women's song",
   "family": "global",
   "lineage": "Wolof-Senegambian women's grain-grinding song tradition continuous from premodern Senegambian domestic-grain-processing labor practice through colonial-era continuous performance into modern Senegambian continuous practice",
-  "recipe": "classic East African modern wolof-senegambian grain-grinding women's song, domestic Rhythm, sub saharan African branch, south Asian domestic rhythm, sub saharan African field work, sub saharan African praise song mande-wolof west-african harvest-and-field song west-african rice-planting song. vocal fry, breath veiled tone, straight note core, leader call answered. tanzanian outdoor village clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 465,
-  "score": 178.339,
+  "recipe": "classic East African modern wolof-senegambian grain-grinding women's song, domestic Rhythm, sub saharan African branch, south Asian domestic rhythm, sub saharan African field work, sub saharan African praise song mande-wolof west-african harvest-and-field song yoruba oríkì. vocal fry, declaimed, straight onset, interlocked note trading. tanzanian outdoor village clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 437,
+  "score": 178.369,
   "config": {
     "traditions": [
       "wolof_grain_grinding",
       "mande_wolof_harvest",
-      "west_african_rice_planting"
+      "yoruba_oriki"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "vocal_fry",
-          "voice_quality": "aspirated_voice",
+          "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "call_response_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
-          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 0.975,
-          "voice_quality": 6.890000000000001,
+          "voice_register": 1.365,
+          "voice_quality": 12.863749999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.9625000000000004,
-          "voice_articulation": 14.68625,
-          "voice_microtone": 10.27,
-          "voice_tradition": 62.78999999999999,
-          "voice_mechanism_compound": 2.7299999999999995,
+          "voice_vibrato": 3.2500000000000004,
+          "voice_articulation": 12.089999999999996,
+          "voice_microtone": 11.504999999999992,
+          "voice_tradition": 60.222500000000004,
+          "voice_mechanism_compound": 2.5349999999999997,
           "voice_estill_quality": 1.7549999999999994,
-          "voice_speech_song": 20.799999999999997,
-          "voice_ensemble_config": 9.815000000000003,
-          "voice_ornament_system": 27.819999999999997,
-          "voice_pitch_organization": 10.139999999999999,
-          "voice_processing_chain": 0.975,
-          "voice_multitrack_stack": 1.7550000000000001
+          "voice_speech_song": 19.889999999999997,
+          "voice_ensemble_config": 11.049999999999995,
+          "voice_ornament_system": 26.487499999999997,
+          "voice_pitch_organization": 10.099999999999998,
+          "voice_processing_chain": 1.2349999999999999,
+          "voice_multitrack_stack": 2.145
         }
       }
     ],

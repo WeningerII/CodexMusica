@@ -5,7 +5,7 @@
   "lineage": "Japanese 1980s-1990s mainstream pop tradition codified through Seiko Matsuda, Yumi Matsutoya, the agency-system idol pop infrastructure (Johnny’s Entertainment for male groups, Sun Music for solo idols), and television-tied tie-up song format — characterized by major-key brightness, English-loanword lyric inserts, and tightly-arranged session-musician production",
   "recipe": "classic Asian mid-1980s j-pop, functional Song, east Asian pop branch, pop rock functional song new wave yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. singing lead analog poly synth, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. Neumann U87, console-strip pre, SSL inline console, SMART research c1/c2, SSL surgical EQ. 16-bit digital eventide harmonizer TC electronic 2290 delay digital delay.",
   "recipe_chars": 642,
-  "score": 513.47,
+  "score": 503.645,
   "config": {
     "traditions": [
       "j_pop_classic",
@@ -34,14 +34,14 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 58.92500000000001,
+          "voice_register": 57.67500000000001,
           "voice_quality": 2.0799999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 7.279999999999999,
           "voice_articulation": 15.274999999999991,
-          "voice_microtone": 57.125,
-          "voice_tradition": 40.904999999999994,
+          "voice_microtone": 55.875,
+          "voice_tradition": 40.30499999999999,
           "voice_mechanism_compound": 2.9249999999999994,
           "voice_estill_quality": 2.5349999999999997,
           "voice_speech_song": 24.11499999999999,
@@ -62,7 +62,7 @@
         },
         "scores": {
           "electronic_technique": 32.035,
-          "poly_archetypes": 12.415000000000001,
+          "poly_archetypes": 11.765,
           "poly_voices": 0.78,
           "poly_maker_lineage": 0.5849999999999994
         }
@@ -85,7 +85,7 @@
         },
         "scores": {
           "electric_technique": 33.455,
-          "amp_make": 17.419999999999998,
+          "amp_make": 16.769999999999996,
           "body_wood": 3.055,
           "neck_wood": 3.055,
           "fretboard": 2.99,
@@ -95,7 +95,7 @@
           "bridge": 0.65,
           "scale_length": 3.055,
           "finish": 0.09,
-          "string_tuning": 15.145
+          "string_tuning": 14.495000000000001
         }
       },
       {
@@ -110,13 +110,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 12.35,
+          "amp_make": 11.7,
           "body_wood": 3.055,
           "pickup_config": 0.195,
-          "string_type": 30.0625,
+          "string_type": 28.4375,
           "scale_length_b": 3.055,
           "fretted_or_not": 0.045,
-          "bass_technique": 27.514999999999997
+          "bass_technique": 26.264999999999997
         }
       },
       {
@@ -127,7 +127,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 23.17,
+          "drum_technique": 21.92,
           "drumhead": 31.889999999999997,
           "drum_kit_kick_pedal": 0
         }

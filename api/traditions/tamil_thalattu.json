@@ -5,7 +5,7 @@
   "lineage": "Tamil cradle-song tradition continuous from medieval Tamil-Nadu domestic-vocal practice through Sangam-era literary-cradle tradition into modern Tamil-language domestic singing across India, Sri Lanka, Malaysia, Singapore Tamil communities",
   "recipe": "classic modern tamil thālāttu, lullaby, south Asian branch, indian classical improv improv on frame, south Asian art music, south Asian pop functional song dhrupad hindustani classical. vocal fry, breath veiled tone, slow rate, interlocked note trading. carpeted bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 334,
-  "score": 197.32,
+  "score": 186.37,
   "config": {
     "traditions": [
       "tamil_thalattu",
@@ -28,7 +28,7 @@
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_ornament_system": "voice_ornament_carnatic_gamaka",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_plate_reverb_medium",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
@@ -38,16 +38,16 @@
           "voice_quality": 11.504999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 18.2975,
+          "voice_vibrato": 16.6725,
           "voice_articulation": 7.67,
           "voice_microtone": 7.735,
-          "voice_tradition": 35.230000000000004,
-          "voice_mechanism_compound": 13.95,
-          "voice_estill_quality": 15.989999999999997,
+          "voice_tradition": 33.68,
+          "voice_mechanism_compound": 12.7,
+          "voice_estill_quality": 14.739999999999997,
           "voice_speech_song": 15.729999999999997,
           "voice_ensemble_config": 7.8,
-          "voice_ornament_system": 24.894999999999996,
-          "voice_pitch_organization": 23.525,
+          "voice_ornament_system": 21.794999999999998,
+          "voice_pitch_organization": 21.974999999999998,
           "voice_processing_chain": 4.745,
           "voice_multitrack_stack": 6.11
         }

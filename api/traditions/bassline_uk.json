@@ -3,9 +3,9 @@
   "name": "Bassline (UK Sheffield-Niche)",
   "family": "electronic",
   "lineage": "Mid-2000s UK garage subgenre developed in Sheffield through the Niche nightclub scene (active from 1992 to 2005). Characterized by aggressive 4×4 garage rhythmic foundation, hyperactive bass-line designs, and explicit Yorkshire-northern-English MC vocal-delivery. The 2008 closure of Niche and police-action against the scene defined a peak-and-collapse cycle; T2's \"Heartbroken\" (2007) constitutes the canonical commercial-mainstream bassline track.",
-  "recipe": "classic British 2004-2006 bassline, bass System, uk soundsystem branch, intl hip hop MC rhythm german deutschrap uk grime. vocal fry, rap, slow rate, interlocked note trading. TR-808, sub bass analog synth, ampeg svt amp rock bass amp mahogany pyramid pure nickel bass electric bass. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 502,
-  "score": 161.765,
+  "recipe": "classic British 2004-2006 bassline, bass System, uk soundsystem branch, intl hip hop MC rhythm german deutschrap uk grime. vocal fry, rap, breath pulsed, interlocked note trading. TR-808, sub bass analog synth, ampeg svt amp rock bass amp alder pyramid pure nickel bass electric bass. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 503,
+  "score": 155.167,
   "config": {
     "traditions": [
       "bassline_uk",
@@ -20,7 +20,7 @@
           "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "diaphragm_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "beatboxing_tradition",
@@ -30,7 +30,7 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
@@ -38,7 +38,7 @@
           "voice_quality": 15.8275,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.05,
+          "voice_vibrato": 1.6899999999999997,
           "voice_articulation": 10.789999999999996,
           "voice_microtone": 10.594999999999994,
           "voice_tradition": 7.7695,
@@ -48,8 +48,8 @@
           "voice_ensemble_config": 10.724999999999994,
           "voice_ornament_system": 2.925000000000001,
           "voice_pitch_organization": 3.185000000000001,
-          "voice_processing_chain": 6.4350000000000005,
-          "voice_multitrack_stack": 11.729999999999997
+          "voice_processing_chain": 5.9115,
+          "voice_multitrack_stack": 10.18
         }
       },
       {
@@ -60,7 +60,7 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 10.3355,
+          "tr808_voice": 10.2305,
           "drum_machine_808_context": 4.55,
           "tr808_production_origin": 0.195
         }
@@ -75,9 +75,9 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 11.910499999999999,
-          "oscillator": 4.55,
-          "filter_topology": 7.066,
+          "electronic_technique": 11.805499999999999,
+          "oscillator": 4.4555,
+          "filter_topology": 5.661,
           "envelope": 1.3315000000000001,
           "modulation": 0.21
         }
@@ -86,7 +86,7 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "soapbar",
           "string_type": "pyramid_pure_nickel",
           "scale_length_b": "short_scale_b",
@@ -95,10 +95,10 @@
         },
         "scores": {
           "amp_make": 4.485,
-          "body_wood": 2.1,
+          "body_wood": 1.3,
           "pickup_config": 0.345,
-          "string_type": 6.406000000000001,
-          "scale_length_b": 1.95,
+          "string_type": 5.651,
+          "scale_length_b": 1.3,
           "fretted_or_not": 0,
           "bass_technique": -0.035
         }

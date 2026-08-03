@@ -5,7 +5,7 @@
   "lineage": "Pingju Northern Chinese regional opera tradition emerging in late-nineteenth-century Hebei province from the lianhualao folk-song-and-storytelling form. Distinguished from jingju by accessible vernacular Mandarin language, naturalistic realistic staging, and contemporary-life dramaturgical content (vs jingju's classical historical-and-mythological repertoire). The genre became a major popular-theatrical form in northern China through the early-twentieth-century commercial-theatre period. The post-1949 Beijing Pingju Theatre and Hebei Provincial Pingju Theatre consolidated the modern repertoire. Canonical play Yang Sanjie Gao Zhuang (The Story of Yang Sanjie) constitutes the type-specimen.",
   "recipe": "classic Southeast Asian late-1940s pingju, art Music, east Asian branch, east Asian Cantonese opera. thick, pressed, slow rate, interlocked note trading. python skin silk canonical traditional sanxian. wooden pagoda hall. large-diaphragm condenser, German V72 tube pre, German tube console, broadcast loudness EQ. tape 15ips hall reverb.",
   "recipe_chars": 337,
-  "score": 234.632,
+  "score": 228.342,
   "config": {
     "traditions": [
       "pingju_northern_chinese",
@@ -34,19 +34,19 @@
         },
         "scores": {
           "voice_register": 5.280000000000001,
-          "voice_quality": 22.875,
+          "voice_quality": 22.125,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 10.66575,
           "voice_articulation": 11.179999999999994,
           "voice_microtone": 12.674999999999994,
-          "voice_tradition": 34.016,
+          "voice_tradition": 33.910999999999994,
           "voice_mechanism_compound": 7.649999999999999,
-          "voice_estill_quality": 25.999249999999996,
-          "voice_speech_song": 21.420749999999995,
+          "voice_estill_quality": 24.314249999999994,
+          "voice_speech_song": 20.170749999999995,
           "voice_ensemble_config": 11.699999999999992,
-          "voice_ornament_system": 20.804999999999996,
-          "voice_pitch_organization": 17.58175,
+          "voice_ornament_system": 19.554999999999996,
+          "voice_pitch_organization": 16.331749999999996,
           "voice_processing_chain": 7.606249999999999,
           "voice_multitrack_stack": 1.69
         }

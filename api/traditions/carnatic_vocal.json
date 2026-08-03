@@ -5,7 +5,7 @@
   "lineage": "South Indian classical vocal tradition organized around the 72-melakarta scale system codified by Venkatamakhin in 1620 and the kriti-composition canon of the early-19th-century Trinity (Tyagaraja, Muthuswami Dikshitar, Syama Sastri); 20th-century lineage M.S. Subbulakshmi, D.K. Pattammal, M.D. Ramanathan, T.N. Krishnan, Semmangudi Srinivasa Iyer, T.R. Mahalingam",
   "recipe": "classic South Asian early-1620s carnatic vocal, improv On Frame, indian classical improv branch, south Asian art music, hindu ritual devotional sinhala vannama telugu kirtana. vocal fry, breath veiled tone, slow rate, interlocked note trading. jackwood barrel canonical carnatic goat buffalo rice paste karanai palghat lineage canonical carnatic mridangam, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic, suited to female vocal bronze steel mix gourd body canonical traditional tanpura, ghatam, concert stage jackwood barrel canonical Tamil buffalo goat thumb cap canonical periya melam thavil, jackwood frame canonical carnatic brass jingle pair kanjira, concert forged steel sarvalaghu morsing, tanpura like sruti anchor tonic drone shruti box. chennai madras music academy sabha. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
   "recipe_chars": 887,
-  "score": 466.77,
+  "score": 453.02,
   "config": {
     "traditions": [
       "carnatic_vocal",
@@ -38,16 +38,16 @@
           "voice_quality": 19.89,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 18.129999999999995,
+          "voice_vibrato": 17.83,
           "voice_articulation": 9.294999999999998,
           "voice_microtone": 9.1,
-          "voice_tradition": 42.205,
+          "voice_tradition": 40.805,
           "voice_mechanism_compound": 15.149999999999999,
           "voice_estill_quality": 16.574999999999996,
           "voice_speech_song": 15.749999999999996,
           "voice_ensemble_config": 10.075,
-          "voice_ornament_system": 34.81999999999999,
-          "voice_pitch_organization": 35.16499999999999,
+          "voice_ornament_system": 32.82,
+          "voice_pitch_organization": 33.16499999999999,
           "voice_processing_chain": 4.355,
           "voice_multitrack_stack": 5.2749999999999995
         }
@@ -64,9 +64,9 @@
         "scores": {
           "mridangam_heads": 7.93,
           "mridangam_use": 0,
-          "mridangam_shell_wood": 10.334999999999999,
+          "mridangam_shell_wood": 9.684999999999999,
           "mridangam_heads_material": 2.5349999999999997,
-          "mridangam_lineage": 10.79
+          "mridangam_lineage": 10.139999999999999
         }
       },
       {
@@ -83,7 +83,7 @@
           "violin_carnatic_tuning": 18.525,
           "violin_carnatic_posture": 3.12,
           "violin_carnatic_strings": 6.37,
-          "violin_carnatic_lineage": 10.79
+          "violin_carnatic_lineage": 10.139999999999999
         }
       },
       {
@@ -142,7 +142,7 @@
         "scores": {
           "kanjira_skin": 1.2349999999999999,
           "kanjira_context": 7.93,
-          "kanjira_shell_wood": 11.439999999999998,
+          "kanjira_shell_wood": 10.79,
           "kanjira_jingle": 2.5349999999999997
         }
       },
@@ -154,9 +154,9 @@
           "morsing_material": "morsing_steel"
         },
         "scores": {
-          "morsing_form": 23.195,
-          "morsing_technique": 14.61,
-          "morsing_material": 13.374999999999998
+          "morsing_form": 21.645,
+          "morsing_technique": 13.209999999999999,
+          "morsing_material": 12.125
         }
       },
       {
@@ -170,7 +170,7 @@
         "scores": {
           "free_reed_technique": 1.3399999999999999,
           "shruti_box_form": 0.9099999999999999,
-          "shruti_box_role": 15.569999999999997,
+          "shruti_box_role": 14.319999999999999,
           "shruti_box_build": 0.39
         }
       }

@@ -5,7 +5,7 @@
   "lineage": "Early-2000s indie rock subgenre revisiting late-1970s and early-1980s post-punk aesthetic (Joy Division, Wire, Gang of Four, the Fall) with explicit angular-guitar-and-driving-bass arrangement. Interpol (NYC 2002-onward), Franz Ferdinand (Glasgow), Bloc Party, the Editors, the Killers, the Strokes (parallel garage-rock-revival), and the broader 2002-2006 NME-promoted UK-American post-punk-revival wave consolidated the canonical sound.",
   "recipe": "classic British 2002-2006 post-punk revival, distorted Rock, alternative branch, classic distorted rock britpop merseybeat. thick, breath veiled tone, breath pulsed, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 653,
-  "score": 336.36,
+  "score": 336.269,
   "config": {
     "traditions": [
       "post_punk_revival",
@@ -47,7 +47,7 @@
           "voice_speech_song": 14.169999999999998,
           "voice_ensemble_config": 16.639999999999997,
           "voice_ornament_system": 0.845,
-          "voice_pitch_organization": 9.099999999999998,
+          "voice_pitch_organization": 9.01,
           "voice_processing_chain": 11.245000000000001,
           "voice_multitrack_stack": 4.8530000000000015
         }

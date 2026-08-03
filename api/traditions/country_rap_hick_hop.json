@@ -5,7 +5,7 @@
   "lineage": "Country-hip-hop hybrid subgenre codified through Cowboy Troy, Big Smo, Colt Ford (Ride Through the Country 2008), and the broader Average Joes Entertainment label catalog — characterized by trap-derived 808 production with country-rapped vocals, banjo and steel-guitar accents, and rural-Americana lyrical subject matter",
   "recipe": "classic late-2000s country rap, functional Song, contemp main branch, us hip hop southern plugg pluggnb. thick, rap, straight note core, interlocked note trading. light steel clawhammer canon scruggs stelling bluegrass setup mastertone flathead banjo 5 string, Fender blackface amp American 60s amp spring reverb bright basswood nickel plated steel humbucker electric guitar, Fender tweed amp American 50s amp tweed breakup la bella flats Detroit soul bass canon electric bass, TR-808, pitched chopped sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 656,
-  "score": 415.152,
+  "score": 412.842,
   "config": {
     "traditions": [
       "country_rap_hick_hop",
@@ -35,7 +35,7 @@
         },
         "scores": {
           "voice_register": 27.374999999999996,
-          "voice_quality": 19.4975,
+          "voice_quality": 19.3475,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 22.907499999999995,
@@ -102,8 +102,8 @@
           "body_wood": 2.925,
           "neck_wood": 0.845,
           "fretboard": 0.845,
-          "pickup_magnet": 0.585,
-          "pickup_winding": 0.5399999999999999,
+          "pickup_magnet": 0.43499999999999994,
+          "pickup_winding": 0.38999999999999996,
           "string_material": 2.535,
           "bridge": 0.845,
           "scale_length": 2.925,
@@ -119,7 +119,7 @@
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "la_bella_flats_motown",
-          "scale_length_b": "extra_long_b",
+          "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
           "bass_technique": "fingerpicked_country_b"
         },
@@ -127,8 +127,8 @@
           "amp_make": 20.544999999999998,
           "body_wood": 0.845,
           "pickup_config": 0.39,
-          "string_type": 4.9725,
-          "scale_length_b": 0.9299999999999999,
+          "string_type": 4.3225,
+          "scale_length_b": 0.845,
           "fretted_or_not": 0.24,
           "bass_technique": 21.144999999999996
         }
@@ -141,7 +141,7 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 9.51,
+          "tr808_voice": 8.834999999999999,
           "drum_machine_808_context": 2.9899999999999998,
           "tr808_production_origin": 0.845
         }
@@ -156,9 +156,9 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 8.304999999999998,
+          "electronic_technique": 8.154999999999998,
           "sampler_archetypes": 14.819999999999999,
-          "sampler_bit_depth": 1.6649999999999998,
+          "sampler_bit_depth": 1.365,
           "sampler_workflow": 10.427499999999998,
           "sampler_classic_context": 23.172499999999992
         }

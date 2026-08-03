@@ -5,7 +5,7 @@
   "lineage": "The Afrobeats tradition — contemporary West African (chiefly Nigerian and Ghanaian) pop built on log-drum and percussion grooves, melodic vocals, and global pop production; distinct from the earlier Afrobeat of Fela Kuti",
   "recipe": "classic African modern afrobeats, functional Song, African pop branch. extended whistle, breath veiled tone, straight onset, interlocked note trading. TR-808, singing lead analog poly synth, sampler drum machine. large tropical 1965-1985 mid-major EMI. FET condenser, transformerless solid-state pre, brick-wall limiter. lossy MP3 autotune digital delay.",
   "recipe_chars": 354,
-  "score": 88.546,
+  "score": 88.231,
   "config": {
     "traditions": [
       "afrobeats"
@@ -32,7 +32,7 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 13.056,
+          "voice_register": 12.741,
           "voice_quality": 3.380000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,

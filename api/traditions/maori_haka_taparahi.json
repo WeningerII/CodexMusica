@@ -5,7 +5,7 @@
   "lineage": "Māori haka taparahi war-and-ceremonial-chant tradition of Aotearoa New Zealand. Haka is a general category encompassing several sub-types: haka taparahi (ceremonial-without-weapons, the most commonly performed contemporary form), haka peruperu (with-weapons war-haka, performed before battle in pre-contact context), ngeri (vigorous-spontaneous response-haka), and tūtūngārahu (rehearsal-haka before peruperu). Performance involves a male (or sometimes mixed-gender) group in characteristic posture — feet planted shoulder-width, knees bent, body lowered into a slight crouch — performing a vigorous percussive-chant with characteristic facial expression (pukana eye-bulging, whetero tongue-protrusion in male haka), stamping-and-slapping-the-body rhythmic percussion (the performers' own thighs and chests producing the percussion-track), and shouted-rhythmic verse-text alternating between solo-leader verses and choral group response. The most internationally famous haka, Ka Mate Ka Mate (composed c.1820 by Ngāti Toa chief Te Rauparaha), now in worldwide circulation through the All Blacks rugby team's pre-match performance, illustrates the form. The verse-text is poetic-narrative and often connects to ancestor-praise, war-history, or current-ceremonial-occasion. Performance contexts include marae welcoming and farewell ceremonies, tangihanga funeral concluding rites, sports-team pre-match rituals, school and university kapa haka performance, and the Te Matatini National Kapa Haka Festival (held biennially since 1972, the premier competitive haka venue). Mervyn McLean's Maori Music (Auckland University Press 1996) is the canonical scholarly documentation. Distinguished from karanga-and-pōwhiri by haka's vigorous-percussive-stance-with-shouted-text (vs sustained-high-call) configuration; distinguished from Tongan lakalaka and Samoan sasa by haka's characteristic Māori-language verse-text and pukana-whetero facial-expression vocabulary.",
   "recipe": "classic Oceanian early-1820s māori haka taparahi, ritual Devotional, indigenous branch, east Asian groove percussion samul nori japanese kumi-daiko. thick, breath veiled tone, slow rate, interlocked note trading. marae forecourt. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 292,
-  "score": 186.31,
+  "score": 185.06,
   "config": {
     "traditions": [
       "maori_haka_taparahi",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 2.3249999999999997,
+          "voice_register": 1.5749999999999997,
           "voice_quality": 22.229999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,

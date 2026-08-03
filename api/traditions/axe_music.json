@@ -5,7 +5,7 @@
   "lineage": "Bahian carnival pop crossover tradition centered on Salvador, Bahia, from the 1980s onward — codified through Margareth Menezes (Elegibo 1989), Daniela Mercury, Banda Mel, and the trio-elétrico amplified-truck performance tradition; characterized by samba-reggae and ijexá Afro-Brazilian rhythmic foundation, pop-rock-band instrumentation, and Bahian-Salvador carnival-circuit canonical context",
   "recipe": "classic mid-1980s axé, groove Percussion, Brazilian branch, Caribbean groove percussion, Afro-diasporic ritual devotional bomba soca soul. thick, breath veiled tone, breath pulsed, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright pine clean single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled brushes-and-sticks drum kit, nylon canonical rio carnival aluminum canonical modern rio escola surdo, agogo, open slap hand drum timbales, samba bateria. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 738,
-  "score": 186.895,
+  "score": 179.859,
   "config": {
     "traditions": [
       "axe_music",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 13.171249999999993,
+          "voice_register": 11.921249999999993,
           "voice_quality": 8.06,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -43,7 +43,7 @@
           "voice_microtone": 10.724999999999993,
           "voice_tradition": 15.209999999999999,
           "voice_mechanism_compound": 2.0799999999999996,
-          "voice_estill_quality": 3.85,
+          "voice_estill_quality": 2.6,
           "voice_speech_song": 11.764999999999997,
           "voice_ensemble_config": 11.504999999999995,
           "voice_ornament_system": 3.5249999999999995,
@@ -70,7 +70,7 @@
         },
         "scores": {
           "electric_technique": 6.824999999999998,
-          "amp_make": 4.560625,
+          "amp_make": 3.3106250000000004,
           "body_wood": 1.28625,
           "neck_wood": 0.200625,
           "fretboard": 0.15,
@@ -92,16 +92,16 @@
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretless",
-          "bass_technique": "fingerstyle_locked"
+          "bass_technique": "thumb_muted"
         },
         "scores": {
-          "amp_make": 5.090625,
+          "amp_make": 3.835000000000001,
           "body_wood": 0.40125,
           "pickup_config": 0.65,
-          "string_type": 6.11,
+          "string_type": 4.485,
           "scale_length_b": 0.65,
           "fretted_or_not": 0.195,
-          "bass_technique": 3.65
+          "bass_technique": 3.245
         }
       },
       {

@@ -5,7 +5,7 @@
   "lineage": "Berber (Imazighen / Amazigh) collective song-and-dance tradition of the Atlas Mountain ranges across Morocco, with ahidus the central-and-northern Middle-Atlas form (Tamazight-speaking populations) and ahwash the Souss-region southern-Atlas form (Tashelhiyt-speaking populations). Performance involves two facing rows of dancers (mixed men and women in ahidus, often single-sex in ahwash) executing synchronized arm-and-shoulder choreography while singing antiphonal call-and-response over bendir frame-drum accompaniment, with the amdyaz (poet-leader) improvising the opening verse-line that the chorus answers in unison. Modal vocabulary draws on regional pentatonic frameworks with characteristic Atlas-region melodic-contour conventions. The amzwaj poetic-form (couplet-and-response architecture) governs verse structure, with seasonal-and-occasional repertoires for harvest, wedding, and tribal-assembly contexts. Miriam Rovsing Olsen's 1990s Atlas fieldwork (published as Chants et danses de l'Atlas, Actes Sud / Cité de la musique 1997, with Ocora-Radio France C 559035 companion recordings) is the principal scholarly documentation. Distinguished from Berber Rif and Kabyle vocal traditions by Atlas-region poly-strophic verse structure and bendir-frame-drum-dominant percussion; distinguished from Andalusi-Maghrebi nuba by Tamazight-language and outdoor-village (not court-and-chamber) performance context; distinguished from Tuareg by sedentary-village (not nomadic-pastoral) base and bendir (vs tendé pestle-drum) percussion.",
   "recipe": "classic North African mid-1990s berber ahidus and ahwash, ballad Poetry, Mediterranean ballad branch, west African groove percussion indonesian jaipongan yoruba dùndún surrogate speech. thick, breath veiled tone, straight note core, interlocked note trading. juniper bent frame canonical Maghrebi synthetic remo modern world music bendir, olive Mediterranean alternative arundo donax canonical Maghrebi ghaita. atlas mountain village square. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 504,
-  "score": 270.233,
+  "score": 265.258,
   "config": {
     "traditions": [
       "berber_ahidus_ahwash",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 3.8024999999999998,
+          "voice_register": 3.1525,
           "voice_quality": 29.25,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.6725000000000003,
           "voice_articulation": 28.210000000000004,
           "voice_microtone": 29.705000000000002,
-          "voice_tradition": 36.30250000000001,
+          "voice_tradition": 34.67750000000001,
           "voice_mechanism_compound": 10.254999999999999,
           "voice_estill_quality": 8.32,
-          "voice_speech_song": 35.685,
+          "voice_speech_song": 35.035000000000004,
           "voice_ensemble_config": 28.145000000000003,
-          "voice_ornament_system": 2.99,
-          "voice_pitch_organization": 10.364999999999998,
+          "voice_ornament_system": 2.3399999999999994,
+          "voice_pitch_organization": 8.965,
           "voice_processing_chain": 9.75,
           "voice_multitrack_stack": 5.330000000000001
         }

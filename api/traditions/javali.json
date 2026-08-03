@@ -5,7 +5,7 @@
   "lineage": "Carnatic light-classical romantic-love song genre at faster tempo than padam, setting Telugu and Tamil and Kannada erotic-and-romantic poetry to elaborated vocal performance — emerged in the 19th century at the Mysore and Tanjore courts, codified through Patnam Subramania Iyer and Veene Sheshanna",
   "recipe": "classic South Asian early-1950s javali, ritual Devotional, hindu branch, indian classical improv improv on frame dadra tappa. vocal fry, declaimed, slow rate, interlocked note trading. jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic. chennai madras music academy sabha. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
   "recipe_chars": 454,
-  "score": 278.108,
+  "score": 251.31,
   "config": {
     "traditions": [
       "javali",
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_recitative_free_rhythm",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_hindustani_meend_gamak",
+          "voice_ornament_system": "voice_ornament_carnatic_gamaka",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_plate_reverb_medium",
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 4.68,
+          "voice_register": 4.03,
           "voice_quality": 6.942500000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 23.725,
+          "voice_vibrato": 20.475,
           "voice_articulation": 10.594999999999999,
           "voice_microtone": 10.399999999999997,
-          "voice_tradition": 30.975000000000005,
-          "voice_mechanism_compound": 18.150000000000002,
-          "voice_estill_quality": 21.564999999999998,
-          "voice_speech_song": 19.065,
+          "voice_tradition": 27.852500000000006,
+          "voice_mechanism_compound": 15.650000000000002,
+          "voice_estill_quality": 19.064999999999998,
+          "voice_speech_song": 16.565,
           "voice_ensemble_config": 10.724999999999994,
-          "voice_ornament_system": 26.495,
-          "voice_pitch_organization": 25.725,
-          "voice_processing_chain": 4.550000000000001,
-          "voice_multitrack_stack": 5.329999999999999
+          "voice_ornament_system": 22.745,
+          "voice_pitch_organization": 22.925,
+          "voice_processing_chain": 3.9000000000000004,
+          "voice_multitrack_stack": 4.68
         }
       },
       {
@@ -62,7 +62,7 @@
           "mridangam_lineage": "mridangam_palghat"
         },
         "scores": {
-          "mridangam_heads": 9.49,
+          "mridangam_heads": 8.190000000000001,
           "mridangam_use": 0,
           "mridangam_shell_wood": 2.9899999999999998,
           "mridangam_heads_material": 0,
@@ -79,7 +79,7 @@
           "violin_carnatic_lineage": "violin_carnatic_lalgudi"
         },
         "scores": {
-          "bowed_technique": 18.945,
+          "bowed_technique": 16.445,
           "violin_carnatic_tuning": 14.105,
           "violin_carnatic_posture": 2.8600000000000003,
           "violin_carnatic_strings": 1.04,

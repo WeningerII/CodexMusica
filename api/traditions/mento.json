@@ -5,7 +5,7 @@
   "lineage": "Jamaican rural folk-and-dance music tradition that preceded ska as the dominant Jamaican popular music genre — codified through the post-WWII commercial recordings of Lord Flea, Count Lasher, the Jolly Boys, Stanley Beckford, Harold Richardson; built on a fusion of West African rhythmic foundations, European-derived quadrille dance forms, and Caribbean Spanish-influenced song structures",
   "recipe": "classic Caribbean mid-1970s mento, groove Percussion, Caribbean branch, tropical song functional song bachata merengue urbano. thick, full chest belt, straight note core, interlocked note trading. alternating thumb travis picked parlor acoustic guitar, walnut warmer than maple mid tier scruggs stelling bluegrass setup banjo 5 string, traditional gourd calabash maracas, mento rhumba box repeating bass ostinato forged iron tongues marimbula. Kingston studio one defining 1959-2004 indie-commercial kingston studio one brentford road. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 639,
-  "score": 196.376,
+  "score": 194.676,
   "config": {
     "traditions": [
       "mento",
@@ -35,7 +35,7 @@
         },
         "scores": {
           "voice_register": 7.925000000000001,
-          "voice_quality": 10.679999999999996,
+          "voice_quality": 9.429999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.4525,
@@ -115,8 +115,8 @@
           "marimbula_construction": "marimbula_build_forged_iron"
         },
         "scores": {
-          "marimbula_regional_form": 10.328999999999999,
-          "marimbula_playing_role": 9.3625,
+          "marimbula_regional_form": 10.029,
+          "marimbula_playing_role": 9.2125,
           "marimbula_construction": 2.9899999999999998
         }
       }

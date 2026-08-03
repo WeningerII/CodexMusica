@@ -5,7 +5,7 @@
   "lineage": "Ashkenazi-Jewish wedding-dance-music tradition continuous from 19th-century Eastern-European-shtetl klezmer practice through New-York Yiddish-American post-1880s immigration era through the 1970s klezmer-revival; the bulgar (Bulgarian-origin double-line dance) and freylekhs (joyful-dance) are the canonical Ashkenazi wedding-dance forms",
   "recipe": "classic Eastern European mid-1880s yiddish wedding bulgar and freylekhs, wedding, European branch, middle eastern wedding, string improv improv on frame, chanson fado ballad poetry cape verdean batuko of santiago island lebanese-arab wedding takht. vocal fry, breath veiled tone, slow rate, interlocked note trading. klezmer ensemble, ebonite hard rubber klezmer tradition continuous-airflow legato clarinet, ornamented fiddle, castagnari Italian premium folk music bellows articulated accordion, upright bass. klezmer simcha celebration hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 616,
-  "score": 259.838,
+  "score": 258.208,
   "config": {
     "traditions": [
       "yiddish_wedding_bulgar",
@@ -46,8 +46,8 @@
           "voice_estill_quality": 8.1,
           "voice_speech_song": 21.384999999999998,
           "voice_ensemble_config": 18.525,
-          "voice_ornament_system": 13.039,
-          "voice_pitch_organization": 12.9835,
+          "voice_ornament_system": 12.373999999999999,
+          "voice_pitch_organization": 12.318499999999998,
           "voice_processing_chain": 3.8745000000000007,
           "voice_multitrack_stack": 4.874999999999999
         }
@@ -59,7 +59,7 @@
           "rhythm_section": "klez_accordion"
         },
         "scores": {
-          "sections": 8.1695,
+          "sections": 8.019499999999999,
           "rhythm_section": 0.39
         }
       },
@@ -112,7 +112,7 @@
           "free_reed_technique": 7.199999999999999,
           "accordion_reed_material": 0.39,
           "musette_offset": 0.65,
-          "reed_config": 0.8099999999999997,
+          "reed_config": 0.6599999999999998,
           "bellows": 0.195,
           "voicing_chamber": 0.15,
           "accordion_maker_school": 7.215

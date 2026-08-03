@@ -5,7 +5,7 @@
   "lineage": "American-clipper-ship-era shanty tradition continuous from 1830s-1880s American-merchant-marine clipper-ship work-song practice (the heyday of American clipper-ship trade between American-Eastern-Seaboard, California, China, and Australia) through 20th-century revival into modern American-folk-revival continuous practice; foundational repertoire includes \"Sacramento\" (capstan-shanty for California-gold-rush trade), \"Shenandoah\"",
   "recipe": "classic mid-1830s american clipper-ship shanty, sea Shanty, atlantic branch, americas drinking song, American south field work, anglo singer song ballad poetry indie folk freak folk. thick, breath veiled tone, straight note core, interlocked note trading. Celtic Irish straight concertina, magic rosin modern acrylic base drone like fiddle. beach. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 422,
-  "score": 182.237,
+  "score": 170.977,
   "config": {
     "traditions": [
       "american_clipper_shanty",
@@ -34,14 +34,14 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 26.184999999999995,
+          "voice_register": 23.534999999999997,
           "voice_quality": 9.750000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.0074999999999998,
           "voice_articulation": 12.349999999999994,
           "voice_microtone": 12.154999999999992,
-          "voice_tradition": 26.804999999999993,
+          "voice_tradition": 23.40499999999999,
           "voice_mechanism_compound": 1.56,
           "voice_estill_quality": 3.5100000000000007,
           "voice_speech_song": 19.434999999999995,
@@ -60,8 +60,8 @@
           "concertina_reed_grade": "concertina_hybrid_accordion_reed"
         },
         "scores": {
-          "free_reed_technique": 18.989999999999995,
-          "concertina_type": 10.53,
+          "free_reed_technique": 16.489999999999995,
+          "concertina_type": 10.319999999999999,
           "concertina_reed_grade": 0.975
         }
       },
@@ -75,7 +75,7 @@
           "fiddle_articulation": "arco"
         },
         "scores": {
-          "bowed_technique": 18.119999999999994,
+          "bowed_technique": 15.619999999999994,
           "fiddle_strings": 0.5700000000000001,
           "fiddle_bow": 2.185,
           "fiddle_mute": 0.85,

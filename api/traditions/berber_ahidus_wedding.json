@@ -5,7 +5,7 @@
   "lineage": "Berber-Amazigh wedding-music tradition continuous from pre-Islamic North African Berber rural practice through Islamic-period continuous performance into modern Tamazight-speaking Moroccan and Algerian Berber-zone domestic practice; particularly preserved in the Atlas Mountains (Middle and High Atlas Tamazight zones) and the Kabyle Algeria",
   "recipe": "classic North African modern berber amazigh ahidus, wedding, middle eastern branch, west African groove percussion, islamic ritual devotional, med east poetic ballad poetry were music yoruba dùndún surrogate speech. thick, breath veiled tone, straight note core, interlocked note trading. juniper bent frame canonical Maghrebi synthetic remo modern world music bendir, walnut bent frame canonical Iranian synthetic remo modern tar frame drum. atlas mountain village square. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 536,
-  "score": 176.625,
+  "score": 168.925,
   "config": {
     "traditions": [
       "berber_ahidus_wedding",
@@ -25,7 +25,7 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
-          "voice_estill_quality": "voice_estill_speech",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 4.18,
+          "voice_register": 3.5299999999999994,
           "voice_quality": 16.51,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 4.485,
           "voice_articulation": 12.219999999999995,
           "voice_microtone": 17.192499999999995,
-          "voice_tradition": 42.67249999999999,
+          "voice_tradition": 39.42249999999999,
           "voice_mechanism_compound": 2.1500000000000004,
-          "voice_estill_quality": 2.34,
-          "voice_speech_song": 16.249999999999996,
+          "voice_estill_quality": 2.3399999999999994,
+          "voice_speech_song": 15.599999999999994,
           "voice_ensemble_config": 12.154999999999994,
           "voice_ornament_system": 9.774999999999999,
-          "voice_pitch_organization": 16.064999999999998,
+          "voice_pitch_organization": 13.564999999999996,
           "voice_processing_chain": 6.369999999999999,
           "voice_multitrack_stack": 1.4299999999999993
         }
@@ -64,7 +64,7 @@
           "bendir_snares": 4.809999999999999,
           "bendir_context": 0.3,
           "bendir_shell_wood": 2.035,
-          "bendir_head": 6.369999999999999
+          "bendir_head": 5.719999999999999
         }
       },
       {

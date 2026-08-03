@@ -5,7 +5,7 @@
   "lineage": "Islamic instrument-free devotional vocal tradition (nashīd plural anāshīd: \"hymns\") characterized by male-chorus a cappella or daff frame-drum accompaniment — codified through Sami Yusuf’s 2003 Al-Mu’allim record, Maher Zain, and Mesut Kurtis as canonical late-twentieth-century English-Arabic-bilingual exponents",
   "recipe": "classic early-2000s anāshīd, ritual Devotional, islamic branch, Sufi ritual devotional qawwali sufi inshad. vocal fry, declaimed, slow rate, interlocked note trading. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble, walnut bent frame canonical Persian goat skin tacked brass rings canonical Iranian daf. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 577,
-  "score": 230.562,
+  "score": 220.703,
   "config": {
     "traditions": [
       "islamic_anasheed",
@@ -35,18 +35,18 @@
         },
         "scores": {
           "voice_register": 3.575625,
-          "voice_quality": 27.929999999999996,
+          "voice_quality": 25.429999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.535,
           "voice_articulation": 11.634999999999996,
-          "voice_microtone": 28.893625,
-          "voice_tradition": 38.93499999999999,
+          "voice_microtone": 27.5275,
+          "voice_tradition": 35.596374999999995,
           "voice_mechanism_compound": 3.1999999999999997,
-          "voice_estill_quality": 5.3397499999999996,
-          "voice_speech_song": 14.819999999999997,
+          "voice_estill_quality": 5.23475,
+          "voice_speech_song": 14.169999999999996,
           "voice_ensemble_config": 11.764999999999997,
-          "voice_ornament_system": 27.910999999999998,
+          "voice_ornament_system": 26.660999999999998,
           "voice_pitch_organization": 8.9125,
           "voice_processing_chain": 3.4756250000000004,
           "voice_multitrack_stack": 4.445625
@@ -77,7 +77,7 @@
           "daf_jingle_metal": "daf_brass_rings"
         },
         "scores": {
-          "daf_rings": 9.749999999999998,
+          "daf_rings": 9.099999999999998,
           "daf_context": 1.4949999999999999,
           "daf_shell_wood": 5.329999999999999,
           "daf_head_material": 2.9314999999999998,

@@ -5,7 +5,7 @@
   "lineage": "French-language hip-hop tradition that emerged in 1989-1991 — Dee Nasty (the Paris hip-hop DJ-pioneer), MC Solaar (Qui Sème le Vent Récolte le Tempo 1991, his wordplay-driven Paris voice), IAM (the Marseille collective, Lécole du Micro dArgent 1997), Suprême NTM (Saint-Denis suburb voice, NTM 1993), Assassin, the Mafia K1 Fry collective; carrying through the modern continuation: Booba, Rohff, Diam s, La Fouine, Sexion dAssaut, PNL, Damso, Aya Nakamura, with Paris and Marseille remaining the dominant scene capitals",
   "recipe": "classic Western European 1989-1991 french rap, mc Rhythm, intl hip hop branch conscious hip-hop gangsta rap. thick, rap, straight onset, narrative. behringer rd 8 modern clone analog circuit reproduction TR-808, chopped sampler, sampled chopped sampler drum machine. paris marseille French rap 1989-present indie-commercial paris french rap studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 478,
-  "score": 427.497,
+  "score": 412.907,
   "config": {
     "traditions": [
       "french_rap",
@@ -35,20 +35,20 @@
         },
         "scores": {
           "voice_register": 9.219999999999997,
-          "voice_quality": 45.205,
+          "voice_quality": 42.605,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 8.344999999999999,
-          "voice_articulation": 23.104999999999997,
+          "voice_articulation": 22.354999999999997,
           "voice_microtone": 18.264999999999993,
-          "voice_tradition": 17.7225,
+          "voice_tradition": 16.9725,
           "voice_mechanism_compound": 5.005,
           "voice_estill_quality": 5.209999999999999,
-          "voice_speech_song": 42.0925,
+          "voice_speech_song": 40.0925,
           "voice_ensemble_config": 21.189999999999998,
           "voice_ornament_system": 6.435000000000002,
           "voice_pitch_organization": 1.5899999999999999,
-          "voice_processing_chain": 33.56,
+          "voice_processing_chain": 31.559999999999995,
           "voice_multitrack_stack": 7.962500000000001
         }
       },
@@ -60,7 +60,7 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 17.287499999999998,
+          "tr808_voice": 16.537499999999998,
           "drum_machine_808_context": 5.677500000000001,
           "tr808_production_origin": 1.95
         }
@@ -75,11 +75,11 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 16.374999999999996,
-          "sampler_archetypes": 28.21,
+          "electronic_technique": 15.624999999999998,
+          "sampler_archetypes": 26.91,
           "sampler_bit_depth": 1.95,
-          "sampler_workflow": 17.4225,
-          "sampler_classic_context": 40.1175
+          "sampler_workflow": 16.6725,
+          "sampler_classic_context": 39.22749999999999
         }
       },
       {
@@ -91,9 +91,9 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 16.374999999999996,
+          "electronic_technique": 15.624999999999998,
           "sample_bitdepth": 1.95,
-          "sample_swing": 28.21,
+          "sample_swing": 26.91,
           "sample_processing": 1.04
         }
       }

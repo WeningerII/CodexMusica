@@ -5,7 +5,7 @@
   "lineage": "Hong Kong Cantonese-language mainstream pop, codified through the late-1970s Sam Hui and the early-1990s Four Heavenly Kings — Jacky Cheung, Andy Lau, Aaron Kwok, Leon Lai — characterized by ballad-heavy repertoire, film-tie-in song format, and the post-handover (1997) industry that absorbed and merged with the mainland Mandarin pop market",
   "recipe": "classic East Asian 1977-1979 cantopop, functional Song, east Asian pop branch, pop rock functional song new wave yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, sequential lineage canonical prophet 5 1978 san jose ca lead analog poly synth. hong kong flagship 1980-2000 mid tier hong kong cantopop studio 80s. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
   "recipe_chars": 813,
-  "score": 622.929,
+  "score": 613.409,
   "config": {
     "traditions": [
       "cantopop",
@@ -34,14 +34,14 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 53.38000000000001,
+          "voice_register": 52.13000000000001,
           "voice_quality": 6.76,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 9.375,
           "voice_articulation": 16.184999999999995,
-          "voice_microtone": 52.225,
-          "voice_tradition": 35.35999999999999,
+          "voice_microtone": 50.975,
+          "voice_tradition": 35.065625,
           "voice_mechanism_compound": 3.445,
           "voice_estill_quality": 3.0550000000000006,
           "voice_speech_song": 25.804999999999993,
@@ -95,7 +95,7 @@
         },
         "scores": {
           "electric_technique": 27.204999999999995,
-          "amp_make": 17.029999999999998,
+          "amp_make": 16.379999999999995,
           "body_wood": 2.275,
           "neck_wood": 2.275,
           "fretboard": 2.21,
@@ -105,7 +105,7 @@
           "bridge": 0.65,
           "scale_length": 2.275,
           "finish": 0.09,
-          "string_tuning": 13.975
+          "string_tuning": 13.325
         }
       },
       {
@@ -120,13 +120,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 12.35,
+          "amp_make": 11.7,
           "body_wood": 2.275,
           "pickup_config": 0.195,
-          "string_type": 30.0625,
+          "string_type": 28.4375,
           "scale_length_b": 2.275,
           "fretted_or_not": 0.045,
-          "bass_technique": 27.38375
+          "bass_technique": 26.13375
         }
       },
       {
@@ -137,7 +137,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 23.17,
+          "drum_technique": 21.92,
           "drumhead": 26.089999999999993,
           "drum_kit_kick_pedal": 0
         }
@@ -152,7 +152,7 @@
         },
         "scores": {
           "electronic_technique": 26.534999999999997,
-          "poly_archetypes": 12.025,
+          "poly_archetypes": 11.375,
           "poly_voices": 1.0799999999999998,
           "poly_maker_lineage": 2.795
         }

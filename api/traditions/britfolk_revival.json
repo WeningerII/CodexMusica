@@ -5,7 +5,7 @@
   "lineage": "1960s-70s UK folk-revival singer-songwriter movement codified through Bert Jansch and John Renbourn (the Pentangle nexus), Davey Graham (the DADGAD-tuning innovator), Anne Briggs, Shirley Collins, Nic Jones, June Tabor, the Watersons family ensemble, the Carthy family (Martin and Eliza), Fairport Convention, Steeleye Span — drawing heavily on the Cecil Sharp / Vaughan Williams field-collected canon and the Child ballad corpus",
   "recipe": "classic Northern European mid-1960s britfolk revival, ballad Poetry, britfolk branch, Celtic balladic ballad poetry child ballad revival newfoundland outport balladry. thick, incomplete closure resting, straight note core, interlocked note trading. dadgad tuning martin lifespan fingerpicked acoustic guitar, drone like fiddle, flute, ernie ball slinky fingerpicked electric bass, pre muffled edge muffled brushes-and-sticks drum kit, folk drone like modal autoharp. uk folk revival club 60s. large-diaphragm condenser, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
   "recipe_chars": 616,
-  "score": 252.206,
+  "score": 251.756,
   "config": {
     "traditions": [
       "britfolk_revival",
@@ -35,7 +35,7 @@
         },
         "scores": {
           "voice_register": 12.925625,
-          "voice_quality": 15.04,
+          "voice_quality": 14.889999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.7037500000000003,
@@ -97,7 +97,7 @@
         },
         "scores": {
           "wind_articulation": -0.05,
-          "flute_size": 0.9600000000000001,
+          "flute_size": 0.8099999999999999,
           "flute_material": 0,
           "flute_technique": 0.045,
           "flute_maker_school": 0.69
@@ -120,7 +120,7 @@
           "pickup_config": 0,
           "string_type": 3.3637500000000005,
           "scale_length_b": 0.65,
-          "fretted_or_not": 0.9600000000000001,
+          "fretted_or_not": 0.8099999999999999,
           "bass_technique": 3.835
         }
       },

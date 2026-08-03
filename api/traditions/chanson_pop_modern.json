@@ -5,7 +5,7 @@
   "lineage": "Modern French songwriter pop tradition extending the chanson lineage past the 1960s yé-yé era — Vanessa Paradis, MC Solaar, Mylène Farmer in the 1990s; Carla Bruni, Cœur de Pirate, Christine and the Queens, Stromae (Belgian) extending the form into the 2000s-2020s with electronic and hip-hop production influences",
   "recipe": "classic mid-1960s chanson pop, functional Song, europop branch, chanson fado ballad poetry cape verdean batuko of santiago island greek éntechno. thick, breath veiled tone, straight onset, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, fingerpicked acoustic guitar, modeled amp modern rig stainless steel roundwound sub heavy electric bass, pre muffled edge muffled brushes-and-sticks drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 610,
-  "score": 398.827,
+  "score": 396.927,
   "config": {
     "traditions": [
       "chanson_pop_modern",
@@ -41,14 +41,14 @@
           "voice_vibrato": 6.2775,
           "voice_articulation": 19.045,
           "voice_microtone": 21.287499999999994,
-          "voice_tradition": 26.55925,
+          "voice_tradition": 25.30925,
           "voice_mechanism_compound": 7.409999999999999,
           "voice_estill_quality": 7.5075,
           "voice_speech_song": 27.5925,
           "voice_ensemble_config": 18.525,
           "voice_ornament_system": 2.6314999999999995,
           "voice_pitch_organization": 2.6449999999999996,
-          "voice_processing_chain": 17.293000000000003,
+          "voice_processing_chain": 16.643,
           "voice_multitrack_stack": 10.2375
         }
       },

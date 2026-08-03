@@ -5,7 +5,7 @@
   "lineage": "Mid-2000s psychedelic-folk revival emerging from the Devendra Banhart / Vetiver / Joanna Newsom / CocoRosie cluster extending the 1960s-70s Vashti Bunyan / Karen Dalton / Linda Perhacs psychedelic-folk lineage into the post-millennium era; recordings: Devendra Banhart Rejoicing in the Hands 2004 and Cripple Crow 2005, Joanna Newsom The Milk-Eyed Mender 2004 and Ys 2006, CocoRosie La Maison de mon Rêve 2004, Vetiver Vetiver 2004",
   "recipe": "classic North American 2004-2006 freak folk, ballad Poetry, freak folk branch, pop experimental experimental electric hyperpop. thick, breath veiled tone, straight onset, interlocked note trading. cedar walnut phosphor bronze bronze fingerpicked acoustic guitar, concert harp, drone like fiddle, castagnari Italian premium folk music straight accordion, mass production synthetic varnish polyurethane violin orchestral, folk strummed open chord ringing overtones autoharp, walnut mid tier scruggs stelling bluegrass setup mastertone flathead banjo 5 string, mid attack plastic glockenspiel, maple mid tier Baroque alternative melodic recorder. takoma home recording fahey. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 819,
-  "score": 245.107,
+  "score": 244.838,
   "config": {
     "traditions": [
       "freak_folk_2000s",
@@ -34,17 +34,17 @@
         },
         "scores": {
           "voice_register": 25.98624999999999,
-          "voice_quality": 8.59925,
+          "voice_quality": 8.574250000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.1049999999999998,
-          "voice_articulation": 9.426499999999994,
+          "voice_articulation": 9.407749999999995,
           "voice_microtone": 9.791249999999998,
-          "voice_tradition": 18.782375,
+          "voice_tradition": 18.744874999999997,
           "voice_mechanism_compound": 0.956,
           "voice_estill_quality": 2.6590000000000003,
-          "voice_speech_song": 13.250374999999995,
-          "voice_ensemble_config": 9.637374999999995,
+          "voice_speech_song": 13.181624999999995,
+          "voice_ensemble_config": 9.618624999999994,
           "voice_ornament_system": 1.4264999999999999,
           "voice_pitch_organization": 1.0019999999999998,
           "voice_processing_chain": 2.1323749999999997,
@@ -114,7 +114,7 @@
           "reed_config": 0.504,
           "bellows": 0.195,
           "voicing_chamber": 0.042624999999999996,
-          "accordion_maker_school": 7.703499999999999
+          "accordion_maker_school": 7.684749999999999
         }
       },
       {
@@ -155,8 +155,8 @@
         },
         "scores": {
           "acoustic_technique": 10.95,
-          "autoharp_chord_bars": 6.747249999999998,
-          "autoharp_context": 2.9213750000000003,
+          "autoharp_chord_bars": 6.728499999999999,
+          "autoharp_context": 2.896375,
           "autoharp_strings": 0.097,
           "autoharp_body_wood": 0.075625
         }
@@ -178,14 +178,14 @@
         "scores": {
           "banjo_back": 0.195,
           "tone_ring": 0.005625,
-          "banjo_head": 9.570874999999997,
+          "banjo_head": 9.552124999999997,
           "banjo_pot": 0.195,
           "banjo_play": 0.005625,
           "banjo_rim_wood": 0.005625,
           "banjo_neck_wood": 1.025125,
           "banjo_strings": 0.043125,
           "banjo_bridge": 0.0045,
-          "banjo_setup_period": 9.520874999999997
+          "banjo_setup_period": 9.502124999999996
         }
       },
       {

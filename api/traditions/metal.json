@@ -5,7 +5,7 @@
   "lineage": "The broad heavy-metal tradition — high-gain distorted-guitar music that emerged from hard rock into a distinct genre of amplified aggression, volume, and virtuosity",
   "recipe": "classic North American mid-1990s metal, distorted Rock, thrash branch. thick, breath veiled tone, interlocked note trading, equal tempered. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit. san francisco bay area thrash 1983-1991 indie-commercial bay area thrash metal studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay ibanez tube screamer TS9 / TS808 proco RAT.",
   "recipe_chars": 635,
-  "score": 124.786,
+  "score": 124.013,
   "config": {
     "traditions": [
       "metal"
@@ -30,16 +30,16 @@
         },
         "scores": {
           "electric_technique": 15.96475,
-          "amp_make": 7.383875,
+          "amp_make": 7.365125000000001,
           "body_wood": 5.719999999999999,
-          "neck_wood": 0.72825,
+          "neck_wood": 0.62325,
           "fretboard": 0.38137499999999996,
           "pickup_magnet": 2.0225,
           "pickup_winding": 0.0735,
           "string_material": 0.23212499999999997,
-          "bridge": 0.72825,
+          "bridge": 0.62325,
           "scale_length": 5.719999999999999,
-          "string_gauge": 0.86475,
+          "string_gauge": 0.75975,
           "finish": 0.01125,
           "string_tuning": 9.75
         }
@@ -57,10 +57,10 @@
         },
         "scores": {
           "amp_make": 4.485,
-          "body_wood": 1.4565000000000003,
+          "body_wood": 1.2465000000000004,
           "pickup_config": 0.3645,
-          "string_type": 7.5951249999999995,
-          "scale_length_b": 0.72825,
+          "string_type": 7.576375,
+          "scale_length_b": 0.62325,
           "fretted_or_not": 0.142125,
           "bass_technique": 8.2525
         }
@@ -74,7 +74,7 @@
         },
         "scores": {
           "drum_technique": 6.255625,
-          "drumhead": 0.72825,
+          "drumhead": 0.62325,
           "drum_kit_kick_pedal": 0
         }
       },

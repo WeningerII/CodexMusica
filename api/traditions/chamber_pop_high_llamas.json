@@ -5,7 +5,7 @@
   "lineage": "Late-1990s-and-2000s indie rock subgenre integrating orchestral-and-chamber-instrument arrangements (strings, woodwinds, brass) with pop song-form structure, often referencing the 1960s Brian Wilson/Beach Boys, Burt Bacharach, and Van Dyke Parks compositional aesthetic. The High Llamas (UK, 1992-onward, Sean O'Hagan), Belle and Sebastian, Lambchop, the Divine Comedy, and Sufjan Stevens constitute the canonical roster.",
   "recipe": "classic Los Angeles modern chamber pop, distorted Rock, art rock branch, western common practice art music classical period grand opera. thick, breath veiled tone, slow rate, interlocked note trading. marshall plexi amp British rock amp alder pau ferro nickel plated steel single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, synthetic norway spruce European alpine European maple bosnian source violin orchestral. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
   "recipe_chars": 769,
-  "score": 420.172,
+  "score": 388.467,
   "config": {
     "traditions": [
       "chamber_pop_high_llamas",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 19.924999999999994,
+          "voice_register": 19.549999999999994,
           "voice_quality": 11.43999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 9.099999999999998,
+          "voice_vibrato": 7.475,
           "voice_articulation": 16.70499999999999,
-          "voice_microtone": 26.729999999999997,
-          "voice_tradition": 12.902499999999998,
-          "voice_mechanism_compound": 6.899999999999999,
-          "voice_estill_quality": 13.829999999999998,
+          "voice_microtone": 26.354999999999997,
+          "voice_tradition": 11.277499999999998,
+          "voice_mechanism_compound": 5.6499999999999995,
+          "voice_estill_quality": 11.329999999999998,
           "voice_speech_song": 18.394999999999992,
           "voice_ensemble_config": 16.639999999999993,
-          "voice_ornament_system": 13.125,
-          "voice_pitch_organization": 6.8999999999999995,
+          "voice_ornament_system": 10.625,
+          "voice_pitch_organization": 5.6499999999999995,
           "voice_processing_chain": 3.0350000000000006,
           "voice_multitrack_stack": 4.535000000000001
         }
@@ -70,7 +70,7 @@
         },
         "scores": {
           "electric_technique": 5.7,
-          "amp_make": 4.785,
+          "amp_make": 4.635,
           "body_wood": 1.7550000000000001,
           "neck_wood": 0.195,
           "fretboard": 1.7550000000000001,
@@ -120,7 +120,7 @@
       {
         "id": "grand_piano",
         "slots": {
-          "keyboard_technique": "keyboard_classical_legato",
+          "keyboard_technique": "keyboard_block_chord_pop",
           "grand_piano_size": "grand_9_foot",
           "grand_piano_brand": "fazioli",
           "piano_hammer": "steinway_original_hammer",
@@ -131,15 +131,15 @@
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 6.999999999999999,
+          "keyboard_technique": 5.8950000000000005,
           "grand_piano_size": 3.4450000000000003,
           "grand_piano_brand": 1.69,
-          "piano_hammer": 11.444999999999999,
-          "piano_rim": 11.79,
-          "piano_soundboard": 9.944999999999999,
-          "piano_pinblock": 7.1,
-          "piano_plate": 7.7749999999999995,
-          "piano_pitch_standard": 10.959999999999999
+          "piano_hammer": 10.194999999999999,
+          "piano_rim": 10.54,
+          "piano_soundboard": 8.319999999999999,
+          "piano_pinblock": 5.8500000000000005,
+          "piano_plate": 6.525,
+          "piano_pitch_standard": 9.709999999999999
         }
       },
       {
@@ -157,16 +157,16 @@
           "orch_rosin": "galeazzi_1791_baroque_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 11.875,
+          "bowed_technique": 10.625,
           "orch_strings": 1.7550000000000001,
-          "orch_top_wood": 9.86,
-          "orch_back_wood": 9.86,
-          "orch_varnish": 8.735,
-          "orch_setup_period": 7.669999999999999,
-          "orch_bow": 2.34,
-          "orch_bow_stick": 8.969999999999999,
+          "orch_top_wood": 8.61,
+          "orch_back_wood": 8.61,
+          "orch_varnish": 6.834999999999999,
+          "orch_setup_period": 6.42,
+          "orch_bow": 1.6899999999999997,
+          "orch_bow_stick": 7.345000000000001,
           "orch_articulation": 0.9099999999999999,
-          "orch_rosin": 10.545
+          "orch_rosin": 8.645
         }
       }
     ],

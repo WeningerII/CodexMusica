@@ -5,7 +5,7 @@
   "lineage": "Mandarin-language mainstream Chinese-language pop tradition codified through 1980s Taiwan (Teresa Teng, Liu Wen-cheng) — through Jay Chou’s 2000-2010 Hua Yu pop (Mandarin pop with hip-hop and R&B production), and the contemporary cross-strait Mandarin entertainment industry spanning Taiwan, mainland China, Singapore, and Malaysia",
   "recipe": "classic Asian mid-2000s mandopop, functional Song, east Asian pop branch, pop rock functional song new wave yacht rock. thick, chest mix belt, straight onset, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, string quartet inst. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
   "recipe_chars": 689,
-  "score": 571.997,
+  "score": 562.822,
   "config": {
     "traditions": [
       "mandopop",
@@ -34,14 +34,14 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 54.15000000000001,
+          "voice_register": 52.90000000000001,
           "voice_quality": 2.2850000000000015,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 9.02,
           "voice_articulation": 12.674999999999995,
-          "voice_microtone": 52.650000000000006,
-          "voice_tradition": 38.155,
+          "voice_microtone": 51.400000000000006,
+          "voice_tradition": 37.555,
           "voice_mechanism_compound": 2.6649999999999996,
           "voice_estill_quality": 2.2749999999999995,
           "voice_speech_song": 19.434999999999995,
@@ -95,7 +95,7 @@
         },
         "scores": {
           "electric_technique": 28.955,
-          "amp_make": 16.639999999999997,
+          "amp_make": 15.989999999999997,
           "body_wood": 2.6649999999999996,
           "neck_wood": 2.6649999999999996,
           "fretboard": 2.5999999999999996,
@@ -105,7 +105,7 @@
           "bridge": 0.65,
           "scale_length": 2.6649999999999996,
           "finish": 0.09,
-          "string_tuning": 13.584999999999999
+          "string_tuning": 12.934999999999999
         }
       },
       {
@@ -120,13 +120,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 11.569999999999999,
+          "amp_make": 10.919999999999998,
           "body_wood": 2.6649999999999996,
           "pickup_config": 0.195,
-          "string_type": 29.0875,
+          "string_type": 27.4625,
           "scale_length_b": 2.275,
           "fretted_or_not": 0.045,
-          "bass_technique": 26.465
+          "bass_technique": 25.215
         }
       },
       {
@@ -137,7 +137,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 22.42,
+          "drum_technique": 21.17,
           "drumhead": 27.839999999999996,
           "drum_kit_kick_pedal": 0
         }

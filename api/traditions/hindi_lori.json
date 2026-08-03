@@ -5,7 +5,7 @@
   "lineage": "Hindi-Urdu cradle-song tradition continuous from North-Indian medieval domestic practice through Bollywood-filmi appropriation (1940s-onward) into modern South-Asian domestic singing across India, Pakistan, Bangladesh diasporas",
   "recipe": "classic mid-1940s hindi lori, lullaby, south Asian branch, middle eastern lullaby, south Asian pop functional song, indian classical improv improv on frame dhrupad hindustani classical. extended whistle, breath veiled tone, slow rate, interlocked note trading. carpeted bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 341,
-  "score": 189.68,
+  "score": 179.655,
   "config": {
     "traditions": [
       "hindi_lori",
@@ -38,16 +38,16 @@
           "voice_quality": 10.724999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 15.803375000000003,
+          "voice_vibrato": 14.403375,
           "voice_articulation": 7.67,
           "voice_microtone": 9.165,
-          "voice_tradition": 34.060625,
-          "voice_mechanism_compound": 14.350625,
-          "voice_estill_quality": 14.834999999999999,
+          "voice_tradition": 32.810625,
+          "voice_mechanism_compound": 13.100625,
+          "voice_estill_quality": 13.584999999999999,
           "voice_speech_song": 15.729999999999997,
           "voice_ensemble_config": 7.8,
-          "voice_ornament_system": 25.494999999999997,
-          "voice_pitch_organization": 21.070249999999998,
+          "voice_ornament_system": 22.495000000000005,
+          "voice_pitch_organization": 19.820249999999998,
           "voice_processing_chain": 3.4125,
           "voice_multitrack_stack": 5.947500000000002
         }

@@ -5,7 +5,7 @@
   "lineage": "Spanish lyric-theatre tradition combining sung-operatic and spoken-dialogue sections, named after the Royal Palacio de la Zarzuela where the early seventeenth-century court entertainments were performed. The modern zarzuela emerged in mid-nineteenth-century Madrid through Francisco Asenjo Barbieri and Federico Chueca; the género chico shorter one-act form developed in 1880s-1900s and crystallized the canonical Madrid-urban-life subject matter. Distinguished from broader European operetta by zarzuela's Spanish-specific musical idioms (jota, habanera, fandango integration) and Madrid-and-regional Spanish settings.",
   "recipe": "classic British mid-1880s zarzuela, functional Song, iberian branch, western common practice art music bel canto opera early romantic. thick, breath veiled tone, slow rate, interlocked note trading. beech laminated maple laminated European tradition European spruce norway spruce grand piano, synthetic carpathian spruce European maple sycamore maple oil varnish violin orchestral. shoebox concert hall. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 549,
-  "score": 293.68,
+  "score": 283.592,
   "config": {
     "traditions": [
       "zarzuela_spanish",
@@ -41,13 +41,13 @@
           "voice_vibrato": 9.035,
           "voice_articulation": 13.324999999999996,
           "voice_microtone": 13.129999999999992,
-          "voice_tradition": 13.6175,
+          "voice_tradition": 11.9925,
           "voice_mechanism_compound": 4.9,
-          "voice_estill_quality": 9.83,
+          "voice_estill_quality": 7.280000000000001,
           "voice_speech_song": 19.402499999999996,
           "voice_ensemble_config": 13.259999999999994,
-          "voice_ornament_system": 12.075,
-          "voice_pitch_organization": 7.865,
+          "voice_ornament_system": 8.525,
+          "voice_pitch_organization": 6.5649999999999995,
           "voice_processing_chain": 3.685,
           "voice_multitrack_stack": 2.34
         }
@@ -68,10 +68,10 @@
         "scores": {
           "keyboard_technique": 5,
           "grand_piano_size": 2.04,
-          "grand_piano_brand": 4.03,
-          "piano_hammer": 14.397499999999999,
-          "piano_rim": 14.22,
-          "piano_soundboard": 10.68,
+          "grand_piano_brand": 3.38,
+          "piano_hammer": 14.284999999999998,
+          "piano_rim": 14.07,
+          "piano_soundboard": 10.530000000000001,
           "piano_pinblock": 9.275,
           "piano_plate": 9.215,
           "piano_pitch_standard": 12.485

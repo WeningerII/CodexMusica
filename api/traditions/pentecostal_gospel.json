@@ -3,9 +3,9 @@
   "name": "Black Pentecostal gospel",
   "family": "blues_gospel",
   "lineage": "Black Pentecostal / COGIC (Church of God in Christ) liturgical music tradition characterized by Hammond B3 organ, piano, drums, electric bass, congregational call-and-response with melismatic lead vocal — codified through James Cleveland, Mahalia Jackson, the Caravans, Edwin Hawkins, Andrae Crouch, Aretha Franklins Amazing Grace (1972, New Temple Missionary Baptist Church LA)",
-  "recipe": "classic North American early-1970s black pentecostal gospel, ritual Devotional, pentecostal branch, soul R&B functional song southern soul classic r&b. thick, declaimed, wide pitch sway, multi note runs per syllable. Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched gospel runs full spectrum fast tremolo tonewheel organ, gospel runs upright piano, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled sticks pocket drum kit, ecstatic call response choir pentecostal cogic, choir southern black gospel. pentecostal storefront church. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 811,
-  "score": 411.429,
+  "recipe": "classic North American early-1970s black pentecostal gospel, ritual Devotional, pentecostal branch, soul R&B functional song southern soul classic r&b. thick, declaimed, wide pitch sway, leader call answered. Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched gospel runs full spectrum fast tremolo tonewheel organ, gospel runs upright piano, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled sticks pocket drum kit, ecstatic call response choir pentecostal cogic, choir southern black gospel. pentecostal storefront church. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 803,
+  "score": 398.949,
   "config": {
     "traditions": [
       "pentecostal_gospel",
@@ -21,7 +21,7 @@
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "oscillating_vibrato",
-          "voice_articulation": "melisma_voice",
+          "voice_articulation": "call_response_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "gospel_pentecostal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 30.561999999999994,
+          "voice_register": 29.311999999999994,
           "voice_quality": 22.241999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.16,
-          "voice_articulation": 17.67,
+          "voice_articulation": 17.465,
           "voice_microtone": 8.839999999999998,
-          "voice_tradition": 38.73499999999999,
+          "voice_tradition": 37.48499999999999,
           "voice_mechanism_compound": 3.9,
-          "voice_estill_quality": 28.345,
+          "voice_estill_quality": 27.095,
           "voice_speech_song": 13.649999999999995,
           "voice_ensemble_config": 17.696999999999996,
           "voice_ornament_system": 5.590000000000001,
           "voice_pitch_organization": 0.585,
-          "voice_processing_chain": 6.0125,
+          "voice_processing_chain": 5.3625,
           "voice_multitrack_stack": 3.12
         }
       },
@@ -63,7 +63,7 @@
           "leslie_cabinet_model": "leslie_122_canonical"
         },
         "scores": {
-          "keyboard_technique": 28.902,
+          "keyboard_technique": 27.652,
           "drawbar_setting": 15.6,
           "rotary_speed": 14.95,
           "percussion_setting": 0.78,
@@ -79,7 +79,7 @@
           "upright_piano_size": "upright_piano_concert"
         },
         "scores": {
-          "keyboard_technique": 28.902,
+          "keyboard_technique": 27.652,
           "upright_use": 0.39,
           "upright_piano_size": 0.845
         }
@@ -96,13 +96,13 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "amp_make": 19.656499999999994,
+          "amp_make": 18.406499999999998,
           "body_wood": 0.39,
           "pickup_config": 0,
-          "string_type": 23.432499999999997,
+          "string_type": 21.807499999999997,
           "scale_length_b": 0.39,
           "fretted_or_not": 0.39,
-          "bass_technique": 12.949999999999998
+          "bass_technique": 11.699999999999998
         }
       },
       {
@@ -113,7 +113,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 14.624999999999996,
+          "drum_technique": 13.374999999999996,
           "drumhead": 1.59,
           "drum_kit_kick_pedal": 0
         }

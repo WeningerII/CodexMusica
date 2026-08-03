@@ -5,7 +5,7 @@
   "lineage": "1990s indie rock subgenre developed in Montreal, Chicago, and Glasgow scenes characterized by extended-instrumental composition (typically 10-25 minute pieces), gradual-crescendo dynamic-architecture, classical-art-music-influenced harmonic vocabulary, and minimal-to-absent vocal-content. Godspeed You! Black Emperor (Montreal, 1994-onward) is the canonical type-specimen with F♯ A♯ ∞ (1997) and Lift Your Skinny Fists Like Antennas to Heaven (2000); Mogwai (Glasgow), Explosions in the Sky (Austin), Sigur Rós (Iceland), and Tortoise (Chicago) constitute the canonical international roster.",
   "recipe": "classic post-rock, distorted Rock, experimental branch, western modern art music polish avant-garde / sonorism american minimalism. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, steel sitka spruce European maple sycamore maple oil varnish violin orchestral. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 669,
-  "score": 202.24,
+  "score": 200.79,
   "config": {
     "traditions": [
       "post_rock_extended",
@@ -32,7 +32,7 @@
         },
         "scores": {
           "electric_technique": 6.324999999999999,
-          "amp_make": 5.005000000000001,
+          "amp_make": 4.355,
           "body_wood": 7.93,
           "neck_wood": 2.54,
           "fretboard": 3.9,
@@ -58,7 +58,7 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 4.045,
+          "amp_make": 3.895,
           "body_wood": 1.7550000000000001,
           "pickup_config": 3.7700000000000005,
           "string_type": 11.235,
@@ -75,7 +75,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 13.194999999999997,
+          "drum_technique": 12.544999999999996,
           "drumhead": 6.49,
           "drum_kit_kick_pedal": 0
         }

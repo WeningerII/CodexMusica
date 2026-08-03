@@ -3,9 +3,9 @@
   "name": "Arabesk (Turkish)",
   "family": "global",
   "lineage": "Turkish urban-melancholic Egyptian-music-influenced crossover-pop tradition that dominated Turkish mass culture from the 1970s through the 1990s — codified through Orhan Gencebay (the founder, 1968 onward), Müslüm Gürses, İbrahim Tatlıses (the 80s-90s voice), Ferdi Tayfur, Bülent Ersoy; thematically anchored in the urban-rural migration anxiety of Turkish working-class internal-migrant audiences, with characteristic minor-key Egyptian-inspired string arrangements over Turkish-language vocals",
-  "recipe": "classic Middle Eastern mid-1970s arabesk, functional Song, mid east n African pop branch, Persian arab improv improv on frame iraqi maqam malhun. extended whistle, breath veiled tone, slow rate, interlocked note trading. rosewood premium iraqi Turkish la bella Turkish school canon drone like oud, metal finger picks maple body Turkish school drone like modal qanun, mahogany rosewood clean strummed single coil electric guitar, alder electric bass, pre muffled edge muffled brushes-and-sticks drum kit, kanun drone like modal tortoiseshell traditional kanun. istanbul recording canon 1955-present mid tier istanbul makam kilic ali pasha studio. large-diaphragm condenser, transformer-coupled solid-state pre, colored vintage console, vari-mu, passive program EQ. vinyl master cut tape echo spring reverb germanium fuzz wah / envelope filter.",
-  "recipe_chars": 842,
-  "score": 257.212,
+  "recipe": "classic Middle Eastern mid-1970s arabesk, functional Song, mid east n African pop branch, Persian arab improv improv on frame iraqi maqam malhun. extended whistle, breath veiled tone, slow rate, interlocked note trading. rosewood premium iraqi Turkish la bella Turkish school canon oud, metal finger picks maple body Turkish school qanun, mahogany rosewood clean strummed single coil electric guitar, alder electric bass, pre muffled edge muffled brushes-and-sticks drum kit, kanun tortoiseshell traditional kanun. istanbul recording canon 1955-present mid tier istanbul makam kilic ali pasha studio. large-diaphragm condenser, transformer-coupled solid-state pre, colored vintage console, vari-mu, passive program EQ. vinyl master cut tape echo spring reverb germanium fuzz wah / envelope filter.",
+  "recipe_chars": 797,
+  "score": 250.8,
   "config": {
     "traditions": [
       "arabesk_turkish",
@@ -28,26 +28,26 @@
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_ornament_system": "voice_ornament_persian_tahrir",
           "voice_pitch_organization": "voice_pitch_turkish_makam_53_comma",
           "voice_processing_chain": "voice_processing_talkbox",
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 8.806999999999999,
+          "voice_register": 8.68325,
           "voice_quality": 9.100000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 8.2875,
           "voice_articulation": 3.2500000000000004,
-          "voice_microtone": 37.304125,
+          "voice_microtone": 34.804125,
           "voice_tradition": 16.055,
           "voice_mechanism_compound": 11.7765,
           "voice_estill_quality": 7.359125000000001,
           "voice_speech_song": 5.200000000000001,
           "voice_ensemble_config": 4.485000000000001,
-          "voice_ornament_system": 14.553250000000002,
-          "voice_pitch_organization": 17.044999999999998,
+          "voice_ornament_system": 13.135125,
+          "voice_pitch_organization": 16.895,
           "voice_processing_chain": 3.4132500000000006,
           "voice_multitrack_stack": 3.569000000000001
         }
@@ -55,7 +55,7 @@
       {
         "id": "oud",
         "slots": {
-          "plucked_traditional_technique": "plucked_drone_modal",
+          "plucked_traditional_technique": "plucked_classical_idiom",
           "oud_school": "oud_arab_classic",
           "oud_strings": "oud_eleven",
           "oud_pick": "risha_eagle_feather",
@@ -64,19 +64,19 @@
           "oud_string_material": "oud_la_bella_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 5.03175,
+          "plucked_traditional_technique": 4.875,
           "oud_school": 4.095,
           "oud_strings": 2.535,
           "oud_pick": 1.95,
-          "oud_body_wood": 9.919999999999998,
+          "oud_body_wood": 8.469999999999999,
           "oud_soundboard_wood": 0.65,
-          "oud_string_material": 7.4087499999999995
+          "oud_string_material": 7.258749999999999
         }
       },
       {
         "id": "qanun",
         "slots": {
-          "plucked_traditional_technique": "plucked_drone_modal",
+          "plucked_traditional_technique": "plucked_classical_idiom",
           "qanun_strings": "qanun_arab_72",
           "qanun_levers": "mandal_brass",
           "qanun_pick": "qanun_finger_picks",
@@ -85,11 +85,11 @@
           "qanun_string_material": "qanun_fluorocarbon"
         },
         "scores": {
-          "plucked_traditional_technique": 5.03175,
+          "plucked_traditional_technique": 4.875,
           "qanun_strings": 2.535,
           "qanun_levers": -1.215375,
           "qanun_pick": 2.535,
-          "qanun_body_wood": 8.05875,
+          "qanun_body_wood": 7.9087499999999995,
           "qanun_bridge_skin": 0.65,
           "qanun_string_material": 0
         }
@@ -162,12 +162,12 @@
       {
         "id": "kanun",
         "slots": {
-          "plucked_traditional_technique": "plucked_drone_modal",
+          "plucked_traditional_technique": "plucked_classical_idiom",
           "kanun_school": "kanun_turkish",
           "kanun_articulation": "kanun_tortoiseshell_pick"
         },
         "scores": {
-          "plucked_traditional_technique": 5.03175,
+          "plucked_traditional_technique": 4.875,
           "kanun_school": 16.445,
           "kanun_articulation": 1.885
         }

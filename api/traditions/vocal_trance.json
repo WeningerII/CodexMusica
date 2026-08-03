@@ -5,7 +5,7 @@
   "lineage": "Pop-vocal trance subgenre fusing trance instrumentation with female-led vocal performances — codified through Tiësto featuring Kirsty Hawkshaw \"Just Be\" (2003), Armin van Buuren’s collaborations with Sharon den Adel, ATB and York-style productions, characterized by main-room emotional-vocal builds",
   "recipe": "classic early-2000s vocal trance, electronic Dance, trance branch, house electronic dance chicago house latin house. thick, breath veiled tone, straight note core, interlocked note trading. singing lead analog poly synth, singing lead digital subtractive, TR-909, looped layered sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 433,
-  "score": 250.492,
+  "score": 244.427,
   "config": {
     "traditions": [
       "vocal_trance",
@@ -88,8 +88,8 @@
           "tr909_production_origin": "tr909_tr_8s_modern"
         },
         "scores": {
-          "tr909_voice": 17.625,
-          "drum_machine_909_context": 4.9399999999999995,
+          "tr909_voice": 15.124999999999998,
+          "drum_machine_909_context": 4.289999999999999,
           "tr909_production_origin": 0.78
         }
       },
@@ -107,7 +107,7 @@
           "sampler_archetypes": 0.3,
           "sampler_bit_depth": 0.52,
           "sampler_workflow": 1.3649999999999998,
-          "sampler_classic_context": 51.111875
+          "sampler_classic_context": 48.197500000000005
         }
       }
     ],

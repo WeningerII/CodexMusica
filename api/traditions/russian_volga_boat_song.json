@@ -5,7 +5,7 @@
   "lineage": "Russian Volga boat-haulers (бурлаки burlaki) work-song tradition documented from 17th-19th century Russian river-haulage-laborer practice (the burlaki towed cargo-barges upstream against the Volga current by rope-and-shoulder before steam-tug-substitution in the 1860s-1880s) through 19th-century Russian-Romantic-era documentation into 20th-century revival; the canonical \"Эй, ухнем!\" (Ey, ukhnem!, \"Hey, heave-ho!\") is the foundational repertoire",
   "recipe": "classic Eastern European mid-1860s russian volga boat-haulers' work song, sea Shanty, north Southeast Asian baltic branch, Slavic balkan field work, European protest song, Slavic bard ballad poetry italian canti partigiani russian zhnitvenye pesni. thick, breath veiled tone, straight onset, interlocked note trading. open air. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
   "recipe_chars": 461,
-  "score": 106.279,
+  "score": 103.779,
   "config": {
     "traditions": [
       "russian_volga_boat_song",
@@ -43,10 +43,10 @@
           "voice_microtone": 8.45,
           "voice_tradition": 17.3875,
           "voice_mechanism_compound": 0.78,
-          "voice_estill_quality": 9.489499999999998,
+          "voice_estill_quality": 8.239499999999998,
           "voice_speech_song": 17.354999999999993,
           "voice_ensemble_config": 8.645,
-          "voice_ornament_system": 9.2,
+          "voice_ornament_system": 7.949999999999999,
           "voice_pitch_organization": 3.3799999999999994,
           "voice_processing_chain": 3.3150000000000004,
           "voice_multitrack_stack": 4.907500000000001

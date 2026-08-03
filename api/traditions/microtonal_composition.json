@@ -5,7 +5,7 @@
   "lineage": "American twentieth-century compositional movement systematically employing tunings outside twelve-tone-equal-temperament. Harry Partch (1901-1974) developed his 43-tone just-intonation system and built custom instruments (Cloud-Chamber Bowls, Marimba Eroica, Diamond Marimba) to realize it; Ben Johnston (1926-2019) extended just-intonation into traditional Western chamber-music; Pauline Oliveros, James Tenney, and La Monte Young extended into electronic-and-drone microtonality.",
   "recipe": "classic North American early-1900s microtonal composition, art Music, western modern branch, string drone modal mbira tradition son jarocho. thick, breath veiled tone, slow rate, interlocked note trading. aluminum wound sitka spruce bigleaf maple western maple oil varnish violin orchestral, beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano. shoebox concert hall. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 499,
-  "score": 225.985,
+  "score": 224.685,
   "config": {
     "traditions": [
       "microtonal_composition",
@@ -41,7 +41,7 @@
           "voice_vibrato": 3.25,
           "voice_articulation": 13.584999999999994,
           "voice_microtone": 18.97999999999999,
-          "voice_tradition": 8.0925,
+          "voice_tradition": 7.442499999999999,
           "voice_mechanism_compound": 5.59,
           "voice_estill_quality": 6.695,
           "voice_speech_song": 20.019999999999996,
@@ -97,7 +97,7 @@
           "grand_piano_size": 0.79975,
           "grand_piano_brand": 2.7852499999999996,
           "piano_hammer": 9.3375,
-          "piano_rim": 11.115,
+          "piano_rim": 10.465,
           "piano_soundboard": 9.15,
           "piano_pinblock": 6.34,
           "piano_plate": 6.49,

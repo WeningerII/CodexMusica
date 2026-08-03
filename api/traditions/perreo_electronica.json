@@ -5,7 +5,7 @@
   "lineage": "Electronic perreo Latin-trap fusion codified through 2010s Puerto Rican reggaeton evolution — Bad Bunny’s X 100PRE (2018) and YHLQMDLG (2020) as breakthrough crossover records, Rosalía’s perreo-trap collaborations, characterized by 90-100 BPM dembow rhythm with autotuned-reggaeton vocals over electronic production",
   "recipe": "classic mid-2010s perreo electrónico, electronic Dance, Latin electric branch, reggaeton MC rhythm moombahton. thick, breath veiled tone, straight onset, interlocked note trading. TR-808, layered sampler, sub bass digital subtractive. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 380,
-  "score": 131.832,
+  "score": 126.158,
   "config": {
     "traditions": [
       "perreo_electronica",
@@ -38,14 +38,14 @@
           "voice_quality": 5.265000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.0149999999999997,
-          "voice_articulation": 7.0200000000000005,
-          "voice_microtone": 7.475000000000001,
+          "voice_vibrato": 1.3649999999999998,
+          "voice_articulation": 6.37,
+          "voice_microtone": 6.825000000000001,
           "voice_tradition": 5.915,
           "voice_mechanism_compound": 3.5100000000000002,
           "voice_estill_quality": 3.315000000000001,
           "voice_speech_song": 7.54,
-          "voice_ensemble_config": 6.76,
+          "voice_ensemble_config": 6.11,
           "voice_ornament_system": 5.655000000000001,
           "voice_pitch_organization": 2.3399999999999994,
           "voice_processing_chain": 16.152999999999995,
@@ -79,7 +79,7 @@
           "sampler_archetypes": 0.357,
           "sampler_bit_depth": 0.36599999999999994,
           "sampler_workflow": 1.6800000000000002,
-          "sampler_classic_context": 24.764999999999997
+          "sampler_classic_context": 22.489999999999995
         }
       },
       {
@@ -90,9 +90,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 8.366375,
+          "electronic_technique": 8.217625,
           "va_archetypes": 0.01875,
-          "digital_subtractive_context": 7.41
+          "digital_subtractive_context": 6.76
         }
       }
     ],

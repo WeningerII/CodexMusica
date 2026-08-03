@@ -5,7 +5,7 @@
   "lineage": "Quechua-and-Aymara Andean dance-song tradition with anhemitonic-pentatonic five-tone (no half-step) melodic-vocabulary and characteristic short-short-long iambic-dance pattern (Q-Q-half rhythm) over moderate-fast 2/4 metric pulse. Pre-Columbian-origin (likely Inca-Imperial 1438-1533 onward, though oral-tradition extends earlier) with post-colonial mestizaje fusion (Spanish-criollo) integration of guitar, harp, charango ten-string-small-armadillo-back-guitar, and bandurria. Regional variants span Cuzco huayno-cusqueño (slower-court-elevated), Ayacucho huayno-ayacuchano (faster-rural), Junín huayno-orquestino (brass-band-and-saxophone modernized), and Aymara huayño-altiplánico (Bolivian-highland variant). The canonical instrumental ensemble includes quena vertical-notch-flute and zampoña panpipes.",
   "recipe": "classic Andean early-1430s huayno, drone Modal, string branch, Latin am troubadour ballad poetry milonga chacarera. thick, forward-resonance, slow rate, interlocked note trading. armadillo shell shell pre 1973 historical pine traditional rural andean classical charango, bone melodic quena, andean tradition paired rows interlocking siku panpipes, guanaco hide hide ceibo canonical Argentine leguero hollowed trunk bombo andino, naranjillo bolivian peruvian gut pre modern andean strummed ronroco, melodic ocarina, altiplano mara canonical single block tarka. andean altiplano outdoor. shure SM57, transformer-coupled solid-state pre, colored vintage console, vari-mu. tape 15ips spring reverb germanium fuzz wah / envelope filter.",
   "recipe_chars": 731,
-  "score": 290.392,
+  "score": 288.207,
   "config": {
     "traditions": [
       "andean_huayno",
@@ -41,12 +41,12 @@
           "voice_vibrato": 2.1774999999999998,
           "voice_articulation": 19.369999999999997,
           "voice_microtone": 25.02499999999999,
-          "voice_tradition": 25.589999999999996,
+          "voice_tradition": 25.139999999999997,
           "voice_mechanism_compound": 9.62,
           "voice_estill_quality": 6.37,
           "voice_speech_song": 23.59499999999999,
           "voice_ensemble_config": 20.084999999999997,
-          "voice_ornament_system": 12.28,
+          "voice_ornament_system": 11.979999999999999,
           "voice_pitch_organization": 2.1449999999999996,
           "voice_processing_chain": 4.16,
           "voice_multitrack_stack": 1.69
@@ -64,7 +64,7 @@
         "scores": {
           "plucked_traditional_technique": 12.524999999999999,
           "charango_back": 3.9,
-          "charango_top_wood": 5.59,
+          "charango_top_wood": 5.545,
           "charango_strings": 2.6650000000000005,
           "charango_string_material": 2.145
         }
@@ -101,9 +101,9 @@
           "bombo_andino_shell_wood": "bombo_andino_ceibo"
         },
         "scores": {
-          "bombo_andino_construction": 9.165,
+          "bombo_andino_construction": 8.424999999999999,
           "bombo_andino_skin": 1.69,
-          "bombo_andino_shell_wood": 5.720000000000001
+          "bombo_andino_shell_wood": 5.07
         }
       },
       {

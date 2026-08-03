@@ -5,7 +5,7 @@
   "lineage": "European art-music period c.1800-1850 emerging from late Beethoven through the first generation of explicitly Romantic composers. Characterized by expanded chromatic harmony, programmatic narrative content, virtuoso performer-composer figures, and the lieder cycle as song-form. Schubert's 600+ songs, Schumann's piano-cycles, Chopin's piano-études-and-nocturnes, and Mendelssohn's symphonies constitute the canonical core.",
   "recipe": "classic British early romantic, art Music, western common practice branch, western modern art music second viennese school spectralism. thick, breath veiled tone, slow rate, interlocked note trading. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, silver wound lamb gut core carpathian spruce bigleaf maple western maple violin orchestral, silver wound lamb gut core carpathian spruce European maple sycamore maple cello. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
   "recipe_chars": 544,
-  "score": 353.476,
+  "score": 350.161,
   "config": {
     "traditions": [
       "early_romantic_19c",
@@ -44,12 +44,12 @@
           "voice_tradition": 8.06,
           "voice_mechanism_compound": 4.9,
           "voice_estill_quality": 6.07,
-          "voice_speech_song": 17.485,
+          "voice_speech_song": 16.444999999999997,
           "voice_ensemble_config": 9.879999999999999,
           "voice_ornament_system": 5.140000000000001,
           "voice_pitch_organization": 5.98875,
           "voice_processing_chain": 5.069999999999999,
-          "voice_multitrack_stack": 6.012500000000001
+          "voice_multitrack_stack": 4.387500000000001
         }
       },
       {
@@ -68,7 +68,7 @@
         "scores": {
           "keyboard_technique": 5,
           "grand_piano_size": 1.8199999999999998,
-          "grand_piano_brand": 5.329999999999999,
+          "grand_piano_brand": 4.68,
           "piano_hammer": 14.62125,
           "piano_rim": 12.235000000000001,
           "piano_soundboard": 10.5,

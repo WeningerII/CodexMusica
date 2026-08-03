@@ -5,7 +5,7 @@
   "lineage": "Early-2010s internet-distributed electronic subgenre characterized by slowed-down chopped-and-screwed sampling of 1980s-1990s American smooth-jazz, Muzak, corporate-advertising music, and Japanese city-pop, with explicit ironic-melancholic engagement with consumer-capitalist visual-aesthetic. Macintosh Plus's Floral Shoppe (2011), Chuck Person's Eccojams Vol. 1 (2010), and the broader Beer on the Rug netlabel scene anchor the canonical vaporwave aesthetic.",
   "recipe": "classic 2010-2013 vaporwave aesthetic, experimental Elec, ambient branch, idm glitch experimental electric chiptune / 8-bit. pad like pad analog synth, glitched textural sampler. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 372,
-  "score": 57.07,
+  "score": 55.17,
   "config": {
     "traditions": [
       "vapor_aesthetic",
@@ -24,8 +24,8 @@
         },
         "scores": {
           "electronic_technique": 4.819500000000001,
-          "oscillator": 0.813,
-          "filter_topology": 1.1580000000000001,
+          "oscillator": 0.5129999999999999,
+          "filter_topology": 0.708,
           "envelope": 2.4050000000000002,
           "modulation": 0.15
         }
@@ -44,7 +44,7 @@
           "sampler_archetypes": 0.105,
           "sampler_bit_depth": 0.3045,
           "sampler_workflow": 15.625000000000002,
-          "sampler_classic_context": 13.552499999999997
+          "sampler_classic_context": 12.902499999999996
         }
       }
     ],

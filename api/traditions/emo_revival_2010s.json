@@ -3,9 +3,9 @@
   "name": "Emo revival",
   "family": "rock_punk",
   "lineage": "Early-2010s revival of late-1990s midwest emo aesthetic through new bands continuing the Cap'n Jazz, American Football, and Promise Ring lineage. The World Is a Beautiful Place & I Am No Longer Afraid to Die (2009-onward), Algernon Cadwallader, Snowing, Joyce Manor, and the broader Topshelf Records and Run for Cover Records label rosters anchor the canonical roster. The 2014 American Football reunion and 1999-album re-release consolidated the revival's historical lineage.",
-  "recipe": "classic modern emo revival, distorted Rock, emo branch, alternative distorted rock funk metal madchester / baggy. thick, breath veiled tone, straight onset, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright basswood mahogany humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 606,
-  "score": 312.635,
+  "recipe": "classic modern emo revival, distorted Rock, emo branch, alternative distorted rock funk metal madchester / baggy. thick, breath veiled tone, straight onset, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright basswood low output no compression humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 614,
+  "score": 287.285,
   "config": {
     "traditions": [
       "emo_revival_2010s",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 22.205,
+          "voice_register": 20.955,
           "voice_quality": 18.199999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.32,
+          "voice_vibrato": 6.17,
           "voice_articulation": 12.479999999999995,
-          "voice_microtone": 21.675,
+          "voice_microtone": 20.425,
           "voice_tradition": 3.25,
-          "voice_mechanism_compound": 8.4175,
+          "voice_mechanism_compound": 6.792500000000002,
           "voice_estill_quality": 1.4949999999999999,
           "voice_speech_song": 12.479999999999995,
           "voice_ensemble_config": 13.259999999999994,
           "voice_ornament_system": 2.3400000000000003,
           "voice_pitch_organization": 8.254999999999999,
-          "voice_processing_chain": 13.194999999999999,
+          "voice_processing_chain": 9.444999999999999,
           "voice_multitrack_stack": 8.255
         }
       },
@@ -70,19 +70,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 16.31,
-          "amp_make": 13.894999999999998,
-          "body_wood": 8.904999999999998,
-          "neck_wood": 1.4949999999999999,
-          "fretboard": 1.4299999999999997,
+          "electric_technique": 15.059999999999999,
+          "amp_make": 10.944999999999999,
+          "body_wood": 7.604999999999999,
+          "neck_wood": 0.845,
+          "fretboard": 0.78,
           "pickup_magnet": 0.845,
           "pickup_winding": 2.535,
           "string_material": 0.15,
-          "bridge": 1.4949999999999999,
-          "scale_length": 7.409999999999999,
-          "string_gauge": 1.4949999999999999,
+          "bridge": 0.845,
+          "scale_length": 6.759999999999999,
+          "string_gauge": 0.845,
           "finish": 0,
-          "string_tuning": 17.095
+          "string_tuning": 15.794999999999998
         }
       },
       {
@@ -97,13 +97,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 12.805,
-          "body_wood": 1.4949999999999999,
-          "pickup_config": 0.8850000000000001,
-          "string_type": 24.2125,
-          "scale_length_b": 1.4949999999999999,
+          "amp_make": 11.504999999999999,
+          "body_wood": 0.845,
+          "pickup_config": 0.585,
+          "string_type": 22.5875,
+          "scale_length_b": 0.845,
           "fretted_or_not": 0.45499999999999996,
-          "bass_technique": 18.575
+          "bass_technique": 17.325
         }
       },
       {
@@ -114,7 +114,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 18.625,
+          "drum_technique": 17.375,
           "drumhead": 3.35,
           "drum_kit_kick_pedal": 0
         }

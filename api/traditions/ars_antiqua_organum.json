@@ -5,7 +5,7 @@
   "lineage": "Late-twelfth-and-thirteenth-century European art-music style centered on the Notre Dame Cathedral school of Paris under Léonin (Leoninus, fl. 1150s-1180s) and Pérotin (Perotinus, fl. 1190s-1220s). Codified rhythmic-modal notation, organum (two-, three-, and four-voice polyphony built on plainchant tenors), and clausula and motet forms. Compiled in the Magnus Liber Organi attributed to Léonin and revised by Pérotin. Distinguished from preceding plainchant by ars antiqua's systematic polyphonic-organization.",
   "recipe": "classic European mid-1150s ars antiqua and organum, art Music, western early branch, christian gospel ritual devotional bluegrass gospel sacred steel. thick, declaimed, straight note core, interlocked note trading. a cappella small 3 to 8 one per part four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble, late medieval vielle medieval, piercing two string rebec. parish church. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
   "recipe_chars": 519,
-  "score": 255.07,
+  "score": 247.675,
   "config": {
     "traditions": [
       "ars_antiqua_organum",
@@ -34,16 +34,16 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 23.395,
-          "voice_quality": 27.57,
+          "voice_register": 22.145,
+          "voice_quality": 26.319999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 4.7125,
           "voice_articulation": 21.58,
           "voice_microtone": 20.864999999999995,
-          "voice_tradition": 28.372500000000002,
+          "voice_tradition": 26.7475,
           "voice_mechanism_compound": 2.4,
-          "voice_estill_quality": 19.325,
+          "voice_estill_quality": 18.074999999999996,
           "voice_speech_song": 24.569999999999997,
           "voice_ensemble_config": 24.96,
           "voice_ornament_system": 6.2749999999999995,
@@ -63,8 +63,8 @@
         "scores": {
           "choir_size": 2.535,
           "choir_polyphonic_configuration": 5.225,
-          "choir_regional_canonical_configuration": 5.46,
-          "choir_ensemble_repertoire": 5.004999999999999
+          "choir_regional_canonical_configuration": 5.34,
+          "choir_ensemble_repertoire": 4.3549999999999995
         }
       },
       {
@@ -93,7 +93,7 @@
         "scores": {
           "bowed_technique": 2.59,
           "rebec_form": 1.2,
-          "rebec_repertoire": 8.415,
+          "rebec_repertoire": 7.164999999999999,
           "rebec_build": -0.07
         }
       }

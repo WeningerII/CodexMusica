@@ -5,7 +5,7 @@
   "lineage": "Early-1990s onward experimental-electronic genre intentionally constructed for headphone listening rather than club-dance use, characterized by complex broken-beat programming, glitchy textural sound design, and the post-acid-house compositional ambition — codified through Aphex Twin (Selected Ambient Works 85-92 in 1992, Richard D. James Album 1996), Autechre (Tri Repetae 1995), Boards of Canada (Music Has the Right to Children 1998), Squarepusher, the Warp Records Artificial Intelligence series",
   "recipe": "classic Asian 1990-1993 idm and experimental electronic, experimental Elec, idm glitch branch, musique concrete experimental electric. drum machine analog, pad like pad analog synth, sampler drum machine. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay TC electronic 2290 delay pitch shifter ring modulator.",
   "recipe_chars": 408,
-  "score": 23.831,
+  "score": 23.726,
   "config": {
     "traditions": [
       "idm"
@@ -55,7 +55,7 @@
           "electronic_technique": -0.07,
           "sample_bitdepth": 0.21,
           "sample_swing": 8.25,
-          "sample_processing": 0.24149999999999996
+          "sample_processing": 0.1365
         }
       }
     ],

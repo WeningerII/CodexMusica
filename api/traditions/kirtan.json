@@ -5,7 +5,7 @@
   "lineage": "Indian devotional call-and-response congregational singing tradition with two principal branches: Hindu kirtan (Vaishnava Bengali kirtan tradition tracing to Chaitanya Mahaprabhu in 15th-century Bengal, performed at Krishna temple courtyards with khol drum and karatala cymbals; Maharashtrian abhang kirtan tradition tracing to Tukaram and Eknath; the broader Hare Krishna ISKCON tradition extending Bengali Vaishnava kirtan globally) and Sikh kirtan (shabad kirtan of the Guru Granth Sahib at gurdwaras worldwide)",
   "recipe": "classic South Asian mid-1980s kīrtan, ritual Devotional, hindu branch, vocal drone modal, indian subcontinent praise song hindu stuti and bhajan sikh shabad kirtan. thick, declaimed, slow rate, interlocked note trading. low overtone rich vocal male harmonium indian, indian rosewood rosewood clay tabla, synthetic remo modern stable bolt tuned modern concert stable dholak, fiberglass khol, bengali steady tala keeping ashtadhatu manjira, clear drone bright brass reed resonant teak shruti box. vrindavan braj mandir bhajan. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
   "recipe_chars": 663,
-  "score": 306.74,
+  "score": 294.64,
   "config": {
     "traditions": [
       "kirtan",
@@ -35,20 +35,20 @@
         },
         "scores": {
           "voice_register": 2.164999999999999,
-          "voice_quality": 31.544999999999995,
+          "voice_quality": 29.044999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.2749999999999995,
-          "voice_articulation": 14.884999999999996,
-          "voice_microtone": 15.209999999999992,
-          "voice_tradition": 23.335,
+          "voice_articulation": 14.234999999999996,
+          "voice_microtone": 14.559999999999992,
+          "voice_tradition": 22.035,
           "voice_mechanism_compound": 4.68,
           "voice_estill_quality": 5.719999999999999,
-          "voice_speech_song": 21.124999999999996,
-          "voice_ensemble_config": 14.234999999999994,
+          "voice_speech_song": 20.474999999999994,
+          "voice_ensemble_config": 13.584999999999994,
           "voice_ornament_system": 15.649999999999999,
           "voice_pitch_organization": 3.3199999999999994,
-          "voice_processing_chain": 4.095,
+          "voice_processing_chain": 3.6449999999999996,
           "voice_multitrack_stack": 1.885
         }
       },
@@ -104,7 +104,7 @@
         },
         "scores": {
           "khol_form": 11.504999999999999,
-          "khol_repertoire": 23.174999999999997,
+          "khol_repertoire": 21.924999999999997,
           "khol_body": 3.6950000000000003
         }
       },
@@ -116,8 +116,8 @@
           "manjira_metal": "manjira_ashtadhatu"
         },
         "scores": {
-          "manjira_form": 29.974999999999998,
-          "manjira_stroke": 25.624999999999996,
+          "manjira_form": 28.724999999999994,
+          "manjira_stroke": 23.124999999999996,
           "manjira_metal": 5.0600000000000005
         }
       },

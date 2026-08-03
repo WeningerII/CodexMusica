@@ -5,7 +5,7 @@
   "lineage": "20th-century-codified Chinese national-music conservatory ensemble form anchored at the Central Conservatory Beijing and Shanghai Conservatory",
   "recipe": "classic Asian early-1950s chinese conservatory traditional ensemble, art Music, east Asian branch, south Asian art music sinhala vannama telugu kirtana. balanced, breath veiled tone, slow rate, interlocked note trading. python skin snake skin bamboo silk red sandalwood zitan erhu, silk red sandalwood zitan premium pipa, shell wutong paulownia rosewood frame canonical decorative steel wound guzheng, nylon steel wound ruan, python skin silk canonical traditional sanxian, no membrane buzz bitter bamboo phyllostachys nigra canonical jiangnan suzhou qudi southern jiangnan kunqu canonical lyrical continuous-airflow legato dizi, traditional bamboo pipes copper brass free reeds canonical Chinese sheng, modern concert bamboo yangqin, bawu, hulusi, xun. shoebox concert hall. large-diaphragm condenser, German V72 tube pre, German tube console, broadcast loudness EQ. tape 15ips hall reverb.",
   "recipe_chars": 891,
-  "score": 321.03,
+  "score": 316.175,
   "config": {
     "traditions": [
       "chinese_traditional_ensemble",
@@ -41,13 +41,13 @@
           "voice_vibrato": 7.864999999999998,
           "voice_articulation": 7.735,
           "voice_microtone": 7.540000000000001,
-          "voice_tradition": 23.997499999999995,
+          "voice_tradition": 23.347499999999997,
           "voice_mechanism_compound": 5.6499999999999995,
-          "voice_estill_quality": 8.057,
-          "voice_speech_song": 10.334999999999999,
+          "voice_estill_quality": 7.952,
+          "voice_speech_song": 9.035,
           "voice_ensemble_config": 8.515,
-          "voice_ornament_system": 20.525,
-          "voice_pitch_organization": 21.2705,
+          "voice_ornament_system": 19.125,
+          "voice_pitch_organization": 19.8705,
           "voice_processing_chain": 2.6649999999999996,
           "voice_multitrack_stack": 1.755
         }

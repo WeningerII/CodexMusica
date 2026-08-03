@@ -3,9 +3,9 @@
   "name": "Malhun (Maghrebi)",
   "family": "global",
   "lineage": "Moroccan-Algerian sung-poetry (al-malhun) tradition originating in 16th-century Tafilalt and codified through 18th-19th-century Fez and Meknes urban poetic circles — preserves a corpus of classical-Maghrebi-Arabic poetry set to elaborate melodic-modal vocal compositions in the Andalusi-derived modal vocabulary; figures: Houcine Toulali, El Haj Houcine Toulali, the post-WWII Fez and Marrakech malhun masters",
-  "recipe": "classic North African early-1950s malhun, improv On Frame, Persian arab improv branch, Sufi ritual devotional qawwali sufi sama. vocal fry, declaimed, slow rate, interlocked note trading. padauk Egyptian Syrian premium pyramid nylon arab school oud, spun aluminum Egyptian sombaty iraqi maqam zarb drier finger darbuka. fez andalusi palace riad. large-diaphragm condenser, German V72 tube pre, German tube console. tape 15ips.",
-  "recipe_chars": 426,
-  "score": 176.659,
+  "recipe": "classic North African early-1950s malhun, improv On Frame, Persian arab improv branch, Sufi ritual devotional qawwali sufi sama. vocal fry, declaimed, slow rate, interlocked note trading. padauk Egyptian Syrian premium pyramid nylon arab school oud, spun aluminum Egyptian sombaty darbuka. fez andalusi palace riad. large-diaphragm condenser, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 396,
+  "score": 167.019,
   "config": {
     "traditions": [
       "malhun_maghrebi",
@@ -35,19 +35,19 @@
         },
         "scores": {
           "voice_register": 1.7550000000000001,
-          "voice_quality": 19.860999999999997,
+          "voice_quality": 17.360999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.9875,
+          "voice_vibrato": 6.788,
           "voice_articulation": 8.58,
           "voice_microtone": 17.159999999999993,
-          "voice_tradition": 35.402499999999996,
+          "voice_tradition": 30.987499999999997,
           "voice_mechanism_compound": 10.4615,
           "voice_estill_quality": 8.632499999999999,
           "voice_speech_song": 9.879999999999999,
           "voice_ensemble_config": 8.515,
-          "voice_ornament_system": 16.824999999999996,
-          "voice_pitch_organization": 13.4555,
+          "voice_ornament_system": 15.574999999999998,
+          "voice_pitch_organization": 13.140500000000001,
           "voice_processing_chain": 1.625,
           "voice_multitrack_stack": 3.055
         }
@@ -68,7 +68,7 @@
           "oud_school": 1.7550000000000001,
           "oud_strings": 2.795,
           "oud_pick": 0.195,
-          "oud_body_wood": 1.428,
+          "oud_body_wood": 1.1729999999999998,
           "oud_soundboard_wood": 0.49499999999999994,
           "oud_string_material": 2.4050000000000002
         }
@@ -79,13 +79,13 @@
           "percussion_technique": "percussion_open_slap",
           "darbuka_material": "darbuka_aluminum_sombaty",
           "darbuka_skin": "darbuka_goat_skin",
-          "darbuka_regional_style": "darbuka_iraqi_zarb"
+          "darbuka_regional_style": "darbuka_egyptian_sombaty"
         },
         "scores": {
           "percussion_technique": 0.06499999999999999,
-          "darbuka_material": 1.8179999999999998,
-          "darbuka_skin": 0.47699999999999987,
-          "darbuka_regional_style": 1.2554999999999998
+          "darbuka_material": 1.563,
+          "darbuka_skin": 0.372,
+          "darbuka_regional_style": 0.9099999999999999
         }
       }
     ],

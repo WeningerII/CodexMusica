@@ -5,7 +5,7 @@
   "lineage": "Modern Greek-Orthodox Byzantine chant tradition (post-1814 New Method notational reform by the Three Teachers Chrysanthos of Madytos, Gregorios the Protopsaltis, and Chourmouzios the Archivist). Performance: cantor (psaltis) and right-and-left choir (psaltries) alternating in the eight-mode oktoechos canonical liturgical-cycle. Distinguished from broader Byzantine-Orthodox chant by the New Method's simplified notational system and characteristic post-1814 vocal-style. The contemporary Mount Athos monastic tradition and the Athens-Constantinople patriarchal lineages constitute the institutional anchors.",
   "recipe": "classic Caucasian mid-1810s byzantine psaltic art, ritual Devotional, christian gospel branch, middle eastern classical art music libyan maluf azerbaijani mugham. thick, breath veiled tone, slow rate, interlocked note trading. three voice polyphonic regional kakhetian three voice two soloists choral drone global traditional polyphonic choir ensemble. stone armenian church. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 448,
-  "score": 281.358,
+  "score": 272.308,
   "config": {
     "traditions": [
       "byzantine_psaltic",
@@ -38,16 +38,16 @@
           "voice_quality": 28.145000000000007,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 19.5,
+          "voice_vibrato": 17.875,
           "voice_articulation": 14.169999999999996,
           "voice_microtone": 29.509999999999998,
-          "voice_tradition": 34.9375,
-          "voice_mechanism_compound": 21.765,
-          "voice_estill_quality": 18.98,
+          "voice_tradition": 33.3125,
+          "voice_mechanism_compound": 20.515,
+          "voice_estill_quality": 17.73,
           "voice_speech_song": 18.004999999999995,
           "voice_ensemble_config": 14.949999999999996,
-          "voice_ornament_system": 24.49,
-          "voice_pitch_organization": 26.564999999999998,
+          "voice_ornament_system": 23.24,
+          "voice_pitch_organization": 25.165,
           "voice_processing_chain": 6.564999999999999,
           "voice_multitrack_stack": 2.535
         }
@@ -61,7 +61,7 @@
           "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
         },
         "scores": {
-          "choir_size": 7.8,
+          "choir_size": 7.15,
           "choir_polyphonic_configuration": 5.069999999999999,
           "choir_regional_canonical_configuration": 1.69,
           "choir_ensemble_repertoire": 3.3799999999999994

@@ -5,7 +5,7 @@
   "lineage": "Lebanese-and-Egyptian-and-pan-Arabic children's song tradition continuous from premodern Levantine-Arabic family-rearing practice through 20th-century Lebanese-Egyptian-broadcast-television codification (the Iftah Ya Simsim Arabic-Sesame-Street 1979-1990 and broader Arabic-children's-television movement) into modern continuous pan-Arabic childhood-practice",
   "recipe": "classic North African mid-1980s lebanese-egyptian aghani al-atfal, nursery Rhyme, middle east n African branch, middle eastern lullaby, south Asian nursery rhyme, European nursery rhyme persian lālā'ī arabic tahwidah. vocal fry, breath veiled tone, slow rate, interlocked note trading. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 506,
-  "score": 257.583,
+  "score": 249.433,
   "config": {
     "traditions": [
       "lebanese_egyptian_aghani_atfal",
@@ -40,14 +40,14 @@
           "voice_effort": 0,
           "voice_vibrato": 5.6375,
           "voice_articulation": 12.024999999999995,
-          "voice_microtone": 61.56699999999999,
-          "voice_tradition": 36.230000000000004,
-          "voice_mechanism_compound": 15.419999999999998,
+          "voice_microtone": 59.867,
+          "voice_tradition": 34.830000000000005,
+          "voice_mechanism_compound": 14.169999999999998,
           "voice_estill_quality": 4.995,
-          "voice_speech_song": 19.824999999999996,
+          "voice_speech_song": 18.524999999999995,
           "voice_ensemble_config": 11.959999999999994,
-          "voice_ornament_system": 33.535000000000004,
-          "voice_pitch_organization": 33.925,
+          "voice_ornament_system": 32.285000000000004,
+          "voice_pitch_organization": 32.675,
           "voice_processing_chain": 4.223750000000001,
           "voice_multitrack_stack": 3.51
         }

@@ -5,7 +5,7 @@
   "lineage": "Traditional doom metal lineage descending directly from the Black Sabbath template (Black Sabbath 1970, Master of Reality 1971) — codified through Pentagram (Bobby Liebling, founded 1971, the underground US doom band whose first commercial album waited until 1985), Saint Vitus (Los Angeles SST Records canon, Saint Vitus 1984, Born Too Late 1986), Candlemass (the Swedish epic-doom canon, Epicus Doomicus Metallicus 1986), Trouble (Chicago, Psalm 9 1984)",
   "recipe": "classic Midwestern American early-1970s traditional doom, distorted Rock, doom branch, nwobhm metal. thick, larynx lowered, slow rate, interlocked note trading. orange amp British heavy crunch basswood mahogany rosewood humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 557,
-  "score": 243.911,
+  "score": 235.961,
   "config": {
     "traditions": [
       "traditional_doom",
@@ -41,7 +41,7 @@
           "voice_articulation": 3.2499999999999996,
           "voice_microtone": 11.674999999999997,
           "voice_tradition": 2.7300000000000004,
-          "voice_mechanism_compound": 22.189999999999994,
+          "voice_mechanism_compound": 20.939999999999994,
           "voice_estill_quality": 1.1049999999999998,
           "voice_speech_song": 3.4449999999999994,
           "voice_ensemble_config": 3.77,
@@ -69,19 +69,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 22.83675,
-          "amp_make": 19.755875,
-          "body_wood": 8.189999999999998,
+          "electric_technique": 21.54675,
+          "amp_make": 18.380875,
+          "body_wood": 7.539999999999998,
           "neck_wood": 1.3,
           "fretboard": 1.2349999999999999,
           "pickup_magnet": 0.195,
           "pickup_winding": 0.7812499999999999,
           "string_material": 0.65,
           "bridge": 1.3,
-          "scale_length": 6.889999999999999,
+          "scale_length": 6.239999999999998,
           "string_gauge": 1.69,
           "finish": 0,
-          "string_tuning": 14.559999999999999
+          "string_tuning": 13.909999999999998
         }
       },
       {
@@ -96,10 +96,10 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 19.755875,
+          "amp_make": 18.380875,
           "body_wood": 1.3,
           "pickup_config": 0,
-          "string_type": 16.18775,
+          "string_type": 15.97775,
           "scale_length_b": 1.4949999999999999,
           "fretted_or_not": 0.0315,
           "bass_technique": 12.250250000000001

@@ -5,7 +5,7 @@
   "lineage": "Islamic scriptural recitation tradition (tajweed: \"elocution\") codifying pronunciation rules for the Qur’an across the 10 canonical qira’at (reading systems) — exemplified through Egyptian reciters Mahmoud Khalil Al-Hussary, Mohamed Siddiq El-Minshawi, Abdul Basit Abd us-Samad whose 1950s-70s recordings became the international auditory canon",
   "recipe": "classic mid-1950s qur'anic recitation, ritual Devotional, islamic branch, middle eastern classical art music persian dastgāh yemeni sanaani song. vocal fry, breath veiled tone, slow rate, interlocked note trading. cathedral. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
   "recipe_chars": 335,
-  "score": 214.197,
+  "score": 210.327,
   "config": {
     "traditions": [
       "quranic_recitation_tajweed",
@@ -29,7 +29,7 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
-          "voice_pitch_organization": "voice_pitch_persian_dastgah",
+          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
@@ -41,13 +41,13 @@
           "voice_vibrato": 18.524999999999995,
           "voice_articulation": 9.035,
           "voice_microtone": 26.617499999999996,
-          "voice_tradition": 29.4125,
-          "voice_mechanism_compound": 20.564999999999998,
+          "voice_tradition": 27.7875,
+          "voice_mechanism_compound": 19.314999999999998,
           "voice_estill_quality": 16.204999999999995,
-          "voice_speech_song": 14.007499999999997,
+          "voice_speech_song": 13.357499999999996,
           "voice_ensemble_config": 9.620000000000001,
           "voice_ornament_system": 22.589999999999996,
-          "voice_pitch_organization": 23.415,
+          "voice_pitch_organization": 23.069999999999997,
           "voice_processing_chain": 2.925,
           "voice_multitrack_stack": 2.6000000000000005
         }

@@ -5,7 +5,7 @@
   "lineage": "Modern bhangra — the post-1980s British-Asian diaspora extension of the originating Punjab village male-harvest-dance tradition into urban electronic pop format, codified through Bally Sagoo, Apache Indian, Malkit Singh, Bally Jagpal, the Punjabi MC dance-floor crossover era (the 1998 Mundian To Bach Ke that found its global breakthrough through Jay-Z 2003 remix), and the broader UK-Punjab Sangeeta / Multitone label catalogs",
   "recipe": "classic South Asian mid-1980s bhangra, functional Song, south Asian pop branch, west African groove percussion hiplife jùjú. thick, breath veiled tone, straight onset, interlocked note trading. synthetic synthetic remo modern stable bolt tuned modern concert stable dholak, synthetic gut pre modern Punjabi tumbi, behringer rd 8 modern clone analog circuit reproduction TR-808, dhol, jingle studded driving groove chimta. punjab village bhangra dhol outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 588,
-  "score": 245.747,
+  "score": 245.597,
   "config": {
     "traditions": [
       "bhangra_modern",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 14.934999999999992,
+          "voice_register": 14.784999999999993,
           "voice_quality": 8.06,
           "voice_vocal_tract": 0,
           "voice_effort": 0,

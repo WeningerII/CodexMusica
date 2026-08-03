@@ -5,7 +5,7 @@
   "lineage": "Detroit Michigan hip-hop tradition with distinct regional-aesthetic descended from J Dilla's 1990s-2000s production style — sampling jazz, soul, and funk records with deliberately-loose drum-quantization and \"behind-the-beat\" rhythmic feel. Slum Village (founded 1991 by J Dilla, T3, and Baatin), Royce da 5'9\", Black Milk, Danny Brown, and (later) 42 Dugg, Babyface Ray, and Tee Grizzley constitute the canonical roster. Eminem's parallel Detroit-based career operates as adjacent-but-distinct lineage.",
   "recipe": "classic Midwestern American mid-1990s detroit hip-hop, mc Rhythm, us hip hop branch, us hip hop conscious rap conscious hip-hop. thick, rap, straight onset, narrative. chopped sampler, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808. converted house 2648 west grand blvd 1959-1972 mid tier hitsville usa motown detroit. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 487,
-  "score": 281.052,
+  "score": 272.582,
   "config": {
     "traditions": [
       "detroit_hip_hop",
@@ -34,20 +34,20 @@
         },
         "scores": {
           "voice_register": 14.099999999999998,
-          "voice_quality": 27.77975,
+          "voice_quality": 26.71475,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 8.75025,
-          "voice_articulation": 19.1675,
+          "voice_articulation": 18.4175,
           "voice_microtone": 15.534999999999997,
-          "voice_tradition": 11.998999999999999,
+          "voice_tradition": 11.248999999999999,
           "voice_mechanism_compound": 4.0722499999999995,
           "voice_estill_quality": 6.9475,
-          "voice_speech_song": 26.65325,
+          "voice_speech_song": 25.79825,
           "voice_ensemble_config": 15.665,
           "voice_ornament_system": 4.355000000000002,
           "voice_pitch_organization": 1.4949999999999999,
-          "voice_processing_chain": 19.507499999999997,
+          "voice_processing_chain": 18.757499999999997,
           "voice_multitrack_stack": 5.079000000000001
         }
       },
@@ -61,11 +61,11 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 11.724999999999998,
-          "sampler_archetypes": 20.41,
+          "electronic_technique": 10.974999999999998,
+          "sampler_archetypes": 19.11,
           "sampler_bit_depth": 0.65,
-          "sampler_workflow": 12.099999999999998,
-          "sampler_classic_context": 29.407999999999998
+          "sampler_workflow": 11.349999999999998,
+          "sampler_classic_context": 28.657999999999998
         }
       },
       {
@@ -76,7 +76,7 @@
           "tr808_production_origin": "tr808_roland_osaka_canonical"
         },
         "scores": {
-          "tr808_voice": 11.8075,
+          "tr808_voice": 11.0575,
           "drum_machine_808_context": 2.7852500000000004,
           "tr808_production_origin": 3.5100000000000002
         }

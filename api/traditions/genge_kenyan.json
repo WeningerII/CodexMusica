@@ -5,7 +5,7 @@
   "lineage": "Nairobi Sheng-language hip-hop subgenre codified through Jua Cali, Nonini, P-Unit, and the Calif Records ecosystem (founded by Clemo) starting circa 2003 — characterized by Sheng-slang lyrics (Nairobi Swahili-English code-mix), kapuka-beat foundation, and street-Nairobi lyrical subject matter",
   "recipe": "classic early-2000s genge, mc Rhythm, us hip hop branch, intl hip hop MC rhythm, Afro-diasporic MC rhythm gengetone french rap. extended whistle, rap, breath pulsed, narrative. TR-808, chopped sampler, sub bass analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 374,
-  "score": 222.835,
+  "score": 218.635,
   "config": {
     "traditions": [
       "genge_kenyan",
@@ -35,7 +35,7 @@
         },
         "scores": {
           "voice_register": 2.0475,
-          "voice_quality": 26.419999999999995,
+          "voice_quality": 24.87,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.5599999999999996,
@@ -44,11 +44,11 @@
           "voice_tradition": 11.49,
           "voice_mechanism_compound": 2.9899999999999998,
           "voice_estill_quality": 0.8449999999999999,
-          "voice_speech_song": 24.235,
+          "voice_speech_song": 22.985,
           "voice_ensemble_config": 10.724999999999994,
           "voice_ornament_system": 6.695000000000003,
           "voice_pitch_organization": 3.0550000000000015,
-          "voice_processing_chain": 16.794999999999998,
+          "voice_processing_chain": 15.545000000000002,
           "voice_multitrack_stack": 5.525
         }
       },
@@ -86,13 +86,13 @@
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_bass_sub",
-          "poly_archetypes": "juno_60",
+          "poly_archetypes": "prophet_5",
           "poly_voices": "poly_16_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
           "electronic_technique": 12.024999999999999,
-          "poly_archetypes": 0.15,
+          "poly_archetypes": 0,
           "poly_voices": 0.435,
           "poly_maker_lineage": -1.435
         }

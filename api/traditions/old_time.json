@@ -5,7 +5,7 @@
   "lineage": "Pre-WWII Appalachian and southern American string-band tradition — fiddle, banjo, guitar (sometimes mandolin and bass) playing dance tunes and ballads in regional repertoires including Round Peak (Galax-Mt-Airy NC), Hammons Family (West Virginia), Skillet Lickers (Georgia), and the broader tradition documented through 1920s commercial Bristol sessions and the Library of Congress field-recording campaign",
   "recipe": "classic North American mid-1920s old-time appalachian, drone Modal, appalachian branch, blues narrative ballad poetry classic blues women jug band. wood 3 ply maple Gibson mastertone canon maple bluegrass canon banjo 5 string, double stops fiddle, mahogany parlor classic steel silk fingerpicked parlor acoustic guitar, walnut canonical appalachian clawhammer mountain dulcimer, steel modern canonical 36 37 string set drone like modal autoharp, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. wooden barn. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 701,
-  "score": 300.586,
+  "score": 292.599,
   "config": {
     "traditions": [
       "old_time",
@@ -71,7 +71,7 @@
           "string_tuning": 2.675,
           "top_wood_parlor": 1.3649999999999998,
           "back_sides_parlor": 0.21,
-          "string_acoustic_parlor": 2.0149999999999997
+          "string_acoustic_parlor": 1.365
         }
       },
       {
@@ -120,11 +120,11 @@
         },
         "scores": {
           "harmonica_type": 2.7299999999999995,
-          "harmonica_comb": 43.893750000000004,
-          "harmonica_reed": 28.911250000000003,
-          "harmonica_technique": 30.620000000000005,
-          "harmonica_maker_school": 42.86750000000001,
-          "harmonica_tuning": 14.625000000000002
+          "harmonica_comb": 41.98125,
+          "harmonica_reed": 27.661250000000003,
+          "harmonica_technique": 29.370000000000005,
+          "harmonica_maker_school": 40.5925,
+          "harmonica_tuning": 13.975000000000001
         }
       }
     ],

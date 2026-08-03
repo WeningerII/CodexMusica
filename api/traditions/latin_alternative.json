@@ -5,7 +5,7 @@
   "lineage": "Spanish-language alternative-rock tradition codified through Mexican Café Tacuba, Argentine Soda Stereo and Café Tacvba, Chilean Los Prisioneros, and the broader Hispanic-American post-1990s indie-rock ecosystem; characterized by rock instrumentation with regional-Latin folk and electronic crossovers, and Spanish-language alternative-poetic lyrical register",
   "recipe": "classic mid-1990s latin alternative, distorted Rock, regional branch, alternative distorted rock grunge math rock and post-rock. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, water buffalo premium alternative oak staved canonical Cuban open slap hand drum congas. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 666,
-  "score": 355.34,
+  "score": 335.04,
   "config": {
     "traditions": [
       "latin_alternative",
@@ -34,18 +34,18 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 38.95500000000002,
+          "voice_register": 36.45500000000002,
           "voice_quality": 5.07,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.405,
-          "voice_articulation": 14.299999999999994,
-          "voice_microtone": 33.17500000000001,
+          "voice_articulation": 13.649999999999993,
+          "voice_microtone": 30.674999999999997,
           "voice_tradition": 7.279999999999999,
           "voice_mechanism_compound": 11.634999999999998,
           "voice_estill_quality": 2.2749999999999995,
-          "voice_speech_song": 15.339999999999991,
-          "voice_ensemble_config": 14.039999999999992,
+          "voice_speech_song": 14.68999999999999,
+          "voice_ensemble_config": 13.389999999999992,
           "voice_ornament_system": 1.95,
           "voice_pitch_organization": 3.5850000000000004,
           "voice_processing_chain": 6.5600000000000005,
@@ -61,7 +61,7 @@
           "neck_wood": "mahogany_neck_h",
           "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_8_h",
-          "pickup_winding": "high_wind",
+          "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
@@ -71,18 +71,18 @@
         },
         "scores": {
           "electric_technique": 8.547500000000001,
-          "amp_make": 21.612499999999997,
+          "amp_make": 20.312499999999996,
           "body_wood": 1.2349999999999999,
           "neck_wood": 0.195,
           "fretboard": 0.3,
-          "pickup_magnet": 0.345,
-          "pickup_winding": 0.345,
+          "pickup_magnet": 0.195,
+          "pickup_winding": 0.195,
           "string_material": 0.15,
           "bridge": 1.5599999999999996,
           "scale_length": 0.845,
           "string_gauge": 1.5599999999999996,
           "finish": 0,
-          "string_tuning": 17.16
+          "string_tuning": 15.86
         }
       },
       {
@@ -97,13 +97,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 16.249999999999996,
+          "amp_make": 14.949999999999998,
           "body_wood": 0.195,
-          "pickup_config": 0.8850000000000001,
-          "string_type": 40.105000000000004,
-          "scale_length_b": 0.54,
+          "pickup_config": 0.585,
+          "string_type": 36.555,
+          "scale_length_b": 0.39,
           "fretted_or_not": 0.105,
-          "bass_technique": 34.125
+          "bass_technique": 31.625
         }
       },
       {
@@ -114,7 +114,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 31.375,
+          "drum_technique": 28.875,
           "drumhead": 2.145,
           "drum_kit_kick_pedal": 0
         }
@@ -128,7 +128,7 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 6.5249999999999995,
+          "percussion_technique": 6.374999999999999,
           "conga_set": 0.15,
           "conga_skin": 7.8,
           "conga_shell_wood": 1.755

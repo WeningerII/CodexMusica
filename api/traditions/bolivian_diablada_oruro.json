@@ -5,7 +5,7 @@
   "lineage": "Bolivian Carnaval de Oruro diablada (devil-dance) processional tradition continuous from pre-Hispanic Andean ritual-dance practice through Spanish-colonial-era integration with Christian-Catholic devil-dance imagery (the post-1606 syncretism of Andean-Tio-deity worship with Catholic-devil-iconography) into modern Carnaval de Oruro continuous practice",
   "recipe": "classic Andean mid-1600s bolivian diablada de oruro, carnival Processional, andean branch, European carnival processional, americas wedding, iberian Latin protest song andean matrimonio huayno cologne karneval. thick, forward-resonance, straight onset, interlocked note trading. pvc continuous-airflow legato quena, andean tradition paired rows interlocking siku panpipes, yellow brass canonical 70 30 bach stradivarius yamaha xeno modern Japanese continuous-airflow legato standard rim trumpet, pre muffled edge muffled brushes-and-sticks drum kit, altiplano mara canonical single block tarka. andean altiplano outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 683,
-  "score": 283.823,
+  "score": 270.311,
   "config": {
     "traditions": [
       "bolivian_diablada_oruro",
@@ -34,19 +34,19 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 0.515357142857143,
-          "voice_quality": 25.30642857142856,
+          "voice_register": 0.502857142857143,
+          "voice_quality": 21.556428571428565,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 4.29,
           "voice_articulation": 7.735,
           "voice_microtone": 7.735000000000001,
-          "voice_tradition": 35.80946428571428,
+          "voice_tradition": 33.10946428571429,
           "voice_mechanism_compound": 4.165803571428571,
-          "voice_estill_quality": 20.15321428571428,
+          "voice_estill_quality": 18.90321428571428,
           "voice_speech_song": 9.1,
-          "voice_ensemble_config": 20.48696428571428,
-          "voice_ornament_system": 27.17696428571428,
+          "voice_ensemble_config": 19.236964285714283,
+          "voice_ornament_system": 25.77696428571428,
           "voice_pitch_organization": 5.809374999999999,
           "voice_processing_chain": 2.4700000000000006,
           "voice_multitrack_stack": 0.975
@@ -62,7 +62,7 @@
         "scores": {
           "wind_articulation": 5.709375,
           "quena_material": 4.81,
-          "quena_pitch": 5.249999999999999
+          "quena_pitch": 2.75
         }
       },
       {
@@ -72,7 +72,7 @@
           "siku_size": "siku_malta"
         },
         "scores": {
-          "siku_construction": 13.276874999999997,
+          "siku_construction": 12.626874999999998,
           "siku_size": 0.78
         }
       },

@@ -5,7 +5,7 @@
   "lineage": "Argentine canto nuevo / canto popular protest-song tradition continuous from 1960s-1980s Argentine military-dictatorship-era political folk-and-songwriter scene; centered on Mercedes Sosa, Atahualpa Yupanqui (foundational figure), León Gieco, and the Movimiento del Nuevo Cancionero",
   "recipe": "classic South American mid-1960s argentine canto nuevo / canto popular, protest Song, iberian Latin branch, Latin am troubadour ballad poetry, European protest song, americas wedding milonga andean matrimonio huayno. thick, forward-resonance, straight note core, interlocked note trading. martin lifespan fingerpicked acoustic guitar, naranjillo andean premium wood cedar andean andean classical charango, ceibo canonical Argentine leguero hollowed trunk bombo andino. large tracking room 1920-1965 mid tier odeon rca buenos aires. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 678,
-  "score": 213.072,
+  "score": 200.622,
   "config": {
     "traditions": [
       "argentine_canto_nuevo",
@@ -35,18 +35,18 @@
         },
         "scores": {
           "voice_register": 9.190000000000001,
-          "voice_quality": 12.994999999999996,
+          "voice_quality": 9.244999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.3149999999999995,
           "voice_articulation": 14.169999999999993,
           "voice_microtone": 14.169999999999991,
-          "voice_tradition": 23.009999999999994,
+          "voice_tradition": 20.31,
           "voice_mechanism_compound": 2.0799999999999996,
-          "voice_estill_quality": 8.399999999999999,
+          "voice_estill_quality": 7.1499999999999995,
           "voice_speech_song": 20.377499999999994,
           "voice_ensemble_config": 14.624999999999993,
-          "voice_ornament_system": 15.529374999999998,
+          "voice_ornament_system": 13.979374999999997,
           "voice_pitch_organization": 3.575,
           "voice_processing_chain": 4.81,
           "voice_multitrack_stack": 5.595000000000001
@@ -80,10 +80,10 @@
         },
         "scores": {
           "plucked_traditional_technique": 11.205000000000002,
-          "charango_back": 4.419999999999999,
-          "charango_top_wood": 5.85,
-          "charango_strings": 4.614999999999999,
-          "charango_string_material": 2.794999999999999
+          "charango_back": 3.769999999999999,
+          "charango_top_wood": 5.199999999999999,
+          "charango_strings": 3.964999999999999,
+          "charango_string_material": 2.144999999999999
         }
       },
       {
@@ -94,8 +94,8 @@
           "bombo_andino_shell_wood": "bombo_andino_ceibo"
         },
         "scores": {
-          "bombo_andino_construction": 9.974999999999998,
-          "bombo_andino_skin": 0.8849999999999999,
+          "bombo_andino_construction": 9.674999999999999,
+          "bombo_andino_skin": 0.585,
           "bombo_andino_shell_wood": 8.310625
         }
       }

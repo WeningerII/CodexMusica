@@ -5,7 +5,7 @@
   "lineage": "Brazilian repente and embolada improvised-poetic-dueling traditions of the northeastern Brazilian sertão (Pernambuco, Paraíba, Ceará, Rio Grande do Norte states). Repente is the canonical extended-improvised-verse form of cantadores (poet-singers) performing in pairs, often using rabeca (Northeastern fiddle) or viola (Brazilian ten-string lute) accompaniment. Embolada is the faster-tempo subform with characteristic mocking-and-humorous-couplet improvisation, typically over a pandeiro frame-drum beat.",
   "recipe": "classic Southern American modern repente and embolada, ballad Poetry, Latin am troubadour branch, med east poetic ballad poetry cypriot tsiattista ethiopian azmari minstrel-poet. extended whistle, breath veiled tone, fast rate, interlocked note trading. goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian hands layered pandeiro. estudio rozenblit recife. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 486,
-  "score": 185.373,
+  "score": 182.573,
   "config": {
     "traditions": [
       "repente_embolada",
@@ -47,7 +47,7 @@
           "voice_speech_song": 18.85,
           "voice_ensemble_config": 17.94,
           "voice_ornament_system": 1.79,
-          "voice_pitch_organization": 30.36,
+          "voice_pitch_organization": 27.709999999999994,
           "voice_processing_chain": 5.719999999999999,
           "voice_multitrack_stack": 2.2749999999999995
         }
@@ -65,7 +65,7 @@
         "scores": {
           "percussion_technique": 3.7,
           "pandeiro_size": 0.845,
-          "pandeiro_context": 0.9299999999999999,
+          "pandeiro_context": 0.7799999999999998,
           "pandeiro_head": 7.435,
           "pandeiro_shell_wood": 7.435,
           "pandeiro_jingles": 7.435

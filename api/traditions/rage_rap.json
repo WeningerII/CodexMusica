@@ -5,7 +5,7 @@
   "lineage": "Late-2010s onward Atlanta-and-Memphis trap-derived hip-hop subgenre characterized by aggressive 808-bass-driven instrumentals, screamed-and-rasping vocal delivery, mosh-pit-targeted live-show energy, and explicit punk-and-metal cross-pollination — codified through Trippie Redd, Lil Uzi Vert, Playboi Carti (Whole Lotta Red 2020, the genre's definitive statement), Ken Carson, Destroy Lonely",
   "recipe": "classic Southern American 2017-2019 rage, mc Rhythm, experimental branch, punk distorted rock crust punk d-beat. thick, rap, straight onset, interlocked note trading. sub bass digital subtractive, TR-808, field textural sampler. treated studio. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay eventide harmonizer.",
   "recipe_chars": 389,
-  "score": 228.785,
+  "score": 225.1,
   "config": {
     "traditions": [
       "rage_rap",
@@ -27,14 +27,14 @@
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_gang_vocal_unison",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_vedic_three_tone",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 9.289999999999996,
+          "voice_register": 8.639999999999995,
           "voice_quality": 8.950000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -42,10 +42,10 @@
           "voice_articulation": 19.109999999999992,
           "voice_microtone": 18.914999999999992,
           "voice_tradition": 3.9650000000000007,
-          "voice_mechanism_compound": 18.535,
+          "voice_mechanism_compound": 17.285,
           "voice_estill_quality": 1.885,
           "voice_speech_song": 19.109999999999992,
-          "voice_ensemble_config": 19.53,
+          "voice_ensemble_config": 19.044999999999995,
           "voice_ornament_system": 1.7399999999999998,
           "voice_pitch_organization": 0.7149999999999999,
           "voice_processing_chain": 6.995,
@@ -89,7 +89,7 @@
         },
         "scores": {
           "electronic_technique": 3.7,
-          "sampler_archetypes": 6.569999999999999,
+          "sampler_archetypes": 5.27,
           "sampler_bit_depth": 0.39,
           "sampler_workflow": 4.545000000000001,
           "sampler_classic_context": 30.354999999999993

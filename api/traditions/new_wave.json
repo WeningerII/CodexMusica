@@ -5,7 +5,7 @@
   "lineage": "Late-1970s through mid-1980s post-punk-derived pop-rock — codified through Blondie, Talking Heads (Remain in Light 1980), Devo (Q: Are We Not Men? A: We Are Devo! 1978), The Cars (The Cars 1978), Elvis Costello (My Aim Is True 1977), and the broader Stiff Records / Sire Records ecosystem; characterized by angular-rhythm-section, ironic-detached vocals, and pop-song-form embrace distinguishing it from punk",
   "recipe": "classic North American 1977-1979 new wave, functional Song, new wave branch, pop rock synthpop, alternative distorted rock. thick, breath veiled tone, breath pulsed, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, pad like lead analog synth, sustained pad string machine. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape chorus flanger.",
   "recipe_chars": 684,
-  "score": 704.361,
+  "score": 694.796,
   "config": {
     "traditions": [
       "new_wave",
@@ -34,13 +34,13 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 69.33000000000001,
+          "voice_register": 68.08000000000001,
           "voice_quality": 31.52499999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 5.753749999999999,
           "voice_articulation": 25.284999999999993,
-          "voice_microtone": 63.95000000000001,
+          "voice_microtone": 62.70000000000001,
           "voice_tradition": 32.34437499999999,
           "voice_mechanism_compound": 6.662500000000001,
           "voice_estill_quality": 6.565000000000003,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 1.575,
           "voice_pitch_organization": 1.755,
           "voice_processing_chain": 21.06125,
-          "voice_multitrack_stack": 20.9
+          "voice_multitrack_stack": 20.75
         }
       },
       {
@@ -70,17 +70,17 @@
         },
         "scores": {
           "electric_technique": 32.31499999999999,
-          "amp_make": 33.1825,
-          "body_wood": 2.925,
-          "neck_wood": 2.925,
-          "fretboard": 2.8600000000000003,
+          "amp_make": 32.5325,
+          "body_wood": 2.88,
+          "neck_wood": 2.88,
+          "fretboard": 2.83,
           "pickup_magnet": 0.9500000000000001,
           "string_material": 0.9500000000000001,
-          "string_gauge": 4.03,
+          "string_gauge": 3.88,
           "bridge": 1.105,
           "scale_length": 2.925,
           "finish": 0,
-          "string_tuning": 23.010000000000005
+          "string_tuning": 22.360000000000003
         }
       },
       {
@@ -95,13 +95,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 21.0275,
+          "amp_make": 20.3775,
           "body_wood": 2.925,
           "pickup_config": 1.4300000000000002,
-          "string_type": 43.66125000000001,
-          "scale_length_b": 2.925,
+          "string_type": 41.511250000000004,
+          "scale_length_b": 2.88,
           "fretted_or_not": 0.105,
-          "bass_technique": 44.875
+          "bass_technique": 43.625
         }
       },
       {
@@ -112,7 +112,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 35.62500000000001,
+          "drum_technique": 34.37500000000001,
           "drumhead": 29.569999999999993,
           "drum_kit_kick_pedal": 0
         }

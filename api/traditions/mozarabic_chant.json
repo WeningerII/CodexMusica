@@ -5,7 +5,7 @@
   "lineage": "Iberian liturgical chant tradition of the pre-Roman-rite-imposition Hispanic Christian church, in continuous use in parts of Spain from late-antiquity through eleventh-century Roman-rite imposition. Survived after the eleventh-century replacement in restricted use at the Corpus Christi Chapel of Toledo Cathedral (where six Mozarabic chaplaincies were maintained) and the parish of Saints Justa and Rufina in Toledo. The post-Vatican-II 1988 Liber Antiphonarius Officii Mozarabici codified the modern recension. Distinguished from Gregorian by Mozarabic's distinct neume-notation system and Visigothic-Hispanic liturgical structure.",
   "recipe": "classic European late-1980s mozarabic chant, ritual Devotional, christian gospel branch, western early art music ars antiqua and organum ars nova. thick, breath veiled tone, slow rate, interlocked note trading. mixed satb canonical 4 part western four voice polyphonic regional svanetian complex three voice highland polyphonic choir ensemble. parish church. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
   "recipe_chars": 433,
-  "score": 153.315,
+  "score": 146.475,
   "config": {
     "traditions": [
       "mozarabic_chant",
@@ -39,15 +39,15 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 6.5,
-          "voice_articulation": 14.169999999999998,
-          "voice_microtone": 13.779999999999994,
+          "voice_articulation": 12.479999999999995,
+          "voice_microtone": 13.129999999999992,
           "voice_tradition": 8.125,
           "voice_mechanism_compound": 4.9,
           "voice_estill_quality": 7.215000000000001,
-          "voice_speech_song": 15.729999999999997,
-          "voice_ensemble_config": 15.599999999999998,
+          "voice_speech_song": 15.079999999999997,
+          "voice_ensemble_config": 14.949999999999996,
           "voice_ornament_system": 5.4,
-          "voice_pitch_organization": 8.254999999999999,
+          "voice_pitch_organization": 5.705,
           "voice_processing_chain": 6.5,
           "voice_multitrack_stack": 3.3799999999999994
         }
@@ -64,7 +64,7 @@
           "choir_size": 2.8600000000000003,
           "choir_polyphonic_configuration": 3.38,
           "choir_regional_canonical_configuration": 3.38,
-          "choir_ensemble_repertoire": 6.5649999999999995
+          "choir_ensemble_repertoire": 5.915
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "European metal-folk-instrument hybrid subgenre codified through Skyclad (UK 1990, the first folk-metal album The Wayward Sons of Mother Earth), Korpiklaani (Finnish), Eluveitie (Swiss-Celtic), Ensiferum (Finnish-Viking) — characterized by fiddle, accordion, hurdy-gurdy, and bagpipe alongside metal instrumentation, with regional-folk melodic vocabularies",
   "recipe": "classic North American early-1990s folk metal, distorted Rock, folk metal branch, Celtic balladic ballad poetry sean-nós solo singing newfoundland outport balladry. thick, breath veiled tone, straight note core, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, leather castagnari Italian premium folk music straight accordion, synthetic magic rosin modern acrylic base drone like fiddle, yamaha modern Japanese mid to premium flute, dance rhythm strummed bouzouki, traditional pine resin historical steel modern bal folk French bal folk pignol tritonik hurdy gurdy, birch alder regional nyckelharpa, cane drone reeds traditional arundo donax sheepskin cowhide traditional pre modern melodic highland bagpipes, melodic recorder. live tracking. large-diaphragm condenser.",
   "recipe_chars": 979,
-  "score": 558.41,
+  "score": 555.465,
   "config": {
     "traditions": [
       "folk_metal_european",
@@ -93,7 +93,7 @@
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "long_scale_b",
-          "fretted_or_not": "fretless",
+          "fretted_or_not": "fretted",
           "bass_technique": "pick_aggressive"
         },
         "scores": {
@@ -102,7 +102,7 @@
           "pickup_config": 0.65,
           "string_type": 5.195,
           "scale_length_b": 0.9500000000000001,
-          "fretted_or_not": 1.04,
+          "fretted_or_not": 0.9950000000000001,
           "bass_technique": 4.95
         }
       },
@@ -137,7 +137,7 @@
           "reed_config": 0.345,
           "bellows": 1.17,
           "voicing_chamber": 0,
-          "accordion_maker_school": 11.34
+          "accordion_maker_school": 10.89
         }
       },
       {
@@ -168,7 +168,7 @@
         },
         "scores": {
           "wind_articulation": 0.6499999999999999,
-          "flute_size": 1.04,
+          "flute_size": 0.39,
           "flute_material": 0.65,
           "flute_technique": 0.7,
           "flute_maker_school": 1.8199999999999998
@@ -203,11 +203,11 @@
         },
         "scores": {
           "bowed_technique": -0.05,
-          "hurdy_strings": 11.945,
+          "hurdy_strings": 11.495000000000001,
           "hurdy_buzz": 0.9500000000000001,
           "hurdy_wheel_rosin": 1.755,
-          "hurdy_string_material": 11.975,
-          "hurdy_tradition": 10.995
+          "hurdy_string_material": 11.525,
+          "hurdy_tradition": 10.545
         }
       },
       {
@@ -222,7 +222,7 @@
         },
         "scores": {
           "bowed_technique": -0.05,
-          "nyckel_keys": 10.995,
+          "nyckel_keys": 10.545,
           "nyckel_strings": 22.5,
           "nyckel_body_wood": 3.24,
           "nyckel_string_material": 0.585,

@@ -5,7 +5,7 @@
   "lineage": "Croatian Istrian two-part-in-Istrian-scale (dvoglasno pjevanje na tijesno) tradition of the Istrian peninsula (northwestern Croatian Adriatic coast, with related material in adjacent Slovenian Istria). The form is a two-voice male diaphonic vocal practice in which the two voices move in characteristic parallel-second-and-minor-third intervals, ending each phrase strictly in unison-or-octave cadence, all within the non-tempered six-tone Istrian scale codified in the 1920s by composer-theorist Ivan Matetić Ronjgov (1880-1960). The Istrian scale is a regional folk-tonal system with paired-second intervallic structure and characteristic non-tempered intonation that no Western equal-tempered transcription captures faithfully. Performance involves the lead voice (kantadur) and the answering voice (kontradur), with the two singers standing close together and projecting outward in unison facing the audience or open landscape. Parallel instrumental form exists in the sopele (paired large-and-small conical-bore double-reed shawms playing the same intervallic vocabulary as the two voices) and the šurla (similar paired shawms in the southern Istrian dialect). Performance contexts include outdoor village squares, processions, and the contemporary folk-festival circuit. Distinguished from broader Croatian klapa by Istrian's two-voice diaphonic (vs four-voice close-harmony) architecture and non-tempered Istrian-scale (vs twelve-tet tonal-chordal) vocabulary; distinguished from Slovenian-folk-singing by Istrian-specific Croatian regional dialect.",
   "recipe": "classic Southern European early-1880s croatian istrian two-part-in-istrian-scale, drone Modal, vocal branch, Mediterranean ballad ballad poetry croatian klapa dalmatian close-harmony sardinian cantu a tenore and launeddas. kargyraa, breath veiled tone, slow rate, interlocked note trading. paired large small conical bore canonical istrian scale istrian diaphonic two part canonical croatian sopele. outdoor dalmatian square. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 488,
-  "score": 358.53,
+  "score": 351.93,
   "config": {
     "traditions": [
       "croatian_istrian_diaphonic",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 8.895000000000001,
-          "voice_quality": 43.68000000000003,
+          "voice_quality": 43.03000000000003,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.1125,
-          "voice_articulation": 30.355,
-          "voice_microtone": 33.995,
-          "voice_tradition": 44.07,
+          "voice_articulation": 29.705000000000002,
+          "voice_microtone": 33.345,
+          "voice_tradition": 42.67,
           "voice_mechanism_compound": 12.675,
           "voice_estill_quality": 10.075,
-          "voice_speech_song": 22.815,
-          "voice_ensemble_config": 40.95,
+          "voice_speech_song": 22.165,
+          "voice_ensemble_config": 40.3,
           "voice_ornament_system": 11.04,
           "voice_pitch_organization": 6.11,
-          "voice_processing_chain": 15.404999999999998,
-          "voice_multitrack_stack": 12.165000000000001
+          "voice_processing_chain": 14.754999999999997,
+          "voice_multitrack_stack": 11.515
         }
       },
       {
@@ -60,7 +60,7 @@
         },
         "scores": {
           "sopele_body": 29.03,
-          "sopele_tradition": 36.67
+          "sopele_tradition": 36.02
         }
       }
     ],

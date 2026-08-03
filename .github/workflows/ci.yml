@@ -75,6 +75,13 @@ jobs:
       - name: Adapter parity (REST and MCP agree on every answer AND every refusal)
         run: npm run check:rest
 
+      # Renaming a record must never move a DIFFERENT record's picks. This was a
+      # real defect: a sibling tradition's "(70s-80s)" name tag put `80s` into
+      # merseybeat's scoring context and compiled a 1962-1968 tradition with a
+      # 1981 amplifier.
+      - name: Name isolation (no tradition's picks depend on another's name)
+        run: npm run check:names
+
       - name: Audit data quality
         run: npm run audit
 

@@ -3,9 +3,9 @@
   "name": "Tango",
   "family": "global",
   "lineage": "Argentine bandoneón-and-violin orquesta-típica tradition codified through the Buenos Aires studio canon from Carlos Gardel onward",
-  "recipe": "classic South American mid-1940s tango, ballad Poetry, Latin am troubadour branch, tropical song functional song bolero bachata. thick, full chest belt, straight onset, interlocked note trading. tango virtuoso premier German tango premium alternative bellows articulated bandoneon, sitka spruce hard rock maple acer saccharum synthetic varnish polyurethane violin orchestral, upright piano, growly gut upright bass, venice catlin high twist renaissance bass engelmann spruce hard rock maple cello. large tracking room 1920-1965 mid tier odeon rca buenos aires. RCA 44-BX, German V72 tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 628,
-  "score": 157.24,
+  "recipe": "classic South American mid-1940s tango, ballad Poetry, Latin am troubadour branch, tropical song functional song bolero bachata. thick, breath veiled tone, straight onset, interlocked note trading. tango virtuoso premier German tango premium alternative bellows articulated bandoneon, sitka spruce hard rock maple acer saccharum synthetic varnish polyurethane violin orchestral, upright piano, growly gut upright bass, venice catlin high twist renaissance bass engelmann spruce hard rock maple cello. large tracking room 1920-1965 mid tier odeon rca buenos aires. RCA 44-BX, German V72 tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 631,
+  "score": 153.93,
   "config": {
     "traditions": [
       "tango",
@@ -17,7 +17,7 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "full_chest_belt_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
@@ -35,7 +35,7 @@
         },
         "scores": {
           "voice_register": 1.7764999999999995,
-          "voice_quality": 13.024999999999997,
+          "voice_quality": 10.724999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.755,
@@ -64,8 +64,8 @@
         "scores": {
           "free_reed_technique": 7.909999999999999,
           "bandoneon_action": 4.029999999999999,
-          "bandoneon_use": 5.545999999999999,
-          "bandoneon_maker_school": 3.7595,
+          "bandoneon_use": 5.441,
+          "bandoneon_maker_school": 3.6544999999999996,
           "bandoneon_reed_material": 0.7214999999999998
         }
       },
@@ -90,7 +90,7 @@
           "orch_back_wood": 1.8199999999999998,
           "orch_varnish": 1.8199999999999998,
           "orch_setup_period": 1.4949999999999999,
-          "orch_bow": 2.34,
+          "orch_bow": 1.69,
           "orch_bow_stick": 3.0100000000000002,
           "orch_articulation": 1.445,
           "orch_rosin": 1.395
@@ -137,7 +137,7 @@
           "bowed_technique": 0.585,
           "cello_strings": 1.17,
           "cello_top_wood": 1.25,
-          "cello_back_wood": 1.595,
+          "cello_back_wood": 1.445,
           "cello_varnish": 1.8199999999999998,
           "cello_setup_period": 1.4949999999999999,
           "cello_bow_grip": 0.34650000000000003,

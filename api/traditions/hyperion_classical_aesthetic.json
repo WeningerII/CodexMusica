@@ -5,7 +5,7 @@
   "lineage": "Hyperion Records (British classical label founded 1980) audiophile-canon production aesthetic for Western classical chamber and song repertoire — characterized by intimate close-miked sound stage, transparent capture without console coloration, minimal post-processing, and exploratory programming covering obscure and rediscovered repertoire alongside the standard canon",
   "recipe": "classic European early-1980s hyperion-school classical-recording aesthetic, art Music, western common practice branch, western early art music historically-informed performance recording baroque period-instrument. thick, breath veiled tone, slow rate, interlocked note trading. beech laminated maple laminated European tradition European spruce norway spruce grand piano, synthetic norway spruce European alpine European maple bosnian source violin orchestral, gut norway spruce European alpine European maple bosnian source cello. shoebox concert hall. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
   "recipe_chars": 628,
-  "score": 577.106,
+  "score": 559.006,
   "config": {
     "traditions": [
       "hyperion_classical_aesthetic",
@@ -41,10 +41,10 @@
           "voice_vibrato": 15.8595,
           "voice_articulation": 10.984999999999996,
           "voice_microtone": 16.943,
-          "voice_tradition": 25.453500000000002,
+          "voice_tradition": 23.253500000000003,
           "voice_mechanism_compound": 13.400000000000002,
-          "voice_estill_quality": 19.075,
-          "voice_speech_song": 18.960000000000004,
+          "voice_estill_quality": 18.775000000000002,
+          "voice_speech_song": 17.71,
           "voice_ensemble_config": 10.627499999999998,
           "voice_ornament_system": 15.125000000000002,
           "voice_pitch_organization": 14.245000000000003,
@@ -63,7 +63,7 @@
           "piano_soundboard": "european_spruce_soundboard",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
           "piano_plate": "wet_sand_cast_plate",
-          "piano_pitch_standard": "a_415_baroque"
+          "piano_pitch_standard": "a_442_european"
         },
         "scores": {
           "keyboard_technique": 13.500000000000002,
@@ -74,7 +74,7 @@
           "piano_soundboard": 17.1245,
           "piano_pinblock": 14.96,
           "piano_plate": 15.815000000000001,
-          "piano_pitch_standard": 18.424999999999997
+          "piano_pitch_standard": 17.835
         }
       },
       {
@@ -85,7 +85,7 @@
           "orch_top_wood": "norway_spruce_alpine_violin",
           "orch_back_wood": "bosnian_flamed_maple_violin",
           "orch_varnish": "cremonese_pre_1750_varnish_violin",
-          "orch_setup_period": "baroque_setup_violin",
+          "orch_setup_period": "modern_setup_violin",
           "orch_bow": "baroque_bow",
           "orch_bow_stick": "pernambuco_stick_orch",
           "orch_articulation": "arco_orch",
@@ -94,14 +94,14 @@
         "scores": {
           "bowed_technique": 13.500000000000002,
           "orch_strings": 2.015,
-          "orch_top_wood": 18.75,
-          "orch_back_wood": 19.144500000000004,
-          "orch_varnish": 18.000000000000004,
-          "orch_setup_period": 15.235,
-          "orch_bow": 4.614999999999999,
+          "orch_top_wood": 17.5,
+          "orch_back_wood": 17.894500000000004,
+          "orch_varnish": 16.750000000000004,
+          "orch_setup_period": 14.880000000000003,
+          "orch_bow": 3.965,
           "orch_bow_stick": 17.6695,
           "orch_articulation": 3.575,
-          "orch_rosin": 22.1085
+          "orch_rosin": 19.7585
         }
       },
       {
@@ -112,20 +112,20 @@
           "cello_top_wood": "norway_spruce_alpine_cello",
           "cello_back_wood": "bosnian_flamed_maple_cello",
           "cello_varnish": "cremonese_pre_1750_varnish_cello",
-          "cello_setup_period": "baroque_setup_cello",
+          "cello_setup_period": "modern_setup_cello",
           "cello_bow_grip": "french_bow_grip",
           "cello_rosin": "galeazzi_1791_baroque_rosin_cello",
           "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
           "bowed_technique": 13.500000000000002,
-          "cello_strings": 4.614999999999999,
-          "cello_top_wood": 18.75,
-          "cello_back_wood": 19.144500000000004,
-          "cello_varnish": 18.000000000000004,
-          "cello_setup_period": 14.934999999999999,
+          "cello_strings": 3.965,
+          "cello_top_wood": 17.5,
+          "cello_back_wood": 17.894500000000004,
+          "cello_varnish": 16.750000000000004,
+          "cello_setup_period": 14.880000000000003,
           "cello_bow_grip": 8.32,
-          "cello_rosin": 20.983500000000003,
+          "cello_rosin": 18.783500000000004,
           "cello_bow_stick": 17.6695
         }
       }

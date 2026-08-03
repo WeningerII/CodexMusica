@@ -5,7 +5,7 @@
   "lineage": "Live-event narration born on 1920s American AM radio, with KDKA Pittsburgh's 1921 boxing and baseball broadcasts and NBC's Graham McNamee establishing the announcer role. The mid-century canon runs through Red Barber and Mel Allen in baseball, Foster Hewitt's 'He shoots, he scores!' in Canadian hockey, and Vin Scully's 67 seasons with the Brooklyn and Los Angeles Dodgers (1950-2016). The craft is fully improvised real-time description whose pitch, tempo, and volume escalate with game action, delivered from a booth headset microphone riding above continuous crowd roar. The form spread worldwide, with national schools such as the melismatic 'gooooal' call of Latin American football commentary.",
   "recipe": "classic North American early-1950s sports play-by-play commentary, spoken Word, broadcast branch old-time radio announcer podcast conversation. extended whistle, breath veiled tone, slow rate, interlocked note trading. gymnasium. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 324,
-  "score": 150.895,
+  "score": 150.06,
   "config": {
     "traditions": [
       "sports_play_by_play",
@@ -30,7 +30,7 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_vedic_three_tone",
-          "voice_processing_chain": "voice_processing_lo_fi_narrow_AM",
+          "voice_processing_chain": "voice_processing_stutter_edit",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
@@ -48,7 +48,7 @@
           "voice_ensemble_config": 22.359999999999992,
           "voice_ornament_system": 1.56,
           "voice_pitch_organization": 2.4050000000000002,
-          "voice_processing_chain": 5.525,
+          "voice_processing_chain": 4.94,
           "voice_multitrack_stack": 5.655000000000002
         }
       }

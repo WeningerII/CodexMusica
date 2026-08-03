@@ -5,7 +5,7 @@
   "lineage": "Seattle Pacific Northwest alternative-rock genre that emerged in the late 1980s and went global in 1991 — codified through Nirvana (Nevermind 1991, the commercial breakthrough produced by Butch Vig), Pearl Jam (Ten 1991), Soundgarden (Badmotorfinger 1991, then Superunknown 1994), Alice in Chains (Facelift 1990, Dirt 1992), Mudhoney (the Sub Pop founding band), Screaming Trees, Tad — built on a fusion of hardcore punk aggression and Sabbath-style heavy-blues-derived guitar tone",
   "recipe": "classic North American 1987-1989 grunge, distorted Rock, alternative branch, sludge metal post-metal. thick, larynx lowered, wide pitch sway, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. seattle grunge defining 1986-1995 indie-commercial seattle reciprocal grunge studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi boss DS-1.",
   "recipe_chars": 662,
-  "score": 417.237,
+  "score": 385.621,
   "config": {
     "traditions": [
       "grunge",
@@ -23,7 +23,7 @@
           "voice_vibrato": "oscillating_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
-          "voice_tradition": "baroque_ornamental_tradition",
+          "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 33.66450000000001,
-          "voice_quality": 16.749999999999996,
+          "voice_register": 32.41449999999999,
+          "voice_quality": 14.249999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 5.575,
           "voice_articulation": 15.794999999999993,
-          "voice_microtone": 26.204999999999995,
-          "voice_tradition": 4.8845,
-          "voice_mechanism_compound": 35.293,
+          "voice_microtone": 24.954999999999995,
+          "voice_tradition": 4.834,
+          "voice_mechanism_compound": 31.543,
           "voice_estill_quality": 1.2349999999999999,
           "voice_speech_song": 16.379999999999992,
           "voice_ensemble_config": 17.799,
           "voice_ornament_system": 3.95,
           "voice_pitch_organization": 1.8199999999999998,
-          "voice_processing_chain": 11.18,
+          "voice_processing_chain": 9.88,
           "voice_multitrack_stack": 8.450000000000001
         }
       },
@@ -70,26 +70,26 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 26.948499999999996,
-          "amp_make": 25.415,
-          "body_wood": 9.75,
-          "neck_wood": 1.6899999999999997,
-          "fretboard": 1.6899999999999997,
+          "electric_technique": 23.198499999999996,
+          "amp_make": 24.660000000000004,
+          "body_wood": 7.799999999999999,
+          "neck_wood": 1.04,
+          "fretboard": 1.04,
           "pickup_magnet": 0,
           "pickup_winding": 1.625,
-          "string_material": 1.6899999999999997,
+          "string_material": 1.04,
           "bridge": 0.39,
-          "scale_length": 11.244999999999997,
+          "scale_length": 8.644999999999998,
           "string_gauge": 1.625,
           "finish": 0,
-          "string_tuning": 24.894999999999996
+          "string_tuning": 21.644999999999996
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_british_orange",
-          "body_wood": "alder_b",
+          "body_wood": "mahogany_b",
           "pickup_config": "split_coil",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "long_scale_b",
@@ -97,13 +97,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 21.4255,
-          "body_wood": 0.4095,
+          "amp_make": 18.7155,
+          "body_wood": 0.39,
           "pickup_config": 0,
-          "string_type": 28.242,
+          "string_type": 26.212,
           "scale_length_b": 0.585,
           "fretted_or_not": 0.0735,
-          "bass_technique": 28.875
+          "bass_technique": 27.625
         }
       },
       {
@@ -114,7 +114,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 22.125,
+          "drum_technique": 20.875,
           "drumhead": 4.4565,
           "drum_kit_kick_pedal": 0
         }

@@ -5,7 +5,7 @@
   "lineage": "South African Durban-Zulu late-2000s minimal-bass dance subgenre, codified through Naked Boys, DJ Lag, Citizen Boy, and Rudeboyz starting circa 2010 — characterized by repetitive 4/4 sub-bass-driven drum patterns at 120-130 BPM, sparse hi-hats, vocal chants in isiZulu, and the deliberately dark / minimal aesthetic distinguishing it from house and amapiano",
   "recipe": "classic Southern African 2007-2009 gqom, electronic Dance, African dance branch, Afro-diasporic MC rhythm kwaito south african kwaito. vocal fry, breath veiled tone, straight onset, interlocked note trading. TR-808, sub bass monosynth acid bass, sub bass analog poly synth. live tracking. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
   "recipe_chars": 372,
-  "score": 164.277,
+  "score": 162.922,
   "config": {
     "traditions": [
       "gqom",
@@ -41,7 +41,7 @@
           "voice_vibrato": 1.810625,
           "voice_articulation": 16.314999999999994,
           "voice_microtone": 15.339999999999991,
-          "voice_tradition": 27.682249999999996,
+          "voice_tradition": 26.432249999999996,
           "voice_mechanism_compound": 1.625,
           "voice_estill_quality": 2.3,
           "voice_speech_song": 15.534999999999995,
@@ -75,7 +75,7 @@
         },
         "scores": {
           "electronic_technique": 7.179874999999999,
-          "wave_acid": 0.576,
+          "wave_acid": 0.47100000000000003,
           "filter_acid": 2.664,
           "accent_acid": 2.3
         }

@@ -5,7 +5,7 @@
   "lineage": "The blues tradition — African-American vernacular form built on the twelve-bar progression, blue notes, and call-and-response, originating in the Deep South at the turn of the 20th century and electrified in postwar Chicago",
   "recipe": "classic Midwestern American mid-1970s blues, functional Song, blues electric branch. thick, breath veiled tone, wide pitch sway, interlocked note trading. rock blues lower tension down tuning single coil electric guitar, Hammond a 100 built in Leslie home spinet tonewheel organ, electric bass, jazz-trained brushes-and-sticks drum kit, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. 2120 south michigan avenue 1957-1975 indie-commercial chess studios chicago. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb ibanez tube screamer TS9 / TS808.",
   "recipe_chars": 689,
-  "score": 165.251,
+  "score": 164.372,
   "config": {
     "traditions": [
       "blues"
@@ -39,7 +39,7 @@
           "voice_vibrato": 10.987124999999999,
           "voice_articulation": 6.124374999999999,
           "voice_microtone": 11.29275,
-          "voice_tradition": 9.367249999999999,
+          "voice_tradition": 9.11975,
           "voice_mechanism_compound": 0.43600000000000005,
           "voice_estill_quality": 0.5499999999999998,
           "voice_speech_song": 8.384999999999998,
@@ -78,7 +78,7 @@
           "bridge": 0,
           "scale_length": 1,
           "finish": 0,
-          "string_tuning": 6.109999999999999
+          "string_tuning": 5.926249999999999
         }
       },
       {
@@ -149,8 +149,8 @@
           "harmonica_comb": 13.02925,
           "harmonica_reed": 11.036499999999998,
           "harmonica_technique": 12.168,
-          "harmonica_maker_school": 10.823499999999997,
-          "harmonica_tuning": 5.719999999999999
+          "harmonica_maker_school": 10.575999999999999,
+          "harmonica_tuning": 5.519749999999999
         }
       }
     ],

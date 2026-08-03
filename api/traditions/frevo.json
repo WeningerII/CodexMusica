@@ -5,7 +5,7 @@
   "lineage": "Brazilian Pernambuco (Recife) carnival fast-tempo brass-band marcha tradition codified 1907-onward as the working-class-and-capoeira-defense response to the elite-elite carnival-club tradition. The canonical frevo-orquestra ensemble: trumpets, trombones, saxophones, and rhythm-section (snare-and-bass-drum military-marching kit, sometimes augmented with percussive surdo-and-tamborim Brazilian-samba percussion). The frevo-de-rua street-version is purely instrumental and very fast (typically 200+ BPM), led by passistas dancers carrying small umbrellas (sombrinhas) executing the characteristic acrobatic-jumping passo-de-frevo footwork. Three sub-genres: frevo-canção (sung-frevo with vocal-lyrics), frevo-de-bloco (more relaxed bloco-carnival-association style), and frevo-de-rua (instrumental-street-version).",
   "recipe": "classic Southern American modern frevo, groove Percussion, Brazilian branch, charanga danza Cuban, American jazz improv on frame latin jazz hard bop. thick, breath veiled tone, straight onset, interlocked note trading. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet, alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor ensemble student commercial trombone, ampeg b15 amp American 60s bass amp flip top character alder thomastik infeld electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, samba bateria. estudio rozenblit recife. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 845,
-  "score": 664.213,
+  "score": 645.063,
   "config": {
     "traditions": [
       "frevo",
@@ -34,14 +34,14 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 39.800000000000026,
+          "voice_register": 38.550000000000026,
           "voice_quality": 10.789999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 30.05000000000002,
+          "voice_vibrato": 28.800000000000015,
           "voice_articulation": 21.12499999999999,
-          "voice_microtone": 30.42000000000002,
-          "voice_tradition": 37.37000000000002,
+          "voice_microtone": 29.170000000000016,
+          "voice_tradition": 35.670000000000016,
           "voice_mechanism_compound": 8.45,
           "voice_estill_quality": 7.085,
           "voice_speech_song": 22.847499999999993,
@@ -66,7 +66,7 @@
         "scores": {
           "wind_articulation": 8.547500000000001,
           "brass_size": 0.65,
-          "trumpet_mouthpiece": 36.66500000000002,
+          "trumpet_mouthpiece": 34.96500000000002,
           "brass_mute": 0.375,
           "trumpet_technique": 8.547500000000001,
           "trumpet_bell_metal": 3.38,
@@ -88,10 +88,10 @@
           "wind_articulation": 8.547500000000001,
           "sax_size": 6.675000000000001,
           "sax_reed": 0.65,
-          "sax_body_alloy": 32.17500000000002,
+          "sax_body_alloy": 30.92500000000002,
           "sax_mouthpiece": 0.65,
-          "sax_technique": 30.125000000000018,
-          "sax_maker_school": 36.41000000000002
+          "sax_technique": 28.875000000000014,
+          "sax_maker_school": 34.710000000000015
         }
       },
       {
@@ -107,8 +107,8 @@
         },
         "scores": {
           "wind_articulation": 8.547500000000001,
-          "trombone_type": 30.125000000000018,
-          "trombone_mouthpiece": 30.075000000000017,
+          "trombone_type": 28.875000000000014,
+          "trombone_mouthpiece": 28.825000000000014,
           "trombone_mute": 0.195,
           "trombone_technique": 4.484999999999999,
           "trombone_bell_metal": 3.575,
@@ -130,10 +130,10 @@
           "amp_make": 13.455,
           "body_wood": 2.8249999999999997,
           "pickup_config": 2.3449999999999998,
-          "string_type": 36.71000000000002,
+          "string_type": 35.01000000000001,
           "scale_length_b": 0.585,
           "fretted_or_not": 1.345,
-          "bass_technique": 30.410000000000018
+          "bass_technique": 29.160000000000014
         }
       },
       {
@@ -144,8 +144,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 37.245000000000005,
-          "drumhead": 38.71500000000002,
+          "drum_technique": 36.595,
+          "drumhead": 37.015000000000015,
           "drum_kit_kick_pedal": 0
         }
       },

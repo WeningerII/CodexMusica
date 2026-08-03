@@ -5,7 +5,7 @@
   "lineage": "Dominican-Republic guitar-based bolero-derivative couple-dance romantic-song tradition originated 1960s in Santo-Domingo-and-Cibao rural-and-urban barrios. The ensemble: requinto lead-guitar (small-bodied higher-pitched playing arpeggio-and-melodic-fills), segunda rhythm-guitar (six-string playing strum-pattern with güira metallic-scraper), bongos, and bajo electric-bass. The bachata-clave 4-beat pattern emphasizes the second-and-fourth beats with bongo accents. Five historical phases: 1960s-foundational (acoustic-guitar bolero-rural-rhythm), 1970s-marginalized (urban-poor barrio-association), 1980s-electrified (electric-instruments incorporation), 1990s-mainstreamed (bachata-rosa commercial-crossover), and 2000s-onward modern-bachata (urban-bachata fusion with R&B and reggaeton).",
   "recipe": "classic Caribbean mid-1960s bachata, functional Song, tropical song branch, Latin am troubadour ballad poetry milonga filipino harana. thick, full chest belt, straight onset, interlocked note trading. alder clean strummed single coil electric fingerpicked acoustic guitar, la bella flats Detroit soul bass canon sub heavy electric bass, synthetic modern durable fiberglass modern durable open slap hand drum bongos, pvc guiro. Dominican canon 1970-1995 mid tier dominican capital studio 80s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 621,
-  "score": 239.463,
+  "score": 239.162,
   "config": {
     "traditions": [
       "bachata",
@@ -132,7 +132,7 @@
         "scores": {
           "percussion_technique": 7.485,
           "bongos_skin": 1.3,
-          "bongos_context": 3.1849999999999996,
+          "bongos_context": 2.885,
           "bongos_shell_wood": 1.3
         }
       },

@@ -5,7 +5,7 @@
   "lineage": "Late-1960s-and-1970s rock subgenre integrating extended psychedelic instrumental passages with science-fiction-cosmic thematic content. Hawkwind (UK 1969-onward) inaugurated the canonical style with Space Ritual (1973); Pink Floyd's pre-Dark-Side material, Gong's Radio Gnome Invisible trilogy, and (in the 1980s revival) Spacemen 3 and Loop continued the lineage. Distinguished from broader progressive rock by space rock's specific psychedelic-cosmic thematic focus and extended-instrumental-passage emphasis.",
   "recipe": "classic Central European space rock, distorted Rock, progressive rock branch, experimental distorted rock chillwave post-rock. thick, breath veiled tone, fast rate, interlocked note trading. marshall plexi amp British rock amp basswood maple pau ferro humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, ambient pad like analog synth, vibrato wobble internal speaker close miked stylophone. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf kling klang studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape echo plate reverb phaser.",
   "recipe_chars": 702,
-  "score": 413.26,
+  "score": 396.322,
   "config": {
     "traditions": [
       "space_rock",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 31.368749999999995,
+          "voice_register": 30.118749999999995,
           "voice_quality": 8.905,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.6365,
+          "voice_vibrato": 3.9864999999999995,
           "voice_articulation": 13.324999999999996,
-          "voice_microtone": 32.0535,
-          "voice_tradition": 12.241499999999998,
+          "voice_microtone": 30.8035,
+          "voice_tradition": 11.591499999999998,
           "voice_mechanism_compound": 4.615000000000001,
           "voice_estill_quality": 5.771750000000001,
           "voice_speech_song": 14.072499999999996,
           "voice_ensemble_config": 13.259999999999994,
-          "voice_ornament_system": 6.161499999999999,
+          "voice_ornament_system": 5.5115,
           "voice_pitch_organization": 4.030000000000001,
-          "voice_processing_chain": 13.81425,
-          "voice_multitrack_stack": 11.448499999999997
+          "voice_processing_chain": 12.56425,
+          "voice_multitrack_stack": 11.373499999999998
         }
       },
       {
@@ -71,18 +71,18 @@
         },
         "scores": {
           "electric_technique": 9.978499999999999,
-          "amp_make": 15.795,
+          "amp_make": 15.145,
           "body_wood": 3.575,
-          "neck_wood": 4.6365,
-          "fretboard": 4.6365,
+          "neck_wood": 3.9864999999999995,
+          "fretboard": 3.9864999999999995,
           "pickup_magnet": 0.04875,
           "pickup_winding": 0.845,
-          "string_material": 4.6365,
+          "string_material": 3.9864999999999995,
           "bridge": 0.845,
-          "scale_length": 7.6049999999999995,
+          "scale_length": 6.954999999999999,
           "string_gauge": 0.845,
           "finish": 0,
-          "string_tuning": 25.025
+          "string_tuning": 23.60425
         }
       },
       {
@@ -97,13 +97,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 15.860000000000001,
+          "amp_make": 15.21,
           "body_wood": 0.845,
           "pickup_config": 0,
-          "string_type": 34.309000000000005,
+          "string_type": 32.76650000000001,
           "scale_length_b": 0.845,
           "fretted_or_not": 0.02625,
-          "bass_technique": 30.623750000000005
+          "bass_technique": 29.373750000000005
         }
       },
       {
@@ -114,8 +114,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 30.625000000000007,
-          "drumhead": 4.6365,
+          "drum_technique": 29.375000000000007,
+          "drumhead": 3.9864999999999995,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -130,7 +130,7 @@
         },
         "scores": {
           "electronic_technique": 0.8249999999999998,
-          "oscillator": 4.6365,
+          "oscillator": 3.9864999999999995,
           "filter_topology": 0.845,
           "envelope": 1.3,
           "modulation": 0.845

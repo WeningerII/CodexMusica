@@ -5,7 +5,7 @@
   "lineage": "Early-2010s dubstep subgenre emphasizing emotional-melodic content, female-vocal-feature presentation, atmospheric-pad textures, and broader pop-crossover-friendly arrangement. Seven Lions, Au5, Crystal Skies, and the broader Monstercat and Ophelia Records label rosters anchored the canonical sound. The 2013-2018 \"EDM melodic\" era extended melodic dubstep into festival-mainstream commercial circulation.",
   "recipe": "classic mid-2010s melodic dubstep, bass System, bass descendants branch, house electronic dance jackin' house melodic house. extended whistle, breath veiled tone, straight note core, interlocked note trading. TR-808, pad like sub bass analog synth, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. no single room 2015-present distributed distributed production. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter hall reverb.",
   "recipe_chars": 550,
-  "score": 183.017,
+  "score": 178.837,
   "config": {
     "traditions": [
       "melodic_dubstep_2010s",
@@ -31,14 +31,14 @@
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_stutter_edit",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
           "voice_register": 6.295000000000001,
           "voice_quality": 9.75,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.89,
+          "voice_vibrato": 6.89,
           "voice_articulation": 12.479999999999995,
           "voice_microtone": 12.284999999999993,
           "voice_tradition": 4.695000000000001,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 2.025,
           "voice_pitch_organization": 4.725000000000001,
           "voice_processing_chain": 12.515,
-          "voice_multitrack_stack": 11.569999999999999
+          "voice_multitrack_stack": 10.264999999999999
         }
       },
       {

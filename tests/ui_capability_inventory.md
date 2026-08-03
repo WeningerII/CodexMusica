@@ -2,7 +2,7 @@
 
 The single source of truth for every interactive surface in the codex. Read this before changing the UI. Update this in the same commit as any UI change. The build's reachability gate (`scripts/ui_reachability_check.js`) enforces that every `status: reachable` entry's selector resolves to at least one element under the entry's precondition. Surfaces that aren't catalogued here are invisible to the build gate, which is how the master-detail refactor silently dropped the stack signature panel, the tradition-group delete, and three drag-drop interactions.
 
-**Last verified:** UI Capability Inventory Plan complete (2026-05-27). All 6 phases shipped. Reachability gate enforced via `scripts/ui_reachability_check.js` on every `build.js` run. Total entries: 80 reachable, 0 pending, 1 retired.
+**Last verified:** UI Capability Inventory Plan complete (2026-05-27). All 6 phases shipped. Reachability gate enforced via `scripts/ui_reachability_check.js` on every `build.js` run. Total entries: 82 reachable, 0 pending, 1 retired.
 
 ---
 
@@ -254,6 +254,12 @@ surface: sidebar — per-tradition-group "+ Add instrument to tradition" button
 implementation: opens modal-add with traditionId pre-context
 status: reachable
 precondition: 1+ cards
+notes: The instrument picked from the modal joins THAT group — it is configured
+  from the tradition (tuning, room, chain, voice parts, amp) exactly as
+  importTradition seeds it, and is placed after the group's last card. The
+  pre-context is consumed on add and cleared by every other modal-add entry
+  point (#btn-add, the card "similar" action), so a later plain add stays
+  ungrouped.
 ```
 
 ### Sidebar — staple
@@ -927,7 +933,18 @@ surface: sidebar — drag an instrument row into a different genre to reparent i
 implementation: wireTreeDragAndDrop (Pointer Events, delegated from #sidebar-traditions) sets app._dnd; on release dropCardOnTradition sets card.traditionId and moves it after the target genre's last card
 status: reachable
 precondition: 2+ cards
-notes: Was HTML5 drag-and-drop, which is mouse-only, so on a phone this had NO route at all — unlike genre reorder there is no button equivalent. Rewritten on Pointer Events; touch arms on a 350ms long press. Group-target only; card-onto-card drop deferred. Exercised under real touch AND mouse by scripts/check_mobile_layout.js assertion H.
+notes: Was HTML5 drag-and-drop, which is mouse-only, so on a phone this had NO route at all — unlike genre reorder there is no button equivalent. Rewritten on Pointer Events; touch arms on a 350ms long press. Group-target only; card-onto-card drop deferred. Exercised under real touch AND mouse by scripts/check_mobile_layout.js assertion H. The non-drag equivalent is card-move-to-genre-menu; both call dropCardOnTradition.
+```
+
+```yaml
+name: card-move-to-genre-menu
+kind: data-action
+selector: '[data-action="move-genre"]'
+surface: detail breadcrumb row — reparent the selected instrument into another genre without dragging
+implementation: handleAction('move-genre') → openMoveToGenreMenu(card, trigger); the menu's items call dropCardOnTradition, then pushHistory + renderAll + showToast, exactly as the drop path in wireTreeDragAndDrop's onUp does
+status: reachable
+precondition: 2+ cards
+notes: The non-drag route for card-drag-reparent, which until now was the ONE tree operation reachable only by dragging — genre reorder always had the ↑/↓ movers, card reparent had nothing. WCAG 2.2 SC 2.5.7 (Dragging Movements, AA) asks for a single-pointer non-drag alternative, and a keyboard has no drag at all. Also the practical route when the target genre is scrolled out of the sidebar pane: edge auto-scroll makes that drag possible, this makes it unnecessary. Rendered disabled (with an explanatory tooltip) when the workspace has no other genre to move to, so the selector resolves under any precondition with a selected card. Menu is built per-open from workspace state on the shared .more-menu furniture rather than living in the template.
 ```
 
 ```yaml
@@ -973,9 +990,9 @@ notes: Master-detail layout (2026-05) enforces single-active selection via app.s
 
 ## Counts (for the gate's preamble verification)
 
-- Reachable: 80
+- Reachable: 82
 - Pending: 0
 - Retired: 1
-- **Total tracked surfaces: 81**
+- **Total tracked surfaces: 83**
 
 When this count changes, update it here AND update the verification block in `scripts/ui_reachability_check.js`. Sanity match on every build.

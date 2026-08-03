@@ -5,7 +5,7 @@
   "lineage": "Late-1960s through early-1970s manufactured-pop subgenre targeted at the pre-teen audience — codified through the Buddah Records label catalog produced by Kasenetz-Katz (the 1910 Fruitgum Company Simon Says 1968, Ohio Express Yummy Yummy Yummy 1968), the Archies (the cartoon-derived studio project, Sugar Sugar 1969 the commercial breakthrough), Bobby Sherman, the Partridge Family, the Osmonds, the Jackson 5 early period — built on simple melodic hooks, three-chord harmonic foundation, and lyrical content of pre-adolescent crush-romance and sugar-themed innocence",
   "recipe": "classic North American 1967-1969 bubblegum pop, functional Song, pop rock branch, crooners functional song brill building pop american barbershop quartet. thick, breath veiled tone, straight note core, interlocked note trading. Fender tweed amp American 50s amp tweed breakup clean strummed single coil electric guitar, Fender tweed amp American 50s amp tweed breakup ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, Hammond a 100 built in Leslie home spinet Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 801,
-  "score": 269.146,
+  "score": 257.722,
   "config": {
     "traditions": [
       "bubblegum_pop",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 24.507499999999993,
+          "voice_register": 23.257499999999993,
           "voice_quality": 11.699999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 4.53325,
           "voice_articulation": 11.439999999999996,
-          "voice_microtone": 20.83,
-          "voice_tradition": 22.5225,
+          "voice_microtone": 19.58,
+          "voice_tradition": 20.526249999999997,
           "voice_mechanism_compound": 1.8199999999999998,
           "voice_estill_quality": 4.73,
           "voice_speech_song": 17.354999999999997,
           "voice_ensemble_config": 11.114999999999995,
           "voice_ornament_system": 0.7749999999999999,
-          "voice_pitch_organization": 6.575,
+          "voice_pitch_organization": 5.325,
           "voice_processing_chain": 6.24,
           "voice_multitrack_stack": 5.596625000000001
         }
@@ -62,21 +62,21 @@
           "fretboard": "rosewood_fb",
           "pickup_magnet": "alnico_3",
           "string_material": "pure_nickel",
-          "string_gauge": "g_8",
+          "string_gauge": "g_10",
           "bridge": "hardtail",
           "scale_length": "scale_gibson",
           "finish": "nitro",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 15.251249999999997,
-          "amp_make": 4.68,
+          "electric_technique": 14.001249999999997,
+          "amp_make": 4.029999999999999,
           "body_wood": 0.3,
           "neck_wood": 0.195,
           "fretboard": 0.12999999999999998,
           "pickup_magnet": 0.08212499999999999,
           "string_material": 0,
-          "string_gauge": 0.345,
+          "string_gauge": 0.217,
           "bridge": 0,
           "scale_length": 0.195,
           "finish": 0,
@@ -95,7 +95,7 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 4.68,
+          "amp_make": 4.029999999999999,
           "body_wood": 0.195,
           "pickup_config": 0,
           "string_type": 7.15,
@@ -113,7 +113,7 @@
         },
         "scores": {
           "drum_technique": 10.854999999999997,
-          "drumhead": 18.8415,
+          "drumhead": 17.5915,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -128,7 +128,7 @@
           "leslie_cabinet_model": "leslie_760_solid_state"
         },
         "scores": {
-          "keyboard_technique": 17.596124999999997,
+          "keyboard_technique": 16.346124999999997,
           "drawbar_setting": 5.202500000000001,
           "rotary_speed": 6.75,
           "percussion_setting": 2.795,

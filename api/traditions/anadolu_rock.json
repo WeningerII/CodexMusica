@@ -5,7 +5,7 @@
   "lineage": "Late-1960s-onward Turkish psychedelic-folk rock genre codified through Cem Karaca, Erkin Koray (whose 1974 Elektronik Türküler is the album), Barış Manço, the Moğollar band, the Mavi Çocuklar — fusing Turkish folk-saz repertoire and Anatolian regional song-traditions with electric instrumentation, rock rhythm-section foundation, and characteristic distorted-electric-saz lead-voice",
   "recipe": "classic Middle Eastern 1967-1969 anadolu rock, distorted Rock, regional branch, classic distorted rock britpop. thick, breath veiled tone, straight note core, interlocked note trading. marshall plexi amp British rock amp basswood soft down tuning power chord humbucker electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, mulberry bowl canonical anatolian nylon cura saz softer alevi cem saz baglama. istanbul recording canon 1955-present mid tier istanbul makam kilic ali pasha studio. large-diaphragm condenser, transformer-coupled solid-state pre, colored vintage console, vari-mu, passive program EQ. vinyl master cut tape echo spring reverb germanium fuzz wah / envelope filter.",
   "recipe_chars": 767,
-  "score": 302.744,
+  "score": 299.819,
   "config": {
     "traditions": [
       "anadolu_rock",
@@ -49,7 +49,7 @@
           "voice_ornament_system": 0.9099999999999997,
           "voice_pitch_organization": 6.749999999999999,
           "voice_processing_chain": 4.355,
-          "voice_multitrack_stack": 12.48
+          "voice_multitrack_stack": 10.855
         }
       },
       {
@@ -71,7 +71,7 @@
         },
         "scores": {
           "electric_technique": 10.757499999999999,
-          "amp_make": 16.379999999999995,
+          "amp_make": 15.729999999999997,
           "body_wood": 1.4299999999999995,
           "neck_wood": 0.845,
           "fretboard": 0.78,
@@ -97,7 +97,7 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 16.379999999999995,
+          "amp_make": 15.729999999999997,
           "body_wood": 0.845,
           "pickup_config": 0,
           "string_type": 29.0875,

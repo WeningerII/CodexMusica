@@ -462,14 +462,28 @@ body.is-dnd-active * { cursor: grabbing !important; }
 .rp-copy:hover { color: var(--text); }
 .rp-open { display: flex; align-items: center; justify-content: center; gap: 4px; padding: 8px; border: 1px solid var(--border); border-radius: 6px; background: transparent; color: var(--text-2); font-size: var(--fs-caption); cursor: pointer; transition: border-color 120ms, color 120ms; }
 .rp-open:hover { border-color: var(--text-3); color: var(--text); }
-/* Undo / redo / expand live in the recipe bar only once it is pinned to the
-   bottom of the viewport (<= 899px). On desktop the app bar already carries
-   undo and redo, and the panel is always open, so all three are redundant. */
-.rp-tool, .rp-expand { display: none; }
-/* Points UP while collapsed ("expand me"), flat-down once open. The glyph is
-   chevron-down — Lucide's chevron-up is not vendored, and icon() returns an
-   empty string for an unknown name rather than failing loudly. */
-.rp-expand svg { transform: rotate(180deg); transition: transform var(--t-norm) var(--ease); }
+/* Undo / redo live in the recipe bar only once it is pinned to the bottom of
+   the viewport (<= 899px); on desktop the app bar already carries both. */
+.rp-tool { display: none; }
+/* The expander, though, earns its place at every width. Expanded, this panel
+   runs ~290px — the recipe body alone is capped at 200 — and it is a flex
+   sibling of #sidebar-scroll, so every one of those pixels is taken straight
+   off the genre tree. On a workspace with half a dozen genres that is the
+   difference between seeing the roster and scrolling for it. Collapsing keeps
+   the head (label, live char count, copy) and the progress bar, which is the
+   part you actually watch, and drops the body and the "open full stack" link,
+   which are the parts you go and look at deliberately. */
+#sidebar-recipe-preview.is-collapsed .rp-text,
+#sidebar-recipe-preview.is-collapsed .rp-empty,
+#sidebar-recipe-preview.is-collapsed .rp-open { display: none; }
+/* The glyph is chevron-down — Lucide's chevron-up is not vendored, and icon()
+   returns an empty string for an unknown name rather than failing loudly — so
+   "up" is this one rotated. It points UP whenever pressing it would reveal
+   more. The two layouts start from opposite states (desktop opens expanded,
+   the phone sheet opens collapsed), so the rotation is stated per state rather
+   than as a base rule with one exception. */
+.rp-expand svg { transition: transform var(--t-norm) var(--ease); }
+#sidebar-recipe-preview.is-collapsed .rp-expand svg { transform: rotate(180deg); }
 
 /* Detail pane — Phase 3 of layout refactor. Right pane shows selected card. */
 .detail-view { max-width: 1100px; margin: 0 auto; }
@@ -1226,6 +1240,11 @@ body.is-dnd-active * { cursor: grabbing !important; }
   #sidebar-recipe-preview .rp-open { display: none; }
   #sidebar-recipe-preview.is-expanded .rp-text { display: block; max-height: 40vh; }
   #sidebar-recipe-preview.is-expanded .rp-open { display: flex; }
+  /* This sheet opens CLOSED, the inverse of the desktop panel, so its resting
+     chevron is the flipped one — it points up because pressing it reveals more.
+     Stated here rather than as a base rule precisely because the two layouts
+     disagree about which state is the default. */
+  .rp-expand svg { transform: rotate(180deg); }
   #sidebar-recipe-preview.is-expanded .rp-expand svg { transform: rotate(0deg); }
 
   /* The stack-signature strip is dropped on mobile. It is a three-column

@@ -5,7 +5,7 @@
   "lineage": "Nazrul geeti Bengali art-song repertoire composed by Kazi Nazrul Islam (1899-1976, Bidrohi Kobi \"Rebel Poet\" and national poet of Bangladesh), comprising approximately three thousand documented songs: Islamic-devotional (Hamd-and-Naat in Bengali), Hindu-devotional Shyamasangeet (Bengali Kali songs), love and longing, revolutionary-political (anti-British-colonial Karar Oi Louho Kapat), and ghazal. Compositional language draws on Hindustani-classical raga vocabulary with strong influences from Persian-Urdu ghazal melodic-line aesthetic and Bengali folk-kirtan rhythmic conventions. The post-1976 Bangladeshi Nazrul Institute consolidated canonical standards.",
   "recipe": "classic South Asian early-1890s nazrul geeti, functional Song, south Asian pop branch, islamic ritual devotional anāshīd naʿat. thick, declaimed, slow rate, interlocked note trading. indian rosewood rosewood copper tabla. kolkata dum dum EMI hmv 1928-present major-flagship kolkata hmv dum dum studio. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
   "recipe_chars": 368,
-  "score": 165.94,
+  "score": 157.565,
   "config": {
     "traditions": [
       "nazrul_geeti",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 6.776500000000001,
-          "voice_quality": 22.2065,
+          "voice_quality": 19.7065,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 4.120375,
           "voice_articulation": 12.089999999999996,
           "voice_microtone": 19.987499999999997,
-          "voice_tradition": 17.225,
+          "voice_tradition": 15.925,
           "voice_mechanism_compound": 6.825,
-          "voice_estill_quality": 4.3665,
-          "voice_speech_song": 16.769999999999996,
+          "voice_estill_quality": 4.216500000000001,
+          "voice_speech_song": 16.119999999999997,
           "voice_ensemble_config": 12.219999999999995,
-          "voice_ornament_system": 24.43,
+          "voice_ornament_system": 21.93,
           "voice_pitch_organization": 8.075,
           "voice_processing_chain": 2.34,
-          "voice_multitrack_stack": 3.575
+          "voice_multitrack_stack": 2.925
         }
       },
       {

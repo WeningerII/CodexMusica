@@ -5,7 +5,7 @@
   "lineage": "Tibetan / Bhutanese / Ladakhi Vajrayana tantric ritual-music tradition with multiphonic chant and brass-and-percussion liturgical ensemble",
   "recipe": "classic Northeast Asian modern himalayan vajrayana liturgy, ritual Devotional, buddhist branch, east Asian art music tibetan ache lhamo opera beijing opera. thick, breath veiled tone, slow rate, interlocked note trading. log drum, m1 modal compound with overtone tuning khoomei foundational mechanism 8th to 12th partial overtone range himalayan ritual chant subharmonic monastic throat singing voice, call ritual conch shell horn, ceremonial hammered copper brass telescoping canonical Tibetan gelug canonical Tibetan buddhist liturgy tibetan dungchen, wood rosewood body brass bell canonical Tibetan arundo donax canonical Tibetan monastic tibetan gyaling. tibetan monastery assembly. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 749,
-  "score": 316.992,
+  "score": 306.842,
   "config": {
     "traditions": [
       "vajrayana_broader",
@@ -43,10 +43,10 @@
           "voice_microtone": 18.069999999999997,
           "voice_tradition": 30.9725,
           "voice_mechanism_compound": 7.049999999999999,
-          "voice_estill_quality": 21.799999999999994,
+          "voice_estill_quality": 18.849999999999998,
           "voice_speech_song": 18.72,
           "voice_ensemble_config": 20.474999999999994,
-          "voice_ornament_system": 16.249999999999996,
+          "voice_ornament_system": 13.749999999999998,
           "voice_pitch_organization": 7.66,
           "voice_processing_chain": 3.12,
           "voice_multitrack_stack": 3.7050000000000005
@@ -73,7 +73,7 @@
         "scores": {
           "throat_mechanism_root": 3.77,
           "throat_overtone_target_region": 2.7299999999999995,
-          "throat_singing_voice_region": 30.889999999999997
+          "throat_singing_voice_region": 29.639999999999997
         }
       },
       {
@@ -97,9 +97,9 @@
           "dungchen_lineage": "dungchen_gelug_canonical"
         },
         "scores": {
-          "dungchen_length": 10.41,
-          "dungchen_body_metal": 8.905,
-          "dungchen_lineage": 12.53
+          "dungchen_length": 9.91,
+          "dungchen_body_metal": 8.254999999999999,
+          "dungchen_lineage": 12.03
         }
       },
       {
@@ -110,9 +110,9 @@
           "gyaling_reed": "gyaling_arundo_canonical"
         },
         "scores": {
-          "gyaling_body": 10.2,
-          "gyaling_body_wood": 8.84,
-          "gyaling_reed": 8.905
+          "gyaling_body": 9.7,
+          "gyaling_body_wood": 8.19,
+          "gyaling_reed": 8.254999999999999
         }
       }
     ],

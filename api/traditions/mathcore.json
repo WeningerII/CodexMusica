@@ -5,7 +5,7 @@
   "lineage": "Late-1990s through 2000s US extreme-metal-and-hardcore fusion genre incorporating math rock complex meter and rapid time-signature changes — codified through Converge (Jane Doe 2001), Dillinger Escape Plan (Calculating Infinity 1999, Miss Machine 2004), Botch, Coalesce, the modern continuation through Cult Leader and Frontierer",
   "recipe": "classic Midwestern American 1997-1999 mathcore, distorted Rock, avant branch, experimental distorted rock krautrock chillwave. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. stoner doom garage amplifier room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 595,
-  "score": 296.594,
+  "score": 294.183,
   "config": {
     "traditions": [
       "mathcore",
@@ -32,7 +32,7 @@
         },
         "scores": {
           "electric_technique": 14.59325,
-          "amp_make": 15.794999999999998,
+          "amp_make": 15.459,
           "body_wood": 7.0200000000000005,
           "neck_wood": 0.845,
           "fretboard": 0.78,
@@ -61,7 +61,7 @@
           "amp_make": 10.399999999999999,
           "body_wood": 0.845,
           "pickup_config": 1.3187499999999999,
-          "string_type": 23.8675,
+          "string_type": 23.4025,
           "scale_length_b": 1.1440000000000001,
           "fretted_or_not": 0.0315,
           "bass_technique": 22.76125
@@ -105,17 +105,17 @@
           "voice_quality": 6.3050000000000015,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.322,
+          "voice_vibrato": 4.2170000000000005,
           "voice_articulation": 13.844999999999994,
           "voice_microtone": 21.98,
-          "voice_tradition": 11.458749999999998,
+          "voice_tradition": 11.308749999999998,
           "voice_mechanism_compound": 19.320249999999998,
           "voice_estill_quality": 2.5349999999999997,
           "voice_speech_song": 15.274999999999993,
           "voice_ensemble_config": 13.584999999999992,
           "voice_ornament_system": 1.7549999999999994,
           "voice_pitch_organization": 0.8449999999999999,
-          "voice_processing_chain": 6.476250000000001,
+          "voice_processing_chain": 5.12125,
           "voice_multitrack_stack": 7.522499999999999
         }
       }

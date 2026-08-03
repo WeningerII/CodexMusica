@@ -5,7 +5,7 @@
   "lineage": "Pernambuco (Recife-and-Olinda) Afro-Brazilian cortejo-procession carnival tradition of the nação-de-baque-virado coronation-pageant lineage 1700s-onward, where rei-and-rainha Black-royal-couple-and-court led by maracatu-baque-virado heavy-mid-tempo percussion processions enact symbolic Afro-Catholic-Yoruba-Bantu syncretic-king-coronation ceremony. The baque-virado rhythm features alfaia barrel-drums (two-headed rope-tensioned), caixa snare-with-bottom-strings, gonguê single-cowbell, and ganzá shaker, with calunga doll-and-staff iconography carried by the procession. The baque-solto rural-zonal variant adds woodwind-and-trumpet melodic-elements and faster-tempo agitation. The genre seeded 1990s mangue-beat fusion-rock and remains central to Recife carnival.",
   "recipe": "classic Southern American mid-1700s maracatu, groove Percussion, Brazilian branch, Afro-diasporic ritual devotional bomba punta. thick, breath veiled tone, slow rate, interlocked note trading. wood rope tensioned maracatu tradition alfaia, caxixi, agogo, a cappella small 3 to 8 one per part call response single leader group response sub saharan call response ostinato polyrhythmic global traditional polyphonic choir ensemble, afoxe. estudio rozenblit recife. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 608,
-  "score": 217.715,
+  "score": 217.63,
   "config": {
     "traditions": [
       "maracatu",
@@ -72,7 +72,7 @@
           "caxixi_filling": "caxixi_beads"
         },
         "scores": {
-          "caxixi_size": 2.535,
+          "caxixi_size": 2.4495,
           "caxixi_filling": 0.65
         }
       },

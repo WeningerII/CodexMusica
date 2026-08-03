@@ -5,7 +5,7 @@
   "lineage": "Mande-and-Wolof West-African harvest-and-field song tradition continuous from premodern Mande-and-Wolof agricultural village-labor practice through colonial-period continuous performance into modern West-African-and-West-African-diaspora practice across Mali, Senegal, Guinea, Gambia, Burkina Faso; foundational repertoire integrates rice-planting and millet-harvesting and rice-pounding songs accompanying specific agricultural-tasks",
   "recipe": "classic East African modern mande-wolof west-african harvest-and-field song, field Work, sub saharan African branch, American south field work, sub saharan African praise song, African diasporic wedding shona mbira praise music yoruba oríkì. vocal fry, declaimed, straight note core, interlocked note trading. calabash nylon fishing line cowhide mande traditional kora, balafon. tanzanian outdoor village clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 477,
-  "score": 299.954,
+  "score": 291.324,
   "config": {
     "traditions": [
       "mande_wolof_harvest",
@@ -35,19 +35,19 @@
         },
         "scores": {
           "voice_register": 2.015,
-          "voice_quality": 22.313999999999993,
+          "voice_quality": 19.813999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 5.301500000000001,
           "voice_articulation": 18.2,
           "voice_microtone": 18.849999999999998,
-          "voice_tradition": 81.35775,
+          "voice_tradition": 77.84774999999999,
           "voice_mechanism_compound": 2.015,
           "voice_estill_quality": 1.235,
           "voice_speech_song": 26.065,
           "voice_ensemble_config": 18.134999999999998,
-          "voice_ornament_system": 27.079499999999996,
-          "voice_pitch_organization": 11.736249999999998,
+          "voice_ornament_system": 26.024499999999996,
+          "voice_pitch_organization": 10.486249999999998,
           "voice_processing_chain": 1.885,
           "voice_multitrack_stack": 2.015
         }
@@ -68,8 +68,8 @@
           "kora_strings": 0.45499999999999996,
           "kora_resonator": 3.38,
           "kora_strings_mat": 3.575,
-          "kora_top_skin": 6.828249999999999,
-          "kora_neck_wood": 4.8629999999999995,
+          "kora_top_skin": 6.723249999999999,
+          "kora_neck_wood": 4.757999999999999,
           "kora_lineage": 5.915000000000001
         }
       },
@@ -80,7 +80,7 @@
           "balafon_resonator": "balafon_gourd"
         },
         "scores": {
-          "balafon_tuning": 6.121749999999999,
+          "balafon_tuning": 6.016749999999999,
           "balafon_resonator": 0.09
         }
       }

@@ -5,7 +5,7 @@
   "lineage": "Mid-1960s American amateur-and-semi-professional rock style characterized by deliberately raw production, simple three-chord structure, fuzz-and-distortion guitar tone, and snarling vocal aggression. The Nuggets compilation (1972, edited by Lenny Kaye) canonized the canonical 1965-1968 American garage-punk recordings; The Sonics, ? and the Mysterians, the Standells, the Seeds, and Count Five constitute the canonical roster. Direct precursor of late-1970s punk rock.",
   "recipe": "classic North American 1965-1968 garage punk, distorted Rock, punk branch, regional distorted rock aussie pub rock greek rock. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit, psychedelic foregrounded organ driven rock selmer amp British 60s amp combo organ. scrappy 1980-2000 indie-commercial indie commercial us 80s. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 686,
-  "score": 415.376,
+  "score": 394.939,
   "config": {
     "traditions": [
       "garage_punk_60s",
@@ -34,14 +34,14 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 30.04999999999999,
+          "voice_register": 27.54999999999999,
           "voice_quality": 20.734999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.46,
           "voice_articulation": 16.704999999999995,
-          "voice_microtone": 27.99499999999999,
-          "voice_tradition": 17.89925,
+          "voice_microtone": 25.49499999999999,
+          "voice_tradition": 16.506749999999997,
           "voice_mechanism_compound": 5.070000000000002,
           "voice_estill_quality": 0.6499999999999999,
           "voice_speech_song": 16.704999999999995,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 0.6499999999999999,
           "voice_pitch_organization": 3.49,
           "voice_processing_chain": 9.825000000000001,
-          "voice_multitrack_stack": 8.605000000000002
+          "voice_multitrack_stack": 8.455000000000002
         }
       },
       {
@@ -70,7 +70,7 @@
         },
         "scores": {
           "electric_technique": 13.111249999999998,
-          "amp_make": 30.549999999999997,
+          "amp_make": 29.249999999999996,
           "body_wood": 1.405,
           "neck_wood": 1.405,
           "fretboard": 1.355,
@@ -80,7 +80,7 @@
           "bridge": 0,
           "scale_length": 1.51,
           "finish": 1.3,
-          "string_tuning": 20.929999999999996
+          "string_tuning": 19.629999999999995
         }
       },
       {
@@ -95,13 +95,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 14.104999999999997,
+          "amp_make": 12.804999999999996,
           "body_wood": 1.51,
           "pickup_config": 0,
-          "string_type": 35.425,
+          "string_type": 31.730249999999995,
           "scale_length_b": 1.405,
           "fretted_or_not": 0.195,
-          "bass_technique": 40.076499999999996
+          "bass_technique": 37.576499999999996
         }
       },
       {
@@ -112,7 +112,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 27.249999999999996,
+          "drum_technique": 24.749999999999996,
           "drumhead": 1.51,
           "drum_kit_kick_pedal": 0
         }
@@ -130,7 +130,7 @@
           "keyboard_technique": 1.3365,
           "combo_organ_model": 1.5,
           "combo_organ_voicing": 2.355,
-          "combo_organ_context": 14.169999999999998,
+          "combo_organ_context": 12.869999999999997,
           "amp_make": 2.3352500000000003
         }
       }

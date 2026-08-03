@@ -5,7 +5,7 @@
   "lineage": "Onmyōdō ('the way of yin and yang') was the Japanese esoteric cosmological practice of the Heian-period court, institutionalized in the Onmyōryō bureau and epitomized by the tenth-century master Abe no Seimei, blending Chinese yin-yang and Five-Phase theory with Daoist, Shinto, and Buddhist elements. Its ritual voice includes spells (ju), the recitation of formulae, and protective incantations accompanying divination, exorcism, and star-worship (such as rites to the Northern Dipper). Delivery is a measured, metrically-bound intonation of classical Chinese and Japanese formulae, learned through hereditary specialist lineages (the Abe/Tsuchimikado and Kamo houses). The tradition is documented in Heian court records and ritual manuals and persists in attenuated folk and reconstructed forms.",
   "recipe": "classic East Asian modern onmyōdō incantation, ritual Devotional, indigenous branch shipibo-conibo icaros healing songs sufi inshad. thick, breath veiled tone, slow rate, interlocked note trading. tatami parlor japanese. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 283,
-  "score": 273.243,
+  "score": 269.463,
   "config": {
     "traditions": [
       "onmyodo_incantation",
@@ -34,19 +34,19 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 3.055,
+          "voice_register": 2.8000000000000003,
           "voice_quality": 38.025000000000006,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 5.8695,
           "voice_articulation": 30.03000000000001,
-          "voice_microtone": 44.75250000000001,
+          "voice_microtone": 43.12750000000001,
           "voice_tradition": 21.742499999999996,
           "voice_mechanism_compound": 10.210500000000001,
           "voice_estill_quality": 11.732499999999998,
-          "voice_speech_song": 32.370000000000005,
+          "voice_speech_song": 31.720000000000006,
           "voice_ensemble_config": 32.30500000000001,
-          "voice_ornament_system": 17.950000000000003,
+          "voice_ornament_system": 16.700000000000003,
           "voice_pitch_organization": 8.018,
           "voice_processing_chain": 16.769999999999996,
           "voice_multitrack_stack": 3.575000000000001

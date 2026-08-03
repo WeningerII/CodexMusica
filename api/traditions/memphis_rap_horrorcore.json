@@ -5,7 +5,7 @@
   "lineage": "Mid-1990s-and-2000s Memphis Tennessee hip-hop subgenre characterized by dark-ominous-horror-influenced production (drawing on horror-film soundtrack samples), ultra-slow tempo with chopped vocal-delivery, and graphic violence-and-drug lyrical content. Three 6 Mafia (Memphis 1991-onward, founded by DJ Paul and Juicy J) is the canonical type-specimen with their 1995 Mystic Stylez and 2005 Academy-Award win for Hustle & Flow. Direct ancestor of phonk subgenre.",
   "recipe": "classic Los Angeles memphis rap, mc Rhythm, southern branch, us hip hop gangsta. vocal fry, rap, slow rate, interlocked note trading. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, sub bass analog synth. neve paired 1970-1995 mid-major la rock 70s 90s. passive ribbon, Neve 1073 inductor pre, colored vintage console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
   "recipe_chars": 425,
-  "score": 183.514,
+  "score": 179.602,
   "config": {
     "traditions": [
       "memphis_rap_horrorcore",
@@ -34,7 +34,7 @@
         },
         "scores": {
           "voice_register": 2.08,
-          "voice_quality": 23.363250000000004,
+          "voice_quality": 21.963250000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 5.850000000000001,
@@ -43,12 +43,12 @@
           "voice_tradition": 11.8855,
           "voice_mechanism_compound": 4.159999999999999,
           "voice_estill_quality": 4.16,
-          "voice_speech_song": 22.40725,
+          "voice_speech_song": 21.15725,
           "voice_ensemble_config": 13.584999999999992,
           "voice_ornament_system": 4.550000000000002,
           "voice_pitch_organization": 2.145,
-          "voice_processing_chain": 15.401499999999999,
-          "voice_multitrack_stack": 7.5075
+          "voice_processing_chain": 14.151499999999999,
+          "voice_multitrack_stack": 7.495500000000001
         }
       },
       {

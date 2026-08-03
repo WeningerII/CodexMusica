@@ -556,6 +556,40 @@ record(
   );
 }
 
+// 24. A foreign tradition's NAME reaches the picks -> check_name_isolation.js
+// The exact regression this gate exists for. buildContext takes
+// { includeName: false } so that neighbor-bias and hill-climbed staples read what
+// a neighbouring tradition SOUNDS like and not what it is CALLED. Restore the
+// name and the coupling comes straight back: a sibling's label becomes prose
+// tokens in the focal tradition's scoring context, and gear descriptors collect
+// bonuses from words that were never claims about sound. This is a one-word
+// defect (`false` -> `true`) with catalog-wide reach, which is exactly the kind
+// a reviewer waves through.
+{
+  const d = mkenv(['scripts', 'references']);
+  const f = path.join(d, 'scripts/score.js');
+  const src = fs.readFileSync(f, 'utf8');
+  const faulted = src.replace(
+    /buildContext\((n\.id|tradIds\[i\]), \{ includeName: false \}\)/g,
+    'buildContext($1, { includeName: true }) /* FAULT */'
+  );
+  if (faulted === src) {
+    // The call sites moved or were rewritten; fail loudly rather than record a
+    // pass for a fault that was never actually planted.
+    record('foreign-name-in-picks -> check_name_isolation.js', {
+      code: 0,
+      out: 'FAULT NOT PLANTED: no { includeName: false } call site found in score.js',
+    });
+  } else {
+    fs.writeFileSync(f, faulted);
+    record(
+      'foreign-name-in-picks -> check_name_isolation.js',
+      gate(d, ['scripts/check_name_isolation.js', '--sample=12']),
+      /DRIFT|drifted/i
+    );
+  }
+}
+
 // Registry-driven completeness: every promise-bound gate (_promises.js) must have
 // a fault class here, or "every gate is two-sided" is hollow. faults.js itself is
 // exempt (it is the injector); check_artifact_fresh's faults need --fresh-*, so

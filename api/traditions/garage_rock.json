@@ -5,7 +5,7 @@
   "lineage": "Mid-1960s American teenage-band rock-and-roll tradition characterized by raw production, basic three-chord songwriting, and amateur-virtuoso instrumental performance — codified through the original garage-rock canon documented on Nuggets (Lenny Kaye compilation, 1972): The Sonics, The Standells, ? and the Mysterians, The Seeds, Count Five, The Electric Prunes, with the form serving as the protopunk template",
   "recipe": "classic North American 1964-1966 garage rock, distorted Rock, classic branch, punk distorted rock hardcore punk. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ. concrete basement. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 697,
-  "score": 460.882,
+  "score": 448.088,
   "config": {
     "traditions": [
       "garage_rock",
@@ -27,14 +27,14 @@
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_gang_vocal_unison",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_vedic_three_tone",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 28.339999999999993,
+          "voice_register": 28.18999999999999,
           "voice_quality": 19.499999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -42,10 +42,10 @@
           "voice_articulation": 15.599999999999993,
           "voice_microtone": 28.049999999999997,
           "voice_tradition": 3.835,
-          "voice_mechanism_compound": 12.544999999999998,
+          "voice_mechanism_compound": 10.919999999999998,
           "voice_estill_quality": 2.5350000000000006,
           "voice_speech_song": 18.264999999999993,
-          "voice_ensemble_config": 18.004374999999996,
+          "voice_ensemble_config": 15.534999999999993,
           "voice_ornament_system": 0.19500000000000003,
           "voice_pitch_organization": 2.99,
           "voice_processing_chain": 7.57375,
@@ -69,8 +69,8 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 14.249999999999998,
-          "amp_make": 33.07187499999999,
+          "electric_technique": 11.749999999999998,
+          "amp_make": 29.521874999999994,
           "body_wood": 2.145,
           "neck_wood": 2.145,
           "fretboard": 2.0799999999999996,
@@ -101,7 +101,7 @@
           "string_type": 33.661874999999995,
           "scale_length_b": 2.145,
           "fretted_or_not": 0.195,
-          "bass_technique": 40.70062499999999
+          "bass_technique": 38.200624999999995
         }
       },
       {

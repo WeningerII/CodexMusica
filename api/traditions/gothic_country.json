@@ -5,7 +5,7 @@
   "lineage": "Dark-themed americana subgenre with Old Testament / Southern Gothic / murder-ballad subject matter — Sixteen Horsepower, Wovenhand, Murder by Death, the Handsome Family, early Johnny Cash American Recordings IV",
   "recipe": "classic Southern American mid-1970s gothic country, functional Song, americana branch, anglo singer song ballad poetry, honky tonk era country folk noir texas country-folk storyteller. thick, breath veiled tone, straight note core, interlocked note trading. travis picked parlor acoustic baritone electric guitar, folk autoharp, wood walnut warmer than maple mid tier scruggs stelling banjo 5 string. rural louisiana pine forest 1973-present mid tier in the country bogalusa. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 607,
-  "score": 277.612,
+  "score": 256.337,
   "config": {
     "traditions": [
       "gothic_country",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 35.525000000000006,
+          "voice_register": 30.524999999999995,
           "voice_quality": 8.71,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 20.484999999999996,
+          "voice_vibrato": 19.234999999999996,
           "voice_articulation": 12.024999999999993,
           "voice_microtone": 12.99999999999999,
-          "voice_tradition": 26.389999999999993,
+          "voice_tradition": 20.86499999999999,
           "voice_mechanism_compound": 4.29,
-          "voice_estill_quality": 23.714999999999996,
+          "voice_estill_quality": 22.464999999999996,
           "voice_speech_song": 19.174999999999994,
           "voice_ensemble_config": 12.739999999999995,
           "voice_ornament_system": 2.8600000000000008,
-          "voice_pitch_organization": 3.585000000000001,
+          "voice_pitch_organization": 2.935000000000001,
           "voice_processing_chain": 4.875,
           "voice_multitrack_stack": 1.56
         }
@@ -62,7 +62,7 @@
           "string_acoustic_parlor": "silk_steel_p"
         },
         "scores": {
-          "acoustic_technique": 34.434999999999995,
+          "acoustic_technique": 29.434999999999995,
           "string_tuning": 0.06499999999999999,
           "top_wood_parlor": 0.32999999999999996,
           "back_sides_parlor": 0.195,
@@ -80,7 +80,7 @@
         },
         "scores": {
           "acoustic_technique": 1.755,
-          "autoharp_chord_bars": 8.189999999999998,
+          "autoharp_chord_bars": 6.239999999999998,
           "autoharp_context": 6.76,
           "autoharp_strings": 0,
           "autoharp_body_wood": -1.455
@@ -100,7 +100,7 @@
         "scores": {
           "electric_technique": 0.745,
           "amp_make": 0.325,
-          "baritone_use": 2.34,
+          "baritone_use": 1.6899999999999997,
           "baritone_electric_tuning": 0.45499999999999996,
           "baritone_electric_scale": 0.585,
           "baritone_electric_strings": 0.39,

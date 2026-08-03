@@ -5,7 +5,7 @@
   "lineage": "Italian goliardic-and-drinking-song tradition continuous from medieval-Italian goliardic-Latin-student tradition (the same goliardic tradition documented in the German Carmina Burana manuscript has Italian-university analogues at Bologna, Padua, Pavia) through 19th-20th-century Italian university-fraternity drinking-song repertoire into modern Italian university-and-osteria continuous practice; foundational repertoire includes \"Gaudeamus igitur\" (Latin-international student-song)",
   "recipe": "classic modern italian canti goliardici, drinking Song, European branch, americas drinking song, iberian functional song, chanson fado ballad poetry morna cape verdean batuko of santiago island. vocal fry, breath veiled tone, slow rate, interlocked note trading. cedar concert modern carbon fiber fingerpicked classical nylon-string guitar. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 414,
-  "score": 256.827,
+  "score": 256.178,
   "config": {
     "traditions": [
       "italian_canti_goliardici",
@@ -48,7 +48,7 @@
           "voice_ensemble_config": 22.685,
           "voice_ornament_system": 23.825000000000003,
           "voice_pitch_organization": 4.245,
-          "voice_processing_chain": 8.255000000000003,
+          "voice_processing_chain": 7.605000000000003,
           "voice_multitrack_stack": 4.745
         }
       },

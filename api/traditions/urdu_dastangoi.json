@@ -5,7 +5,7 @@
   "lineage": "Urdu-Persian oral storytelling of the North Indian and Pakistani world, in which the dastango narrates the dastan — vast fantastical romance-cycles, above all the Dastan-e Amir Hamza and its magical Tilism-e Hoshruba — in ornate rhymed and rhythmic prose (saj). A coffeehouse and courtly art at its height in nineteenth-century Delhi and Lucknow, it faded after the death of the last classical dastango, Mir Baqir Ali, in 1928, and was revived in the 2000s by Mahmood Farooqui and S.R. Faruqi, often as a two-teller performance in white kurta on a plain sheet. Delivery is virtuosic, escalating declamation prizing verbal ornament, suspense and the sheer momentum of the narrating voice.",
   "recipe": "classic South Asian mid-2000s indian dastangoi / qissa urdu storytelling, ballad Poetry, indian bard branch jeju haenyeo songs swedish kulning herding-call. thick, breath veiled tone, slow rate, interlocked note trading. manganiyar haveli courtyard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 312,
-  "score": 290.487,
+  "score": 290.137,
   "config": {
     "traditions": [
       "urdu_dastangoi",
@@ -46,8 +46,8 @@
           "voice_estill_quality": 10.075,
           "voice_speech_song": 49.07500000000002,
           "voice_ensemble_config": 36.53000000000001,
-          "voice_ornament_system": 6.625,
-          "voice_pitch_organization": 8.0465,
+          "voice_ornament_system": 6.45,
+          "voice_pitch_organization": 7.8715,
           "voice_processing_chain": 10.205,
           "voice_multitrack_stack": 6.565000000000001
         }

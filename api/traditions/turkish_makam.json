@@ -3,9 +3,9 @@
   "name": "Turkish makam (classical)",
   "family": "classical",
   "lineage": "Ottoman-Turkish classical music tradition (Klasik Türk müziği) descended from the Ottoman court tradition and Mevlevi (Sufi whirling-dervish) ceremonial repertoire, organized through the makam modal system (~600 documented makams, ~150 in active use) and the usul (rhythmic-cycle) system; figures: Itri (1640-1712), Hammamizade İsmail Dede Efendi (1778-1846), and the modern recording-era voices Münir Nurettin Selçuk, Safiye Ayla, Zeki Müren",
-  "recipe": "classic Middle Eastern early-1640s turkish makam, art Music, middle eastern classical branch, Persian arab improv improv on frame tarab malhun. vocal fry, breath veiled tone, slow rate, interlocked note trading. rosewood premium iraqi Turkish Lebanese cedar eastern Mediterranean pyramid oud, metal finger picks maple body Turkish school qanun, arundo donax cane canonical Persian nine segment mevlevi Sufi konya tradition Turkish ney continuous-airflow legato ney, plum walnut ottoman legato kemence, continuous-airflow legato mey, apricot canonical anatolian ottoman arundo donax metal staple canonical ottoman zurna, tanbur persian. istanbul recording canon 1955-present mid tier istanbul makam kilic ali pasha studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 794,
-  "score": 649.658,
+  "recipe": "classic Middle Eastern early-1640s turkish makam, art Music, middle eastern classical branch, Persian arab improv improv on frame tarab malhun. vocal fry, breath veiled tone, slow rate, interlocked note trading. rosewood premium iraqi Turkish Lebanese cedar eastern Mediterranean la bella oud, metal finger picks maple body Turkish school qanun, arundo donax cane canonical Persian nine segment mevlevi Sufi konya tradition Turkish ney continuous-airflow legato ney, plum walnut ottoman legato kemence, continuous-airflow legato mey, apricot canonical anatolian ottoman arundo donax metal staple canonical ottoman zurna, tanbur persian. istanbul recording canon 1955-present mid tier istanbul makam kilic ali pasha studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 795,
+  "score": 624.171,
   "config": {
     "traditions": [
       "turkish_makam",
@@ -38,16 +38,16 @@
           "voice_quality": 10.399999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 28.300499999999996,
+          "voice_vibrato": 26.645499999999995,
           "voice_articulation": 13.324999999999996,
-          "voice_microtone": 44.4545,
-          "voice_tradition": 46.22099999999999,
-          "voice_mechanism_compound": 34.407999999999994,
-          "voice_estill_quality": 27.538499999999992,
-          "voice_speech_song": 24.382999999999992,
+          "voice_microtone": 42.7995,
+          "voice_tradition": 44.461,
+          "voice_mechanism_compound": 33.157999999999994,
+          "voice_estill_quality": 26.288499999999992,
+          "voice_speech_song": 23.132999999999992,
           "voice_ensemble_config": 12.544999999999996,
-          "voice_ornament_system": 39.145999999999994,
-          "voice_pitch_organization": 39.199999999999996,
+          "voice_ornament_system": 36.94599999999999,
+          "voice_pitch_organization": 36.99999999999999,
           "voice_processing_chain": 4.225,
           "voice_multitrack_stack": 6.434999999999999
         }
@@ -61,16 +61,16 @@
           "oud_pick": "risha_horn",
           "oud_body_wood": "oud_rosewood_body",
           "oud_soundboard_wood": "oud_lebanese_cedar_face",
-          "oud_string_material": "oud_pyramid_nylon"
+          "oud_string_material": "oud_la_bella_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 24.374999999999993,
-          "oud_school": 5.784999999999999,
-          "oud_strings": 12.674999999999997,
+          "plucked_traditional_technique": 23.124999999999993,
+          "oud_school": 5.134999999999999,
+          "oud_strings": 12.024999999999999,
           "oud_pick": 0.585,
-          "oud_body_wood": 5.914999999999998,
+          "oud_body_wood": 5.7559999999999985,
           "oud_soundboard_wood": 2.4050000000000002,
-          "oud_string_material": 5.329999999999999
+          "oud_string_material": 4.870999999999999
         }
       },
       {
@@ -85,11 +85,11 @@
           "qanun_string_material": "qanun_fluorocarbon"
         },
         "scores": {
-          "plucked_traditional_technique": 24.374999999999993,
-          "qanun_strings": 12.674999999999997,
+          "plucked_traditional_technique": 23.124999999999993,
+          "qanun_strings": 12.024999999999999,
           "qanun_levers": -0.35,
-          "qanun_pick": 13.259999999999996,
-          "qanun_body_wood": 5.329999999999998,
+          "qanun_pick": 12.609999999999996,
+          "qanun_body_wood": 5.230999999999998,
           "qanun_bridge_skin": 0.5594999999999999,
           "qanun_string_material": 0
         }
@@ -104,11 +104,11 @@
           "ney_lineage": "ney_sufi_mevlevi"
         },
         "scores": {
-          "wind_articulation": 24.656499999999994,
+          "wind_articulation": 23.406499999999994,
           "ney_use": 5.135,
-          "ney_pitch": 12.674999999999997,
+          "ney_pitch": 12.024999999999999,
           "ney_body_material": 3.6399999999999997,
-          "ney_lineage": 14.634499999999997
+          "ney_lineage": 14.484499999999997
         }
       },
       {
@@ -121,7 +121,7 @@
           "kemence_strings": "kemence_goat_gut_historical"
         },
         "scores": {
-          "bowed_technique": 24.374999999999993,
+          "bowed_technique": 23.124999999999993,
           "kemence_type": 10.015999999999998,
           "kemence_context": 15.73,
           "kemence_body_wood": 3.0949999999999993,
@@ -138,9 +138,9 @@
           "mey_reed": "mey_arundo_large_canonical"
         },
         "scores": {
-          "wind_articulation": 24.656499999999994,
+          "wind_articulation": 23.406499999999994,
           "mey_size": 4.744999999999999,
-          "mey_context": 12.674999999999997,
+          "mey_context": 12.024999999999999,
           "mey_body_wood": 0.831,
           "mey_reed": 0.9810000000000001
         }
@@ -172,7 +172,7 @@
           "tanbur_persian_string_material": "tanbur_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 24.374999999999993,
+          "plucked_traditional_technique": 23.124999999999993,
           "tanbur_use": 1.755,
           "tanbur_persian_strings": 6.044999999999999,
           "tanbur_persian_body_wood": 0.7695000000000001,

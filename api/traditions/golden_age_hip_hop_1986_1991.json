@@ -5,7 +5,7 @@
   "lineage": "The golden-age sampler-defined era of hip-hop, codified by the E-mu SP-1200 (released 1987) and Akai S950 (released 1988) drum-and-sampler workstations that enabled the boom-bap breakbeat-and-sample-collage production aesthetic — Public Enemy It Takes a Nation of Millions to Hold Us Back 1988 produced by the Bomb Squad (Hank Shocklee), Boogie Down Productions Criminal Minded 1987 produced by KRS-One and Scott La Rock, Eric B and Rakim Paid in Full 1987, EPMD Strictly Business 1988, A Tribe Called Quest The Low End Theory 1991, De La Soul 3 Feet High and Rising 1989, the broader Native Tongues collective",
   "recipe": "classic North American golden-age sample-collage hip-hop, mc Rhythm, east coast branch, funk percussive groove percussion minneapolis synth-funk-pop. thick, breath veiled tone, straight note core, interlocked note trading. chopped sampler, TR-808, sampled chopped turntable. bronx harlem hip hop pioneer defining 1979-1991 indie-commercial nyc bronx hip hop block party studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 509,
-  "score": 218.388,
+  "score": 214.638,
   "config": {
     "traditions": [
       "golden_age_hip_hop_1986_1991",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
         },
         "scores": {
-          "voice_register": 12.466499999999996,
+          "voice_register": 11.2165,
           "voice_quality": 15.599999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -48,7 +48,7 @@
           "voice_ensemble_config": 15.014999999999993,
           "voice_ornament_system": 2.990000000000001,
           "voice_pitch_organization": 0.825,
-          "voice_processing_chain": 15.464999999999998,
+          "voice_processing_chain": 12.964999999999998,
           "voice_multitrack_stack": 7.4315
         }
       },

@@ -3,14 +3,14 @@
   "name": "Icelandic rímur (epic-chant)",
   "family": "global",
   "lineage": "Icelandic rímur (singular ríma) epic-chant narrative tradition of Iceland, comprising sung-narrative cycles based on Old Norse sagas, Continental medieval romance, and biblical-and-classical sources. Origin documented from late fourteenth-century onward, with continuous transmission through Icelandic farmstead winter-evening-entertainment context (the kvöldvaka evening-vigil reading-and-singing gathering) into the twentieth century. Performance: solo unaccompanied chanting in characteristic narrow-range Phrygian-and-related modes, with the canonical poetic-meter ferskeytt four-line stanza form and elaborate alliterative-and-internal-rhyme conventions inherited from skaldic verse. The Iðunn society (founded 1929) and the Kvæðamannafélagið Iðunn (Iðunn Rímur-singer Society) anchor institutional preservation; the post-2000s neo-folk revival has reactivated the genre.",
-  "recipe": "classic mid-2000s icelandic rímur, ballad Poetry, Slavic bard branch, indigenous ritual devotional shipibo-conibo icaros healing songs hawaiian mele oli sacred-chant. thick, breath veiled tone, slow rate, interlocked note trading. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 310,
-  "score": 233.44,
+  "recipe": "classic mid-2000s icelandic rímur, ballad Poetry, Slavic bard branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. thick, breath veiled tone, slow rate, interlocked note trading. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 312,
+  "score": 232.36,
   "config": {
     "traditions": [
       "icelandic_rimur",
       "shipibo_icaros",
-      "hawaiian_oli_mele"
+      "mapuche_tayil_ritual"
     ],
     "instruments": [
       {
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_pythagorean",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 4.525,
-          "voice_quality": 29.575,
+          "voice_register": 3.5500000000000007,
+          "voice_quality": 40.300000000000004,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.835,
-          "voice_articulation": 25.285,
-          "voice_microtone": 24.7,
-          "voice_tradition": 36.66,
-          "voice_mechanism_compound": 9.520000000000001,
-          "voice_estill_quality": 8.775,
-          "voice_speech_song": 28.307500000000005,
-          "voice_ensemble_config": 26.715,
+          "voice_articulation": 24.765,
+          "voice_microtone": 24.375,
+          "voice_tradition": 22.620000000000005,
+          "voice_mechanism_compound": 10.770000000000001,
+          "voice_estill_quality": 11.764999999999997,
+          "voice_speech_song": 26.260000000000005,
+          "voice_ensemble_config": 27.04,
           "voice_ornament_system": 7.15,
           "voice_pitch_organization": 8.190000000000001,
-          "voice_processing_chain": 10.855,
-          "voice_multitrack_stack": 6.272500000000001
+          "voice_processing_chain": 13.844999999999999,
+          "voice_multitrack_stack": 5.720000000000001
         }
       }
     ],

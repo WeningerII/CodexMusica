@@ -5,7 +5,7 @@
   "lineage": "Country-blues tradition of the southern Atlantic seaboard (North Carolina, South Carolina, Virginia, Georgia) — characterized by alternating-thumb fingerpicking guitar accompaniment (the so-called Piedmont style), ragtime-influenced harmonic vocabulary, and a less mournful register than Delta blues — codified through Blind Boy Fuller, Reverend Gary Davis, Blind Blake, Sonny Terry and Brownie McGhee, with continuing transmission through the folk-revival pedagogical inheritance",
   "recipe": "classic mid-1930s piedmont blues, functional Song, blues acoustic branch, blues narrative ballad poetry classic blues women jug band. thick, worn fold, wide pitch sway, interlocked note trading. open g tuning parlor classic steel silk fingerpicked parlor acoustic guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. parlor. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 463,
-  "score": 517.603,
+  "score": 503.553,
   "config": {
     "traditions": [
       "piedmont_blues",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 58.38500000000001,
+          "voice_register": 57.13500000000001,
           "voice_quality": 9.25,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 46.74,
+          "voice_vibrato": 45.49,
           "voice_articulation": 16.769999999999996,
-          "voice_microtone": 43.285000000000004,
-          "voice_tradition": 24.96,
+          "voice_microtone": 42.035000000000004,
+          "voice_tradition": 24.31,
           "voice_mechanism_compound": 4.16,
           "voice_estill_quality": 9.82,
           "voice_speech_song": 18.459999999999997,
           "voice_ensemble_config": 16.184999999999995,
           "voice_ornament_system": 1.69,
           "voice_pitch_organization": 1.6899999999999997,
-          "voice_processing_chain": 8.905000000000001,
+          "voice_processing_chain": 7.6049999999999995,
           "voice_multitrack_stack": 2.7299999999999995
         }
       },
@@ -66,7 +66,7 @@
           "string_tuning": 10.125,
           "top_wood_parlor": 0.78,
           "back_sides_parlor": 0.21,
-          "string_acoustic_parlor": 2.0149999999999997
+          "string_acoustic_parlor": 1.365
         }
       },
       {
@@ -81,11 +81,11 @@
         },
         "scores": {
           "harmonica_type": 2.7299999999999995,
-          "harmonica_comb": 54.95000000000001,
-          "harmonica_reed": 42.40000000000001,
-          "harmonica_technique": 47.82,
-          "harmonica_maker_school": 56.485000000000014,
-          "harmonica_tuning": 21.645000000000003
+          "harmonica_comb": 53.050000000000004,
+          "harmonica_reed": 41.15000000000001,
+          "harmonica_technique": 46.57,
+          "harmonica_maker_school": 53.835,
+          "harmonica_tuning": 20.995000000000005
         }
       }
     ],

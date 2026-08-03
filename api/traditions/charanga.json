@@ -3,9 +3,9 @@
   "name": "Charanga",
   "family": "global",
   "lineage": "Cuban orquesta-charanga light-flute-and-violin orchestral-dance ensemble derived from danzón-orquesta-típica modernization 1920s-onward, codified into the canonical charanga-francesa instrumentation by 1930s. The ensemble: solo wooden five-key flute, two-to-four violins, piano, contrabass, timbales, congas, and güiro. Initially attached to danzón-cubano repertoire, charanga expanded into danzonete, cha-cha-chá, mambo-charanga, and pachanga (Eduardo Davidson 1959 innovation) as the genre absorbed son-cubano-and-mambo influences. The charanga-soneando style 1960s-onward incorporated trombone-and-trumpet-and-saxophone via the salsa-Nuyorican charanga-orquesta hybridization. Modern charanga revival 1990s-onward foregrounds the flute-violin texture as the canonical timba alternative-to-brass.",
-  "recipe": "classic Caribbean mid-1920s charanga, groove Percussion, charanga danza branch, son salsa Cuban son cubano guaracha. extended whistle, full chest belt, fast rate, interlocked note trading. yamaha modern Japanese mid to premium flute, sitka spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral, no chemical hardener t rivet beech laminated maple laminated European tradition grand piano, upright bass, brass open slap hand drum timbales, guiro, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas. Cuban state recording 1962-present mid tier estudios areito havana. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 739,
-  "score": 236.291,
+  "recipe": "classic Caribbean mid-1920s charanga, groove Percussion, charanga danza branch, son salsa Cuban son cubano guaracha. extended whistle, full chest belt, fast rate, interlocked note trading. yamaha modern Japanese mid to premium flute, sitka spruce bigleaf maple western maple French Polish shellac pad violin orchestral, no chemical hardener t rivet beech laminated maple laminated European tradition grand piano, upright bass, brass open slap hand drum timbales, guiro, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas. Cuban state recording 1962-present mid tier estudios areito havana. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 736,
+  "score": 235.082,
   "config": {
     "traditions": [
       "charanga",
@@ -35,7 +35,7 @@
         },
         "scores": {
           "voice_register": 4.16,
-          "voice_quality": 17.504999999999995,
+          "voice_quality": 16.754999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.39,
@@ -75,7 +75,7 @@
           "bowed_technique": "bowed_pizzicato",
           "orch_strings": "steel_orch",
           "orch_top_wood": "sitka_spruce_violin_top",
-          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_back_wood": "bigleaf_western_maple_violin",
           "orch_varnish": "french_polish_violin",
           "orch_setup_period": "modern_setup_violin",
           "orch_bow": "baroque_bow",
@@ -87,7 +87,7 @@
           "bowed_technique": 2.45,
           "orch_strings": 0.91,
           "orch_top_wood": 7.800000000000001,
-          "orch_back_wood": 2.969,
+          "orch_back_wood": 2.89,
           "orch_varnish": 2.59,
           "orch_setup_period": 3.77,
           "orch_bow": 2.73,
@@ -101,7 +101,7 @@
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
           "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "steinway_d",
+          "grand_piano_brand": "yamaha_cfx",
           "piano_hammer": "abel_hammer",
           "piano_rim": "european_laminated_rim_beech_maple",
           "piano_soundboard": "sitka_spruce_diaphragmatic",
@@ -112,7 +112,7 @@
         "scores": {
           "keyboard_technique": 0.52,
           "grand_piano_size": 1,
-          "grand_piano_brand": 1.1849999999999998,
+          "grand_piano_brand": 0.91,
           "piano_hammer": 3.45,
           "piano_rim": 3.4175,
           "piano_soundboard": 3.2875,
@@ -142,7 +142,7 @@
         "scores": {
           "percussion_technique": 5.6775,
           "timbales_shell": 7.215,
-          "timbales_context": 5.11325
+          "timbales_context": 5.008249999999999
         }
       },
       {
