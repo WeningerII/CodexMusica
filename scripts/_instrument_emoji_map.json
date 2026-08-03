@@ -1,5 +1,5 @@
 {
-  "_doc": "Codex instrument ID → Twemoji codepoint. Maps only where an emoji is a genuine visual representation of the instrument's family. Instruments without an entry here fall through to the family-color swatch (existing UX). License: CC-BY 4.0 (Twemoji).",
+  "_doc": "Codex instrument ID \u2192 Twemoji codepoint. Maps only where an emoji is a genuine visual representation of the instrument's family. Instruments without an entry here fall through to the family-color swatch (existing UX). License: CC-BY 4.0 (Twemoji).",
   "_family_fallback": {
     "_doc": "Per-family fallback codepoint. Used by image() when an instrument has no direct emoji mapping. Generic but never empty.",
     "acoustic_strings": "1f3b8",
@@ -15,7 +15,7 @@
     "wind": "1fa88"
   },
   "guitar_1f3b8": {
-    "_emoji": "🎸",
+    "_emoji": "\ud83c\udfb8",
     "ids": [
       "acoustic_guitar_dread",
       "acoustic_guitar_om",
@@ -77,24 +77,23 @@
     ]
   },
   "saxophone_1f3b7": {
-    "_emoji": "🎷",
+    "_emoji": "\ud83c\udfb7",
     "ids": [
       "saxophone"
     ]
   },
   "trumpet_1f3ba": {
-    "_emoji": "🎺",
+    "_emoji": "\ud83c\udfba",
     "ids": [
       "trumpet",
       "cornet",
       "flugelhorn",
       "kakaki",
-      "tibetan_dungchen",
       "dung_chen"
     ]
   },
   "violin_1f3bb": {
-    "_emoji": "🎻",
+    "_emoji": "\ud83c\udfbb",
     "ids": [
       "violin_orchestral",
       "violin_carnatic",
@@ -130,7 +129,7 @@
     ]
   },
   "drum_1f941": {
-    "_emoji": "🥁",
+    "_emoji": "\ud83e\udd41",
     "ids": [
       "drum_kit",
       "timpani",
@@ -158,7 +157,7 @@
     ]
   },
   "piano_1f3b9": {
-    "_emoji": "🎹",
+    "_emoji": "\ud83c\udfb9",
     "ids": [
       "grand_piano",
       "upright_piano",
@@ -181,14 +180,14 @@
     ]
   },
   "banjo_1fa95": {
-    "_emoji": "🪕",
+    "_emoji": "\ud83e\ude95",
     "ids": [
       "banjo_5_string",
       "frottoir"
     ]
   },
   "accordion_1fa97": {
-    "_emoji": "🪗",
+    "_emoji": "\ud83e\ude97",
     "ids": [
       "accordion",
       "piano_accordion",
@@ -202,7 +201,7 @@
     ]
   },
   "long_drum_1fa98": {
-    "_emoji": "🪘",
+    "_emoji": "\ud83e\ude98",
     "ids": [
       "djembe",
       "congas",
@@ -243,7 +242,7 @@
     ]
   },
   "flute_1fa88": {
-    "_emoji": "🪈",
+    "_emoji": "\ud83e\ude88",
     "ids": [
       "flute",
       "alto_flute",
@@ -272,7 +271,7 @@
     ]
   },
   "maracas_1fa87": {
-    "_emoji": "🪇",
+    "_emoji": "\ud83e\ude87",
     "ids": [
       "maracas",
       "shekere",
@@ -289,7 +288,7 @@
     ]
   },
   "postal_horn_1f4ef": {
-    "_emoji": "📯",
+    "_emoji": "\ud83d\udcef",
     "ids": [
       "french_horn",
       "trombone",
@@ -303,7 +302,7 @@
     ]
   },
   "studio_mic_1f399": {
-    "_emoji": "🎙",
+    "_emoji": "\ud83c\udf99",
     "ids": [
       "voice",
       "throat_singing_voice",
@@ -312,7 +311,7 @@
     ]
   },
   "busts_1f465": {
-    "_emoji": "👥",
+    "_emoji": "\ud83d\udc65",
     "ids": [
       "choir_ensemble",
       "griot_voice",
@@ -334,7 +333,7 @@
     ]
   },
   "knobs_1f39b": {
-    "_emoji": "🎛",
+    "_emoji": "\ud83c\udf9b",
     "ids": [
       "analog_mono_synth",
       "analog_poly_synth",
@@ -361,14 +360,14 @@
     ]
   },
   "disc_1f4bf": {
-    "_emoji": "💿",
+    "_emoji": "\ud83d\udcbf",
     "ids": [
       "turntable"
     ]
   },
-  "_unmapped_note": "All other instruments (sitar, oud, kora, sarod, mbira, kalimba, balafon, marimba, vibraphone, glockenspiel, xylophone, gongs, cymbals, koto, gayageum, geomungo, sho_mouth_organ, hulusi, khaen, bawu, sheng, bagpipes including highland_bagpipes/uilleann_pipes/biniou/gaida_bulgarian/etc., harps including celtic_harp/concert_harp/arpa_jarocha/arpa_llanera/kora, dulcimer family, autoharp, jug_inst, kazoo, ensemble jazz/marching/big band, gamelan ensembles, etc.) intentionally have no emoji mapping — they fall through to family-color swatch. Their cultural / visual identity is not adequately served by the Unicode emoji set.",
+  "_unmapped_note": "All other instruments (sitar, oud, kora, sarod, mbira, kalimba, balafon, marimba, vibraphone, glockenspiel, xylophone, gongs, cymbals, koto, gayageum, geomungo, sho_mouth_organ, hulusi, khaen, bawu, sheng, bagpipes including highland_bagpipes/uilleann_pipes/biniou/gaida_bulgarian/etc., harps including celtic_harp/concert_harp/arpa_jarocha/arpa_llanera/kora, dulcimer family, autoharp, jug_inst, kazoo, ensemble jazz/marching/big band, gamelan ensembles, etc.) intentionally have no emoji mapping \u2014 they fall through to family-color swatch. Their cultural / visual identity is not adequately served by the Unicode emoji set.",
   "_family_header": {
-    "_doc": "Per-family HEADER codepoint — the glyph on a family heading in the instrument picker. Separate from _family_fallback because these must be mutually distinct to be worth showing, while the fallbacks are per-instrument art: acoustic, electric and plucked-traditional all fall back to the guitar, which is right on a card thumbnail and useless on three adjacent headings.",
+    "_doc": "Per-family HEADER codepoint \u2014 the glyph on a family heading in the instrument picker. Separate from _family_fallback because these must be mutually distinct to be worth showing, while the fallbacks are per-instrument art: acoustic, electric and plucked-traditional all fall back to the guitar, which is right on a card thumbnail and useless on three adjacent headings.",
     "acoustic_strings": "1f3b8",
     "bowed": "1f3bb",
     "electric_strings": "1f50c",

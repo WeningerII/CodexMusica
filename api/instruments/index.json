@@ -1,5 +1,5 @@
 {
-  "count": 872,
+  "count": 871,
   "items": [
     {
       "id": "choir_ensemble",
@@ -2112,12 +2112,6 @@
       "name": "Kenong (gamelan large-pot gong)",
       "family": "percussion",
       "href": "instruments/kenong.json"
-    },
-    {
-      "id": "tibetan_dungchen",
-      "name": "Dungchen (Tibetan long horn)",
-      "family": "wind",
-      "href": "instruments/tibetan_dungchen.json"
     },
     {
       "id": "tibetan_gyaling",

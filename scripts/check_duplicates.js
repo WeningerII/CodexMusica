@@ -8,9 +8,10 @@
 // validate.js catches id collisions. Nothing caught the ones that matter at
 // this size: two records for the same real thing under different ids, and two
 // different things whose display labels are indistinguishable. Both are already
-// in the catalog — `tibetan_dungchen` and `dung_chen` are one Tibetan long horn
-// entered twice, and `tar_persian` / `tar_azerbaijani` are two genuinely
-// different instruments that both print as "tar".
+// in the catalog when this gate was written: `tibetan_dungchen` / `dung_chen`
+// were one Tibetan long horn entered twice (since merged), and `tar_persian` /
+// `tar_azerbaijani` are two genuinely different instruments that both print as
+// "tar".
 //
 // It matters most going forward: importing genres from an external list is a
 // duplicate-generating operation by nature, because the same genre travels

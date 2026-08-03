@@ -4,12 +4,6 @@
   "rulings": [
     {
       "kind": "instrument",
-      "pair": ["tibetan_dungchen", "dung_chen"],
-      "verdict": "duplicate",
-      "note": "one Tibetan long horn entered twice — same family and class, axes agree, and tibetan_dungchen is referenced by no tradition while dung_chen is used by one. Needs a merge decision (which record survives, and whether its parts are the richer set) before either is deleted, so it is recorded rather than silently resolved."
-    },
-    {
-      "kind": "instrument",
       "pair": ["tar_persian", "tar_azerbaijani"],
       "verdict": "open",
       "note": "two genuinely different instruments, so NOT a data duplicate — but both print as 'tar', which breaks the catalog-wide unique-short-label invariant and makes a recipe naming one unreadable. The fix is a label rename, not a delete; it churns the rendered recipe for the three traditions that use them, so it is left for a deliberate pass."

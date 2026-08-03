@@ -62,7 +62,7 @@ recipe**: which instruments and part variants, in which room, through which
 signal chain and medium, each instrument carrying a named *preface* (an
 aesthetic/technique/delivery signature such as `satirical`, `keening`,
 `jhala-cascading`) that determines its physical settings. It resolves those words
-against a bundled catalog of **1145 recorded-music traditions, 872 instruments,
+against a bundled catalog of **1145 recorded-music traditions, 871 instruments,
 741 prefaces, 256 rooms and 120 tunings** [RAN: `node -e "import('./mcp/engine.js').then(E=>console.log(E.counts))"`
 and `listOptions({kind:'rooms'|'tunings'})`], seeds a tradition's deterministic
 default recipe, and then edits it in place — re-picking a preface, swapping a

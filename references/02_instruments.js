@@ -9898,28 +9898,6 @@ const INSTRUMENTS = [
     ]
   },
   {
-    id: 'tibetan_dungchen',
-    name: 'Dungchen (Tibetan long horn)',
-    family: 'wind',
-    class: 'brass',
-    axes: { pitchFix: -1, sustain: 2, polyphony: -2, harmonicity: -2, register: -2, range: -1, articulation: 0, transduction: -2, dynamics: 1 },
-    short: 'dungchen',
-    parts: [
-      { id: 'dungchen_length', name: 'Length', variants: [
-        { id: 'dungchen_extended', default: true, name: 'Extended ceremonial (3-4m, telescoping)', descriptors: ['drone-sustained', 'low-fundamental-tuning', 'ceremonial', 'brass', 'tibetan-buddhist'], match_tokens: ['long-horn', 'tibetan-ritual'] },
-      ] },
-      { id: 'dungchen_body_metal', surface: false, name: 'Body metal', variants: [
-        { id: 'dungchen_copper_brass_canonical', default: true, name: 'Hammered copper-brass telescoping sections (canonical Tibetan)', descriptors: ['hammered-copper-brass-telescoping-canonical-tibetan'], match_tokens: ['long-horn', 'tibetan-ritual'] },
-        { id: 'dungchen_silver_ornament', name: 'Silver-ornamented sections (premium monastic)', descriptors: ['silver-ornamented-premium-monastic'], match_tokens: ['long-horn', 'tibetan-ritual'] },
-      ] },
-      { id: 'dungchen_lineage', surface: false, name: 'Monastic tradition', variants: [
-        { id: 'dungchen_gelug_canonical', default: true, name: 'Gelug monastic (canonical Tibetan Buddhist liturgy)', descriptors: ['gelug-canonical-tibetan-buddhist-liturgy'], match_tokens: ['long-horn', 'tibetan-ritual'] },
-        { id: 'dungchen_kagyu', name: 'Kagyu monastic', descriptors: ['kagyu-monastic'], match_tokens: ['long-horn', 'tibetan-ritual'] },
-        { id: 'dungchen_nyingma', name: 'Nyingma monastic', descriptors: ['nyingma-monastic'], match_tokens: ['long-horn', 'tibetan-ritual'] },
-      ] },
-    ]
-  },
-  {
     id: 'tibetan_gyaling',
     name: 'Gyaling (Tibetan double-reed oboe)',
     family: 'wind',
@@ -10710,11 +10688,17 @@ const INSTRUMENTS = [
     axes: { pitchFix: -1, sustain: 2, polyphony: -2, harmonicity: 0, register: -2, range: -1, articulation: 1, transduction: -2, dynamics: 2 },
     short: 'dung chen',
     parts: [
+      { id: 'dung_chen_length', name: 'Length', variants: [
+        { id: 'dung_chen_extended', default: true, name: 'Extended ceremonial (3-4m, telescoping)', descriptors: ['drone-sustained', 'low-fundamental-tuning', 'ceremonial', 'brass', 'tibetan-buddhist'], match_tokens: ['long-trumpet', 'tibetan-tradition'] },
+      ] },
       { id: 'dung_chen_body', name: 'Body', variants: [
         { id: 'dung_chen_copper_brass_silver_inlay_canonical', default: true, name: 'Copper or brass telescoping body with silver inlay (canonical)', descriptors: ['copper-brass-telescoping-silver-inlay-canonical-tibetan-build'], match_tokens: ['long-trumpet', 'tibetan-tradition'] },
+        { id: 'dung_chen_silver_ornament', name: 'Silver-ornamented sections (premium monastic)', descriptors: ['silver-ornamented-premium-monastic'], match_tokens: ['long-trumpet', 'tibetan-tradition'] },
       ] },
       { id: 'dung_chen_tradition', surface: false, name: 'Performance tradition', variants: [
         { id: 'dung_chen_gelug_yang_chant_canonical', default: true, name: 'Gelug monastic yang-chant ritual (canonical)', descriptors: ['gelug-monastic-yang-chant-ritual-canonical'], match_tokens: ['long-trumpet', 'tibetan-tradition'] },
+        { id: 'dung_chen_kagyu', name: 'Kagyu monastic', descriptors: ['kagyu-monastic'], match_tokens: ['long-trumpet', 'tibetan-tradition'] },
+        { id: 'dung_chen_nyingma', name: 'Nyingma monastic', descriptors: ['nyingma-monastic'], match_tokens: ['long-trumpet', 'tibetan-tradition'] },
       ] },
     ]
   },

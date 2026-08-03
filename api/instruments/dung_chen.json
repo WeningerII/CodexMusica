@@ -17,6 +17,28 @@
   "short": "dung chen",
   "parts": [
     {
+      "id": "dung_chen_length",
+      "name": "Length",
+      "variants": [
+        {
+          "id": "dung_chen_extended",
+          "default": true,
+          "name": "Extended ceremonial (3-4m, telescoping)",
+          "descriptors": [
+            "drone-sustained",
+            "low-fundamental-tuning",
+            "ceremonial",
+            "brass",
+            "tibetan-buddhist"
+          ],
+          "match_tokens": [
+            "long-trumpet",
+            "tibetan-tradition"
+          ]
+        }
+      ]
+    },
+    {
       "id": "dung_chen_body",
       "name": "Body",
       "variants": [
@@ -26,6 +48,17 @@
           "name": "Copper or brass telescoping body with silver inlay (canonical)",
           "descriptors": [
             "copper-brass-telescoping-silver-inlay-canonical-tibetan-build"
+          ],
+          "match_tokens": [
+            "long-trumpet",
+            "tibetan-tradition"
+          ]
+        },
+        {
+          "id": "dung_chen_silver_ornament",
+          "name": "Silver-ornamented sections (premium monastic)",
+          "descriptors": [
+            "silver-ornamented-premium-monastic"
           ],
           "match_tokens": [
             "long-trumpet",
@@ -45,6 +78,28 @@
           "name": "Gelug monastic yang-chant ritual (canonical)",
           "descriptors": [
             "gelug-monastic-yang-chant-ritual-canonical"
+          ],
+          "match_tokens": [
+            "long-trumpet",
+            "tibetan-tradition"
+          ]
+        },
+        {
+          "id": "dung_chen_kagyu",
+          "name": "Kagyu monastic",
+          "descriptors": [
+            "kagyu-monastic"
+          ],
+          "match_tokens": [
+            "long-trumpet",
+            "tibetan-tradition"
+          ]
+        },
+        {
+          "id": "dung_chen_nyingma",
+          "name": "Nyingma monastic",
+          "descriptors": [
+            "nyingma-monastic"
           ],
           "match_tokens": [
             "long-trumpet",
@@ -56,6 +111,28 @@
   ],
   "_ownParts": [
     {
+      "id": "dung_chen_length",
+      "name": "Length",
+      "variants": [
+        {
+          "id": "dung_chen_extended",
+          "default": true,
+          "name": "Extended ceremonial (3-4m, telescoping)",
+          "descriptors": [
+            "drone-sustained",
+            "low-fundamental-tuning",
+            "ceremonial",
+            "brass",
+            "tibetan-buddhist"
+          ],
+          "match_tokens": [
+            "long-trumpet",
+            "tibetan-tradition"
+          ]
+        }
+      ]
+    },
+    {
       "id": "dung_chen_body",
       "name": "Body",
       "variants": [
@@ -65,6 +142,17 @@
           "name": "Copper or brass telescoping body with silver inlay (canonical)",
           "descriptors": [
             "copper-brass-telescoping-silver-inlay-canonical-tibetan-build"
+          ],
+          "match_tokens": [
+            "long-trumpet",
+            "tibetan-tradition"
+          ]
+        },
+        {
+          "id": "dung_chen_silver_ornament",
+          "name": "Silver-ornamented sections (premium monastic)",
+          "descriptors": [
+            "silver-ornamented-premium-monastic"
           ],
           "match_tokens": [
             "long-trumpet",
@@ -84,6 +172,28 @@
           "name": "Gelug monastic yang-chant ritual (canonical)",
           "descriptors": [
             "gelug-monastic-yang-chant-ritual-canonical"
+          ],
+          "match_tokens": [
+            "long-trumpet",
+            "tibetan-tradition"
+          ]
+        },
+        {
+          "id": "dung_chen_kagyu",
+          "name": "Kagyu monastic",
+          "descriptors": [
+            "kagyu-monastic"
+          ],
+          "match_tokens": [
+            "long-trumpet",
+            "tibetan-tradition"
+          ]
+        },
+        {
+          "id": "dung_chen_nyingma",
+          "name": "Nyingma monastic",
+          "descriptors": [
+            "nyingma-monastic"
           ],
           "match_tokens": [
             "long-trumpet",
