@@ -23,6 +23,100 @@ const PORT = process.env.PORT || 3000;
 const MCP_PATH = process.env.MCP_PATH || '/mcp';
 
 const app = express();
+
+// ─────────────────────── inbound request log ───────────────────────
+//
+// WHY THIS EXISTS. Before this line existed, the entire server read req.headers
+// exactly twice — both times in rest.js, only to build self-links — and recorded
+// nothing at all about who called it. That made every external reachability test
+// we ran unfalsifiable: the sole evidence that a model had actually fetched one
+// of our URLs was the model SAYING it had, and Google documents that Gemini will
+// report a fetch it never performed. We were reading prose as an experimental
+// result. A "yes I loaded it" that the server cannot corroborate is not data;
+// this line is what turns the next test into one that can come back negative.
+//
+// ORDER MATTERS, so it is mounted first — ahead of express.json() and ahead of
+// the CORS block below, which answers OPTIONS with 204 and returns. Mounted any
+// later, two whole classes of call would stay invisible: preflights, and bodies
+// that fail to parse (express.json() raises its own 400 before any route runs).
+// Those are precisely the requests a caller reports to us as "your server never
+// answered", so they are the ones we can least afford to be missing.
+//
+// EMITTED ON COMPLETION rather than on arrival, so `status` and `ms` are the
+// values that really happened instead of a guess made before the handler ran.
+// 'close' is bound alongside 'finish' because a caller that hangs up mid-response
+// — an agent harness hitting its own timeout — fires only 'close'; a request that
+// vanishes is exactly the case worth having on the record, and `aborted`
+// separates it from a clean finish. The once-guard is because a normal response
+// fires both. Read `status` on an aborted line as the code the server had staged,
+// not one any caller received.
+//
+// ONE JSON LINE, FIXED KEYS, so the log is greppable and machine-parsable
+// (`grep '"ev":"http"' | jq 'select(.ua|test("GPTBot"))'`) instead of prose that
+// has to be re-parsed by hand each time we ask a new question of it. Render
+// captures stdout as the service log, so stdout is the destination; the existing
+// [mcp] line stays on stderr.
+//
+// NO BODIES. This endpoint is public and unauthenticated, so anything logged is
+// volume we did not choose and content we did not vet. REST callers already put
+// their whole call in the URL, which is logged; MCP arguments live in the body,
+// which is not.
+const HEADER_LOG_LIMIT = 300;
+
+// Header values are attacker-controlled and unbounded in practice, so they get a
+// ceiling. The URL does not need one: Node caps the whole request head at 16 KB,
+// and truncating a query string would defeat the point of logging it.
+function logHeader(req, name) {
+  const raw = req.headers[name];
+  if (raw == null) return null;
+  const flat = Array.isArray(raw) ? raw.join(', ') : String(raw);
+  return flat.length > HEADER_LOG_LIMIT ? `${flat.slice(0, HEADER_LOG_LIMIT)}...` : flat;
+}
+
+app.use((req, res, next) => {
+  // Monotonic: a clock step during the request must not produce a negative or
+  // wildly inflated duration, which is the failure mode of Date.now() here.
+  const startedAt = process.hrtime.bigint();
+  let emitted = false;
+  let finished = false;
+  const emit = () => {
+    if (emitted) return;
+    emitted = true;
+    try {
+      const ms = Number(process.hrtime.bigint() - startedAt) / 1e6;
+      console.log(
+        JSON.stringify({
+          ev: 'http',
+          t: new Date().toISOString(),
+          method: req.method,
+          url: req.originalUrl,
+          status: res.statusCode,
+          ms: Number(ms.toFixed(1)),
+          ua: logHeader(req, 'user-agent'),
+          referer: logHeader(req, 'referer'),
+          xff: logHeader(req, 'x-forwarded-for'),
+          aborted: !finished,
+        })
+      );
+    } catch {
+      // A log line is never worth a request. The caller already has its response
+      // by the time this runs, and there is nowhere useful to report to anyway —
+      // reporting is the thing that just failed.
+    }
+  };
+  // `aborted` is derived from whether 'finish' actually fired, and deliberately
+  // not from res.writableFinished: measured against this server, writableFinished
+  // is still true after the peer has vanished (a response written into a dead
+  // socket "completes" from the writer's side), which made it a flag that could
+  // never be true and therefore worth nothing.
+  res.on('finish', () => {
+    finished = true;
+    emit();
+  });
+  res.on('close', emit);
+  next();
+});
+
 app.use(express.json({ limit: '2mb' }));
 
 // Permissive CORS so browser-based MCP clients / the Inspector can connect.
