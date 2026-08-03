@@ -183,6 +183,61 @@ const check = (name, got, want, detail) => {
   check('unknown BUILT_SHA -> hard error (not a publish)', bogus.code, 1, bogus.out);
 }
 
+// ── 7. The WORKFLOW actually reaches the guard. ─────────────────────────────
+// Cases 1-6 prove the script decides correctly. They proved nothing about
+// whether sync-pages.yml calls it correctly, and the first live run failed on
+// exactly that gap: BUILT_SHA was assigned as a plain shell variable, so the
+// guard — a child process — never saw it and refused to run. Testing a script
+// in isolation while its only caller is broken is the shape of a green suite
+// over a broken pipeline, so the wiring is asserted here too.
+{
+  const wf = fs.readFileSync(path.join(ROOT, '.github', 'workflows', 'sync-pages.yml'), 'utf8');
+  const callsGuard = /publish_guard\.sh/.test(wf);
+  check('workflow invokes the guard', callsGuard ? 1 : 0, 1);
+
+  // BUILT_SHA must cross the process boundary: either exported, or set inline on
+  // the guard invocation itself.
+  const exported =
+    /^\s*export\s+BUILT_SHA\b/m.test(wf) || /BUILT_SHA=\S+\s+bash\s+\S*publish_guard\.sh/.test(wf);
+  check('workflow exports BUILT_SHA so the child process sees it', exported ? 1 : 0, 1, wf);
+
+  // Exit 10 must be treated as a clean no-op, not a failure.
+  const handlesTen = /\b10\b/.test(wf) && /publish_guard/.test(wf);
+  check('workflow handles the stand-down exit code', handlesTen ? 1 : 0, 1);
+
+  // Ordering assertions run over EXECUTABLE lines only. Both this file and the
+  // workflow discuss `git checkout -B main` in prose, and matching a comment
+  // instead of the command is how an ordering check silently measures nothing.
+  const codeLines = wf
+    .split('\n')
+    .map((l, i) => ({ i, t: l.trim() }))
+    .filter((l) => l.t && !l.t.startsWith('#'));
+  const lineOf = (needle) => {
+    const hit = codeLines.find((l) => l.t.includes(needle));
+    return hit ? hit.i : -1;
+  };
+  const guardLine = lineOf('publish_guard.sh');
+  const switchLine = lineOf('git checkout -B main');
+  const shaLine = lineOf('BUILT_SHA=$(git rev-parse HEAD)');
+
+  // The guard has to run BEFORE the branch switch clobbers what we built.
+  check(
+    'guard runs before the branch switch',
+    guardLine >= 0 && switchLine > guardLine ? 1 : 0,
+    1,
+    `guard@${guardLine} switch@${switchLine}`
+  );
+
+  // And BUILT_SHA must be captured before that switch, or it names main's tip —
+  // the original defect that made every stale publish look correctly labelled.
+  check(
+    'BUILT_SHA captured before the branch switch',
+    shaLine >= 0 && switchLine > shaLine ? 1 : 0,
+    1,
+    `sha@${shaLine} switch@${switchLine}`
+  );
+}
+
 console.log('=== Publish guard (stale-artifact race) ===');
 const failed = results.filter((r) => !r.ok);
 console.log(`  ${results.length - failed.length}/${results.length} case(s) behaved`);
