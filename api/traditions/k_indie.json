@@ -3,14 +3,14 @@
   "name": "K-indie (Korean indie)",
   "family": "pop",
   "lineage": "2000s and 2010s Korean independent music scene developing alongside the broader K-pop industry but with distinctly indie-rock and folk-rock aesthetic. Hongdae neighborhood of Seoul anchors institutional infrastructure (the area's many small-venues, including FF Club, V-Hall, and Club Spot). Hyukoh, Jaurim, Jannabi, Crying Nut (foundational 1990s), and the broader Magic Strawberry Sound and Pastel Music label rosters anchor the canonical K-indie roster.",
-  "recipe": "classic East Asian mid-2000s k-indie, functional Song, east Asian pop branch, alternative distorted rock dreampop modern indie rock. thick, breath veiled tone, slow rate, interlocked note trading. strummed open chord ringing overtones parlor acoustic guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 568,
-  "score": 275.436,
+  "recipe": "classic East Asian mid-2000s k-indie, functional Song, east Asian pop branch, alternative distorted rock modern indie rock slacker rock. thick, breath veiled tone, straight note core, interlocked note trading. strummed open chord ringing overtones parlor acoustic guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 581,
+  "score": 302.043,
   "config": {
     "traditions": [
       "k_indie",
-      "dreampop_modern",
-      "modern_indie_rock_2010s"
+      "modern_indie_rock_2010s",
+      "slacker_rock"
     ],
     "instruments": [
       {
@@ -20,10 +20,10 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
-          "voice_tradition": "modern_pop_vocal_training",
+          "voice_tradition": "korean_minsogak_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 34.13,
+          "voice_register": 38.255000000000024,
           "voice_quality": 10.594999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.625,
-          "voice_articulation": 14.169999999999996,
-          "voice_microtone": 30.299999999999997,
-          "voice_tradition": 14.26125,
-          "voice_mechanism_compound": 3.9650000000000003,
+          "voice_vibrato": 1.9825000000000002,
+          "voice_articulation": 15.014999999999993,
+          "voice_microtone": 34.42500000000001,
+          "voice_tradition": 13.4725,
+          "voice_mechanism_compound": 3.575000000000001,
           "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 16.574999999999996,
-          "voice_ensemble_config": 15.794999999999995,
+          "voice_speech_song": 16.119999999999994,
+          "voice_ensemble_config": 15.794999999999993,
           "voice_ornament_system": 8,
-          "voice_pitch_organization": 2.34,
-          "voice_processing_chain": 4.5175,
-          "voice_multitrack_stack": 12.479999999999995
+          "voice_pitch_organization": 4.030000000000001,
+          "voice_processing_chain": 5.3625,
+          "voice_multitrack_stack": 12.479999999999997
         }
       },
       {
@@ -81,13 +81,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 10.009999999999998,
+          "amp_make": 12.154999999999998,
           "body_wood": 0.845,
-          "pickup_config": 0.845,
-          "string_type": 25.187499999999996,
+          "pickup_config": 1.69,
+          "string_type": 30.549999999999997,
           "scale_length_b": 0.845,
-          "fretted_or_not": 0,
-          "bass_technique": 19.324999999999996
+          "fretted_or_not": 0.105,
+          "bass_technique": 23.449999999999996
         }
       },
       {
@@ -98,8 +98,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 19.374999999999996,
-          "drumhead": 11.075000000000001,
+          "drum_technique": 23.499999999999996,
+          "drumhead": 11.270000000000001,
           "drum_kit_kick_pedal": 0
         }
       }

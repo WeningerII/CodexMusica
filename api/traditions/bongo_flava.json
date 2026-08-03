@@ -5,7 +5,7 @@
   "lineage": "Tanzanian Swahili-language hip-hop and R&B hybrid tradition codified through Diamond Platnumz, Ali Kiba, Professor Jay, and Lady Jaydee — emerging late 1990s from Dar es Salaam street hip-hop scene, then evolving into mainstream Swahili-pop with R&B crossover; characterized by Swahili vocals over hip-hop and afropop production",
   "recipe": "classic Southern African 1997-1999 bongo flava, functional Song, African pop branch, intl hip hop MC rhythm, Afro-diasporic MC rhythm gengetone french rap. extended whistle, rap, straight onset, narrative. TR-808, pitched chopped sampler, sub bass analog poly synth, sub heavy electric bass. live tracking. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
   "recipe_chars": 390,
-  "score": 250.655,
+  "score": 249.932,
   "config": {
     "traditions": [
       "bongo_flava",
@@ -34,17 +34,17 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 9.085,
-          "voice_quality": 24.42,
+          "voice_register": 9.379000000000001,
+          "voice_quality": 24.3,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3,
+          "voice_vibrato": 3.1365000000000003,
           "voice_articulation": 11.37,
           "voice_microtone": 10.399999999999995,
           "voice_tradition": 17.68,
-          "voice_mechanism_compound": 3.3200000000000003,
-          "voice_estill_quality": 2.5200000000000005,
-          "voice_speech_song": 22.534999999999997,
+          "voice_mechanism_compound": 3.38,
+          "voice_estill_quality": 2.5350000000000006,
+          "voice_speech_song": 22.446499999999997,
           "voice_ensemble_config": 12.024999999999995,
           "voice_ornament_system": 4.745000000000002,
           "voice_pitch_organization": 3.8350000000000013,
@@ -57,10 +57,10 @@
         "slots": {
           "tr808_voice": "tr808_kick_long",
           "drum_machine_808_context": "drum_machine_808_rb",
-          "tr808_production_origin": "tr808_behringer_clone"
+          "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 12.075,
+          "tr808_voice": 11.775,
           "drum_machine_808_context": 3.51,
           "tr808_production_origin": 0.65
         }
@@ -77,8 +77,8 @@
         "scores": {
           "electronic_technique": 11.424999999999999,
           "sampler_archetypes": 21.1575,
-          "sampler_bit_depth": 1.2025000000000001,
-          "sampler_workflow": 11.82,
+          "sampler_bit_depth": 1.0465,
+          "sampler_workflow": 11.8515,
           "sampler_classic_context": 25.902499999999996
         }
       },
@@ -91,7 +91,7 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 12.774999999999999,
+          "electronic_technique": 12.475,
           "poly_archetypes": 0.3,
           "poly_voices": 0.435,
           "poly_maker_lineage": -1.435
@@ -105,16 +105,16 @@
           "pickup_config": "soapbar",
           "string_type": "roundwound_s",
           "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "sub_bass_synth_blend"
         },
         "scores": {
           "amp_make": 0.7149999999999999,
-          "body_wood": 0.48000000000000004,
+          "body_wood": 0.153,
           "pickup_config": 1.4949999999999999,
           "string_type": 0.65,
           "scale_length_b": 0.65,
-          "fretted_or_not": 0,
+          "fretted_or_not": 0.0315,
           "bass_technique": 1.295
         }
       }

@@ -5,7 +5,7 @@
   "lineage": "Renaissance secular polyphonic vocal genre developed in sixteenth-century Italy through Jacques Arcadelt, Adrian Willaert, and culminating in Carlo Gesualdo (1566-1613) and Claudio Monteverdi (1567-1643). Set Italian secular poetry in elaborate four-to-six-voice polyphonic textures with characteristic word-painting and increasingly chromatic harmonic vocabulary (especially in Gesualdo). The English madrigal school (Thomas Morley, John Wilbye, Thomas Weelkes) flourished briefly in 1580s-1610s as an Italian-derived English adaptation. Direct precursor to Baroque secular cantata and opera.",
   "recipe": "classic European early-1560s renaissance madrigal, art Music, western early branch, Mediterranean ballad ballad poetry croatian klapa dalmatian close-harmony kabyle music. thick, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part four voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble, vocal doubling boxwood bent capped arundo canonical renaissance crumhorn. shoebox concert hall. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
   "recipe_chars": 568,
-  "score": 260.43,
+  "score": 260.467,
   "config": {
     "traditions": [
       "renaissance_madrigal",
@@ -47,7 +47,7 @@
           "voice_speech_song": 17.810000000000002,
           "voice_ensemble_config": 26.65,
           "voice_ornament_system": 18,
-          "voice_pitch_organization": 13.96125,
+          "voice_pitch_organization": 14.15625,
           "voice_processing_chain": 6.565000000000001,
           "voice_multitrack_stack": 4.29
         }
@@ -63,7 +63,7 @@
         "scores": {
           "choir_size": 8.059999999999999,
           "choir_polyphonic_configuration": 12.545,
-          "choir_regional_canonical_configuration": 8.384999999999998,
+          "choir_regional_canonical_configuration": 8.210624999999999,
           "choir_ensemble_repertoire": 7.475
         }
       },
@@ -75,9 +75,9 @@
           "crumhorn_construction": "crumhorn_boxwood_capped_arundo"
         },
         "scores": {
-          "crumhorn_size": 3.835,
-          "crumhorn_repertoire": 6.092499999999999,
-          "crumhorn_construction": 4.896875
+          "crumhorn_size": 3.8068750000000002,
+          "crumhorn_repertoire": 5.942499999999999,
+          "crumhorn_construction": 5.091875
         }
       }
     ],

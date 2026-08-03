@@ -5,7 +5,7 @@
   "lineage": "Eicher-school audiophile-jazz recording-aesthetic codified through ECM Records (founded 1969 Munich by Manfred Eicher) — characterized by close-miked silence, near-zero compression, long natural decay, and the \"most beautiful sound next to silence\" mastering signature; Keith Jarrett (The Köln Concert 1975), Pat Metheny (Bright Size Life 1976), Arvo Pärt (Tabula Rasa 1984) as canonical exponents",
   "recipe": "classic European late-1960s ecm-school jazz aesthetic, improv On Frame, American jazz branch, western modern art music indeterminacy and aleatoric fluxus intermedia composition. modern bright beech laminated maple laminated European tradition sitka spruce grand piano, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, growly gut upright bass, fiberskyn synthetic calf brushes-and-sticks drum kit. shoebox concert hall. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
   "recipe_chars": 592,
-  "score": 169.465,
+  "score": 169.205,
   "config": {
     "traditions": [
       "ecm_jazz_aesthetic",
@@ -29,7 +29,7 @@
         "scores": {
           "keyboard_technique": 3.4499999999999997,
           "grand_piano_size": 1.8199999999999998,
-          "grand_piano_brand": 1.56,
+          "grand_piano_brand": 1.365,
           "piano_hammer": 12.39,
           "piano_rim": 9.485000000000001,
           "piano_soundboard": 8.75,
@@ -42,7 +42,7 @@
         "id": "saxophone",
         "slots": {
           "wind_articulation": "wind_continuous_legato",
-          "sax_size": "baritone_sax",
+          "sax_size": "alto_sax",
           "sax_reed": "medium_reed",
           "sax_body_alloy": "nickel_silver_sax",
           "sax_mouthpiece": "metal_mp",
@@ -51,7 +51,7 @@
         },
         "scores": {
           "wind_articulation": 6.7,
-          "sax_size": 0.39,
+          "sax_size": 0.325,
           "sax_reed": 1.8199999999999998,
           "sax_body_alloy": 16,
           "sax_mouthpiece": 0.39,

@@ -3,9 +3,9 @@
   "name": "Spiritual jazz",
   "family": "jazz",
   "lineage": "Late-1960s/1970s African-American jazz movement combining modal-and-free harmonic vocabulary with explicit religious / political / Afro-diasporic content — Pharoah Sanders, Alice Coltrane, Don Cherry, Lonnie Liston Smith, the Strata-East and Impulse! catalogs",
-  "recipe": "classic North American 1967-1969 spiritual jazz, improv On Frame, avant branch, Afro-diasporic ritual devotional, vocal drone modal flamenco. thick, breath veiled tone, straight onset, interlocked note trading. nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris multiphonic continuous-airflow saxophone, oversize maple tension resonator sitka spruce diaphragmatic 7 ply grand piano, growly gut upright bass, fiberskyn synthetic calf brushes-and-sticks drum kit, mbira, tabla, teak bone open jawari vilayat khan canon long sustain sitar. independent loft jazz 1971-1978 indie-commercial strata east loft nyc. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
-  "recipe_chars": 739,
-  "score": 384.582,
+  "recipe": "classic North American 1967-1969 spiritual jazz, improv On Frame, avant branch, Afro-diasporic ritual devotional, vocal drone modal flamenco. thick, breath veiled tone, straight onset, interlocked note trading. nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris multiphonic continuous-airflow saxophone, oversize maple tension resonator sitka spruce diaphragmatic 7 ply grand piano, growly gut upright bass, fiberskyn synthetic calf brushes-and-sticks drum kit, traditional sustaining iron mbira, tabla, teak bone open jawari vilayat khan canon long sustain sitar. independent loft jazz 1971-1978 indie-commercial strata east loft nyc. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 767,
+  "score": 385.692,
   "config": {
     "traditions": [
       "spiritual_jazz",
@@ -55,8 +55,8 @@
           "piano_rim": 6.89,
           "piano_soundboard": 3.9999999999999996,
           "piano_pinblock": 3.25,
-          "piano_plate": 3.295,
-          "piano_pitch_standard": 5.19
+          "piano_plate": 3.49,
+          "piano_pitch_standard": 5.775
         }
       },
       {
@@ -104,7 +104,7 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 20.039999999999996,
+          "voice_register": 20.429999999999993,
           "voice_quality": 10.919999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -112,8 +112,8 @@
           "voice_articulation": 17.419999999999998,
           "voice_microtone": 22.09999999999999,
           "voice_tradition": 18.449999999999996,
-          "voice_mechanism_compound": 8.844999999999999,
-          "voice_estill_quality": 7.7700000000000005,
+          "voice_mechanism_compound": 8.65,
+          "voice_estill_quality": 7.575000000000001,
           "voice_speech_song": 20.864999999999995,
           "voice_ensemble_config": 16.314999999999998,
           "voice_ornament_system": 4.65,
@@ -131,7 +131,7 @@
           "mbira_buzz": "bottle_caps"
         },
         "scores": {
-          "tine_material": 0.8450000000000001,
+          "tine_material": 1.04,
           "mbira_board": 0.9150000000000001,
           "mbira_resonator": 0.9150000000000001,
           "mbira_buzz": 0.8
@@ -171,7 +171,7 @@
           "sitar_jawari": 1.1,
           "sitar_taraf": 0.8,
           "sitar_frets": 0.9500000000000001,
-          "sitar_pluck": 0.44999999999999996,
+          "sitar_pluck": 0.585,
           "sitar_main_strings": 0.195,
           "sitar_jawari_style": 1,
           "sitar_gharana": 2.21

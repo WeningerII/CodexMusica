@@ -3,21 +3,20 @@
   "name": "Embolada",
   "family": "global",
   "lineage": "Brazilian Northeast (Pernambuco, Bahia, Paraíba, Ceará) rapid-fire repentista vocal-duel tradition — two emboladores improvise verses over a fast pandeiro rhythmic foundation, alternating in pairs and trying to outdo each other in tongue-twister vocal dexterity, rhymed wit, and topical social satire; closely related to the parallel cantoria de viola (the Northeast repentista poetic-duel tradition with viola caipira accompaniment) and the broader Sertão Brazilian-Northeast vernacular oral-poetic culture, recently recognized by Brazilian cultural heritage authorities and continued through 20th-century figures Caju e Castanha, Mestre Verdelinho, and modern festival circuits",
-  "recipe": "classic South American mid-1930s embolada, groove Percussion, Brazilian branch, Afro-diasporic MC rhythm kwaito south african kwaito. vocal fry, rap, fast rate, interlocked note trading. goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian hands layered pandeiro. recife brazilian northeast forro house. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 443,
-  "score": 128.912,
+  "recipe": "classic South American mid-1930s embolada, groove Percussion, Brazilian branch, Afro-diasporic MC rhythm kwaito. vocal fry, breath veiled tone, fast rate, interlocked note trading. goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian hands layered pandeiro. recife brazilian northeast forro house. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 437,
+  "score": 98.886,
   "config": {
     "traditions": [
       "embolada",
-      "kwaito",
-      "south_african_kwaito"
+      "kwaito"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "vocal_fry",
-          "voice_quality": "rap_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "fast_vibrato",
@@ -34,22 +33,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 3.7764999999999995,
-          "voice_quality": 6.084499999999999,
+          "voice_register": 2.9464999999999995,
+          "voice_quality": 4.745000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.3,
-          "voice_articulation": 15.534999999999997,
-          "voice_microtone": 14.039999999999994,
-          "voice_tradition": 17.445499999999996,
+          "voice_articulation": 11.309999999999997,
+          "voice_microtone": 9.815000000000001,
+          "voice_tradition": 10.53,
           "voice_mechanism_compound": 2.925,
           "voice_estill_quality": 3.0550000000000006,
-          "voice_speech_song": 14.234999999999996,
-          "voice_ensemble_config": 14.169999999999996,
-          "voice_ornament_system": 2.470000000000001,
-          "voice_pitch_organization": 1.0099999999999998,
-          "voice_processing_chain": 3.6765,
-          "voice_multitrack_stack": 5.380999999999999
+          "voice_speech_song": 10.01,
+          "voice_ensemble_config": 9.945,
+          "voice_ornament_system": 1.4949999999999997,
+          "voice_pitch_organization": 1.025,
+          "voice_processing_chain": 2.8315,
+          "voice_multitrack_stack": 4.555499999999999
         }
       },
       {
@@ -63,12 +62,12 @@
           "pandeiro_jingles": "pandeiro_brass_platinelas"
         },
         "scores": {
-          "percussion_technique": 5.45,
+          "percussion_technique": 3.575,
           "pandeiro_size": 1.323,
-          "pandeiro_context": 2.8600000000000003,
-          "pandeiro_head": 7.475,
-          "pandeiro_shell_wood": 7.475,
-          "pandeiro_jingles": 7.475
+          "pandeiro_context": 1.885,
+          "pandeiro_head": 6.629999999999999,
+          "pandeiro_shell_wood": 6.629999999999999,
+          "pandeiro_jingles": 6.629999999999999
         }
       }
     ],

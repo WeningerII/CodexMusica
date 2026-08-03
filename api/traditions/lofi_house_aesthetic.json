@@ -5,7 +5,7 @@
   "lineage": "2010s deliberately-degraded-aesthetic house revival codified through Mall Grab, Ross from Friends, DJ Boring, and the broader Soundcloud-and-Bandcamp ecosystem — characterized by tape-saturation simulation, sample-noise foregrounded, vintage-drum-machine reverence, and post-vaporwave nostalgic-aesthetic posture",
   "recipe": "classic mid-2010s lo-fi house, electronic Dance, lofi house branch, lofi experimental electric vaporwave chillwave. glitched textural sampler, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909, digital subtractive, mark 7 modern tine post 2007 reissue felt tipped hammers early Rhodes pre 1971 bell like rhodes electric. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 463,
-  "score": 119.288,
+  "score": 119.37,
   "config": {
     "traditions": [
       "lofi_house_aesthetic",
@@ -23,11 +23,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 7.500000000000001,
-          "sampler_archetypes": 4.13375,
-          "sampler_bit_depth": 2.7875000000000005,
+          "electronic_technique": 7.504500000000001,
+          "sampler_archetypes": 4.163,
+          "sampler_bit_depth": 2.8025,
           "sampler_workflow": 8.32875,
-          "sampler_classic_context": 40.335249999999995
+          "sampler_classic_context": 40.42525
         }
       },
       {
@@ -40,7 +40,7 @@
         "scores": {
           "tr909_voice": 17,
           "drum_machine_909_context": 3.4450000000000003,
-          "tr909_production_origin": 2.6587500000000004
+          "tr909_production_origin": 2.653125
         }
       },
       {
@@ -52,7 +52,7 @@
         },
         "scores": {
           "electronic_technique": 2.75,
-          "va_archetypes": 1.568875,
+          "va_archetypes": 1.573375,
           "digital_subtractive_context": 16.119999999999994
         }
       },
@@ -70,8 +70,8 @@
           "keyboard_technique": 1.95,
           "rhodes_model": 0.6824999999999999,
           "rhodes_use": 1.8199999999999998,
-          "rhodes_tine_material": 1.17925,
-          "rhodes_hammer_tip": 2.1137500000000005,
+          "rhodes_tine_material": 1.1604999999999999,
+          "rhodes_hammer_tip": 2.0762500000000004,
           "rhodes_pickup_position": 0.39
         }
       }

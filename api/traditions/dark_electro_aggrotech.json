@@ -5,7 +5,7 @@
   "lineage": "1990s and 2000s German-and-European electronic subgenre developed from EBM into more aggressive, harsher direction. Characterized by distorted-screamed-or-growled male vocals, hyperactive 145-160 BPM tempo, dark-industrial synth-bass-line production, and explicit goth-industrial-club functional context. Hocico (Mexican), Suicide Commando (Belgian), Combichrist, [:SITD:], and the broader Out of Line and Metropolis Records label rosters anchor the canonical aggrotech roster.",
   "recipe": "classic mid-1990s dark electro / aggrotech, experimental Elec, industrial noise branch, thrash metal groove metal djent. thick, breath veiled tone, slow rate, interlocked note trading. analog synth, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808. no single room 2015-present distributed distributed production. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
   "recipe_chars": 461,
-  "score": 146.689,
+  "score": 146.605,
   "config": {
     "traditions": [
       "dark_electro_aggrotech",
@@ -42,14 +42,14 @@
           "voice_articulation": 13.324999999999996,
           "voice_microtone": 13.129999999999992,
           "voice_tradition": 4.875,
-          "voice_mechanism_compound": 24.902249999999995,
+          "voice_mechanism_compound": 24.939749999999997,
           "voice_estill_quality": 0.7149999999999999,
           "voice_speech_song": 13.324999999999996,
           "voice_ensemble_config": 14.949999999999996,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 4.03,
-          "voice_processing_chain": 7.394375000000001,
-          "voice_multitrack_stack": 7.553375000000001
+          "voice_processing_chain": 7.370000000000001,
+          "voice_multitrack_stack": 7.529
         }
       },
       {
@@ -62,7 +62,7 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 1.4046249999999998,
+          "electronic_technique": 1.38025,
           "oscillator": 1.69,
           "filter_topology": 3.38,
           "envelope": 1.69,
@@ -77,8 +77,8 @@
           "tr808_production_origin": "tr808_roland_osaka_canonical"
         },
         "scores": {
-          "tr808_voice": 1.5046249999999999,
-          "drum_machine_808_context": 4.4353750000000005,
+          "tr808_voice": 1.48025,
+          "drum_machine_808_context": 4.4110000000000005,
           "tr808_production_origin": 6.11
         }
       }

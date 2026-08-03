@@ -5,7 +5,7 @@
   "lineage": "Southern US doom-and-hardcore fusion genre that emerged in late-1980s New Orleans — codified through Eyehategod (the NOLA sludge band, In the Name of Suffering 1990, Take As Needed for Pain 1993), Crowbar (Kirk Windsteins band, Crowbar 1993), Acid Bath (When the Kite String Pops 1994), Down (Phil Anselmos NOLA supergroup); fuses doom metal slow-tempo and Sabbath chord vocabulary with hardcore punk vocal aggression and Southern blues-rock harmonic foundations",
   "recipe": "classic Midwestern American 1987-1989 sludge metal, distorted Rock, sludge branch, doom metal stoner metal. thick, larynx lowered, wide pitch sway, interlocked note trading. orange amp British heavy crunch basswood maple pau ferro humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 524,
-  "score": 496.722,
+  "score": 493.605,
   "config": {
     "traditions": [
       "sludge_metal",
@@ -31,17 +31,17 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 34.06725,
-          "amp_make": 44.892999999999994,
+          "electric_technique": 33.48975,
+          "amp_make": 44.24949999999999,
           "body_wood": 11.83,
           "neck_wood": 1.17,
           "fretboard": 1.17,
           "pickup_magnet": 0.195,
           "pickup_winding": 1.17,
           "string_material": 1.17,
-          "bridge": 1.2427499999999998,
+          "bridge": 1.2622499999999999,
           "scale_length": 13.78,
-          "string_gauge": 4.12525,
+          "string_gauge": 4.14475,
           "finish": 0,
           "string_tuning": 30.355
         }
@@ -58,11 +58,11 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 44.892999999999994,
+          "amp_make": 44.24949999999999,
           "body_wood": 1.3649999999999998,
-          "pickup_config": 0,
-          "string_type": 29.97475,
-          "scale_length_b": 1.89525,
+          "pickup_config": 0.0195,
+          "string_type": 29.45575,
+          "scale_length_b": 1.9147500000000002,
           "fretted_or_not": 0.195,
           "bass_technique": 27.07
         }
@@ -90,11 +90,11 @@
           "voice_vibrato": "oscillating_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
-          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_tradition": "mande_jeli_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_gang_vocal_unison",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
@@ -102,20 +102,20 @@
         },
         "scores": {
           "voice_register": 33.94125000000001,
-          "voice_quality": 38.529500000000006,
+          "voice_quality": 38.544500000000006,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 7.4445,
           "voice_articulation": 14.754999999999995,
-          "voice_microtone": 24.257499999999997,
-          "voice_tradition": 4.485000000000001,
-          "voice_mechanism_compound": 41.7115,
-          "voice_estill_quality": 3.121750000000001,
+          "voice_microtone": 24.2035,
+          "voice_tradition": 4.42,
+          "voice_mechanism_compound": 40.9975,
+          "voice_estill_quality": 3.160750000000001,
           "voice_speech_song": 15.729999999999995,
-          "voice_ensemble_config": 15.808249999999997,
+          "voice_ensemble_config": 15.794999999999993,
           "voice_ornament_system": 0.9749999999999999,
           "voice_pitch_organization": 2.73,
-          "voice_processing_chain": 6.391500000000001,
+          "voice_processing_chain": 6.372,
           "voice_multitrack_stack": 5.1025
         }
       }

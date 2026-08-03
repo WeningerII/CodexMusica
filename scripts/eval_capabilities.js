@@ -187,12 +187,18 @@ add('S18 preface_configure: voice/belting (afrobeat)', () => {
 });
 
 // ── static API ───────────────────────────────────────────────────────────────
-add('S19 api/all.json: count 1167, every recipe <=1000', () => {
+add('S19 api/all.json: one entry per tradition, every recipe <=1000', () => {
+  // count comes from the catalog, not a literal — the published artifact has to
+  // track the source, and a merged-away tradition must not fail this test.
+  const expected = require('./_loader.js').TRADITIONS.length;
   const j = apiJson('all.json');
   const items = Array.isArray(j) ? j : j.items || j.traditions || [];
   const over = items.filter((x) => (x.recipe || '').length > CEIL).length;
   const n = items.length;
-  return { pass: n === 1167 && over === 0, ev: `count ${n}, over-ceiling ${over}` };
+  return {
+    pass: n === expected && over === 0,
+    ev: `count ${n}/${expected}, over-ceiling ${over}`,
+  };
 });
 add('S20 api/index.json: valid endpoint map + counts', () => {
   const j = apiJson('index.json');

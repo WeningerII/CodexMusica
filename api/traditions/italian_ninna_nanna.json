@@ -3,53 +3,53 @@
   "name": "Italian ninna-nanna (cradle song)",
   "family": "global",
   "lineage": "Italian cradle-song tradition continuous from medieval Marian-cradle laude through regional-dialect folksong (Sicilian, Neapolitan, Tuscan, Sardinian variants) into modern Italian domestic practice",
-  "recipe": "classic modern italian ninna-nanna, lullaby, European branch, Mediterranean ballad ballad poetry, vocal drone modal, christian gospel ritual devotional african-american spirituals lithuanian sutartinės multipart. thick, breath veiled tone, straight note core, interlocked note trading. parlor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 356,
-  "score": 149.582,
+  "recipe": "classic modern italian ninna-nanna, lullaby, European branch, Mediterranean ballad ballad poetry, vocal drone modal, christian gospel ritual devotional african-american spirituals jubilee quartet. thick, declaimed, straight onset, leader call answered. parlor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 323,
+  "score": 161.875,
   "config": {
     "traditions": [
       "italian_ninna_nanna",
       "spirituals_african_american",
-      "lithuanian_sutartines"
+      "jubilee_quartet"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "aspirated_voice",
+          "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "hocket_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "call_response_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_tradition": "gospel_pentecostal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
           "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_pythagorean",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 12.144999999999998,
-          "voice_quality": 14.559999999999995,
+          "voice_register": 20.57,
+          "voice_quality": 23.635,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.12,
-          "voice_articulation": 12.544999999999996,
-          "voice_microtone": 17.87499999999999,
-          "voice_tradition": 21.0925,
-          "voice_mechanism_compound": 9.1,
-          "voice_estill_quality": 11.819999999999999,
-          "voice_speech_song": 17.289999999999992,
-          "voice_ensemble_config": 12.739999999999995,
+          "voice_vibrato": 3.3600000000000003,
+          "voice_articulation": 16.915000000000003,
+          "voice_microtone": 11.569999999999991,
+          "voice_tradition": 19.755,
+          "voice_mechanism_compound": 4.875,
+          "voice_estill_quality": 15.77,
+          "voice_speech_song": 13.844999999999994,
+          "voice_ensemble_config": 16.175,
           "voice_ornament_system": 9.649999999999999,
-          "voice_pitch_organization": 4.575000000000001,
-          "voice_processing_chain": 5.005,
-          "voice_multitrack_stack": 5.59
+          "voice_pitch_organization": 3.9000000000000004,
+          "voice_processing_chain": 4.485000000000001,
+          "voice_multitrack_stack": 6.37
         }
       }
     ],

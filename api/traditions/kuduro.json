@@ -3,20 +3,20 @@
   "name": "Kuduro",
   "family": "global",
   "lineage": "Angolan high-tempo electronic dance genre codified in late-1980s Luanda — characterized by 140-150 BPM hectic kick patterns, Portuguese-Kimbundu vocals, batida rhythmic foundation; Tony Amado, Buraka Som Sistema (Portuguese-Angolan diaspora), and DJ Marfox extending the canon through the 2000s into international electronic music",
-  "recipe": "classic Southern African 1987-1989 kuduro, electronic Dance, African dance branch, Afro-diasporic electric groove percussion, Afro-diasporic MC rhythm kwaito south african kwaito. vocal fry, breath veiled tone, straight onset, interlocked note trading. TR-808, sub bass analog poly synth, high-gain-saturation sub bass monosynth acid bass. live tracking. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
-  "recipe_chars": 438,
-  "score": 141.934,
+  "recipe": "classic Southern African 1987-1989 kuduro, electronic Dance, African dance branch, Afro-diasporic electric groove percussion, Afro-diasporic MC rhythm kwaito kizomba. sygyt, breath veiled tone, straight onset, interlocked note trading. TR-808, analog poly synth, piercing high-gain-saturation monosynth acid bass. live tracking. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
+  "recipe_chars": 412,
+  "score": 126.867,
   "config": {
     "traditions": [
       "kuduro",
       "kwaito",
-      "south_african_kwaito"
+      "kizomba"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
+          "voice_register": "sygyt_register",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -25,31 +25,31 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "southern_african_bantu_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_oral_twang",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 2.0149999999999997,
-          "voice_quality": 7.41,
+          "voice_register": 1.959625,
+          "voice_quality": 10.204999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.8199999999999998,
-          "voice_articulation": 13.714999999999995,
-          "voice_microtone": 13.51999999999999,
-          "voice_tradition": 19.768124999999998,
-          "voice_mechanism_compound": 2.015,
-          "voice_estill_quality": 1.8865,
-          "voice_speech_song": 14.884999999999994,
-          "voice_ensemble_config": 13.649999999999993,
-          "voice_ornament_system": 2.470000000000001,
-          "voice_pitch_organization": 0.7149999999999997,
-          "voice_processing_chain": 15.274999999999997,
-          "voice_multitrack_stack": 7.271375000000001
+          "voice_vibrato": 2.0149999999999997,
+          "voice_articulation": 11.959999999999994,
+          "voice_microtone": 11.959999999999992,
+          "voice_tradition": 11.680875,
+          "voice_mechanism_compound": 3.25,
+          "voice_estill_quality": 3.0550000000000006,
+          "voice_speech_song": 14.039999999999994,
+          "voice_ensemble_config": 12.089999999999995,
+          "voice_ornament_system": 1.4949999999999997,
+          "voice_pitch_organization": 1.1049999999999998,
+          "voice_processing_chain": 15.149999999999999,
+          "voice_multitrack_stack": 6.825000000000001
         }
       },
       {
@@ -60,8 +60,8 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 3.3475,
-          "drum_machine_808_context": 8.905,
+          "tr808_voice": 0.9099999999999999,
+          "drum_machine_808_context": 10.0335,
           "tr808_production_origin": 0.1815
         }
       },
@@ -71,13 +71,13 @@
           "electronic_technique": "electronic_bass_sub",
           "poly_archetypes": "jupiter_8",
           "poly_voices": "poly_8_voice",
-          "poly_maker_lineage": "poly_sequential_smith"
+          "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 3.2175000000000007,
-          "poly_archetypes": 0.39,
-          "poly_voices": 0.39,
-          "poly_maker_lineage": -0.77
+          "electronic_technique": 0.7799999999999998,
+          "poly_archetypes": 0.78,
+          "poly_voices": 0.78,
+          "poly_maker_lineage": -0.42000000000000004
         }
       },
       {
@@ -89,7 +89,7 @@
           "accent_acid": "no_accent_acid"
         },
         "scores": {
-          "electronic_technique": 3.2175000000000007,
+          "electronic_technique": 0.7799999999999998,
           "wave_acid": 2.08,
           "filter_acid": 1.7365000000000002,
           "accent_acid": 0.28462499999999996

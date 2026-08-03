@@ -5,7 +5,7 @@
   "lineage": "Late-1990s and 2000s electronic subgenre developed primarily in Germany (Oval, Mille Plateaux label) and Austria (Fennesz), characterized by deliberate use of digital-error sounds (CD-skips, microsound cuts, glitches) as primary compositional material. Oval's 94diskont (1995), Fennesz's Endless Summer (2001), and the broader Mille Plateaux Records and Touch Records rosters anchor the canonical glitch aesthetic.",
   "recipe": "classic glitch, experimental Elec, idm glitch branch, ambient experimental electric dark ambient hauntology. pad like pad analog synth, glitched textural sampler, modeled amp modern rig basswood humbucker electric guitar. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter ring modulator.",
   "recipe_chars": 430,
-  "score": 91.212,
+  "score": 91.503,
   "config": {
     "traditions": [
       "glitch_2000s",
@@ -20,14 +20,14 @@
           "oscillator": "saw_single",
           "filter_topology": "transistor_ladder",
           "envelope": "pad_env",
-          "modulation": "no_mod"
+          "modulation": "sample_hold"
         },
         "scores": {
-          "electronic_technique": 10.61,
+          "electronic_technique": 10.641499999999999,
           "oscillator": 0.435,
-          "filter_topology": 0.4995,
+          "filter_topology": 0.531,
           "envelope": 5.395,
-          "modulation": 0.045
+          "modulation": 0.105
         }
       },
       {
@@ -40,7 +40,7 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 15.865,
+          "electronic_technique": 16.0015,
           "sampler_archetypes": 0.5849999999999999,
           "sampler_bit_depth": 0.43499999999999994,
           "sampler_workflow": 15.625,
@@ -70,7 +70,7 @@
           "body_wood": 3.38,
           "neck_wood": 0.4545,
           "fretboard": 0.39,
-          "pickup_magnet": 0.15,
+          "pickup_magnet": 0.1815,
           "pickup_winding": 0.15,
           "string_material": 0.39,
           "bridge": 0.4545,

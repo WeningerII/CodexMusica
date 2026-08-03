@@ -5,7 +5,7 @@
   "lineage": "Manhattan-loft-school chamber-recording aesthetic codified through 1970s-1980s minimalist composers recording in downtown Manhattan converted-warehouse loft spaces — Steve Reich (Music for 18 Musicians 1976), Philip Glass (Glassworks 1982), Meredith Monk, and the Knitting Factory-adjacent ecosystem; characterized by ensemble close-tracking, dry-room aesthetic, and minimalist compositional architecture",
   "recipe": "classic North American mid-1970s manhattan-chamber loft-recording, art Music, western common practice branch, western modern art music, American jazz avant indeterminacy and aleatoric second viennese school. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, silver wound lamb gut core sitka spruce bigleaf maple western maple violin orchestral, synthetic engelmann spruce European maple sycamore maple oil varnish cello, yellow brass modern standard yamaha custom 875ex modern Japanese premium multiphonic saxophone. mid manhattan 1975-1985 mid-major late70s nyc commercial. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 729,
-  "score": 219.63,
+  "score": 220.11,
   "config": {
     "traditions": [
       "manhattan_chamber_loft",
@@ -27,10 +27,10 @@
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 5.195,
+          "keyboard_technique": 5,
           "grand_piano_size": 0.9099999999999999,
           "grand_piano_brand": 0.845,
-          "piano_hammer": 11.485,
+          "piano_hammer": 11.875,
           "piano_rim": 9.185,
           "piano_soundboard": 8.75,
           "piano_pinblock": 8.75,
@@ -56,7 +56,7 @@
           "bowed_technique": 3.4,
           "orch_strings": 1.625,
           "orch_top_wood": 7.125,
-          "orch_back_wood": 12.325000000000001,
+          "orch_back_wood": 12.415000000000001,
           "orch_varnish": 8.75,
           "orch_setup_period": 11,
           "orch_bow": 1.145,
@@ -103,10 +103,10 @@
         },
         "scores": {
           "wind_articulation": 4.875,
-          "sax_size": 0.39,
+          "sax_size": 0.195,
           "sax_reed": 0.9099999999999999,
           "sax_body_alloy": 11.24,
-          "sax_mouthpiece": 0.24,
+          "sax_mouthpiece": 0.6299999999999999,
           "sax_technique": 3.375,
           "sax_maker_school": 2.8600000000000003
         }

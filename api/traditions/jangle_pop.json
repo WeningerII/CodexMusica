@@ -3,14 +3,14 @@
   "name": "Jangle pop",
   "family": "global",
   "lineage": "1980s indie genre extending the 1960s Byrds twelve-string-electric chimey-guitar sound — codified through R.E.M. (the Athens Georgia voice, Murmur 1983, Reckoning 1984, Fables of the Reconstruction 1985), The dB s, the Smiths (the UK parallel canon, with Johnny Marrs Rickenbacker arpeggios over Morrisseys baritone), the Replacements early period, the Feelies, Game Theory, and the broader Paisley Underground Los Angeles scene (Dream Syndicate, Rain Parade, Three OClock); foundational sound: chiming Rickenbacker 12-string-electric over driving rhythm-section and melodic vocal hooks",
-  "recipe": "classic North American mid-1980s jangle pop, functional Song, pop rock branch, alternative distorted rock modern indie rock bedroom pop. thick, breath veiled tone, straight note core, interlocked note trading. vox ac amp British 60s amp top boost chime rotosound toaster twelve string electric, marshall plexi amp British rock amp clean strummed single coil electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 694,
-  "score": 360.785,
+  "recipe": "classic North American mid-1980s jangle pop, functional Song, pop rock branch, alternative distorted rock modern indie rock slowcore. thick, breath veiled tone, straight note core, interlocked note trading. vox ac amp British 60s amp top boost chime rotosound toaster twelve string electric, marshall plexi amp British rock amp mahogany rosewood clean single coil electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 709,
+  "score": 359.04,
   "config": {
     "traditions": [
       "jangle_pop",
       "modern_indie_rock_2010s",
-      "bedroom_pop_2010s"
+      "slowcore"
     ],
     "instruments": [
       {
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_processing_chain": "voice_processing_talkbox",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 34.00500000000001,
-          "voice_quality": 19.955,
+          "voice_quality": 18.265,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.025,
-          "voice_articulation": 11.504999999999995,
+          "voice_vibrato": 4.000000000000001,
+          "voice_articulation": 10.659999999999995,
           "voice_microtone": 31.925000000000004,
-          "voice_tradition": 16.919999999999998,
+          "voice_tradition": 13.019999999999998,
           "voice_mechanism_compound": 3.1200000000000006,
           "voice_estill_quality": 1.885,
-          "voice_speech_song": 14.689999999999994,
-          "voice_ensemble_config": 13.519999999999992,
+          "voice_speech_song": 13.844999999999994,
+          "voice_ensemble_config": 12.674999999999994,
           "voice_ornament_system": 0.9999999999999998,
-          "voice_pitch_organization": 4.1275,
-          "voice_processing_chain": 5.785,
-          "voice_multitrack_stack": 9.3925
+          "voice_pitch_organization": 3.640000000000001,
+          "voice_processing_chain": 5.195,
+          "voice_multitrack_stack": 8.125000000000002
         }
       },
       {
@@ -63,10 +63,10 @@
           "twelve_string_electric_pickup": "twelve_string_toaster_rick"
         },
         "scores": {
-          "electric_technique": 17.915,
+          "electric_technique": 14.665000000000001,
           "amp_make": 4.69,
-          "twelve_string_electric_model": 7.185000000000001,
-          "twelve_string_electric_context": 15.014999999999997,
+          "twelve_string_electric_model": 6.535000000000001,
+          "twelve_string_electric_context": 12.479999999999997,
           "twelve_string_electric_strings": 1.495,
           "twelve_string_electric_pickup": 5.3500000000000005
         }
@@ -88,18 +88,18 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 17.915,
-          "amp_make": 9.62,
-          "body_wood": 0.845,
-          "neck_wood": 0.845,
-          "fretboard": 0.78,
-          "pickup_magnet": 0.195,
+          "electric_technique": 14.665000000000001,
+          "amp_make": 11.309999999999999,
+          "body_wood": 1.69,
+          "neck_wood": 1.69,
+          "fretboard": 1.625,
+          "pickup_magnet": 0.845,
           "string_material": 0.15,
-          "string_gauge": 0.845,
-          "bridge": 0.195,
-          "scale_length": 0.845,
+          "string_gauge": 1.69,
+          "bridge": 0.845,
+          "scale_length": 1.69,
           "finish": 0,
-          "string_tuning": 12.22
+          "string_tuning": 14.755000000000003
         }
       },
       {
@@ -114,13 +114,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 9.62,
-          "body_wood": 0.845,
-          "pickup_config": 1.69,
-          "string_type": 24.7,
-          "scale_length_b": 0.845,
+          "amp_make": 11.309999999999999,
+          "body_wood": 1.69,
+          "pickup_config": 0.845,
+          "string_type": 28.925,
+          "scale_length_b": 1.69,
           "fretted_or_not": 0.105,
-          "bass_technique": 17.95
+          "bass_technique": 21.2
         }
       },
       {
@@ -131,8 +131,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 18,
-          "drumhead": 14.27,
+          "drum_technique": 21.25,
+          "drumhead": 11.02,
           "drum_kit_kick_pedal": 0
         }
       }

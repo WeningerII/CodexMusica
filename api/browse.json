@@ -16,7 +16,7 @@
     "percussion",
     "cyclicity"
   ],
-  "count": 1167,
+  "count": 1145,
   "items": [
     {
       "id": "honky_tonk",
@@ -13038,43 +13038,6 @@
       ]
     },
     {
-      "id": "cloud_rap_experimental",
-      "name": "Cloud rap (experimental)",
-      "family": "global",
-      "lineage": "Early-2010s atmospheric-trap experimental hip-hop subgenre extending cloud-rap aesthetic through more ambient-arrangement, washed-out post-rock textures, and surreal lyrical content — codified through early Lil B (Rain in England 2010), Yung Lean (Unknown Death 2013), Sad Boys, Spaceghostpurrp, Awful Records, with the form serving as a key conduit for the late-2010s online-distributed rap scene",
-      "parent": "mcRhythm.experimental",
-      "axes": [
-        1,
-        1,
-        0,
-        0,
-        0,
-        1,
-        1,
-        1,
-        -1,
-        2,
-        2,
-        1,
-        1
-      ],
-      "instruments": [
-        "voice",
-        "sampler_classic",
-        "digital_subtractive",
-        "drum_machine_808"
-      ],
-      "description": "2010s-onward ambient-leaning hip hop with hazy-pitched-vocal-sample backings, dreamy production aesthetic, melodic-rather-than-aggressive vocal delivery; descended from chopped-and-screwed and witch-house adjacencies.",
-      "exemplars": [
-        "Lil B",
-        "Yung Lean",
-        "Bones"
-      ],
-      "crossRefs": [
-        "experimentalElec.lofi"
-      ]
-    },
-    {
       "id": "mumble_rap",
       "name": "Mumble rap",
       "family": "global",
@@ -15531,43 +15494,6 @@
       ],
       "crossRefs": [
         "distortedRock.metal.doom"
-      ]
-    },
-    {
-      "id": "minimal_microhouse_classic",
-      "name": "Microhouse (Kompakt-era)",
-      "family": "global",
-      "lineage": "Late-1990s and 2000s clicks-and-cuts microhouse subgenre codified through Akufen (Quebec), Matthew Herbert’s Around the House (1998), Luomo / Vladislav Delay, and the Force Inc / Mille Plateaux label catalog — characterized by tiny-sample-fragment production, glitch-and-skip percussion programming, and academic-electroacoustic compositional sensibility",
-      "parent": "electronicDance.house.microhouse",
-      "axes": [
-        1,
-        1,
-        0,
-        0,
-        -1,
-        1,
-        0,
-        2,
-        -1,
-        -1,
-        2,
-        1,
-        2
-      ],
-      "instruments": [
-        "digital_subtractive",
-        "sampler_classic",
-        "drum_machine_909",
-        "analog_mono_synth"
-      ],
-      "description": "Late-90s and 00s German Kompakt-label-era microhouse sub-style; clicks-and-cuts percussion-as-source-material aesthetic, glitch-derived micro-detail percussion programming, often-instrumental track-form.",
-      "exemplars": [
-        "Wolfgang Voigt",
-        "Thomas Brinkmann",
-        "Akufen"
-      ],
-      "crossRefs": [
-        "experimentalElec.idmGlitch"
       ]
     },
     {
@@ -19092,45 +19018,6 @@
       "crossRefs": [
         "artMusic.westernEarly",
         "balladPoetry.angloSingerSong"
-      ]
-    },
-    {
-      "id": "sardinian_traditional",
-      "name": "Sardinian cantu a tenore and launeddas",
-      "family": "global",
-      "lineage": "Sardinian-interior pastoral traditional music — comprising cantu a tenore four-voice male polyphony (with the four voices sa oghe lead, sa mesu oghe upper third, su contra contra at the fifth, su bassu, Sardinian guttural-throated bass) and launeddas (the unique Sardinian triple-pipe instrument made of three cane pipes simultaneously circular-breathed by a single player, dating from the Nuragic civilization c. 1500 BCE); preserved in the Barbagia, Marghine, Logudoro, Goceano regions through 20th-century tenore quartets and launeddas players like Efisio Melis, Antonio Lara, Luigi Lai",
-      "parent": "balladPoetry.mediterraneanBallad",
-      "axes": [
-        -1,
-        1,
-        1,
-        0,
-        -1,
-        2,
-        0,
-        -2,
-        1,
-        2,
-        1,
-        -2,
-        0
-      ],
-      "instruments": [
-        "voice",
-        "launeddas",
-        "throat_singing_voice",
-        "accordion",
-        "clarinet"
-      ],
-      "description": "Sardinian pastoral-polyphony and triple-pipe tradition. Cantu a tenore: four-male-voice polyphony (bassu, contra, mesu boche, boche), throat-produced bassu-and-contra parts characteristic. intangible-heritage tradition associated with central-Sardinian pastoral villages (Bitti, Orune). Launeddas: triple-pipe single-reed instrument played with continuous-circular-breathing, oldest-extant European polyphonic instrument (3000-year archaeological lineage). Distinguished from continental-Italian folk by language (Sardinian, not Italian) and by ancient-pre-Roman musical-substrate.",
-      "exemplars": [
-        "Tenores di Bitti — Mialinu Pira recordings",
-        "Luigi Lai — launeddas recital albums",
-        "Cuncordu de Orosei — sacred-polyphony recordings",
-        "Tenores di Neoneli — concert albums"
-      ],
-      "crossRefs": [
-        "droneModal.vocal"
       ]
     },
     {
@@ -27705,43 +27592,6 @@
       ]
     },
     {
-      "id": "jongo_brasileiro",
-      "name": "Jongo (Afro-Brazilian Vale do Paraíba)",
-      "family": "global",
-      "lineage": "Afro-Brazilian jongo song-and-dance tradition of the Vale do Paraíba region (between São Paulo and Rio de Janeiro), descended from the Bantu-speaking enslaved population brought to the colonial-period coffee plantations. Performance: large frame-drum tambu and smaller candongueiro drum-pair, with male lead-singer-improvisor exchanging encoded ponto verses with the dancers in the surrounding circle. The encoded jongo language uses metaphorical references and indirection (originally as resistance-code under slavery).",
-      "parent": "ritualDevotional.afroDiasporic",
-      "axes": [
-        -1,
-        0,
-        1,
-        1,
-        1,
-        2,
-        1,
-        -2,
-        1,
-        2,
-        1,
-        2,
-        1
-      ],
-      "instruments": [
-        "voice",
-        "tambourine_orch"
-      ],
-      "description": "Afro-Brazilian jongo song-and-dance tradition of the Vale do Paraíba region (between São Paulo and Rio de Janeiro), descended from the Bantu-speaking enslaved population brought to the colonial-period coffee plantations. Performance: large frame-drum tambu and smaller candongueiro drum-pair, with male lead-singer-improvisor exchanging encoded ponto verses with the dancers in the surrounding circle. The encoded jongo language uses metaphorical references and indirection (originally as resistance-code under slavery).",
-      "exemplars": [
-        "Mestre Darcy",
-        "Toninho Macedo",
-        "Comunidade Jongo Pedro do Rio",
-        "Tia Tatiana",
-        "Brazilian National Cultural Heritage Institute"
-      ],
-      "crossRefs": [
-        "groovePercussion.brazilian"
-      ]
-    },
-    {
       "id": "classical_period_18c",
       "name": "Classical period (1750-1820)",
       "family": "classical",
@@ -28127,45 +27977,6 @@
       ],
       "crossRefs": [
         "ritualDevotional.christianGospel"
-      ]
-    },
-    {
-      "id": "american_minimalism",
-      "name": "American minimalism (1960s-1970s NYC and California)",
-      "family": "classical",
-      "lineage": "American mid-twentieth-century compositional movement emerging in 1960s-1970s New York and California through La Monte Young, Terry Riley, Steve Reich, and Philip Glass. Characterized by repetitive-cellular structures, gradual-process-of-change compositional approach, modal-or-tonal harmonic vocabulary, and steady pulse. Riley's In C (1964), Reich's Drumming (1971), and Glass's Einstein on the Beach (1976) constitute the canonical type-specimens. Direct precursor to broader post-minimal compositional practice.",
-      "parent": "artMusic.westernModern",
-      "axes": [
-        1,
-        1,
-        1,
-        2,
-        1,
-        1,
-        1,
-        -1,
-        0,
-        1,
-        1,
-        1,
-        2
-      ],
-      "instruments": [
-        "voice",
-        "grand_piano",
-        "violin_orchestral"
-      ],
-      "description": "American mid-twentieth-century compositional movement emerging in 1960s-1970s New York and California through La Monte Young, Terry Riley, Steve Reich, and Philip Glass. Characterized by repetitive-cellular structures, gradual-process-of-change compositional approach, modal-or-tonal harmonic vocabulary, and steady pulse. Riley's In C (1964), Reich's Drumming (1971), and Glass's Einstein on the Beach (1976) constitute the canonical type-specimens. Direct precursor to broader post-minimal compositional practice.",
-      "exemplars": [
-        "Steve Reich",
-        "Philip Glass",
-        "Terry Riley",
-        "La Monte Young",
-        "Meredith Monk",
-        "John Adams (post-minimalist)"
-      ],
-      "crossRefs": [
-        "experimentalElec.musiqueConcrete"
       ]
     },
     {
@@ -29192,50 +29003,6 @@
       ],
       "crossRefs": [
         "improvOnFrame.americanJazz.preJazzRagtime"
-      ]
-    },
-    {
-      "id": "swing_big_band",
-      "name": "Swing big band",
-      "family": "jazz",
-      "lineage": "1930s-1940s American jazz orchestra format with sectional brass-and-reed arrangement, 14-18 musicians, and dance-band repertoire emphasis. The Swing Era dominated American popular music c.1935-1945, with Benny Goodman, Count Basie, Duke Ellington, Glenn Miller, Tommy Dorsey, and Artie Shaw orchestras as canonical bandleaders. Distinguished from earlier hot-jazz by swing big band's formal-arranged composition (vs improvisational-collective) framework and dance-floor commercial-orientation.",
-      "parent": "improvOnFrame.americanJazz.early",
-      "axes": [
-        2,
-        1,
-        1,
-        0,
-        2,
-        1,
-        1,
-        -1,
-        1,
-        1,
-        1,
-        2,
-        1
-      ],
-      "instruments": [
-        "voice",
-        "trumpet",
-        "trombone",
-        "saxophone",
-        "grand_piano",
-        "upright_bass",
-        "drum_kit"
-      ],
-      "description": "1930s-1940s American jazz orchestra format with sectional brass-and-reed arrangement, 14-18 musicians, and dance-band repertoire emphasis. The Swing Era dominated American popular music c.1935-1945, with Benny Goodman, Count Basie, Duke Ellington, Glenn Miller, Tommy Dorsey, and Artie Shaw orchestras as canonical bandleaders. Distinguished from earlier hot-jazz by swing big band's formal-arranged composition (vs improvisational-collective) framework and dance-floor commercial-orientation.",
-      "exemplars": [
-        "Duke Ellington",
-        "Count Basie",
-        "Benny Goodman",
-        "Glenn Miller",
-        "Tommy Dorsey",
-        "Artie Shaw",
-        "Fletcher Henderson"
-      ],
-      "crossRefs": [
-        "improvOnFrame.americanJazz.kansasCity"
       ]
     },
     {
@@ -32075,87 +31842,6 @@
       ]
     },
     {
-      "id": "south_african_kwaito",
-      "name": "South African kwaito",
-      "family": "hip_hop",
-      "lineage": "South African house-and-hip-hop hybrid genre emerging in mid-1990s post-apartheid Johannesburg as a celebration of newly-democratic South African cultural identity. Characterized by slowed-down house tempo (90-110 BPM), Zulu-Xhosa-Sesotho-English vocal delivery, dub-and-reggae-influenced bass-and-keyboard production, and explicit South African township cultural lyrical content. Boom Shaka, Arthur Mafokate, Mandoza, Brenda Fassie (transitional), and TKZee consolidated the canonical 1990s-2000s commercial sound.",
-      "parent": "mcRhythm.afroDiasporic",
-      "axes": [
-        0,
-        1,
-        2,
-        1,
-        1,
-        1,
-        1,
-        1,
-        2,
-        2,
-        1,
-        2,
-        1
-      ],
-      "instruments": [
-        "voice",
-        "drum_machine_808",
-        "analog_synth",
-        "electric_bass"
-      ],
-      "description": "South African house-and-hip-hop hybrid genre emerging in mid-1990s post-apartheid Johannesburg as a celebration of newly-democratic South African cultural identity. Characterized by slowed-down house tempo (90-110 BPM), Zulu-Xhosa-Sesotho-English vocal delivery, dub-and-reggae-influenced bass-and-keyboard production, and explicit South African township cultural lyrical content. Boom Shaka, Arthur Mafokate, Mandoza, Brenda Fassie (transitional), and TKZee consolidated the canonical 1990s-2000s commercial sound.",
-      "exemplars": [
-        "Boom Shaka",
-        "Arthur Mafokate",
-        "Mandoza",
-        "Brenda Fassie",
-        "TKZee",
-        "M'du Masilela"
-      ],
-      "crossRefs": [
-        "electronicDance.house",
-        "bassSystem.jamaican"
-      ]
-    },
-    {
-      "id": "amapiano_sa",
-      "name": "Amapiano (South African 2010s)",
-      "family": "electronic",
-      "lineage": "South African deep-house-and-jazz hybrid genre emerging in mid-2010s in Johannesburg and Pretoria. Characterized by extremely-deep \"log drum\" synthesizer-bass, jazz-piano keyboard work, slow-to-mid tempo (108-115 BPM), and extended drawn-out arrangement structures. Kabza De Small (\"King of Amapiano\"), DJ Maphorisa, and Vigro Deep constitute the canonical producer-roster; the genre spread internationally through 2020-onward through TikTok-Pretoria-dance-circulation and is now the dominant African-dance-music form continent-wide.",
-      "parent": "electronicDance.africanDance",
-      "axes": [
-        1,
-        1,
-        1,
-        1,
-        2,
-        1,
-        1,
-        1,
-        0,
-        2,
-        1,
-        2,
-        1
-      ],
-      "instruments": [
-        "voice",
-        "drum_machine_808",
-        "analog_synth",
-        "log_drum"
-      ],
-      "description": "South African deep-house-and-jazz hybrid genre emerging in mid-2010s in Johannesburg and Pretoria. Characterized by extremely-deep \"log drum\" synthesizer-bass, jazz-piano keyboard work, slow-to-mid tempo (108-115 BPM), and extended drawn-out arrangement structures. Kabza De Small (\"King of Amapiano\"), DJ Maphorisa, and Vigro Deep constitute the canonical producer-roster; the genre spread internationally through 2020-onward through TikTok-Pretoria-dance-circulation and is now the dominant African-dance-music form continent-wide.",
-      "exemplars": [
-        "Kabza De Small",
-        "DJ Maphorisa",
-        "Vigro Deep",
-        "Tyler ICU",
-        "MFR Souls",
-        "Focalistic"
-      ],
-      "crossRefs": [
-        "electronicDance.house"
-      ]
-    },
-    {
       "id": "tribal_house",
       "name": "Tribal house",
       "family": "electronic",
@@ -32506,44 +32192,6 @@
       ],
       "crossRefs": [
         "groovePercussion.funkPercussive"
-      ]
-    },
-    {
-      "id": "berlin_techno_basic_channel",
-      "name": "Berlin techno / Basic Channel dub-techno",
-      "family": "electronic",
-      "lineage": "Early-1990s Berlin techno subgenre developed by Moritz von Oswald and Mark Ernestus through Basic Channel (1993-onward, parallel labels Maurizio, Chain Reaction, Burial Mix). Characterized by dense Jamaican-dub-influenced delay-and-reverb processing, gradual-evolving texture (often single tracks 8-20 minutes), heavy bass-emphasis, and minimal-yet-immersive arrangement. The genre anchored the canonical 1990s Berlin underground-techno aesthetic and influenced subsequent minimal techno and ambient-techno scenes.",
-      "parent": "electronicDance.techno",
-      "axes": [
-        1,
-        1,
-        1,
-        1,
-        2,
-        1,
-        0,
-        1,
-        1,
-        -2,
-        1,
-        2,
-        2
-      ],
-      "instruments": [
-        "drum_machine_808",
-        "analog_synth"
-      ],
-      "description": "Early-1990s Berlin techno subgenre developed by Moritz von Oswald and Mark Ernestus through Basic Channel (1993-onward, parallel labels Maurizio, Chain Reaction, Burial Mix). Characterized by dense Jamaican-dub-influenced delay-and-reverb processing, gradual-evolving texture (often single tracks 8-20 minutes), heavy bass-emphasis, and minimal-yet-immersive arrangement. The genre anchored the canonical 1990s Berlin underground-techno aesthetic and influenced subsequent minimal techno and ambient-techno scenes.",
-      "exemplars": [
-        "Basic Channel",
-        "Maurizio",
-        "Vladislav Delay",
-        "Pole",
-        "Porter Ricks",
-        "Rhythm & Sound"
-      ],
-      "crossRefs": [
-        "experimentalElec.ambient"
       ]
     },
     {
@@ -33482,45 +33130,6 @@
       ]
     },
     {
-      "id": "outrun_synthwave",
-      "name": "Outrun / synthwave",
-      "family": "electronic",
-      "lineage": "2010s electronic subgenre developed through online distributed-production scenes integrating 1980s film-soundtrack synth-aesthetic (especially evoking Drive (2011) and the broader Cliff Martinez / Kavinsky soundtrack lineage), retro-futurist visual-and-thematic content, and explicit 1980s-Miami-Vice/Outrun-arcade-game cultural reference. Kavinsky's OutRun (2013), Mitch Murder, Lazerhawk, and the broader Rosso Corsa Records and FiXT Neon label rosters anchor the canonical sound.",
-      "parent": "experimentalElec.ambient",
-      "axes": [
-        2,
-        1,
-        1,
-        1,
-        2,
-        1,
-        0,
-        1,
-        1,
-        1,
-        1,
-        2,
-        1
-      ],
-      "instruments": [
-        "voice",
-        "analog_synth",
-        "drum_machine_808"
-      ],
-      "description": "2010s electronic subgenre developed through online distributed-production scenes integrating 1980s film-soundtrack synth-aesthetic (especially evoking Drive (2011) and the broader Cliff Martinez / Kavinsky soundtrack lineage), retro-futurist visual-and-thematic content, and explicit 1980s-Miami-Vice/Outrun-arcade-game cultural reference. Kavinsky's OutRun (2013), Mitch Murder, Lazerhawk, and the broader Rosso Corsa Records and FiXT Neon label rosters anchor the canonical sound.",
-      "exemplars": [
-        "Kavinsky",
-        "Mitch Murder",
-        "Lazerhawk",
-        "The Midnight",
-        "Carpenter Brut",
-        "Rosso Corsa Records"
-      ],
-      "crossRefs": [
-        "experimentalElec.industrialNoise"
-      ]
-    },
-    {
       "id": "darksynth",
       "name": "Darksynth (mid-2010s horror-cinematic synthwave)",
       "family": "electronic",
@@ -33789,46 +33398,6 @@
       ],
       "crossRefs": [
         "bassSystem.bassDescendants"
-      ]
-    },
-    {
-      "id": "broken_beat_4hero",
-      "name": "Broken beat (4hero / IG Culture)",
-      "family": "electronic",
-      "lineage": "Early-2000s UK electronic-and-jazz fusion subgenre extending broken beat into deeper jazz-and-soul integration. 4hero's Two Pages (1998) and Creating Patterns (2001), and Bugz in the Attic's 2000-2005 work, defined the canonical aesthetic. Distinguished from drum-and-bass by broken beat's slower-tempo (108-115 BPM) and explicit jazz-fusion harmonic-vocabulary.",
-      "parent": "bassSystem.bassDescendants",
-      "axes": [
-        2,
-        1,
-        1,
-        2,
-        2,
-        1,
-        1,
-        1,
-        1,
-        2,
-        1,
-        2,
-        1
-      ],
-      "instruments": [
-        "voice",
-        "drum_machine_808",
-        "analog_synth",
-        "electric_bass"
-      ],
-      "description": "Early-2000s UK electronic-and-jazz fusion subgenre extending broken beat into deeper jazz-and-soul integration. 4hero's Two Pages (1998) and Creating Patterns (2001), and Bugz in the Attic's 2000-2005 work, defined the canonical aesthetic. Distinguished from drum-and-bass by broken beat's slower-tempo (108-115 BPM) and explicit jazz-fusion harmonic-vocabulary.",
-      "exemplars": [
-        "4hero",
-        "IG Culture",
-        "Bugz in the Attic",
-        "Domu",
-        "Kaidi Tatham",
-        "Bahia Black"
-      ],
-      "crossRefs": [
-        "improvOnFrame.americanJazz.fusion"
       ]
     },
     {
@@ -34351,172 +33920,6 @@
       ]
     },
     {
-      "id": "freak_folk",
-      "name": "Freak folk (mid-2000s American psychedelic-experimental folk)",
-      "family": "rock_punk",
-      "lineage": "Mid-2000s American indie folk subgenre characterized by psychedelic-experimental orientation, intimate-eccentric-vocal-delivery, broad-folk-instrumentation including unusual instruments (autoharp, harpsichord, sitar), and explicit countercultural-and-mystical thematic content. Devendra Banhart (California 2002-onward) inaugurated the canonical sound; Joanna Newsom, Vetiver, Espers, and the broader Drag City Records label roster anchor the canonical freak folk roster.",
-      "parent": "balladPoetry.angloSingerSong.indieFolk",
-      "axes": [
-        2,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        0,
-        0,
-        2,
-        1,
-        1,
-        0
-      ],
-      "instruments": [
-        "voice",
-        "acoustic_guitar_parlor",
-        "banjo_5_string",
-        "autoharp",
-        "sitar",
-        "harpsichord"
-      ],
-      "description": "Mid-2000s American indie folk subgenre characterized by psychedelic-experimental orientation, intimate-eccentric-vocal-delivery, broad-folk-instrumentation including unusual instruments (autoharp, harpsichord, sitar), and explicit countercultural-and-mystical thematic content. Devendra Banhart (California 2002-onward) inaugurated the canonical sound; Joanna Newsom, Vetiver, Espers, and the broader Drag City Records label roster anchor the canonical freak folk roster.",
-      "exemplars": [
-        "Devendra Banhart",
-        "Joanna Newsom",
-        "Vetiver",
-        "Espers",
-        "CocoRosie",
-        "Drag City Records"
-      ],
-      "crossRefs": [
-        "balladPoetry.angloSingerSong.confessional60s"
-      ]
-    },
-    {
-      "id": "dreampop_modern",
-      "name": "Dreampop (modern)",
-      "family": "rock_punk",
-      "lineage": "1980s-onward indie rock subgenre developed from Cocteau Twins (UK 1979-1997) and continuing through Mazzy Star, Beach House, and the broader contemporary scene. Characterized by ethereal-reverberant production, atmospheric-pad textures, female-vocal-feature presentation, and explicit slow-emotional-dream-state aesthetic. Distinguished from shoegaze by dreampop's emphasis on melodic-songcraft over wall-of-noise.",
-      "parent": "distortedRock.alternative",
-      "axes": [
-        1,
-        1,
-        1,
-        1,
-        2,
-        1,
-        1,
-        1,
-        0,
-        2,
-        1,
-        1,
-        0
-      ],
-      "instruments": [
-        "voice",
-        "electric_guitar_humbucker",
-        "electric_bass",
-        "drum_kit",
-        "analog_synth"
-      ],
-      "description": "1980s-onward indie rock subgenre developed from Cocteau Twins (UK 1979-1997) and continuing through Mazzy Star, Beach House, and the broader contemporary scene. Characterized by ethereal-reverberant production, atmospheric-pad textures, female-vocal-feature presentation, and explicit slow-emotional-dream-state aesthetic. Distinguished from shoegaze by dreampop's emphasis on melodic-songcraft over wall-of-noise.",
-      "exemplars": [
-        "Cocteau Twins",
-        "Mazzy Star",
-        "Beach House",
-        "Wild Nothing",
-        "Slowdive",
-        "Cigarettes After Sex"
-      ],
-      "crossRefs": [
-        "experimentalElec.ambient",
-        "balladPoetry.angloSingerSong.confessional60s"
-      ]
-    },
-    {
-      "id": "bedroom_pop_2010s",
-      "name": "Bedroom pop (2010s)",
-      "family": "rock_punk",
-      "lineage": "Late-2010s indie-pop subgenre developed through SoundCloud-and-Bandcamp distributed-production scene, characterized by DIY-home-recorded production aesthetic, intimate-vocal-and-instrumental performance, and explicit lo-fi commercial-accessible cross-orientation. Clairo's Pretty Girl (2017), Cuco, Boy Pablo, Beabadoobee, Steve Lacy (transitional), and the broader Spotify \"bedroom pop\" playlist-driven scene anchor the canonical roster.",
-      "parent": "distortedRock.alternative",
-      "axes": [
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        0,
-        2,
-        1,
-        1,
-        0
-      ],
-      "instruments": [
-        "voice",
-        "acoustic_guitar_parlor",
-        "analog_synth",
-        "drum_machine_808",
-        "ukulele"
-      ],
-      "description": "Late-2010s indie-pop subgenre developed through SoundCloud-and-Bandcamp distributed-production scene, characterized by DIY-home-recorded production aesthetic, intimate-vocal-and-instrumental performance, and explicit lo-fi commercial-accessible cross-orientation. Clairo's Pretty Girl (2017), Cuco, Boy Pablo, Beabadoobee, Steve Lacy (transitional), and the broader Spotify \"bedroom pop\" playlist-driven scene anchor the canonical roster.",
-      "exemplars": [
-        "Clairo",
-        "Cuco",
-        "Boy Pablo",
-        "Beabadoobee",
-        "Rex Orange County",
-        "Mac DeMarco (foundational)"
-      ],
-      "crossRefs": [
-        "balladPoetry.angloSingerSong.confessional60s"
-      ]
-    },
-    {
-      "id": "sophistipop_80s",
-      "name": "Sophisti-pop (mid-1980s UK jazz-leaning adult-contemporary)",
-      "family": "pop",
-      "lineage": "Mid-1980s UK pop subgenre integrating jazz-and-soul harmonic vocabulary with sophisticated-glamorous-adult-pop aesthetic. Sade's Diamond Life (1984), the Style Council (Paul Weller post-Jam project), Everything but the Girl, Prefab Sprout, Working Week, and the broader UK-mainstream 1985-1989 chart-pop sophisti-pop wave constitute the canonical roster. Distinguished from broader 80s pop by sophisti-pop's explicit jazz-influence and adult-contemporary cultural orientation.",
-      "parent": "functionalSong.popRock",
-      "axes": [
-        2,
-        1,
-        1,
-        0,
-        2,
-        1,
-        1,
-        0,
-        0,
-        2,
-        1,
-        1,
-        0
-      ],
-      "instruments": [
-        "voice",
-        "grand_piano",
-        "electric_bass",
-        "drum_kit",
-        "saxophone"
-      ],
-      "description": "Mid-1980s UK pop subgenre integrating jazz-and-soul harmonic vocabulary with sophisticated-glamorous-adult-pop aesthetic. Sade's Diamond Life (1984), the Style Council (Paul Weller post-Jam project), Everything but the Girl, Prefab Sprout, Working Week, and the broader UK-mainstream 1985-1989 chart-pop sophisti-pop wave constitute the canonical roster. Distinguished from broader 80s pop by sophisti-pop's explicit jazz-influence and adult-contemporary cultural orientation.",
-      "exemplars": [
-        "Sade",
-        "The Style Council",
-        "Everything but the Girl",
-        "Prefab Sprout",
-        "Working Week",
-        "Swing Out Sister"
-      ],
-      "crossRefs": [
-        "improvOnFrame.americanJazz.smoothVocal"
-      ]
-    },
-    {
       "id": "city_pop_modern",
       "name": "City pop modern revival",
       "family": "pop",
@@ -34958,85 +34361,6 @@
       ]
     },
     {
-      "id": "chillwave_glo_fi",
-      "name": "Chillwave (2009-2012 American internet-circulated hazy-indie-electronic)",
-      "family": "rock_punk",
-      "lineage": "Late-2000s indie-electronic subgenre developed through internet-distributed-production scene, characterized by hazy-reverbed atmospheric production, 1980s-synth-and-disco sampling, mid-tempo languid grooves, and explicit nostalgic-summer-evening aesthetic. Washed Out, Toro y Moi, Neon Indian, and Ducktails inaugurated the canonical sound c. 2009-2011; the broader Carpark Records, Mexican Summer, and Captured Tracks label rosters anchored institutional infrastructure.",
-      "parent": "distortedRock.experimental",
-      "axes": [
-        2,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        0,
-        2,
-        1,
-        1,
-        0
-      ],
-      "instruments": [
-        "voice",
-        "analog_synth",
-        "drum_machine_808",
-        "electric_bass"
-      ],
-      "description": "Late-2000s indie-electronic subgenre developed through internet-distributed-production scene, characterized by hazy-reverbed atmospheric production, 1980s-synth-and-disco sampling, mid-tempo languid grooves, and explicit nostalgic-summer-evening aesthetic. Washed Out, Toro y Moi, Neon Indian, and Ducktails inaugurated the canonical sound c. 2009-2011; the broader Carpark Records, Mexican Summer, and Captured Tracks label rosters anchored institutional infrastructure.",
-      "exemplars": [
-        "Washed Out",
-        "Toro y Moi",
-        "Neon Indian",
-        "Ducktails",
-        "Memory Tapes",
-        "Carpark Records"
-      ],
-      "crossRefs": [
-        "experimentalElec.ambient"
-      ]
-    },
-    {
-      "id": "drone_metal_sustained",
-      "name": "Drone metal (1990s extreme-deceleration sustained-tone metal)",
-      "family": "rock_punk",
-      "lineage": "1990s heavy-metal subgenre developed from doom metal's extreme deceleration, characterized by extreme-down-tuned distorted-guitar drone textures, glacial tempi (often single notes sustained 30-90 seconds), heavy amplifier-and-feedback emphasis, and minimal-to-absent traditional rhythmic-or-vocal content. Earth's Earth 2 (1993, Dylan Carlson) inaugurated the canonical sound; Sunn O))) (Stephen O'Malley and Greg Anderson, founded 1998), Boris, and the broader Southern Lord Records label roster anchor the canonical drone metal aesthetic.",
-      "parent": "distortedRock.metal.doom",
-      "axes": [
-        0,
-        1,
-        1,
-        -1,
-        2,
-        1,
-        1,
-        -1,
-        2,
-        -2,
-        1,
-        1,
-        0
-      ],
-      "instruments": [
-        "electric_guitar_humbucker",
-        "electric_bass",
-        "drum_kit"
-      ],
-      "description": "1990s heavy-metal subgenre developed from doom metal's extreme deceleration, characterized by extreme-down-tuned distorted-guitar drone textures, glacial tempi (often single notes sustained 30-90 seconds), heavy amplifier-and-feedback emphasis, and minimal-to-absent traditional rhythmic-or-vocal content. Earth's Earth 2 (1993, Dylan Carlson) inaugurated the canonical sound; Sunn O))) (Stephen O'Malley and Greg Anderson, founded 1998), Boris, and the broader Southern Lord Records label roster anchor the canonical drone metal aesthetic.",
-      "exemplars": [
-        "Earth",
-        "Sunn O)))",
-        "Boris",
-        "Khanate",
-        "Nadja",
-        "Southern Lord Records"
-      ],
-      "crossRefs": [
-        "experimentalElec.ambient"
-      ]
-    },
-    {
       "id": "teen_pop_late_90s",
       "name": "Teen pop late 90s-00s",
       "family": "pop",
@@ -35160,46 +34484,6 @@
       ]
     },
     {
-      "id": "post_metal_2000s",
-      "name": "Post-metal (2000s post-rock-meets-sludge extended-instrumental metal)",
-      "family": "rock_punk",
-      "lineage": "2000s heavy-metal subgenre developed from post-rock instrumental-architecture and sludge-metal heavy-distortion. Characterized by extended-instrumental compositions (typically 8-15 minutes), gradual-crescendo dynamic-architecture, melodic-and-screamed vocal-alternation, and explicit-progressive-cinematic compositional ambition. Neurosis (foundational Bay Area 1985-onward), Isis (Boston 1997-2010), Cult of Luna (Sweden), Pelican (Chicago, instrumental), and the broader Hydra Head Records and Robotic Empire roster anchor the canonical post-metal roster.",
-      "parent": "distortedRock.metal.sludge",
-      "axes": [
-        0,
-        1,
-        1,
-        1,
-        2,
-        1,
-        1,
-        0,
-        2,
-        -1,
-        1,
-        2,
-        0
-      ],
-      "instruments": [
-        "voice",
-        "electric_guitar_humbucker",
-        "electric_bass",
-        "drum_kit"
-      ],
-      "description": "2000s heavy-metal subgenre developed from post-rock instrumental-architecture and sludge-metal heavy-distortion. Characterized by extended-instrumental compositions (typically 8-15 minutes), gradual-crescendo dynamic-architecture, melodic-and-screamed vocal-alternation, and explicit-progressive-cinematic compositional ambition. Neurosis (foundational Bay Area 1985-onward), Isis (Boston 1997-2010), Cult of Luna (Sweden), Pelican (Chicago, instrumental), and the broader Hydra Head Records and Robotic Empire roster anchor the canonical post-metal roster.",
-      "exemplars": [
-        "Neurosis",
-        "Isis",
-        "Cult of Luna",
-        "Pelican",
-        "Russian Circles",
-        "Hydra Head Records"
-      ],
-      "crossRefs": [
-        "artMusic.westernModern"
-      ]
-    },
-    {
       "id": "djent",
       "name": "Djent (mid-2000s polymetric-down-tuned progressive metal)",
       "family": "rock_punk",
@@ -35237,46 +34521,6 @@
       ],
       "crossRefs": [
         "artMusic.westernModern"
-      ]
-    },
-    {
-      "id": "black_metal_norwegian",
-      "name": "Black metal (Norwegian second wave)",
-      "family": "rock_punk",
-      "lineage": "Early-1990s Norwegian heavy-metal subgenre developed from broader 1980s first-wave black-metal (Venom, Bathory, Hellhammer) into a distinct Norwegian extreme-metal style. Characterized by tremolo-picked-guitar-blast-beat percussion, raw-and-lo-fi production aesthetic, screeched-or-shrieked vocal-delivery, and explicit Norse-pagan-and-Satanic thematic content. Mayhem (founded 1984), Burzum, Darkthrone, Emperor, Immortal, and the broader Norwegian black-metal scene anchored the canonical aesthetic. The early-1990s church-arson and murder controversies mythologized the scene.",
-      "parent": "distortedRock.metal.death",
-      "axes": [
-        0,
-        1,
-        1,
-        2,
-        2,
-        1,
-        1,
-        -1,
-        2,
-        -2,
-        1,
-        2,
-        2
-      ],
-      "instruments": [
-        "voice",
-        "electric_guitar_humbucker",
-        "electric_bass",
-        "drum_kit"
-      ],
-      "description": "Early-1990s Norwegian heavy-metal subgenre developed from broader 1980s first-wave black-metal (Venom, Bathory, Hellhammer) into a distinct Norwegian extreme-metal style. Characterized by tremolo-picked-guitar-blast-beat percussion, raw-and-lo-fi production aesthetic, screeched-or-shrieked vocal-delivery, and explicit Norse-pagan-and-Satanic thematic content. Mayhem (founded 1984), Burzum, Darkthrone, Emperor, Immortal, and the broader Norwegian black-metal scene anchored the canonical aesthetic. The early-1990s church-arson and murder controversies mythologized the scene.",
-      "exemplars": [
-        "Mayhem",
-        "Burzum",
-        "Darkthrone",
-        "Emperor",
-        "Immortal",
-        "Norwegian black metal scene"
-      ],
-      "crossRefs": [
-        "distortedRock.metal.thrash"
       ]
     },
     {
@@ -35357,127 +34601,6 @@
       ],
       "crossRefs": [
         "distortedRock.classic"
-      ]
-    },
-    {
-      "id": "synthpop_classic_80s",
-      "name": "Synthpop classic",
-      "family": "pop",
-      "lineage": "Early-1980s pop subgenre developed primarily in the UK through Depeche Mode, the Human League, Soft Cell, Yazoo, Heaven 17, and the Vince Clarke-related extended catalog. Characterized by all-synthesizer instrumentation (sometimes with drum-machine), melodic-pop song-form structure, and explicit electronic-future-aesthetic. The 1981-1984 chart-pop peak through Don't You Want Me, Tainted Love, Just Can't Get Enough constitutes the canonical commercial-mainstream emergence of synthpop as dominant chart-pop production aesthetic.",
-      "parent": "functionalSong.popRock",
-      "axes": [
-        2,
-        1,
-        1,
-        1,
-        2,
-        1,
-        0,
-        1,
-        0,
-        2,
-        1,
-        2,
-        1
-      ],
-      "instruments": [
-        "voice",
-        "analog_synth",
-        "drum_machine_808",
-        "electric_bass"
-      ],
-      "description": "Early-1980s pop subgenre developed primarily in the UK through Depeche Mode, the Human League, Soft Cell, Yazoo, Heaven 17, and the Vince Clarke-related extended catalog. Characterized by all-synthesizer instrumentation (sometimes with drum-machine), melodic-pop song-form structure, and explicit electronic-future-aesthetic. The 1981-1984 chart-pop peak through Don't You Want Me, Tainted Love, Just Can't Get Enough constitutes the canonical commercial-mainstream emergence of synthpop as dominant chart-pop production aesthetic.",
-      "exemplars": [
-        "Depeche Mode",
-        "The Human League",
-        "Soft Cell",
-        "Yazoo",
-        "Heaven 17",
-        "OMD"
-      ],
-      "crossRefs": [
-        "experimentalElec.ambient"
-      ]
-    },
-    {
-      "id": "new_wave_late_70s_early_80s",
-      "name": "New wave (late 70s-early 80s)",
-      "family": "rock_punk",
-      "lineage": "Late-1970s and early-1980s American and British rock subgenre emerging from post-punk's dissolution into commercially-accessible pop-and-rock direction with synthesizer-and-arty-aesthetic integration. Blondie, Talking Heads, Devo, the Cars, Elvis Costello, Squeeze, the Police, and the broader 1978-1983 new wave commercial-radio dominance constitute the canonical roster.",
-      "parent": "distortedRock.alternative",
-      "axes": [
-        1,
-        1,
-        2,
-        1,
-        1,
-        1,
-        1,
-        -1,
-        1,
-        2,
-        1,
-        2,
-        1
-      ],
-      "instruments": [
-        "voice",
-        "electric_guitar_single_coil",
-        "electric_bass",
-        "drum_kit",
-        "analog_synth"
-      ],
-      "description": "Late-1970s and early-1980s American and British rock subgenre emerging from post-punk's dissolution into commercially-accessible pop-and-rock direction with synthesizer-and-arty-aesthetic integration. Blondie, Talking Heads, Devo, the Cars, Elvis Costello, Squeeze, the Police, and the broader 1978-1983 new wave commercial-radio dominance constitute the canonical roster.",
-      "exemplars": [
-        "Blondie",
-        "Talking Heads",
-        "Devo",
-        "The Cars",
-        "Elvis Costello",
-        "The Police"
-      ],
-      "crossRefs": [
-        "distortedRock.classic"
-      ]
-    },
-    {
-      "id": "post_punk_late_70s",
-      "name": "Post-punk (late 70s)",
-      "family": "rock_punk",
-      "lineage": "Late-1970s British rock subgenre emerging immediately after the 1976-77 punk-rock peak. Characterized by experimental compositional approach, angular-and-dissonant guitar-textures, prominent-driving bass-line emphasis, and existential-philosophical-and-political lyrical content. Joy Division (Manchester 1976-1980), Wire, Gang of Four, Public Image Ltd. (John Lydon post-Sex-Pistols), the Fall, Magazine, and the broader Factory Records-Rough Trade-Mute Records-Domino label network anchored the canonical post-punk roster.",
-      "parent": "distortedRock.punk",
-      "axes": [
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        2,
-        -1,
-        1,
-        2,
-        2,
-        2,
-        1
-      ],
-      "instruments": [
-        "voice",
-        "electric_guitar_humbucker",
-        "electric_bass",
-        "drum_kit"
-      ],
-      "description": "Late-1970s British rock subgenre emerging immediately after the 1976-77 punk-rock peak. Characterized by experimental compositional approach, angular-and-dissonant guitar-textures, prominent-driving bass-line emphasis, and existential-philosophical-and-political lyrical content. Joy Division (Manchester 1976-1980), Wire, Gang of Four, Public Image Ltd. (John Lydon post-Sex-Pistols), the Fall, Magazine, and the broader Factory Records-Rough Trade-Mute Records-Domino label network anchored the canonical post-punk roster.",
-      "exemplars": [
-        "Joy Division",
-        "Wire",
-        "Gang of Four",
-        "Public Image Ltd.",
-        "The Fall",
-        "Magazine"
-      ],
-      "crossRefs": [
-        "distortedRock.alternative"
       ]
     },
     {

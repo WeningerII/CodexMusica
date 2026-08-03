@@ -3,20 +3,20 @@
   "name": "Corsican paghjella three-voice unaccompanied",
   "family": "global",
   "lineage": "Corsican three-voice unaccompanied sacred-and-secular polyphonic tradition — the canonical Corsican vocal-polyphonic form built on three named voice-parts (secondu the lead text-carrying voice, bassu the bass-anchor voice, terzu the highest-and-most-ornamented voice that enters last), performed in stone-walled village-church contexts and in lay confraternity (cunfraterne) sacred-paraliturgical contexts, with the canonical regional centers in Niolu, Castagniccia, Sartène-Tallano, Balagne; the modern revival from the 1970s-onward through riacquistu Corsican cultural-resurgence groups Canta u Populu Corsu, A Filetta, Tavagna, I Muvrini, and the contemporary ethnomusicology lineage of Bernard Lortat-Jacob and Jean-Étienne Antonini",
-  "recipe": "classic mid-1970s corsican paghjella three-voice unaccompanied, drone Modal, vocal branch, Mediterranean ballad ballad poetry sardinian cantu a tenore and launeddas croatian klapa dalmatian close-harmony. vocal fry, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part three voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble. parish church. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 525,
-  "score": 315.157,
+  "recipe": "classic mid-1970s corsican paghjella three-voice unaccompanied, drone Modal, vocal branch, Mediterranean ballad ballad poetry croatian klapa dalmatian close-harmony stornelli. thick, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part three voice polyphonic regional kakhetian three voice two soloists choral drone global traditional polyphonic choir ensemble. parish church. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 492,
+  "score": 315.012,
   "config": {
     "traditions": [
       "corsican_paghjella",
-      "sardinian_traditional",
-      "croatian_klapa_dalmatian"
+      "croatian_klapa_dalmatian",
+      "stornelli"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
+          "voice_register": "chest_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -25,31 +25,31 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_tape_saturation",
-          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+          "voice_multitrack_stack": "voice_multitrack_granular_texture"
         },
         "scores": {
-          "voice_register": 5.26,
-          "voice_quality": 27.950000000000003,
+          "voice_register": 6.045,
+          "voice_quality": 28.925000000000004,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.1125,
-          "voice_articulation": 25.35,
-          "voice_microtone": 26.714999999999993,
-          "voice_tradition": 37.72,
-          "voice_mechanism_compound": 10.855,
-          "voice_estill_quality": 6.955000000000001,
-          "voice_speech_song": 21.9375,
-          "voice_ensemble_config": 41.925,
-          "voice_ornament_system": 11.94,
-          "voice_pitch_organization": 6.175,
-          "voice_processing_chain": 11.685,
-          "voice_multitrack_stack": 6.825
+          "voice_articulation": 24.634999999999994,
+          "voice_microtone": 27.104999999999993,
+          "voice_tradition": 39.05499999999999,
+          "voice_mechanism_compound": 10.205,
+          "voice_estill_quality": 8.27,
+          "voice_speech_song": 24.927500000000002,
+          "voice_ensemble_config": 38.48,
+          "voice_ornament_system": 11.094999999999999,
+          "voice_pitch_organization": 8.045,
+          "voice_processing_chain": 11.49,
+          "voice_multitrack_stack": 6.15
         }
       },
       {
@@ -57,14 +57,14 @@
         "slots": {
           "choir_size": "a_cappella_small_ensemble_3_8",
           "choir_polyphonic_configuration": "choir_polyphony_three_voice_polyphonic",
-          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_regional_canonical_configuration": "choir_regional_kakhetian_three_voice",
           "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
         },
         "scores": {
-          "choir_size": 7.865000000000001,
-          "choir_polyphonic_configuration": 27.65,
-          "choir_regional_canonical_configuration": 24.845,
-          "choir_ensemble_repertoire": 13.18
+          "choir_size": 7.215000000000001,
+          "choir_polyphonic_configuration": 28.950000000000003,
+          "choir_regional_canonical_configuration": 21.71,
+          "choir_ensemble_repertoire": 12.984999999999998
         }
       }
     ],

@@ -37522,7 +37522,6 @@ const TRADITION_SIGNATURES = {
   'uilleann_pipe_solo': ['celtic', 'Scottish-influenced', 'drone-foundation', 'drone-like', 'folk-tradition'],
   'didgeridoo_yidaki_solo': ['celtic', 'Scottish-influenced', 'drone-foundation', 'drone-like', 'folk-tradition', 'eucalyptus-tetrodonta', 'yidaki-canon', 'northeast-arnhem', 'sugarbag-beeswax', 'shaped-rim'],
   'galician_pipe_solo': ['celtic', 'Scottish-influenced', 'drone-foundation', 'drone-like', 'folk-tradition'],
-  'cloud_rap_experimental': ['speech-mimicking', 'rhythmic-speech', 'layered-ambient', 'synthesized', 'synthetic', 'sample-foundational'],
   'mumble_rap': ['speech-mimicking', 'rhythmic-speech', 'layered-ambient', 'synthesized', 'synthetic'],
   'hyperpop_rap': ['speech-mimicking', 'rhythmic-speech', 'layered-ambient', 'synthesized', 'synthetic'],
   'rage_rap': ['speech-mimicking', 'rhythmic-speech', 'layered-ambient', 'synthesized', 'synthetic'],
@@ -37589,7 +37588,6 @@ const TRADITION_SIGNATURES = {
   'minimal_tech_house': ['dance-driving', 'dance-friendly', 'synthesized', 'synthetic', 'funky'],
   'drone_metal': ['metal-context', 'metallic', 'high-gain-cascading-saturation', 'transient-grab-aggressive', 'growly', 'sub-bass', 'mournful', 'dark-romantic'],
   'dsbm_black_metal': ['metal-context', 'metallic', 'high-gain-cascading-saturation', 'transient-grab-aggressive', 'growly', 'sub-bass', 'mournful', 'dark-romantic'],
-  'minimal_microhouse_classic': ['dance-driving', 'dance-friendly', 'synthesized', 'synthetic', 'funky'],
   'jam_band': ['jazz-trained', 'jazz-influenced', 'rock-context', 'jazz-friendly', 'classical-jazz'],
   'free_improvisation': ['jazz-trained', 'jazz-influenced', 'rock-context', 'jazz-friendly', 'classical-jazz'],
   'electroacoustic_improv': ['jazz-trained', 'jazz-influenced', 'rock-context', 'jazz-friendly', 'classical-jazz'],
@@ -37678,7 +37676,6 @@ const TRADITION_SIGNATURES = {
   'hungarian_cimbalom_trad': ['european-folk', 'folkloric', 'folk-tradition', 'ornamental-melismatic', 'sufi-mystical', 'devotional', 'court-ceremonial'],
   'bulgarian_dance_traditional': ['dance-rhythm', 'dance-driving', 'swung', 'folkloric'],
   'breton_folk': ['celtic', 'iberian-celtic', 'Irish-traditional', 'Scottish-influenced', 'english-folk', 'lament-leaning'],
-  'sardinian_traditional': ['urban-Greek', 'Turkish-makam-base', 'ornamental-melismatic', 'ornament-heavy', 'iberian-celtic'],
   'italian_southern_folk': ['urban-Greek', 'Turkish-makam-base', 'ornamental-melismatic', 'ornament-heavy', 'iberian-celtic', 'italian', 'italian', 'southern-Italian'],
   'japanese_taiko_ensemble': ['gagaku-foundational', 'naturally-reverberant', 'minimal', 'ceremonial', 'keyaki', 'zelkova', 'single-log', 'kurinuki-construction'],
   'armenian_traditional': ['Middle-Eastern', 'Turkish-makam-base', 'ornamental-melismatic', 'ornament-heavy', 'sufi-mystical', 'devotional', 'court-ceremonial'],
@@ -40065,7 +40062,7 @@ function _descriptorTier(token) {
 // DF used to be recomputed here from INSTRUMENTS / TUNINGS / ROOMS /
 // CHAIN_SECTIONS on first access, which made descriptor order a function of
 // whatever was in the catalog that day: adding ONE instrument anywhere reordered
-// chunks on cards nobody touched. Measured over all 1167 traditions, of 249,622
+// chunks on cards nobody touched. Measured over all traditions (1167 of them at the time of the measurement), of 249,622
 // adjacent token pairs ordered by this comparison, 38,831 were decided by a DF
 // margin of exactly 1 and 81,478 were DF-tied — ~48% one catalog record away
 // from flipping, in every single tradition — which forced a routine re-bless of

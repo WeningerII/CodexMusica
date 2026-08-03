@@ -3,9 +3,9 @@
   "name": "Canzone napoletana (Neapolitan song)",
   "family": "classical",
   "lineage": "Neapolitan-language art-popular song tradition, comprising the canonical Naples-and-Campania song-repertoire from the mid-nineteenth-century onward (the genre crystallized around the 1839 Piedigrotta Festival commissioned songs and continuing through the 1890s \"golden age\" with O sole mio, 1898 by Eduardo di Capua and Giovanni Capurro). The form combines elements of Italian operatic-melodic-vocabulary, Mediterranean folk-traditions, and Neapolitan-dialect literary poetry. Distinguished by canzone napoletana's strict use of the Neapolitan language (a distinct Romance language closely related to but distinct from standard Italian).",
-  "recipe": "classic Southern European mid-1890s canzone napoletana, functional Song, iberian branch, Mediterranean ballad ballad poetry kabyle music greek nisiotika. thick, breath veiled tone, slow rate, interlocked note trading. bowl back Italian German spruce classical leaning phosphor bronze bronze mandolin, cedar phosphor bronze bronze fingerpicked parlor acoustic guitar, cold pressed weikert felt beech laminated maple laminated European tradition grand piano. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. Neumann U67, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
-  "recipe_chars": 661,
-  "score": 264.842,
+  "recipe": "classic Southern European mid-1890s canzone napoletana, functional Song, iberian branch, Mediterranean ballad ballad poetry kabyle music greek nisiotika. thick, breath veiled tone, slow rate, interlocked note trading. bowl back Italian German spruce classical leaning phosphor bronze bronze mandolin, cedar phosphor bronze bronze fingerpicked parlor acoustic guitar, cold pressed weikert felt oversize maple tension resonator European spruce grand piano. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. Neumann U67, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
+  "recipe_chars": 659,
+  "score": 264.427,
   "config": {
     "traditions": [
       "canzone_napoletana",
@@ -47,7 +47,7 @@
           "voice_speech_song": 19.954999999999995,
           "voice_ensemble_config": 13.259999999999994,
           "voice_ornament_system": 10.575,
-          "voice_pitch_organization": 5.5600000000000005,
+          "voice_pitch_organization": 5.515000000000001,
           "voice_processing_chain": 5.914999999999998,
           "voice_multitrack_stack": 3.9650000000000007
         }
@@ -67,7 +67,7 @@
         "scores": {
           "acoustic_technique": 1.2025000000000001,
           "mandolin_shape": 5.915,
-          "mandolin_top": 5.6899999999999995,
+          "mandolin_top": 5.645,
           "mandolin_back": 0.15,
           "mandolin_bracing": 0.6,
           "mandolin_strings": 2.84,
@@ -99,7 +99,7 @@
           "grand_piano_size": "grand_7_foot",
           "grand_piano_brand": "bosendorfer",
           "piano_hammer": "ronsen_weikert_hammer",
-          "piano_rim": "european_laminated_rim_beech_maple",
+          "piano_rim": "mason_hamlin_oversize_rim",
           "piano_soundboard": "european_spruce_soundboard",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
           "piano_plate": "gray_iron_full_perimeter_plate",
@@ -110,11 +110,11 @@
           "grand_piano_size": 3.445,
           "grand_piano_brand": 3.685,
           "piano_hammer": 6.92,
-          "piano_rim": 8.6775,
+          "piano_rim": 8.7425,
           "piano_soundboard": 8.7425,
           "piano_pinblock": 4.075,
           "piano_plate": 4.12,
-          "piano_pitch_standard": 6.845
+          "piano_pitch_standard": 6.455
         }
       }
     ],

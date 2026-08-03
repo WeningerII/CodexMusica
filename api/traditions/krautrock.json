@@ -5,7 +5,7 @@
   "lineage": "West German experimental rock genre that emerged in 1968-1980 — codified through Can (Tago Mago 1971, Ege Bamyasi 1972, Future Days 1973), Kraftwerk (Autobahn 1974, Trans-Europe Express 1977 — the electronic-pop founding albums), Neu! (Neu! 1972, Neu! 2 1973 — the motorik-rhythm-foundation albums), Faust, Amon Düül II, Tangerine Dream, Cluster, Harmonia, Popol Vuh; characterized by repetitive motorik rhythm (the Klaus Dinger drumbeat), tape-loop and tape-delay manipulation, modular-synthesizer sequencing, and a deliberate philosophical break from Anglo-American rock idiom",
   "recipe": "classic Central European mid-1970s krautrock, distorted Rock, experimental branch, ambient experimental electric mallsoft vaporwave aesthetic. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation wenge single coil electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, pad like pad analog synth, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched block chord fast tremolo tonewheel organ. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf kling klang studio. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo phaser.",
   "recipe_chars": 771,
-  "score": 140.047,
+  "score": 141.312,
   "config": {
     "traditions": [
       "krautrock",
@@ -31,17 +31,17 @@
         },
         "scores": {
           "electric_technique": 10,
-          "amp_make": 6.005,
+          "amp_make": 6.2989999999999995,
           "body_wood": 0.845,
           "neck_wood": 1.11,
           "fretboard": 0.78,
           "pickup_magnet": 0.39,
           "string_material": 1.11,
           "string_gauge": 0.845,
-          "bridge": 0.195,
+          "bridge": 0.2685,
           "scale_length": 0.845,
           "finish": 0,
-          "string_tuning": 9.41
+          "string_tuning": 9.424999999999999
         }
       },
       {
@@ -56,10 +56,10 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 5.305,
+          "amp_make": 5.598999999999999,
           "body_wood": 0.845,
           "pickup_config": 0.39,
-          "string_type": 13.009999999999996,
+          "string_type": 13.303999999999997,
           "scale_length_b": 0.845,
           "fretted_or_not": 0,
           "bass_technique": 13.249999999999996
@@ -109,7 +109,7 @@
           "keyboard_technique": 5.25,
           "drawbar_setting": 12.499999999999996,
           "rotary_speed": 12.449999999999996,
-          "percussion_setting": 5.209999999999999,
+          "percussion_setting": 5.504,
           "tonewheel_model": 8.5475,
           "leslie_cabinet_model": 1.625
         }

@@ -5,7 +5,7 @@
   "lineage": "1920s vaudeville female-blues piano-led jazz-combo tradition codified through Mamie Smith’s \"Crazy Blues\" (1920, the first commercial blues recording), Bessie Smith (\"Downhearted Blues\" 1923, \"St. Louis Blues\" 1925 with Louis Armstrong), Ma Rainey, Ethel Waters, Alberta Hunter, Ida Cox, and Sippie Wallace — characterized by jazz-band accompaniment, theatrical-stage delivery, and the African-American TOBA vaudeville circuit context",
   "recipe": "classic mid-1920s classic blues women, ballad Poetry, classic blues women branch, blues narrative hokum blues, American jazz early new orleans jazz. thick, blues-shouter, wide pitch sway, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, yellow brass canonical brass band conn vintage early jazz canon cornet, ebonite hard rubber klezmer tradition clarinet, alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, red brass 90 10 darker orchestral bach 42 canonical American orchestral tenor ensemble student commercial trombone, growly gut upright bass, compensated bridge snuffy smith scruggs stelling bluegrass setup mastertone flathead banjo 5 string, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console.",
   "recipe_chars": 999,
-  "score": 747.694,
+  "score": 739.692,
   "config": {
     "traditions": [
       "classic_blues_women",
@@ -39,16 +39,16 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 46.000000000000014,
-          "voice_articulation": 16.34049999999999,
+          "voice_articulation": 15.560499999999994,
           "voice_microtone": 44.61950000000001,
           "voice_tradition": 22.07125,
-          "voice_mechanism_compound": 4.745,
-          "voice_estill_quality": 6.99025,
-          "voice_speech_song": 16.89999999999999,
-          "voice_ensemble_config": 16.73037499999999,
+          "voice_mechanism_compound": 4.48625,
+          "voice_estill_quality": 6.60025,
+          "voice_speech_song": 16.366749999999993,
+          "voice_ensemble_config": 15.95037499999999,
           "voice_ornament_system": 0.9749999999999994,
           "voice_pitch_organization": 3.7050000000000005,
-          "voice_processing_chain": 7.74,
+          "voice_processing_chain": 7.3500000000000005,
           "voice_multitrack_stack": 2.1254999999999997
         }
       },
@@ -88,10 +88,10 @@
         },
         "scores": {
           "wind_articulation": 2.76,
-          "cornet_pitch": 16.07875,
+          "cornet_pitch": 15.49375,
           "cornet_context": 5.46,
           "cornet_bell_metal": 5.59,
-          "cornet_maker_school": 12.934999999999999
+          "cornet_maker_school": 12.843874999999999
         }
       },
       {
@@ -129,7 +129,7 @@
           "sax_body_alloy": 17.924999999999997,
           "sax_mouthpiece": 1.8499999999999999,
           "sax_technique": 17.3795,
-          "sax_maker_school": 18.660625
+          "sax_maker_school": 17.595625
         }
       },
       {
@@ -146,7 +146,7 @@
         "scores": {
           "wind_articulation": 3.5244999999999997,
           "trombone_type": 17.380625,
-          "trombone_mouthpiece": 18.5245,
+          "trombone_mouthpiece": 18.3295,
           "trombone_mute": 0.6,
           "trombone_technique": 0.39,
           "trombone_bell_metal": 2.145,
@@ -181,14 +181,14 @@
         "scores": {
           "banjo_back": 1.5499999999999998,
           "tone_ring": 0.01875,
-          "banjo_head": 15.919749999999995,
+          "banjo_head": 15.139749999999996,
           "banjo_pot": 0.9556250000000001,
           "banjo_play": 0.65,
           "banjo_rim_wood": 0,
           "banjo_neck_wood": 0.312,
           "banjo_strings": 0.195,
           "banjo_bridge": 4.999999999999998,
-          "banjo_setup_period": 15.629749999999994
+          "banjo_setup_period": 14.849749999999993
         }
       },
       {
@@ -202,12 +202,12 @@
           "harmonica_tuning": "harmonica_richter_canonical"
         },
         "scores": {
-          "harmonica_type": 9.034999999999998,
-          "harmonica_comb": 52.25400000000002,
-          "harmonica_reed": 44.914375000000014,
+          "harmonica_type": 9.025625,
+          "harmonica_comb": 51.86400000000002,
+          "harmonica_reed": 44.719375000000014,
           "harmonica_technique": 44.880625000000016,
-          "harmonica_maker_school": 48.683000000000014,
-          "harmonica_tuning": 19.438000000000002
+          "harmonica_maker_school": 48.09800000000001,
+          "harmonica_tuning": 19.243000000000002
         }
       }
     ],

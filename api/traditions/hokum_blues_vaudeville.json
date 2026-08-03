@@ -3,14 +3,14 @@
   "name": "Hokum blues",
   "family": "global",
   "lineage": "1920s-30s vaudeville-blues humorous-narrative subgenre — codified through Tampa Red (Tampa Red and the Hokum Jug Band, his Its Tight Like That 1928 with Georgia Tom Dorsey the hokum recording), Memphis Minnie, the Hokum Boys (the studio collective recording for Paramount and Vocalion 1928-30), Blind Boy Fuller (whose Trucking My Blues Away 1937 extended the hokum tradition into the Piedmont blues style), the Mississippi Sheiks; lyrical content alternates explicit double-entendre sexual humor with topical social-commentary and broader vaudeville-derived theatrical-humor narrative",
-  "recipe": "classic North American mid-1920s hokum blues, ballad Poetry, hokum blues branch, American jazz early new orleans jazz swing big band. thick, breath veiled tone, wide pitch sway, interlocked note trading. flatwound thomastik slide acoustic guitar, growly gut upright bass, frottoir, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, kazoo. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 647,
-  "score": 426.98,
+  "recipe": "classic North American mid-1920s hokum blues, ballad Poetry, hokum blues branch, American jazz early new orleans jazz chicago jazz. thick, breath veiled tone, wide pitch sway, interlocked note trading. flatwound thomastik slide acoustic guitar, growly gut upright bass, frottoir, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, kazoo. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 645,
+  "score": 405.053,
   "config": {
     "traditions": [
       "hokum_blues_vaudeville",
       "new_orleans",
-      "swing_big_band"
+      "chicago_jazz_1920s"
     ],
     "instruments": [
       {
@@ -30,25 +30,25 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_vocoder_32_band_carrier_saw",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_unison_double_take"
         },
         "scores": {
-          "voice_register": 42.62625000000002,
-          "voice_quality": 12.441874999999996,
+          "voice_register": 41.87625000000002,
+          "voice_quality": 14.846874999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 25.880625000000006,
-          "voice_articulation": 13.349999999999994,
+          "voice_articulation": 11.269999999999996,
           "voice_microtone": 24.349375000000002,
-          "voice_tradition": 19.816875,
-          "voice_mechanism_compound": 4.706874999999999,
-          "voice_estill_quality": 6.1012499999999985,
-          "voice_speech_song": 14.531249999999995,
-          "voice_ensemble_config": 13.369374999999994,
+          "voice_tradition": 19.496875,
+          "voice_mechanism_compound": 3.0168749999999998,
+          "voice_estill_quality": 4.41125,
+          "voice_speech_song": 11.801249999999996,
+          "voice_ensemble_config": 11.289374999999996,
           "voice_ornament_system": 0.8556249999999999,
           "voice_pitch_organization": 3.5100000000000007,
-          "voice_processing_chain": 5.359999999999999,
+          "voice_processing_chain": 4.874999999999999,
           "voice_multitrack_stack": 1.616875
         }
       },
@@ -65,7 +65,7 @@
           "string_tuning": 2.2,
           "top_wood": 0.005625,
           "back_sides": 0.005625,
-          "string_acoustic": 8.189999999999998,
+          "string_acoustic": 7.8,
           "acoustic_om_technique": 26.025000000000006
         }
       },
@@ -76,8 +76,8 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 15.749999999999998,
-          "upright_play": 15.749999999999998
+          "upright_strings": 15,
+          "upright_play": 15
         }
       },
       {
@@ -87,7 +87,7 @@
           "frottoir_striker": "frottoir_thimbles"
         },
         "scores": {
-          "frottoir_construction": 7.52,
+          "frottoir_construction": 6.180000000000001,
           "frottoir_striker": 0
         }
       },
@@ -99,7 +99,7 @@
           "banjo_head": "fiberskyn",
           "banjo_pot": "pot_11",
           "banjo_play": "two_finger",
-          "banjo_rim_wood": "banjo_walnut_rim",
+          "banjo_rim_wood": "banjo_3_ply_maple_gibson",
           "banjo_neck_wood": "banjo_walnut_neck",
           "banjo_strings": "banjo_light_clawhammer",
           "banjo_bridge": "banjo_compensated_bridge",
@@ -108,14 +108,14 @@
         "scores": {
           "banjo_back": 1.005625,
           "tone_ring": 0.01125,
-          "banjo_head": 13.259999999999998,
+          "banjo_head": 10.53,
           "banjo_pot": 1.005625,
           "banjo_play": 1,
-          "banjo_rim_wood": 0.016874999999999998,
+          "banjo_rim_wood": 0.78,
           "banjo_neck_wood": 0.035625,
           "banjo_strings": 0.195,
           "banjo_bridge": 0,
-          "banjo_setup_period": 12.864999999999995
+          "banjo_setup_period": 10.134999999999998
         }
       },
       {
@@ -129,12 +129,12 @@
           "harmonica_tuning": "harmonica_solo_chromatic"
         },
         "scores": {
-          "harmonica_type": 8.189999999999998,
-          "harmonica_comb": 32.182500000000005,
-          "harmonica_reed": 25.870625000000004,
+          "harmonica_type": 7.8,
+          "harmonica_comb": 31.142500000000005,
+          "harmonica_reed": 25.025625000000005,
           "harmonica_technique": 25.125000000000007,
-          "harmonica_maker_school": 28.775000000000006,
-          "harmonica_tuning": 17.354374999999997
+          "harmonica_maker_school": 26.890000000000004,
+          "harmonica_tuning": 17.059375000000003
         }
       },
       {

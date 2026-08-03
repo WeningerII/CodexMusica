@@ -3,14 +3,14 @@
   "name": "Greek Cretan tabachaniotika (Cretan urban sea-faring song)",
   "family": "global",
   "lineage": "Greek-Cretan tabachaniotika (urban-Cretan sea-faring-and-port-side song) tradition continuous from late-19th-and-early-20th century Cretan-urban-port (Heraklion, Chania, Rethymno) song-and-tavern tradition through Cretan-Greek-Turkish population-exchange 1923-aftermath integration with Asia-Minor refugees into modern Cretan-folk-revival continuous practice; the tabachaniotika is the canonical Cretan-port-side-and-sea-faring repertoire",
-  "recipe": "classic Southern European early-1920s greek cretan tabachaniotika, sea Shanty, Mediterranean branch, balkan drinking song, European protest song, Mediterranean ballad ballad poetry sevdalinka georgian supra feast-singing. thick, breath veiled tone, straight note core, interlocked note trading. mulberry canonical cretan gut pre modern cretan cretan lyra, maple ribs Turkish school Lebanese cedar eastern Mediterranean la bella oud, cretan rhythmic laouto. athens piraeus rebetadika. large-diaphragm condenser, tube pre, Emi redd.51, vari-mu, passive program EQ. tape 15ips plate reverb.",
-  "recipe_chars": 587,
-  "score": 273.907,
+  "recipe": "classic Southern European early-1920s greek cretan tabachaniotika, sea Shanty, Mediterranean branch, balkan drinking song, European protest song, Mediterranean ballad ballad poetry sevdalinka stornelli. thick, breath veiled tone, straight note core, interlocked note trading. mulberry canonical cretan gut pre modern cretan cretan lyra, walnut ribs canonical mid tier Lebanese cedar eastern Mediterranean la bella oud, cretan rhythmic laouto. athens piraeus rebetadika. large-diaphragm condenser, tube pre, Emi redd.51, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 573,
+  "score": 280.935,
   "config": {
     "traditions": [
       "greek_tabachaniotika",
       "sevdalinka",
-      "georgian_supra_drinking"
+      "stornelli"
     ],
     "instruments": [
       {
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
-          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_turkish_makam_53_comma",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 4.270000000000001,
-          "voice_quality": 12.349999999999993,
+          "voice_register": 10.344999999999997,
+          "voice_quality": 12.804999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.9650000000000003,
-          "voice_articulation": 18.13499999999999,
-          "voice_microtone": 28.339999999999986,
-          "voice_tradition": 38.97,
-          "voice_mechanism_compound": 4.96,
-          "voice_estill_quality": 7.865,
-          "voice_speech_song": 29.50999999999999,
-          "voice_ensemble_config": 19.04499999999999,
-          "voice_ornament_system": 1.6899999999999997,
-          "voice_pitch_organization": 6.109999999999999,
-          "voice_processing_chain": 1.755,
-          "voice_multitrack_stack": 5.8100000000000005
+          "voice_vibrato": 4.040000000000001,
+          "voice_articulation": 16.89999999999999,
+          "voice_microtone": 26.259999999999994,
+          "voice_tradition": 44.519999999999996,
+          "voice_mechanism_compound": 5.3100000000000005,
+          "voice_estill_quality": 7.94,
+          "voice_speech_song": 27.23499999999999,
+          "voice_ensemble_config": 17.22499999999999,
+          "voice_ornament_system": 5.575,
+          "voice_pitch_organization": 5.245,
+          "voice_processing_chain": 2.4050000000000002,
+          "voice_multitrack_stack": 5.070000000000002
         }
       },
       {
@@ -63,10 +63,10 @@
         },
         "scores": {
           "bowed_technique": 0.75,
-          "lyra_strings": 2.08,
-          "lyra_use": 2.08,
-          "lyra_body_wood": 12.135000000000007,
-          "lyra_string_material": 12.665000000000004
+          "lyra_strings": 4.709999999999999,
+          "lyra_use": 4.709999999999999,
+          "lyra_body_wood": 12.785000000000005,
+          "lyra_string_material": 12.015000000000006
         }
       },
       {
@@ -74,19 +74,19 @@
         "slots": {
           "plucked_traditional_technique": "plucked_drone_modal",
           "oud_school": "oud_arab_classic",
-          "oud_strings": "oud_thirteen",
+          "oud_strings": "oud_eleven",
           "oud_pick": "risha_horn",
-          "oud_body_wood": "oud_maple_body",
+          "oud_body_wood": "oud_walnut_body",
           "oud_soundboard_wood": "oud_lebanese_cedar_face",
           "oud_string_material": "oud_la_bella_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 2.5449999999999995,
-          "oud_school": 1.7799999999999998,
-          "oud_strings": 2.08,
-          "oud_pick": 0.845,
-          "oud_body_wood": 1.945,
-          "oud_soundboard_wood": 3.82,
+          "plucked_traditional_technique": 2.3724999999999996,
+          "oud_school": 1.63,
+          "oud_strings": 0.39,
+          "oud_pick": 0.39,
+          "oud_body_wood": 2.085,
+          "oud_soundboard_wood": 4.57,
           "oud_string_material": 2.335
         }
       },
@@ -99,8 +99,8 @@
         },
         "scores": {
           "laouto_form": 22.250000000000007,
-          "laouto_role": 20.247499999999995,
-          "laouto_strings": 6.125
+          "laouto_role": 18.167499999999997,
+          "laouto_strings": 4.5
         }
       }
     ],

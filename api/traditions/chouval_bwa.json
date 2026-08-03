@@ -5,7 +5,7 @@
   "lineage": "Martinican rural carousel-music (chouval bwa is Martinican Creole for wooden horse, referring to the merry-go-round and travelling fair context where the music traditionally accompanied the carousel ride) — built on accordion (the melodic instrument), tambour bélé (the large Martinican single-headed barrel drum carried on the shoulder), ti-bwa (small bamboo struck-percussion), and chacha (Martinican calabash rattle); codified through 20th-century figures Eugène Mona (the Martinican flute virtuoso who incorporated chouval-bwa elements into his fusion work), Dédé Saint-Prix (the chouval-bwa accordionist), Tipany — distinct from the kindred Martinican biguine and zouk traditions",
   "recipe": "classic Caribbean modern chouval-bwa, groove Percussion, Caribbean branch, Afro-diasporic ritual devotional jongo bomba. extended whistle, breath veiled tone, straight note core, interlocked note trading. castagnari Italian premium folk music accordion, log drum. trinidad calypso panyard outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 360,
-  "score": 133.919,
+  "score": 133.654,
   "config": {
     "traditions": [
       "chouval_bwa",
@@ -30,7 +30,7 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
@@ -38,7 +38,7 @@
           "voice_quality": 24.92749999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.14,
+          "voice_vibrato": 2.9450000000000003,
           "voice_articulation": 14.949999999999996,
           "voice_microtone": 14.754999999999992,
           "voice_tradition": 14.072499999999998,
@@ -48,7 +48,7 @@
           "voice_ensemble_config": 15.534999999999995,
           "voice_ornament_system": 5.4,
           "voice_pitch_organization": 1.3649999999999998,
-          "voice_processing_chain": 1.7599999999999998,
+          "voice_processing_chain": 1.69,
           "voice_multitrack_stack": 2.7300000000000004
         }
       },

@@ -3,14 +3,14 @@
   "name": "Atmospheric drum-and-bass",
   "family": "electronic",
   "lineage": "Mid-1990s and onward drum-and-bass subgenre emphasizing ambient-textural production, jazz-and-classical-influenced harmonic-vocabulary, and emotional-melodic development over rave-functional utility. LTJ Bukem and the Good Looking Records label (founded 1991) anchored the canonical atmospheric sound; Photek, Source Direct, Calibre, and the broader Hospital Records, Metalheadz, and Innerground label rosters extended the genre.",
-  "recipe": "classic 1994-1996 atmospheric drum-and-bass, bass System, bass descendants branch, ambient experimental electric outrun / synthwave darksynth. thick, breath veiled tone, slow rate, interlocked note trading. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, pad like pad analog synth, cold pressed weikert felt 18 ply hard rock maple vintage production grand piano. no single room 2015-present distributed distributed production. shure SM58, mackie 8-bus 90s indie commercial. acetate dub plate cut digital delay lexicon 224 / 480L.",
-  "recipe_chars": 584,
-  "score": 217.313,
+  "recipe": "classic 1994-1996 atmospheric drum-and-bass, bass System, bass descendants branch, ambient experimental electric darksynth vaporwave aesthetic. thick, breath veiled tone, slow rate, interlocked note trading. TR-808, pad like pad analog synth, cold pressed weikert felt 18 ply hard rock maple vintage production grand piano. no single room 2015-present distributed distributed production. shure SM58, mackie 8-bus 90s indie commercial. acetate dub plate cut digital delay lexicon 224 / 480L.",
+  "recipe_chars": 490,
+  "score": 215.22,
   "config": {
     "traditions": [
       "atmospheric_dnb",
-      "outrun_synthwave",
-      "darksynth"
+      "darksynth",
+      "vapor_aesthetic"
     ],
     "instruments": [
       {
@@ -34,35 +34,35 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 3.8100000000000014,
+          "voice_register": 7.110000000000001,
           "voice_quality": 13.97499999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 6.205,
-          "voice_articulation": 18.850000000000005,
-          "voice_microtone": 18.655,
+          "voice_articulation": 17.160000000000004,
+          "voice_microtone": 16.965,
           "voice_tradition": 10.822499999999998,
           "voice_mechanism_compound": 3.1500000000000004,
-          "voice_estill_quality": 4.735000000000001,
-          "voice_speech_song": 18.850000000000005,
-          "voice_ensemble_config": 18.785000000000004,
+          "voice_estill_quality": 5.105500000000001,
+          "voice_speech_song": 17.160000000000004,
+          "voice_ensemble_config": 17.940000000000005,
           "voice_ornament_system": 5.49,
-          "voice_pitch_organization": 3.185000000000001,
-          "voice_processing_chain": 9.825,
-          "voice_multitrack_stack": 3.120000000000001
+          "voice_pitch_organization": 4.030000000000001,
+          "voice_processing_chain": 8.200000000000001,
+          "voice_multitrack_stack": 3.9650000000000007
         }
       },
       {
         "id": "drum_machine_808",
         "slots": {
           "tr808_voice": "tr808_kick_long",
-          "drum_machine_808_context": "drum_machine_808_miami",
+          "drum_machine_808_context": "drum_machine_808_trap",
           "tr808_production_origin": "tr808_roland_osaka_canonical"
         },
         "scores": {
-          "tr808_voice": 5.34,
-          "drum_machine_808_context": 5.844999999999999,
-          "tr808_production_origin": 1.1700000000000002
+          "tr808_voice": 6.138,
+          "drum_machine_808_context": 6.4879999999999995,
+          "tr808_production_origin": 0.7150000000000001
         }
       },
       {
@@ -76,8 +76,8 @@
         },
         "scores": {
           "electronic_technique": 8.985,
-          "oscillator": 5.39,
-          "filter_topology": 7.73,
+          "oscillator": 6.188,
+          "filter_topology": 8.528,
           "envelope": 4.55,
           "modulation": 0.045
         }
@@ -100,10 +100,10 @@
           "grand_piano_size": 2.3850000000000002,
           "grand_piano_brand": 3.38,
           "piano_hammer": 6.130000000000001,
-          "piano_rim": 6.880000000000001,
+          "piano_rim": 6.22025,
           "piano_soundboard": 3.295,
           "piano_pinblock": 3.395,
-          "piano_plate": 6.470000000000001,
+          "piano_plate": 5.810250000000001,
           "piano_pitch_standard": 3.34
         }
       }

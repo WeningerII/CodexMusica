@@ -3,14 +3,14 @@
   "name": "Darkwave (1980s-1990s European post-punk-derived gothic-synth)",
   "family": "rock_punk",
   "lineage": "1980s and 1990s European indie subgenre developed from post-punk into more atmospheric, gothic, and synth-emphasis direction. Dead Can Dance (Australian-British 1981-onward), The Cure (transitional), Lycia, Black Tape for a Blue Girl, Diary of Dreams, and the broader Projekt Records (American) and 4AD Records (British) label rosters anchor the canonical darkwave roster.",
-  "recipe": "classic darkwave, distorted Rock, gothic rock branch, ambient experimental electric outrun / synthwave witch house. thick, breath veiled tone, breath pulsed, interlocked note trading. pad like pad analog synth, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, marshall plexi amp British rock amp ernie ball slinky electric bass. isolated rural 2005-present isolation diy isolation cabin diy. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 559,
-  "score": 185.685,
+  "recipe": "classic darkwave, distorted Rock, gothic rock branch, ambient experimental electric witch house vaporwave aesthetic. thick, breath veiled tone, straight onset, interlocked note trading. pad like pad analog synth, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass. isolated rural 2005-present isolation diy isolation cabin diy. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 570,
+  "score": 182.158,
   "config": {
     "traditions": [
       "darkwave",
-      "outrun_synthwave",
-      "witch_house_2010s"
+      "witch_house_2010s",
+      "vapor_aesthetic"
     ],
     "instruments": [
       {
@@ -20,12 +20,12 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "diaphragm_vibrato",
+          "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "microtonal_31tet_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
-          "voice_estill_quality": "voice_estill_speech",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_none",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 8.134999999999994,
-          "voice_quality": 8.905000000000001,
+          "voice_register": 11.621499999999994,
+          "voice_quality": 8.905,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.51,
-          "voice_articulation": 15.014999999999997,
-          "voice_microtone": 14.819999999999993,
+          "voice_vibrato": 2.0475000000000003,
+          "voice_articulation": 13.324999999999996,
+          "voice_microtone": 13.129999999999992,
           "voice_tradition": 9.425,
-          "voice_mechanism_compound": 2.12,
-          "voice_estill_quality": 0.45,
-          "voice_speech_song": 15.014999999999997,
-          "voice_ensemble_config": 16.639999999999997,
+          "voice_mechanism_compound": 1.755,
+          "voice_estill_quality": 1.4949999999999997,
+          "voice_speech_song": 13.324999999999996,
+          "voice_ensemble_config": 15.794999999999995,
           "voice_ornament_system": 0.195,
-          "voice_pitch_organization": 4.030000000000001,
-          "voice_processing_chain": 14.7,
-          "voice_multitrack_stack": 11.894999999999998
+          "voice_pitch_organization": 4.875000000000001,
+          "voice_processing_chain": 13.075,
+          "voice_multitrack_stack": 10.247499999999999
         }
       },
       {
@@ -64,7 +64,7 @@
         "scores": {
           "electronic_technique": 5.735,
           "oscillator": 0.435,
-          "filter_topology": 0.48000000000000004,
+          "filter_topology": 0.669,
           "envelope": 2.8600000000000003,
           "modulation": 0.045
         }
@@ -77,9 +77,9 @@
           "tr808_production_origin": "tr808_roland_osaka_canonical"
         },
         "scores": {
-          "tr808_voice": 1.0650000000000002,
-          "drum_machine_808_context": 9.645,
-          "tr808_production_origin": 3.7700000000000005
+          "tr808_voice": 1.1595,
+          "drum_machine_808_context": 8.083,
+          "tr808_production_origin": 3.3150000000000004
         }
       },
       {
@@ -94,11 +94,11 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 5.905,
-          "body_wood": 0.8700000000000001,
+          "amp_make": 6.661,
+          "body_wood": 1.0590000000000002,
           "pickup_config": 0.15,
-          "string_type": 8.01,
-          "scale_length_b": 0.435,
+          "string_type": 8.766,
+          "scale_length_b": 0.5295,
           "fretted_or_not": 0,
           "bass_technique": 13.25
         }
