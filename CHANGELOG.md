@@ -6,6 +6,39 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Added — 92 prefaces closing systematic gaps in the lexicon
+
+The lexicon had 649 entries and whole families missing from it. It carried
+`optimistic` with no `pessimistic`, `lustful` with no `virtuous`, `frantic` with
+no `composed`, and nothing at all for the variety-stage register — no
+`vaudevillian`, `cabaret`, `burlesque` or `music-hall`. A word a user types and
+the app cannot match is a dead end, so the gaps were worth closing as families
+rather than one word at a time.
+
+Now 741. The eleven families added: seduction and flirtation, pessimism and
+resignation, reluctance and hesitation, the theatrical register, carnal and
+coarse, virtue and piety, mania and hysteria, composure and poise, complexity,
+simplicity, and a run of common temperament words (`plaintive`, `jaunty`,
+`brash`, `sullen`, `smug`, `aloof`, `reckless`, `maudlin`).
+
+- Every token was drawn from the vocabulary existing prefaces already use, so
+  the new entries sit in the same space rather than beside it. All ~740 token
+  choices resolve against the production descriptor universe on the first pass —
+  `check_prefaces.js` reports 741 prefaces, 6662 tokens, 0 issues.
+- Each new word also carries a navigation glyph, which is not optional: the
+  coverage gate added with the glyph vocabulary failed the build until all 92
+  had one. That is the gate doing its job on the first change after it landed.
+  Preface glyph count rises 421 → 519 distinct.
+- 20 entries needed a `PREFACE_CAT_OVERRIDE`. The keyword rules put them in the
+  wrong neighbourhood for legible reasons — `congregation-loud` reads as Sacred,
+  so `bawdy` and `vulgar` filed under devotional; `clownish` scored Grief off its
+  slide tokens; the minimal/beat-free simplicity words drifted into Ambient.
+- Deliberately not added: `minstrel`. The word names a specific racist
+  performance tradition, and nothing about the app needs it as an aesthetic a
+  user applies to a recording.
+- `composed` shares 🧘 with `calm`. Every distinct candidate was either taken or
+  a weak literal; sharing the glyph of a true synonym is the documented
+  exception, and it is the honest answer for two words this close.
 ### Fixed — a superseded build could overwrite the live site
 
 The publish workflow had no gate on it, and it shipped a stale artifact to

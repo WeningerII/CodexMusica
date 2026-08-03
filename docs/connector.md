@@ -9,7 +9,7 @@ naming the instruments, materials, room, signal chain, and per-instrument
 *prefaces* that tell you how to record it.
 
 - **Catalog:** 1167 traditions · 872 instruments (with per-part variants) ·
-  256 rooms · 120 tunings · 649 prefaces, placed in a 13-dimensional parameter space.
+  256 rooms · 120 tunings · 741 prefaces, placed in a 13-dimensional parameter space.
 - **Browser app:** <https://weningerii.github.io/CodexMusica/codex.html>
 - **Endpoint:** `https://codex-musica-mcp.onrender.com/mcp` · health: `/health`
 - **Auth:** none (open, read-only) · **Data:** stateless, no account, no personal data.

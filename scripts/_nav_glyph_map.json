@@ -4645,6 +4645,466 @@
       "cp": "1f3ba",
       "char": "🎺",
       "label": "jazz horn"
+    },
+    "flirtatious": {
+      "cp": "1f609",
+      "char": "😉",
+      "label": ""
+    },
+    "coy": {
+      "cp": "1f92d",
+      "char": "🤭",
+      "label": ""
+    },
+    "teasing": {
+      "cp": "1f61b",
+      "char": "😛",
+      "label": ""
+    },
+    "coquettish": {
+      "cp": "1f484",
+      "char": "💄",
+      "label": ""
+    },
+    "infatuated": {
+      "cp": "1f498",
+      "char": "💘",
+      "label": ""
+    },
+    "pessimistic": {
+      "cp": "1f302",
+      "char": "🌂",
+      "label": ""
+    },
+    "cynical": {
+      "cp": "1f644",
+      "char": "🙄",
+      "label": ""
+    },
+    "resigned": {
+      "cp": "1f629",
+      "char": "😩",
+      "label": ""
+    },
+    "fatalistic": {
+      "cp": "231b",
+      "char": "⌛",
+      "label": ""
+    },
+    "defeatist": {
+      "cp": "1f3f3",
+      "char": "🏳",
+      "label": ""
+    },
+    "despairing": {
+      "cp": "1f62b",
+      "char": "😫",
+      "label": ""
+    },
+    "forlorn": {
+      "cp": "1f342",
+      "char": "🍂",
+      "label": ""
+    },
+    "hopeless": {
+      "cp": "26ab",
+      "char": "⚫",
+      "label": ""
+    },
+    "reluctant": {
+      "cp": "1f422",
+      "char": "🐢",
+      "label": ""
+    },
+    "hesitant": {
+      "cp": "1f914",
+      "char": "🤔",
+      "label": ""
+    },
+    "tentative": {
+      "cp": "1f450",
+      "char": "👐",
+      "label": ""
+    },
+    "wary": {
+      "cp": "1f440",
+      "char": "👀",
+      "label": ""
+    },
+    "faltering": {
+      "cp": "1f4c9",
+      "char": "📉",
+      "label": ""
+    },
+    "vaudevillian": {
+      "cp": "1f3a9",
+      "char": "🎩",
+      "label": ""
+    },
+    "carnivalesque": {
+      "cp": "1f38a",
+      "char": "🎊",
+      "label": ""
+    },
+    "camp": {
+      "cp": "1f485",
+      "char": "💅",
+      "label": ""
+    },
+    "lewd": {
+      "cp": "1f346",
+      "char": "🍆",
+      "label": ""
+    },
+    "raunchy": {
+      "cp": "1f51e",
+      "char": "🔞",
+      "label": ""
+    },
+    "salacious": {
+      "cp": "1f60f",
+      "char": "😏",
+      "label": ""
+    },
+    "obscene": {
+      "cp": "1f595",
+      "char": "🖕",
+      "label": ""
+    },
+    "vulgar": {
+      "cp": "1f443",
+      "char": "👃",
+      "label": ""
+    },
+    "pious": {
+      "cp": "271d",
+      "char": "✝",
+      "label": ""
+    },
+    "chaste": {
+      "cp": "1f90d",
+      "char": "🤍",
+      "label": ""
+    },
+    "saintly": {
+      "cp": "1f47c",
+      "char": "👼",
+      "label": ""
+    },
+    "righteous": {
+      "cp": "2696",
+      "char": "⚖",
+      "label": ""
+    },
+    "unhinged": {
+      "cp": "1f529",
+      "char": "🔩",
+      "label": ""
+    },
+    "delirious": {
+      "cp": "1f635-200d-1f4ab",
+      "char": "😵‍💫",
+      "label": ""
+    },
+    "feverish": {
+      "cp": "1f912",
+      "char": "🤒",
+      "label": ""
+    },
+    "berserk": {
+      "cp": "1f4a3",
+      "char": "💣",
+      "label": ""
+    },
+    "measured": {
+      "cp": "1f4cf",
+      "char": "📏",
+      "label": ""
+    },
+    "dignified": {
+      "cp": "1f396",
+      "char": "🎖",
+      "label": ""
+    },
+    "restrained": {
+      "cp": "1f9f7",
+      "char": "🧷",
+      "label": ""
+    },
+    "deliberate": {
+      "cp": "1f4cd",
+      "char": "📍",
+      "label": ""
+    },
+    "collected": {
+      "cp": "1f9f2",
+      "char": "🧲",
+      "label": ""
+    },
+    "labyrinthine": {
+      "cp": "1f5fa",
+      "char": "🗺",
+      "label": ""
+    },
+    "polyrhythmic": {
+      "cp": "267e",
+      "char": "♾",
+      "label": ""
+    },
+    "dense": {
+      "cp": "1f4da",
+      "char": "📚",
+      "label": ""
+    },
+    "elementary": {
+      "cp": "1f523",
+      "char": "🔣",
+      "label": ""
+    },
+    "simple": {
+      "cp": "26aa",
+      "char": "⚪",
+      "label": ""
+    },
+    "plain": {
+      "cp": "1f4c4",
+      "char": "📄",
+      "label": ""
+    },
+    "rudimentary": {
+      "cp": "1fa91",
+      "char": "🪑",
+      "label": ""
+    },
+    "spare": {
+      "cp": "2b1c",
+      "char": "⬜",
+      "label": ""
+    },
+    "unadorned": {
+      "cp": "1f9f9",
+      "char": "🧹",
+      "label": ""
+    },
+    "naive": {
+      "cp": "1f58d",
+      "char": "🖍",
+      "label": ""
+    },
+    "childlike": {
+      "cp": "1f9d2",
+      "char": "🧒",
+      "label": ""
+    },
+    "triumphalist": {
+      "cp": "1f947",
+      "char": "🥇",
+      "label": ""
+    },
+    "jaunty": {
+      "cp": "1f6f4",
+      "char": "🛴",
+      "label": ""
+    },
+    "sprightly": {
+      "cp": "1f997",
+      "char": "🦗",
+      "label": ""
+    },
+    "sullen": {
+      "cp": "1f63e",
+      "char": "😾",
+      "label": ""
+    },
+    "curious": {
+      "cp": "1f50e",
+      "char": "🔎",
+      "label": ""
+    },
+    "reckless": {
+      "cp": "1f6f9",
+      "char": "🛹",
+      "label": ""
+    },
+    "smouldering": {
+      "cp": "1f321",
+      "char": "🌡",
+      "label": ""
+    },
+    "doting": {
+      "cp": "1faf6",
+      "char": "🫶",
+      "label": ""
+    },
+    "guarded": {
+      "cp": "1f510",
+      "char": "🔐",
+      "label": ""
+    },
+    "cabaret": {
+      "cp": "1f3ab",
+      "char": "🎫",
+      "label": ""
+    },
+    "burlesque": {
+      "cp": "1f460",
+      "char": "👠",
+      "label": ""
+    },
+    "music-hall": {
+      "cp": "1fa97",
+      "char": "🪗",
+      "label": ""
+    },
+    "melodramatic": {
+      "cp": "1f3a5",
+      "char": "🎥",
+      "label": ""
+    },
+    "clownish": {
+      "cp": "1f45f",
+      "char": "👟",
+      "label": ""
+    },
+    "bawdy": {
+      "cp": "1f356",
+      "char": "🍖",
+      "label": ""
+    },
+    "licentious": {
+      "cp": "1f47f",
+      "char": "👿",
+      "label": ""
+    },
+    "virtuous": {
+      "cp": "2734",
+      "char": "✴",
+      "label": ""
+    },
+    "reverent": {
+      "cp": "26e9",
+      "char": "⛩",
+      "label": ""
+    },
+    "hysterical": {
+      "cp": "1f616",
+      "char": "😖",
+      "label": ""
+    },
+    "manic": {
+      "cp": "1f3ce",
+      "char": "🏎",
+      "label": ""
+    },
+    "rabid": {
+      "cp": "1f9a0",
+      "char": "🦠",
+      "label": ""
+    },
+    "deranged": {
+      "cp": "1f9df",
+      "char": "🧟",
+      "label": ""
+    },
+    "poised": {
+      "cp": "1f9a9",
+      "char": "🦩",
+      "label": ""
+    },
+    "complex": {
+      "cp": "1f9e0",
+      "char": "🧠",
+      "label": ""
+    },
+    "intricate": {
+      "cp": "1f52c",
+      "char": "🔬",
+      "label": ""
+    },
+    "convoluted": {
+      "cp": "1f500",
+      "char": "🔀",
+      "label": ""
+    },
+    "contrapuntal": {
+      "cp": "1f3b6",
+      "char": "🎶",
+      "label": ""
+    },
+    "knotty": {
+      "cp": "1f4ce",
+      "char": "📎",
+      "label": ""
+    },
+    "plaintive": {
+      "cp": "1f9a4",
+      "char": "🦤",
+      "label": ""
+    },
+    "smug": {
+      "cp": "1f408",
+      "char": "🐈",
+      "label": ""
+    },
+    "maudlin": {
+      "cp": "1f495",
+      "char": "💕",
+      "label": ""
+    },
+    "pantomime": {
+      "cp": "1f452",
+      "char": "👒",
+      "label": ""
+    },
+    "ascetic": {
+      "cp": "1f35e",
+      "char": "🍞",
+      "label": ""
+    },
+    "unruffled": {
+      "cp": "1f986",
+      "char": "🦆",
+      "label": ""
+    },
+    "wistful": {
+      "cp": "1f307",
+      "char": "🌇",
+      "label": ""
+    },
+    "brash": {
+      "cp": "1f329",
+      "char": "🌩",
+      "label": ""
+    },
+    "morose": {
+      "cp": "1f328",
+      "char": "🌨",
+      "label": ""
+    },
+    "peevish": {
+      "cp": "1f335",
+      "char": "🌵",
+      "label": ""
+    },
+    "aloof": {
+      "cp": "1f5fc",
+      "char": "🗼",
+      "label": ""
+    },
+    "desperate": {
+      "cp": "1f9d7",
+      "char": "🧗",
+      "label": ""
+    },
+    "wondering": {
+      "cp": "2604",
+      "char": "☄",
+      "label": ""
+    },
+    "composed": {
+      "cp": "1f9d8",
+      "char": "🧘",
+      "label": ""
     }
   }
 }

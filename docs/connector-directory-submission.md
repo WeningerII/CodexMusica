@@ -96,7 +96,7 @@ with a human-readable `title`.
 | `edit_recipe` | Edit the recipe | Apply an ordered list of edits to a workspace and re-render: `set_preface` (re-derive an instrument toward a mood, labeled verbatim), `set_variant`, `set_environment` (room/tuning/chain), `add`/`remove_instrument`, `add`/`remove_tradition`. |
 | `render_recipe` | Re-render the workspace | Render an existing workspace again (e.g. a different format or `max_chars`) without editing it. |
 | `search_catalog` | Search the whole catalog | Free-text search across every record type (traditions incl. lineage, instruments, part-variants, rooms, tunings, arrangements, aesthetics, prefaces) — turns request words into real ids. |
-| `search_prefaces` | Search prefaces | Search the 649 prefaces (aesthetic/technique/delivery signatures) by free text; returns ranked ids with their descriptor-token signatures. |
+| `search_prefaces` | Search prefaces | Search the 741 prefaces (aesthetic/technique/delivery signatures) by free text; returns ranked ids with their descriptor-token signatures. |
 | `get_instrument` | Get one instrument (the knob catalog) | Every part and the variant ids you can pass to `set_variant`, with labels and defaults. |
 | `get_tradition` | Get one tradition | Name, family, lineage, and the 13-axis profile for one tradition. |
 | `list_traditions` | List / filter traditions | Enumerate traditions, optionally filtered by substring or family. |
