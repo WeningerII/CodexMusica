@@ -185,5 +185,16 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # tandem's [2/4] and [3/4] sections cross-check the BUILT artifacts against
+      # source, so they need those artifacts to exist. Nothing here built them:
+      # scripts/_paths.js resolves OUTPUT_DIR to $TMPDIR/codex-outputs on a
+      # runner, and this job went straight from `npm ci` to `npm run tandem`.
+      # The result was five ENOENT failures on every single run — a job that
+      # could not pass, reporting defects that were only its own missing setup.
+      - name: Build the artifacts tandem cross-checks
+        run: |
+          node scripts/build_html.js --quiet
+          bash scripts/build_zip.sh
+
       - name: Cross-artifact tandem (source ↔ HTML ↔ zip, + audit snapshots)
         run: npm run tandem
