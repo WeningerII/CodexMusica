@@ -2,8 +2,11 @@
 // build_discovery.js — emit the agent-discovery layer for the static API.
 //
 // Reads the already-generated api/*/index.json and writes:
-//   llms.txt      (root)  — LLM-oriented site map (cheap hygiene; low expected ROI)
-//   sitemap.xml   (root)  — every static endpoint, for crawlers
+//   llms.txt      (root)  — the agent-facing entry point, and the ONLY document
+//                           that bridges this origin to the editable engine on
+//                           codex-musica-mcp.onrender.com (a sitemap cannot: see
+//                           the cross-origin note above ENTRY_POINTS)
+//   sitemap.xml   (root)  — entry points + every static endpoint, for crawlers
 //
 // Run AFTER build_static_api.js. Fast (no recompile).
 //
@@ -31,6 +34,22 @@ const tindex = JSON.parse(fs.readFileSync(path.join(API_DIR, 'traditions', 'inde
 const iindex = JSON.parse(fs.readFileSync(path.join(API_DIR, 'instruments', 'index.json'), 'utf8'));
 
 // ---- llms.txt ----
+// ORDERING IS THE MESSAGE, so it is load-bearing and not to be shuffled casually.
+// The editable HTTP engine leads and the static JSON follows. It used to be the
+// other way round, with the engine section carrying a "READ THIS SECTION FIRST"
+// shout to compensate — but an in-band instruction to read out of order is a much
+// weaker signal than the order itself, and a model reading top-down met
+// `api/all.json` first, got a usable answer, and stopped. Worse, both sections
+// said "start here", which is how a reader ends up on the read-only mirror
+// believing it is the product. The static JSON is only the DEFAULT recipe per
+// tradition; the Render engine is the thing that can actually be edited, so it
+// goes first and it is now the only section that says START HERE.
+//
+// The Render URLs are also emitted as markdown links in the ## Catalog list at
+// the bottom, not just as bare URLs inside prose bullets. Many llms.txt consumers
+// parse rather than read: they extract the `[text](url)` link lists and drop the
+// surrounding prose. Before that addition such a parser came away with every
+// static-JSON endpoint and ZERO links to the engine that does the editing.
 const llms = `# Codex Musica
 
 > A static, server-free catalog of recording "recipes" for ${tindex.count} recorded-music
@@ -39,24 +58,11 @@ const llms = `# Codex Musica
 > arrangement (ensemble, room, signal chain, tuning). All data is plain JSON served as
 > static files — open a URL and read it. No API key, no server, no rate limit.
 
-## How to use (for agents)
-- ALL recipes in one fetch (start here): ${BASE}/api/all.json
-- List of traditions: ${BASE}/api/traditions/index.json
-- One tradition (recipe + arrangement): ${BASE}/api/traditions/{id}.json
-- List of instruments: ${BASE}/api/instruments/index.json
-- One instrument: ${BASE}/api/instruments/{id}.json
-- Catalog root / endpoint map: ${BASE}/api/index.json
-
-Each tradition file has: id, name, family, lineage, recipe (string, <=1000 chars),
-recipe_chars, score, config (the structured arrangement), and source (the raw
-catalog-row fields — tuning/room/chain — that the browser app imports from). Fetch
-the index to get every {id}, then fetch the per-id file you need.
-
 ## Live EDITABLE engine over plain HTTP (any model that can fetch a URL — nothing to install)
-READ THIS SECTION FIRST if you are a chat assistant without an MCP client. You do NOT need
-to install anything, edit a config file, or ask the user to. The full editable engine is a
-plain REST API: every operation is one URL, so fetching is using it. Editing is a GET —
-seeding and editing both happen in the URL, and nothing is stored server-side.
+If you are a chat assistant without an MCP client, this section is the whole product. You
+do NOT need to install anything, edit a config file, or ask the user to. The full editable
+engine is a plain REST API: every operation is one URL, so fetching is using it. Editing is
+a GET — seeding and editing both happen in the URL, and nothing is stored server-side.
 
 - START HERE — the entire grammar in one page: https://codex-musica-mcp.onrender.com/
 - Seed a recipe: https://codex-musica-mcp.onrender.com/v1/recipe?traditions=delta_blues
@@ -73,6 +79,21 @@ If you were handed a link to this project and can only make HTTP requests, the b
 above is the only thing you need — it explains itself and every edit action in one hop.
 Do NOT fetch codex.html: it is a multi-megabyte browser GUI, it will blow your context or
 fail to load, and it contains no instructions for you.
+
+## Read-only mirror (static JSON — bulk reads, no editing)
+This is the DEFAULT recipe per tradition, pre-compiled. Use it to read the whole catalog
+cheaply or to work offline; use the engine above to change anything.
+- ALL default recipes in one fetch: ${BASE}/api/all.json
+- List of traditions: ${BASE}/api/traditions/index.json
+- One tradition (recipe + arrangement): ${BASE}/api/traditions/{id}.json
+- List of instruments: ${BASE}/api/instruments/index.json
+- One instrument: ${BASE}/api/instruments/{id}.json
+- Catalog root / endpoint map: ${BASE}/api/index.json
+
+Each tradition file has: id, name, family, lineage, recipe (string, <=1000 chars),
+recipe_chars, score, config (the structured arrangement), and source (the raw
+catalog-row fields — tuning/room/chain — that the browser app imports from). Fetch
+the index to get every {id}, then fetch the per-id file you need.
 
 ## Live MCP connector (same engine, for clients that speak MCP)
 The identical engine, exposed as Model Context Protocol tools for clients that can register
@@ -110,19 +131,77 @@ See SKILL.md in the repo for the complete contract (data model, all flags, CRUD,
 validation). Source: https://github.com/WeningerII/CodexMusica
 
 ## Catalog
-- [All recipes (one file)](${BASE}/api/all.json)
+- [Live editable engine — START HERE](https://codex-musica-mcp.onrender.com/)
+- [Machine contract, OpenAPI 3.1](https://codex-musica-mcp.onrender.com/openapi.json)
+- [Machine contract, OpenAPI 3.0.3](https://codex-musica-mcp.onrender.com/openapi-3.0.json)
+- [MCP endpoint (Streamable HTTP)](https://codex-musica-mcp.onrender.com/mcp)
+- [All default recipes (one file)](${BASE}/api/all.json)
 - [Catalog index](${BASE}/api/index.json)
 - [Traditions index](${BASE}/api/traditions/index.json)
 - [Instruments index](${BASE}/api/instruments/index.json)
 - [Agent guide](${BASE}/AGENTS.md)
+- [Complete contract (data model, flags, CRUD)](${BASE}/SKILL.md)
 - [Full engine + skill (clone & run)](https://github.com/WeningerII/CodexMusica)
 `;
 fs.writeFileSync(path.join(OUT_DIR, 'llms.txt'), llms);
 
 // ---- sitemap.xml ----
+// ENTRY POINTS FIRST, then the per-record bulk. The head of this list is the set
+// of documents somebody should be able to reach cold, with no prior link; the
+// tail is coverage.
+//
+// llms.txt was missing from it entirely (`grep llms.txt sitemap.xml` returned 0).
+// The one file whose entire job is to be found — the document that tells a model
+// where the engine is and how to drive it — was the one file declared to no
+// index. That is not a cosmetic gap: OpenAI runs an "unverified link" check that
+// refuses or warns on auto-loading an address no independent public web index has
+// seen, so an undeclared URL can be blocked even when a model is handed the exact
+// address. SKILL.md and server.json had the same problem: llms.txt and AGENTS.md
+// both name SKILL.md as "the complete contract" without ever giving a fetchable
+// address for it, and README calls server.json part of the discovery surface.
+//
+// Deliberately NOT here, so nobody re-adds them as "missing":
+//   • index.html — GitHub Pages serves it AT `${BASE}/`, which is already the
+//     first entry. Listing both declares two URLs for one document.
+//   • codex.html — the 5 MB browser GUI. llms.txt tells agents in as many words
+//     not to fetch it; putting it in the machine-readable "please crawl this"
+//     manifest would contradict that in the one place a machine actually looks,
+//     and invite every crawler to pull 5 MB on every sitemap poll. index.html
+//     links to it, so a human-facing crawler still finds it.
+//   • api/browse.json — the 2.4 MB Tier-1 boot payload for the lazy-loaded app.
+//     api/index.json lists it as an endpoint for the app's benefit; it is not a
+//     document anyone should be told to open cold.
+//   • anything on codex-musica-mcp.onrender.com — a sitemap may only declare URLs
+//     under its own origin, so cross-origin entries here would simply be dropped.
+//     That host serves its own sitemap; llms.txt is the bridge between the two.
+//
+// Each entry carries the file that BACKS it, and the loop below refuses to build
+// a sitemap that names a file the published tree does not contain. A sitemap
+// entry that 404s is worse than no entry at all — it is precisely the "address no
+// index can confirm" that the unverified-link check punishes, and it would be
+// invisible here otherwise, since nothing in this script has ever opened the
+// documents it advertises.
+const ENTRY_POINTS = [
+  // Pages serves index.html AT the root path, so the URL is the bare origin.
+  { url: '', backedBy: path.join(ROOT, 'index.html') },
+  // Written by this script a few lines up, hence OUT_DIR and not ROOT: under
+  // `--out=_dist` the repo copy is the previous build, not the one being shipped.
+  { url: 'llms.txt', backedBy: path.join(OUT_DIR, 'llms.txt') },
+  { url: 'AGENTS.md', backedBy: path.join(ROOT, 'AGENTS.md') },
+  { url: 'SKILL.md', backedBy: path.join(ROOT, 'SKILL.md') },
+  { url: 'server.json', backedBy: path.join(ROOT, 'server.json') },
+];
+const missing = ENTRY_POINTS.filter((e) => !fs.existsSync(e.backedBy));
+if (missing.length) {
+  process.stderr.write(
+    'build_discovery: refusing to declare sitemap URLs with no file behind them:\n' +
+      missing.map((e) => `  ${BASE}/${e.url} -> ${e.backedBy} (not found)\n`).join('')
+  );
+  process.exit(1);
+}
+
 const urls = [
-  `${BASE}/`,
-  `${BASE}/AGENTS.md`,
+  ...ENTRY_POINTS.map((e) => `${BASE}/${e.url}`),
   `${BASE}/api/index.json`,
   `${BASE}/api/all.json`,
   `${BASE}/api/traditions/index.json`,

@@ -74,6 +74,220 @@ which also matches the first part of `scripts/_duplicate_rulings.json` and then
 reports `_duplicate_rulings.js` as a file that does not exist. Any doc
 referencing a `.json` under `scripts/` would have failed the same way. The
 pattern now requires a boundary after `.js`.
+### Fixed — no request was ever logged, so every external test was unfalsifiable
+
+The team has run several "can an assistant actually reach this server?" tests and
+read the model's own account of what happened as the result. That is not evidence.
+`mcp/server_http.js` read `req.headers` zero times and `mcp/rest.js` read them
+twice, both times only to build `self` links — nothing anywhere recorded that a
+request had arrived, what asked for it, or what it got back.
+
+- **Why prose is worse than no evidence.** Google documents that Gemini can report
+  having fetched a URL it did not fetch. A model's narration of its own tool use is
+  a claim, not a log line, and a failed test therefore had at least two
+  indistinguishable explanations: the fetch never happened, or it happened and the
+  answer was refused, empty or unusable. One failed test got three successive
+  diagnoses on that basis — each plausible, each different, each acted on, none of
+  them derived from a single observation made on our side of the wire. Both
+  indexability defects below were found by reading the code, not by any of those
+  tests, which is the whole point.
+- **The fix.** One JSON line per request on stdout — Render captures stdout as the
+  service log, so a question about crawler traffic becomes `grep '"ev":"http"' | jq`
+  rather than a re-reading of somebody's session transcript. Fixed field order:
+  `ev, t, method, url, status, ms, ua, referer, xff, aborted`. Absent headers log as
+  `null` rather than being dropped, so "no user-agent" is a fact on the line instead
+  of a shorter line.
+- **Mount position is load-bearing.** It is the first middleware, above
+  `express.json()` and above the CORS block that short-circuits OPTIONS with a 204,
+  so a preflight and a body rejected by the JSON parser before any route runs both
+  still appear. Mounted anywhere lower, the two request classes most likely to
+  explain a silent client failure would be the two that leave no trace.
+- **No bodies.** The endpoint is public and unauthenticated, so anything logged is
+  volume we did not choose and content we did not vet. REST callers already put the
+  entire call in the URL, which is logged; MCP arguments live in the body, which is
+  not. Header values are capped at 300 characters; the URL is not, because Node
+  already caps the request head at 16 KB and truncating a query string would defeat
+  the reason for logging it. Emission is wrapped in try/catch — a log line is never
+  worth a request — and duration comes from `process.hrtime.bigint()`, so a clock
+  step cannot produce a negative.
+- **`aborted` is derived from whether `finish` fired, not from
+  `res.writableFinished`.** The first version used `writableFinished` and was
+  measured, not assumed: it is still true after the peer has vanished, because a
+  response written into a dead socket completes from the writer's side. That is a
+  field that reads `"aborted":false` on every line including the aborted ones — a
+  check that cannot fail. The reasoning is recorded at `mcp/server_http.js:107`.
+- Observed against a real server on a random port: `GET /health` 200,
+  `GET /v1/catalog?q=oud&limit=2` 200 carrying
+  `"ua":"OAI-SearchBot/1.0; +https://openai.com/searchbot"`, and
+  `GET /definitely-not-a-route` 404, one line each. `[mcp] <method>` still goes to
+  stderr, unchanged.
+
+### Fixed — we told every crawler to ignore the page we tell models to read
+
+`mcp/rest.js` set `X-Robots-Tag: noindex` inside the shared `send()` wrapper: one
+line, every REST response. The teaching index at `/`, both OpenAPI documents, every
+catalog page and every unedited seed recipe carried it. llms.txt, SKILL.md,
+AGENTS.md and index.html all point agents at that host.
+
+- **Why this is worse than a missed search hit.** OpenAI runs an unverified-link
+  gate: before an assistant auto-loads a URL it checks whether that exact address
+  has been seen by an independent public web index, and an address with no match is
+  refused or warned about (openai.com/index/ai-agent-link-safety/). Public
+  indexability is not a marketing concern here, it is the precondition for a model
+  being permitted to follow the links we hand it. We were pointing models at a host
+  we had asked the world not to look at.
+- **The header is scoped, not deleted.** The edit surface genuinely must not be
+  indexed. State-is-the-URL means
+  `?traditions=country&edit=set_preface;card=voice;preface=worn` is a transcription
+  of something a person said they wanted, sitting in an address; making every
+  refinement shareable must not make it public. So a new `carriesEdits(req)` decides
+  per request, and it cannot be decided per route — a bare seed and a fully edited
+  recipe are the same route and differ only by whether the caller attached edits.
+- The request BODY is checked as well as the query, because a `POST /v1/recipe`
+  answer carries a `self` link that spells the edits back out as a URL. Presence is
+  tested, not truthiness: `?edit=` with an empty value is a malformed edit, and its
+  400 echoes the caller's own string back. `Object.prototype.hasOwnProperty.call`,
+  because Express 5's default query parser hands back a null-prototype object on
+  which `q.hasOwnProperty` is not a function.
+
+### Added — robots.txt and sitemap.xml on the host that does the editing
+
+The Render instance served neither. The repo-root `sitemap.xml` is about GitHub
+Pages, a different origin, and the string `onrender` appears in it zero times — so
+the half of the product that actually edits recipes was declared to no index
+anywhere, while the half that is read-only was declared 2,045 times.
+
+- **`/robots.txt`** (`text/plain; charset=utf-8`), built per request so the
+  `Sitemap:` line names the origin answering it. A group for `OAI-SearchBot` and a
+  group for `*`, each carrying every rule: robots.txt groups are NOT additive, a
+  crawler obeys only the most specific group matching its name, so the specific
+  group has to repeat the rules rather than inherit them. It exists at all because
+  OpenAI states content is not discoverable in ChatGPT if that crawler is blocked.
+- **Disallowed by PARAMETER, not by path**, for the same reason the header is: there
+  is no path prefix that separates a seed from an edited recipe. Six rules,
+  `?`/`&`-anchored, and the anchor is load-bearing rather than decorative —
+  `type=` ends in the literal substring `e=`, so an unanchored `Disallow: /*e=`
+  would disallow `/v1/catalog?type=tradition` and with it the entire catalog.
+- **`/sitemap.xml`** (`application/xml`), 1,179 `<loc>` entries, no duplicates, no
+  `<lastmod>`. Built from the engine's in-memory tables rather than from disk, with
+  origins from the same forwarded-host logic every `self` link uses, so a sitemap
+  entry is byte-identical to the canonical URL the endpoint itself reports and a
+  crawler and a caller cannot end up with two spellings of one recipe. The tradition
+  list is pinned to `limit: E.counts.traditions`, because `listTraditions` pages at
+  50 by default and a sitemap holding 50 of 1,167 traditions is indistinguishable
+  from a complete one. The enumerable catalog types come from the route's own
+  `OPTION_KINDS`, so a kind the route learns to serve cannot go missing here.
+- **New gate section: THE CRAWLABLE SURFACE** in `scripts/check_rest_parity.js`,
+  47 → 86 assertions. It is the only part of that file that opens a socket, because
+  every claim in it is about a response header or a content type and neither is
+  observable from a handler's return value: `mountRest` is what is under test, not
+  `handleRecipe`. Run here: 86 passed, 0 failed.
+  - 10 teaching URLs must carry no `X-Robots-Tag` and 4 edit URLs must carry it,
+    including edits arriving in a POST body — with a seed POST as the control, so
+    "POST is noindexed" cannot satisfy the check.
+  - robots.txt is parsed and EXECUTED, not string-matched: a longest-match matcher
+    runs allowed and disallowed URLs against both groups, and
+    `/v1/catalog?type=tradition` is deliberately in the allowed set. "Contains the
+    string OAI-SearchBot" is satisfied by a comment.
+  - The sitemap is parsed with a real XML parser (a regex hunting for `<loc>` sails
+    past an unescaped `&`; a parser refuses), the tradition floor is
+    `E.counts.traditions` and never a typed number, and no `<loc>` may be Disallowed
+    by the robots.txt just parsed. One request goes in with `Host: a&b<c".example`,
+    without which "the sitemap is well-formed XML" is a check that cannot fail for
+    the reason it was written — the catalog half of every URL is provably clean, so
+    the request origin is the only hostile input it has.
+
+### Fixed — a comment promised a teaching 404 that did not exist
+
+The comment above `PATH_ALIASES` said any unknown path "gets the endpoint table and
+a link to the index in the body of a 404". Nothing did that. The only fallback in
+the file was the alias loop, scoped to the nine MCP tool names, so `/v1/recipes` —
+one plausible plural — fell through to Express's bare HTML 404 and a model got back
+no grammar at all, from the one server whose entire design premise is that it
+teaches its own grammar on any hop.
+
+- The catch-all now exists, which is what makes the sentence true. `/nonsense` and
+  `/v1/recipes` are gated: a 404 carrying the endpoint table plus a runnable next
+  hop, and the table is compared against the INDEX document's own rather than
+  against a list retyped in the test, because two copies of a table drift the first
+  time a query parameter is added to one of them.
+- It stays a 404 rather than serving the index at 200. A host that answers 200 on
+  every path is a soft-404: it tells a crawler that the 1,179 URLs in sitemap.xml
+  and every typo anyone ever makes are equally real pages, and it tells a caller
+  that its guess was a valid endpoint — the same class of quiet lie as substituting
+  an id nobody asked for.
+- It is registered from a `process.nextTick` callback, because a catch-all has to be
+  last in the WHOLE app's stack and `mountRest` is not the last thing that runs:
+  `server_http.js` calls it partway down and then registers
+  `/.well-known/mcp.json` and the `/mcp` transport underneath. An `app.use()`
+  appended synchronously inside `mountRest` would match those paths first and answer
+  the connector's `initialize` POST with a 404 teaching document. The connector —
+  the reason this server exists — would go dark, and silently, because a 404 with a
+  helpful JSON body looks like a working endpoint in a log.
+
+### Added — llms.txt is finally in the Pages sitemap, and leads with the engine
+
+`sitemap.xml` 2045 → 2048 `<loc>` entries. The file every agent-facing document
+names as the front door was not in the crawl manifest that declares this site, which
+is the same defect class as the Render host declaring nothing: an address a public
+index has never seen is the address the unverified-link gate refuses.
+
+- Three root entry points added ahead of the per-record bulk: `/llms.txt`,
+  `/SKILL.md`, `/server.json`. The two beyond the mandated one are the same defect —
+  llms.txt and AGENTS.md both call SKILL.md "the complete contract" without ever
+  giving a fetchable address, and README calls `server.json` part of the discovery
+  surface.
+- Deliberately still absent, with the reasoning written into `build_discovery.js` so
+  nobody re-adds them as "missing": `index.html`, already served AT `${BASE}/`, and
+  listing both gives one document two URLs; `codex.html`, the 5 MB GUI that llms.txt
+  explicitly tells agents not to fetch — declaring it in the machine-readable crawl
+  manifest would contradict that in the one place a machine looks; `api/browse.json`,
+  the 2.4 MB lazy-app boot payload, listed in `api/index.json` for the app rather
+  than for anyone to open cold. Cross-origin Render URLs are dropped by definition,
+  which is why llms.txt is the bridge between the two origins.
+- **New two-sided gate.** Entry-point URLs and an existence check now derive from
+  one `ENTRY_POINTS` array, and the build refuses to declare a URL with no file
+  behind it. A sitemap entry that 404s is worse than no entry — it is exactly the
+  address no index can confirm — and it was invisible before, because nothing in
+  that script has ever opened the documents it advertises. Exercised both ways in a
+  fault-injected copy of the tree: the control builds 2,048 locs and exits 0;
+  removing each backing file individually exits 1, names the URL and the missing
+  path, and writes no sitemap at all.
+- **llms.txt did not lead with the HTTP engine.** The static-JSON mirror was the
+  first section and the engine section compensated by shouting "READ THIS SECTION
+  FIRST", while both sections said "start here". Fixed by ordering rather than by
+  volume: the live editable engine is now the first H2 and the only section that
+  says START HERE, and the static section is retitled "Read-only mirror (static JSON
+  — bulk reads, no editing)". A new Catalog section also gives every entry point as
+  a real markdown link, since every URL in the file had previously appeared only as
+  bare text inside prose bullets.
+
+### Known — what the external-model tests actually showed, recorded for the first time
+
+Before this entry, this changelog mentioned ChatGPT, OpenAI and Gemini exactly zero
+times, across every test round the project has run against them. That is precisely
+why one failed test could collect three different confident explanations: there was
+no written record to contradict the newest guess.
+
+- **One round has been run, and it is invalid.** It was run SIGNED OUT, which is not
+  the surface the product is meant for, so nothing in it constrains what a signed-in
+  session does. What was observed: ChatGPT declined, and declined honestly — it said
+  it had not retrieved the page. Gemini Flash-Lite instead returned a "recipe" in a
+  format this engine does not emit, which is a fabrication with no fetch behind it,
+  and is exactly the failure mode Google documents.
+- **The retest is blocked on the logging that shipped above, and should not be run
+  before it is deployed.** Re-running signed in without a server-side record would
+  produce the same class of evidence the first round produced — the model's prose —
+  and would earn a fourth explanation rather than an answer. With the log in place
+  the question becomes trivial: either a line exists with that user-agent at that
+  minute, or the fetch did not happen.
+- **The directory-submission requirements have NOT been read from primary source.**
+  Every `*.openai.com` host is blocked by this sandbox's egress policy at the proxy
+  (CONNECT tunnel 403), so what we currently believe about plugin submission and
+  about whether an authless MCP server can be listed is search-index-derived text
+  attributed to those pages, not pages anyone here has opened. It is a strong signal
+  and it is not documentation. Do not plan a submission against it without reading
+  the pages from an unblocked network first.
 
 ### Added — family glyphs on the instrument picker's headings
 

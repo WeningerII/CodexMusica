@@ -52,7 +52,7 @@ stateless; no account or personal data.
 CodexMusica is a recording-arrangement engine exposed as read-only tools. Its
 catalog places **1167 recorded-music traditions** in a 13-dimensional parameter
 space alongside **872 instruments** (decomposed into per-part variants), **256
-rooms**, **120 tunings**, and **649 "prefaces"** — named aesthetic/technique/
+rooms**, **120 tunings**, and **741 "prefaces"** — named aesthetic/technique/
 delivery signatures (e.g. `satirical`, `keening`, `jhala-cascading`) that map
 *intent → physical settings*.
 
