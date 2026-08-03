@@ -85,6 +85,7 @@ for (let i = 0; i < args.length; i++) {
 
 run('validate.js');
 run('check_glyph_skin.js');
+run('check_duplicates.js');
 run('build_nav_glyphs.js', ['--check']);
 
 if (!flags['skip-audit']) {

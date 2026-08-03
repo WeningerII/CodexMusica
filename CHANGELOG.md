@@ -6,6 +6,60 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Added — a near-duplicate gate for catalog entities
+
+`validate.js` catches id collisions. Nothing caught the two failures that
+actually matter at this size: **one real thing entered twice under different
+ids**, and **two different things whose display labels are indistinguishable**.
+Both were already in the catalog, undetected.
+
+`scripts/check_duplicates.js` (`npm run check:dupes`, wired into `npm test` and
+`scripts/build.js`) scans all 3,156 entities — instruments, traditions, rooms,
+tunings, prefaces — in two tiers, because the available signals have very
+different precision.
+
+- **BLOCK — identity collision.** Two entities whose label is the same string
+  once case, accents and punctuation are removed. Every hit is a defect of one
+  kind or the other, so this fails the build. Proven by injecting a collision:
+  the gate exits 1 and names the pair.
+- **REVIEW — advisory, never auto-fatal** (`--strict` opts in). Three signals:
+  shared exemplar *artists* between traditions (strong — two entries citing the
+  same three artists are usually one genre twice); names that agree once the
+  qualifier is stripped (`Amapiano` / `Amapiano (South African 2010s)`); and
+  instrument name similarity within one family and class (weak, and labelled as
+  such — organology is full of near-homographs that are genuinely different
+  instruments).
+
+**What it found on the first run:** 2 blocking-tier defects and 97 review pairs,
+including `Afrobeats (Naija)` / `Afrobeats`, `Synthpop` / `Synthpop classic`,
+`New wave` / `New wave (late 70s-early 80s)`, and `Black metal` / `Black metal
+(Norwegian second wave)`.
+
+- **`tibetan_dungchen` and `dung_chen` are one Tibetan long horn entered twice**
+  — same family and class, axes agreeing, one referenced by no tradition at all.
+- **`tar_persian` and `tar_azerbaijani` both print as "tar".** Genuinely
+  different instruments, so not a data duplicate, but it breaks the
+  catalog-wide unique-short-label invariant.
+
+Both are recorded in `scripts/_duplicate_rulings.json` rather than resolved
+here: one needs a merge decision about which record survives, the other a label
+rename that churns the rendered recipe for three traditions. Rulings keep known
+debt visible without failing the build, while any *new* collision blocks. A pair
+ruled `distinct` is dropped from the report for good.
+
+**Candidate screening**, the mode that matters for importing genres from an
+external list: `--candidates <file> --kind=tradition` reports, for every
+proposed name, whether the catalog already has it. This required matching on the
+**head form** — 545 of 1,167 tradition names carry a qualifier (`Trap
+(southern)`), while an imported list gives the bare name. Without it the scorer
+was defeated by the catalog's own naming convention and reported `Zeuhl`,
+`Tuareg desert blues` and `Merengue típico` as new when all three already exist
+— the one failure direction that actively creates duplicates.
+
+Deliberately *not* normalised away in the identity check: plural `s` and
+stopwords. `afrobeat` and `afrobeats` are a 1970s Fela Kuti genre and a 2010s
+Nigerian pop genre; any normaliser aggressive enough to merge them is wrong.
+
 ### Added — family glyphs on the instrument picker's headings
 
 The instrument emoji were already assigned and already drawn on card thumbnails,
