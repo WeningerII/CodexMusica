@@ -16,8 +16,6 @@ import express from 'express';
 import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js';
 import { buildServer } from './tools.js';
 import { counts } from './engine.js';
-import { mountRest } from './rest.js';
-import { buildOpenApi } from './openapi.js';
 
 const PORT = process.env.PORT || 3000;
 const MCP_PATH = process.env.MCP_PATH || '/mcp';
@@ -26,14 +24,14 @@ const app = express();
 
 // ─────────────────────── inbound request log ───────────────────────
 //
-// WHY THIS EXISTS. Before this line existed, the entire server read req.headers
-// exactly twice — both times in rest.js, only to build self-links — and recorded
-// nothing at all about who called it. That made every external reachability test
-// we ran unfalsifiable: the sole evidence that a model had actually fetched one
-// of our URLs was the model SAYING it had, and Google documents that Gemini will
-// report a fetch it never performed. We were reading prose as an experimental
-// result. A "yes I loaded it" that the server cannot corroborate is not data;
-// this line is what turns the next test into one that can come back negative.
+// WHY THIS EXISTS. Before this line existed the server recorded nothing at all
+// about who called it — it never read req.headers for any purpose other than the
+// MCP handshake itself. That made every external reachability test we ran
+// unfalsifiable: the sole evidence that a model had actually reached one of our
+// URLs was the model SAYING it had, and Google documents that Gemini will report
+// a fetch it never performed. We were reading prose as an experimental result.
+// A "yes I loaded it" that the server cannot corroborate is not data; this line
+// is what turns the next test into one that can come back negative.
 //
 // ORDER MATTERS, so it is mounted first — ahead of express.json() and ahead of
 // the CORS block below, which answers OPTIONS with 204 and returns. Mounted any
@@ -58,9 +56,9 @@ const app = express();
 // [mcp] line stays on stderr.
 //
 // NO BODIES. This endpoint is public and unauthenticated, so anything logged is
-// volume we did not choose and content we did not vet. REST callers already put
-// their whole call in the URL, which is logged; MCP arguments live in the body,
-// which is not.
+// volume we did not choose and content we did not vet. Method, URL, status and
+// user-agent are enough to answer "did anything actually call us"; MCP arguments
+// live in the body and stay unlogged.
 const HEADER_LOG_LIMIT = 300;
 
 // Header values are attacker-controlled and unbounded in practice, so they get a
@@ -130,11 +128,18 @@ app.use((req, res, next) => {
 
 app.get('/health', (_req, res) => res.json({ ok: true, service: 'codex-musica-mcp' }));
 
-// The REST/OpenAPI adapter, over the same engine and the same Zod schemas. It is
-// mounted BEFORE the MCP route so `/` serves the self-describing index; /mcp,
-// /health and /.well-known/mcp.json are untouched. See rest.js for why editing
-// over GET is safe here.
-mountRest(app, { openapi: buildOpenApi });
+// A one-hop pointer for anyone who opens the bare origin in a browser, so the
+// root is not express's default "Cannot GET /". The MCP handshake is the whole
+// interface; this only says where it is.
+app.get('/', (_req, res) =>
+  res.json({
+    service: 'codex-musica-mcp',
+    transport: 'streamable-http',
+    endpoint: '/mcp',
+    card: '/.well-known/mcp.json',
+    documentation: 'https://weningerii.github.io/CodexMusica/AGENTS.md',
+  })
+);
 
 // Server card for zero-config discovery — served from the server's OWN origin so a client
 // can learn identity / transport / auth before the MCP handshake (the SEP-1649/SEP-1960

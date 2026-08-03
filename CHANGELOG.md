@@ -71,6 +71,48 @@ lineages (`Texas`, `Memphis`, `Louisiana`, `Hill Country`, `Detroit`,
 
 No catalog entries are added by this change — the corpus and its screen are
 the input to authoring, which follows in reviewable batches.
+### Removed — the REST/OpenAPI adapter and the plugin-directory material
+
+The adapter existed to serve one goal: hand an ordinary chat model a URL and have
+it drive the editable engine with no client, no config and no install. Every
+operation was one GET, so fetching the URL *was* using it.
+
+**That goal is not reachable, and we measured it rather than guessed.** A
+four-arm test through ChatGPT — signed in, incognito, one arm per hypothesis —
+came back negative on all four, including the arm where the exact address was
+pasted into the prompt. The failure is not our URL, our hostname, our schema or
+our indexing: ChatGPT's ordinary-chat web tool **searches** an index, it does not
+**fetch** an arbitrary address on request. A GET-shaped API is therefore
+unreachable from the surface it was built for, no matter how well-formed it is.
+Server-side execution (a GPT Action, a plugin listing) is a different product
+with a different setup cost, and is not what this repo is for.
+
+So the adapter is dead weight, and dead weight in a repo is worse than absent
+code — it invites the next reader to maintain a path that leads nowhere. Deleted:
+
+- `mcp/rest.js` (827 lines) — the adapter itself, plus the `/robots.txt`,
+  `/sitemap.xml` and `noindex` scoping it carried for the crawlability push.
+- `mcp/openapi.js` (283) — the 3.1 and 3.0.3 generators.
+- `scripts/check_rest_parity.js` (609) — the 86-assertion parity gate.
+- `docs/openai-plugin-submission.md` (550).
+- The `adapter-parity` promise, its `AGENTS.md` marker, its two fault classes,
+  its CI step and its two npm scripts. `check_promises.js` still reports a
+  bijection: 14 promises, 0 orphans.
+
+The bare origin now answers `/` with a four-line pointer at `/mcp` instead of
+express's default 404 page.
+
+**What deliberately stayed.** `mcp/schemas.js` is the connector's own validation
+contract (`mcp/tools.js` imports `TOOL_SCHEMAS` from it) and only ever lived
+apart from `tools.js` so a caller could validate without standing up an MCP
+server — that reason survives the adapter. The inbound request log stays: it
+records MCP calls too, and it is the only way to check a claim that something
+reached us against the server's own record. The static Pages JSON, `llms.txt`,
+`sitemap.xml` and `robots.txt` predate the REST push and remain the read-only
+mirror; `llms.txt`, `index.html` and `AGENTS.md` now lead with the MCP connector
+rather than the HTTP grammar, since the connector is the only editable surface
+left. `docs/connector-directory-submission.md` stays — that is Anthropic's
+directory, for the path we are keeping.
 
 ### Changed — merged the duplicate Tibetan long horn
 

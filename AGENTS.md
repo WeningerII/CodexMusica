@@ -69,19 +69,8 @@ out, so thread the returned `workspace` into the next call.
   them returns the byte-identical string the app shows for the same workspace.
   <!-- @promise: connector-render-parity -->
 
-**No MCP client? Use the URL.** The same nine operations are also plain HTTP, so anything that can
-fetch a page can drive the workspace — editing included, not just reading. A recipe is a pure
-function of its URL, so there is no session to set up:
-
-- `GET /` — the whole grammar, in one hop. Start here and you need no other documentation.
-- `GET /v1/recipe?traditions=<id>&edit=<action>;<field>=<value>&edit=…` — seed plus an ordered
-  edit list. Refine by re-fetching with one more `edit=` appended.
-- `GET /v1/catalog?q=<words>[&type=<t>]` — resolve words to ids. Never guess an id; the server
-  will not substitute one for you.
-- `GET /v1/catalog/instrument/<id>` — the part → variant map for `set_variant`.
-- `GET /openapi.json` (3.1) and `/openapi-3.0.json` — generated from the same schemas the MCP
-  tools validate against, so the two surfaces cannot describe different contracts.
-  <!-- @promise: adapter-parity -->
+**No MCP client?** Then use the static JSON below — it is the default recipe per tradition,
+read-only. Editing needs the connector; there is no HTTP fallback that edits.
 
 **The default seed is scaffolding, not the answer.** `start_recipe` returns a
 tradition's stock cards; the tool's job is to push them toward the user's words.

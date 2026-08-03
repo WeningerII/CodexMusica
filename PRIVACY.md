@@ -38,11 +38,8 @@ should be checkable against the server's own record instead of taken on trust.
 Each line holds a timestamp, the HTTP method, the requested path **including its
 query string**, the response status code, how long the request took, and the
 three headers that identify the caller — `user-agent`, `referer` and
-`x-forwarded-for`. Two of those are worth spelling out:
+`x-forwarded-for`. One of those is worth spelling out:
 
-- for REST callers **the query string is the request**, because a recipe is a
-  pure function of its URL, so the tradition ids, instrument ids, edits and
-  search phrases in a `/v1/...` URL do appear in the log line;
 - **`x-forwarded-for` carries an IP address** — the calling network's, as
   reported by the proxy in front of the service.
 

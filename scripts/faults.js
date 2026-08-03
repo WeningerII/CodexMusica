@@ -536,51 +536,7 @@ record(
   );
 }
 
-// 22. REST answers differently from MCP -> check_rest_parity.js
-// The results half. Force the REST adapter to render one format while the caller
-// asked for another — the drift a shared engine is supposed to make impossible,
-// and would be invisible without a gate comparing the two adapters directly.
-{
-  const d = mkenv(['scripts', 'references', 'mcp']);
-  const f = path.join(d, 'mcp/rest.js');
-  fs.writeFileSync(
-    f,
-    fs
-      .readFileSync(f, 'utf8')
-      .replace('  const format = input.format;', "  const format = 'prose'; // FAULT")
-  );
-  record(
-    'rest-results-drift -> check_rest_parity.js',
-    gate(d, ['scripts/check_rest_parity.js']),
-    /disagree|!=|chars/i
-  );
-}
-
-// 23. REST stops validating -> check_rest_parity.js
-// The rejection half, and the reason this gate has two halves at all. Delete the
-// Zod check at the REST edge and every well-formed request still matches MCP
-// exactly — results parity stays green — while `format: "RICH"` silently renders
-// prose. Only an assertion that both adapters REFUSE the same inputs catches it.
-{
-  const d = mkenv(['scripts', 'references', 'mcp']);
-  const f = path.join(d, 'mcp/rest.js');
-  fs.writeFileSync(
-    f,
-    fs
-      .readFileSync(f, 'utf8')
-      .replace(
-        'function validate(toolName, params) {',
-        'function validate(toolName, params) {\n  return coerce(params); // FAULT: validation deleted'
-      )
-  );
-  record(
-    'rest-validation-deleted -> check_rest_parity.js',
-    gate(d, ['scripts/check_rest_parity.js']),
-    /ACCEPTS|rejection|disagree/i
-  );
-}
-
-// 24. A foreign tradition's NAME reaches the picks -> check_name_isolation.js
+// 23. A foreign tradition's NAME reaches the picks -> check_name_isolation.js
 // The exact regression this gate exists for. buildContext takes
 // { includeName: false } so that neighbor-bias and hill-climbed staples read what
 // a neighbouring tradition SOUNDS like and not what it is CALLED. Restore the
@@ -614,7 +570,7 @@ record(
   }
 }
 
-// 25. Two entities that print the same label -> check_duplicates.js
+// 24. Two entities that print the same label -> check_duplicates.js
 //     The gate's BLOCK tier is identity collision on the display label, so the
 //     fault is a second room carrying an existing room's name. It must fail and
 //     name the pair, not merely exit non-zero: an id-collision check would also
