@@ -1,0 +1,4650 @@
+{
+  "roomClusters": {
+    "small_domestic": {
+      "cp": "1f6cf",
+      "char": "🛏",
+      "label": "bedroom bed"
+    },
+    "medium_indoor": {
+      "cp": "1f3ad",
+      "char": "🎭",
+      "label": "club stage masks"
+    },
+    "large_indoor": {
+      "cp": "26ea",
+      "char": "⛪",
+      "label": "cathedral nave"
+    },
+    "outdoor": {
+      "cp": "1f332",
+      "char": "🌲",
+      "label": "open-air treeline"
+    },
+    "special_hybrid": {
+      "cp": "1f69a",
+      "char": "🚚",
+      "label": "truck cab"
+    },
+    "commercial_studio": {
+      "cp": "1f399",
+      "char": "🎙",
+      "label": "studio microphone"
+    },
+    "home_studio": {
+      "cp": "1f3a7",
+      "char": "🎧",
+      "label": "home tracking cans"
+    }
+  },
+  "rooms": {
+    "open_prairie": {
+      "cp": "1f9ac",
+      "char": "🦬",
+      "label": "prairie bison"
+    },
+    "bayou_porch": {
+      "cp": "1fa91",
+      "char": "🪑",
+      "label": "porch rocking chair"
+    },
+    "beach": {
+      "cp": "1f3d6",
+      "char": "🏖",
+      "label": "oceanfront beach"
+    },
+    "forest_clearing": {
+      "cp": "1f333",
+      "char": "🌳",
+      "label": "forest clearing tree"
+    },
+    "mountain_valley": {
+      "cp": "26f0",
+      "char": "⛰",
+      "label": "mountain valley"
+    },
+    "festival_stage": {
+      "cp": "1f4e2",
+      "char": "📢",
+      "label": "PA loudspeaker"
+    },
+    "field_recording": {
+      "cp": "1f3a4",
+      "char": "🎤",
+      "label": "handheld microphone"
+    },
+    "canyon": {
+      "cp": "1faa8",
+      "char": "🪨",
+      "label": "canyon rock wall"
+    },
+    "urban_courtyard": {
+      "cp": "1f3d9",
+      "char": "🏙",
+      "label": "city courtyard"
+    },
+    "ice_glacier": {
+      "cp": "1f9ca",
+      "char": "🧊",
+      "label": "glacier ice"
+    },
+    "marsh_swamp": {
+      "cp": "1f438",
+      "char": "🐸",
+      "label": "swamp frogs"
+    },
+    "open_courtyard_stone_wall_ambient": {
+      "cp": "1f9f1",
+      "char": "🧱",
+      "label": "stone courtyard wall"
+    },
+    "outdoor_desert_anechoic": {
+      "cp": "1f3dc",
+      "char": "🏜",
+      "label": "open desert plateau"
+    },
+    "bahian_terreiro_outdoor": {
+      "cp": "1fa98",
+      "char": "🪘",
+      "label": "atabaque drum"
+    },
+    "escola_samba_quadra": {
+      "cp": "1f941",
+      "char": "🥁",
+      "label": "samba bateria"
+    },
+    "roda_capoeira_outdoor": {
+      "cp": "1f938",
+      "char": "🤸",
+      "label": "capoeira roda"
+    },
+    "javanese_pendopo_pavilion": {
+      "cp": "1f514",
+      "char": "🔔",
+      "label": "gamelan gong"
+    },
+    "balinese_banjar_courtyard": {
+      "cp": "1f549",
+      "char": "🕉",
+      "label": "Balinese temple courtyard"
+    },
+    "steppe_outdoor_mongolian": {
+      "cp": "1f40e",
+      "char": "🐎",
+      "label": "steppe horse"
+    },
+    "havana_solar_outdoor_courtyard": {
+      "cp": "1f3da",
+      "char": "🏚",
+      "label": "tenement courtyard"
+    },
+    "plaza_garibaldi_outdoor_mariachi": {
+      "cp": "1f3ba",
+      "char": "🎺",
+      "label": "mariachi trumpet"
+    },
+    "andean_altiplano_outdoor": {
+      "cp": "1f999",
+      "char": "🦙",
+      "label": "altiplano llama"
+    },
+    "coimbra_university_outdoor_quad": {
+      "cp": "1f393",
+      "char": "🎓",
+      "label": "university quad"
+    },
+    "norwegian_hardanger_outdoor_alpine": {
+      "cp": "1f3bb",
+      "char": "🎻",
+      "label": "Hardanger fiddle"
+    },
+    "sapmi_outdoor_tundra_yoik": {
+      "cp": "1f98c",
+      "char": "🦌",
+      "label": "tundra reindeer"
+    },
+    "bamako_griot_jeli_compound": {
+      "cp": "1fa95",
+      "char": "🪕",
+      "label": "griot kora"
+    },
+    "punjab_village_bhangra_dhol_outdoor": {
+      "cp": "1f33e",
+      "char": "🌾",
+      "label": "harvest field"
+    },
+    "trinidad_calypso_panyard_outdoor": {
+      "cp": "1f6e2",
+      "char": "🛢",
+      "label": "steelpan oil drum"
+    },
+    "haitian_vodou_lakou_outdoor_peristyle": {
+      "cp": "1f56f",
+      "char": "🕯",
+      "label": "vodou candle"
+    },
+    "us_dustbowl_outdoor_woody_guthrie": {
+      "cp": "1f32a",
+      "char": "🌪",
+      "label": "dust bowl storm"
+    },
+    "scottish_galician_piping_outdoor": {
+      "cp": "1f3f0",
+      "char": "🏰",
+      "label": "highland castle"
+    },
+    "brittany_fest_noz_outdoor": {
+      "cp": "1f303",
+      "char": "🌃",
+      "label": "night festival"
+    },
+    "sardinian_outdoor_a_tenore_polyphony": {
+      "cp": "1f40f",
+      "char": "🐏",
+      "label": "shepherd ram"
+    },
+    "san_juan_puerto_rican_bomba_plena_yard": {
+      "cp": "1f3e1",
+      "char": "🏡",
+      "label": "community yard"
+    },
+    "montevideo_candombe_barrio_sur_carnival": {
+      "cp": "1f38a",
+      "char": "🎊",
+      "label": "carnival llamadas"
+    },
+    "honolulu_hawaiian_slack_key_lanai": {
+      "cp": "1f3b8",
+      "char": "🎸",
+      "label": "slack-key guitar"
+    },
+    "plains_northern_powwow_drum_circle_outdoor": {
+      "cp": "1fab6",
+      "char": "🪶",
+      "label": "powwow feather"
+    },
+    "arctic_arnhem_indigenous_outdoor": {
+      "cp": "1fa83",
+      "char": "🪃",
+      "label": "Arnhem boomerang"
+    },
+    "phnom_penh_royal_pinpeat_palace_court": {
+      "cp": "1f6d5",
+      "char": "🛕",
+      "label": "wat temple"
+    },
+    "hawaiian_heiau_outdoor_lava_stone_temple": {
+      "cp": "1f30b",
+      "char": "🌋",
+      "label": "lava stone temple"
+    },
+    "open_steppe_outdoor": {
+      "cp": "1f32c",
+      "char": "🌬",
+      "label": "steppe wind"
+    },
+    "taiga_natural_reverb": {
+      "cp": "1f43a",
+      "char": "🐺",
+      "label": "taiga evergreens"
+    },
+    "outdoor_kalahari_fire_circle": {
+      "cp": "1f525",
+      "char": "🔥",
+      "label": "nocturnal fire circle"
+    },
+    "eastern_cape_outdoor_grassland": {
+      "cp": "1f33f",
+      "char": "🌿",
+      "label": "open grassland"
+    },
+    "saharan_desert_encampment": {
+      "cp": "26fa",
+      "char": "⛺",
+      "label": "desert tent"
+    },
+    "maasai_manyatta_outdoor": {
+      "cp": "1f6d6",
+      "char": "🛖",
+      "label": "manyatta hut"
+    },
+    "atlas_mountain_village_square": {
+      "cp": "1f3d4",
+      "char": "🏔",
+      "label": "snowy Atlas peaks"
+    },
+    "dalmatian_stone_alley": {
+      "cp": "1f3d8",
+      "char": "🏘",
+      "label": "stone alley houses"
+    },
+    "outdoor_dalmatian_square": {
+      "cp": "26f5",
+      "char": "⛵",
+      "label": "Adriatic coast square"
+    },
+    "mountain_valley_fabod": {
+      "cp": "1f404",
+      "char": "🐄",
+      "label": "summer pasture cattle"
+    },
+    "ngillatun_clearing": {
+      "cp": "1f3de",
+      "char": "🏞",
+      "label": "sacred forest clearing"
+    },
+    "marae_forecourt": {
+      "cp": "1f5ff",
+      "char": "🗿",
+      "label": "carved marae figure"
+    },
+    "tanzanian_outdoor_village_clearing": {
+      "cp": "1f992",
+      "char": "🦒",
+      "label": "savanna clearing"
+    },
+    "manganiyar_haveli_courtyard": {
+      "cp": "1f42a",
+      "char": "🐪",
+      "label": "Thar desert camel"
+    },
+    "baltic_outdoor_village": {
+      "cp": "1fab5",
+      "char": "🪵",
+      "label": "wood and thatch"
+    },
+    "garifuna_beach_hall": {
+      "cp": "1f334",
+      "char": "🌴",
+      "label": "coastal palm"
+    },
+    "terreiro_outdoor_yard": {
+      "cp": "1f483",
+      "char": "💃",
+      "label": "samba de roda"
+    },
+    "batuko_outdoor_village": {
+      "cp": "1f3dd",
+      "char": "🏝",
+      "label": "island village"
+    },
+    "tongan_outdoor_village_green": {
+      "cp": "1f33a",
+      "char": "🌺",
+      "label": "tropical village green"
+    },
+    "studio_electrical_era_office": {
+      "cp": "1f5c4",
+      "char": "🗄",
+      "label": "electrical-era ribbon mic"
+    },
+    "studio_swing_live_room": {
+      "cp": "1f3ad",
+      "char": "🎭",
+      "label": "proscenium live room"
+    },
+    "studio_early_tape_us_small": {
+      "cp": "1f39e",
+      "char": "🎞",
+      "label": "quarter-inch tape room"
+    },
+    "studio_small_la_chambers": {
+      "cp": "1f9f1",
+      "char": "🧱",
+      "label": "tiled echo chamber"
+    },
+    "studio_multitrack_flagship_us_80s": {
+      "cp": "1f39b",
+      "char": "🎛",
+      "label": "SSL console flagship"
+    },
+    "studio_british_class_a_commercial": {
+      "cp": "26ea",
+      "char": "⛪",
+      "label": "converted church hall"
+    },
+    "studio_uk_small_60s_commercial": {
+      "cp": "1f4a1",
+      "char": "💡",
+      "label": "glowing valve console"
+    },
+    "studio_la_rock_70s_90s": {
+      "cp": "1f941",
+      "char": "🥁",
+      "label": "Neve drum room"
+    },
+    "studio_emi_lagos_african": {
+      "cp": "1f334",
+      "char": "🌴",
+      "label": "tropical Lagos room"
+    },
+    "studio_late70s_nyc_commercial": {
+      "cp": "1f4be",
+      "char": "💾",
+      "label": "early digital reverb"
+    },
+    "studio_indie_commercial_us_80s": {
+      "cp": "1f9f0",
+      "char": "🧰",
+      "label": "engineer-owned room"
+    },
+    "studio_pacnw_commercial_indie": {
+      "cp": "1f332",
+      "char": "🌲",
+      "label": "Northwest evergreen room"
+    },
+    "studio_toe_rag_vintage_revival": {
+      "cp": "1f570",
+      "char": "🕰",
+      "label": "vintage-revival room"
+    },
+    "studio_isolation_cabin_diy": {
+      "cp": "1f98c",
+      "char": "🦌",
+      "label": "hunting-cabin isolation"
+    },
+    "studio_atlanta_trap_commercial": {
+      "cp": "1f3a4",
+      "char": "🎤",
+      "label": "trap vocal booth"
+    },
+    "studio_kpop_idol_complex": {
+      "cp": "1f3e2",
+      "char": "🏢",
+      "label": "idol-label tower"
+    },
+    "studio_auteur_home_pro": {
+      "cp": "1f3e1",
+      "char": "🏡",
+      "label": "country-house studio"
+    },
+    "studio_distributed_production": {
+      "cp": "1f310",
+      "char": "🌐",
+      "label": "cloud-shared sessions"
+    },
+    "tokyo_studio_1970s_80s": {
+      "cp": "1f5fc",
+      "char": "🗼",
+      "label": "Tokyo tower studio"
+    },
+    "hong_kong_cantopop_studio_80s": {
+      "cp": "1f303",
+      "char": "🌃",
+      "label": "Hong Kong neon night"
+    },
+    "estudios_areito_havana": {
+      "cp": "1fa98",
+      "char": "🪘",
+      "label": "Havana conga room"
+    },
+    "panart_puchito_havana_pre_1959": {
+      "cp": "1f3ba",
+      "char": "🎺",
+      "label": "mambo trumpet room"
+    },
+    "fania_la_tierra_studios_ny": {
+      "cp": "1f5fd",
+      "char": "🗽",
+      "label": "Nuyorican salsa room"
+    },
+    "odeon_rca_buenos_aires": {
+      "cp": "1fa97",
+      "char": "🪗",
+      "label": "tango bandoneon room"
+    },
+    "mexico_peerless_musart_50s_60s": {
+      "cp": "1f920",
+      "char": "🤠",
+      "label": "ranchera charro room"
+    },
+    "discos_fuentes_medellin": {
+      "cp": "2615",
+      "char": "☕",
+      "label": "Medellin coffee-country label"
+    },
+    "dominican_capital_studio_80s": {
+      "cp": "1f9c2",
+      "char": "🧂",
+      "label": "merengue guira"
+    },
+    "van_gelder_englewood_cliffs": {
+      "cp": "1fab5",
+      "char": "🪵",
+      "label": "arched wood ceiling"
+    },
+    "van_gelder_hackensack": {
+      "cp": "1f6cb",
+      "char": "🛋",
+      "label": "parents living room"
+    },
+    "columbia_30th_street_studio_nyc": {
+      "cp": "2626",
+      "char": "☦",
+      "label": "converted Orthodox church"
+    },
+    "plaza_sound_radio_city_nyc": {
+      "cp": "1f39f",
+      "char": "🎟",
+      "label": "Music Hall eighth floor"
+    },
+    "a_and_r_recording_nyc": {
+      "cp": "1f3b7",
+      "char": "🎷",
+      "label": "bossa-nova vocal room"
+    },
+    "capitol_tower_studios_la": {
+      "cp": "1f4bf",
+      "char": "💿",
+      "label": "stacked-record tower"
+    },
+    "strata_east_loft_nyc": {
+      "cp": "1f3da",
+      "char": "🏚",
+      "label": "raw jazz loft"
+    },
+    "sunset_sound_studios_hollywood": {
+      "cp": "1f307",
+      "char": "🌇",
+      "label": "Sunset Boulevard room"
+    },
+    "wally_heider_studios_sf": {
+      "cp": "1f309",
+      "char": "🌉",
+      "label": "San Francisco bay room"
+    },
+    "a_and_m_studios_hollywood": {
+      "cp": "1f3ac",
+      "char": "🎬",
+      "label": "Chaplin film lot"
+    },
+    "the_village_recorder_west_la": {
+      "cp": "1f9ed",
+      "char": "🧭",
+      "label": "converted Masonic temple"
+    },
+    "caribou_ranch_colorado": {
+      "cp": "1f3d4",
+      "char": "🏔",
+      "label": "Rocky Mountain ranch"
+    },
+    "electric_lady_studios_nyc": {
+      "cp": "26a1",
+      "char": "⚡",
+      "label": "Electric Lady room"
+    },
+    "studio_in_the_country_bogalusa": {
+      "cp": "1f3d5",
+      "char": "🏕",
+      "label": "pine-forest retreat"
+    },
+    "stax_studio_memphis": {
+      "cp": "1f3a6",
+      "char": "🎦",
+      "label": "converted movie theatre"
+    },
+    "fame_studios_muscle_shoals": {
+      "cp": "1f4ef",
+      "char": "📯",
+      "label": "FAME horn section"
+    },
+    "muscle_shoals_sound_studio": {
+      "cp": "26b0",
+      "char": "⚰",
+      "label": "coffin-warehouse room"
+    },
+    "sigma_sound_studios_philadelphia": {
+      "cp": "1f3bb",
+      "char": "🎻",
+      "label": "Philly soul strings"
+    },
+    "hitsville_usa_motown_detroit": {
+      "cp": "1f40d",
+      "char": "🐍",
+      "label": "the Snakepit basement"
+    },
+    "atlantic_studios_nyc": {
+      "cp": "1f30a",
+      "char": "🌊",
+      "label": "Atlantic R&B room"
+    },
+    "king_records_studios_cincinnati": {
+      "cp": "1f451",
+      "char": "👑",
+      "label": "King Records room"
+    },
+    "chess_studios_chicago": {
+      "cp": "265f",
+      "char": "♟",
+      "label": "Chess Records room"
+    },
+    "athens_minos_studios_60s_70s": {
+      "cp": "1f3db",
+      "char": "🏛",
+      "label": "Athens laiko studio"
+    },
+    "prague_supraphon_studio": {
+      "cp": "1f3bc",
+      "char": "🎼",
+      "label": "Czech classical studio"
+    },
+    "polish_polskie_nagrania_muza": {
+      "cp": "1f58b",
+      "char": "🖋",
+      "label": "sung-poetry studio"
+    },
+    "moscow_melodiya_studio": {
+      "cp": "1fa86",
+      "char": "🪆",
+      "label": "Melodiya state studio"
+    },
+    "lagos_decca_west_african_studio": {
+      "cp": "2693",
+      "char": "⚓",
+      "label": "Decca West Africa port"
+    },
+    "kinshasa_african_jazz_studio": {
+      "cp": "1f3b8",
+      "char": "🎸",
+      "label": "soukous guitar room"
+    },
+    "paris_pathe_marconi_african_diaspora": {
+      "cp": "1f6eb",
+      "char": "🛫",
+      "label": "Paris diaspora studio"
+    },
+    "johannesburg_gallo_african_studios": {
+      "cp": "1f981",
+      "char": "🦁",
+      "label": "Mbube lion room"
+    },
+    "harare_zimbabwean_chimurenga_studio": {
+      "cp": "1f426",
+      "char": "🐦",
+      "label": "Zimbabwe bird studio"
+    },
+    "cairo_studio_misr_umm_kulthum_era": {
+      "cp": "1f42a",
+      "char": "🐪",
+      "label": "Cairo tarab studio"
+    },
+    "istanbul_makam_kilic_ali_pasha_studio": {
+      "cp": "1f54c",
+      "char": "🕌",
+      "label": "Istanbul makam room"
+    },
+    "casablanca_chaabi_moroccan_studio": {
+      "cp": "1fa94",
+      "char": "🪔",
+      "label": "Moroccan chaabi lamp"
+    },
+    "kolkata_hmv_dum_dum_studio": {
+      "cp": "1f415",
+      "char": "🐕",
+      "label": "His Masters Voice"
+    },
+    "mumbai_bombay_filmi_studio": {
+      "cp": "1f3a5",
+      "char": "🎥",
+      "label": "filmi playback stage"
+    },
+    "kingston_studio_one_brentford_road": {
+      "cp": "1f33f",
+      "char": "🌿",
+      "label": "Kingston yard studio"
+    },
+    "kingston_channel_one_maxfield_avenue": {
+      "cp": "1f50a",
+      "char": "🔊",
+      "label": "dub sound system"
+    },
+    "port_au_prince_haitian_kompa_studio": {
+      "cp": "1f33a",
+      "char": "🌺",
+      "label": "Haitian kompa room"
+    },
+    "brixton_uk_lovers_rock_basement": {
+      "cp": "1f48c",
+      "char": "💌",
+      "label": "lovers rock basement"
+    },
+    "uk_70s_hard_rock_arena_studio": {
+      "cp": "1f3df",
+      "char": "🏟",
+      "label": "arena-rock room"
+    },
+    "seattle_reciprocal_grunge_studio": {
+      "cp": "1f327",
+      "char": "🌧",
+      "label": "Seattle rain room"
+    },
+    "gothenburg_swedish_melodic_death_studio": {
+      "cp": "2744",
+      "char": "❄",
+      "label": "Gothenburg winter metal"
+    },
+    "dream_pop_shoegaze_4ad_studio": {
+      "cp": "1f32b",
+      "char": "🌫",
+      "label": "shoegaze haze"
+    },
+    "bay_area_thrash_metal_studio": {
+      "cp": "1f918",
+      "char": "🤘",
+      "label": "Bay Area thrash"
+    },
+    "krautrock_dusseldorf_kling_klang_studio": {
+      "cp": "1f6e3",
+      "char": "🛣",
+      "label": "Autobahn studio"
+    },
+    "nashville_rca_studio_b_quonset_hut": {
+      "cp": "1f6d6",
+      "char": "🛖",
+      "label": "Quonset hut studio"
+    },
+    "sun_studios_memphis_706_union": {
+      "cp": "2600",
+      "char": "☀",
+      "label": "Sun Records room"
+    },
+    "naples_canzone_napoletana_studio": {
+      "cp": "1f30b",
+      "char": "🌋",
+      "label": "Vesuvius song room"
+    },
+    "mexico_bolero_xochimilco_studio": {
+      "cp": "1f339",
+      "char": "🌹",
+      "label": "bolero romance room"
+    },
+    "nyc_brill_building_tin_pan_alley": {
+      "cp": "1f3b9",
+      "char": "🎹",
+      "label": "song-plugger piano"
+    },
+    "paris_french_rap_studio": {
+      "cp": "1f3d8",
+      "char": "🏘",
+      "label": "banlieue rap studio"
+    },
+    "nyc_bronx_hip_hop_block_party_studio": {
+      "cp": "1f4fb",
+      "char": "📻",
+      "label": "block-party boombox"
+    },
+    "berlin_techno_kreuzberg_studio": {
+      "cp": "1f3e6",
+      "char": "🏦",
+      "label": "bank-vault techno"
+    },
+    "dakar_mbalax_oran_rai_studio": {
+      "cp": "1f3dc",
+      "char": "🏜",
+      "label": "Sahel and Oran studio"
+    },
+    "jakarta_bangkok_southeast_asian_studio": {
+      "cp": "1f6fa",
+      "char": "🛺",
+      "label": "Southeast Asian city studio"
+    },
+    "parlor": {
+      "cp": "1f6cb",
+      "char": "🛋",
+      "label": "period parlor couch"
+    },
+    "carpeted_bedroom": {
+      "cp": "1f4a4",
+      "char": "💤",
+      "label": "carpeted bedroom"
+    },
+    "hardwood_living": {
+      "cp": "1fab5",
+      "char": "🪵",
+      "label": "hardwood floor"
+    },
+    "tile_kitchen": {
+      "cp": "1f373",
+      "char": "🍳",
+      "label": "tiled kitchen"
+    },
+    "tile_bathroom": {
+      "cp": "1f6bf",
+      "char": "🚿",
+      "label": "tiled shower"
+    },
+    "closet_booth": {
+      "cp": "1f9e5",
+      "char": "🧥",
+      "label": "clothes-lined closet"
+    },
+    "stairwell_concrete": {
+      "cp": "1fa9c",
+      "char": "🪜",
+      "label": "concrete stairwell"
+    },
+    "hallway": {
+      "cp": "1f6aa",
+      "char": "🚪",
+      "label": "long hallway doors"
+    },
+    "cement_block_broadcast_booth": {
+      "cp": "1f4fb",
+      "char": "📻",
+      "label": "desert radio station"
+    },
+    "intimate_paris_small_studio": {
+      "cp": "1f39b",
+      "char": "🎛",
+      "label": "small console room"
+    },
+    "addis_radio_clandestine_studio": {
+      "cp": "1f4bf",
+      "char": "💿",
+      "label": "cut lacquer disc"
+    },
+    "brent_black_community_studio_london": {
+      "cp": "1f3a4",
+      "char": "🎤",
+      "label": "co-op dynamic mic"
+    },
+    "estudios_scatena_sp": {
+      "cp": "1f4fc",
+      "char": "📼",
+      "label": "four-track tape room"
+    },
+    "rio_favela_home_baile_funk": {
+      "cp": "1f4bb",
+      "char": "💻",
+      "label": "bedroom laptop rig"
+    },
+    "tatami_parlor_japanese": {
+      "cp": "1f390",
+      "char": "🎐",
+      "label": "tatami paper room"
+    },
+    "mongolian_ger_interior": {
+      "cp": "26fa",
+      "char": "⛺",
+      "label": "ger tent"
+    },
+    "chinese_traditional_teahouse": {
+      "cp": "1f375",
+      "char": "🍵",
+      "label": "teahouse"
+    },
+    "connemara_kitchen_sean_nos": {
+      "cp": "2618",
+      "char": "☘",
+      "label": "Gaeltacht kitchen"
+    },
+    "scottish_bothy_farmhouse_kitchen": {
+      "cp": "1f69c",
+      "char": "🚜",
+      "label": "farm bothy kitchen"
+    },
+    "varanasi_benares_gharana_baithak": {
+      "cp": "1fa94",
+      "char": "🪔",
+      "label": "baithak oil lamp"
+    },
+    "newfoundland_outport_kitchen_party": {
+      "cp": "1f3a3",
+      "char": "🎣",
+      "label": "fishing outport kitchen"
+    },
+    "addis_kazanchis_azmari_bet_tej_house": {
+      "cp": "1f36f",
+      "char": "🍯",
+      "label": "honey-wine house"
+    },
+    "felt_walled_ger": {
+      "cp": "1f9f6",
+      "char": "🧶",
+      "label": "felt yurt wall"
+    },
+    "wooden_balagan": {
+      "cp": "1fa93",
+      "char": "🪓",
+      "label": "log-built dwelling"
+    },
+    "ainu_cise_wooden_interior": {
+      "cp": "1f525",
+      "char": "🔥",
+      "label": "central hearth"
+    },
+    "wooden_ca_tru_house": {
+      "cp": "1fab7",
+      "char": "🪷",
+      "label": "ca tru chamber"
+    },
+    "palm_thatch_maloca": {
+      "cp": "1f6d6",
+      "char": "🛖",
+      "label": "palm-thatch hut"
+    },
+    "qat_chew_majlis_room": {
+      "cp": "1f33f",
+      "char": "🌿",
+      "label": "qat-chew majlis"
+    },
+    "sardinian_su_zilleri_stone_bar": {
+      "cp": "1f377",
+      "char": "🍷",
+      "label": "village stone bar"
+    },
+    "setu_farmhouse_wood": {
+      "cp": "1f3e1",
+      "char": "🏡",
+      "label": "wooden farmhouse"
+    },
+    "iglu_community_hall": {
+      "cp": "1f9ca",
+      "char": "🧊",
+      "label": "snow-walled iglu"
+    },
+    "cathedral": {
+      "cp": "1fa9f",
+      "char": "🪟",
+      "label": "gothic cathedral"
+    },
+    "stone_parish_church": {
+      "cp": "1f514",
+      "char": "🔔",
+      "label": "parish church bell"
+    },
+    "wooden_country_church": {
+      "cp": "1f54a",
+      "char": "🕊",
+      "label": "wooden country chapel"
+    },
+    "wooden_barn": {
+      "cp": "1f33e",
+      "char": "🌾",
+      "label": "hayloft barn"
+    },
+    "tin_roofed_shack": {
+      "cp": "1f3da",
+      "char": "🏚",
+      "label": "tin-roofed shack"
+    },
+    "concrete_basement": {
+      "cp": "1f9f1",
+      "char": "🧱",
+      "label": "block-wall basement"
+    },
+    "concert_hall_shoebox": {
+      "cp": "1f3db",
+      "char": "🏛",
+      "label": "shoebox concert hall"
+    },
+    "gymnasium": {
+      "cp": "1f3c0",
+      "char": "🏀",
+      "label": "school gymnasium"
+    },
+    "subway_tunnel": {
+      "cp": "1f687",
+      "char": "🚇",
+      "label": "subway tunnel"
+    },
+    "adobe_room": {
+      "cp": "1f335",
+      "char": "🌵",
+      "label": "southwestern adobe room"
+    },
+    "tape_echo_chamber": {
+      "cp": "1f39e",
+      "char": "🎞",
+      "label": "tape echo chamber"
+    },
+    "kabuki_theater_japanese": {
+      "cp": "1f3ad",
+      "char": "🎭",
+      "label": "kabuki theater"
+    },
+    "tibetan_monastery_assembly": {
+      "cp": "2638",
+      "char": "☸",
+      "label": "monastery assembly hall"
+    },
+    "byzantine_monastery_chant_athos": {
+      "cp": "2626",
+      "char": "☦",
+      "label": "Athos katholikon"
+    },
+    "bulgarian_state_radio_choir_hall": {
+      "cp": "1f399",
+      "char": "🎙",
+      "label": "radio choir hall"
+    },
+    "golden_temple_amritsar_gurdwara": {
+      "cp": "1f6d5",
+      "char": "🛕",
+      "label": "gurdwara temple"
+    },
+    "southern_black_church_gospel_choir": {
+      "cp": "1f3b9",
+      "char": "🎹",
+      "label": "gospel church organ"
+    },
+    "kyrgyz_manaschi_outdoor_or_state_theater": {
+      "cp": "1f3d4",
+      "char": "🏔",
+      "label": "jailoo high pasture"
+    },
+    "lalibela_rock_hewn_church": {
+      "cp": "1faa8",
+      "char": "🪨",
+      "label": "rock-hewn church"
+    },
+    "wooden_pagoda_hall": {
+      "cp": "26e9",
+      "char": "⛩",
+      "label": "wooden pagoda hall"
+    },
+    "stone_armenian_church": {
+      "cp": "1f56f",
+      "char": "🕯",
+      "label": "stone nave candle"
+    },
+    "coptic_basilica": {
+      "cp": "271d",
+      "char": "✝",
+      "label": "Coptic basilica"
+    },
+    "tibetan_gompa_assembly_hall": {
+      "cp": "1f4ff",
+      "char": "📿",
+      "label": "gompa prayer hall"
+    },
+    "treated_studio": {
+      "cp": "1f9fd",
+      "char": "🧽",
+      "label": "foam-lined dead booth"
+    },
+    "live_room": {
+      "cp": "1f941",
+      "char": "🥁",
+      "label": "drum live room"
+    },
+    "untreated_bedroom": {
+      "cp": "1f6cf",
+      "char": "🛏",
+      "label": "bedroom studio"
+    },
+    "jazz_club": {
+      "cp": "1f378",
+      "char": "🍸",
+      "label": "speakeasy jazz club"
+    },
+    "honky_tonk_dance_hall": {
+      "cp": "1f920",
+      "char": "🤠",
+      "label": "honky-tonk dance hall"
+    },
+    "pentecostal_storefront_church": {
+      "cp": "1f3ea",
+      "char": "🏪",
+      "label": "storefront church"
+    },
+    "am_radio_booth": {
+      "cp": "1f4fb",
+      "char": "📻",
+      "label": "AM broadcast booth"
+    },
+    "irish_pub": {
+      "cp": "1f37b",
+      "char": "🍻",
+      "label": "crowded Irish pub"
+    },
+    "stone_plaster_medina_room": {
+      "cp": "1f9f1",
+      "char": "🧱",
+      "label": "medina plaster room"
+    },
+    "port_of_spain_community_studio": {
+      "cp": "1f6e2",
+      "char": "🛢",
+      "label": "Port of Spain studio"
+    },
+    "phonogram_brasil_studio": {
+      "cp": "1f39a",
+      "char": "🎚",
+      "label": "major-label tape studio"
+    },
+    "estudio_rozenblit_recife": {
+      "cp": "1f3ed",
+      "char": "🏭",
+      "label": "Recife record factory"
+    },
+    "noh_stage_japanese": {
+      "cp": "26e9",
+      "char": "⛩",
+      "label": "Noh ritual stage"
+    },
+    "shanghai_emi_pathe_1930s": {
+      "cp": "1f004",
+      "char": "🀄",
+      "label": "1930s Shanghai studio"
+    },
+    "korean_gugak_hall": {
+      "cp": "1f3db",
+      "char": "🏛",
+      "label": "national gugak hall"
+    },
+    "lisbon_alfama_fado_tavern": {
+      "cp": "1f377",
+      "char": "🍷",
+      "label": "Alfama fado tavern"
+    },
+    "andalusian_tablao_seville_madrid": {
+      "cp": "1f483",
+      "char": "💃",
+      "label": "flamenco tablao"
+    },
+    "athens_piraeus_rebetadika": {
+      "cp": "2693",
+      "char": "⚓",
+      "label": "Piraeus port taverna"
+    },
+    "irish_pub_doolin_clare_session": {
+      "cp": "1f525",
+      "char": "🔥",
+      "label": "turf-fire session corner"
+    },
+    "uk_folk_revival_club_60s": {
+      "cp": "1f3b8",
+      "char": "🎸",
+      "label": "folk-revival club"
+    },
+    "cajun_dance_hall_acadia_louisiana": {
+      "cp": "1fa97",
+      "char": "🪗",
+      "label": "Cajun fais do-do hall"
+    },
+    "german_liedermacher_kabarett_berlin": {
+      "cp": "1f3a9",
+      "char": "🎩",
+      "label": "Berlin Kabarett"
+    },
+    "klezmer_simcha_celebration_hall": {
+      "cp": "1f38a",
+      "char": "🎊",
+      "label": "simcha celebration hall"
+    },
+    "budapest_carpathian_csarda_tavern": {
+      "cp": "1f336",
+      "char": "🌶",
+      "label": "Hungarian csarda tavern"
+    },
+    "dar_es_salaam_zanzibar_taarab_culture_club": {
+      "cp": "26f5",
+      "char": "⛵",
+      "label": "Zanzibar dhow-coast club"
+    },
+    "tehran_classical_dastgah_context": {
+      "cp": "1f339",
+      "char": "🌹",
+      "label": "Tehran dastgah salon"
+    },
+    "baghdad_iraqi_maqam_context": {
+      "cp": "1f399",
+      "char": "🎙",
+      "label": "Baghdad broadcast studio"
+    },
+    "fez_andalusi_palace_riad": {
+      "cp": "1f54c",
+      "char": "🕌",
+      "label": "Fez Andalusi palace"
+    },
+    "yerevan_armenian_komitas_studio": {
+      "cp": "1f3d4",
+      "char": "🏔",
+      "label": "Yerevan conservatory"
+    },
+    "chennai_madras_music_academy_sabha": {
+      "cp": "1fab7",
+      "char": "🪷",
+      "label": "Carnatic sabha hall"
+    },
+    "vrindavan_braj_mandir_bhajan": {
+      "cp": "1f6d5",
+      "char": "🛕",
+      "label": "Braj mandir bhajan"
+    },
+    "stoner_doom_garage_amplifier_room": {
+      "cp": "1f50a",
+      "char": "🔊",
+      "label": "amplifier stack room"
+    },
+    "bristol_sessions_appalachian_pre_commercial": {
+      "cp": "1fa95",
+      "char": "🪕",
+      "label": "Bristol Sessions warehouse"
+    },
+    "lafayette_louisiana_zydeco_dance_hall": {
+      "cp": "1f99e",
+      "char": "🦞",
+      "label": "Creole zydeco hall"
+    },
+    "southern_white_church_gospel_quartet": {
+      "cp": "26ea",
+      "char": "⛪",
+      "label": "Baptist church quartet"
+    },
+    "iberian_kantautor_basque_galician_club": {
+      "cp": "270a",
+      "char": "✊",
+      "label": "protest-song cafe"
+    },
+    "balkan_sevdalinka_kafana_tavern": {
+      "cp": "1fad6",
+      "char": "🫖",
+      "label": "Sarajevo kafana"
+    },
+    "eastern_european_chassidic_farbrengen": {
+      "cp": "1f943",
+      "char": "🥃",
+      "label": "farbrengen dining table"
+    },
+    "mediterranean_sephardi_synagogue": {
+      "cp": "1f54d",
+      "char": "🕍",
+      "label": "Sephardi synagogue"
+    },
+    "recife_brazilian_northeast_forro_house": {
+      "cp": "1f335",
+      "char": "🌵",
+      "label": "sertao forro house"
+    },
+    "bogota_colombian_andean_studio": {
+      "cp": "2615",
+      "char": "☕",
+      "label": "Bogota Andean studio"
+    },
+    "karachi_lahore_naat_devotional_majlis": {
+      "cp": "1f4ff",
+      "char": "📿",
+      "label": "naat devotional majlis"
+    },
+    "us_uk_civic_amateur_band_hall": {
+      "cp": "1f3ba",
+      "char": "🎺",
+      "label": "civic band hall"
+    },
+    "shusha_garabagh_mugham_conservatory": {
+      "cp": "1f3f0",
+      "char": "🏰",
+      "label": "Shusha fortress school"
+    },
+    "bukhara_shashmaqam_courtyard_chamber": {
+      "cp": "1f42b",
+      "char": "🐫",
+      "label": "Bukhara courtyard chamber"
+    },
+    "maori_marae_carved_wharenui": {
+      "cp": "1f6d6",
+      "char": "🛖",
+      "label": "carved wharenui house"
+    },
+    "nuba_courtyard_hall": {
+      "cp": "26f2",
+      "char": "⛲",
+      "label": "riad courtyard hall"
+    },
+    "iraqi_baghdad_chamber": {
+      "cp": "1f3fa",
+      "char": "🏺",
+      "label": "Baghdadi maqam chamber"
+    },
+    "korean_pungnyu_pavilion": {
+      "cp": "1f3ef",
+      "char": "🏯",
+      "label": "tiered wooden pavilion"
+    },
+    "truck_cab": {
+      "cp": "1f69b",
+      "char": "🚛",
+      "label": "truck cab"
+    },
+    "phone_codec": {
+      "cp": "1f4de",
+      "char": "📞",
+      "label": "telephone line"
+    },
+    "walkie_talkie": {
+      "cp": "1f4e1",
+      "char": "📡",
+      "label": "shortwave walkie-talkie"
+    },
+    "cassette_tape": {
+      "cp": "1f4fc",
+      "char": "📼",
+      "label": "cassette tape"
+    },
+    "inside_piano": {
+      "cp": "1f3b9",
+      "char": "🎹",
+      "label": "inside a piano"
+    },
+    "airpod_bluetooth_codec": {
+      "cp": "1f3a7",
+      "char": "🎧",
+      "label": "wireless earbuds"
+    },
+    "boombox_portable_speaker": {
+      "cp": "1f4e2",
+      "char": "📢",
+      "label": "boombox speaker"
+    },
+    "takoma_home_recording_fahey": {
+      "cp": "1f6cb",
+      "char": "🛋",
+      "label": "Takoma living room"
+    },
+    "hexham_head_studio_pa_chamber_folk": {
+      "cp": "1f3e1",
+      "char": "🏡",
+      "label": "converted country house"
+    },
+    "denver_gothic_basement_studio": {
+      "cp": "1f578",
+      "char": "🕸",
+      "label": "cobwebbed basement studio"
+    },
+    "kingston_king_tubby_dub_workshop": {
+      "cp": "1f39b",
+      "char": "🎛",
+      "label": "dub mixing board"
+    }
+  },
+  "prefaceCategories": {
+    "Grief & lament": {
+      "cp": "1f494",
+      "char": "💔",
+      "label": "broken heart"
+    },
+    "Rage & aggression": {
+      "cp": "1f525",
+      "char": "🔥",
+      "label": "raging fire"
+    },
+    "Fear & unease": {
+      "cp": "1fae3",
+      "char": "🫣",
+      "label": "peeking through fingers"
+    },
+    "Tenderness & warmth": {
+      "cp": "1f9f8",
+      "char": "🧸",
+      "label": "teddy bear"
+    },
+    "Joy & play": {
+      "cp": "1f388",
+      "char": "🎈",
+      "label": "party balloon"
+    },
+    "Energy & the epic": {
+      "cp": "26a1",
+      "char": "⚡",
+      "label": "lightning bolt"
+    },
+    "Wonder & the uncanny": {
+      "cp": "1f6f8",
+      "char": "🛸",
+      "label": "flying saucer"
+    },
+    "Sacred & devotional": {
+      "cp": "1f64f",
+      "char": "🙏",
+      "label": "folded hands"
+    },
+    "Ambient & space": {
+      "cp": "1fa90",
+      "char": "🪐",
+      "label": "ringed planet"
+    },
+    "Groove & motion": {
+      "cp": "1f6fc",
+      "char": "🛼",
+      "label": "roller skate"
+    },
+    "Low end & weight": {
+      "cp": "1f418",
+      "char": "🐘",
+      "label": "elephant weight"
+    },
+    "Bright & cutting": {
+      "cp": "1f52a",
+      "char": "🔪",
+      "label": "cutting blade"
+    },
+    "Ornament & melisma": {
+      "cp": "1f41a",
+      "char": "🐚",
+      "label": "spiral shell"
+    },
+    "Speech & rhetoric": {
+      "cp": "1f4e2",
+      "char": "📢",
+      "label": "public address horn"
+    },
+    "Craft & ensemble": {
+      "cp": "1f9e9",
+      "char": "🧩",
+      "label": "interlocking puzzle piece"
+    },
+    "Lo-fi & broken": {
+      "cp": "1f4fb",
+      "char": "📻",
+      "label": "transistor radio"
+    }
+  },
+  "prefaces": {
+    "sobbing": {
+      "cp": "1f62d",
+      "char": "😭",
+      "label": "open-mouthed sobbing"
+    },
+    "purring": {
+      "cp": "1f638",
+      "char": "😸",
+      "label": "contented cat"
+    },
+    "caressing": {
+      "cp": "1faf3",
+      "char": "🫳",
+      "label": "stroking hand"
+    },
+    "embracing": {
+      "cp": "1fac2",
+      "char": "🫂",
+      "label": "two figures hugging"
+    },
+    "cradling": {
+      "cp": "1f932",
+      "char": "🤲",
+      "label": "cupped carrying hands"
+    },
+    "huffing": {
+      "cp": "1f62e-200d-1f4a8",
+      "char": "😮‍💨",
+      "label": "heavy exhale"
+    },
+    "cheek-flushing": {
+      "cp": "1f633",
+      "char": "😳",
+      "label": "hot red cheeks"
+    },
+    "spine-melting": {
+      "cp": "1fae0",
+      "char": "🫠",
+      "label": "face melting down"
+    },
+    "dor": {
+      "cp": "1f48c",
+      "char": "💌",
+      "label": "letter to the absent"
+    },
+    "jeong": {
+      "cp": "1faa2",
+      "char": "🪢",
+      "label": "bond tied over time"
+    },
+    "dolce-far-niente": {
+      "cp": "1f3d6",
+      "char": "🏖",
+      "label": "idle shaded beach"
+    },
+    "maternal": {
+      "cp": "1f931",
+      "char": "🤱",
+      "label": "nursing mother"
+    },
+    "tender": {
+      "cp": "1f338",
+      "char": "🌸",
+      "label": "delicate petals"
+    },
+    "covetous": {
+      "cp": "1f924",
+      "char": "🤤",
+      "label": "mouth-watering want"
+    },
+    "inviting": {
+      "cp": "1f6aa",
+      "char": "🚪",
+      "label": "door held open"
+    },
+    "seductive": {
+      "cp": "1f618",
+      "char": "😘",
+      "label": "blown kiss"
+    },
+    "apologizing": {
+      "cp": "1f647",
+      "char": "🙇",
+      "label": "deep apology bow"
+    },
+    "comforting": {
+      "cp": "1f375",
+      "char": "🍵",
+      "label": "comfort toy"
+    },
+    "cajoling": {
+      "cp": "1f955",
+      "char": "🥕",
+      "label": "coaxing carrot"
+    },
+    "klezmer-dancing": {
+      "cp": "1f57a",
+      "char": "🕺",
+      "label": "kicking dancer"
+    },
+    "sparse-tapping": {
+      "cp": "1f941",
+      "char": "🥁",
+      "label": "scattered drum taps"
+    },
+    "reed-singing": {
+      "cp": "1f3b7",
+      "char": "🎷",
+      "label": "singing reed"
+    },
+    "vatsalya": {
+      "cp": "1faba",
+      "char": "🪺",
+      "label": "brooded nest"
+    },
+    "wabi-rustic": {
+      "cp": "1f6d6",
+      "char": "🛖",
+      "label": "plain rustic hut"
+    },
+    "paternal": {
+      "cp": "1f468-200d-1f466",
+      "char": "👨‍👦",
+      "label": "father and son"
+    },
+    "dream-floating": {
+      "cp": "1f4ad",
+      "char": "💭",
+      "label": "drifting daydream"
+    },
+    "nuanced": {
+      "cp": "1f39a",
+      "char": "🎚",
+      "label": "fine gradations"
+    },
+    "apologetic": {
+      "cp": "1f97a",
+      "char": "🥺",
+      "label": "meek pleading look"
+    },
+    "consoling": {
+      "cp": "1fa79",
+      "char": "🩹",
+      "label": "bandage on a hurt"
+    },
+    "fawning": {
+      "cp": "1f436",
+      "char": "🐶",
+      "label": "eager-to-please dog"
+    },
+    "lustful": {
+      "cp": "1fae6",
+      "char": "🫦",
+      "label": "bitten lip"
+    },
+    "warm": {
+      "cp": "2615",
+      "char": "☕",
+      "label": "warm cup"
+    },
+    "soothing": {
+      "cp": "1f6c1",
+      "char": "🛁",
+      "label": "warm soaking bath"
+    },
+    "adored": {
+      "cp": "1f490",
+      "char": "💐",
+      "label": "bouquet received"
+    },
+    "adoring": {
+      "cp": "1f60d",
+      "char": "😍",
+      "label": "heart-struck eyes"
+    },
+    "satisfying": {
+      "cp": "1f44c",
+      "char": "👌",
+      "label": "just-right gesture"
+    },
+    "satisfied": {
+      "cp": "1f60c",
+      "char": "😌",
+      "label": "eased contentment"
+    },
+    "sensual": {
+      "cp": "1f351",
+      "char": "🍑",
+      "label": "ripe soft flesh"
+    },
+    "calming": {
+      "cp": "1f56f",
+      "char": "🕯",
+      "label": "steady candle flame"
+    },
+    "generous": {
+      "cp": "1f381",
+      "char": "🎁",
+      "label": "freely given gift"
+    },
+    "luxurious": {
+      "cp": "1f48e",
+      "char": "💎",
+      "label": "cut jewel"
+    },
+    "indulgent": {
+      "cp": "1f36b",
+      "char": "🍫",
+      "label": "rich chocolate"
+    },
+    "serene": {
+      "cp": "1fab7",
+      "char": "🪷",
+      "label": "still-water lotus"
+    },
+    "blissful": {
+      "cp": "1f607",
+      "char": "😇",
+      "label": "beatific glow"
+    },
+    "enchanting": {
+      "cp": "1fa84",
+      "char": "🪄",
+      "label": "charm spell"
+    },
+    "mellow": {
+      "cp": "1f350",
+      "char": "🍐",
+      "label": "ripened fruit"
+    },
+    "breezy": {
+      "cp": "1f32c",
+      "char": "🌬",
+      "label": "light gust"
+    },
+    "glowing": {
+      "cp": "1f31f",
+      "char": "🌟",
+      "label": "warm halo glow"
+    },
+    "graceful": {
+      "cp": "1fa70",
+      "char": "🩰",
+      "label": "ballet pointe shoes"
+    },
+    "silky": {
+      "cp": "1f9f5",
+      "char": "🧵",
+      "label": "silk thread"
+    },
+    "whispering": {
+      "cp": "1f92b",
+      "char": "🤫",
+      "label": "hushed whisper"
+    },
+    "bored": {
+      "cp": "1f971",
+      "char": "🥱",
+      "label": "idle yawn"
+    },
+    "apprehensive": {
+      "cp": "1f61f",
+      "char": "😟",
+      "label": "uneasy brow"
+    },
+    "content": {
+      "cp": "1f642",
+      "char": "🙂",
+      "label": "quiet small smile"
+    },
+    "carefree": {
+      "cp": "1fa81",
+      "char": "🪁",
+      "label": "kite on the wind"
+    },
+    "humble": {
+      "cp": "1f331",
+      "char": "🌱",
+      "label": "modest sprout"
+    },
+    "earnest": {
+      "cp": "1fac0",
+      "char": "🫀",
+      "label": "unadorned heart"
+    },
+    "caring": {
+      "cp": "1fab4",
+      "char": "🪴",
+      "label": "tended houseplant"
+    },
+    "gorgeous": {
+      "cp": "1f339",
+      "char": "🌹",
+      "label": "full-bloom rose"
+    },
+    "mature": {
+      "cp": "1f377",
+      "char": "🍷",
+      "label": "aged wine"
+    },
+    "calm": {
+      "cp": "1f9d8",
+      "char": "🧘",
+      "label": "seated stillness"
+    },
+    "relaxed": {
+      "cp": "1f6cb",
+      "char": "🛋",
+      "label": "feet-up couch"
+    },
+    "gentle": {
+      "cp": "1fab6",
+      "char": "🪶",
+      "label": "light feather"
+    },
+    "soft": {
+      "cp": "1f9fd",
+      "char": "🧽",
+      "label": "yielding sponge"
+    },
+    "quiet": {
+      "cp": "1f507",
+      "char": "🔇",
+      "label": "sound turned off"
+    },
+    "sexy": {
+      "cp": "1f48b",
+      "char": "💋",
+      "label": "lipstick print"
+    },
+    "affectionate": {
+      "cp": "1f970",
+      "char": "🥰",
+      "label": "ringed with hearts"
+    },
+    "loving": {
+      "cp": "2764",
+      "char": "❤",
+      "label": "plain full heart"
+    },
+    "glossy": {
+      "cp": "1fa9e",
+      "char": "🪞",
+      "label": "polished mirror"
+    },
+    "fragile": {
+      "cp": "1fae7",
+      "char": "🫧",
+      "label": "bubbles about to pop"
+    },
+    "fluffy": {
+      "cp": "2601",
+      "char": "☁",
+      "label": "soft cloud"
+    },
+    "rich": {
+      "cp": "1f36f",
+      "char": "🍯",
+      "label": "thick honey pot"
+    },
+    "dull": {
+      "cp": "1faa8",
+      "char": "🪨",
+      "label": "flat grey rock"
+    },
+    "damp": {
+      "cp": "1f4a7",
+      "char": "💧",
+      "label": "water droplet"
+    },
+    "faint": {
+      "cp": "1fae5",
+      "char": "🫥",
+      "label": "barely-there outline"
+    },
+    "tiny": {
+      "cp": "1f90f",
+      "char": "🤏",
+      "label": "a tiny pinch"
+    },
+    "confessional": {
+      "cp": "1f4d4",
+      "char": "📔",
+      "label": "private diary"
+    },
+    "languid": {
+      "cp": "1f9a5",
+      "char": "🦥",
+      "label": "slow-moving sloth"
+    },
+    "hazy": {
+      "cp": "1f32b",
+      "char": "🌫",
+      "label": "fog bank"
+    },
+    "velvety": {
+      "cp": "1f9e4",
+      "char": "🧤",
+      "label": "velvet glove"
+    },
+    "sentimental": {
+      "cp": "1f5bc",
+      "char": "🖼",
+      "label": "framed old photo"
+    },
+    "sultry": {
+      "cp": "2668",
+      "char": "♨",
+      "label": "steaming heat"
+    },
+    "autumnal": {
+      "cp": "1f341",
+      "char": "🍁",
+      "label": "turned autumn leaf"
+    },
+    "woozy": {
+      "cp": "1f635",
+      "char": "😵",
+      "label": "reeling head"
+    },
+    "tipsy": {
+      "cp": "1f378",
+      "char": "🍸",
+      "label": "one drink too many"
+    },
+    "smoky": {
+      "cp": "1f6ac",
+      "char": "🚬",
+      "label": "curling smoke"
+    },
+    "pastoral": {
+      "cp": "1f411",
+      "char": "🐑",
+      "label": "grazing sheep"
+    },
+    "charming": {
+      "cp": "1f340",
+      "char": "🍀",
+      "label": "lucky charm"
+    },
+    "cheeky": {
+      "cp": "1f61c",
+      "char": "😜",
+      "label": "tongue-out wink"
+    },
+    "playful": {
+      "cp": "1fa80",
+      "char": "🪀",
+      "label": "yo-yo at play"
+    },
+    "happy": {
+      "cp": "1f604",
+      "char": "😄",
+      "label": "open grin"
+    },
+    "tickled": {
+      "cp": "1f606",
+      "char": "😆",
+      "label": "squeezed-shut laughter"
+    },
+    "funny": {
+      "cp": "1f921",
+      "char": "🤡",
+      "label": "comic clown"
+    },
+    "fun": {
+      "cp": "1f3a2",
+      "char": "🎢",
+      "label": "roller-coaster ride"
+    },
+    "hopeful": {
+      "cp": "1f305",
+      "char": "🌅",
+      "label": "sun coming up"
+    },
+    "optimistic": {
+      "cp": "1f308",
+      "char": "🌈",
+      "label": "rainbow after rain"
+    },
+    "jovial": {
+      "cp": "1f37b",
+      "char": "🍻",
+      "label": "hearty toast"
+    },
+    "merry": {
+      "cp": "1f973",
+      "char": "🥳",
+      "label": "party-hat merrymaking"
+    },
+    "gleeful": {
+      "cp": "1f929",
+      "char": "🤩",
+      "label": "star-eyed glee"
+    },
+    "catchy": {
+      "cp": "1f3a3",
+      "char": "🎣",
+      "label": "a hook that sticks"
+    },
+    "upbeat": {
+      "cp": "2b06",
+      "char": "⬆",
+      "label": "bouncing roller skate"
+    },
+    "radical": {
+      "cp": "1f918",
+      "char": "🤘",
+      "label": "rock horns"
+    },
+    "bodacious": {
+      "cp": "1f60e",
+      "char": "😎",
+      "label": "shades and swagger"
+    },
+    "spine-rooting": {
+      "cp": "1f9b4",
+      "char": "🦴",
+      "label": "bass in the bones"
+    },
+    "pulse-quickening": {
+      "cp": "1f493",
+      "char": "💓",
+      "label": "racing pulse"
+    },
+    "apocalyptic": {
+      "cp": "1f30b",
+      "char": "🌋",
+      "label": "erupting volcano"
+    },
+    "spiraling": {
+      "cp": "1f300",
+      "char": "🌀",
+      "label": "tightening spiral"
+    },
+    "four-stomping": {
+      "cp": "1f9b6",
+      "char": "🦶",
+      "label": "stomping foot"
+    },
+    "energizing": {
+      "cp": "1f50b",
+      "char": "🔋",
+      "label": "live voltage"
+    },
+    "epic": {
+      "cp": "1f409",
+      "char": "🐉",
+      "label": "legendary dragon"
+    },
+    "cinematic": {
+      "cp": "1f3ac",
+      "char": "🎬",
+      "label": "film slate"
+    },
+    "uplifting": {
+      "cp": "1f680",
+      "char": "🚀",
+      "label": "lift-off"
+    },
+    "exhilarating": {
+      "cp": "1fa82",
+      "char": "🪂",
+      "label": "freefall rush"
+    },
+    "keening": {
+      "cp": "1f43a",
+      "char": "🐺",
+      "label": "long howled keen"
+    },
+    "wailing": {
+      "cp": "1f6a8",
+      "char": "🚨",
+      "label": "siren wail"
+    },
+    "moaning": {
+      "cp": "1f32c",
+      "char": "🌬",
+      "label": "moaning wind"
+    },
+    "brooding": {
+      "cp": "1f5ff",
+      "char": "🗿",
+      "label": "stone-faced brooding"
+    },
+    "swooning": {
+      "cp": "1f4ab",
+      "char": "💫",
+      "label": "reeling swoon"
+    },
+    "coughing": {
+      "cp": "1fac1",
+      "char": "🫁",
+      "label": "hacking lungs"
+    },
+    "mourning": {
+      "cp": "26b0",
+      "char": "⚰",
+      "label": "funeral coffin"
+    },
+    "lamenting": {
+      "cp": "1f56f",
+      "char": "🕯",
+      "label": "lament vigil candle"
+    },
+    "heart-breaking": {
+      "cp": "1f622",
+      "char": "😢",
+      "label": "broken heart"
+    },
+    "eye-watering": {
+      "cp": "1f4a7",
+      "char": "💧",
+      "label": "welling tear"
+    },
+    "knee-buckling": {
+      "cp": "1f9b5",
+      "char": "🦵",
+      "label": "knee giving way"
+    },
+    "elegiac": {
+      "cp": "1f4dc",
+      "char": "📜",
+      "label": "read elegy"
+    },
+    "saudade": {
+      "cp": "26f5",
+      "char": "⛵",
+      "label": "ship long sailed"
+    },
+    "duende": {
+      "cp": "1f483",
+      "char": "💃",
+      "label": "flamenco duende"
+    },
+    "sehnsucht": {
+      "cp": "1f30c",
+      "char": "🌌",
+      "label": "unreachable distance"
+    },
+    "hiraeth": {
+      "cp": "26f0",
+      "char": "⛰",
+      "label": "lost homeland hills"
+    },
+    "spleen": {
+      "cp": "1f570",
+      "char": "🕰",
+      "label": "clock of leaden hours"
+    },
+    "razbliuto": {
+      "cp": "2764-fe0f-200d-1fa79",
+      "char": "❤️‍🩹",
+      "label": "patched-over old love"
+    },
+    "han": {
+      "cp": "26d3",
+      "char": "⛓",
+      "label": "inherited chains"
+    },
+    "flaneur": {
+      "cp": "1f306",
+      "char": "🌆",
+      "label": "dusk city stroll"
+    },
+    "struggimento": {
+      "cp": "2764-fe0f-200d-1f525",
+      "char": "❤️‍🔥",
+      "label": "heart consumed"
+    },
+    "nadryv": {
+      "cp": "1faa2",
+      "char": "🪢",
+      "label": "wrenched inner knot"
+    },
+    "demotic-keening": {
+      "cp": "1f3fa",
+      "char": "🏺",
+      "label": "Greek mourning vessel"
+    },
+    "jondo-tearing": {
+      "cp": "1fac0",
+      "char": "🫀",
+      "label": "raw deep song"
+    },
+    "weeping": {
+      "cp": "1f62d",
+      "char": "😭",
+      "label": "flooding weep"
+    },
+    "tragic": {
+      "cp": "1f3ad",
+      "char": "🎭",
+      "label": "tragedy mask"
+    },
+    "rasping": {
+      "cp": "1fa9a",
+      "char": "🪚",
+      "label": "rasped saw edge"
+    },
+    "karuna": {
+      "cp": "1f4ff",
+      "char": "📿",
+      "label": "compassion beads"
+    },
+    "sad": {
+      "cp": "1f327",
+      "char": "🌧",
+      "label": "grey rain"
+    },
+    "bitter": {
+      "cp": "1f34b",
+      "char": "🍋",
+      "label": "bitter rind"
+    },
+    "somber": {
+      "cp": "1f311",
+      "char": "🌑",
+      "label": "moonless dark"
+    },
+    "melancholic": {
+      "cp": "1f318",
+      "char": "🌘",
+      "label": "waning melancholy"
+    },
+    "devastating": {
+      "cp": "1f30a",
+      "char": "🌊",
+      "label": "flattening wave"
+    },
+    "devastated": {
+      "cp": "1f3da",
+      "char": "🏚",
+      "label": "wrecked and hollow"
+    },
+    "crushed": {
+      "cp": "1f5dc",
+      "char": "🗜",
+      "label": "crushed in a vise"
+    },
+    "gloomy": {
+      "cp": "1f32b",
+      "char": "🌫",
+      "label": "thick gloom"
+    },
+    "dismal": {
+      "cp": "1f3dc",
+      "char": "🏜",
+      "label": "bleak waste"
+    },
+    "dreadful": {
+      "cp": "1f573",
+      "char": "🕳",
+      "label": "yawning dread pit"
+    },
+    "miserable": {
+      "cp": "1f940",
+      "char": "🥀",
+      "label": "wilted misery"
+    },
+    "weary": {
+      "cp": "1faab",
+      "char": "🪫",
+      "label": "drained to empty"
+    },
+    "worried": {
+      "cp": "1f61f",
+      "char": "😟",
+      "label": "worried brow"
+    },
+    "moody": {
+      "cp": "1f317",
+      "char": "🌗",
+      "label": "half-lit moodiness"
+    },
+    "bluesy": {
+      "cp": "1f3b8",
+      "char": "🎸",
+      "label": "blues slide guitar"
+    },
+    "bittersweet": {
+      "cp": "1f972",
+      "char": "🥲",
+      "label": "smile through tears"
+    },
+    "yearning": {
+      "cp": "1f320",
+      "char": "🌠",
+      "label": "wished-after star"
+    },
+    "groaning": {
+      "cp": "1fab5",
+      "char": "🪵",
+      "label": "groaning timber"
+    },
+    "shrieking": {
+      "cp": "1f987",
+      "char": "🦇",
+      "label": "bat shriek"
+    },
+    "raging": {
+      "cp": "1f47a",
+      "char": "👺",
+      "label": "raging blaze"
+    },
+    "choking": {
+      "cp": "1f910",
+      "char": "🤐",
+      "label": "choked-off voice"
+    },
+    "thrashing": {
+      "cp": "1f988",
+      "char": "🦈",
+      "label": "thrashing shark"
+    },
+    "screaming": {
+      "cp": "1f985",
+      "char": "🦅",
+      "label": "screaming raptor"
+    },
+    "seething": {
+      "cp": "1fad6",
+      "char": "🫖",
+      "label": "kettle about to boil"
+    },
+    "erupting": {
+      "cp": "1f30b",
+      "char": "🌋",
+      "label": "erupting volcano"
+    },
+    "face-melting": {
+      "cp": "1fae0",
+      "char": "🫠",
+      "label": "melted face"
+    },
+    "skull-splitting": {
+      "cp": "1f480",
+      "char": "💀",
+      "label": "split skull"
+    },
+    "shoulders-tensing": {
+      "cp": "1f3cb",
+      "char": "🏋",
+      "label": "braced shoulders"
+    },
+    "ear-shattering": {
+      "cp": "1f50a",
+      "char": "🔊",
+      "label": "deafening blast"
+    },
+    "eye-burning": {
+      "cp": "1f9c5",
+      "char": "🧅",
+      "label": "eye-stinging onion"
+    },
+    "throat-burning": {
+      "cp": "1f943",
+      "char": "🥃",
+      "label": "liquor burn"
+    },
+    "challenging": {
+      "cp": "2694",
+      "char": "⚔",
+      "label": "swords crossed"
+    },
+    "clangoring": {
+      "cp": "1f514",
+      "char": "🔔",
+      "label": "clanging bell"
+    },
+    "sputtering": {
+      "cp": "1f9e8",
+      "char": "🧨",
+      "label": "sputtering fuse"
+    },
+    "screeching": {
+      "cp": "1f989",
+      "char": "🦉",
+      "label": "screech owl"
+    },
+    "whirring": {
+      "cp": "2699",
+      "char": "⚙",
+      "label": "whirring gear"
+    },
+    "shoegazing": {
+      "cp": "1f97e",
+      "char": "🥾",
+      "label": "eyes on your shoes"
+    },
+    "roaring": {
+      "cp": "1f981",
+      "char": "🦁",
+      "label": "lion's roar"
+    },
+    "snarling": {
+      "cp": "1f42f",
+      "char": "🐯",
+      "label": "curled-lip snarl"
+    },
+    "savage": {
+      "cp": "1f40a",
+      "char": "🐊",
+      "label": "savage jaws"
+    },
+    "barbaric": {
+      "cp": "1fa93",
+      "char": "🪓",
+      "label": "barbarian axe"
+    },
+    "frustrated": {
+      "cp": "1f624",
+      "char": "😤",
+      "label": "steam from the nose"
+    },
+    "furious": {
+      "cp": "1f621",
+      "char": "😡",
+      "label": "red fury"
+    },
+    "angry": {
+      "cp": "1f620",
+      "char": "😠",
+      "label": "plain anger"
+    },
+    "rebellious": {
+      "cp": "270a",
+      "char": "✊",
+      "label": "raised rebel fist"
+    },
+    "vengeful": {
+      "cp": "1f5e1",
+      "char": "🗡",
+      "label": "vengeance blade"
+    },
+    "livid": {
+      "cp": "1f92c",
+      "char": "🤬",
+      "label": "cursing livid"
+    },
+    "brutal": {
+      "cp": "1f528",
+      "char": "🔨",
+      "label": "brutal hammer"
+    },
+    "scorching": {
+      "cp": "1f975",
+      "char": "🥵",
+      "label": "scorched overheat"
+    },
+    "blazing": {
+      "cp": "2600",
+      "char": "☀",
+      "label": "blazing sun"
+    },
+    "harsh": {
+      "cp": "1fa92",
+      "char": "🪒",
+      "label": "harsh razor edge"
+    },
+    "wicked": {
+      "cp": "1f608",
+      "char": "😈",
+      "label": "wicked grin"
+    },
+    "defiant": {
+      "cp": "1f3f4-200d-2620-fe0f",
+      "char": "🏴‍☠️",
+      "label": "flag of defiance"
+    },
+    "aggressive": {
+      "cp": "1f94a",
+      "char": "🥊",
+      "label": "aggressive punch"
+    },
+    "fierce": {
+      "cp": "1f409",
+      "char": "🐉",
+      "label": "fierce dragon"
+    },
+    "fiery": {
+      "cp": "1f336",
+      "char": "🌶",
+      "label": "fiery pepper heat"
+    },
+    "sizzling": {
+      "cp": "1f373",
+      "char": "🍳",
+      "label": "sizzling pan"
+    },
+    "hateful": {
+      "cp": "1f5a4",
+      "char": "🖤",
+      "label": "black-hearted hate"
+    },
+    "cruel": {
+      "cp": "1f982",
+      "char": "🦂",
+      "label": "cruel sting"
+    },
+    "nasty": {
+      "cp": "1fab3",
+      "char": "🪳",
+      "label": "nasty vermin"
+    },
+    "arrogant": {
+      "cp": "1f99a",
+      "char": "🦚",
+      "label": "strutting peacock"
+    },
+    "wild": {
+      "cp": "1f417",
+      "char": "🐗",
+      "label": "wild boar"
+    },
+    "fearless": {
+      "cp": "1f9b8",
+      "char": "🦸",
+      "label": "fearless charge"
+    },
+    "muscular": {
+      "cp": "1f4aa",
+      "char": "💪",
+      "label": "flexed muscle"
+    },
+    "fuzzy": {
+      "cp": "1f9f6",
+      "char": "🧶",
+      "label": "fuzz-wound yarn"
+    },
+    "raspy": {
+      "cp": "1f6ac",
+      "char": "🚬",
+      "label": "smoke-rasped voice"
+    },
+    "coarse": {
+      "cp": "1f9f1",
+      "char": "🧱",
+      "label": "coarse brickwork"
+    },
+    "industrial": {
+      "cp": "1f3ed",
+      "char": "🏭",
+      "label": "factory floor"
+    },
+    "stormy": {
+      "cp": "26c8",
+      "char": "⛈",
+      "label": "thunder and rain"
+    },
+    "tempestuous": {
+      "cp": "1f32a",
+      "char": "🌪",
+      "label": "tempest tornado"
+    },
+    "hostile": {
+      "cp": "1f40d",
+      "char": "🐍",
+      "label": "coiled hostility"
+    },
+    "regretful": {
+      "cp": "1f614",
+      "char": "😔",
+      "label": "pensive regret"
+    },
+    "humiliated": {
+      "cp": "1f647",
+      "char": "🙇",
+      "label": "bowed low"
+    },
+    "guilty": {
+      "cp": "1fa78",
+      "char": "🩸",
+      "label": "guilty stain"
+    },
+    "tense": {
+      "cp": "1f3f9",
+      "char": "🏹",
+      "label": "drawn taut bow"
+    },
+    "suspenseful": {
+      "cp": "23f3",
+      "char": "⏳",
+      "label": "sand running out"
+    },
+    "chilling": {
+      "cp": "1f47b",
+      "char": "👻",
+      "label": "cold ghost presence"
+    },
+    "nervous": {
+      "cp": "1f62c",
+      "char": "😬",
+      "label": "nervous grimace"
+    },
+    "fearful": {
+      "cp": "1f628",
+      "char": "😨",
+      "label": "fearful face"
+    },
+    "bashful": {
+      "cp": "1f633",
+      "char": "😳",
+      "label": "flushed blush"
+    },
+    "disappointed": {
+      "cp": "1f61e",
+      "char": "😞",
+      "label": "downcast disappointment"
+    },
+    "terrified": {
+      "cp": "1f631",
+      "char": "😱",
+      "label": "screaming terror"
+    },
+    "ambivalent": {
+      "cp": "1f937",
+      "char": "🤷",
+      "label": "shrug either way"
+    },
+    "exposed": {
+      "cp": "1f4a1",
+      "char": "💡",
+      "label": "bare bulb exposure"
+    },
+    "shamed": {
+      "cp": "1f648",
+      "char": "🙈",
+      "label": "hiding the face"
+    },
+    "sheepish": {
+      "cp": "1f411",
+      "char": "🐑",
+      "label": "sheepish sheep"
+    },
+    "timid": {
+      "cp": "1f401",
+      "char": "🐁",
+      "label": "timid mouse"
+    },
+    "anxious": {
+      "cp": "1f630",
+      "char": "😰",
+      "label": "anxious cold sweat"
+    },
+    "pleading": {
+      "cp": "1f932",
+      "char": "🤲",
+      "label": "begging open palms"
+    },
+    "scalp-prickling": {
+      "cp": "1f994",
+      "char": "🦔",
+      "label": "prickling spines"
+    },
+    "blood-curdling": {
+      "cp": "1f631",
+      "char": "😱",
+      "label": "curdling scream"
+    },
+    "jaw-dropping": {
+      "cp": "1f62e",
+      "char": "😮",
+      "label": "jaw dropped open"
+    },
+    "spine-tingling": {
+      "cp": "1f578",
+      "char": "🕸",
+      "label": "electric shiver"
+    },
+    "oracular": {
+      "cp": "1f52e",
+      "char": "🔮",
+      "label": "oracle's ball"
+    },
+    "eldritch": {
+      "cp": "1f991",
+      "char": "🦑",
+      "label": "tentacled horror"
+    },
+    "liturgical": {
+      "cp": "26ea",
+      "char": "⛪",
+      "label": "church rite"
+    },
+    "vatic": {
+      "cp": "261d",
+      "char": "☝",
+      "label": "prophet's raised finger"
+    },
+    "monastic": {
+      "cp": "1f4ff",
+      "char": "📿",
+      "label": "monk's prayer beads"
+    },
+    "hymnic": {
+      "cp": "1f4d6",
+      "char": "📖",
+      "label": "open hymnal"
+    },
+    "ecstatic": {
+      "cp": "1f483",
+      "char": "💃",
+      "label": "whirling dance"
+    },
+    "shamanic": {
+      "cp": "1f941",
+      "char": "🥁",
+      "label": "trance drum"
+    },
+    "penitential": {
+      "cp": "1f9ce",
+      "char": "🧎",
+      "label": "kneeling penance"
+    },
+    "messianic": {
+      "cp": "1f31f",
+      "char": "🌟",
+      "label": "star of the anointed"
+    },
+    "doxological": {
+      "cp": "1f64c",
+      "char": "🙌",
+      "label": "hands raised in praise"
+    },
+    "annunciatory": {
+      "cp": "1f4ef",
+      "char": "📯",
+      "label": "announcing horn"
+    },
+    "sabbatical": {
+      "cp": "1f54e",
+      "char": "🕎",
+      "label": "sabbath lamp"
+    },
+    "resurrectional": {
+      "cp": "1f305",
+      "char": "🌅",
+      "label": "rising dawn"
+    },
+    "tantric": {
+      "cp": "1fab7",
+      "char": "🪷",
+      "label": "tantric lotus"
+    },
+    "theophanic": {
+      "cp": "1f52f",
+      "char": "🔯",
+      "label": "burning bush"
+    },
+    "paschal": {
+      "cp": "1f56f",
+      "char": "🕯",
+      "label": "paschal candle"
+    },
+    "yaaburnee": {
+      "cp": "1faa6",
+      "char": "🪦",
+      "label": "you bury me"
+    },
+    "natsukashii": {
+      "cp": "1f391",
+      "char": "🎑",
+      "label": "nostalgic autumn moon"
+    },
+    "shanti": {
+      "cp": "262e",
+      "char": "☮",
+      "label": "shanti peace"
+    },
+    "upekkha": {
+      "cp": "262f",
+      "char": "☯",
+      "label": "balanced equanimity"
+    },
+    "processional": {
+      "cp": "1f6a9",
+      "char": "🚩",
+      "label": "processional banner"
+    },
+    "intercessory": {
+      "cp": "1f54b",
+      "char": "🕋",
+      "label": "hands folded for another"
+    },
+    "devotional": {
+      "cp": "1fa94",
+      "char": "🪔",
+      "label": "offering lamp"
+    },
+    "evangelizing": {
+      "cp": "1f4e3",
+      "char": "📣",
+      "label": "street preaching"
+    },
+    "forgiving": {
+      "cp": "1f54a",
+      "char": "🕊",
+      "label": "dove of pardon"
+    },
+    "petitioning": {
+      "cp": "1f4dc",
+      "char": "📜",
+      "label": "written petition"
+    },
+    "reminiscing": {
+      "cp": "1f5bc",
+      "char": "🖼",
+      "label": "old photograph"
+    },
+    "rustling": {
+      "cp": "1f343",
+      "char": "🍃",
+      "label": "leaves rustling"
+    },
+    "ishq": {
+      "cp": "1f339",
+      "char": "🌹",
+      "label": "the beloved's rose"
+    },
+    "ngoma": {
+      "cp": "1fa98",
+      "char": "🪘",
+      "label": "African long drum"
+    },
+    "bhakti": {
+      "cp": "1f549",
+      "char": "🕉",
+      "label": "om devotion"
+    },
+    "vira": {
+      "cp": "2694",
+      "char": "⚔",
+      "label": "heroic valour"
+    },
+    "adbhuta": {
+      "cp": "1f632",
+      "char": "😲",
+      "label": "the wondrous rasa"
+    },
+    "hasya": {
+      "cp": "1f923",
+      "char": "🤣",
+      "label": "the comic rasa"
+    },
+    "sabi-patinated": {
+      "cp": "1fab5",
+      "char": "🪵",
+      "label": "weathered grain"
+    },
+    "sufi-mystical": {
+      "cp": "1f300",
+      "char": "🌀",
+      "label": "whirling mystic"
+    },
+    "asymmetric-rolling": {
+      "cp": "1f514",
+      "char": "🔔",
+      "label": "rolling peal"
+    },
+    "kakaki-heralding": {
+      "cp": "1f3ba",
+      "char": "🎺",
+      "label": "long herald trumpet"
+    },
+    "stuttering": {
+      "cp": "1f502",
+      "char": "🔂",
+      "label": "one bar looped"
+    },
+    "entrancing": {
+      "cp": "1f9ff",
+      "char": "🧿",
+      "label": "fixating eye"
+    },
+    "intoxicating": {
+      "cp": "1f377",
+      "char": "🍷",
+      "label": "heady wine"
+    },
+    "haunting": {
+      "cp": "1f47b",
+      "char": "👻",
+      "label": "lingering ghost"
+    },
+    "struggling": {
+      "cp": "1f93c",
+      "char": "🤼",
+      "label": "wrestling through"
+    },
+    "gospel-belting": {
+      "cp": "1f3a4",
+      "char": "🎤",
+      "label": "belted into the mic"
+    },
+    "antiphoning": {
+      "cp": "1f465",
+      "char": "👥",
+      "label": "two answering choirs"
+    },
+    "hollering": {
+      "cp": "1f5e3",
+      "char": "🗣",
+      "label": "voice thrown outdoors"
+    },
+    "numinous": {
+      "cp": "1f30c",
+      "char": "🌌",
+      "label": "vast holy sky"
+    },
+    "grateful": {
+      "cp": "1f490",
+      "char": "💐",
+      "label": "bouquet of thanks"
+    },
+    "thankful": {
+      "cp": "1f33e",
+      "char": "🌾",
+      "label": "harvest thanksgiving"
+    },
+    "solemn": {
+      "cp": "1f5ff",
+      "char": "🗿",
+      "label": "impassive stone face"
+    },
+    "repentant": {
+      "cp": "1f647",
+      "char": "🙇",
+      "label": "bowed in contrition"
+    },
+    "mystifying": {
+      "cp": "1f32b",
+      "char": "🌫",
+      "label": "obscuring fog"
+    },
+    "mystified": {
+      "cp": "1f9d0",
+      "char": "🧐",
+      "label": "squinting to grasp it"
+    },
+    "bewildered": {
+      "cp": "1f4ab",
+      "char": "💫",
+      "label": "head spinning"
+    },
+    "bewildering": {
+      "cp": "2753",
+      "char": "❓",
+      "label": "piece that won't fit"
+    },
+    "alcoholic": {
+      "cp": "1f37a",
+      "char": "🍺",
+      "label": "one too many"
+    },
+    "slurred": {
+      "cp": "3030",
+      "char": "〰",
+      "label": "wavering slide"
+    },
+    "imperfect": {
+      "cp": "1faa8",
+      "char": "🪨",
+      "label": "unpolished stone"
+    },
+    "cramped": {
+      "cp": "1f6d7",
+      "char": "🛗",
+      "label": "cramped lift"
+    },
+    "malfunctioning": {
+      "cp": "1f916",
+      "char": "🤖",
+      "label": "glitching machine"
+    },
+    "broken": {
+      "cp": "1fa79",
+      "char": "🩹",
+      "label": "snapped in two"
+    },
+    "flawed": {
+      "cp": "1fa79",
+      "char": "🩹",
+      "label": "patched-over flaw"
+    },
+    "tarnished": {
+      "cp": "1f5dd",
+      "char": "🗝",
+      "label": "tarnished old key"
+    },
+    "euphoric": {
+      "cp": "1f386",
+      "char": "🎆",
+      "label": "bursting euphoria"
+    },
+    "jubilant": {
+      "cp": "1f389",
+      "char": "🎉",
+      "label": "jubilation burst"
+    },
+    "zealous": {
+      "cp": "1f30b",
+      "char": "🌋",
+      "label": "erupting fervour"
+    },
+    "regal": {
+      "cp": "1fac5",
+      "char": "🫅",
+      "label": "crowned figure"
+    },
+    "deafening": {
+      "cp": "26c8",
+      "char": "⛈",
+      "label": "thunderclap"
+    },
+    "loud": {
+      "cp": "1f50a",
+      "char": "🔊",
+      "label": "volume at maximum"
+    },
+    "rugged": {
+      "cp": "1fa93",
+      "char": "🪓",
+      "label": "axe-hewn"
+    },
+    "devoted": {
+      "cp": "1f48d",
+      "char": "💍",
+      "label": "lifelong vow ring"
+    },
+    "stately": {
+      "cp": "1f3db",
+      "char": "🏛",
+      "label": "stately colonnade"
+    },
+    "thin": {
+      "cp": "1f9b4",
+      "char": "🦴",
+      "label": "stripped to bone"
+    },
+    "dirty": {
+      "cp": "1f3b8",
+      "char": "🎸",
+      "label": "overdriven guitar"
+    },
+    "filthy": {
+      "cp": "1f4a9",
+      "char": "💩",
+      "label": "sheer filth"
+    },
+    "grimy": {
+      "cp": "1f6e2",
+      "char": "🛢",
+      "label": "oil-grimed drum"
+    },
+    "worn": {
+      "cp": "1f97e",
+      "char": "🥾",
+      "label": "broken-in boot"
+    },
+    "vintage": {
+      "cp": "1f4fd",
+      "char": "📽",
+      "label": "valve radio"
+    },
+    "retro": {
+      "cp": "1f579",
+      "char": "🕹",
+      "label": "retro joystick"
+    },
+    "dystopian": {
+      "cp": "2622",
+      "char": "☢",
+      "label": "irradiated future"
+    },
+    "anthemic": {
+      "cp": "1f3df",
+      "char": "🏟",
+      "label": "stadium anthem"
+    },
+    "soulful": {
+      "cp": "1f3b7",
+      "char": "🎷",
+      "label": "soul saxophone"
+    },
+    "drunken": {
+      "cp": "1f635",
+      "char": "😵",
+      "label": "reeling and dizzy"
+    },
+    "sacred": {
+      "cp": "1f6d0",
+      "char": "🛐",
+      "label": "consecrated ground"
+    },
+    "clutching": {
+      "cp": "1fa9d",
+      "char": "🪝",
+      "label": "gripping hook"
+    },
+    "ruminating": {
+      "cp": "1f4ad",
+      "char": "💭",
+      "label": "turning thought"
+    },
+    "mind-numbing": {
+      "cp": "1f4a4",
+      "char": "💤",
+      "label": "dulled to sleep"
+    },
+    "sepulchral": {
+      "cp": "26b0",
+      "char": "⚰",
+      "label": "tomb casket"
+    },
+    "liminal": {
+      "cp": "1f6aa",
+      "char": "🚪",
+      "label": "doorway threshold"
+    },
+    "mono-no-aware": {
+      "cp": "1f338",
+      "char": "🌸",
+      "label": "falling blossom"
+    },
+    "wabi-sabi": {
+      "cp": "1f3fa",
+      "char": "🏺",
+      "label": "rough old pottery"
+    },
+    "yugen": {
+      "cp": "1f391",
+      "char": "🎑",
+      "label": "moon-viewing depth"
+    },
+    "dukkha": {
+      "cp": "2638",
+      "char": "☸",
+      "label": "wheel of suffering"
+    },
+    "hozho": {
+      "cp": "1f308",
+      "char": "🌈",
+      "label": "rainbow harmony"
+    },
+    "yi": {
+      "cp": "1f58c",
+      "char": "🖌",
+      "label": "ink-brush conception"
+    },
+    "wu-wei": {
+      "cp": "262f",
+      "char": "☯",
+      "label": "effortless balance"
+    },
+    "depaysement": {
+      "cp": "1f9f3",
+      "char": "🧳",
+      "label": "displaced traveller"
+    },
+    "whooshing": {
+      "cp": "1f4a8",
+      "char": "💨",
+      "label": "gust of air"
+    },
+    "hissing": {
+      "cp": "1f40d",
+      "char": "🐍",
+      "label": "snake hiss"
+    },
+    "sukha": {
+      "cp": "2668",
+      "char": "♨",
+      "label": "steaming ease"
+    },
+    "ganas": {
+      "cp": "1f549",
+      "char": "🕉",
+      "label": "ritual syllable"
+    },
+    "gleaming": {
+      "cp": "1f48e",
+      "char": "💎",
+      "label": "polished gem"
+    },
+    "cloud-floating": {
+      "cp": "2601",
+      "char": "☁",
+      "label": "drifting cloud"
+    },
+    "overtone": {
+      "cp": "1f514",
+      "char": "🔔",
+      "label": "ringing bell partials"
+    },
+    "modular-mutating": {
+      "cp": "1f39b",
+      "char": "🎛",
+      "label": "patch knobs"
+    },
+    "billowing": {
+      "cp": "1fa82",
+      "char": "🪂",
+      "label": "billowing canopy"
+    },
+    "atmospheric": {
+      "cp": "1f301",
+      "char": "🌁",
+      "label": "haze over city"
+    },
+    "minority-piping": {
+      "cp": "1fa88",
+      "char": "🪈",
+      "label": "reed pipe"
+    },
+    "analog": {
+      "cp": "1f39a",
+      "char": "🎚",
+      "label": "fader slider"
+    },
+    "ya-refining": {
+      "cp": "1f4dc",
+      "char": "📜",
+      "label": "literati scroll"
+    },
+    "shanshui-misting": {
+      "cp": "1f3de",
+      "char": "🏞",
+      "label": "mountain-water landscape"
+    },
+    "jiangnan-suiting": {
+      "cp": "1f309",
+      "char": "🌉",
+      "label": "canal bridge"
+    },
+    "ma-pausing": {
+      "cp": "1f233",
+      "char": "🈳",
+      "label": "empty interval"
+    },
+    "gei-refining": {
+      "cp": "1f38e",
+      "char": "🎎",
+      "label": "ceremonial dolls"
+    },
+    "drone-floating": {
+      "cp": "1f6f0",
+      "char": "🛰",
+      "label": "orbiting hum"
+    },
+    "drowning": {
+      "cp": "1f6df",
+      "char": "🛟",
+      "label": "going under"
+    },
+    "piphat-rolling": {
+      "cp": "1f6d5",
+      "char": "🛕",
+      "label": "temple ensemble"
+    },
+    "desert": {
+      "cp": "1f3dc",
+      "char": "🏜",
+      "label": "dune expanse"
+    },
+    "string-swimming": {
+      "cp": "1f3bb",
+      "char": "🎻",
+      "label": "swimming strings"
+    },
+    "primitive-meandering": {
+      "cp": "1f3b8",
+      "char": "🎸",
+      "label": "lone fingerpicked guitar"
+    },
+    "mbira-cycling": {
+      "cp": "1f3b9",
+      "char": "🎹",
+      "label": "thumb-piano tines"
+    },
+    "nordic-droning": {
+      "cp": "1f3d4",
+      "char": "🏔",
+      "label": "fjord peaks"
+    },
+    "qing-yi-intoning": {
+      "cp": "1f3ad",
+      "char": "🎭",
+      "label": "opera role"
+    },
+    "taladh-soothing": {
+      "cp": "1f319",
+      "char": "🌙",
+      "label": "lullaby moon"
+    },
+    "ametrical-intoning": {
+      "cp": "1f4ff",
+      "char": "📿",
+      "label": "chanted mala"
+    },
+    "nostalgic": {
+      "cp": "1f5bc",
+      "char": "🖼",
+      "label": "framed old photo"
+    },
+    "experimental": {
+      "cp": "1f9ea",
+      "char": "🧪",
+      "label": "lab test tube"
+    },
+    "airy": {
+      "cp": "1fab6",
+      "char": "🪶",
+      "label": "weightless feather"
+    },
+    "spacious": {
+      "cp": "1f3df",
+      "char": "🏟",
+      "label": "open arena"
+    },
+    "panoramic": {
+      "cp": "1f3d9",
+      "char": "🏙",
+      "label": "wide skyline"
+    },
+    "stereophonic": {
+      "cp": "1f3a7",
+      "char": "🎧",
+      "label": "left-right headphones"
+    },
+    "unpredictable": {
+      "cp": "1f3b2",
+      "char": "🎲",
+      "label": "roll of the die"
+    },
+    "patient": {
+      "cp": "23f3",
+      "char": "⏳",
+      "label": "sand still falling"
+    },
+    "austere": {
+      "cp": "1faa8",
+      "char": "🪨",
+      "label": "bare stone"
+    },
+    "minimalist": {
+      "cp": "1f9ca",
+      "char": "🧊",
+      "label": "one clear cube"
+    },
+    "maximalist": {
+      "cp": "1f386",
+      "char": "🎆",
+      "label": "everything at once"
+    },
+    "bleak": {
+      "cp": "1f311",
+      "char": "🌑",
+      "label": "lightless moon"
+    },
+    "grim": {
+      "cp": "1f480",
+      "char": "💀",
+      "label": "death's head"
+    },
+    "creepy": {
+      "cp": "1f577",
+      "char": "🕷",
+      "label": "crawling spider"
+    },
+    "mysterious": {
+      "cp": "1f52e",
+      "char": "🔮",
+      "label": "clouded crystal ball"
+    },
+    "hollow": {
+      "cp": "1fab9",
+      "char": "🪹",
+      "label": "emptied nest"
+    },
+    "callous": {
+      "cp": "1f9f1",
+      "char": "🧱",
+      "label": "unfeeling brick"
+    },
+    "confused": {
+      "cp": "1f4ab",
+      "char": "💫",
+      "label": "dizzy spiral"
+    },
+    "determined": {
+      "cp": "1f3af",
+      "char": "🎯",
+      "label": "locked on target"
+    },
+    "stoic": {
+      "cp": "1f5ff",
+      "char": "🗿",
+      "label": "impassive stone head"
+    },
+    "imaginative": {
+      "cp": "1f3a8",
+      "char": "🎨",
+      "label": "painter's palette"
+    },
+    "mindful": {
+      "cp": "1fab7",
+      "char": "🪷",
+      "label": "lotus attention"
+    },
+    "adventurous": {
+      "cp": "1f9ed",
+      "char": "🧭",
+      "label": "wandering compass"
+    },
+    "wet": {
+      "cp": "1f4a7",
+      "char": "💧",
+      "label": "single droplet"
+    },
+    "huge": {
+      "cp": "1f40b",
+      "char": "🐋",
+      "label": "whale-sized"
+    },
+    "vast": {
+      "cp": "1f30c",
+      "char": "🌌",
+      "label": "galactic sweep"
+    },
+    "incantatory": {
+      "cp": "1fa84",
+      "char": "🪄",
+      "label": "spell-casting wand"
+    },
+    "hypnotic": {
+      "cp": "1f300",
+      "char": "🌀",
+      "label": "spiralling trance"
+    },
+    "nocturnal": {
+      "cp": "1f989",
+      "char": "🦉",
+      "label": "night owl"
+    },
+    "cosmic": {
+      "cp": "1f52d",
+      "char": "🔭",
+      "label": "ringed planet"
+    },
+    "celestial": {
+      "cp": "1f31f",
+      "char": "🌟",
+      "label": "shining star"
+    },
+    "spectral": {
+      "cp": "1f47b",
+      "char": "👻",
+      "label": "ghost presence"
+    },
+    "oceanic": {
+      "cp": "1f30a",
+      "char": "🌊",
+      "label": "rolling swell"
+    },
+    "cavernous": {
+      "cp": "1f573",
+      "char": "🕳",
+      "label": "gaping hole"
+    },
+    "psychedelic": {
+      "cp": "1f344",
+      "char": "🍄",
+      "label": "psilocybin cap"
+    },
+    "gothic": {
+      "cp": "1f3f0",
+      "char": "🏰",
+      "label": "gothic castle"
+    },
+    "ethereal": {
+      "cp": "1f54a",
+      "char": "🕊",
+      "label": "weightless wings"
+    },
+    "misty": {
+      "cp": "1f32b",
+      "char": "🌫",
+      "label": "low fog"
+    },
+    "verdant": {
+      "cp": "1f33f",
+      "char": "🌿",
+      "label": "green growth"
+    },
+    "floating": {
+      "cp": "2601",
+      "char": "☁",
+      "label": "rising balloon"
+    },
+    "rocking": {
+      "cp": "1f918",
+      "char": "🤘",
+      "label": "horns up"
+    },
+    "marching": {
+      "cp": "1fa96",
+      "char": "🪖",
+      "label": "drilled helmet"
+    },
+    "strutting": {
+      "cp": "1f99a",
+      "char": "🦚",
+      "label": "peacock strut"
+    },
+    "prancing": {
+      "cp": "1f3a0",
+      "char": "🎠",
+      "label": "prancing carousel horse"
+    },
+    "hip-rocking": {
+      "cp": "1f483",
+      "char": "💃",
+      "label": "hip-swinging dance"
+    },
+    "toe-tapping": {
+      "cp": "1f9b6",
+      "char": "🦶",
+      "label": "tapping foot"
+    },
+    "skittering": {
+      "cp": "1f401",
+      "char": "🐁",
+      "label": "scurrying mouse"
+    },
+    "loping": {
+      "cp": "1f42a",
+      "char": "🐪",
+      "label": "loping camel"
+    },
+    "swaying": {
+      "cp": "1f334",
+      "char": "🌴",
+      "label": "swaying palm"
+    },
+    "shoulder-bouncing": {
+      "cp": "1f998",
+      "char": "🦘",
+      "label": "bounce on the beat"
+    },
+    "two-stepping": {
+      "cp": "1f463",
+      "char": "👣",
+      "label": "two footprints"
+    },
+    "skanking": {
+      "cp": "1f3ba",
+      "char": "🎺",
+      "label": "offbeat horn stab"
+    },
+    "squelching": {
+      "cp": "1f9fd",
+      "char": "🧽",
+      "label": "squelchy sponge"
+    },
+    "jouvert": {
+      "cp": "1f305",
+      "char": "🌅",
+      "label": "daybreak carnival"
+    },
+    "batucada": {
+      "cp": "1fa98",
+      "char": "🪘",
+      "label": "hand-struck drum"
+    },
+    "swinging": {
+      "cp": "1f3b7",
+      "char": "🎷",
+      "label": "swing-era sax"
+    },
+    "shuffling": {
+      "cp": "1f0cf",
+      "char": "🃏",
+      "label": "shuffled deck"
+    },
+    "funking": {
+      "cp": "1faa9",
+      "char": "🪩",
+      "label": "mirror-ball funk"
+    },
+    "concrete-precise": {
+      "cp": "1f4d0",
+      "char": "📐",
+      "label": "set-square precision"
+    },
+    "micro-stuttering": {
+      "cp": "1f4f3",
+      "char": "📳",
+      "label": "stuttering buzz"
+    },
+    "tropical-rolling": {
+      "cp": "1f379",
+      "char": "🍹",
+      "label": "tropical drink"
+    },
+    "balafon-pattering": {
+      "cp": "1fab5",
+      "char": "🪵",
+      "label": "wooden bars"
+    },
+    "dunun": {
+      "cp": "1f941",
+      "char": "🥁",
+      "label": "stick-struck bass drum"
+    },
+    "jibaro-pulsing": {
+      "cp": "1fa87",
+      "char": "🪇",
+      "label": "shaken maracas"
+    },
+    "oro-rolling": {
+      "cp": "1f504",
+      "char": "🔄",
+      "label": "rolling skate"
+    },
+    "street-pulsing": {
+      "cp": "1f6a6",
+      "char": "🚦",
+      "label": "street signal pulse"
+    },
+    "breaks-skittering": {
+      "cp": "2702",
+      "char": "✂",
+      "label": "chopped break"
+    },
+    "soukous-cascading": {
+      "cp": "1fa95",
+      "char": "🪕",
+      "label": "rippling plucked strings"
+    },
+    "maracatu-marching": {
+      "cp": "1f451",
+      "char": "👑",
+      "label": "carnival court crown"
+    },
+    "head-nodding": {
+      "cp": "1f576",
+      "char": "🕶",
+      "label": "cool head nod"
+    },
+    "psy-pulsing": {
+      "cp": "1f441",
+      "char": "👁",
+      "label": "psytrance saucer"
+    },
+    "galloping": {
+      "cp": "1f40e",
+      "char": "🐎",
+      "label": "galloping horse"
+    },
+    "loose": {
+      "cp": "1f9f6",
+      "char": "🧶",
+      "label": "loosely wound yarn"
+    },
+    "downbeat": {
+      "cp": "1f528",
+      "char": "🔨",
+      "label": "hammer on the one"
+    },
+    "up-tempo": {
+      "cp": "1f407",
+      "char": "🐇",
+      "label": "quick hare"
+    },
+    "down-tempo": {
+      "cp": "1f9a5",
+      "char": "🦥",
+      "label": "slow sloth"
+    },
+    "groovy": {
+      "cp": "1f4bf",
+      "char": "💿",
+      "label": "record grooves"
+    },
+    "exuberant": {
+      "cp": "1f333",
+      "char": "🌳",
+      "label": "tree in full leaf"
+    },
+    "vivacious": {
+      "cp": "1f37e",
+      "char": "🍾",
+      "label": "uncorked fizz"
+    },
+    "energetic": {
+      "cp": "26fd",
+      "char": "⛽",
+      "label": "live current"
+    },
+    "cheerful": {
+      "cp": "1f33b",
+      "char": "🌻",
+      "label": "sunflower cheer"
+    },
+    "whimsical": {
+      "cp": "1fa81",
+      "char": "🪁",
+      "label": "kite on a whim"
+    },
+    "joyful": {
+      "cp": "2600",
+      "char": "☀",
+      "label": "full sunshine"
+    },
+    "buoyant": {
+      "cp": "1fae7",
+      "char": "🫧",
+      "label": "rising bubbles"
+    },
+    "quirky": {
+      "cp": "1fa86",
+      "char": "🪆",
+      "label": "odd nesting dolls"
+    },
+    "eager": {
+      "cp": "1f415",
+      "char": "🐕",
+      "label": "eager dog"
+    },
+    "frenetic": {
+      "cp": "1f32a",
+      "char": "🌪",
+      "label": "whirlwind"
+    },
+    "propulsive": {
+      "cp": "1f680",
+      "char": "🚀",
+      "label": "rocket thrust"
+    },
+    "pulsing": {
+      "cp": "1f493",
+      "char": "💓",
+      "label": "beating pulse"
+    },
+    "funky": {
+      "cp": "1f57a",
+      "char": "🕺",
+      "label": "funk dancer"
+    },
+    "bellowing": {
+      "cp": "1f402",
+      "char": "🐂",
+      "label": "bull's bellow"
+    },
+    "trudging": {
+      "cp": "1f97e",
+      "char": "🥾",
+      "label": "trudging boot"
+    },
+    "boasting": {
+      "cp": "1f4e3",
+      "char": "📣",
+      "label": "loud proclamation"
+    },
+    "bone-rattling": {
+      "cp": "1f9b4",
+      "char": "🦴",
+      "label": "rattled bone"
+    },
+    "thrumming": {
+      "cp": "1f681",
+      "char": "🚁",
+      "label": "rotor thrum"
+    },
+    "thundering": {
+      "cp": "26c8",
+      "char": "⛈",
+      "label": "thunderhead"
+    },
+    "shuddering": {
+      "cp": "1fae8",
+      "char": "🫨",
+      "label": "shaken through"
+    },
+    "buzzing": {
+      "cp": "1f41d",
+      "char": "🐝",
+      "label": "buzzing insect"
+    },
+    "throbbing": {
+      "cp": "1fac0",
+      "char": "🫀",
+      "label": "throbbing organ"
+    },
+    "booming": {
+      "cp": "1f4a5",
+      "char": "💥",
+      "label": "boom impact"
+    },
+    "lurking": {
+      "cp": "1f988",
+      "char": "🦈",
+      "label": "lurking below"
+    },
+    "rumbling": {
+      "cp": "1f30b",
+      "char": "🌋",
+      "label": "ground rumble"
+    },
+    "grounding": {
+      "cp": "2693",
+      "char": "⚓",
+      "label": "dropped anchor"
+    },
+    "subwoofer": {
+      "cp": "1f50a",
+      "char": "🔊",
+      "label": "driven speaker"
+    },
+    "kalangu-talking": {
+      "cp": "1f5e3",
+      "char": "🗣",
+      "label": "drum that talks"
+    },
+    "braggadocious": {
+      "cp": "1f4b0",
+      "char": "💰",
+      "label": "flexed money bag"
+    },
+    "heavy": {
+      "cp": "1f94c",
+      "char": "🥌",
+      "label": "heavy sliding stone"
+    },
+    "brutalist": {
+      "cp": "1f3d7",
+      "char": "🏗",
+      "label": "raw concrete"
+    },
+    "muddy": {
+      "cp": "1f99b",
+      "char": "🦛",
+      "label": "wallowing in mud"
+    },
+    "thick": {
+      "cp": "1f36f",
+      "char": "🍯",
+      "label": "thick and viscous"
+    },
+    "deep": {
+      "cp": "1f93f",
+      "char": "🤿",
+      "label": "diving deep"
+    },
+    "massive": {
+      "cp": "1f682",
+      "char": "🚂",
+      "label": "elephantine"
+    },
+    "subterranean": {
+      "cp": "1f687",
+      "char": "🚇",
+      "label": "underground line"
+    },
+    "nerve-jangling": {
+      "cp": "1faa4",
+      "char": "🪤",
+      "label": "jolt through nerves"
+    },
+    "fizzing": {
+      "cp": "1fae7",
+      "char": "🫧",
+      "label": "rising bubbles"
+    },
+    "cutting": {
+      "cp": "1f5e1",
+      "char": "🗡",
+      "label": "blade edge"
+    },
+    "choro-bantering": {
+      "cp": "1f3d3",
+      "char": "🏓",
+      "label": "traded banter"
+    },
+    "piercing": {
+      "cp": "1faa1",
+      "char": "🪡",
+      "label": "needle point"
+    },
+    "cold": {
+      "cp": "1f976",
+      "char": "🥶",
+      "label": "freezing cold"
+    },
+    "light": {
+      "cp": "1fab6",
+      "char": "🪶",
+      "label": "weightless feather"
+    },
+    "alert": {
+      "cp": "23f0",
+      "char": "⏰",
+      "label": "snapped awake"
+    },
+    "twangy": {
+      "cp": "1fa95",
+      "char": "🪕",
+      "label": "country twang"
+    },
+    "jangling": {
+      "cp": "1f514",
+      "char": "🔔",
+      "label": "jangling bell"
+    },
+    "tubular": {
+      "cp": "1f3c4",
+      "char": "🏄",
+      "label": "surf-rock wave"
+    },
+    "radiant": {
+      "cp": "2600",
+      "char": "☀",
+      "label": "radiating sun"
+    },
+    "shimmering": {
+      "cp": "1faa9",
+      "char": "🪩",
+      "label": "shimmer of light"
+    },
+    "icy": {
+      "cp": "1f9ca",
+      "char": "🧊",
+      "label": "ice cube"
+    },
+    "dazzling": {
+      "cp": "1f506",
+      "char": "🔆",
+      "label": "dazzling brightness"
+    },
+    "frantic": {
+      "cp": "1f3c3",
+      "char": "🏃",
+      "label": "running frantic"
+    },
+    "vivid": {
+      "cp": "1f308",
+      "char": "🌈",
+      "label": "vivid colour"
+    },
+    "sparkling": {
+      "cp": "2728",
+      "char": "✨",
+      "label": "sparkles"
+    },
+    "frosty": {
+      "cp": "2744",
+      "char": "❄",
+      "label": "frost crystal"
+    },
+    "panicky": {
+      "cp": "1f631",
+      "char": "😱",
+      "label": "panic scream"
+    },
+    "alarmed": {
+      "cp": "1f6a8",
+      "char": "🚨",
+      "label": "alarm light"
+    },
+    "feisty": {
+      "cp": "1f336",
+      "char": "🌶",
+      "label": "spicy pepper"
+    },
+    "humorous": {
+      "cp": "1f0cf",
+      "char": "🃏",
+      "label": "the joker"
+    },
+    "youthful": {
+      "cp": "1f331",
+      "char": "🌱",
+      "label": "young shoot"
+    },
+    "bubbly": {
+      "cp": "1f37e",
+      "char": "🍾",
+      "label": "popping cork"
+    },
+    "keen": {
+      "cp": "1f5e1",
+      "char": "🗡",
+      "label": "keen blade"
+    },
+    "joyous": {
+      "cp": "1f3ee",
+      "char": "🏮",
+      "label": "hung festival lantern"
+    },
+    "cheery": {
+      "cp": "1f31e",
+      "char": "🌞",
+      "label": "bright balloon"
+    },
+    "jolly": {
+      "cp": "1f385",
+      "char": "🎅",
+      "label": "jolly old fellow"
+    },
+    "witty": {
+      "cp": "1f4a1",
+      "char": "💡",
+      "label": "spark of wit"
+    },
+    "futuristic": {
+      "cp": "1f9be",
+      "char": "🦾",
+      "label": "flying saucer"
+    },
+    "crystalline": {
+      "cp": "1f48e",
+      "char": "💎",
+      "label": "cut crystal"
+    },
+    "triumphant": {
+      "cp": "1f3c6",
+      "char": "🏆",
+      "label": "raised trophy"
+    },
+    "sunny": {
+      "cp": "1f33b",
+      "char": "🌻",
+      "label": "sunflower"
+    },
+    "soaring": {
+      "cp": "1f985",
+      "char": "🦅",
+      "label": "soaring eagle"
+    },
+    "dervish": {
+      "cp": "1f300",
+      "char": "🌀",
+      "label": "whirling spiral"
+    },
+    "tarab": {
+      "cp": "1fac0",
+      "char": "🫀",
+      "label": "heart-stirred rapture"
+    },
+    "meraki": {
+      "cp": "1f3a8",
+      "char": "🎨",
+      "label": "soul poured in"
+    },
+    "rasa": {
+      "cp": "1f36f",
+      "char": "🍯",
+      "label": "distilled essence"
+    },
+    "fana": {
+      "cp": "1fae0",
+      "char": "🫠",
+      "label": "self dissolving"
+    },
+    "bhava": {
+      "cp": "1fab7",
+      "char": "🪷",
+      "label": "devotional lotus"
+    },
+    "smearing": {
+      "cp": "1f58c",
+      "char": "🖌",
+      "label": "smeared brushstroke"
+    },
+    "raga-melismatic": {
+      "cp": "1f549",
+      "char": "🕉",
+      "label": "raga's om"
+    },
+    "makam-melismatic": {
+      "cp": "1f54c",
+      "char": "🕌",
+      "label": "Ottoman makam"
+    },
+    "andalusi-modal": {
+      "cp": "1f483",
+      "char": "💃",
+      "label": "Andalusian dance"
+    },
+    "mizmar-piping": {
+      "cp": "1fa88",
+      "char": "🪈",
+      "label": "reed pipe"
+    },
+    "donso": {
+      "cp": "1f3f9",
+      "char": "🏹",
+      "label": "hunter's bow-harp"
+    },
+    "shringara": {
+      "cp": "1f339",
+      "char": "🌹",
+      "label": "rose of love"
+    },
+    "viraha": {
+      "cp": "1f6b6",
+      "char": "🚶",
+      "label": "ache of separation"
+    },
+    "raudra": {
+      "cp": "1f405",
+      "char": "🐅",
+      "label": "fury unleashed"
+    },
+    "alap-unfolding": {
+      "cp": "1f305",
+      "char": "🌅",
+      "label": "slow dawn"
+    },
+    "gamak": {
+      "cp": "3030",
+      "char": "〰",
+      "label": "oscillating shake"
+    },
+    "undulating": {
+      "cp": "1f30a",
+      "char": "🌊",
+      "label": "rolling wave"
+    },
+    "meend-sliding": {
+      "cp": "1f6dd",
+      "char": "🛝",
+      "label": "glide down"
+    },
+    "jhala-cascading": {
+      "cp": "1f387",
+      "char": "🎇",
+      "label": "shower of sparks"
+    },
+    "bandish-locking": {
+      "cp": "1f512",
+      "char": "🔒",
+      "label": "locked composition"
+    },
+    "elevating": {
+      "cp": "1fa9c",
+      "char": "🪜",
+      "label": "ladder of ascent"
+    },
+    "circling": {
+      "cp": "1f3a1",
+      "char": "🎡",
+      "label": "slow wide circle"
+    },
+    "inshad-cantillating": {
+      "cp": "1f4dc",
+      "char": "📜",
+      "label": "cantillated scroll"
+    },
+    "taqsim-roaming": {
+      "cp": "1f9ed",
+      "char": "🧭",
+      "label": "roaming compass"
+    },
+    "mor-lam-storytelling": {
+      "cp": "1f33e",
+      "char": "🌾",
+      "label": "Isan rice-field song"
+    },
+    "maqam-modal": {
+      "cp": "1f5dd",
+      "char": "🗝",
+      "label": "modal key"
+    },
+    "kobushi-ornamenting": {
+      "cp": "1f38f",
+      "char": "🎏",
+      "label": "min-yo streamer"
+    },
+    "sigimsae-bending": {
+      "cp": "2935",
+      "char": "⤵",
+      "label": "bent pitch"
+    },
+    "tahrir-ornamenting": {
+      "cp": "1f426",
+      "char": "🐦",
+      "label": "nightingale trill"
+    },
+    "interlocking-hocketing": {
+      "cp": "1f517",
+      "char": "🔗",
+      "label": "interlocking parts"
+    },
+    "melisma-spinning": {
+      "cp": "1f9f6",
+      "char": "🧶",
+      "label": "spun thread of notes"
+    },
+    "yodel-throating": {
+      "cp": "1f3d4",
+      "char": "🏔",
+      "label": "mountain call"
+    },
+    "qawwali-flying": {
+      "cp": "1f54a",
+      "char": "🕊",
+      "label": "ecstatic flight"
+    },
+    "sean-nos-cascading": {
+      "cp": "2618",
+      "char": "☘",
+      "label": "gaelic shamrock"
+    },
+    "ornate": {
+      "cp": "1fa86",
+      "char": "🪆",
+      "label": "layered decoration"
+    },
+    "embellished": {
+      "cp": "1f380",
+      "char": "🎀",
+      "label": "added flourish"
+    },
+    "opulent": {
+      "cp": "1f451",
+      "char": "👑",
+      "label": "opulent crown"
+    },
+    "elegant": {
+      "cp": "1f9a2",
+      "char": "🦢",
+      "label": "elegant swan"
+    },
+    "flamboyant": {
+      "cp": "1f99a",
+      "char": "🦚",
+      "label": "peacock display"
+    },
+    "exotic": {
+      "cp": "1f9ff",
+      "char": "🧿",
+      "label": "eastern amulet"
+    },
+    "baroque": {
+      "cp": "269c",
+      "char": "⚜",
+      "label": "baroque ornament"
+    },
+    "howling": {
+      "cp": "1f43a",
+      "char": "🐺",
+      "label": "wolf howl"
+    },
+    "conspiring": {
+      "cp": "1f92b",
+      "char": "🤫",
+      "label": "hushed secret"
+    },
+    "sermonizing": {
+      "cp": "26ea",
+      "char": "⛪",
+      "label": "from the pulpit"
+    },
+    "babbling": {
+      "cp": "1f476",
+      "char": "👶",
+      "label": "babbling infant"
+    },
+    "staggering": {
+      "cp": "1f974",
+      "char": "🥴",
+      "label": "lurching gait"
+    },
+    "avuncular": {
+      "cp": "1f474",
+      "char": "👴",
+      "label": "kindly old uncle"
+    },
+    "accusatory": {
+      "cp": "1faf5",
+      "char": "🫵",
+      "label": "pointed finger"
+    },
+    "taunting": {
+      "cp": "1f61c",
+      "char": "😜",
+      "label": "tongue out"
+    },
+    "gurgling": {
+      "cp": "1fad7",
+      "char": "🫗",
+      "label": "burbling liquid"
+    },
+    "mc-flowing": {
+      "cp": "1f3a4",
+      "char": "🎤",
+      "label": "MC's mic"
+    },
+    "xalam-tracing": {
+      "cp": "1f9ec",
+      "char": "🧬",
+      "label": "traced lineage"
+    },
+    "dembow-stomping": {
+      "cp": "1f9b6",
+      "char": "🦶",
+      "label": "stomping foot"
+    },
+    "mc-cadencing": {
+      "cp": "1f50a",
+      "char": "🔊",
+      "label": "booming cadence"
+    },
+    "griot-praising": {
+      "cp": "1fa98",
+      "char": "🪘",
+      "label": "griot's drum"
+    },
+    "oli-chanting": {
+      "cp": "1f33a",
+      "char": "🌺",
+      "label": "Hawaiian chant"
+    },
+    "oriki-naming": {
+      "cp": "1f4db",
+      "char": "📛",
+      "label": "the praise-name"
+    },
+    "narrating": {
+      "cp": "1f4d6",
+      "char": "📖",
+      "label": "open storybook"
+    },
+    "clapping-and-syllabicizing": {
+      "cp": "1f44f",
+      "char": "👏",
+      "label": "clapped syllables"
+    },
+    "declaiming": {
+      "cp": "1f5e3",
+      "char": "🗣",
+      "label": "declaiming head"
+    },
+    "orating": {
+      "cp": "1faa7",
+      "char": "🪧",
+      "label": "address to crowd"
+    },
+    "spoken-flowing": {
+      "cp": "1f6f6",
+      "char": "🛶",
+      "label": "gliding current"
+    },
+    "syllabicizing": {
+      "cp": "1f9ee",
+      "char": "🧮",
+      "label": "counted syllables"
+    },
+    "storytelling": {
+      "cp": "1f3d5",
+      "char": "🏕",
+      "label": "campfire tale"
+    },
+    "dismissive": {
+      "cp": "1f937",
+      "char": "🤷",
+      "label": "brush-off shrug"
+    },
+    "mocking": {
+      "cp": "1f412",
+      "char": "🐒",
+      "label": "aping mimicry"
+    },
+    "nagging": {
+      "cp": "1f99f",
+      "char": "🦟",
+      "label": "persistent whine"
+    },
+    "warning": {
+      "cp": "26a0",
+      "char": "⚠",
+      "label": "warning sign"
+    },
+    "coaxing": {
+      "cp": "1f36c",
+      "char": "🍬",
+      "label": "sweet-talk"
+    },
+    "oratorial": {
+      "cp": "1f3db",
+      "char": "🏛",
+      "label": "the forum"
+    },
+    "lobbying": {
+      "cp": "1f91d",
+      "char": "🤝",
+      "label": "working the room"
+    },
+    "eulogizing": {
+      "cp": "26b1",
+      "char": "⚱",
+      "label": "funeral eulogy"
+    },
+    "conversational": {
+      "cp": "1f4ac",
+      "char": "💬",
+      "label": "plain talk"
+    },
+    "swindlers": {
+      "cp": "1f925",
+      "char": "🤥",
+      "label": "the con's lie"
+    },
+    "vagabonds": {
+      "cp": "1f463",
+      "char": "👣",
+      "label": "wanderer's tracks"
+    },
+    "disgusted": {
+      "cp": "1f922",
+      "char": "🤢",
+      "label": "revolted"
+    },
+    "grumpy": {
+      "cp": "1f43b",
+      "char": "🐻",
+      "label": "bear with sore head"
+    },
+    "jaded": {
+      "cp": "1f612",
+      "char": "😒",
+      "label": "seen it all"
+    },
+    "impatient": {
+      "cp": "23f1",
+      "char": "⏱",
+      "label": "tapping the clock"
+    },
+    "irked": {
+      "cp": "1f4a2",
+      "char": "💢",
+      "label": "flash of irritation"
+    },
+    "bold": {
+      "cp": "1f981",
+      "char": "🦁",
+      "label": "lion's nerve"
+    },
+    "theatrical": {
+      "cp": "1f3aa",
+      "char": "🎪",
+      "label": "big-top spectacle"
+    },
+    "cranky": {
+      "cp": "1f994",
+      "char": "🦔",
+      "label": "prickly temper"
+    },
+    "bossy": {
+      "cp": "1f4e3",
+      "char": "📣",
+      "label": "barking orders"
+    },
+    "proud": {
+      "cp": "1f413",
+      "char": "🐓",
+      "label": "strutting rooster"
+    },
+    "brave": {
+      "cp": "1f6e1",
+      "char": "🛡",
+      "label": "shield raised"
+    },
+    "satirical": {
+      "cp": "1fa9e",
+      "char": "🪞",
+      "label": "mirror held up"
+    },
+    "ironic": {
+      "cp": "1f643",
+      "char": "🙃",
+      "label": "upside-down meaning"
+    },
+    "sardonic": {
+      "cp": "1f982",
+      "char": "🦂",
+      "label": "sting in the tail"
+    },
+    "deadpan": {
+      "cp": "1f610",
+      "char": "😐",
+      "label": "flat delivery"
+    },
+    "wry": {
+      "cp": "1f63c",
+      "char": "😼",
+      "label": "wry half-smile"
+    },
+    "didactic": {
+      "cp": "1f393",
+      "char": "🎓",
+      "label": "the lesson"
+    },
+    "crooning": {
+      "cp": "1f399",
+      "char": "🎙",
+      "label": "crooner's mic"
+    },
+    "marrow-deep": {
+      "cp": "1f9b4",
+      "char": "🦴",
+      "label": "down to the marrow"
+    },
+    "tongue-tying": {
+      "cp": "1f445",
+      "char": "👅",
+      "label": "tongue gymnastics"
+    },
+    "muscle-loosening": {
+      "cp": "1f486",
+      "char": "💆",
+      "label": "kneaded loose"
+    },
+    "apollonian": {
+      "cp": "1f3fa",
+      "char": "🏺",
+      "label": "Greek proportion"
+    },
+    "iki": {
+      "cp": "1f458",
+      "char": "👘",
+      "label": "understated chic"
+    },
+    "fingerspitzengefuhl": {
+      "cp": "1f90c",
+      "char": "🤌",
+      "label": "fingertip feel"
+    },
+    "scatting": {
+      "cp": "1f444",
+      "char": "👄",
+      "label": "mouthed syllables"
+    },
+    "honking": {
+      "cp": "1f3b7",
+      "char": "🎷",
+      "label": "honking tenor"
+    },
+    "samul-percussive": {
+      "cp": "1f941",
+      "char": "🥁",
+      "label": "struck drum"
+    },
+    "belting": {
+      "cp": "1f4ef",
+      "char": "📯",
+      "label": "full-throat blast"
+    },
+    "harmonizing": {
+      "cp": "1f465",
+      "char": "👥",
+      "label": "blended voices"
+    },
+    "meandering": {
+      "cp": "1f6e3",
+      "char": "🛣",
+      "label": "winding road"
+    },
+    "kora-cascading": {
+      "cp": "1f390",
+      "char": "🎐",
+      "label": "cascading chime"
+    },
+    "orchestral": {
+      "cp": "1f3bb",
+      "char": "🎻",
+      "label": "orchestra strings"
+    },
+    "skiffle-makeshift": {
+      "cp": "1faa3",
+      "char": "🪣",
+      "label": "washtub makeshift"
+    },
+    "breath-coloring": {
+      "cp": "1fac1",
+      "char": "🫁",
+      "label": "colour of breath"
+    },
+    "string-conversing": {
+      "cp": "1f3b8",
+      "char": "🎸",
+      "label": "strings in dialogue"
+    },
+    "roda-circling": {
+      "cp": "1f938",
+      "char": "🤸",
+      "label": "capoeira roda"
+    },
+    "stride-trotting": {
+      "cp": "1f40e",
+      "char": "🐎",
+      "label": "striding trot"
+    },
+    "qi-flowing": {
+      "cp": "262f",
+      "char": "☯",
+      "label": "flow of qi"
+    },
+    "erhuang": {
+      "cp": "1f409",
+      "char": "🐉",
+      "label": "Peking opera mode"
+    },
+    "refined": {
+      "cp": "1f377",
+      "char": "🍷",
+      "label": "refined glass"
+    },
+    "cascading": {
+      "cp": "26f2",
+      "char": "⛲",
+      "label": "falling cascade"
+    },
+    "effortless": {
+      "cp": "26f8",
+      "char": "⛸",
+      "label": "effortless glide"
+    },
+    "articulate": {
+      "cp": "2712",
+      "char": "✒",
+      "label": "crisp nib"
+    },
+    "hyperbolic": {
+      "cp": "1f92f",
+      "char": "🤯",
+      "label": "blown wide open"
+    },
+    "improvisational": {
+      "cp": "1f3b2",
+      "char": "🎲",
+      "label": "made on the spot"
+    },
+    "authentic": {
+      "cp": "1fab5",
+      "char": "🪵",
+      "label": "unworked wood"
+    },
+    "focused": {
+      "cp": "1f526",
+      "char": "🔦",
+      "label": "focused beam"
+    },
+    "dynamic": {
+      "cp": "1f39a",
+      "char": "🎚",
+      "label": "dynamic fader"
+    },
+    "transient": {
+      "cp": "1f528",
+      "char": "🔨",
+      "label": "the strike"
+    },
+    "technically-proficient": {
+      "cp": "1f939",
+      "char": "🤹",
+      "label": "virtuoso juggling"
+    },
+    "choirmasters": {
+      "cp": "1f3b9",
+      "char": "🎹",
+      "label": "choirmaster's keys"
+    },
+    "conductors": {
+      "cp": "1f3bc",
+      "char": "🎼",
+      "label": "conductor's score"
+    },
+    "tight": {
+      "cp": "1fa96",
+      "char": "🪖",
+      "label": "drilled tight"
+    },
+    "confident": {
+      "cp": "1f4aa",
+      "char": "💪",
+      "label": "sure of itself"
+    },
+    "unembellished": {
+      "cp": "1f95a",
+      "char": "🥚",
+      "label": "plain and unadorned"
+    },
+    "dramatic": {
+      "cp": "1f3ac",
+      "char": "🎬",
+      "label": "high drama"
+    },
+    "crisp": {
+      "cp": "1f34f",
+      "char": "🍏",
+      "label": "crisp bite"
+    },
+    "agitated": {
+      "cp": "1f4f3",
+      "char": "📳",
+      "label": "shaking agitation"
+    },
+    "uptight": {
+      "cp": "1f5dc",
+      "char": "🗜",
+      "label": "clamped tight"
+    },
+    "magnificent": {
+      "cp": "1f3f0",
+      "char": "🏰",
+      "label": "castle grandeur"
+    },
+    "immense": {
+      "cp": "1f40b",
+      "char": "🐋",
+      "label": "sheer immensity"
+    },
+    "clean": {
+      "cp": "1f9fc",
+      "char": "🧼",
+      "label": "scrubbed clean"
+    },
+    "widescreen": {
+      "cp": "1f3de",
+      "char": "🏞",
+      "label": "panoramic vista"
+    },
+    "operatic": {
+      "cp": "1f3ad",
+      "char": "🎭",
+      "label": "opera masks"
+    },
+    "jazzy": {
+      "cp": "1f3ba",
+      "char": "🎺",
+      "label": "jazz horn"
+    }
+  }
+}

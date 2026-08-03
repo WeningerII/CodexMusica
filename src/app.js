@@ -1422,6 +1422,61 @@ function traditionGlyphsHTML(tradId, size) {
 }
 
 
+// ─────────────────────────────────────────────────────────────────────────
+// NAV GLYPH SYSTEM — the same two-axis pictograph pairing the tradition tree
+// uses, applied to the other two long lists in the app: 256 acoustic spaces
+// and 649 prefaces. Axis 1 is the cluster/category (which neighbourhood am I
+// in), axis 2 is the row itself (which one is this). Data comes from
+// references/09_nav_glyphs.js — generated, see scripts/build_nav_glyphs.js.
+//
+// Rooms and prefaces are flat lists rather than a tree, so axis 2 is a direct
+// per-id lookup instead of resolveTraditionGlyphs' walk to the nearest
+// ancestor override.
+// ─────────────────────────────────────────────────────────────────────────
+function navGlyphSvg(char, size = 20) {
+  if (!char || typeof NAV_GLYPH_CP === 'undefined' || typeof NAV_GLYPH_SVGS === 'undefined') return '';
+  const cp = NAV_GLYPH_CP[char];
+  const inner = cp ? NAV_GLYPH_SVGS[cp] : null;
+  if (!inner) return '';
+  return '<svg class="codex-glyph" width="' + size + '" height="' + size + '" viewBox="0 0 36 36" aria-hidden="true" focusable="false">' + inner + '</svg>';
+}
+
+function navGlyphPairHTML(axis1, axis2, size) {
+  size = size || 15;
+  const label = (c) => esc(((typeof NAV_GLYPH_META !== 'undefined' && NAV_GLYPH_META[c]) || {}).label || '');
+  let out = '';
+  if (axis1) out += '<span class="sb-trad-glyph is-fn" data-tooltip="' + label(axis1) + '">' + navGlyphSvg(axis1, size) + '</span>';
+  if (axis2) out += '<span class="sb-trad-glyph is-character">' + navGlyphSvg(axis2, size) + '</span>';
+  return out ? '<span class="sb-trad-glyphs" aria-hidden="true">' + out + '</span>' : '';
+}
+
+function roomGlyphsHTML(roomId, size, axis2Only) {
+  if (typeof ROOM_GLYPH === 'undefined') return '';
+  const room = Room(roomId);
+  if (!room) return '';
+  const cluster = (!axis2Only && typeof ROOM_CLUSTER_GLYPH !== 'undefined')
+    ? ROOM_CLUSTER_GLYPH[room.cluster] : null;
+  return navGlyphPairHTML(cluster, ROOM_GLYPH[roomId], size);
+}
+
+function roomClusterGlyphHTML(clusterId, size) {
+  if (typeof ROOM_CLUSTER_GLYPH === 'undefined') return '';
+  return navGlyphPairHTML(ROOM_CLUSTER_GLYPH[clusterId], null, size);
+}
+
+function prefaceGlyphsHTML(entry, size, axis2Only) {
+  if (!entry || typeof PREFACE_GLYPH === 'undefined') return '';
+  const cat = (!axis2Only && typeof PREFACE_CAT_GLYPH !== 'undefined')
+    ? PREFACE_CAT_GLYPH[prefaceCategoryOf(entry)] : null;
+  return navGlyphPairHTML(cat, PREFACE_GLYPH[entry.id], size);
+}
+
+function prefaceCatGlyphHTML(category, size) {
+  if (typeof PREFACE_CAT_GLYPH === 'undefined') return '';
+  return navGlyphPairHTML(PREFACE_CAT_GLYPH[category], null, size);
+}
+
+
 const Tradition = (id) => Catalog.get(id);
 const Inst = (id) => _INST_BY_ID.get(id);
 const Room = (id) => _ROOM_BY_ID.get(id);
@@ -11938,7 +11993,12 @@ function renderAttributions() {
   if (!tbody) return;
   const rows = [
     { name: 'Lucide',  scope: 'UI icons (' + (typeof ICON_PATHS !== 'undefined' ? Object.keys(ICON_PATHS).length : 0) + ' in the codex)', license: 'ISC',     url: 'https://lucide.dev/' },
-    { name: 'Twemoji', scope: 'Instrument emoji (' + (typeof EMOJI_REGISTRY !== 'undefined' ? Object.keys(EMOJI_REGISTRY).length : 0) + ' mapped)', license: 'CC-BY 4.0', url: 'https://github.com/jdecked/twemoji' },
+    { name: 'Twemoji', scope: 'Instrument, tradition, room and preface glyphs (' + (
+        (typeof EMOJI_REGISTRY !== 'undefined' ? Object.keys(EMOJI_REGISTRY).length : 0) +
+        (typeof TRADITION_GLYPH_CP !== 'undefined' ? Object.keys(TRADITION_GLYPH_CP).length : 0) +
+        (typeof ROOM_GLYPH !== 'undefined' ? Object.keys(ROOM_GLYPH).length : 0) +
+        (typeof PREFACE_GLYPH !== 'undefined' ? Object.keys(PREFACE_GLYPH).length : 0)
+      ) + ' mapped, some recoloured)', license: 'CC-BY 4.0', url: 'https://github.com/jdecked/twemoji' },
   ];
   tbody.innerHTML = rows.map(r => `<tr style="border-bottom: 1px solid var(--surface-2);">
     <td style="padding: var(--s2) var(--s3); font-weight: var(--fw-medium);">${esc(r.name)}</td>
@@ -12541,10 +12601,14 @@ function renderReachabilityFan(card, section) {
   const wrap = document.createElement('div');
   wrap.className = 'preface-fan';
   wrap.innerHTML = fan.map(function (f) {
+    const entry = (typeof PREFACE_LEXICON !== 'undefined')
+      ? PREFACE_LEXICON.find(function (e) { return e.id === f.prefaceId; })
+      : null;
+    const g = (entry && typeof prefaceGlyphsHTML === 'function') ? prefaceGlyphsHTML(entry, 15) : '';
     return '<button type="button" class="chip preface-fan-chip' +
       (f.isCurrent ? ' selected is-current' : '') +
       '" data-fan-preface-id="' + esc(f.prefaceId) + '">' +
-      esc(f.prefaceId) + '</button>';
+      g + esc(f.prefaceId) + '</button>';
   }).join('');
   wrap.querySelectorAll('[data-fan-preface-id]').forEach(function (btn) {
     btn.addEventListener('click', function () {
@@ -15081,13 +15145,17 @@ function renderEnvRow(card, kind) {
   const variantName = cur ? cur.name : 'Not set';
   const descriptor = cur ? (cur.note || '') : '';
   const iconName = isTuning ? 'music' : 'square';  // tuning vibe / room footprint
+  // A set room shows its glyph pair instead of the generic footprint icon —
+  // this row sits outside any cluster grouping, so it carries both axes.
+  const roomGlyphs = (!isTuning && card.room && typeof roomGlyphsHTML === 'function')
+    ? roomGlyphsHTML(card.room, 22) : '';
   // Option count: tunings/rooms list length
   const optionCount = isTuning
     ? (typeof TUNINGS !== 'undefined' ? TUNINGS.length : 0)
     : (typeof ROOMS !== 'undefined' ? ROOMS.length : 0);
 
   row.innerHTML =
-    '<div class="part-thumb-cell">' + icon(iconName, 24) + '</div>' +
+    '<div class="part-thumb-cell">' + (roomGlyphs || icon(iconName, 24)) + '</div>' +
     '<div class="part-label-cell">' + esc(label) + '</div>' +
     '<div class="part-variant-cell' + (cur ? '' : ' muted-italic') + '">' + esc(variantName) + '</div>' +
     '<div class="part-descriptors-cell">' + esc(descriptor) + '</div>' +
@@ -15108,9 +15176,11 @@ function renderEnvRow(card, kind) {
       ROOM_CLUSTERS.forEach(cl => {
         const rooms = ROOMS.filter(r => r.cluster === cl.id);
         if (!rooms.length) return;
-        let inner = `<button class="env-cluster-head" type="button" data-env-cluster><span class="env-cluster-chevron">${icon('chevron-down', 12)}</span><span class="env-cluster-name">${esc(cl.name)}</span><span class="env-cluster-count">${rooms.length}</span></button><div class="env-cluster-items">`;
+        const clusterGlyph = typeof roomClusterGlyphHTML === 'function' ? roomClusterGlyphHTML(cl.id, 16) : '';
+        let inner = `<button class="env-cluster-head" type="button" data-env-cluster><span class="env-cluster-chevron">${icon('chevron-down', 12)}</span>${clusterGlyph}<span class="env-cluster-name">${esc(cl.name)}</span><span class="env-cluster-count">${rooms.length}</span></button><div class="env-cluster-items">`;
         rooms.forEach(r => {
-          inner += `<button class="chip-block ${card.room === r.id ? 'selected' : ''}" data-set-room="${esc(r.id)}">${esc(r.name)}<span class="chip-block-sub">${esc(entryRenderDescs(r).join(' · '))}</span></button>`;
+          const g = typeof roomGlyphsHTML === 'function' ? roomGlyphsHTML(r.id, 15, true) : '';
+          inner += `<button class="chip-block ${card.room === r.id ? 'selected' : ''}" data-set-room="${esc(r.id)}">${g}${esc(r.name)}<span class="chip-block-sub">${esc(entryRenderDescs(r).join(' · '))}</span></button>`;
         });
         inner += `</div>`;
         const wrap = document.createElement('div');
@@ -15271,7 +15341,7 @@ function renderPrefaceSection(card) {
     ? (PREFACE_LEXICON.find(e => e.id.toLowerCase() === currentLc) || null)
     : null;
   const hint = entry
-    ? `<span class="preface-id">${esc(entry.id)}</span>`
+    ? `<span class="preface-id">${typeof prefaceGlyphsHTML === 'function' ? prefaceGlyphsHTML(entry, 15) : ''}${esc(entry.id)}</span>`
     : (current
         ? `<span class="preface-hint-empty">Free-form preface — renders as typed. Add it to the lexicon if it earns its place.</span>`
         : '<span class="preface-hint-empty">A word that names what the listener experiences (weeping, face-melting, saudade, numinous) — not what the waveform measures.</span>');
@@ -15493,8 +15563,14 @@ function recordPrefaceRecent(id) {
   } catch { /* storage unavailable — recents are best-effort */ }
 }
 
-function prefaceChipHtml(e) {
-  return `<button class="chip preface-pick" data-pref-id="${esc(e.id)}" data-tooltip="${esc(e.note || '')}">${esc(e.id)}</button>`;
+// `grouped` chips sit under a category head that already carries the axis-1
+// glyph, so they show axis 2 alone — repeating the category glyph 649 times
+// under its own heading is the exact wallpaper this system exists to avoid.
+// Chips shown loose (recently-used, the suggestion fan) carry the full pair,
+// because there is no header above them to supply the first axis.
+function prefaceChipHtml(e, grouped) {
+  const g = typeof prefaceGlyphsHTML === 'function' ? prefaceGlyphsHTML(e, 15, grouped) : '';
+  return `<button class="chip preface-pick" data-pref-id="${esc(e.id)}" data-tooltip="${esc(e.note || '')}">${g}${esc(e.id)}</button>`;
 }
 
 // Render the modal body from current search + collapse state. Called on open and
@@ -15516,7 +15592,7 @@ function renderPrefaceModalBody() {
   if (!q) {
     const recent = loadPrefaceRecent().map(id => PREFACE_LEXICON.find(x => x.id === id)).filter(Boolean);
     if (recent.length) {
-      html += `<div class="preface-recent"><div class="preface-recent-label">Recently used</div><div class="preface-recent-items">${recent.map(prefaceChipHtml).join('')}</div></div>`;
+      html += `<div class="preface-recent"><div class="preface-recent-label">Recently used</div><div class="preface-recent-items">${recent.map(e => prefaceChipHtml(e, false)).join('')}</div></div>`;
     }
   }
 
@@ -15526,8 +15602,8 @@ function renderPrefaceModalBody() {
     // While searching, force every matching section open so hits are visible.
     const collapsed = !q && app.prefaceCollapsed.has(cat);
     html += `<div class="preface-cat${collapsed ? ' collapsed' : ''}">` +
-      `<button class="preface-cat-head" data-pref-cat="${esc(cat)}"><span class="preface-cat-chevron">${icon('chevron-down', 14)}</span><span class="preface-cat-title">${esc(cat)}</span><span class="preface-cat-count">${list.length}</span></button>` +
-      `<div class="preface-cat-items">${list.map(prefaceChipHtml).join('')}</div></div>`;
+      `<button class="preface-cat-head" data-pref-cat="${esc(cat)}"><span class="preface-cat-chevron">${icon('chevron-down', 14)}</span>${typeof prefaceCatGlyphHTML === 'function' ? prefaceCatGlyphHTML(cat, 16) : ''}<span class="preface-cat-title">${esc(cat)}</span><span class="preface-cat-count">${list.length}</span></button>` +
+      `<div class="preface-cat-items">${list.map(e => prefaceChipHtml(e, true)).join('')}</div></div>`;
   }
   if (matchCount === 0) html += `<div class="preface-empty">No prefaces match “${esc(app.prefaceSearch)}”.</div>`;
 
@@ -16379,6 +16455,21 @@ function _initApp() {
 .sb-trad-glyph.is-fn { background: var(--surface-2); box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--accent) 50%, transparent); }
 .sb-trad-glyph.is-character { background: color-mix(in srgb, #E0A157 18%, transparent); }
 .sb-trad-glyph svg { display: block; }
+/* Room and preface rows borrow the tradition pair styling verbatim — same
+   two-axis system, so it must read as the same system. Tightened only where a
+   glyph pair sits inside a pill chip rather than a tree row. */
+.chip .sb-trad-glyphs, .chip-block .sb-trad-glyphs { margin-right: 4px; }
+.chip .sb-trad-glyph, .chip-block .sb-trad-glyph { padding: 1px; border-radius: 4px; }
+.chip.selected .sb-trad-glyph.is-fn { background: color-mix(in srgb, var(--surface) 25%, transparent); box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--surface) 45%, transparent); }
+.chip-block.selected .sb-trad-glyph.is-fn { background: color-mix(in srgb, var(--surface) 25%, transparent); box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--surface) 45%, transparent); }
+.env-cluster-head .sb-trad-glyphs, .preface-cat-head .sb-trad-glyphs { margin-right: 0; }
+/* The thumb cell hard-sizes any svg inside it to 32px for instrument artwork.
+   A glyph PAIR in that 48px box needs both halves smaller, or the second one
+   pushes out of the cell. */
+.part-thumb-cell .sb-trad-glyphs { margin-right: 0; gap: 1px; }
+.part-thumb-cell .sb-trad-glyph { padding: 1px; }
+.part-thumb-cell .sb-trad-glyph svg { width: 18px; height: 18px; }
+.preface-id .sb-trad-glyphs { margin-right: 4px; }
 .qp-glyph { display: inline-flex; align-items: center; vertical-align: middle; margin-right: 6px; }
 .qp-glyph svg { display: block; }
 .tree-row-desc { font-size: var(--fs-caption); color: var(--text-3); margin-top: 2px; line-height: 1.4; }
