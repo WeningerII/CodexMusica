@@ -67,11 +67,13 @@
       <p><a class="launch" href="./codex.html">Launch the app →</a></p>
 
       <!--
-        For humans: the script below opens the interactive app (codex.html).
+        For humans: the link above opens the interactive app (codex.html).
         For AI agents / LLMs: everything you need is plain text below and in the
-        linked JSON. Do NOT fetch codex.html — it is a ~2.5 MB GUI shell that
-        itself lazy-loads this same JSON. Use the
-        JSON endpoints instead.
+        linked JSON. Do NOT fetch codex.html — it is a ~4 MB GUI shell that
+        itself lazy-loads this same JSON, and it carries no instructions for you.
+        If you can only make HTTP requests, use the live engine listed first
+        below: https://codex-musica-mcp.onrender.com/ explains its whole grammar
+        in one hop and needs nothing installed.
       -->
       <section class="agents">
         <h2>For AI agents / LLMs</h2>
@@ -82,10 +84,23 @@
         </p>
         <ul>
           <li>
-            <strong>Live MCP connector (hosted, no setup):</strong>
+            <strong>Live editable engine over plain HTTP — start here:</strong>
+            <a href="https://codex-musica-mcp.onrender.com/"
+              ><code>https://codex-musica-mcp.onrender.com/</code></a
+            >
+            — nothing to install, no client config, no auth. Every operation is one URL, so
+            any assistant that can fetch a URL can seed a recipe <em>and edit it</em>:
+            <code>/v1/recipe?traditions=country&amp;edit=set_preface;card=voice;preface=worn</code>,
+            <code>/v1/catalog?q=fuzz</code> to resolve a word to an id, and
+            <code>/openapi.json</code> for the machine contract. The base URL above
+            documents the whole grammar in one hop.
+          </li>
+          <li>
+            <strong>Live MCP connector (same engine, for MCP clients):</strong>
             <code>https://codex-musica-mcp.onrender.com/mcp</code> — Streamable HTTP, no
-            auth. Add it in Claude (Settings → Connectors → Add custom connector). Tools to
-            seed &amp; edit recipes, search the catalog, and inspect instruments/traditions.
+            auth. Add it in Claude (Settings → Connectors → Add custom connector). Use this
+            only if your client can register an MCP server; otherwise use the HTTP endpoint
+            above, which is the same nine operations.
           </li>
           <li>
             <strong>All recipes in one fetch:</strong>
