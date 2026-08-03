@@ -1117,7 +1117,6 @@ const ACCEPTED_FAMILY_OVERRIDES = new Set([
   'slenthem',
   'kenong',
   // Tibetan / Mongolian
-  'tibetan_dungchen',
   'tibetan_gyaling',
   'tovshuur',
   // Afro-Cuban

@@ -2,7 +2,7 @@
   "name": "codex-music-tool",
   "version": "2.0.0",
   "private": true,
-  "description": "Compressed song-recipe descriptor engine over a 1145-tradition / 872-instrument music codex. Generates structural production blueprints, blends traditions, matches axis profiles, and ships a lazy-loading browseable HTML catalog app over a static, server-free JSON API.",
+  "description": "Compressed song-recipe descriptor engine over a 1145-tradition / 871-instrument music codex. Generates structural production blueprints, blends traditions, matches axis profiles, and ships a lazy-loading browseable HTML catalog app over a static, server-free JSON API.",
   "license": "UNLICENSED",
   "author": "CodexMusica",
   "type": "commonjs",

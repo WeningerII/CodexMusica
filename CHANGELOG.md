@@ -49,6 +49,23 @@ rather than the HTTP grammar, since the connector is the only editable surface
 left. `docs/connector-directory-submission.md` stays — that is Anthropic's
 directory, for the path we are keeping.
 
+### Changed — merged the duplicate Tibetan long horn
+
+`tibetan_dungchen` and `dung_chen` were one instrument entered twice. `dung_chen`
+survives; `tibetan_dungchen` is deleted and its two tradition references
+(`vajrayana_broader`, `tibetan_yang_chant`) are repointed. `tibetan_yang_chant`
+had listed *both* records, so it now names the horn once instead of twice.
+
+The deleted record carried the richer decomposition, so its parts were carried
+onto the survivor rather than discarded: `dung_chen` gains a **Length** part
+type (extended ceremonial 3-4m telescoping), a **silver-ornamented sections**
+body variant, and **Kagyu** and **Nyingma** monastic variants alongside the
+existing Gelug one. Nothing was lost in the merge — the surviving record is
+strictly richer than either input.
+
+Catalog is now **871 instruments**; counts updated across the docs,
+`package.json`, `server.json` and `index.html`.
+
 ### Changed — merged 22 duplicate traditions, catalog is now 1,145
 
 The duplicate gate's review backlog is cleared. All 97 flagged pairs were

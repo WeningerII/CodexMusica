@@ -133,7 +133,7 @@
   },
   {
     "id": "celtic_harp",
-    "name": "Celtic / lever harp (clàrsach)",
+    "name": "Celtic / lever harp (cl\u00e0rsach)",
     "wikipedia": "Celtic",
     "commons_category": "Celtics"
   },
@@ -211,9 +211,9 @@
   },
   {
     "id": "baglamas",
-    "name": "Baglamás (Greek miniature bouzouki)",
-    "wikipedia": "Baglamás",
-    "commons_category": "Baglamáses"
+    "name": "Baglam\u00e1s (Greek miniature bouzouki)",
+    "wikipedia": "Baglam\u00e1s",
+    "commons_category": "Baglam\u00e1ses"
   },
   {
     "id": "bajo_sexto",
@@ -265,21 +265,21 @@
   },
   {
     "id": "cumbus",
-    "name": "Çümbüş (Turkish banjo-bodied lute)",
-    "wikipedia": "Çümbüş",
-    "commons_category": "Çümbüşs"
+    "name": "\u00c7\u00fcmb\u00fc\u015f (Turkish banjo-bodied lute)",
+    "wikipedia": "\u00c7\u00fcmb\u00fc\u015f",
+    "commons_category": "\u00c7\u00fcmb\u00fc\u015fs"
   },
   {
     "id": "dan_bau",
-    "name": "Đàn bầu (Vietnamese monochord)",
-    "wikipedia": "Đàn bầu",
-    "commons_category": "Đàn bầus"
+    "name": "\u0110\u00e0n b\u1ea7u (Vietnamese monochord)",
+    "wikipedia": "\u0110\u00e0n b\u1ea7u",
+    "commons_category": "\u0110\u00e0n b\u1ea7us"
   },
   {
     "id": "dan_tranh",
-    "name": "Đàn tranh (Vietnamese 16-string zither)",
-    "wikipedia": "Đàn tranh",
-    "commons_category": "Đàn tranhs"
+    "name": "\u0110\u00e0n tranh (Vietnamese 16-string zither)",
+    "wikipedia": "\u0110\u00e0n tranh",
+    "commons_category": "\u0110\u00e0n tranhs"
   },
   {
     "id": "domra",
@@ -313,9 +313,9 @@
   },
   {
     "id": "guqin",
-    "name": "Gǔqín (Chinese 7-string zither)",
-    "wikipedia": "Gǔqín",
-    "commons_category": "Gǔqíns"
+    "name": "G\u01d4q\u00edn (Chinese 7-string zither)",
+    "wikipedia": "G\u01d4q\u00edn",
+    "commons_category": "G\u01d4q\u00edns"
   },
   {
     "id": "gusli",
@@ -409,7 +409,7 @@
   },
   {
     "id": "kanun",
-    "name": "Kanun / qānūn (Middle Eastern plucked zither)",
+    "name": "Kanun / q\u0101n\u016bn (Middle Eastern plucked zither)",
     "wikipedia": "Kanun",
     "commons_category": "Kanuns"
   },
@@ -421,9 +421,9 @@
   },
   {
     "id": "oud",
-    "name": "ʿŪd (Arab/Mediterranean fretless lute)",
-    "wikipedia": "ʿŪd",
-    "commons_category": "ʿŪds"
+    "name": "\u02bf\u016ad (Arab/Mediterranean fretless lute)",
+    "wikipedia": "\u02bf\u016ad",
+    "commons_category": "\u02bf\u016ads"
   },
   {
     "id": "pipa",
@@ -433,9 +433,9 @@
   },
   {
     "id": "qanun",
-    "name": "Qānūn (Arab/Turkish trapezoidal zither)",
-    "wikipedia": "Qānūn",
-    "commons_category": "Qānūns"
+    "name": "Q\u0101n\u016bn (Arab/Turkish trapezoidal zither)",
+    "wikipedia": "Q\u0101n\u016bn",
+    "commons_category": "Q\u0101n\u016bns"
   },
   {
     "id": "requinto_jarocho",
@@ -457,9 +457,9 @@
   },
   {
     "id": "rudra_veena",
-    "name": "Rudra vīṇā (dhrupad bin)",
-    "wikipedia": "Rudra vīṇā",
-    "commons_category": "Rudra vīṇās"
+    "name": "Rudra v\u012b\u1e47\u0101 (dhrupad bin)",
+    "wikipedia": "Rudra v\u012b\u1e47\u0101",
+    "commons_category": "Rudra v\u012b\u1e47\u0101s"
   },
   {
     "id": "santoor",
@@ -469,9 +469,9 @@
   },
   {
     "id": "santur",
-    "name": "Santūr (Persian hammered dulcimer)",
-    "wikipedia": "Santūr",
-    "commons_category": "Santūrs"
+    "name": "Sant\u016br (Persian hammered dulcimer)",
+    "wikipedia": "Sant\u016br",
+    "commons_category": "Sant\u016brs"
   },
   {
     "id": "sanxian",
@@ -487,15 +487,15 @@
   },
   {
     "id": "saz_baglama",
-    "name": "Saz / bağlama (Turkish long-neck lute)",
+    "name": "Saz / ba\u011flama (Turkish long-neck lute)",
     "wikipedia": "Saz",
     "commons_category": "Sazes"
   },
   {
     "id": "setar_persian",
-    "name": "Setār (Persian long-neck lute)",
-    "wikipedia": "Setār",
-    "commons_category": "Setārs"
+    "name": "Set\u0101r (Persian long-neck lute)",
+    "wikipedia": "Set\u0101r",
+    "commons_category": "Set\u0101rs"
   },
   {
     "id": "shamisen",
@@ -529,7 +529,7 @@
   },
   {
     "id": "tar_persian",
-    "name": "Tār (Persian double-bowl lute)",
+    "name": "T\u0101r (Persian double-bowl lute)",
     "wikipedia": "Tar (string instrument)",
     "commons_category": "Tar (instrument)"
   },
@@ -559,9 +559,9 @@
   },
   {
     "id": "veena",
-    "name": "Saraswati vīṇā (South Indian fretted lute)",
-    "wikipedia": "Saraswati vīṇā",
-    "commons_category": "Saraswati vīṇās"
+    "name": "Saraswati v\u012b\u1e47\u0101 (South Indian fretted lute)",
+    "wikipedia": "Saraswati v\u012b\u1e47\u0101",
+    "commons_category": "Saraswati v\u012b\u1e47\u0101s"
   },
   {
     "id": "vihuela_mexicana",
@@ -619,9 +619,9 @@
   },
   {
     "id": "jinghu",
-    "name": "Jīnghú (Beijing-opera bamboo fiddle)",
-    "wikipedia": "Jīnghú",
-    "commons_category": "Jīnghús"
+    "name": "J\u012bngh\u00fa (Beijing-opera bamboo fiddle)",
+    "wikipedia": "J\u012bngh\u00fa",
+    "commons_category": "J\u012bngh\u00fas"
   },
   {
     "id": "esraj",
@@ -655,21 +655,21 @@
   },
   {
     "id": "hurdy_gurdy",
-    "name": "Hurdy-gurdy (vielle à roue)",
+    "name": "Hurdy-gurdy (vielle \u00e0 roue)",
     "wikipedia": "Hurdy-gurdy",
     "commons_category": "Hurdy-gurdies"
   },
   {
     "id": "kamancheh",
-    "name": "Kamāncheh (Persian spike fiddle)",
-    "wikipedia": "Kamāncheh",
-    "commons_category": "Kamānchehs"
+    "name": "Kam\u0101ncheh (Persian spike fiddle)",
+    "wikipedia": "Kam\u0101ncheh",
+    "commons_category": "Kam\u0101nchehs"
   },
   {
     "id": "kemence",
-    "name": "Kemençe (Black Sea / Constantinople bowed)",
-    "wikipedia": "Kemençe",
-    "commons_category": "Kemençes"
+    "name": "Kemen\u00e7e (Black Sea / Constantinople bowed)",
+    "wikipedia": "Kemen\u00e7e",
+    "commons_category": "Kemen\u00e7es"
   },
   {
     "id": "cretan_lyra",
@@ -703,9 +703,9 @@
   },
   {
     "id": "sarangi",
-    "name": "Sārangī (bowed Indian lute with sympathetic strings)",
-    "wikipedia": "Sārangī",
-    "commons_category": "Sārangīs"
+    "name": "S\u0101rang\u012b (bowed Indian lute with sympathetic strings)",
+    "wikipedia": "S\u0101rang\u012b",
+    "commons_category": "S\u0101rang\u012bs"
   },
   {
     "id": "string_quartet_inst",
@@ -727,9 +727,9 @@
   },
   {
     "id": "agogo",
-    "name": "Agogô (Brazilian double bell)",
-    "wikipedia": "Agogô",
-    "commons_category": "Agogôs"
+    "name": "Agog\u00f4 (Brazilian double bell)",
+    "wikipedia": "Agog\u00f4",
+    "commons_category": "Agog\u00f4s"
   },
   {
     "id": "atabaque",
@@ -745,9 +745,9 @@
   },
   {
     "id": "bata",
-    "name": "Batá drums (Yoruba/Cuban triple-set)",
-    "wikipedia": "Batá drums",
-    "commons_category": "Batá drumses"
+    "name": "Bat\u00e1 drums (Yoruba/Cuban triple-set)",
+    "wikipedia": "Bat\u00e1 drums",
+    "commons_category": "Bat\u00e1 drumses"
   },
   {
     "id": "bendir",
@@ -763,9 +763,9 @@
   },
   {
     "id": "bodhran",
-    "name": "Bodhrán (Irish frame drum)",
-    "wikipedia": "Bodhrán",
-    "commons_category": "Bodhráns"
+    "name": "Bodhr\u00e1n (Irish frame drum)",
+    "wikipedia": "Bodhr\u00e1n",
+    "commons_category": "Bodhr\u00e1ns"
   },
   {
     "id": "bombo_andino",
@@ -823,9 +823,9 @@
   },
   {
     "id": "cuica",
-    "name": "Cuíca (Brazilian friction drum)",
-    "wikipedia": "Cuíca",
-    "commons_category": "Cuícas"
+    "name": "Cu\u00edca (Brazilian friction drum)",
+    "wikipedia": "Cu\u00edca",
+    "commons_category": "Cu\u00edcas"
   },
   {
     "id": "daf",
@@ -937,9 +937,9 @@
   },
   {
     "id": "guiro",
-    "name": "Güiro (scraper)",
-    "wikipedia": "Güiro",
-    "commons_category": "Güiros"
+    "name": "G\u00fciro (scraper)",
+    "wikipedia": "G\u00fciro",
+    "commons_category": "G\u00fciros"
   },
   {
     "id": "hammered_dulcimer",
@@ -1075,9 +1075,9 @@
   },
   {
     "id": "tar_frame_drum",
-    "name": "Tār (Middle Eastern frame drum)",
-    "wikipedia": "Tār",
-    "commons_category": "Tārs"
+    "name": "T\u0101r (Middle Eastern frame drum)",
+    "wikipedia": "T\u0101r",
+    "commons_category": "T\u0101rs"
   },
   {
     "id": "thavil",
@@ -1129,9 +1129,9 @@
   },
   {
     "id": "bandoneon",
-    "name": "Bandoneón (Argentine tango concertina)",
-    "wikipedia": "Bandoneón",
-    "commons_category": "Bandoneóns"
+    "name": "Bandone\u00f3n (Argentine tango concertina)",
+    "wikipedia": "Bandone\u00f3n",
+    "commons_category": "Bandone\u00f3ns"
   },
   {
     "id": "bawu",
@@ -1195,9 +1195,9 @@
   },
   {
     "id": "sho_mouth_organ",
-    "name": "Shō (gagaku mouth organ)",
-    "wikipedia": "Shō",
-    "commons_category": "Shōs"
+    "name": "Sh\u014d (gagaku mouth organ)",
+    "wikipedia": "Sh\u014d",
+    "commons_category": "Sh\u014ds"
   },
   {
     "id": "alto_flute",
@@ -1231,7 +1231,7 @@
   },
   {
     "id": "clarinet",
-    "name": "Clarinet (B♭ / bass / contrabass)",
+    "name": "Clarinet (B\u266d / bass / contrabass)",
     "wikipedia": "Clarinet",
     "commons_category": "Clarinets"
   },
@@ -1387,9 +1387,9 @@
   },
   {
     "id": "ney",
-    "name": "Nāy / nay (Persian/Arab end-blown reed flute)",
-    "wikipedia": "Nāy",
-    "commons_category": "Nāies"
+    "name": "N\u0101y / nay (Persian/Arab end-blown reed flute)",
+    "wikipedia": "N\u0101y",
+    "commons_category": "N\u0101ies"
   },
   {
     "id": "oboe",
@@ -1897,9 +1897,9 @@
   },
   {
     "id": "samba_bateria",
-    "name": "Samba escola batería",
-    "wikipedia": "Samba escola batería",
-    "commons_category": "Samba escola baterías"
+    "name": "Samba escola bater\u00eda",
+    "wikipedia": "Samba escola bater\u00eda",
+    "commons_category": "Samba escola bater\u00edas"
   },
   {
     "id": "drumline_school_marching",
@@ -1993,9 +1993,9 @@
   },
   {
     "id": "violao_7_cordas",
-    "name": "Violão de 7 cordas (Brazilian 7-string guitar)",
-    "wikipedia": "Violão de 7 cordas",
-    "commons_category": "Violão de 7 cordases"
+    "name": "Viol\u00e3o de 7 cordas (Brazilian 7-string guitar)",
+    "wikipedia": "Viol\u00e3o de 7 cordas",
+    "commons_category": "Viol\u00e3o de 7 cordases"
   },
   {
     "id": "alfaia",
@@ -2011,9 +2011,9 @@
   },
   {
     "id": "triangulo_forro",
-    "name": "Triângulo (Brazilian forró triangle)",
-    "wikipedia": "Triângulo",
-    "commons_category": "Triângulos"
+    "name": "Tri\u00e2ngulo (Brazilian forr\u00f3 triangle)",
+    "wikipedia": "Tri\u00e2ngulo",
+    "commons_category": "Tri\u00e2ngulos"
   },
   {
     "id": "reco_reco",
@@ -2023,15 +2023,15 @@
   },
   {
     "id": "ganza",
-    "name": "Ganzá (Brazilian tube shaker)",
-    "wikipedia": "Ganzá",
-    "commons_category": "Ganzás"
+    "name": "Ganz\u00e1 (Brazilian tube shaker)",
+    "wikipedia": "Ganz\u00e1",
+    "commons_category": "Ganz\u00e1s"
   },
   {
     "id": "afoxe",
-    "name": "Afoxé (Afro-Brazilian net-bead shaker)",
-    "wikipedia": "Afoxé",
-    "commons_category": "Afoxés"
+    "name": "Afox\u00e9 (Afro-Brazilian net-bead shaker)",
+    "wikipedia": "Afox\u00e9",
+    "commons_category": "Afox\u00e9s"
   },
   {
     "id": "repinique",
@@ -2094,12 +2094,6 @@
     "commons_category": "Kenongs"
   },
   {
-    "id": "tibetan_dungchen",
-    "name": "Dungchen (Tibetan long horn)",
-    "wikipedia": "Dungchen",
-    "commons_category": "Dungchens"
-  },
-  {
     "id": "tibetan_gyaling",
     "name": "Gyaling (Tibetan double-reed oboe)",
     "wikipedia": "Gyaling",
@@ -2119,9 +2113,9 @@
   },
   {
     "id": "guitarron_mexicano",
-    "name": "Guitarrón (Mexican mariachi bass guitar)",
-    "wikipedia": "Guitarrón",
-    "commons_category": "Guitarróns"
+    "name": "Guitarr\u00f3n (Mexican mariachi bass guitar)",
+    "wikipedia": "Guitarr\u00f3n",
+    "commons_category": "Guitarr\u00f3ns"
   },
   {
     "id": "arpa_jarocha",
@@ -2143,9 +2137,9 @@
   },
   {
     "id": "acordeon_vallenato",
-    "name": "Acordeón vallenato (Hohner button accordion)",
-    "wikipedia": "Acordeón vallenato",
-    "commons_category": "Acordeón vallenatos"
+    "name": "Acorde\u00f3n vallenato (Hohner button accordion)",
+    "wikipedia": "Acorde\u00f3n vallenato",
+    "commons_category": "Acorde\u00f3n vallenatos"
   },
   {
     "id": "guacharaca",
@@ -2161,9 +2155,9 @@
   },
   {
     "id": "cajon_peruano",
-    "name": "Cajón peruano (Peruvian box drum)",
-    "wikipedia": "Cajón peruano",
-    "commons_category": "Cajón peruanos"
+    "name": "Caj\u00f3n peruano (Peruvian box drum)",
+    "wikipedia": "Caj\u00f3n peruano",
+    "commons_category": "Caj\u00f3n peruanos"
   },
   {
     "id": "tambora_dominicana",
@@ -2233,9 +2227,9 @@
   },
   {
     "id": "dutar",
-    "name": "Dutār (Central Asian two-string long-necked lute)",
-    "wikipedia": "Dutār",
-    "commons_category": "Dutārs"
+    "name": "Dut\u0101r (Central Asian two-string long-necked lute)",
+    "wikipedia": "Dut\u0101r",
+    "commons_category": "Dut\u0101rs"
   },
   {
     "id": "sato",
@@ -2287,15 +2281,15 @@
   },
   {
     "id": "koauau",
-    "name": "Kōauau (Maori notched flute)",
-    "wikipedia": "Kōauau",
-    "commons_category": "Kōauaus"
+    "name": "K\u014dauau (Maori notched flute)",
+    "wikipedia": "K\u014dauau",
+    "commons_category": "K\u014dauaus"
   },
   {
     "id": "putorino",
-    "name": "Pūtōrino (Maori bugle-flute)",
-    "wikipedia": "Pūtōrino",
-    "commons_category": "Pūtōrinos"
+    "name": "P\u016bt\u014drino (Maori bugle-flute)",
+    "wikipedia": "P\u016bt\u014drino",
+    "commons_category": "P\u016bt\u014drinos"
   },
   {
     "id": "pahu",
@@ -2317,9 +2311,9 @@
   },
   {
     "id": "kultrun",
-    "name": "Kultrún (Mapuche shamanic frame-drum)",
-    "wikipedia": "Kultrún",
-    "commons_category": "Kultrúns"
+    "name": "Kultr\u00fan (Mapuche shamanic frame-drum)",
+    "wikipedia": "Kultr\u00fan",
+    "commons_category": "Kultr\u00fans"
   },
   {
     "id": "dung_chen",
@@ -2341,9 +2335,9 @@
   },
   {
     "id": "dan_day",
-    "name": "Đàn đáy (Vietnamese ca trù lute)",
-    "wikipedia": "Đàn đáy",
-    "commons_category": "Đàn đáies"
+    "name": "\u0110\u00e0n \u0111\u00e1y (Vietnamese ca tr\u00f9 lute)",
+    "wikipedia": "\u0110\u00e0n \u0111\u00e1y",
+    "commons_category": "\u0110\u00e0n \u0111\u00e1ies"
   },
   {
     "id": "chapei_lute",
@@ -2377,15 +2371,15 @@
   },
   {
     "id": "tende_drum",
-    "name": "Tendé (Tuareg mortar-drum)",
-    "wikipedia": "Tendé",
-    "commons_category": "Tendés"
+    "name": "Tend\u00e9 (Tuareg mortar-drum)",
+    "wikipedia": "Tend\u00e9",
+    "commons_category": "Tend\u00e9s"
   },
   {
     "id": "naqqarat",
-    "name": "Naqqarāt (Iraqi small kettle-drum pair)",
-    "wikipedia": "Naqqarāt",
-    "commons_category": "Naqqarāts"
+    "name": "Naqqar\u0101t (Iraqi small kettle-drum pair)",
+    "wikipedia": "Naqqar\u0101t",
+    "commons_category": "Naqqar\u0101ts"
   },
   {
     "id": "nafa",
@@ -2425,9 +2419,9 @@
   },
   {
     "id": "pulili",
-    "name": "Pūʻili (Hawaiian bamboo split-rattle)",
-    "wikipedia": "Pūʻili",
-    "commons_category": "Pūʻilis"
+    "name": "P\u016b\u02bbili (Hawaiian bamboo split-rattle)",
+    "wikipedia": "P\u016b\u02bbili",
+    "commons_category": "P\u016b\u02bbilis"
   },
   {
     "id": "shacapa",
@@ -2437,9 +2431,9 @@
   },
   {
     "id": "khartal",
-    "name": "Khartāl (Rajasthani wooden castanet pair)",
-    "wikipedia": "Khartāl",
-    "commons_category": "Khartāls"
+    "name": "Khart\u0101l (Rajasthani wooden castanet pair)",
+    "wikipedia": "Khart\u0101l",
+    "commons_category": "Khart\u0101ls"
   },
   {
     "id": "zeze",
@@ -2473,32 +2467,32 @@
   },
   {
     "id": "putatara",
-    "name": "Pūtātara (Māori conch-shell trumpet)",
-    "wikipedia": "Pūtātara",
-    "commons_category": "Pūtātaras"
+    "name": "P\u016bt\u0101tara (M\u0101ori conch-shell trumpet)",
+    "wikipedia": "P\u016bt\u0101tara",
+    "commons_category": "P\u016bt\u0101taras"
   },
   {
     "id": "kankles",
-    "name": "Kanklės (Lithuanian board zither)",
-    "wikipedia": "Kanklės",
-    "commons_category": "Kanklėses"
+    "name": "Kankl\u0117s (Lithuanian board zither)",
+    "wikipedia": "Kankl\u0117s",
+    "commons_category": "Kankl\u0117ses"
   },
   {
     "id": "skuduciai",
-    "name": "Skudučiai (Lithuanian pan-pipes)",
-    "wikipedia": "Skudučiai",
-    "commons_category": "Skudučiais"
+    "name": "Skudu\u010diai (Lithuanian pan-pipes)",
+    "wikipedia": "Skudu\u010diai",
+    "commons_category": "Skudu\u010diais"
   },
   {
     "id": "phach",
-    "name": "Phách (Vietnamese bamboo clapper)",
-    "wikipedia": "Phách",
-    "commons_category": "Pháches"
+    "name": "Ph\u00e1ch (Vietnamese bamboo clapper)",
+    "wikipedia": "Ph\u00e1ch",
+    "commons_category": "Ph\u00e1ches"
   },
   {
     "id": "trong_chau",
-    "name": "Trống chầu (Vietnamese ca trù praise-drum)",
-    "wikipedia": "Trống chầu",
-    "commons_category": "Trống chầus"
+    "name": "Tr\u1ed1ng ch\u1ea7u (Vietnamese ca tr\u00f9 praise-drum)",
+    "wikipedia": "Tr\u1ed1ng ch\u1ea7u",
+    "commons_category": "Tr\u1ed1ng ch\u1ea7us"
   }
 ]
