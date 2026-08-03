@@ -60,6 +60,18 @@ Deliberately *not* normalised away in the identity check: plural `s` and
 stopwords. `afrobeat` and `afrobeats` are a 1970s Fela Kuti genre and a 2010s
 Nigerian pop genre; any normaliser aggressive enough to merge them is wrong.
 
+The gate is registered as promise `no-duplicate-entities` (SKILL.md invariant
+I7 + `scripts/_promises.js`), so the three-way bijection CI enforces between doc
+marker, registry row and gate tag holds.
+
+### Fixed — a doc reference to a `.json` file read as a missing script
+
+`check_docs.js` matched script references with `/scripts\/([a-z_0-9]+\.js)/`,
+which also matches the first part of `scripts/_duplicate_rulings.json` and then
+reports `_duplicate_rulings.js` as a file that does not exist. Any doc
+referencing a `.json` under `scripts/` would have failed the same way. The
+pattern now requires a boundary after `.js`.
+
 ### Added — family glyphs on the instrument picker's headings
 
 The instrument emoji were already assigned and already drawn on card thumbnails,

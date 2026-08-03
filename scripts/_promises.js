@@ -32,6 +32,13 @@ module.exports = [
     claim: 'every config id resolves against the catalog',
   },
   {
+    id: 'no-duplicate-entities',
+    doc: 'SKILL.md',
+    gate: 'check_duplicates.js',
+    claim:
+      'no two entities of one kind share a display label once case, accents and punctuation are stripped (unruled collisions fail the gate)',
+  },
+  {
     id: 'catalog-counts',
     doc: 'SKILL.md',
     gate: 'check_docs.js',

@@ -697,6 +697,10 @@ re-run the checker.
   in −2..+2.
 - I5 Tree: every non-root node's `parent` resolves.
 - I6 Each entity conforms to its §1 record shape (required keys, id style, types).
+- I7 No two entities of one kind carry the same display label once case, accents and
+  punctuation are stripped — an unruled collision fails `check_duplicates.js`, whether it
+  is one record too many or two different things a reader cannot tell apart. Adjudicated
+  pairs live in `scripts/_duplicate_rulings.json`. <!-- @promise: no-duplicate-entities -->
 
 ### Invariant checker (verified — clean on shipped data; flags injected damage)
 
