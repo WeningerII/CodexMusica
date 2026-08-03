@@ -12,6 +12,17 @@ name: Sync site to Pages branch
 #
 # Needs NO Pages settings change: Pages keeps serving `main`; this keeps main's
 # codex.html + api/ in lockstep with the green production source.
+#
+# ORDERING. "CI passed" is necessary but not sufficient. This job builds the
+# commit CI validated and then publishes onto main's tip, and those are different
+# trees whenever main advanced in between. Runs are serialized but NOT ordered
+# (cancel-in-progress: false), so an older run could land last and overwrite the
+# live artifact with a build made before the newer merge existed. That happened
+# twice on consecutive merge pairs — dropping a CSS change, then an 823 KB
+# nav-glyph data block — and nothing went red, because no gate covered this file.
+# scripts/publish_guard.sh now stands the job down when main carries source it
+# did not build from, and scripts/check_publish_guard.js holds that behaviour to
+# a synthetic replay of the race on every CI run.
 
 on:
   workflow_run:
@@ -84,11 +95,37 @@ jobs:
 
           cp AGENTS.md index.html _dist/
 
-      - name: Publish site to main (only if changed)
+      - name: Publish site to main (only if changed, and only if not superseded)
         run: |
+          set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # Capture what we ACTUALLY built, before switching branches. Everything
+          # below used to read HEAD after `git checkout -B main`, which reports
+          # main's tip rather than the ref that produced _dist/ — that is why the
+          # auto-publish commit message named a commit it had never built from,
+          # and why two stale publishes went unnoticed.
+          BUILT_SHA=$(git rev-parse HEAD)
+          echo "Built from $BUILT_SHA"
+
           git fetch origin main
+
+          # Stand down if main moved past us. Publishes are serialized but not
+          # ordered, so an older run can otherwise land last and overwrite the
+          # live artifact with a build made before the newer merge existed.
+          # Exit 10 means superseded — a clean no-op, not a failure: the newer
+          # commit has its own CI run and that run publishes it.
+          rc=0
+          bash scripts/publish_guard.sh --verbose || rc=$?
+          if [ "$rc" = 10 ]; then
+            echo "Superseded — leaving the live artifact to the newer run."
+            exit 0
+          elif [ "$rc" != 0 ]; then
+            echo "publish_guard failed with $rc" >&2
+            exit "$rc"
+          fi
+
           git checkout -B main origin/main
           cp _dist/codex.html codex.html
           cp _dist/index.html index.html
@@ -102,5 +139,13 @@ jobs:
             echo "Site unchanged — nothing to publish."
             exit 0
           fi
-          git commit -m "Auto-publish site (codex.html + static API) from $(git rev-parse --short HEAD)"
+          # Name the ref we BUILT from, not main's tip. The old message read HEAD
+          # after the branch switch, so it always named main and could never
+          # reveal that the artifact came from somewhere older.
+          git commit -m "Auto-publish site (codex.html + static API) built from ${BUILT_SHA:0:7}"
+          # A plain push, deliberately. The commit's parent is the origin/main we
+          # just fetched, so if main advanced in the seconds since the guard ran,
+          # this is no longer a fast-forward and git refuses it — which is the
+          # outcome we want. Never force onto the production branch: the guard
+          # closes the wide window, and non-fast-forward closes the narrow one.
           git push origin main

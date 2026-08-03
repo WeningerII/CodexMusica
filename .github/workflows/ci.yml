@@ -82,6 +82,13 @@ jobs:
       - name: Name isolation (no tradition's picks depend on another's name)
         run: npm run check:names
 
+      # The publish workflow is the one piece of this repo no other gate covered,
+      # and it shipped a stale live artifact twice on consecutive merge pairs
+      # before anyone noticed. Its decision now lives in scripts/publish_guard.sh
+      # and is exercised against a synthetic replay of that exact race.
+      - name: Publish guard (a superseded build can never overwrite the live site)
+        run: npm run check:publish
+
       - name: Audit data quality
         run: npm run audit
 
