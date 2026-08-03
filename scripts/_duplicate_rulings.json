@@ -13,6 +13,498 @@
       "pair": ["tar_persian", "tar_azerbaijani"],
       "verdict": "open",
       "note": "two genuinely different instruments, so NOT a data duplicate — but both print as 'tar', which breaks the catalog-wide unique-short-label invariant and makes a recipe naming one unreadable. The fix is a label rename, not a delete; it churns the rendered recipe for the three traditions that use them, so it is left for a deliberate pass."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["new_wave", "new_wave_late_70s_early_80s"],
+      "verdict": "duplicate",
+      "note": "same genre, same window, same founding records — both descriptions name Talking Heads and Blondie as the codifiers, roster overlap 0.83. The qualifier adds no period the unqualified entry does not already claim (1977-1985). new_wave sits under popRock.newWave, the correct parent; the twin is misfiled under distortedRock.alternative."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["black_metal", "black_metal_norwegian"],
+      "verdict": "duplicate",
+      "note": "the unqualified entry already IS the Norwegian second wave — its own description centres Bergen and Oslo 1991-1996 — and both list Mayhem, Burzum, Darkthrone. The twin is additionally misfiled under metal.death."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["post_punk", "post_punk_late_70s"],
+      "verdict": "duplicate",
+      "note": "same 1977-84 window, same codifiers (Joy Division, Wire, Gang of Four), same parent. The qualifier narrows to British only, which the unqualified entry already covers as UK-and-US."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["cloud_rap", "cloud_rap_experimental"],
+      "verdict": "duplicate",
+      "note": "both are the Lil B / Yung Lean internet-hip-hop lineage. \"experimental\" is not a distinguishing sub-style here — the unqualified entry already describes the hazy ambient production the twin claims as its differentiator."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["post_metal", "post_metal_2000s"],
+      "verdict": "duplicate",
+      "note": "roster overlap 1.00, identical 2000s post-rock-into-metal framing, same exemplars modulo Neurosis/Russian Circles. Twin misfiled under metal.sludge."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["microhouse", "minimal_microhouse_classic"],
+      "verdict": "duplicate",
+      "note": "the unqualified entry already names Kompakt and the Cologne scene the twin claims as its qualifier; same parent, roster overlap 0.75."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["dream_pop", "dreampop_modern"],
+      "verdict": "duplicate",
+      "note": "identical exemplar list (Cocteau Twins, Mazzy Star, Beach House) and the unqualified entry already covers the 2010-present second wave the twin calls \"modern\"."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["sophisti_pop", "sophistipop_80s"],
+      "verdict": "duplicate",
+      "note": "same 1984-89 UK window, same Sade / Style Council / Everything But the Girl core, same parent. The qualifier restates the unqualified entry."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["bedroom_pop", "bedroom_pop_2010s"],
+      "verdict": "duplicate",
+      "note": "same SoundCloud-and-Bandcamp DIY scene, same era, overlapping roster. Twin misfiled under distortedRock.alternative."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["chillwave", "chillwave_glo_fi"],
+      "verdict": "duplicate",
+      "note": "identical exemplars (Washed Out, Toro y Moi, Neon Indian) and identical 2009-2012 internet-indie framing. glo-fi is a synonym for chillwave, not a sibling style."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["freak_folk_2000s", "freak_folk"],
+      "verdict": "duplicate",
+      "note": "same mid-2000s psychedelic-folk movement, same Banhart / Newsom core. Two ids for one scene; they diverge only in parent (freakFolk vs indieFolk), which is a filing error rather than a distinction."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["drone_metal", "drone_metal_sustained"],
+      "verdict": "duplicate",
+      "note": "same Earth / Sunn O))) / Boris canon and the same sustained-tone premise stated twice. Twin misfiled under metal.doom."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["broken_beat_uk", "broken_beat_4hero"],
+      "verdict": "duplicate",
+      "note": "roster overlap 1.00 and the same three names (4hero, IG Culture, Bugz in the Attic) in both directions — the \"4hero\" qualifier names a member of the very scene the other entry describes."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["synthpop", "synthpop_classic_80s"],
+      "verdict": "duplicate",
+      "note": "same early-80s UK synth-pop with Depeche Mode and the Human League in both; \"classic\" adds no boundary the unqualified 1979-1985 entry lacks."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["amapiano", "amapiano_sa"],
+      "verdict": "duplicate",
+      "note": "amapiano is South African by definition, so the qualifier is redundant. Same parent, same Kabza De Small / DJ Maphorisa core, same Pretoria-Johannesburg origin."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["kwaito", "south_african_kwaito"],
+      "verdict": "duplicate",
+      "note": "kwaito is South African by definition; both describe post-apartheid Johannesburg mid-90s house-and-hip-hop with Boom Shaka and Mandoza. Same parent."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["dub_techno", "berlin_techno_basic_channel"],
+      "verdict": "duplicate",
+      "note": "both entries are Basic Channel — the unqualified one names Berlin, Basic Channel and Rhythm & Sound in its own description. The second is the same practice re-entered under electronicDance.techno."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["big_band", "swing_big_band"],
+      "verdict": "duplicate",
+      "note": "roster overlap 1.00, same parent, same 1930s-40s arranged-orchestra definition, Ellington and Basie in both. One format entered twice."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["minimalist", "american_minimalism"],
+      "verdict": "duplicate",
+      "note": "same parent, same Reich / Glass / Riley trio, same process-music definition. The \"American\" qualifier excludes nothing the unqualified entry includes."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["synthwave", "outrun_synthwave"],
+      "verdict": "duplicate",
+      "note": "outrun is a visual-and-nostalgic label for the same 2010s internet synthwave scene; both open with Kavinsky. The twin is filed under ambient, which does not match its own description."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["jongo", "jongo_brasileiro"],
+      "verdict": "duplicate",
+      "note": "both are the Bantu-descended Afro-Brazilian jongo of the Rio-Minas coffee region / Vale do Paraiba — the same geography stated two ways, same parent. Only the exemplar rosters differ, and both name legitimate jongo communities that belong to one entry."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["sardinian_polyphony", "sardinian_traditional"],
+      "verdict": "duplicate",
+      "note": "both are cantu a tenore and both open with Tenores di Bitti. The second bundles launeddas alongside it, which is a scope difference, not a different tradition — the launeddas material wants its own entry rather than a second copy of the tenore one."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["southern_trap", "trap"],
+      "verdict": "open",
+      "note": "the catalog carries a deliberate pattern of unqualified \"umbrella\" entries — the description literally says \"the umbrella trap tradition\" — alongside a regional twin. Here the umbrella has the same parent and the same three exemplars as the specific entry, so it does no navigational work. Whether umbrellas stay as broad entry points or fold into their specific twin is a catalog-wide policy decision, not a per-pair one."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["afrobeats_naija", "afrobeats"],
+      "verdict": "open",
+      "note": "same umbrella-vs-specific pattern as trap: roster overlap 1.00, identical parent, identical exemplars. Blocked on the same policy decision."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["k_pop_modern", "kpop"],
+      "verdict": "open",
+      "note": "same umbrella-vs-specific pattern: roster overlap 1.00, identical parent, BTS and BLACKPINK in both. Blocked on the same policy decision."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["dubstep_140", "dubstep"],
+      "verdict": "open",
+      "note": "same umbrella-vs-specific pattern: roster overlap 1.00, identical parent, Skream and Benga in both. Blocked on the same policy decision."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["hindustani", "hindustani_sarod"],
+      "verdict": "distinct",
+      "note": "the sarod entry is a gharana-specific instrumental practice (Maihar lineage from Allauddin Khan) with its own repertoire and ensemble, not a relabelling of the vocal-centred parent tradition."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["arab_tarab", "tarab_egyptian"],
+      "verdict": "distinct",
+      "note": "Egyptian tarab is the Cairo-school narrowing of the wider Cairo-Beirut-Aleppo Arab East practice, with different ensemble scale and repertoire. Umm Kulthum in both is expected — she is canonical to both scopes."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["musique_concrete", "acousmatic_music"],
+      "verdict": "distinct",
+      "note": "acousmatic music is the named successor practice Bayle defined at the GRM after Schaeffer, with its own premise: sound divorced from source and diffused over an orchestra of loudspeakers. Schaeffer in both reflects lineage, not identity."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["emo", "midwest_emo"],
+      "verdict": "distinct",
+      "note": "midwest emo is a specific mid-90s regional style with its own harmonic language — twinkly arpeggiated guitar, odd metres — distinct from the DC first wave that opens the parent entry."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["yacht_rock", "aor"],
+      "verdict": "distinct",
+      "note": "AOR is a radio format spanning arena rock and craftsman pop; yacht rock is one West-Coast strand inside it. Steely Dan and Toto sit in both because they are the overlap, not because the entries are the same."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["juke_chicago", "ghetto_house_dance_mania"],
+      "verdict": "distinct",
+      "note": "ghetto house is the mid-90s Dance Mania label style at house tempo; juke is its 155-165 BPM acceleration and the direct precursor to footwork. Shared DJs, different tempo and rhythmic construction."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["ranchera", "bolero_mexicano"],
+      "verdict": "distinct",
+      "note": "different forms entirely — ranchera is mariachi-backed strophic song, bolero mexicano the slow triplet-feel romantic ballad of Agustin Lara. Pedro Infante recorded both."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["gangsta_rap", "west_coast_hip_hop_classic"],
+      "verdict": "distinct",
+      "note": "one is a style with a national spread (Schoolly D, in Philadelphia, sits in its origin story), the other a geographic scene. Overlap at N.W.A and Ice-T is real membership, not duplication."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["g_funk", "west_coast_hip_hop_classic"],
+      "verdict": "distinct",
+      "note": "G-funk is a specific 1990-96 production style — Parliament-derived synth lead, sung hooks — while the LA scene entry is the late-80s sample-based era that preceded it. Dr. Dre spans both."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["conscious_hip_hop", "golden_age_hip_hop_1986_1991"],
+      "verdict": "distinct",
+      "note": "one is defined by lyrical stance, the other by a production era and its sampler hardware. They intersect at the Native Tongues records without being the same axis."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["conscious_hip_hop", "american_political_hip_hop"],
+      "verdict": "distinct",
+      "note": "cross-listing by social function is a deliberate axis in this catalog — the political entry sits under protestSong.urbanAmerican and gathers the protest lineage through to Kendrick, while the conscious entry sits in the hip-hop tree. The same records are reachable from two navigational directions by design."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["klezmer", "yiddish_wedding_bulgar"],
+      "verdict": "distinct",
+      "note": "function-axis cross-listing: the wedding entry is the bulgar-and-freylekhs dance repertoire under wedding.european, scoped to the occasion rather than to the klezmer idiom as a whole."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["tuvan_throat", "mongolian_hunting_khoomei"],
+      "verdict": "distinct",
+      "note": "function-axis cross-listing: hunting-khoomei is the herder-and-hunter use of the technique under huntingSong.centralAsian, distinct in setting and repertoire from the concert khoomei tradition."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["afrobeats_naija", "globalized_african_pop_crossover"],
+      "verdict": "distinct",
+      "note": "the crossover entry is a 2020s pan-African export style with an amapiano log-drum underneath and Western pop song structure — Tyla is not afrobeats. Burna Boy and Wizkid overlap because they are the artists who crossed over."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["thumri", "dadra"],
+      "verdict": "distinct",
+      "note": "different forms: dadra is in six-beat dadra tal and is shorter and more song-like than thumri. The same three singers carry both because semi-classical vocalists are expected to."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["guqin", "wenrenyue"],
+      "verdict": "distinct",
+      "note": "guqin is the instrumental tradition and its ~3000-piece repertoire; wenrenyue is the literati social practice — scholar-amateur transmission, playing for oneself — that the instrument sits inside. Same players, different unit of description."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["andean_huayno", "andean_matrimonio_huayno"],
+      "verdict": "distinct",
+      "note": "function-axis cross-listing under wedding.americas: the matrimonio repertoire is occasion-scoped with its own sequence and texts, against huayno as a general form."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["bulgarian_womens_choir", "bulgarian_zhetvarski"],
+      "verdict": "distinct",
+      "note": "the choir entry is the 1952-onward arranged concert ensemble (Kutev); zhetvarski pesni are the village harvest-labour songs it drew from, filed under fieldWork. Source practice against staged practice."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["ethio_jazz", "ethiopian_eskista_wedding"],
+      "verdict": "distinct",
+      "note": "completely different practices — Mulatu Astatke instrumental jazz fusion against the eskista wedding-dance repertoire. Mahmoud Ahmed in both is one singer working in two contexts."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["salsa_nuyorican", "salsa_dura"],
+      "verdict": "distinct",
+      "note": "salsa dura is the hard-edged 1970s Fania strand inside the broader Nuyorican tradition, with a distinct arrangement density and tempo. A real subset, worth its own entry."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["punta_garifuna", "garifuna_paranda"],
+      "verdict": "distinct",
+      "note": "paranda names itself distinct from punta in its own first line — slower, guitar-accompanied, solo-sung against punta drum-and-dance. The Garifuna recorded canon is small enough that Palacio, Aurelio and Nabor appear in both."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["romanian_doina", "romanian_bocet"],
+      "verdict": "distinct",
+      "note": "doina is the free-rhythm pastoral-and-lament song form; bocet is the funeral lament performed by women at the wake, filed under funeralLament.european. Maria Tanase recorded both."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["sardinian_atitidu", "sardinian_boci_de_tela"],
+      "verdict": "distinct",
+      "note": "funeral lament against weaving song — opposite ends of the occasion axis. Maria Carta and Elena Ledda appear in both because they are the two canonical recorded voices of Sardinian women repertoire."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["hawaiian_kanikau", "hawaiian_mele_inoa"],
+      "verdict": "distinct",
+      "note": "mourning chant against name-and-praise chant: distinct genres of mele with distinct occasions and poetic conventions. Liliuokalani and Pukui appear in both, as composer and as documentarian."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["sami_yoik", "sami_yoik_tracking"],
+      "verdict": "distinct",
+      "note": "function-axis cross-listing: the tracking entry is yoik in its hunting-and-herding working use under huntingSong.arctic, against yoik as a general vocal tradition."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["sami_yoik_tracking", "sami_vuolle_domestic"],
+      "verdict": "distinct",
+      "note": "different Sami variant (Lule-Sami vuolle) and different setting — domestic labour against hunting. Both are function-axis entries and neither subsumes the other."
+    },
+    {
+      "kind": "instrument",
+      "pair": ["semi_hollow", "semi_hollow_bass"],
+      "verdict": "distinct",
+      "note": "guitar and bass guitar — different register, scale length and role."
+    },
+    {
+      "kind": "instrument",
+      "pair": ["tar_persian", "tar_frame_drum"],
+      "verdict": "distinct",
+      "note": "unrelated instruments sharing a transliteration: the Persian long-necked lute against the Iranian frame drum. The frame drum already prints a disambiguating label."
+    },
+    {
+      "kind": "instrument",
+      "pair": ["tar_frame_drum", "tar_azerbaijani"],
+      "verdict": "distinct",
+      "note": "frame drum against long-necked lute; unrelated instruments, same transliteration."
+    },
+    {
+      "kind": "instrument",
+      "pair": ["marimba_orchestral", "marimba_centroamericana"],
+      "verdict": "distinct",
+      "note": "different instruments — the orchestral marimba against the Guatemalan hardwood marimba with its own tuning, resonators and multi-player performance practice."
+    },
+    {
+      "kind": "instrument",
+      "pair": ["gamelan_balinese_full", "gamelan_javanese_full"],
+      "verdict": "distinct",
+      "note": "different tuning systems, different instrumentation and radically different performance practice; treating them as one ensemble would be wrong."
+    },
+    {
+      "kind": "instrument",
+      "pair": ["erxian_cantonese", "erxian_qinqiang"],
+      "verdict": "distinct",
+      "note": "regional variants of the erxian with different tuning and construction, used in different opera traditions."
+    },
+    {
+      "kind": "instrument",
+      "pair": ["cornet", "cornetto"],
+      "verdict": "distinct",
+      "note": "unrelated — the conical-bore valved brass instrument against the Renaissance fingered wooden lip-reed instrument."
+    },
+    {
+      "kind": "instrument",
+      "pair": ["concertina_anglo", "concertina"],
+      "verdict": "distinct",
+      "note": "anglo is bisonoric with a specific button layout; the generic entry stands for the instrument family."
+    },
+    {
+      "kind": "instrument",
+      "pair": ["concertina_anglo", "concertina_english"],
+      "verdict": "distinct",
+      "note": "bisonoric against unisonoric, with different layouts and different repertoires."
+    },
+    {
+      "kind": "instrument",
+      "pair": ["concertina_english", "concertina"],
+      "verdict": "distinct",
+      "note": "specific system against the generic family entry."
+    },
+    {
+      "kind": "instrument",
+      "pair": ["mandola", "mandolin"],
+      "verdict": "distinct",
+      "note": "different sizes and tunings within the mandolin family."
+    },
+    {
+      "kind": "instrument",
+      "pair": ["accordion", "piano_accordion"],
+      "verdict": "distinct",
+      "note": "piano accordion names a specific right-hand keyboard; the generic entry covers the family including button systems."
+    },
+    {
+      "kind": "instrument",
+      "pair": ["piccolo", "piccolo_oboe"],
+      "verdict": "distinct",
+      "note": "flute against double reed — different families of sound production despite the shared size qualifier."
+    },
+    {
+      "kind": "instrument",
+      "pair": ["piccolo", "piccolo_trumpet"],
+      "verdict": "distinct",
+      "note": "flute against brass; only the size qualifier is shared."
+    },
+    {
+      "kind": "instrument",
+      "pair": ["foot_stomp", "stomp_box"],
+      "verdict": "distinct",
+      "note": "a foot on a floor against a purpose-built amplified percussion box."
+    },
+    {
+      "kind": "instrument",
+      "pair": ["clarinet", "basset_clarinet"],
+      "verdict": "distinct",
+      "note": "the basset clarinet has extended low range and its own repertoire."
+    },
+    {
+      "kind": "instrument",
+      "pair": ["electric_guitar_humbucker", "electric_guitar_single_coil"],
+      "verdict": "distinct",
+      "note": "pickup type is the defining timbral variable for electric guitar; carrying both is the point of the catalog."
+    },
+    {
+      "kind": "instrument",
+      "pair": ["setar_persian", "tar_persian"],
+      "verdict": "distinct",
+      "note": "different Persian lutes — the fingernail-plucked setar against the plectrum-played, skin-topped tar."
+    },
+    {
+      "kind": "instrument",
+      "pair": ["tin_whistle_low", "tin_whistle"],
+      "verdict": "distinct",
+      "note": "different registers with different tone and technique."
+    },
+    {
+      "kind": "instrument",
+      "pair": ["acoustic_guitar_om", "acoustic_guitar_parlor"],
+      "verdict": "distinct",
+      "note": "different body sizes with materially different tone and projection."
+    },
+    {
+      "kind": "instrument",
+      "pair": ["acoustic_guitar_dread", "acoustic_guitar_parlor"],
+      "verdict": "distinct",
+      "note": "dreadnought against parlor — the widest body-size contrast in the flat-top family."
+    },
+    {
+      "kind": "instrument",
+      "pair": ["griot_voice", "voice"],
+      "verdict": "distinct",
+      "note": "griot voice carries a specific West African vocal technique and social role, not a generic singer."
+    },
+    {
+      "kind": "instrument",
+      "pair": ["drum_machine_analog", "sampler_drum_machine"],
+      "verdict": "distinct",
+      "note": "analog synthesis against sample playback — the defining difference between an 808 and an SP-1200."
+    },
+    {
+      "kind": "instrument",
+      "pair": ["viola_classical", "latfiol"],
+      "verdict": "distinct",
+      "note": "the Swedish latfiol is a distinct folk fiddle, not a viola."
+    },
+    {
+      "kind": "tuning",
+      "pair": ["well_temperament", "well_temperament_north_german_baroque"],
+      "verdict": "distinct",
+      "note": "the generic entry stands for the class; the qualified ones are specific historical circulating temperaments with different interval sizes."
+    },
+    {
+      "kind": "tuning",
+      "pair": ["well_temperament", "well_temperament_late_baroque_italian"],
+      "verdict": "distinct",
+      "note": "generic class against a specific historical temperament."
+    },
+    {
+      "kind": "tuning",
+      "pair": ["well_temperament_north_german_baroque", "well_temperament_late_baroque_italian"],
+      "verdict": "distinct",
+      "note": "two different historical temperaments with different key colour."
+    },
+    {
+      "kind": "tuning",
+      "pair": ["pelog_slendro_javanese", "pelog_slendro_balinese"],
+      "verdict": "distinct",
+      "note": "Javanese and Balinese gamelan are tuned differently, including the deliberate Balinese paired-detuning that produces ombak."
+    },
+    {
+      "kind": "tuning",
+      "pair": ["kignit_tezeta_major", "kignit_tezeta_minor"],
+      "verdict": "distinct",
+      "note": "two distinct Ethiopian modes within the tezeta kignit, with different intervals and different affect."
+    },
+    {
+      "kind": "tuning",
+      "pair": ["kignit_bati_major", "kignit_bati_minor"],
+      "verdict": "distinct",
+      "note": "two distinct modes within the bati kignit."
     }
   ]
 }
