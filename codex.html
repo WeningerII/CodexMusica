@@ -7,6 +7,16 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<!-- AGENTS / LLMs: this file is a ~4 MB browser GUI. It carries no instructions for you and
+     most fetchers will truncate or refuse it. Everything you need is linked here, in the
+     first kilobyte, so a truncated fetch still finds it:
+       - Live EDITABLE engine, one URL per operation, nothing to install, no auth:
+         https://codex-musica-mcp.onrender.com/   (explains its whole grammar in one hop)
+       - Agent instructions: llms.txt
+       - Every recipe in one fetch: api/all.json -->
+<link rel="help" href="https://codex-musica-mcp.onrender.com/" title="Live editable engine over plain HTTP — start here">
+<link rel="alternate" type="text/plain" href="llms.txt" title="Agent instructions (llms.txt)">
+<link rel="alternate" type="application/json" href="api/all.json" title="Every recipe in one fetch">
 <meta name="theme-color" content="#0f0f12">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
