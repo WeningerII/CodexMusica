@@ -17197,7 +17197,7 @@ function wireStackSignatureEvents(el) {
   text-transform: uppercase;
   padding: var(--s2) 0 var(--s1) 2px;
   margin: 0;
-  border-top: 1px solid var(--border-1);
+  border-top: 1px solid var(--border);
 }
 .letter-section:first-child .letter-band { border-top: none; padding-top: 0; }
 
@@ -17205,7 +17205,7 @@ function wireStackSignatureEvents(el) {
 .axis-filter-bar {
   padding: var(--s3) 0 var(--s4) 0;
   margin-bottom: var(--s3);
-  border-bottom: 1px solid var(--border-1);
+  border-bottom: 1px solid var(--border);
 }
 .axis-filter-label {
   font-size: var(--fs-micro);
@@ -17261,7 +17261,7 @@ function wireStackSignatureEvents(el) {
 .fit-instruments {
   margin-top: var(--s3);
   padding-top: var(--s3);
-  border-top: 1px dashed var(--border-1);
+  border-top: 1px dashed var(--border);
 }
 .fit-instruments-label {
   font-size: var(--fs-micro);
