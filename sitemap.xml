@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://weningerii.github.io/CodexMusica/</loc></url>
+  <url><loc>https://weningerii.github.io/CodexMusica/llms.txt</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/AGENTS.md</loc></url>
+  <url><loc>https://weningerii.github.io/CodexMusica/SKILL.md</loc></url>
+  <url><loc>https://weningerii.github.io/CodexMusica/server.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/index.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/all.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/index.json</loc></url>

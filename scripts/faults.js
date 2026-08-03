@@ -172,8 +172,32 @@ process.stderr.write(
 }
 
 // 6. stale api/ (committed != fresh build) -> check_artifact_fresh.js
+//
+// The temp env has to carry more than scripts/references/api. check_artifact_fresh
+// regenerates the discovery files by running build_discovery.js, and that script
+// now refuses to emit a sitemap URL with no file behind it — a deliberate guard
+// against declaring 404s to a crawler. With only three directories copied,
+// index.html / AGENTS.md / SKILL.md / server.json are all absent, the generator
+// exits 1, and the gate dies BEFORE it ever compares the planted STALE_DRIFT.
+// That reads as WRONG-REASON, which is the harness reporting honestly: the gate
+// failed, but not on the defect we planted. The fix belongs here, not in the
+// guard — a fault env that cannot run the gate is not evidence about the gate.
+// The three discovery outputs come along for the same reason: the gate reads the
+// COMMITTED copies from its own root, and "committed copy missing" is likewise
+// not the failure this class is meant to prove.
 if (FRESH_API && FRESH_HTML) {
-  const d = mkenv(['scripts', 'references', 'api']);
+  const d = mkenv([
+    'scripts',
+    'references',
+    'api',
+    'index.html',
+    'AGENTS.md',
+    'SKILL.md',
+    'server.json',
+    'sitemap.xml',
+    'llms.txt',
+    'robots.txt',
+  ]);
   const f = path.join(d, 'api/traditions/bluegrass.json');
   const j = JSON.parse(fs.readFileSync(f, 'utf8'));
   j.recipe = j.recipe + ' STALE_DRIFT';

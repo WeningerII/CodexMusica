@@ -131,6 +131,14 @@ const QUALIFIERS = [
   'fail',
   'pass',
 ];
+// Markdown emphasis and quote marks may sit between the number and the noun:
+// `**649 "prefaces"**` is the same canonical claim as `649 prefaces`, but a
+// pattern anchored on a literal space misses it — which is exactly how
+// docs/connector-directory-submission.md carried a stale preface count of 649
+// against an actual 741 without this gate noticing. The noun is what identifies
+// the claim; the decoration around it must not decide whether we check.
+const Q = '["\u201C\u201D\u2018\u2019*_`]*';
+
 const Q_NEG = `(?!\\s+(?:${QUALIFIERS.join('|')})\\b)`;
 
 // Number group accepting both "870" and "1,167". README writes prose numbers with
@@ -147,43 +155,47 @@ const COUNT_CHECKS = [
   // and \s+ so a line-wrapped "all 1195\ntraditions" still matches — both forms
   // drifted silently before this pattern was widened.
   {
-    phrase: new RegExp(`${N}(?:\\s+(?:recorded-music|music))?\\s+traditions\\b${Q_NEG}`, 'g'),
+    phrase: new RegExp(`${N}(?:\\s+(?:recorded-music|music))?\\s+${Q}traditions\\b${Q_NEG}`, 'g'),
     expected: C.TRADITIONS.length,
     kind: 'traditions',
   },
   {
-    phrase: new RegExp(`${N} instruments\\b${Q_NEG}`, 'g'),
+    phrase: new RegExp(`${N}\\s+${Q}instruments\\b${Q_NEG}`, 'g'),
     expected: C.INSTRUMENTS.length,
     kind: 'instruments',
   },
   {
-    phrase: new RegExp(`${N} prefaces\\b${Q_NEG}`, 'g'),
+    phrase: new RegExp(`${N}\\s+${Q}prefaces\\b${Q_NEG}`, 'g'),
     expected: C.PREFACE_LEXICON.length,
     kind: 'prefaces',
   },
-  { phrase: new RegExp(`${N} rooms\\b${Q_NEG}`, 'g'), expected: C.ROOMS.length, kind: 'rooms' },
   {
-    phrase: new RegExp(`${N} chain archetypes\\b${Q_NEG}`, 'g'),
+    phrase: new RegExp(`${N}\\s+${Q}rooms\\b${Q_NEG}`, 'g'),
+    expected: C.ROOMS.length,
+    kind: 'rooms',
+  },
+  {
+    phrase: new RegExp(`${N}\\s+${Q}chain archetypes\\b${Q_NEG}`, 'g'),
     expected: C.CHAIN_ARCHETYPES.length,
     kind: 'chain_archetypes',
   },
   {
-    phrase: new RegExp(`${N} production aesthetics\\b${Q_NEG}`, 'g'),
+    phrase: new RegExp(`${N}\\s+${Q}production aesthetics\\b${Q_NEG}`, 'g'),
     expected: C.PRODUCTION_AESTHETICS.length,
     kind: 'production_aesthetics',
   },
   {
-    phrase: new RegExp(`${N} tunings\\b${Q_NEG}`, 'g'),
+    phrase: new RegExp(`${N}\\s+${Q}tunings\\b${Q_NEG}`, 'g'),
     expected: C.TUNINGS.length,
     kind: 'tunings',
   },
   {
-    phrase: new RegExp(`${N} tree nodes\\b${Q_NEG}`, 'g'),
+    phrase: new RegExp(`${N}\\s+${Q}tree nodes\\b${Q_NEG}`, 'g'),
     expected: C.TREE_NODES.length,
     kind: 'tree_nodes',
   },
   {
-    phrase: new RegExp(`${N} catalog tables\\b${Q_NEG}`, 'g'),
+    phrase: new RegExp(`${N}\\s+${Q}catalog tables\\b${Q_NEG}`, 'g'),
     expected: Object.keys(C).length,
     kind: 'catalog_tables',
   },

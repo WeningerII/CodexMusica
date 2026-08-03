@@ -252,6 +252,20 @@ function list(v) {
     .filter(Boolean);
 }
 
+// XML text escaping for sitemap.xml. The catalog half of every URL needs none of
+// this — the same measurement that lets ';' and '=' be delimiters also proves no
+// id contains '&' or '<' — but the ORIGIN half comes from the Host /
+// X-Forwarded-Host request header, which is caller-supplied and covered by no
+// such guarantee. scripts/build_discovery.js escapes only '&' because it builds
+// from a hardcoded BASE; this file cannot, so it escapes the whole string. A
+// hostile Host header should at worst produce a sitemap pointing somewhere
+// useless, never one that is not well-formed XML.
+const XML_ESCAPES = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&apos;' };
+
+function xmlEscape(s) {
+  return String(s).replace(/[&<>"']/g, (c) => XML_ESCAPES[c]);
+}
+
 // ─────────────────────────── /v1/recipe ───────────────────────────
 
 function recipeSelf(req, { traditions, edits, format, max_chars }) {
@@ -442,6 +456,23 @@ export function handleRecord(req, type, id) {
 
 // ─────────────────────────── the teaching hop ───────────────────────────
 
+// Hoisted out of indexDocument because the unknown-path handler serves it too. A
+// caller that guessed a path wrong and a caller that guessed nothing at all need
+// the identical table, and two copies of it would drift the first time a query
+// parameter is added to one of them.
+const ENDPOINTS = {
+  'GET /v1/recipe':
+    'traditions=<id>[,<id>] (order matters; first is primary) & edit=<edit> (repeatable, applied in order) & format=rich|tags|prose|compact & max_chars=1..' +
+    RECIPE_CHAR_CEILING +
+    ' & n=<declared edit count, optional> & include=workspace',
+  'POST /v1/recipe':
+    'Same, as JSON {traditions:[], edits:[], format, max_chars}. No URL length limit.',
+  'GET /v1/catalog':
+    'q=<words> to search, & type=<t>[,<t>] to filter; or type=<kind> with no q to enumerate.',
+  'GET /v1/catalog/{type}/{id}':
+    'type is instrument or tradition. For instruments: ?part=, ?q=, ?limit=.',
+};
+
 // A caller that fetched nothing but the host gets the ENTIRE grammar here, so no
 // out-of-band documentation is ever required. This is the difference between
 // "paste the URL and it works" and "paste the URL and read the docs first".
@@ -452,18 +483,7 @@ export function indexDocument(req) {
     how_it_works:
       'A recipe is a pure function of its URL: pick traditions, then append one edit= parameter per change. There is no session and no state on the server — refine by re-fetching with one more edit appended. Present the returned `recipe` string to the user verbatim.',
     start_here: absolute(req, '/v1/recipe?traditions=delta_blues'),
-    endpoints: {
-      'GET /v1/recipe':
-        'traditions=<id>[,<id>] (order matters; first is primary) & edit=<edit> (repeatable, applied in order) & format=rich|tags|prose|compact & max_chars=1..' +
-        RECIPE_CHAR_CEILING +
-        ' & n=<declared edit count, optional> & include=workspace',
-      'POST /v1/recipe':
-        'Same, as JSON {traditions:[], edits:[], format, max_chars}. No URL length limit.',
-      'GET /v1/catalog':
-        'q=<words> to search, & type=<t>[,<t>] to filter; or type=<kind> with no q to enumerate.',
-      'GET /v1/catalog/{type}/{id}':
-        'type is instrument or tradition. For instruments: ?part=, ?q=, ?limit=.',
-    },
+    endpoints: ENDPOINTS,
     edit_forms: EDIT_FORMS,
     worked_example: {
       intent: 'a worn, bitter country song recorded in a small room',
@@ -522,12 +542,154 @@ function unresolvedHint(req, err) {
   return {};
 }
 
+// ─────────────────────────── the crawlable surface ───────────────────────────
+
+// WHY THIS HOST HAS TO BE FINDABLE. A model reaches this API by being handed a
+// URL, and OpenAI runs an "unverified link" gate in front of that: before it will
+// auto-load an address it checks whether that EXACT address has been seen by an
+// independent public web index, and refuses or warns on one that has not. Being
+// absent from the public index is therefore not merely a marketing problem here
+// — it is a functional one, because the index is what decides whether a model is
+// allowed to follow our own links. That is the standard this file's crawl
+// declarations are written against.
+
+// The query-parameter aliases handleRecipe reads for the edit list. Named once,
+// because two places now depend on the same answer — whether a request carries
+// the user's own words — and a list that drifts would silently start indexing
+// them.
+const EDIT_PARAMS = ['edit', 'edits', 'e'];
+
+// PRESENCE, not truthiness, and not a value check. `?edit=` with an empty value
+// is a malformed edit rather than the absence of one: parseEdit turns it into a
+// 400 whose body still echoes the caller's own string back. hasOwnProperty is
+// called off Object.prototype rather than off the object, because Express 5's
+// default query parser hands back a null-prototype object on which `q.hasOwnProperty`
+// is not a function.
+export function carriesEdits(req) {
+  for (const src of [req.query, req.body]) {
+    if (!src || typeof src !== 'object') continue;
+    for (const k of EDIT_PARAMS) {
+      if (Object.prototype.hasOwnProperty.call(src, k)) return true;
+    }
+  }
+  return false;
+}
+
+// robots.txt for THIS host — the instance that actually serves /v1/recipe. It is
+// unrelated to the repo-root robots.txt that scripts/build_discovery.js writes
+// for the GitHub Pages docs site: different origin, different paths, and neither
+// one can speak for the other. Until this route existed the Render host served no
+// robots.txt at all, while the Pages sitemap listed 2045 URLs and named this
+// origin zero times — so the half of the product that does the editing was
+// declared nowhere.
+//
+// OAI-SearchBot gets its own group because OpenAI documents that content is not
+// discoverable in ChatGPT if that crawler is blocked, and because robots.txt
+// groups are NOT additive: a crawler obeys only the most specific group matching
+// its name, so the group has to repeat every rule rather than inherit from `*`.
+const CRAWL_RULES = [
+  'Allow: /',
+  // Disallowed by PARAMETER, not by path: a bare seed and a fully edited recipe
+  // are both /v1/recipe and differ only in the query string, so there is no path
+  // prefix that separates them. Longest-match wins over `Allow: /` for the URLs
+  // that match. The `?`/`&` anchor on the `e` alias is load-bearing: `type=` ends
+  // in the literal substring `e=`, so an unanchored `/*e=` would match
+  // `/v1/catalog?type=tradition` and disallow the entire catalog.
+  'Disallow: /*?edit=',
+  'Disallow: /*&edit=',
+  'Disallow: /*?edits=',
+  'Disallow: /*&edits=',
+  'Disallow: /*?e=',
+  'Disallow: /*&e=',
+];
+
+export function robotsTxt(req) {
+  return (
+    [
+      '# Codex Musica — the live recipe API. AI agents and crawlers welcome on the',
+      '# teaching surface: the index, the OpenAPI documents, the catalog, and the',
+      '# unedited seed recipe for every tradition are all public, deterministic data.',
+      '#',
+      '# The edit surface is not. A URL carrying edit= is a transcription of what a',
+      '# user said they wanted, in the address itself, and must not enter a public',
+      '# index. See rest.js for why the header and these rules are scoped the same way.',
+      '',
+      'User-agent: OAI-SearchBot',
+      ...CRAWL_RULES,
+      '',
+      'User-agent: *',
+      ...CRAWL_RULES,
+      '',
+      `Sitemap: ${absolute(req, '/sitemap.xml')}`,
+      '',
+    ].join('\n') + '\n'
+  );
+}
+
+// The enumerable half of /v1/catalog, derived from the route's own OPTION_KINDS
+// rather than re-listed here, so a kind the route learns to serve cannot go
+// missing from the sitemap. 'tradition' is prepended because handleCatalog serves
+// it through listTraditions on a separate branch and it is not an options kind.
+const ENUMERABLE_TYPES = ['tradition', ...new Set(Object.values(OPTION_KINDS))];
+
+// Built from the engine's in-memory tables, never from disk: this runs on the
+// hosted instance, where the repo-root sitemap.xml is both absent and about a
+// different origin. Origins come from the same forwarded-host logic as every
+// `self` link, so a sitemap entry is byte-identical to the canonical URL the
+// endpoint itself reports — a crawler and a caller cannot end up with two
+// spellings of one recipe.
+export function sitemapUrls(req) {
+  const urls = [absolute(req, '/'), absolute(req, '/openapi.json')];
+  // /v1 and /openapi-3.0.json are deliberately absent: both are second spellings
+  // of a URL already listed, and a sitemap that offers a crawler two addresses
+  // for one document is asking it to pick a canonical for us.
+  for (const type of ENUMERABLE_TYPES) urls.push(absolute(req, `/v1/catalog?type=${type}`));
+  // limit is pinned to the live tradition count because listTraditions pages at
+  // 50 by default, and a truncated sitemap is worse than a missing one: it ships
+  // 50 of 1167 traditions and is indistinguishable from a complete document.
+  const { items } = E.listTraditions({ limit: E.counts.traditions });
+  // encodeValue, not raw interpolation — three ids carry an accented letter, and
+  // it is the same encoder recipeSelf uses, which is what keeps the two spellings
+  // identical.
+  for (const t of items) urls.push(absolute(req, `/v1/recipe?traditions=${encodeValue(t.id)}`));
+  return urls;
+}
+
+// NO <lastmod>, for the same reason scripts/build_discovery.js dropped it: a wall
+// clock in a generated artifact makes the artifact a function of the day it was
+// produced. Here nothing is committed, but the property still earns its keep —
+// the document is a pure function of the catalog and the request host, so two
+// instances behind the same load balancer cannot disagree about it.
+export function sitemapDocument(req) {
+  return (
+    '<?xml version="1.0" encoding="UTF-8"?>\n' +
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
+    sitemapUrls(req)
+      .map((u) => `  <url><loc>${xmlEscape(u)}</loc></url>`)
+      .join('\n') +
+    '\n</urlset>\n'
+  );
+}
+
 // ─────────────────────────── mounting ───────────────────────────
 
 // The nine MCP tool names are the nine most likely wrong paths for a caller that
-// read the connector docs, so they redirect instead of 404ing. An unknown path
-// returns the index rather than a bare error — a caller that guessed wrong should
-// end up taught, not stuck.
+// read the connector docs, so they redirect instead of 404ing. Any OTHER unknown
+// path gets the endpoint table and a link to the index in the body of a 404 — a
+// caller that guessed wrong ends up taught, not stuck.
+//
+// That second sentence used to be a comment describing nothing. The only fallback
+// in this file was the alias loop below, which is scoped to these nine names, so
+// `/v1/recipes` — one plausible plural — fell through to Express's bare HTML 404
+// and a model got back no grammar at all, from the one server whose entire design
+// premise is that it teaches its own grammar on any hop. The catch-all at the end
+// of mountRest is what makes the claim true.
+//
+// It stays a 404 rather than serving the index at 200. A host that answers 200 on
+// every path is a soft-404: it tells a crawler that the 1179 URLs in sitemap.xml
+// and every typo anyone ever makes are equally real pages, and it tells a caller
+// that its guess was a valid endpoint, which is the same class of quiet lie as
+// substituting an id nobody asked for.
 const PATH_ALIASES = {
   start_recipe: '/v1/recipe',
   edit_recipe: '/v1/recipe',
@@ -541,11 +703,31 @@ const PATH_ALIASES = {
 };
 
 export function mountRest(app, { openapi } = {}) {
+  // X-Robots-Tag is scoped to the requests that actually carry the user's words.
+  // It used to be unconditional, one line, on every response — which meant the
+  // teaching index at `/`, both OpenAPI documents and every catalog page told
+  // every crawler to ignore them. That is self-defeating twice over: it kept the
+  // one document that explains this API out of search, and it kept our own
+  // addresses out of the public index that OpenAI's unverified-link gate consults
+  // before it will let a model auto-load them. We were pointing models at a host
+  // we had asked the world not to look at.
+  //
+  // The header is scoped rather than deleted because the edit surface genuinely
+  // must not be indexed: state-is-the-URL means
+  // `?traditions=country&edit=set_preface;card=voice;preface=worn` is a
+  // transcription of something a person said they wanted, sitting in an address.
+  // Making every refinement shareable must not make it public.
+  //
+  // The decision cannot be keyed on the route. A seed and a fully edited recipe
+  // are the same route and differ only by whether the caller attached edits, so
+  // it is decided per request — and on the request BODY as well as the query,
+  // because a POST /v1/recipe answer carries a `self` link that spells the edits
+  // back out in a URL.
   const send = (handler) => (req, res) => {
     try {
       res.set('Cache-Control', 'public, max-age=600');
       res.set('Referrer-Policy', 'no-referrer');
-      res.set('X-Robots-Tag', 'noindex');
+      if (carriesEdits(req)) res.set('X-Robots-Tag', 'noindex');
       res.json(handler(req));
     } catch (err) {
       const e =
@@ -587,6 +769,23 @@ export function mountRest(app, { openapi } = {}) {
     app.get('/openapi-3.0.json', (_req, res) => res.json(openapi('3.0.3')));
   }
 
+  // Both served from here rather than from a static file, because the only host
+  // these documents describe is the one answering the request: the origin is read
+  // off the forwarded headers, and the tradition list is the engine's own. A
+  // checked-in file would have to hardcode an origin and would go stale against
+  // the catalog on the first tradition added.
+  app.get('/robots.txt', (req, res) => {
+    res.set('Content-Type', 'text/plain; charset=utf-8');
+    res.set('Cache-Control', 'public, max-age=600');
+    res.send(robotsTxt(req));
+  });
+
+  app.get('/sitemap.xml', (req, res) => {
+    res.set('Content-Type', 'application/xml; charset=utf-8');
+    res.set('Cache-Control', 'public, max-age=600');
+    res.send(sitemapDocument(req));
+  });
+
   for (const [alias, target] of Object.entries(PATH_ALIASES)) {
     for (const p of [`/${alias}`, `/v1/${alias}`]) {
       app.all(p, (req, res) => {
@@ -598,4 +797,31 @@ export function mountRest(app, { openapi } = {}) {
       });
     }
   }
+
+  // The catch-all has to be last in the WHOLE app's stack, and mountRest is not
+  // the last thing that runs. server_http.js calls it partway down and then
+  // registers /.well-known/mcp.json and the /mcp transport underneath it; an
+  // app.use() appended here and now would match those paths first and answer the
+  // connector's initialize POST with a 404 teaching document. The MCP connector —
+  // the reason this server exists — would go dark, and it would go dark silently,
+  // because a 404 with a helpful JSON body looks like a working endpoint in a log.
+  //
+  // process.nextTick is what buys the ordering without reaching into a module
+  // this file does not own. Node drains the nextTick queue after the current
+  // synchronous run finishes and BEFORE the event loop dispatches any I/O, so
+  // this lands after every route the entry point registers synchronously and
+  // still before the first request can possibly be routed. Registering it inside
+  // mountRest keeps the promise in the comment above PATH_ALIASES true for any
+  // caller, including one that never reads this far.
+  process.nextTick(() => {
+    app.use(
+      send((req) => {
+        throw new RestError(404, `No endpoint at "${req.path}".`, {
+          endpoints: ENDPOINTS,
+          start_here: absolute(req, '/v1/recipe?traditions=delta_blues'),
+          resolve_a_word: absolute(req, '/v1/catalog?q=<words>'),
+        });
+      })
+    );
+  });
 }
