@@ -42,6 +42,7 @@ module.exports = [
         EMOJI_REGISTRY: 'readonly',
         EMOJI_SVGS: 'readonly',
         FAMILY_FALLBACK_EMOJI: 'readonly',
+        FAMILY_HEADER_EMOJI: 'readonly',
         ICON_ALIASES: 'readonly',
         ICON_PATHS: 'readonly',
         INSTRUMENTS: 'readonly',

@@ -65,6 +65,7 @@ const WANTED = [
   '1f4fb', // 📻  radio
   '1f4bf', // 💿  optical disc (CD / turntable substitute)
   '1f4fc', // 📼  videocassette (tape medium)
+  '1f50c', // 🔌  electric plug (electric-stringed family heading)
 
   // --- Voice / human ---
   '1f3a8', // 🎨  artist palette (creative output)

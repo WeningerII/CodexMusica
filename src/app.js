@@ -12019,6 +12019,18 @@ function icon(name, size = 16) {
 //   1. EMOJI_REGISTRY[id] → codepoint → EMOJI_SVGS[codepoint] inner markup
 //   2. FAMILY_FALLBACK_EMOJI[inst.family] → codepoint → EMOJI_SVGS[codepoint]
 //   3. Empty string (last resort — caller's tinted square frame stays)
+// Glyph for a family HEADING in the instrument picker. Deliberately not
+// image()'s family fallback: three families fall back to the guitar, which is
+// right on a card thumbnail and useless on three adjacent headings. See
+// _family_header in scripts/_instrument_emoji_map.json.
+function familyImage(familyId, size = 20) {
+  if (typeof EMOJI_SVGS === 'undefined' || typeof FAMILY_HEADER_EMOJI === 'undefined') return '';
+  const cp = FAMILY_HEADER_EMOJI[familyId];
+  const inner = cp ? EMOJI_SVGS[cp] : null;
+  if (!inner) return '';
+  return `<svg class="codex-emoji" width="${size}" height="${size}" viewBox="0 0 36 36" aria-hidden="true" focusable="false">${inner}</svg>`;
+}
+
 function image(id, size = 32) {
   if (typeof EMOJI_SVGS === 'undefined') return '';
   let cp = (typeof EMOJI_REGISTRY !== 'undefined') ? EMOJI_REGISTRY[id] : null;
@@ -16724,6 +16736,10 @@ function _initApp() {
 .part-thumb-cell .sb-trad-glyph { padding: 1px; }
 .part-thumb-cell .sb-trad-glyph svg { width: 18px; height: 18px; }
 .preface-id .sb-trad-glyphs { margin-right: 4px; }
+.fam-glyph { display: inline-flex; align-items: center; flex: 0 0 auto; }
+.fam-glyph svg { display: block; }
+.similar-card-glyph { display: inline-flex; align-items: center; vertical-align: middle; margin-right: 5px; }
+.similar-card-glyph svg { display: block; }
 .qp-glyph { display: inline-flex; align-items: center; vertical-align: middle; margin-right: 6px; }
 .qp-glyph svg { display: block; }
 .tree-row-desc { font-size: var(--fs-caption); color: var(--text-3); margin-top: 2px; line-height: 1.4; }
@@ -17392,7 +17408,8 @@ function renderInstPicker() {
     const list = INSTRUMENTS.filter(i => i.family === fam.id && matchesQuery(i) && matchesFilters(i));
     if (!list.length) return;
     const collapsed = !forceExpand && app.instCollapsed.has(fam.id);
-    html += `<div class="fam-block${collapsed ? ' collapsed' : ''}"><button class="fam-head" data-fam-toggle="${esc(fam.id)}"><span class="fam-chevron">${icon('chevron-down', 12)}</span><span class="fam-name">${esc(fam.name)}</span><span class="fam-count">${list.length}</span></button>`;
+    const famGlyph = (typeof familyImage === 'function') ? familyImage(fam.id, 18) : '';
+    html += `<div class="fam-block${collapsed ? ' collapsed' : ''}"><button class="fam-head" data-fam-toggle="${esc(fam.id)}"><span class="fam-chevron">${icon('chevron-down', 12)}</span>${famGlyph ? `<span class="fam-glyph">${famGlyph}</span>` : ''}<span class="fam-name">${esc(fam.name)}</span><span class="fam-count">${list.length}</span></button>`;
 
     // Letter bands only for large families AND when not actively searching/filtering
     if (list.length >= LETTER_BAND_THRESHOLD && !q && filters.size === 0) {
@@ -17706,7 +17723,8 @@ function renderSimilarInstrumentView(instId) {
     const matches = getMatchingInstrumentAxes(instId, n.id, 3);
     html += `<div class="similar-card">`;
     html += `<div>`;
-    html += `<div class="similar-card-name">${esc(n.name)}</div>`;
+    const nThumb = (typeof image === 'function') ? image(n.id, 18) : '';
+    html += `<div class="similar-card-name">${nThumb ? `<span class="similar-card-glyph">${nThumb}</span>` : ''}${esc(n.name)}</div>`;
     html += `<div class="similar-card-distance">distance ${n.distance.toFixed(2)} · ${esc(FamName(n.family))}</div>`;
     html += renderInstrumentFingerprint(n.id);
     html += `<div class="similar-card-matches">`;

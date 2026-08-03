@@ -6,6 +6,40 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Added — family glyphs on the instrument picker's headings
+
+The instrument emoji were already assigned and already drawn on card thumbnails,
+the detail header and the part rows; the picker — the one screen whose whole job
+is *finding* an instrument — showed none of them.
+
+- Each of the 11 family headings now carries a glyph, from a new `_family_header`
+  map in `scripts/_instrument_emoji_map.json` emitted as `FAMILY_HEADER_EMOJI`.
+- It is a separate map from `_family_fallback` on purpose. The fallbacks are
+  per-instrument card art, where acoustic, electric and plucked-traditional all
+  resolving to the guitar is correct; on three adjacent headings it is three
+  identical pictures. The heading map is mutually distinct — the generator fails
+  the build if it ever isn't — so electric-stringed takes the plug and
+  plucked-traditional the banjo.
+- The find-similar view also gained a per-row glyph. It is the one instrument
+  list that is *not* grouped by family, so the glyph carries information there.
+
+**Not done: a glyph on every picker row.** The registry resolves 872 instruments
+to 16 distinct glyphs, and the picker is already grouped by family, so within a
+block the glyph is constant — 1 distinct glyph across all 162 bowed instruments,
+1 across 29 acoustic strings, 1 across 41 ensembles. A per-row glyph there
+repeats the heading up to 162 times and tells the eye nothing. Worth doing only
+after the instrument vocabulary is widened the way the room and preface ones
+were; that is a data task, not a UI one.
+
+### Fixed — re-running build_emoji.js corrupted the asset manifest
+
+The script strips its previously emitted block before re-emitting, but the strip
+pattern still looked for a heading (`EMOJI_REGISTRY`) that the script had stopped
+writing (`EMOJI registries`). The strip silently no-opped and the whole block was
+**appended** instead of replaced — a second `const EMOJI_SVGS` in the same file,
+which is a hard syntax error in the browser build. It matches both headings now,
+and asserts the strip actually removed the old block rather than trusting it.
+
 ### Added — 92 prefaces closing systematic gaps in the lexicon
 
 The lexicon had 649 entries and whole families missing from it. It carried
