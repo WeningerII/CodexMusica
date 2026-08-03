@@ -1,0 +1,247 @@
+# Screened genre-list byproduct — instrument names.
+#
+# The genre lists were pasted partly to find MISSING INSTRUMENTS. everynoise
+# carries a long tail of bare instrument tags; those are collected here
+# rather than discarded, and screened against the instrument catalog.
+#
+# Screen with:
+#   node scripts/check_duplicates.js --candidates scripts/_candidates_instruments.txt --kind=instrument
+#
+sitar
+tabla
+oud
+kora
+mbira
+guqin
+koto
+shamisen
+bagpipe
+accordion
+banjo
+harp
+cello
+violin
+viola
+theremin
+djembe
+balafon
+ngoni
+duduk
+qanun
+santur
+sarod
+veena
+bansuri
+shehnai
+nadaswaram
+erhu
+pipa
+guzheng
+dizi
+huqin
+zither
+bandoneon
+charango
+panpipe
+steelpan
+taiko
+gong
+handpan
+autoharp
+concertina
+nyckelharpa
+kantele
+bandura
+dombra
+balalaika
+lute
+ney
+tar
+harmonica
+ukulele
+recorder
+mandolin
+mandolim
+bandolim
+moog
+modular synth
+hammond organ
+electric bass
+harpsichord
+hurdy-gurdy
+hammered dulcimer
+mountain dulcimer
+cimbalom
+tamburica
+cifteli
+baglama
+trikiti
+organetto
+zampogna
+alphorn
+schwyzerorgeli
+akordeon
+dragspel
+trekkspill
+harmonikka
+fisarmonica
+sanfona
+viola caipira
+violao
+guitarra portuguesa
+cuatro venezolano
+cuatro puertorriqueno
+arpa paraguaya
+arpa grande
+tololoche
+marimba
+gayageum
+shakuhachi
+sarangi
+santoor
+tabla
+pakhawaj
+mridangam
+ghatam
+kanjira
+morsing
+dilruba
+esraj
+rabab
+dutar
+tanbur
+kamancheh
+setar
+daf
+zurna
+davul
+kaval
+gaida
+kaba gaida
+bouzouki
+lyra
+saz
+kanun
+darbuka
+riq
+bendir
+karkabou
+krakebs
+talking drum
+dundun
+sabar
+bougarabou
+kpanlogo
+udu
+shekere
+agogo
+berimbau
+cuica
+pandeiro
+tamborim
+repinique
+surdo
+timbales
+guiro
+cajon
+quena
+zampona
+siku
+charango
+ronroco
+bombo legüero
+chapman stick
+washboard
+jaw harp
+jug
+spoons
+musical saw
+glass harmonica
+ondes martenot
+mellotron
+optigan
+chamberlin
+clavinet
+celesta
+glockenspiel
+vibraphone
+crotales
+waterphone
+daxophone
+prepared piano
+pipe organ
+positive organ
+regal
+serpent
+ophicleide
+sackbut
+crumhorn
+shawm
+rackett
+dulcian
+theorbo
+archlute
+vihuela
+viola da gamba
+baryton
+nyatiti
+adungu
+inanga
+valiha
+kamele ngoni
+goje
+imzad
+tidinit
+ardin
+begena
+krar
+masenqo
+washint
+kebero
+tsuzumi
+biwa
+sho
+hichiriki
+ryuteki
+kokyu
+sanshin
+piri
+daegeum
+haegeum
+geomungo
+janggu
+buk
+khaen
+ranat ek
+khong wong
+pi nai
+saung gauk
+pat waing
+hne
+tro
+roneat
+chapey
+dan bau
+dan tranh
+dan nguyet
+t'rung
+kulintang
+kudyapi
+rondalla bandurria
+laud
+octavina
+angklung
+kacapi
+suling
+rebab
+saron
+bonang
+kendang
+ceng-ceng
+reyong
+gender
+gambang
+slenthem
+kempul
+kenong
+kethuk

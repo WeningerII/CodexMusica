@@ -6,6 +6,53 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Added — screened external genre corpus
+
+Two external genre lists (musicgenreslist.com, curated; everynoise.com,
+algorithmic) are now committed as screened candidate corpora in
+`scripts/_candidates_traditions.txt` (1,328 entries) and
+`scripts/_candidates_instruments.txt` (238), each re-screenable with
+`check_duplicates.js --candidates`.
+
+Neither list was written to seed a recording-recipe catalog, so the raw paste
+carries a large amount that is not a tradition. Removed before committing, with
+the classes recorded in the file header: bare country and region names; slash
+joined pairs, split into both halves so neither is lost; artist and band names
+presented as genres; everynoise facet modifiers (`deep X`, `classic X`,
+`viral X`); non-music utility tags (`sleep`, `asmr`, `432hz`, `karaoke`); and
+the largest class by far, place-scene tags (`atlanta indie`, `leeds indie`) —
+kept only where the place names a genuinely distinct practice, as in
+`delta blues`, `detroit techno`, `bakersfield sound`, `madchester`.
+
+Bare instrument names were routed to the instrument corpus rather than
+discarded, since finding missing instruments was the original reason for
+pulling the lists.
+
+### Result — the instrument catalog is close to complete
+
+Screening 238 instrument names: **182 already present, 27 near-matches, 29 new**
+— and most of the 29 are not gaps. `bagpipe` is covered by four specific pipes
+(highland, gaita galega, gajda, Northumbrian smallpipes); `washboard` is
+`frottoir`; `jaw harp` is `khomus` and `morsing`. `moog` and `hammond` are
+correctly modelled as *variants* (`moog_ladder`, `tonewheel_hammond_b3`) rather
+than instruments, and the gamelan components (`reyong`, `gambang`, `kempul`,
+`kethuk`) are parts of the gamelan ensemble entries. The genuine absences are a
+short list: `tololoche`, `laud`, `archlute`, `regal`, `prepared piano`,
+`chamberlin`, `arpa grande`, `cuatro puertorriqueño`, `tidinit`, `ardin`.
+
+### Result — traditions: 267 present, 370 already covered, 691 new
+
+The 370 middle tier is the finding that justifies having built the duplicate
+gate first: those candidates read as new to a plain string match but are
+already in the catalog under a qualified name — `2-Tone` is `2-Tone ska
+revival`, `Fuji Music` is `Fújì`, `Close Harmony` is `Croatian klapa Dalmatian
+close-harmony`, `Conjunto` is `Texas conjunto`, `French House` is `French touch
+/ filter house`. Importing the raw list would have created several hundred
+duplicates.
+
+No catalog entries are added by this change — the corpus and its screen are
+the input to authoring, which follows in reviewable batches.
+
 ### Changed — merged the duplicate Tibetan long horn
 
 `tibetan_dungchen` and `dung_chen` were one instrument entered twice. `dung_chen`
