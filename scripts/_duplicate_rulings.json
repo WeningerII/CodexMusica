@@ -16,159 +16,27 @@
     },
     {
       "kind": "tradition",
-      "pair": ["new_wave", "new_wave_late_70s_early_80s"],
-      "verdict": "duplicate",
-      "note": "same genre, same window, same founding records — both descriptions name Talking Heads and Blondie as the codifiers, roster overlap 0.83. The qualifier adds no period the unqualified entry does not already claim (1977-1985). new_wave sits under popRock.newWave, the correct parent; the twin is misfiled under distortedRock.alternative."
-    },
-    {
-      "kind": "tradition",
-      "pair": ["black_metal", "black_metal_norwegian"],
-      "verdict": "duplicate",
-      "note": "the unqualified entry already IS the Norwegian second wave — its own description centres Bergen and Oslo 1991-1996 — and both list Mayhem, Burzum, Darkthrone. The twin is additionally misfiled under metal.death."
-    },
-    {
-      "kind": "tradition",
-      "pair": ["post_punk", "post_punk_late_70s"],
-      "verdict": "duplicate",
-      "note": "same 1977-84 window, same codifiers (Joy Division, Wire, Gang of Four), same parent. The qualifier narrows to British only, which the unqualified entry already covers as UK-and-US."
-    },
-    {
-      "kind": "tradition",
-      "pair": ["cloud_rap", "cloud_rap_experimental"],
-      "verdict": "duplicate",
-      "note": "both are the Lil B / Yung Lean internet-hip-hop lineage. \"experimental\" is not a distinguishing sub-style here — the unqualified entry already describes the hazy ambient production the twin claims as its differentiator."
-    },
-    {
-      "kind": "tradition",
-      "pair": ["post_metal", "post_metal_2000s"],
-      "verdict": "duplicate",
-      "note": "roster overlap 1.00, identical 2000s post-rock-into-metal framing, same exemplars modulo Neurosis/Russian Circles. Twin misfiled under metal.sludge."
-    },
-    {
-      "kind": "tradition",
-      "pair": ["microhouse", "minimal_microhouse_classic"],
-      "verdict": "duplicate",
-      "note": "the unqualified entry already names Kompakt and the Cologne scene the twin claims as its qualifier; same parent, roster overlap 0.75."
-    },
-    {
-      "kind": "tradition",
-      "pair": ["dream_pop", "dreampop_modern"],
-      "verdict": "duplicate",
-      "note": "identical exemplar list (Cocteau Twins, Mazzy Star, Beach House) and the unqualified entry already covers the 2010-present second wave the twin calls \"modern\"."
-    },
-    {
-      "kind": "tradition",
-      "pair": ["sophisti_pop", "sophistipop_80s"],
-      "verdict": "duplicate",
-      "note": "same 1984-89 UK window, same Sade / Style Council / Everything But the Girl core, same parent. The qualifier restates the unqualified entry."
-    },
-    {
-      "kind": "tradition",
-      "pair": ["bedroom_pop", "bedroom_pop_2010s"],
-      "verdict": "duplicate",
-      "note": "same SoundCloud-and-Bandcamp DIY scene, same era, overlapping roster. Twin misfiled under distortedRock.alternative."
-    },
-    {
-      "kind": "tradition",
-      "pair": ["chillwave", "chillwave_glo_fi"],
-      "verdict": "duplicate",
-      "note": "identical exemplars (Washed Out, Toro y Moi, Neon Indian) and identical 2009-2012 internet-indie framing. glo-fi is a synonym for chillwave, not a sibling style."
-    },
-    {
-      "kind": "tradition",
-      "pair": ["freak_folk_2000s", "freak_folk"],
-      "verdict": "duplicate",
-      "note": "same mid-2000s psychedelic-folk movement, same Banhart / Newsom core. Two ids for one scene; they diverge only in parent (freakFolk vs indieFolk), which is a filing error rather than a distinction."
-    },
-    {
-      "kind": "tradition",
-      "pair": ["drone_metal", "drone_metal_sustained"],
-      "verdict": "duplicate",
-      "note": "same Earth / Sunn O))) / Boris canon and the same sustained-tone premise stated twice. Twin misfiled under metal.doom."
-    },
-    {
-      "kind": "tradition",
-      "pair": ["broken_beat_uk", "broken_beat_4hero"],
-      "verdict": "duplicate",
-      "note": "roster overlap 1.00 and the same three names (4hero, IG Culture, Bugz in the Attic) in both directions — the \"4hero\" qualifier names a member of the very scene the other entry describes."
-    },
-    {
-      "kind": "tradition",
-      "pair": ["synthpop", "synthpop_classic_80s"],
-      "verdict": "duplicate",
-      "note": "same early-80s UK synth-pop with Depeche Mode and the Human League in both; \"classic\" adds no boundary the unqualified 1979-1985 entry lacks."
-    },
-    {
-      "kind": "tradition",
-      "pair": ["amapiano", "amapiano_sa"],
-      "verdict": "duplicate",
-      "note": "amapiano is South African by definition, so the qualifier is redundant. Same parent, same Kabza De Small / DJ Maphorisa core, same Pretoria-Johannesburg origin."
-    },
-    {
-      "kind": "tradition",
-      "pair": ["kwaito", "south_african_kwaito"],
-      "verdict": "duplicate",
-      "note": "kwaito is South African by definition; both describe post-apartheid Johannesburg mid-90s house-and-hip-hop with Boom Shaka and Mandoza. Same parent."
-    },
-    {
-      "kind": "tradition",
-      "pair": ["dub_techno", "berlin_techno_basic_channel"],
-      "verdict": "duplicate",
-      "note": "both entries are Basic Channel — the unqualified one names Berlin, Basic Channel and Rhythm & Sound in its own description. The second is the same practice re-entered under electronicDance.techno."
-    },
-    {
-      "kind": "tradition",
-      "pair": ["big_band", "swing_big_band"],
-      "verdict": "duplicate",
-      "note": "roster overlap 1.00, same parent, same 1930s-40s arranged-orchestra definition, Ellington and Basie in both. One format entered twice."
-    },
-    {
-      "kind": "tradition",
-      "pair": ["minimalist", "american_minimalism"],
-      "verdict": "duplicate",
-      "note": "same parent, same Reich / Glass / Riley trio, same process-music definition. The \"American\" qualifier excludes nothing the unqualified entry includes."
-    },
-    {
-      "kind": "tradition",
-      "pair": ["synthwave", "outrun_synthwave"],
-      "verdict": "duplicate",
-      "note": "outrun is a visual-and-nostalgic label for the same 2010s internet synthwave scene; both open with Kavinsky. The twin is filed under ambient, which does not match its own description."
-    },
-    {
-      "kind": "tradition",
-      "pair": ["jongo", "jongo_brasileiro"],
-      "verdict": "duplicate",
-      "note": "both are the Bantu-descended Afro-Brazilian jongo of the Rio-Minas coffee region / Vale do Paraiba — the same geography stated two ways, same parent. Only the exemplar rosters differ, and both name legitimate jongo communities that belong to one entry."
-    },
-    {
-      "kind": "tradition",
-      "pair": ["sardinian_polyphony", "sardinian_traditional"],
-      "verdict": "duplicate",
-      "note": "both are cantu a tenore and both open with Tenores di Bitti. The second bundles launeddas alongside it, which is a scope difference, not a different tradition — the launeddas material wants its own entry rather than a second copy of the tenore one."
-    },
-    {
-      "kind": "tradition",
       "pair": ["southern_trap", "trap"],
-      "verdict": "open",
-      "note": "the catalog carries a deliberate pattern of unqualified \"umbrella\" entries — the description literally says \"the umbrella trap tradition\" — alongside a regional twin. Here the umbrella has the same parent and the same three exemplars as the specific entry, so it does no navigational work. Whether umbrellas stay as broad entry points or fold into their specific twin is a catalog-wide policy decision, not a per-pair one."
+      "verdict": "distinct",
+      "note": "NOT a duplicate after all. The unqualified entry is one of 22 records carrying an explicit umbrella: true flag — a deliberate layer of household genre names (Pop, Rock, Jazz, Blues, Classical, Hip-hop...) that act as broad entry points and are excluded from similarity scoring and search bias in scripts/score.js and scripts/search.js. Overlapping exemplars with a specific twin is what an umbrella is for, not a data error. Folding these four in would leave 18 household names as entry points and these four missing."
     },
     {
       "kind": "tradition",
       "pair": ["afrobeats_naija", "afrobeats"],
-      "verdict": "open",
-      "note": "same umbrella-vs-specific pattern as trap: roster overlap 1.00, identical parent, identical exemplars. Blocked on the same policy decision."
+      "verdict": "distinct",
+      "note": "NOT a duplicate after all. The unqualified entry is one of 22 records carrying an explicit umbrella: true flag — a deliberate layer of household genre names (Pop, Rock, Jazz, Blues, Classical, Hip-hop...) that act as broad entry points and are excluded from similarity scoring and search bias in scripts/score.js and scripts/search.js. Overlapping exemplars with a specific twin is what an umbrella is for, not a data error. Folding these four in would leave 18 household names as entry points and these four missing."
     },
     {
       "kind": "tradition",
       "pair": ["k_pop_modern", "kpop"],
-      "verdict": "open",
-      "note": "same umbrella-vs-specific pattern: roster overlap 1.00, identical parent, BTS and BLACKPINK in both. Blocked on the same policy decision."
+      "verdict": "distinct",
+      "note": "NOT a duplicate after all. The unqualified entry is one of 22 records carrying an explicit umbrella: true flag — a deliberate layer of household genre names (Pop, Rock, Jazz, Blues, Classical, Hip-hop...) that act as broad entry points and are excluded from similarity scoring and search bias in scripts/score.js and scripts/search.js. Overlapping exemplars with a specific twin is what an umbrella is for, not a data error. Folding these four in would leave 18 household names as entry points and these four missing."
     },
     {
       "kind": "tradition",
       "pair": ["dubstep_140", "dubstep"],
-      "verdict": "open",
-      "note": "same umbrella-vs-specific pattern: roster overlap 1.00, identical parent, Skream and Benga in both. Blocked on the same policy decision."
+      "verdict": "distinct",
+      "note": "NOT a duplicate after all. The unqualified entry is one of 22 records carrying an explicit umbrella: true flag — a deliberate layer of household genre names (Pop, Rock, Jazz, Blues, Classical, Hip-hop...) that act as broad entry points and are excluded from similarity scoring and search bias in scripts/score.js and scripts/search.js. Overlapping exemplars with a specific twin is what an umbrella is for, not a data error. Folding these four in would leave 18 household names as entry points and these four missing."
     },
     {
       "kind": "tradition",

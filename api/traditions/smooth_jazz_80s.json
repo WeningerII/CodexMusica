@@ -3,21 +3,21 @@
   "name": "Smooth jazz (1980s commercial)",
   "family": "pop",
   "lineage": "1980s-onward commercial jazz format characterized by polished pop-production, mid-tempo grooves, melodic-rather-than-improvisational soloing, and radio-friendly song-form structures. Emerged from late-1970s jazz-fusion through Grover Washington Jr., George Benson, and Kenny G's consistent commercial success. Distinguished from broader jazz by smooth jazz's explicit commercial-radio-targeting and reduced improvisational-emphasis.",
-  "recipe": "classic Los Angeles smooth jazz, improv On Frame, smooth vocal branch, pop rock functional song sophisti-pop skiffle. thick, close mic intimate, straight onset, interlocked note trading. nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, ampeg b15 amp American 60s bass amp flip top character alder thomastik infeld electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
-  "recipe_chars": 722,
-  "score": 625.623,
+  "recipe": "classic Los Angeles smooth jazz, improv On Frame, smooth vocal branch, pop rock functional song skiffle new wave. thick, breath veiled tone, straight onset, interlocked note trading. nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, marshall plexi amp British rock amp alder thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 729,
+  "score": 597.06,
   "config": {
     "traditions": [
       "smooth_jazz_80s",
-      "sophistipop_80s",
-      "skiffle"
+      "skiffle",
+      "new_wave"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "crooner_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
@@ -28,34 +28,34 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
           "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 71.90000000000002,
-          "voice_quality": 7.5600000000000005,
+          "voice_register": 70.525,
+          "voice_quality": 9.652499999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 32.32,
-          "voice_articulation": 13.454999999999997,
-          "voice_microtone": 61.475000000000016,
-          "voice_tradition": 36.83,
-          "voice_mechanism_compound": 1.8850000000000002,
-          "voice_estill_quality": 1.69,
-          "voice_speech_song": 18.459999999999997,
-          "voice_ensemble_config": 13.584999999999997,
-          "voice_ornament_system": 0.045,
-          "voice_pitch_organization": 0.8449999999999999,
-          "voice_processing_chain": 18.699999999999996,
-          "voice_multitrack_stack": 11.147499999999999
+          "voice_vibrato": 28.119999999999997,
+          "voice_articulation": 15.924999999999995,
+          "voice_microtone": 60.97499999999999,
+          "voice_tradition": 32.37,
+          "voice_mechanism_compound": 1.625,
+          "voice_estill_quality": 1.4299999999999997,
+          "voice_speech_song": 23.074999999999996,
+          "voice_ensemble_config": 16.054999999999993,
+          "voice_ornament_system": 0.45499999999999996,
+          "voice_pitch_organization": 0.42000000000000004,
+          "voice_processing_chain": 20.099999999999994,
+          "voice_multitrack_stack": 13.984999999999998
         }
       },
       {
         "id": "saxophone",
         "slots": {
-          "wind_articulation": "wind_punchy_ensemble",
+          "wind_articulation": "wind_ska_skank_stab",
           "sax_size": "baritone_sax",
           "sax_reed": "soft_reed",
           "sax_body_alloy": "nickel_silver_sax",
@@ -64,13 +64,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 2.1775,
-          "sax_size": 2.535,
-          "sax_reed": 0.18,
-          "sax_body_alloy": 28.165,
-          "sax_mouthpiece": 0.18,
-          "sax_technique": 28.125,
-          "sax_maker_school": 28.995
+          "wind_articulation": 1.4649999999999999,
+          "sax_size": 2.73,
+          "sax_reed": 0.195,
+          "sax_body_alloy": 24.464999999999993,
+          "sax_mouthpiece": 0.195,
+          "sax_technique": 23.999999999999993,
+          "sax_maker_school": 24.219999999999995
         }
       },
       {
@@ -87,21 +87,21 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 23.645000000000007,
-          "grand_piano_size": 4.495,
-          "grand_piano_brand": 4.615,
-          "piano_hammer": 23.405,
-          "piano_rim": 23.810000000000006,
-          "piano_soundboard": 23.270000000000007,
-          "piano_pinblock": -0.035,
-          "piano_plate": 1.56,
-          "piano_pitch_standard": 1.17
+          "keyboard_technique": 20.294999999999998,
+          "grand_piano_size": 4.6450000000000005,
+          "grand_piano_brand": 4.8100000000000005,
+          "piano_hammer": 20.329999999999995,
+          "piano_rim": 20.884999999999998,
+          "piano_soundboard": 20.195,
+          "piano_pinblock": 0.46499999999999997,
+          "piano_plate": 2.1125,
+          "piano_pitch_standard": 2.5675
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_b15",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "alder_b",
           "pickup_config": "soapbar",
           "string_type": "thomastik_jazz_bass_flat",
@@ -110,13 +110,13 @@
           "bass_technique": "fingerstyle_walking"
         },
         "scores": {
-          "amp_make": 8.780000000000001,
-          "body_wood": 2.73,
-          "pickup_config": 0.375,
-          "string_type": 29.4,
-          "scale_length_b": 2.535,
+          "amp_make": 11.277499999999996,
+          "body_wood": 2.925,
+          "pickup_config": 0.195,
+          "string_type": 25.27499999999999,
+          "scale_length_b": 2.73,
           "fretted_or_not": 0.045,
-          "bass_technique": 28.125
+          "bass_technique": 23.999999999999993
         }
       },
       {
@@ -127,14 +127,14 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 32.24,
-          "drumhead": 30.04,
+          "drum_technique": 33.41,
+          "drumhead": 25.914999999999996,
           "drum_kit_kick_pedal": 0
         }
       }
     ],
     "room": "studio_la_rock_70s_90s",
-    "archetype": "arch_70s_la_rock_commercial",
+    "archetype": "arch_80s_late_analog_majorrock",
     "inline_chain": {
       "mic": "mic_u87_condenser_neumann",
       "pre": "transformer_solid_state",

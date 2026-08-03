@@ -5,7 +5,7 @@
   "lineage": "Extreme-slow doom-metal sub-style codified through Thergothon (Finnish, Stream from the Heavens 1994), Skepticism, Mournful Congregation, and Esoteric — characterized by sub-30 BPM tempo, sustained heavy-distortion guitar drones, glacial drumming, and bell-like cathedral-organ accents; ritual-funereal lyrical and visual identity",
   "recipe": "classic North American mid-1990s funeral doom, distorted Rock, doom branch, ambient experimental electric witch house vaporwave aesthetic. thick, larynx lowered, straight onset, interlocked note trading. orange amp British heavy crunch basswood lower tension down tuning power chord humbucker electric guitar, orange amp British heavy crunch ernie ball slinky sub heavy electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, roland jupiter lineage canonical jupiter 8 1981 osaka pad analog poly synth. cathedral. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 678,
-  "score": 224.222,
+  "score": 226.02,
   "config": {
     "traditions": [
       "funeral_doom",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 6.735000000000001,
+          "voice_register": 6.770250000000002,
           "voice_quality": 15.209999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.2199999999999998,
+          "voice_vibrato": 2.3375,
           "voice_articulation": 12.414999999999994,
           "voice_microtone": 12.219999999999992,
           "voice_tradition": 9.425,
-          "voice_mechanism_compound": 11.069999999999997,
+          "voice_mechanism_compound": 11.223499999999996,
           "voice_estill_quality": 1.8849999999999996,
           "voice_speech_song": 13.584999999999994,
           "voice_ensemble_config": 13.194999999999993,
-          "voice_ornament_system": 2.495,
-          "voice_pitch_organization": 4.095,
+          "voice_ornament_system": 2.53025,
+          "voice_pitch_organization": 4.24775,
           "voice_processing_chain": 8.625,
           "voice_multitrack_stack": 5.525000000000001
         }
@@ -70,8 +70,8 @@
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 13.51,
-          "amp_make": 13.53,
+          "electric_technique": 13.7685,
+          "amp_make": 13.565249999999999,
           "body_wood": 6.499999999999999,
           "neck_wood": 0.435,
           "fretboard": 0.39,
@@ -82,7 +82,7 @@
           "scale_length": 6.499999999999999,
           "string_gauge": 1.69,
           "finish": 0,
-          "string_tuning": 9.354999999999999
+          "string_tuning": 9.489999999999998
         }
       },
       {
@@ -97,13 +97,13 @@
           "bass_technique": "sub_bass_synth_blend"
         },
         "scores": {
-          "amp_make": 13.53,
+          "amp_make": 13.565249999999999,
           "body_wood": 0.8700000000000001,
           "pickup_config": 0.15,
-          "string_type": 4.26,
+          "string_type": 4.78875,
           "scale_length_b": 0.435,
           "fretted_or_not": 0,
-          "bass_technique": 3.9399999999999995
+          "bass_technique": 4.0104999999999995
         }
       },
       {
@@ -129,7 +129,7 @@
         },
         "scores": {
           "electronic_technique": 7.035000000000001,
-          "poly_archetypes": 1.71,
+          "poly_archetypes": 1.95,
           "poly_voices": 1.63,
           "poly_maker_lineage": 1.625
         }

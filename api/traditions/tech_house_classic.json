@@ -3,27 +3,27 @@
   "name": "Tech-house",
   "family": "global",
   "lineage": "House-and-techno hybrid subgenre codified through Mr. C’s End-Recordings, Terry Francis, Eddie Richards, Layo and Bushwacka — characterized by minimal-techno-derived rhythmic foundation with house-tempo (124-128 BPM), jazz-funk influence, and the European-clubland 2000s production aesthetic",
-  "recipe": "classic mid-2000s tech-house, electronic Dance, tech house branch, techno electronic dance berlin techno / basic channel dub-techno detroit techno. sustained pad digital subtractive, TR-909, sound design field sampler, analog mono synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 383,
-  "score": 129.419,
+  "recipe": "classic mid-2000s tech-house, electronic Dance, tech house branch, techno electronic dance detroit techno industrial techno. digital subtractive, TR-909, sound design field sampler, analog mono synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 346,
+  "score": 118.15,
   "config": {
     "traditions": [
       "tech_house_classic",
-      "berlin_techno_basic_channel",
-      "detroit_techno"
+      "detroit_techno",
+      "industrial_techno"
     ],
     "instruments": [
       {
         "id": "digital_subtractive",
         "slots": {
-          "electronic_technique": "electronic_pad_drone",
+          "electronic_technique": "electronic_bass_sub",
           "va_archetypes": "novation_supernova",
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 3.1400000000000006,
-          "va_archetypes": 0.052500000000000005,
-          "digital_subtractive_context": 17.224999999999994
+          "electronic_technique": 0.7799999999999998,
+          "va_archetypes": 0.1095,
+          "digital_subtractive_context": 15.534999999999995
         }
       },
       {
@@ -35,7 +35,7 @@
         },
         "scores": {
           "tr909_voice": 25.490000000000006,
-          "drum_machine_909_context": 5.415000000000001,
+          "drum_machine_909_context": 5.220000000000001,
           "tr909_production_origin": 0.7150000000000001
         }
       },
@@ -52,8 +52,8 @@
           "electronic_technique": 2.6249999999999996,
           "sampler_archetypes": 0.3,
           "sampler_bit_depth": 0.9099999999999999,
-          "sampler_workflow": 2.63,
-          "sampler_classic_context": 48.177125000000004
+          "sampler_workflow": 3.28,
+          "sampler_classic_context": 44.266125
         }
       },
       {
@@ -63,14 +63,14 @@
           "mono_oscillator": "mono_voltage_controlled",
           "mono_filter": "moog_ladder",
           "mono_archetypes": "minimoog",
-          "mono_maker_lineage": "mono_korg_kato"
+          "mono_maker_lineage": "mono_roland_kakehashi"
         },
         "scores": {
-          "electronic_technique": 23.375,
+          "electronic_technique": 20.124999999999996,
           "mono_oscillator": 0.024375,
           "mono_filter": 1.04,
           "mono_archetypes": 1.235,
-          "mono_maker_lineage": -0.21
+          "mono_maker_lineage": -0.45500000000000007
         }
       }
     ],

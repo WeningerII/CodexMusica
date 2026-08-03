@@ -5,7 +5,7 @@
   "lineage": "2009-2012 American online-distributed electronic-and-indie-pop genre characterized by lo-fi summer-nostalgic aesthetics, pitched-down vocal samples, and tape-saturated 1980s production references — codified through Washed Out (Life of Leisure 2009), Toro y Moi (Causers of This 2010), Neon Indian (Psychic Chasms 2009), Memory Tapes, with the David Carr Cole Hipster Runoff Wikipedia coinage providing the genre's name",
   "recipe": "classic 2009-2012 chillwave, experimental Elec, lofi branch, retro aesthetic experimental electric synthwave. extended whistle, breath veiled tone, pure, interlocked note trading. singing lead analog poly synth, soft down tuning clean strummed single coil electric guitar, glitched textural sampler, TR-808. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 415,
-  "score": 168.169,
+  "score": 168.246,
   "config": {
     "traditions": [
       "chillwave",
@@ -37,10 +37,10 @@
           "voice_quality": 4.030000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.2742499999999999,
+          "voice_vibrato": 1.2904999999999998,
           "voice_articulation": 11.634999999999994,
           "voice_microtone": 11.43999999999999,
-          "voice_tradition": 8.527375000000001,
+          "voice_tradition": 8.498125000000002,
           "voice_mechanism_compound": 2.6649999999999996,
           "voice_estill_quality": 2.4699999999999998,
           "voice_speech_song": 12.674999999999995,
@@ -63,7 +63,7 @@
           "electronic_technique": 8.375,
           "poly_archetypes": 0.6371249999999999,
           "poly_voices": 0.6371249999999999,
-          "poly_maker_lineage": -0.80625
+          "poly_maker_lineage": -0.7875000000000001
         }
       },
       {
@@ -86,13 +86,13 @@
           "electric_technique": 6.825,
           "amp_make": 2.653875000000001,
           "body_wood": 0.45499999999999996,
-          "neck_wood": 0.17925,
+          "neck_wood": 0.19175,
           "fretboard": 0.042749999999999996,
           "pickup_magnet": 0.042749999999999996,
           "string_material": 0.042749999999999996,
           "string_gauge": 0.195,
-          "bridge": 0.1175,
-          "scale_length": 0.35849999999999993,
+          "bridge": 0.12625,
+          "scale_length": 0.38349999999999995,
           "finish": 0,
           "string_tuning": 1.95
         }
@@ -109,7 +109,7 @@
         "scores": {
           "electronic_technique": 7.334375000000001,
           "sampler_archetypes": 1.8850000000000002,
-          "sampler_bit_depth": 2.8142500000000004,
+          "sampler_bit_depth": 2.82675,
           "sampler_workflow": 7.8492500000000005,
           "sampler_classic_context": 17.874999999999996
         }
@@ -123,7 +123,7 @@
         },
         "scores": {
           "tr808_voice": 0,
-          "drum_machine_808_context": 10.233374999999999,
+          "drum_machine_808_context": 10.245874999999998,
           "tr808_production_origin": 0.5850000000000001
         }
       }

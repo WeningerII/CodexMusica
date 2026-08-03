@@ -5,7 +5,7 @@
 // DOCUMENT FREQUENCY asc, codepoint asc), and DF was a RAW COUNT recomputed at
 // runtime over the whole INSTRUMENTS table plus TUNINGS / ROOMS /
 // CHAIN_SECTIONS. So adding ONE instrument anywhere could reorder descriptors on
-// cards nobody touched. Measured over all 1167 traditions: of 249,622 adjacent
+// cards nobody touched. Measured over all traditions (1167 of them at the time of the measurement): of 249,622 adjacent
 // token pairs ordered by the DF comparison, 38,831 are decided by a DF margin of
 // exactly 1 and 81,478 are DF-tied (order falling to the codepoint tiebreak) —
 // ~48% of them are one catalog record away from flipping, and every single

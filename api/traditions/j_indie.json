@@ -3,14 +3,14 @@
   "name": "J-indie (Japanese indie)",
   "family": "pop",
   "lineage": "Japanese independent music scene developing from 1980s onward parallel to the J-pop mainstream industry. The Shimokitazawa neighborhood of Tokyo anchors institutional infrastructure. Number Girl (Hakata 1995-2002, 2019-onward), Toe (math-rock instrumental, Tokyo), Mono (post-rock instrumental, Tokyo), Lillies and Remains, and the broader Japan independent label network (P-Vine, Headz, Kakubarhythm) anchor the canonical roster.",
-  "recipe": "classic East Asian mid-1990s j-indie, functional Song, east Asian pop branch, alternative distorted rock modern indie rock bedroom pop. thick, breath veiled tone, pure, interlocked note trading. marshall plexi amp British rock amp basswood clean strummed humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 591,
-  "score": 302.796,
+  "recipe": "classic East Asian mid-1990s j-indie, functional Song, east Asian pop branch, alternative distorted rock modern indie rock slacker rock. thick, breath veiled tone, pure, interlocked note trading. marshall plexi amp British rock amp basswood low output no compression arpeggiated humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 615,
+  "score": 322.303,
   "config": {
     "traditions": [
       "j_indie",
       "modern_indie_rock_2010s",
-      "bedroom_pop_2010s"
+      "slacker_rock"
     ],
     "instruments": [
       {
@@ -34,33 +34,33 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 32.455,
-          "voice_quality": 12.284999999999993,
+          "voice_register": 34.95500000000003,
+          "voice_quality": 10.594999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.1525,
+          "voice_vibrato": 3.2749999999999995,
           "voice_articulation": 9.945,
-          "voice_microtone": 31.925000000000004,
-          "voice_tradition": 17.95,
-          "voice_mechanism_compound": 3.1200000000000006,
-          "voice_estill_quality": 1.9499999999999997,
-          "voice_speech_song": 12.349999999999994,
-          "voice_ensemble_config": 13.259999999999994,
-          "voice_ornament_system": 2.8325,
-          "voice_pitch_organization": 3.185000000000001,
-          "voice_processing_chain": 7.86375,
-          "voice_multitrack_stack": 12.057499999999997
+          "voice_microtone": 34.42500000000001,
+          "voice_tradition": 13.367500000000001,
+          "voice_mechanism_compound": 3.575000000000001,
+          "voice_estill_quality": 2.34,
+          "voice_speech_song": 11.049999999999995,
+          "voice_ensemble_config": 12.414999999999994,
+          "voice_ornament_system": 2.3600000000000003,
+          "voice_pitch_organization": 4.030000000000001,
+          "voice_processing_chain": 5.785,
+          "voice_multitrack_stack": 11.634999999999994
         }
       },
       {
         "id": "electric_guitar_humbucker",
         "slots": {
-          "electric_technique": "electric_clean_strummed",
+          "electric_technique": "electric_arpeggiated_clean",
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "rosewood_fb_h",
-          "pickup_magnet": "alnico_2_h",
+          "pickup_magnet": "alnico_8_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
           "bridge": "stoptail",
@@ -70,19 +70,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 14.565,
-          "amp_make": 9.1,
+          "electric_technique": 14.889999999999999,
+          "amp_make": 12.089999999999996,
           "body_wood": 4.225,
           "neck_wood": 0.845,
           "fretboard": 0.78,
-          "pickup_magnet": 0,
-          "pickup_winding": 0.825,
+          "pickup_magnet": 0.195,
+          "pickup_winding": 1.02,
           "string_material": 0.15,
           "bridge": 0.845,
           "scale_length": 3.38,
           "string_gauge": 0.845,
           "finish": 0,
-          "string_tuning": 12.61
+          "string_tuning": 15.599999999999998
         }
       },
       {
@@ -97,13 +97,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 9.165,
+          "amp_make": 12.154999999999998,
           "body_wood": 0.845,
           "pickup_config": 1.69,
-          "string_type": 23.075,
+          "string_type": 30.549999999999997,
           "scale_length_b": 0.845,
-          "fretted_or_not": 0,
-          "bass_technique": 17.7
+          "fretted_or_not": 0.105,
+          "bass_technique": 23.449999999999996
         }
       },
       {
@@ -114,8 +114,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 17.75,
-          "drumhead": 14.325,
+          "drum_technique": 23.499999999999996,
+          "drumhead": 11.270000000000001,
           "drum_kit_kick_pedal": 0
         }
       }

@@ -3,12 +3,13 @@
   "name": "Ambient",
   "family": "electronic",
   "lineage": "Long-form atmospheric electronic-music genre codified by Brian Eno from 1975 onward — Discreet Music 1975, then the Ambient series Ambient 1: Music for Airports 1978 establishing both the genre name and the founding aesthetic of music as functional environment-shaping; extended through Apollo: Atmospheres and Soundtracks 1983 with Daniel Lanois and Roger Eno, Harold Budd collaborations, the modern continuation through Stars of the Lid, William Basinski (The Disintegration Loops 2002), Tim Hecker, Grouper",
-  "recipe": "classic Central European mid-1970s ambient, experimental Elec, ambient branch, modal electric drone modal. pad like pad analog synth, tape replay keyboard, handpan, structures sonores lasry baschet original experimental cristal wet finger friction legato glassy cristal baschet. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb analog bucket-brigade delay.",
-  "recipe_chars": 544,
-  "score": 39.838,
+  "recipe": "classic Central European mid-1970s ambient, experimental Elec, ambient branch, modal electric drone modal tuareg desert blues. pad like pad analog synth, tape replay keyboard, handpan, structures sonores lasry baschet original experimental cristal wet finger friction legato glassy cristal baschet. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb analog bucket-brigade delay.",
+  "recipe_chars": 564,
+  "score": 39.923,
   "config": {
     "traditions": [
-      "ambient"
+      "ambient",
+      "desert_blues"
     ],
     "instruments": [
       {
@@ -22,8 +23,8 @@
         },
         "scores": {
           "electronic_technique": 14.685142857142854,
-          "oscillator": 1.8265,
-          "filter_topology": 0.43242857142857144,
+          "oscillator": 2.128230769230769,
+          "filter_topology": 0.39,
           "envelope": 7.409999999999999,
           "modulation": 0.3
         }
@@ -36,7 +37,7 @@
           "tape_state": "aged_tape"
         },
         "scores": {
-          "keyboard_technique": -0.07,
+          "keyboard_technique": 0.06499999999999999,
           "tape_voice": 0.78,
           "tape_state": 0.3
         }
@@ -45,11 +46,11 @@
         "id": "handpan",
         "slots": {
           "handpan_scale": "handpan_f_integral",
-          "handpan_maker": "handpan_hang"
+          "handpan_maker": "handpan_western"
         },
         "scores": {
-          "handpan_scale": 2.21,
-          "handpan_maker": 1.014
+          "handpan_scale": 5.044576923076923,
+          "handpan_maker": 1
         }
       },
       {
@@ -61,7 +62,7 @@
         },
         "scores": {
           "cristal_baschet_form": 2.21,
-          "cristal_baschet_touch": 1.95,
+          "cristal_baschet_touch": 3.1200000000000006,
           "cristal_baschet_resonator": 0.7149999999999999
         }
       }

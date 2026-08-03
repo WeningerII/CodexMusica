@@ -5,7 +5,7 @@
   "lineage": "Greek wedding-music tradition continuous from Byzantine-era through Ottoman-period through 19th-20th-century modern-Greek continuous practice; regionally distributed with strongest preservation in Crete, Mani, Epirus, and Pontic-Greek diaspora",
   "recipe": "classic Southern European modern greek gamílio glendí, wedding, European branch, middle eastern wedding, Mediterranean ballad ballad poetry, vocal drone modal lebanese-arab wedding takht persian aroosi. thick, breath veiled tone, slow rate, interlocked note trading. walnut staves canonical Greek steel canonical octave unison pairs ornamented bouzouki, mulberry canonical cretan steel modern legato cretan lyra, grenadilla African blackwood traditional continuous-airflow legato clarinet, castagnari Italian premium folk music ensemble accordion, clay pre modern traditional synthetic remo mylar modern canonical Egyptian Egyptian sombaty canonical mid east darbuka, cretan rhythmic laouto. athens piraeus rebetadika. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 781,
-  "score": 281.93,
+  "score": 282.02,
   "config": {
     "traditions": [
       "greek_gamilio_glendi",
@@ -38,7 +38,7 @@
           "voice_quality": 3.3800000000000012,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.77,
+          "voice_vibrato": 7.355,
           "voice_articulation": 10.334999999999997,
           "voice_microtone": 21.449999999999996,
           "voice_tradition": 27.949999999999996,
@@ -80,8 +80,8 @@
         },
         "scores": {
           "bowed_technique": 5.75,
-          "lyra_strings": 0.22499999999999998,
-          "lyra_use": 0.42,
+          "lyra_strings": 0.18,
+          "lyra_use": 0.375,
           "lyra_body_wood": 1.7550000000000001,
           "lyra_string_material": 3.9
         }
@@ -96,8 +96,8 @@
           "clarinet_articulation": "doina_clarinet"
         },
         "scores": {
-          "wind_articulation": 10.665,
-          "clarinet_body": 11.43,
+          "wind_articulation": 10.62,
+          "clarinet_body": 11.28,
           "clarinet_size": 2.9899999999999998,
           "clarinet_reed": 0,
           "clarinet_articulation": 0.43499999999999994
@@ -107,8 +107,8 @@
         "id": "accordion",
         "slots": {
           "free_reed_technique": "free_reed_orchestral_ensemble",
-          "accordion_reed_material": "brass_reeds",
-          "musette_offset": "german_tuning",
+          "accordion_reed_material": "tipo_a_mano",
+          "musette_offset": "scottish_musette",
           "reed_config": "lmmh",
           "bellows": "cardboard_leather",
           "voicing_chamber": "cassotto",
@@ -116,10 +116,10 @@
         },
         "scores": {
           "free_reed_technique": 8.235,
-          "accordion_reed_material": 0.15,
-          "musette_offset": 0.6,
+          "accordion_reed_material": 0.195,
+          "musette_offset": 0.495,
           "reed_config": 0.195,
-          "bellows": 0.44999999999999996,
+          "bellows": 0.3,
           "voicing_chamber": 0,
           "accordion_maker_school": 9.684999999999999
         }

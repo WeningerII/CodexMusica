@@ -5,7 +5,7 @@
   "lineage": "Moroccan Sufi-trance ceremonial tradition with West-African Bambara-Soussi-Hausa-Songhai lineage tracing to sub-Saharan enslaved peoples brought to Morocco — codified through the lila ceremony with master-musician maâlem leading sintir-bass-lute and qarqaba-iron-castanets ensemble; canonical lineage through Mahmoud Guinia (Marrakech), Mustapha Baqbou, and the Essaouira Gnaoua festival (founded 1998) as the genre’s international showcase",
   "recipe": "classic North African late-1990s gnawa, drone Modal, string branch, Afro-diasporic ritual devotional, Sufi ritual devotional palo mayombe kongo mambo ritual chant lukumí ceremonial. thick, breath veiled tone, slow rate, interlocked note trading. sersara gut gut string call-and-response sintir, gnawa traditional iron metallic clang dominant ritual qarqaba, tbel, gut juniper bent frame canonical Maghrebi goat skin tacked canonical Sufi bendir, castanets, apricot canonical Maghrebi arundo donax canonical Maghrebi ghaita. stone plaster medina room. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 692,
-  "score": 267.543,
+  "score": 268.173,
   "config": {
     "traditions": [
       "gnawa",
@@ -42,7 +42,7 @@
           "voice_articulation": 18.330000000000002,
           "voice_microtone": 21.124999999999996,
           "voice_tradition": 29.2175,
-          "voice_mechanism_compound": 7.494999999999999,
+          "voice_mechanism_compound": 7.299999999999999,
           "voice_estill_quality": 7.54,
           "voice_speech_song": 19.759999999999998,
           "voice_ensemble_config": 17.485,
@@ -67,7 +67,7 @@
         "scores": {
           "plucked_traditional_technique": 24.050000000000004,
           "sintir_skin": 0.195,
-          "sintir_sersara": 2.295,
+          "sintir_sersara": 2.49,
           "sintir_strings": 2.145,
           "sintir_body_wood": 0.15,
           "sintir_neck_wood": 0.15,
@@ -84,10 +84,10 @@
           "qarqaba_context": "qarqaba_lila"
         },
         "scores": {
-          "qarqaba_construction": 4.495,
-          "qarqaba_playing_style": 3.45,
+          "qarqaba_construction": 4.69,
+          "qarqaba_playing_style": 3.645,
           "qarqaba_size": 7.8,
-          "qarqaba_context": 3.765
+          "qarqaba_context": 3.9
         }
       },
       {
@@ -98,7 +98,7 @@
         },
         "scores": {
           "tbel_skin": 0,
-          "tbel_technique": 1.25
+          "tbel_technique": 1.445
         }
       },
       {
@@ -112,7 +112,7 @@
         "scores": {
           "bendir_snares": 2.275,
           "bendir_context": 1.885,
-          "bendir_shell_wood": 2.34,
+          "bendir_shell_wood": 2.25,
           "bendir_head": 5.3
         }
       },

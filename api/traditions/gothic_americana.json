@@ -3,14 +3,14 @@
   "name": "Gothic Americana (Southern Gothic literary tradition)",
   "family": "vernacular",
   "lineage": "Broader Southern Gothic literary tradition (Faulkner, Flannery OConnor, Cormac McCarthy) rendered in folk-country-blues instrumentation with Pentecostal / Old Testament / frontier-violence thematic vocabulary — encompasses the Denver gothic-country canon (Sixteen Horsepower, Wovenhand, Slim Cessna Auto Club, the Reverend Glasseye) plus broader practitioners like Nick Cave (Murder Ballads, The Boatmans Call), late-period Tom Waits (Bone Machine onward), R.L. Burnside, the Handsome Family, the Bad Livers — distinct from gothic_country in scope (encompasses non-country instrumentation) and from folk_noir in literary lineage (Southern Gothic vs Victorian/Pre-Raphaelite)",
-  "recipe": "classic North American mid-1990s gothic americana, functional Song, americana branch, anglo singer song ballad poetry folk noir texas country-folk storyteller. thick, breath veiled tone, wide pitch sway, interlocked note trading. wood 3 ply maple Gibson mastertone canon mahogany open back canon banjo 5 string, plain gut sheep gut double stops fiddle, folk autoharp, open d tuning martin lifespan sealed travis picked dreadnought acoustic wood body spider bridge aluminum resonator national canon medium heavy resonator 28 625 inch bass vi canon p90 Gretsch canon baritone electric guitar, steel modern bal folk French bal folk pignol tritonik hurdy gurdy. denver gothic basement studio. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 802,
-  "score": 369.937,
+  "recipe": "classic North American mid-1990s gothic americana, functional Song, americana branch, anglo singer song ballad poetry folk noir indie folk. thick, breath veiled tone, wide pitch sway, interlocked note trading. wood 3 ply maple Gibson mastertone canon mahogany open back canon banjo 5 string, plain gut sheep gut drone like fiddle, folk strummed open chord ringing overtones autoharp, open d tuning martin lifespan sealed travis picked dreadnought acoustic wood body spider bridge aluminum resonator national canon medium heavy resonator marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation 28 625 inch baritone electric guitar, steel modern bal folk French bal folk pignol tritonik hurdy gurdy. denver gothic basement studio. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 873,
+  "score": 382.6,
   "config": {
     "traditions": [
       "gothic_americana",
       "folk_noir",
-      "texas_country_folk_storyteller"
+      "indie_folk_2000s"
     ],
     "instruments": [
       {
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_pelog_7",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 43.625,
-          "voice_quality": 16.639999999999993,
+          "voice_register": 47.099999999999994,
+          "voice_quality": 18.849999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 23.25,
-          "voice_articulation": 11.764999999999993,
-          "voice_microtone": 12.34999999999999,
-          "voice_tradition": 29.289999999999996,
-          "voice_mechanism_compound": 4.29,
-          "voice_estill_quality": 25.014999999999993,
-          "voice_speech_song": 18.004999999999992,
-          "voice_ensemble_config": 13.389999999999993,
-          "voice_ornament_system": 2.8600000000000008,
+          "voice_vibrato": 18.625,
+          "voice_articulation": 12.934999999999995,
+          "voice_microtone": 13.51999999999999,
+          "voice_tradition": 29.764999999999993,
+          "voice_mechanism_compound": 4.68,
+          "voice_estill_quality": 20.689999999999998,
+          "voice_speech_song": 18.979999999999997,
+          "voice_ensemble_config": 14.754999999999992,
+          "voice_ornament_system": 3.0550000000000006,
           "voice_pitch_organization": 1.17,
-          "voice_processing_chain": 2.795,
-          "voice_multitrack_stack": 2.6325
+          "voice_processing_chain": 3.4450000000000003,
+          "voice_multitrack_stack": 4.605
         }
       },
       {
@@ -69,46 +69,46 @@
         "scores": {
           "banjo_back": 0.285,
           "tone_ring": 1.6900000000000002,
-          "banjo_head": 11.959999999999997,
+          "banjo_head": 13.129999999999997,
           "banjo_pot": 0.5099999999999999,
           "banjo_play": 1.735,
           "banjo_rim_wood": 1.4299999999999997,
           "banjo_neck_wood": 1.6899999999999997,
           "banjo_strings": 1.755,
           "banjo_bridge": 1.4299999999999997,
-          "banjo_setup_period": 12.089999999999996
+          "banjo_setup_period": 13.259999999999996
         }
       },
       {
         "id": "fiddle",
         "slots": {
-          "bowed_technique": "bowed_bluegrass_double_stops",
+          "bowed_technique": "bowed_rough_drone",
           "fiddle_strings": "plain_sheep_gut_fiddle",
           "fiddle_bow": "light_rosin",
-          "fiddle_mute": "rubber_mute",
+          "fiddle_mute": "no_mute",
           "fiddle_articulation": "pizz"
         },
         "scores": {
-          "bowed_technique": 20.27,
-          "fiddle_strings": 2.535,
+          "bowed_technique": 17.37,
+          "fiddle_strings": 3.0650000000000004,
           "fiddle_bow": 0.32999999999999996,
-          "fiddle_mute": 0.8,
+          "fiddle_mute": 0.65,
           "fiddle_articulation": 0.195
         }
       },
       {
         "id": "autoharp",
         "slots": {
-          "acoustic_technique": "acoustic_drone_modal",
+          "acoustic_technique": "acoustic_strummed_ringing",
           "autoharp_chord_bars": "autoharp_15_chord",
           "autoharp_context": "autoharp_folk_revival",
           "autoharp_strings": "autoharp_steel_modern",
           "autoharp_body_wood": "autoharp_spruce_maple"
         },
         "scores": {
-          "acoustic_technique": 1.275,
-          "autoharp_chord_bars": 7.93,
-          "autoharp_context": 5.85,
+          "acoustic_technique": 3.88,
+          "autoharp_chord_bars": 8.514999999999999,
+          "autoharp_context": 5.46,
           "autoharp_strings": 0.845,
           "autoharp_body_wood": 0.045
         }
@@ -123,10 +123,10 @@
           "string_acoustic": "martin_lifespan"
         },
         "scores": {
-          "acoustic_technique": 34.934999999999995,
+          "acoustic_technique": 31.134999999999998,
           "string_tuning": 3.2050000000000005,
           "top_wood": 0.32999999999999996,
-          "back_sides": 0.38999999999999996,
+          "back_sides": 0.45499999999999996,
           "string_acoustic": 2.82
         }
       },
@@ -138,9 +138,9 @@
           "resonator_technique": "resonator_lap_steel_position"
         },
         "scores": {
-          "resonator_body": 5.744999999999999,
+          "resonator_body": 4.614999999999999,
           "resonator_strings": 3.575,
-          "resonator_technique": 5.5649999999999995
+          "resonator_technique": 4.614999999999999
         }
       },
       {
@@ -155,17 +155,17 @@
         },
         "scores": {
           "bowed_technique": 0.12999999999999998,
-          "hurdy_strings": 9.23,
+          "hurdy_strings": 9.814999999999998,
           "hurdy_buzz": 0.045,
           "hurdy_wheel_rosin": 0.225,
-          "hurdy_string_material": 7.93,
-          "hurdy_tradition": 7.93
+          "hurdy_string_material": 8.514999999999999,
+          "hurdy_tradition": 8.514999999999999
         }
       },
       {
         "id": "baritone_electric",
         "slots": {
-          "electric_technique": "electric_clean_strummed",
+          "electric_technique": "electric_arpeggiated_clean",
           "amp_make": "amp_british_marshall_jcm800",
           "baritone_use": "baritone_metal",
           "baritone_electric_tuning": "baritone_electric_drop_a",
@@ -174,9 +174,9 @@
           "baritone_electric_pickup": "baritone_p90"
         },
         "scores": {
-          "electric_technique": -0.07,
-          "amp_make": 1.8849999999999996,
-          "baritone_use": 1.6899999999999997,
+          "electric_technique": 6.5699999999999985,
+          "amp_make": 3.6050000000000004,
+          "baritone_use": 1.8849999999999996,
           "baritone_electric_tuning": 0.45499999999999996,
           "baritone_electric_scale": 1.4949999999999999,
           "baritone_electric_strings": 0.32999999999999996,

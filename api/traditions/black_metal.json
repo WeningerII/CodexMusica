@@ -5,7 +5,7 @@
   "lineage": "Late-1980s onward extreme metal subgenre characterized by tremolo-picked treble-guitar, blast-beat drumming, false-fold ventricular shriek vocal, lo-fi production aesthetic, and anti-Christian thematic vocabulary — codified through the Norwegian second wave: Mayhem (De Mysteriis Dom Sathanas 1994), Burzum (Filosofem 1996), Darkthrone (Transilvanian Hunger 1994), Emperor (In the Nightside Eclipse 1994), Immortal",
   "recipe": "classic North American 1987-1989 black metal, distorted Rock, black branch, doom metal stoner metal. thick, false fold engaged, wide pitch sway, interlocked note trading. orange amp British heavy crunch mahogany maple pau ferro single coil electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, sticks backbeat drum kit. concrete basement. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape boss DS-1.",
   "recipe_chars": 499,
-  "score": 349.286,
+  "score": 347.892,
   "config": {
     "traditions": [
       "black_metal",
@@ -41,9 +41,9 @@
           "voice_vibrato": 4.489999999999999,
           "voice_articulation": 12.934999999999995,
           "voice_microtone": 18.424999999999997,
-          "voice_tradition": 4.095000000000001,
-          "voice_mechanism_compound": 38.3605,
-          "voice_estill_quality": 1.8045,
+          "voice_tradition": 4.083,
+          "voice_mechanism_compound": 37.9955,
+          "voice_estill_quality": 1.842,
           "voice_speech_song": 13.909999999999995,
           "voice_ensemble_config": 13.194999999999993,
           "voice_ornament_system": 0.6499999999999999,
@@ -69,15 +69,15 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 34.336,
-          "amp_make": 27.0535,
+          "electric_technique": 33.971,
+          "amp_make": 26.688499999999998,
           "body_wood": 1.3649999999999998,
-          "neck_wood": 2.887,
-          "fretboard": 2.887,
-          "pickup_magnet": 2.887,
-          "string_material": 2.887,
+          "neck_wood": 2.9195,
+          "fretboard": 2.9195,
+          "pickup_magnet": 2.9195,
+          "string_material": 2.9195,
           "string_gauge": 1.755,
-          "bridge": 0.7395,
+          "bridge": 0.7795,
           "scale_length": 1.3649999999999998,
           "finish": 0.6,
           "string_tuning": 12.675
@@ -95,10 +95,10 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 27.0535,
+          "amp_make": 26.688499999999998,
           "body_wood": 1.3649999999999998,
           "pickup_config": 1.339,
-          "string_type": 24.509,
+          "string_type": 24.3465,
           "scale_length_b": 1.3649999999999998,
           "fretted_or_not": 0.195,
           "bass_technique": 20.579
@@ -113,7 +113,7 @@
         },
         "scores": {
           "drum_technique": 18.2575,
-          "drumhead": 2.887,
+          "drumhead": 2.9195,
           "drum_kit_kick_pedal": 0
         }
       }

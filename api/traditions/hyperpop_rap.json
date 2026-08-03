@@ -5,7 +5,7 @@
   "lineage": "Late-2010s onward maximalist hip-hop subgenre fusing hyperpop production techniques (over-the-top mixing, pitched-up vocal layers, glitchy sound design) with rap delivery and trap-derived rhythmic foundation — codified through Lil Uzi Vert (Eternal Atake 2020), Yeat, Bladee, ECCO2K (the Drain Gang lineage), 100 gecs (1000 gecs 2019), and continuing through the broader online-distributed digicore scene",
   "recipe": "classic 2017-2019 hyperpop-rap, mc Rhythm, experimental branch, pop experimental experimental electric hyperpop. thick, rap, straight onset, interlocked note trading. plucked short envelope digital subtractive, field textural sampler, TR-808, 2010s melodyne microtuned stack multitrack vocal stack. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital autotune eventide harmonizer.",
   "recipe_chars": 435,
-  "score": 219.677,
+  "score": 217.771,
   "config": {
     "traditions": [
       "hyperpop_rap",
@@ -34,21 +34,21 @@
         },
         "scores": {
           "voice_register": 11.634749999999995,
-          "voice_quality": 19.077624999999998,
+          "voice_quality": 18.710124999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.393125,
+          "voice_vibrato": 3.288125,
           "voice_articulation": 10.594999999999994,
           "voice_microtone": 10.424999999999997,
-          "voice_tradition": 12.454625,
-          "voice_mechanism_compound": 2.555875,
-          "voice_estill_quality": 2.0799999999999996,
-          "voice_speech_song": 18.468499999999995,
+          "voice_tradition": 12.118625,
+          "voice_mechanism_compound": 2.4193749999999996,
+          "voice_estill_quality": 1.9693749999999999,
+          "voice_speech_song": 18.310999999999996,
           "voice_ensemble_config": 10.334999999999994,
           "voice_ornament_system": 1.5599999999999996,
           "voice_pitch_organization": 1.4949999999999999,
           "voice_processing_chain": 14.949999999999996,
-          "voice_multitrack_stack": 12.922624999999998
+          "voice_multitrack_stack": 12.649624999999997
         }
       },
       {
@@ -78,7 +78,7 @@
           "sampler_archetypes": 2.1,
           "sampler_bit_depth": 0.541125,
           "sampler_workflow": 14.54,
-          "sampler_classic_context": 20.377499999999994
+          "sampler_classic_context": 20.309999999999995
         }
       },
       {
@@ -90,7 +90,7 @@
         },
         "scores": {
           "tr808_voice": 2.468625,
-          "drum_machine_808_context": 3.9139999999999997,
+          "drum_machine_808_context": 3.8825000000000003,
           "tr808_production_origin": 0.009
         }
       },
@@ -103,8 +103,8 @@
         },
         "scores": {
           "multitrack_stack_density": 0.46375,
-          "multitrack_stack_era_aesthetic": 5.62675,
-          "multitrack_stack_processing": 0.8125
+          "multitrack_stack_era_aesthetic": 5.38525,
+          "multitrack_stack_processing": 0.73375
         }
       }
     ],

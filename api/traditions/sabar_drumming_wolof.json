@@ -3,13 +3,12 @@
   "name": "Sabar drumming (Senegalese Wolof)",
   "family": "global",
   "lineage": "Senegalese Wolof sabar drumming tradition, the canonical drum-language and ceremonial-dance percussion-form of Senegal and The Gambia. The sabar ensemble centers on the open-bottomed wood-and-hide sabar drum played with curved stick in right hand and bare left hand, with several drum-types (nder lead, mbung-mbung mid, tugne low, gorong bottom) constructing polyrhythmic dialogue. The bakk drum-language is a quasi-linguistic communication system encoding named messages. Doudou N'Diaye Rose consolidated the contemporary repertoire and trained the largest performing ensemble.",
-  "recipe": "classic West African modern sabar drumming, groove Percussion, west African branch, Afro-diasporic MC rhythm south african kwaito kwaito. vocal fry, breath veiled tone, slow rate, interlocked note trading. iroko alternative west African goat skin leather tension cords canonical pressure bend talking drum, mbalax dimba canonical Senegalese single hollowed trunk goat skin wooden pegs canonical wolof rose family canonical Senegalese mbalax sabar. dakar senegal mbalax defining 1979-present indie-commercial dakar mbalax oran rai studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 600,
-  "score": 163.732,
+  "recipe": "classic West African modern sabar drumming, groove Percussion, west African branch, Afro-diasporic MC rhythm kwaito. vocal fry, breath veiled tone, slow rate, interlocked note trading. iroko alternative west African goat skin leather tension cords canonical pressure bend talking drum, mbalax dimba canonical Senegalese single hollowed trunk goat skin wooden pegs canonical wolof rose family canonical Senegalese mbalax sabar. dakar senegal mbalax defining 1979-present indie-commercial dakar mbalax oran rai studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 579,
+  "score": 132.843,
   "config": {
     "traditions": [
       "sabar_drumming_wolof",
-      "south_african_kwaito",
       "kwaito"
     ],
     "instruments": [
@@ -31,25 +30,25 @@
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 2.925,
-          "voice_quality": 13.519999999999998,
+          "voice_register": 2.08,
+          "voice_quality": 12.674999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.3025,
-          "voice_articulation": 16.184999999999995,
-          "voice_microtone": 15.989999999999991,
-          "voice_tradition": 26.227499999999996,
+          "voice_vibrato": 3.2625,
+          "voice_articulation": 11.959999999999994,
+          "voice_microtone": 11.764999999999992,
+          "voice_tradition": 19.044999999999998,
           "voice_mechanism_compound": 4.615,
           "voice_estill_quality": 5.954428571428572,
-          "voice_speech_song": 16.184999999999995,
-          "voice_ensemble_config": 16.119999999999994,
-          "voice_ornament_system": 2.470000000000001,
-          "voice_pitch_organization": 3.6081428571428575,
-          "voice_processing_chain": 7.581214285714287,
-          "voice_multitrack_stack": 2.762500000000001
+          "voice_speech_song": 11.959999999999994,
+          "voice_ensemble_config": 11.894999999999992,
+          "voice_ornament_system": 1.4949999999999997,
+          "voice_pitch_organization": 3.7050000000000005,
+          "voice_processing_chain": 6.110000000000001,
+          "voice_multitrack_stack": 1.8764285714285713
         }
       },
       {
@@ -61,10 +60,10 @@
           "talking_drum_head": "talking_drum_goat_skin_canonical"
         },
         "scores": {
-          "talking_drum_origin": 1.3347142857142857,
+          "talking_drum_origin": 1.6077142857142857,
           "talking_drum_context": 0.65,
-          "talking_drum_shell_wood": 7.734999999999999,
-          "talking_drum_head": 2.1797142857142857
+          "talking_drum_shell_wood": 5.2,
+          "talking_drum_head": 1.69
         }
       },
       {
@@ -79,9 +78,9 @@
         "scores": {
           "sabar_use": 5.7315,
           "sabar_articulation": -0.05,
-          "sabar_shell_wood": 4.655,
-          "sabar_head": 4.6129999999999995,
-          "sabar_lineage": 5.9864999999999995
+          "sabar_shell_wood": 3.9464999999999995,
+          "sabar_head": 3.9044999999999996,
+          "sabar_lineage": 5.4145
         }
       }
     ],

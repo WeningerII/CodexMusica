@@ -43,7 +43,7 @@
           "electronic_technique": 9.368,
           "sampler_archetypes": 0.4094999999999999,
           "sampler_bit_depth": 0.43949999999999995,
-          "sampler_workflow": 11.653500000000001,
+          "sampler_workflow": 11.517,
           "sampler_classic_context": 30.875
         }
       },
@@ -57,7 +57,7 @@
         },
         "scores": {
           "waterphone_model": 12.125,
-          "waterphone_excitation": 0.045,
+          "waterphone_excitation": 0.1815,
           "waterphone_context": 12.2405,
           "waterphone_construction": 2.535
         }

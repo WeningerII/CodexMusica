@@ -3,14 +3,14 @@
   "name": "Tropicália",
   "family": "global",
   "lineage": "Brazilian late-1960s art-pop counter-cultural movement (1967-1969 peak) emerging in Salvador-Bahia-and-São-Paulo as fusion of bossa-nova harmonic-sophistication, Northeast forró-and-baião rhythmic-vocabulary, Anglo-American psychedelic-rock instrumentation (electric-guitar, fuzz, distortion), Stockhausen-and-Cage avant-garde electroacoustic-experimentation, and Brazilian-modernist-poetry pau-brasil concrete-and-anthropophagic literary-aesthetic. Built politically in opposition to the 1964-1985 Brazilian military dictatorship through ironic-pop subversion. The canonical recordings of the late-1960s tropicália phase shaped Brazilian-mainstream MPB 1970s-onward and influenced global art-rock through the 1990s-onward Western re-discovery wave.",
-  "recipe": "classic Southern American 1967-1969 tropicália, groove Percussion, Brazilian branch, experimental distorted rock chillwave post-rock. thick, breath veiled tone, slow rate, interlocked note trading. cedar strummed open chord ringing overtones classical nylon-string marshall plexi amp British rock amp basswood pau ferro power chord humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog synth, berimbau, samba foundation jacaranda rosewood canonical Portuguese steel modern cavaquinho. estudios scatena sp. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
-  "recipe_chars": 749,
-  "score": 320.743,
+  "recipe": "classic Southern American 1967-1969 tropicália, groove Percussion, Brazilian branch, experimental distorted rock post-rock krautrock. thick, breath veiled tone, slow rate, interlocked note trading. cedar strummed open chord ringing overtones classical nylon-string marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog synth, berimbau, samba foundation jacaranda rosewood canonical Portuguese steel modern cavaquinho. estudios scatena sp. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
+  "recipe_chars": 778,
+  "score": 352.828,
   "config": {
     "traditions": [
       "tropicalia",
-      "chillwave_glo_fi",
-      "post_rock_extended"
+      "post_rock_extended",
+      "krautrock"
     ],
     "instruments": [
       {
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 19.819999999999997,
-          "voice_quality": 19.337499999999995,
+          "voice_register": 26.894999999999996,
+          "voice_quality": 20.572499999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.9575000000000005,
-          "voice_articulation": 15.924999999999995,
-          "voice_microtone": 21.479999999999997,
-          "voice_tradition": 8.51375,
-          "voice_mechanism_compound": 2.665000000000001,
-          "voice_estill_quality": 5.817499999999999,
-          "voice_speech_song": 16.672499999999996,
-          "voice_ensemble_config": 15.859999999999994,
-          "voice_ornament_system": 2.5387500000000003,
-          "voice_pitch_organization": 3.6400000000000006,
-          "voice_processing_chain": 6.7565,
-          "voice_multitrack_stack": 7.6525
+          "voice_vibrato": 2.87,
+          "voice_articulation": 15.794999999999995,
+          "voice_microtone": 27.979999999999997,
+          "voice_tradition": 10.333749999999998,
+          "voice_mechanism_compound": 2.500000000000001,
+          "voice_estill_quality": 6.6875,
+          "voice_speech_song": 16.542499999999997,
+          "voice_ensemble_config": 15.534999999999995,
+          "voice_ornament_system": 3.43875,
+          "voice_pitch_organization": 2.99,
+          "voice_processing_chain": 5.0815,
+          "voice_multitrack_stack": 8.094
         }
       },
       {
@@ -59,56 +59,56 @@
           "string_tuning": "standard_tuning",
           "top_wood_classical": "cedar_cl",
           "bracing_classical": "double_top_cl",
-          "string_classical": "nylon_normal_cl",
+          "string_classical": "nylon_high_cl",
           "attack_technique_cl": "thumb_attack_cl"
         },
         "scores": {
-          "acoustic_technique": 5.29125,
+          "acoustic_technique": 6.691249999999999,
           "string_tuning": 0,
-          "top_wood_classical": 5.525,
-          "bracing_classical": 0.845,
-          "string_classical": 0.78,
+          "top_wood_classical": 5.915,
+          "bracing_classical": 1.2349999999999999,
+          "string_classical": 0.12374999999999999,
           "attack_technique_cl": 3.25
         }
       },
       {
         "id": "electric_guitar_humbucker",
         "slots": {
-          "electric_technique": "electric_power_chord",
-          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "basswood_h",
           "neck_wood": "maple_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_5_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "stoptail",
+          "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_11_hum",
+          "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 7.52375,
-          "amp_make": 6.954999999999999,
-          "body_wood": 3.1849999999999996,
-          "neck_wood": 0.845,
-          "fretboard": 2.01375,
+          "electric_technique": 8.75,
+          "amp_make": 8.8875,
+          "body_wood": 1.4949999999999999,
+          "neck_wood": 1.04,
+          "fretboard": 2.16375,
           "pickup_magnet": 0.39,
           "pickup_winding": 0.845,
-          "string_material": 0.845,
-          "bridge": 0.845,
-          "scale_length": 3.1849999999999996,
-          "string_gauge": 0.845,
+          "string_material": 1.04,
+          "bridge": 0.6194999999999999,
+          "scale_length": 2.5349999999999997,
+          "string_gauge": 0.16799999999999995,
           "finish": 0,
-          "string_tuning": 11.764999999999999
+          "string_tuning": 13.288749999999999
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
@@ -116,13 +116,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 7.409999999999999,
-          "body_wood": 0.845,
-          "pickup_config": 0.3465,
-          "string_type": 15.556249999999999,
-          "scale_length_b": 0.845,
+          "amp_make": 9.1435,
+          "body_wood": 0.45149999999999996,
+          "pickup_config": 0.45149999999999996,
+          "string_type": 19.70625,
+          "scale_length_b": 0.1365,
           "fretted_or_not": 0.105,
-          "bass_technique": 13.874999999999996
+          "bass_technique": 18.7065
         }
       },
       {
@@ -133,8 +133,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 19.304999999999996,
-          "drumhead": 5.875,
+          "drum_technique": 19.662499999999998,
+          "drumhead": 7.125,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -143,16 +143,16 @@
         "slots": {
           "electronic_technique": "electronic_lead_line",
           "oscillator": "triangle_osc",
-          "filter_topology": "transistor_ladder",
+          "filter_topology": "diode_cascade",
           "envelope": "gated_env",
-          "modulation": "lfo_pitch"
+          "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 5.0175,
-          "oscillator": 1.9271249999999998,
-          "filter_topology": 0.845,
-          "envelope": 1.3,
-          "modulation": 0.845
+          "electronic_technique": 6.2675,
+          "oscillator": 2.0771249999999997,
+          "filter_topology": 0.3315,
+          "envelope": 1.4949999999999999,
+          "modulation": 0.16799999999999995
         }
       },
       {
@@ -162,7 +162,7 @@
           "berimbau_use": "berimbau_capoeira"
         },
         "scores": {
-          "berimbau_size": 1.3,
+          "berimbau_size": 1.4949999999999999,
           "berimbau_use": 7.93
         }
       },
@@ -176,11 +176,11 @@
           "cavaquinho_strings": "cavaquinho_steel"
         },
         "scores": {
-          "plucked_traditional_technique": 1.2349999999999999,
-          "cavaquinho_origin": 1.3,
-          "cavaquinho_context": 24.05,
-          "cavaquinho_body_wood": 3.77,
-          "cavaquinho_strings": 2.34
+          "plucked_traditional_technique": 2.73,
+          "cavaquinho_origin": 2.535,
+          "cavaquinho_context": 25.025,
+          "cavaquinho_body_wood": 2.925,
+          "cavaquinho_strings": 1.4949999999999999
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Early-2010s electronic subgenre developed through online-distributed-production scene integrating chopped-and-screwed Houston hip-hop slowed-down vocal-aesthetic, dark-occult-Goth-aesthetic, and trip-hop-influenced atmospheric production. Salem (Detroit), Crystal Castles (associated), oOoOO, White Ring, and the broader Tri Angle Records and Disaro Records rosters anchor the canonical sound. Notable for its triangle, cross, and runic-Unicode visual-aesthetic.",
   "recipe": "classic 2010-2013 witch house, experimental Elec, ambient branch, idm glitch experimental electric chiptune / 8-bit breakcore. vocal fry, breath veiled tone, fast rate, interlocked note trading. pad like pad analog synth, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 518,
-  "score": 132.008,
+  "score": 132.071,
   "config": {
     "traditions": [
       "witch_house_2010s",
@@ -41,7 +41,7 @@
           "voice_vibrato": 1.69,
           "voice_articulation": 15.859999999999994,
           "voice_microtone": 15.664999999999992,
-          "voice_tradition": 11.8375,
+          "voice_tradition": 11.900500000000001,
           "voice_mechanism_compound": 1.4505,
           "voice_estill_quality": 0.6499999999999999,
           "voice_speech_song": 15.859999999999994,
@@ -64,7 +64,7 @@
         "scores": {
           "electronic_technique": 3.9445,
           "oscillator": 0.5129999999999999,
-          "filter_topology": 0.708,
+          "filter_topology": 0.8445,
           "envelope": 1.95,
           "modulation": 0.15
         }
@@ -78,7 +78,7 @@
         },
         "scores": {
           "tr808_voice": 2.463,
-          "drum_machine_808_context": 3.1594999999999995,
+          "drum_machine_808_context": 3.0229999999999997,
           "tr808_production_origin": 1.56
         }
       }

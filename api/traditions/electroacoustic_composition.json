@@ -5,7 +5,7 @@
   "lineage": "Post-1960s academic electroacoustic concert music tradition descended from musique concrète and Cologne elektronische Musik — codified through Karlheinz Stockhausen’s tape works, Iannis Xenakis’s UPIC synthesizer compositions, the Bourges IMEB festival circuit, and CCRMA/IRCAM institutional research centers",
   "recipe": "classic mid-1960s electroacoustic composition, experimental Elec, musique concrete branch, western modern art music minimalist fluxus intermedia composition. glitched textural granular glitched textural modular synth, glitched textural eurorack modular, field textural sampler. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 429,
-  "score": 53.5,
+  "score": 53.29,
   "config": {
     "traditions": [
       "electroacoustic_composition",
@@ -23,7 +23,7 @@
         "scores": {
           "electronic_technique": 5.75,
           "granular_use": 0.3,
-          "granular_synth_source": 2.8150000000000004
+          "granular_synth_source": 2.71
         }
       },
       {
@@ -35,7 +35,7 @@
         },
         "scores": {
           "electronic_technique": 5.75,
-          "eurorack_focus": 2.62,
+          "eurorack_focus": 2.515,
           "eurorack_modular_context": 3.25
         }
       },
@@ -43,7 +43,7 @@
         "id": "modular_synth",
         "slots": {
           "electronic_technique": "electronic_glitch_textural",
-          "mod_voltage_source": "mod_sequencer",
+          "mod_voltage_source": "mod_keyboard",
           "mod_patch_density": "mod_dense_patch",
           "mod_lineage": "mod_doepfer_eurorack"
         },

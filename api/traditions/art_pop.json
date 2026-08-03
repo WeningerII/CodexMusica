@@ -5,7 +5,7 @@
   "lineage": "High-concept songwriter pop with avant-garde production sensibility — Kate Bush, Peter Gabriel, Brian Eno, Talk Talk Spirit of Eden, Bjork, Sufjan Stevens, Joanna Newsom, FKA twigs, Bon Iver",
   "recipe": "classic North American modern art pop, functional Song, pop rock branch, pop experimental experimental electric hyperpop. extended whistle, breath veiled tone, straight onset, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, plucked short envelope analog poly synth, string quartet inst, alnico clean strummed humbucker electric guitar, 2010s melodyne microtuned stack multitrack vocal stack. eighth street greenwich village 1970-present major-flagship electric lady studios nyc. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 677,
-  "score": 239.124,
+  "score": 238.317,
   "config": {
     "traditions": [
       "art_pop",
@@ -55,7 +55,7 @@
         "id": "grand_piano",
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
-          "grand_piano_size": "grand_7_foot",
+          "grand_piano_size": "grand_5_foot",
           "grand_piano_brand": "bosendorfer",
           "piano_hammer": "japanese_1980s_hammer",
           "piano_rim": "asian_laminated_rim_birch_maple",
@@ -66,11 +66,11 @@
         },
         "scores": {
           "keyboard_technique": 18.891,
-          "grand_piano_size": 0.3045,
-          "grand_piano_brand": 0.5355000000000001,
+          "grand_piano_size": 0.195,
+          "grand_piano_brand": 0.399,
           "piano_hammer": 18.681000000000004,
           "piano_rim": 18.513,
-          "piano_soundboard": 18.450000000000003,
+          "piano_soundboard": 18.523500000000002,
           "piano_pinblock": 0.06499999999999999,
           "piano_plate": 2.8600000000000003,
           "piano_pitch_standard": 0.78
@@ -87,7 +87,7 @@
         "scores": {
           "electronic_technique": 20.2615,
           "poly_archetypes": 2.9899999999999998,
-          "poly_voices": 0.36750000000000005,
+          "poly_voices": 0.231,
           "poly_maker_lineage": -1.435
         }
       },
@@ -116,23 +116,23 @@
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
           "bridge": "stoptail",
-          "scale_length": "scale_gibson_h",
-          "string_gauge": "g_11_hum",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
           "electric_technique": 18.607499999999998,
           "amp_make": 2.7300000000000004,
-          "body_wood": 0.756,
-          "neck_wood": 0.378,
+          "body_wood": 0.6194999999999999,
+          "neck_wood": 0.2415,
           "fretboard": 0.195,
           "pickup_magnet": 1.39,
           "pickup_winding": 0.39,
           "string_material": 0.0315,
-          "bridge": 0.378,
-          "scale_length": 0.651,
-          "string_gauge": 0.273,
+          "bridge": 0.2415,
+          "scale_length": 0.6405000000000001,
+          "string_gauge": 0.195,
           "finish": 0,
           "string_tuning": 2.795
         }
