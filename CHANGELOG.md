@@ -62,7 +62,10 @@ Nigerian pop genre; any normaliser aggressive enough to merge them is wrong.
 
 The gate is registered as promise `no-duplicate-entities` (SKILL.md invariant
 I7 + `scripts/_promises.js`), so the three-way bijection CI enforces between doc
-marker, registry row and gate tag holds.
+marker, registry row and gate tag holds — and it carries a fault class in
+`scripts/faults.js`, because a promise-bound gate that has never been watched
+to fail is not yet proven two-sided. Injecting a second room under an existing
+room's name makes it exit 1 and name the pair: 27 gate-classes, 0 escapes.
 
 ### Fixed — a doc reference to a `.json` file read as a missing script
 

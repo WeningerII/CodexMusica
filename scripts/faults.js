@@ -590,6 +590,36 @@ record(
   }
 }
 
+// 25. Two entities that print the same label -> check_duplicates.js
+//     The gate's BLOCK tier is identity collision on the display label, so the
+//     fault is a second room carrying an existing room's name. It must fail and
+//     name the pair, not merely exit non-zero: an id-collision check would also
+//     exit 1 here, and this gate exists precisely because that is not what it
+//     is testing.
+{
+  const d = mkenv(['scripts', 'references']);
+  const f = path.join(d, 'references/03_rooms_chains_tunings.js');
+  const src = fs.readFileSync(f, 'utf8');
+  const first = src.match(/const ROOMS = \[\s*\{[\s\S]*?name: '([^']+)'/);
+  if (!first) {
+    record('duplicate-entity -> check_duplicates.js', {
+      code: 0,
+      out: 'FAULT NOT PLANTED: could not read the first room name from 03_rooms_chains_tunings.js',
+    });
+  } else {
+    const clone =
+      "const ROOMS = [\n  { id: 'zz_fault_dupe', name: '" +
+      first[1].replace(/'/g, "\\'") +
+      "', cluster: 'small_domestic', descriptors: ['dry'], note: 'injected fault' },";
+    fs.writeFileSync(f, src.replace('const ROOMS = [', clone));
+    record(
+      'duplicate-entity -> check_duplicates.js',
+      gate(d, ['scripts/check_duplicates.js']),
+      /zz_fault_dupe/
+    );
+  }
+}
+
 // Registry-driven completeness: every promise-bound gate (_promises.js) must have
 // a fault class here, or "every gate is two-sided" is hollow. faults.js itself is
 // exempt (it is the injector); check_artifact_fresh's faults need --fresh-*, so
