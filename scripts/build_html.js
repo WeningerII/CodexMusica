@@ -66,6 +66,7 @@ const SOURCE_FILES = [
   '06_extras.js',
   '07_preface_lexicon.js',
   '08_asset_manifest.js',
+  '09_nav_glyphs.js',
 ];
 
 // ──────────────────────────── argv ────────────────────────────

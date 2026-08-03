@@ -14,6 +14,7 @@ const FILES = [
   '06_extras.js',
   '07_preface_lexicon.js',
   '08_asset_manifest.js',
+  '09_nav_glyphs.js',
 ];
 
 const bundle = FILES.map((f) => fs.readFileSync(path.join(REFS, f), 'utf8')).join('\n');
@@ -42,6 +43,13 @@ const TABLES = [
   'EMOJI_SVGS',
   'EMOJI_REGISTRY',
   'FAMILY_FALLBACK_EMOJI',
+  'NAV_GLYPH_SVGS',
+  'NAV_GLYPH_CP',
+  'NAV_GLYPH_META',
+  'ROOM_CLUSTER_GLYPH',
+  'ROOM_GLYPH',
+  'PREFACE_CAT_GLYPH',
+  'PREFACE_GLYPH',
 ];
 
 const re = new RegExp(`const (${TABLES.join('|')})`, 'g');
