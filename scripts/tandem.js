@@ -347,16 +347,27 @@ check('preface-matcher alignment (HTML embed ↔ Node primitive)', () => {
     if (!inv.re.test(nodeCode)) issues.push(`Node primitive missing: ${inv.name}`);
   }
 
-  // Also verify the alphabetical-id tiebreak — lives in suggestPrefaceForCard
-  // (HTML) and rank() (Node primitive). Tiebreak symmetry is the part most
-  // likely to drift silently because it's invisible until two tokens tie.
+  // Also verify the id tiebreak — lives in suggestPrefaceForCard (HTML) and
+  // rank() (Node primitive). Tiebreak symmetry is the part most likely to drift
+  // silently because it's invisible until two tokens tie.
+  //
+  // MATCH THE TIEBREAK, NOT ITS SPELLING. This used to grep for the literal
+  // `localeCompare`, which stopped being true the moment the pin-collation pass
+  // replaced every render-path `localeCompare` with `_cmp` — a locale-invariant
+  // codepoint comparator — precisely so ordering could not depend on the host's
+  // locale. Both sides made that migration together, so the invariant held
+  // perfectly while the check reported it broken on both. A gate that fails on
+  // the correct implementation is worse than no gate: it trains you to ignore
+  // it. What matters is that ties fall through to a comparison of entry ids, so
+  // that is what is asserted, under either comparator name.
+  const TIEBREAK = /(?:_cmp|localeCompare)\s*\(?\s*[\w.]*\bid\b/;
   const htmlSuggest = htmlSrc.match(/function suggestPrefaceForCard[\s\S]*?\n\}/);
   if (!htmlSuggest) issues.push('suggestPrefaceForCard not found in HTML template');
-  else if (!/localeCompare/.test(stripComments(htmlSuggest[0]))) {
-    issues.push('HTML suggestPrefaceForCard missing alphabetical tiebreak (localeCompare)');
+  else if (!TIEBREAK.test(stripComments(htmlSuggest[0]))) {
+    issues.push('HTML suggestPrefaceForCard missing id tiebreak (_cmp/localeCompare on id)');
   }
-  if (!/localeCompare/.test(nodeCode)) {
-    issues.push('Node primitive rank() missing alphabetical tiebreak (localeCompare)');
+  if (!TIEBREAK.test(nodeCode)) {
+    issues.push('Node primitive rank() missing id tiebreak (_cmp/localeCompare on id)');
   }
 
   if (issues.length) throw new Error(issues.join('; '));
@@ -489,19 +500,40 @@ check('card-descriptor semantics aligned (production vs audit)', () => {
 // can't silently drift back to hardcoded values or stale token names. Each gate
 // catches a class of regression the redesign was meant to eliminate.
 check('CSS — no orphan color token refs', () => {
-  // Catches re-introduction of legacy tokens (--accent, --danger, --bg-1/2,
-  // --text-1) that the Phase 1 color migration removed. Falls back to inherited
-  // values silently — bug-by-inaction unless gated.
+  // The hazard is a `var(--x)` whose token has no definition: CSS resolves it to
+  // the inherited value in silence, so the element renders *almost* right and
+  // nobody notices. This used to be policed with a hardcoded banned-list from
+  // the Phase 1 color migration, which rots in the one direction that matters —
+  // `--accent` was later reintroduced as a real token with a real `:root`
+  // definition, and the list still called it an orphan. Every run reported two
+  // defects that were not defects, on a file the change under test never
+  // touched. Derive the answer instead: collect what is DEFINED, collect what is
+  // REFERENCED, and fail on the difference. That catches a genuinely undefined
+  // token — including one nobody thought to ban — and stops accusing live ones.
   const css = fs.readFileSync(path.join(ROOT, 'src/index.template.html'), 'utf8');
   const js = fs.readFileSync(path.join(ROOT, 'src/app.js'), 'utf8');
-  const banned = ['--accent', '--accent-soft', '--danger', '--bg-1', '--bg-2', '--text-1'];
-  const found = [];
-  for (const tok of banned) {
-    if (css.includes(`var(${tok})`)) found.push(`top:${tok}`);
-    if (js.includes(`var(${tok})`)) found.push(`bottom:${tok}`);
+
+  // Definitions are `--name: value` in a declaration position. Both files can
+  // define (app.js carries injected style blocks), so the union is the vocabulary.
+  const defined = new Set();
+  for (const src of [css, js]) {
+    for (const m of src.matchAll(/(^|[;{\s])(--[a-z0-9-]+)\s*:/gi)) defined.add(m[2]);
   }
-  if (found.length) throw new Error(`orphan tokens: ${found.join(', ')}`);
-  return 'no legacy color tokens referenced';
+  const missing = [];
+  for (const [src, where] of [
+    [css, 'top'],
+    [js, 'bottom'],
+  ]) {
+    for (const m of src.matchAll(/var\(\s*(--[a-z0-9-]+)\s*(?:,|\))/gi)) {
+      // A var() with a fallback (`var(--x, #fff)`) is deliberate and safe.
+      if (!defined.has(m[1]) && !m[0].endsWith(',')) missing.push(`${where}:${m[1]}`);
+    }
+  }
+  if (missing.length) {
+    const uniq = [...new Set(missing)];
+    throw new Error(`undefined color tokens referenced: ${uniq.join(', ')}`);
+  }
+  return `${defined.size} tokens defined, every var() reference resolves`;
 });
 check('CSS/JS — no hardcoded font-size or font-weight', () => {
   // Catches re-introduction of pixel-literal font values that the Phase 2 type
@@ -582,7 +614,18 @@ check('Icons — no inline SVGs bypassing the icon() renderer', () => {
     );
   // Bottom template: <svg> is permitted inside icon() and inside hand-rolled
   // visualization functions (allowlist below). Anything else is a bypass.
-  const VIZ_ALLOWLIST = ['function renderUpSet(', 'function image(', 'function glyphSvg('];
+  // navGlyphSvg and familyImage are the siblings of glyphSvg and image — same
+  // registry, same <svg> wrapper, same "not icon() chrome" rationale spelled out
+  // above. They were added without extending this list, so the gate reported two
+  // "call-site bypasses" that are nothing of the kind. Keeping the allowlist in
+  // step with the renderer family is the fix; loosening the pattern is not.
+  const VIZ_ALLOWLIST = [
+    'function renderUpSet(',
+    'function image(',
+    'function familyImage(',
+    'function glyphSvg(',
+    'function navGlyphSvg(',
+  ];
   const allowedRegions = [];
   // icon() function — ~200-char window around its definition
   const iconFnIdx = bottom.indexOf('function icon(name');

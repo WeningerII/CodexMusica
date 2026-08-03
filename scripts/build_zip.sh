@@ -14,8 +14,15 @@
 set -e
 
 SKILL_NAME="codex-music-tool"
-ZIP_OUT="${ZIP_OUT:-/mnt/user-data/outputs/codex.zip}"
 cd "$(dirname "$0")/.."
+
+# Default to whatever scripts/_paths.js resolves, so this script and every Node
+# tool agree on where artifacts live. It used to hardcode the sandbox path
+# (/mnt/user-data/outputs/codex.zip) while _paths.js falls back to
+# $TMPDIR/codex-outputs off-sandbox — so on a CI runner an unqualified run wrote
+# the zip somewhere tandem.js would never look for it. An explicit ZIP_OUT in
+# the environment still wins, which is how tandem's own self-heal invokes this.
+ZIP_OUT="${ZIP_OUT:-$(node -e 'process.stdout.write(require("./scripts/_paths.js").ZIP_OUT)')}"
 
 # Stage into a temp dir so we get a single named folder at the zip root
 STAGE=$(mktemp -d)
@@ -39,6 +46,12 @@ done
 find "$STAGE/$SKILL_NAME" -name '*.pre_*' -delete
 rm -rf "$STAGE/$SKILL_NAME/references/_archive"
 
+# The output DIRECTORY may not exist — `zip` will not create it and fails with a
+# bare "cannot open" that reads like a missing input, not a missing parent. That
+# is exactly how this failed under CI: scripts/_paths.js resolves OUTPUT_DIR to
+# $TMPDIR/codex-outputs on a runner, nothing had ever created it, and tandem's
+# self-heal ("zip missing, build it") failed for a reason its error text hid.
+mkdir -p "$(dirname "$ZIP_OUT")"
 rm -f "$ZIP_OUT"
 (cd "$STAGE" && zip -rq "$ZIP_OUT" "$SKILL_NAME")
 
