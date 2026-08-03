@@ -3,9 +3,9 @@
   "name": "Himalayan Vajrayana liturgy",
   "family": "global",
   "lineage": "Tibetan / Bhutanese / Ladakhi Vajrayana tantric ritual-music tradition with multiphonic chant and brass-and-percussion liturgical ensemble",
-  "recipe": "classic Northeast Asian modern himalayan vajrayana liturgy, ritual Devotional, buddhist branch, east Asian art music tibetan ache lhamo opera beijing opera. thick, breath veiled tone, slow rate, interlocked note trading. log drum, m1 modal compound with overtone tuning khoomei foundational mechanism 8th to 12th partial overtone range himalayan ritual chant subharmonic monastic throat singing voice, call ritual conch shell horn, ceremonial hammered copper brass telescoping canonical Tibetan gelug canonical Tibetan buddhist liturgy tibetan dungchen, wood rosewood body brass bell canonical Tibetan arundo donax canonical Tibetan monastic tibetan gyaling. tibetan monastery assembly. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 749,
-  "score": 306.842,
+  "recipe": "classic Northeast Asian modern himalayan vajrayana liturgy, ritual Devotional, buddhist branch, east Asian art music tibetan ache lhamo opera beijing opera. thick, breath veiled tone, slow rate, interlocked note trading. log drum, m1 modal compound with overtone tuning khoomei foundational mechanism 8th to 12th partial overtone range himalayan ritual chant subharmonic monastic throat singing voice, call ritual conch shell horn, ceremonial copper brass telescoping silver inlay canonical Tibetan build gelug monastic yang chant ritual dung chen, wood rosewood body brass bell canonical Tibetan arundo donax canonical Tibetan monastic tibetan gyaling. tibetan monastery assembly. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 744,
+  "score": 306.402,
   "config": {
     "traditions": [
       "vajrayana_broader",
@@ -90,16 +90,16 @@
         }
       },
       {
-        "id": "tibetan_dungchen",
+        "id": "dung_chen",
         "slots": {
-          "dungchen_length": "dungchen_extended",
-          "dungchen_body_metal": "dungchen_copper_brass_canonical",
-          "dungchen_lineage": "dungchen_gelug_canonical"
+          "dung_chen_length": "dung_chen_extended",
+          "dung_chen_body": "dung_chen_copper_brass_silver_inlay_canonical",
+          "dung_chen_tradition": "dung_chen_gelug_yang_chant_canonical"
         },
         "scores": {
-          "dungchen_length": 9.91,
-          "dungchen_body_metal": 8.254999999999999,
-          "dungchen_lineage": 12.03
+          "dung_chen_length": 9.91,
+          "dung_chen_body": 8.254999999999999,
+          "dung_chen_tradition": 11.59
         }
       },
       {
@@ -154,9 +154,9 @@
       "throat_singing_voice_region": "throat_singing_voice_himalayan_ritual",
       "log_drum_voice": "log_drum_mid",
       "log_drum_context": "log_drum_sa_house",
-      "dungchen_length": "dungchen_extended",
-      "dungchen_body_metal": "dungchen_copper_brass_canonical",
-      "dungchen_lineage": "dungchen_gelug_canonical",
+      "dung_chen_length": "dung_chen_extended",
+      "dung_chen_body": "dung_chen_copper_brass_silver_inlay_canonical",
+      "dung_chen_tradition": "dung_chen_gelug_yang_chant_canonical",
       "gyaling_body": "gyaling_wood_metal_bell",
       "gyaling_body_wood": "gyaling_rosewood_canonical",
       "gyaling_reed": "gyaling_arundo_canonical",

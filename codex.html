@@ -11803,28 +11803,6 @@ INSTRUMENTS.push({
     ]
   },
   {
-    id: 'tibetan_dungchen',
-    name: 'Dungchen (Tibetan long horn)',
-    family: 'wind',
-    class: 'brass',
-    axes: { pitchFix: -1, sustain: 2, polyphony: -2, harmonicity: -2, register: -2, range: -1, articulation: 0, transduction: -2, dynamics: 1 },
-    short: 'dungchen',
-    parts: [
-      { id: 'dungchen_length', name: 'Length', variants: [
-        { id: 'dungchen_extended', default: true, name: 'Extended ceremonial (3-4m, telescoping)', descriptors: ['drone-sustained', 'low-fundamental-tuning', 'ceremonial', 'brass', 'tibetan-buddhist'], match_tokens: ['long-horn', 'tibetan-ritual'] },
-      ] },
-      { id: 'dungchen_body_metal', surface: false, name: 'Body metal', variants: [
-        { id: 'dungchen_copper_brass_canonical', default: true, name: 'Hammered copper-brass telescoping sections (canonical Tibetan)', descriptors: ['hammered-copper-brass-telescoping-canonical-tibetan'], match_tokens: ['long-horn', 'tibetan-ritual'] },
-        { id: 'dungchen_silver_ornament', name: 'Silver-ornamented sections (premium monastic)', descriptors: ['silver-ornamented-premium-monastic'], match_tokens: ['long-horn', 'tibetan-ritual'] },
-      ] },
-      { id: 'dungchen_lineage', surface: false, name: 'Monastic tradition', variants: [
-        { id: 'dungchen_gelug_canonical', default: true, name: 'Gelug monastic (canonical Tibetan Buddhist liturgy)', descriptors: ['gelug-canonical-tibetan-buddhist-liturgy'], match_tokens: ['long-horn', 'tibetan-ritual'] },
-        { id: 'dungchen_kagyu', name: 'Kagyu monastic', descriptors: ['kagyu-monastic'], match_tokens: ['long-horn', 'tibetan-ritual'] },
-        { id: 'dungchen_nyingma', name: 'Nyingma monastic', descriptors: ['nyingma-monastic'], match_tokens: ['long-horn', 'tibetan-ritual'] },
-      ] },
-    ]
-  },
-  {
     id: 'tibetan_gyaling',
     name: 'Gyaling (Tibetan double-reed oboe)',
     family: 'wind',
@@ -12607,11 +12585,17 @@ INSTRUMENTS.push({
     axes: { pitchFix: -1, sustain: 2, polyphony: -2, harmonicity: 0, register: -2, range: -1, articulation: 1, transduction: -2, dynamics: 2 },
     short: 'dung chen',
     parts: [
+      { id: 'dung_chen_length', name: 'Length', variants: [
+        { id: 'dung_chen_extended', default: true, name: 'Extended ceremonial (3-4m, telescoping)', descriptors: ['drone-sustained', 'low-fundamental-tuning', 'ceremonial', 'brass', 'tibetan-buddhist'], match_tokens: ['long-trumpet', 'tibetan-tradition'] },
+      ] },
       { id: 'dung_chen_body', name: 'Body', variants: [
         { id: 'dung_chen_copper_brass_silver_inlay_canonical', default: true, name: 'Copper or brass telescoping body with silver inlay (canonical)', descriptors: ['copper-brass-telescoping-silver-inlay-canonical-tibetan-build'], match_tokens: ['long-trumpet', 'tibetan-tradition'] },
+        { id: 'dung_chen_silver_ornament', name: 'Silver-ornamented sections (premium monastic)', descriptors: ['silver-ornamented-premium-monastic'], match_tokens: ['long-trumpet', 'tibetan-tradition'] },
       ] },
       { id: 'dung_chen_tradition', surface: false, name: 'Performance tradition', variants: [
         { id: 'dung_chen_gelug_yang_chant_canonical', default: true, name: 'Gelug monastic yang-chant ritual (canonical)', descriptors: ['gelug-monastic-yang-chant-ritual-canonical'], match_tokens: ['long-trumpet', 'tibetan-tradition'] },
+        { id: 'dung_chen_kagyu', name: 'Kagyu monastic', descriptors: ['kagyu-monastic'], match_tokens: ['long-trumpet', 'tibetan-tradition'] },
+        { id: 'dung_chen_nyingma', name: 'Nyingma monastic', descriptors: ['nyingma-monastic'], match_tokens: ['long-trumpet', 'tibetan-tradition'] },
       ] },
     ]
   },
@@ -18446,10 +18430,8 @@ INSTRUMENTS.push({
         ]
       }
     ]
-  });
-</script>
-<script>// ─── 02_instruments.js [5/6] ───
-INSTRUMENTS.push({
+  },
+  {
     "id": "loom_shuttle",
     "name": "Loom (shuttle & beater)",
     "family": "percussion",
@@ -18552,8 +18534,10 @@ INSTRUMENTS.push({
         ]
       }
     ]
-  },
-  {
+  });
+</script>
+<script>// ─── 02_instruments.js [5/6] ───
+INSTRUMENTS.push({
     "id": "spinning_wheel",
     "name": "Spinning wheel",
     "family": "percussion",
@@ -25110,10 +25094,8 @@ INSTRUMENTS.push({
         { id: 'zhonghu_synthetic_membrane', name: 'Synthetic membrane', descriptors: ['synthetic', 'stable', 'consistent'], match_tokens: ['bowed', 'synthetic', 'modern'], canonical_tags: ['synthetic', 'modern'] },
       ] },
     ]
-  });
-</script>
-<script>// ─── 02_instruments.js [6/6] ───
-INSTRUMENTS.push({
+  },
+  {
     id: 'gehu',
     name: 'Gehu (Chinese cello-format skin fiddle)',
     family: 'bowed',
@@ -25142,8 +25124,10 @@ INSTRUMENTS.push({
         { id: 'gehu_skin_synthetic', name: 'Synthetic membrane (humidity-stable)', descriptors: ['synthetic', 'humidity-stable', 'consistent'], match_tokens: ['bowed', 'synthetic', 'modern'], canonical_tags: ['synthetic', 'modern'] },
       ] },
     ]
-  },
-  {
+  });
+</script>
+<script>// ─── 02_instruments.js [6/6] ───
+INSTRUMENTS.push({
     id: 'diyin_gehu',
     name: 'Diyin gehu (Chinese bass gehu)',
     family: 'bowed',
@@ -36032,6 +36016,7 @@ const ICON_ALIASES = {
 
 
 
+
 // ─────────────── EMOJI registries ─────────────── (auto-generated)
 // Source: Twemoji v15.1.0 SVGs in references/_assets/emoji/ (CC-BY 4.0)
 // Built from scripts/_instrument_emoji_map.json via scripts/build_emoji.js
@@ -36042,7 +36027,7 @@ const ICON_ALIASES = {
 // EMOJI_SVGS at render time. Saves ~530 KB vs storing SVG content per entry.
 //
 // Unique SVG blobs: 17
-// Instrument mappings: 272
+// Instrument mappings: 271
 // Family fallbacks: 11
 // To regenerate: node scripts/fetch_emoji.js && node scripts/build_emoji.js
 
@@ -36303,7 +36288,6 @@ const EMOJI_REGISTRY = {
   "theorbo": "1f3b8",
   "theremin": "1f39b",
   "throat_singing_voice": "1f399",
-  "tibetan_dungchen": "1f3ba",
   "tibetan_gyaling": "1f4ef",
   "timbales": "1fa98",
   "timpani": "1f941",

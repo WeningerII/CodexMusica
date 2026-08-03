@@ -172,6 +172,7 @@ const ICON_ALIASES = {
 
 
 
+
 // ─────────────── EMOJI registries ─────────────── (auto-generated)
 // Source: Twemoji v15.1.0 SVGs in references/_assets/emoji/ (CC-BY 4.0)
 // Built from scripts/_instrument_emoji_map.json via scripts/build_emoji.js
@@ -182,7 +183,7 @@ const ICON_ALIASES = {
 // EMOJI_SVGS at render time. Saves ~530 KB vs storing SVG content per entry.
 //
 // Unique SVG blobs: 17
-// Instrument mappings: 272
+// Instrument mappings: 271
 // Family fallbacks: 11
 // To regenerate: node scripts/fetch_emoji.js && node scripts/build_emoji.js
 
@@ -443,7 +444,6 @@ const EMOJI_REGISTRY = {
   "theorbo": "1f3b8",
   "theremin": "1f39b",
   "throat_singing_voice": "1f399",
-  "tibetan_dungchen": "1f3ba",
   "tibetan_gyaling": "1f4ef",
   "timbales": "1fa98",
   "timpani": "1f941",
