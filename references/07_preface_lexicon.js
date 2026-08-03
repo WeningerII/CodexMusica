@@ -3077,6 +3077,466 @@ const PREFACE_LEXICON = [
     note: "aching longing — lament-leaning high register, soaring and expressive",
     tokens: ['lament-leaning', 'mournful', 'sustained-high-register', 'vibrato-rich', 'expressive', 'soaring', 'intimate-aspirated', 'glissando-heavy', 'romantic', 'pythagorean-wide-leading-tone']
   },
+  {
+    id: 'flirtatious',
+    note: "playful advance and retreat — light breathy delivery with a swung, conversational lilt",
+    tokens: ['intimate-aspirated', 'breathy', 'soft-onset', 'swung', 'conversational', 'lively', 'expressive', 'silky-airy-top', 'subtle']
+  },
+  {
+    id: 'coy',
+    note: "charm withheld — deliberately under-projected, close and quiet",
+    tokens: ['quiet', 'intimate', 'close', 'soft', 'breathy', 'low-projection-volume', 'subtle', 'smoothed', 'whispering']
+  },
+  {
+    id: 'teasing',
+    note: "push and withhold — syncopated phrasing that keeps not landing",
+    tokens: ['swung', 'syncopated-speech-rhythm', 'conversational', 'snappy', 'lively', 'expressive', 'subtle', 'articulate']
+  },
+  {
+    id: 'coquettish',
+    note: "ornamented flirtation, salon register — light head voice with decorative turns",
+    tokens: ['french', 'ornamental', 'leggiero-light-head', 'soft-onset', 'breathy', 'silky-airy-top', 'expressive', 'subtle-virtuosity']
+  },
+  {
+    id: 'smouldering',
+    note: "banked heat — low, slow and close, held well under full power",
+    tokens: ['low-mid-rich-spectrum', 'chest-resonance-low-mid', 'dark', 'warm-glowing', 'sustained-tone', 'subtone-low-subglottal-pressure', 'intimate', 'plush', 'smoothed']
+  },
+  {
+    id: 'doting',
+    note: "fond attentiveness — soft-edged and unhurried, addressed to one listener",
+    tokens: ['warm-glowing', 'plush', 'soft-onset', 'gentle', 'intimate-aspirated', 'smoothed', 'cozy', 'expressive', 'legato']
+  },
+  {
+    id: 'infatuated',
+    note: "giddy fixation — bright, soaring and unable to sit still",
+    tokens: ['soaring', 'expressive', 'vibrato-rich', 'romantic', 'bright', 'lively', 'sustained-high-register', 'warm-glowing']
+  },
+  {
+    id: 'pessimistic',
+    note: "expects the worst — dark-leaning and dry, with no lift in the line",
+    tokens: ['dark', 'mournful', 'lament-leaning', 'low-register', 'dry', 'subtone-low-subglottal-pressure', 'patient', 'smoothed']
+  },
+  {
+    id: 'cynical',
+    note: "unsweetened and deadpan — speech-close, refusing to sell the sentiment",
+    tokens: ['dry', 'speech-derived', 'conversational', 'declaimed', 'neutral', 'articulate', 'low-distortion-low-coloration', 'midrange']
+  },
+  {
+    id: 'resigned',
+    note: "acceptance after struggle — settled, falling away rather than fighting",
+    tokens: ['patient', 'quiet', 'sustained-tone', 'soft', 'decrescendo-al-niente', 'mournful', 'smoothed', 'sighed-falling-release']
+  },
+  {
+    id: 'fatalistic',
+    note: "inevitability — a drone that was always going to be there",
+    tokens: ['drone-foundation', 'sustained-tone', 'dark', 'minimal', 'patient', 'beat-free', 'low-fundamental', 'meditative']
+  },
+  {
+    id: 'defeatist',
+    note: "collapse before the attempt — every phrase dying on release",
+    tokens: ['sighed-falling-release', 'decrescendo-al-niente', 'low-projection-volume', 'breathy-low', 'dark', 'soft', 'quiet', 'mournful']
+  },
+  {
+    id: 'despairing',
+    note: "grief at full voice — unrestrained cry with falling cadences",
+    tokens: ['lament-wail', 'mournful', 'sustained-high-register', 'glissando-heavy', 'unrestrained', 'expressive', 'rough', 'descending-cry-cadence']
+  },
+  {
+    id: 'forlorn',
+    note: "left behind — one voice alone in a room that answers it",
+    tokens: ['solo-unaccompanied', 'quiet', 'mournful', 'naturally-reverberant', 'sustained-tone', 'intimate-aspirated', 'dark-romantic', 'lament-leaning']
+  },
+  {
+    id: 'hopeless',
+    note: "no exit — dark, static and beat-free, going nowhere on purpose",
+    tokens: ['dark', 'low-register', 'drone-like', 'beat-free', 'mournful', 'minimal', 'dry', 'patient']
+  },
+  {
+    id: 'reluctant',
+    note: "dragged into it — soft attacks and phrases that start late",
+    tokens: ['soft-attack', 'patient', 'quiet', 'breathy', 'low-projection-volume', 'subtle', 'sighed-falling-release', 'portato-semi-detached-carried']
+  },
+  {
+    id: 'hesitant',
+    note: "broken continuity — the line keeps stopping to check itself",
+    tokens: ['portato-semi-detached-carried', 'soft-attack', 'quiet', 'punctuated', 'subtle', 'breathy', 'free-rhythm', 'low-projection-volume']
+  },
+  {
+    id: 'tentative',
+    note: "probing — quiet, minimal, feeling for the shape before committing",
+    tokens: ['quiet', 'soft-onset', 'subtle', 'free-rhythm', 'minimal', 'breathy', 'patient', 'articulate']
+  },
+  {
+    id: 'wary',
+    note: "watchful restraint — tight, dry and focused, giving nothing away",
+    tokens: ['controlled', 'quiet', 'tight-articulation', 'dry', 'subtle', 'midrange', 'patient', 'focused']
+  },
+  {
+    id: 'guarded',
+    note: "held behind cover — smoothed and low-projected, deliberately unrevealing",
+    tokens: ['controlled', 'covered', 'quiet', 'smoothed', 'low-projection-volume', 'dry', 'subtle', 'stable']
+  },
+  {
+    id: 'faltering',
+    note: "the line failing — uneven attacks, phrases running out of air",
+    tokens: ['free-rhythm', 'soft-attack', 'breathy', 'quiet', 'decrescendo-al-niente', 'portato-semi-detached-carried', 'rough', 'sighed-falling-release']
+  },
+  {
+    id: 'vaudevillian',
+    note: "pre-war variety-stage turn — projected to the back row, ragtime residue, shellac-era",
+    tokens: ['theatrical', 'theatrical-projection-no-fixed-pitch', 'pre-war', 'ragtime-and-hymnody-residual', 'projecting', 'swung', 'declamatory', 'shellac', 'syncopated-speech-rhythm']
+  },
+  {
+    id: 'cabaret',
+    note: "late-night small-room stage — intimate, spoken-close, dramatically timed",
+    tokens: ['theatrical', 'intimate', 'conversational', 'french', 'declamatory', 'expressive', 'close', 'dramatic', 'free-rhythm']
+  },
+  {
+    id: 'burlesque',
+    note: "brassy tease — swung, slapped and projected, played for the room",
+    tokens: ['theatrical', 'cuivre-brassy-edge', 'swung', 'projecting', 'slappy', 'dramatic', 'syncopated-speech-rhythm', 'lively']
+  },
+  {
+    id: 'music-hall',
+    note: "British singalong stage — a chorus the whole room already knows",
+    tokens: ['british', 'theatrical', 'congregation-loud', 'projecting', 'pre-war', 'declamatory', 'strummed', 'swung', 'shellac']
+  },
+  {
+    id: 'pantomime',
+    note: "broad gesture — every beat marked and thrown to the gallery",
+    tokens: ['theatrical', 'theatrical-projection-no-fixed-pitch', 'declamatory', 'projecting', 'dramatic', 'expressive', 'marcato-each-note-marked', 'lively']
+  },
+  {
+    id: 'carnivalesque',
+    note: "procession turned riot — massed percussion outdoors, order barely holding",
+    tokens: ['marching-bateria', 'samba-batería', 'percussive', 'dance-driving', 'outdoor-pitched', 'ecstatic', 'lively', 'unrestrained']
+  },
+  {
+    id: 'melodramatic',
+    note: "feeling overplayed on purpose — operatic swell with nothing held in reserve",
+    tokens: ['dramatic', 'operatic', 'italian-operatic', 'vibrato-rich', 'expressive', 'soaring', 'dynamic-arc-foundational', 'romantic', 'unrestrained']
+  },
+  {
+    id: 'camp',
+    note: "knowing excess — theatrical delivery that means it and doesn't, at once",
+    tokens: ['theatrical', 'operatic', 'dramatic', 'expressive', 'vibrato-rich', 'projecting', 'ornamental', 'lively']
+  },
+  {
+    id: 'clownish',
+    note: "pratfall timing — punctuated, slapped and sliding, comic on the beat",
+    tokens: ['theatrical', 'punctuated', 'snappy', 'percussive', 'slappy', 'lively', 'glissando-heavy', 'vocable-syllable-drumming']
+  },
+  {
+    id: 'lewd',
+    note: "explicit and bodily — growled speech register, no euphemism",
+    tokens: ['growly', 'rough', 'low-mid-thick', 'speech-derived', 'shouted', 'gritty', 'conversational', 'chest-resonance-low-mid']
+  },
+  {
+    id: 'bawdy',
+    note: "tavern-song coarseness — a rude chorus sung by everyone present",
+    tokens: ['shouted', 'congregation-loud', 'rough', 'conversational', 'folk-tradition', 'unrestrained', 'projecting', 'swung']
+  },
+  {
+    id: 'raunchy',
+    note: "dirty tone as the point — saturated, gritty and blues-bent",
+    tokens: ['distorted', 'gritty', 'growly', 'high-gain-saturation', 'rough', 'low-mid-thick', 'blues-derived', 'biting']
+  },
+  {
+    id: 'salacious',
+    note: "relish in the delivery — close, growled and swung, enjoying itself",
+    tokens: ['growly', 'intimate', 'breathy', 'subtone-low-subglottal-pressure', 'swung', 'conversational', 'low-mid-rich-spectrum', 'expressive']
+  },
+  {
+    id: 'obscene',
+    note: "meant to offend — shouted and distorted past the point of taste",
+    tokens: ['shouted', 'distorted', 'rough', 'unrestrained', 'transient-grab-aggressive', 'growly', 'gritty', 'metal-context']
+  },
+  {
+    id: 'vulgar',
+    note: "unrefined loudness — hyped and blaring, subtlety refused",
+    tokens: ['loud', 'shouted', 'rough', 'projecting', 'hyped-mids', 'congregation-loud', 'unrestrained', 'biting']
+  },
+  {
+    id: 'licentious',
+    note: "appetite off the leash — free-rhythm, swung and ecstatic",
+    tokens: ['unrestrained', 'free-rhythm', 'growly', 'swung', 'ecstatic', 'expressive', 'rough', 'lively']
+  },
+  {
+    id: 'virtuous',
+    note: "moral clarity — pure, blended and controlled, nothing coarsened",
+    tokens: ['pure', 'clean', 'sacred-traditional', 'choir-blendable', 'balanced', 'controlled', 'smoothed', 'reverent', 'close-harmony']
+  },
+  {
+    id: 'pious',
+    note: "devotional obedience — liturgical register sung as observance",
+    tokens: ['devotional', 'liturgical', 'sacred-traditional', 'reverent', 'sacred-Latin', 'choir-blendable', 'patient', 'congregation-loud']
+  },
+  {
+    id: 'chaste',
+    note: "unornamented purity — straight tone, no vibrato, nothing decorative",
+    tokens: ['pure', 'clean', 'minimal', 'straight', 'pure-pitch-vibrato-no-amplitude', 'choir-blendable', 'soft-onset', 'austere-meditative']
+  },
+  {
+    id: 'saintly',
+    note: "haloed — pure tone in a reverberant space, lit from above",
+    tokens: ['pure', 'naturally-reverberant', 'sacred-Latin', 'choir-blendable', 'sustained-tone', 'soft-onset', 'reverent', 'shimmering']
+  },
+  {
+    id: 'righteous',
+    note: "moral force at full voice — gospel conviction, belted to a congregation",
+    tokens: ['gospel-rooted', 'gospel-pentecostal', 'belt-projection', 'congregation-loud', 'projecting', 'declamatory', 'melismatic', 'unrestrained']
+  },
+  {
+    id: 'reverent',
+    note: "hushed respect — quiet sustained tone in a sacred acoustic",
+    tokens: ['reverent', 'quiet', 'sacred-traditional', 'naturally-reverberant', 'sustained-tone', 'soft-onset', 'contemplative', 'choir-blendable']
+  },
+  {
+    id: 'ascetic',
+    note: "devotion stripped bare — one voice, one drone, nothing added",
+    tokens: ['austere-meditative', 'minimal', 'drone-foundation', 'solo-unaccompanied', 'quiet', 'sacred-traditional', 'beat-free', 'patient']
+  },
+  {
+    id: 'hysterical',
+    note: "control gone at the top — unrestrained high cry, tremolo out of hand",
+    tokens: ['unrestrained', 'sustained-high-register', 'shouted', 'rapid-tremolo', 'glissando-heavy', 'transient-grab-aggressive', 'rough', 'expressive-extended']
+  },
+  {
+    id: 'manic',
+    note: "speed with no brakes — fast runs and hard transients, relentlessly lively",
+    tokens: ['fast-runs', 'fast-attack-transient', 'dance-driving', 'energetic', 'rapid-tremolo', 'lively', 'transient-grab-aggressive', 'unrestrained']
+  },
+  {
+    id: 'unhinged',
+    note: "control abandoned — extended technique used as breakdown, not craft",
+    tokens: ['unrestrained', 'rough', 'extended-techniques', 'multiphonic-vocal', 'distorted', 'free-rhythm', 'shouted', 'expressive-extended']
+  },
+  {
+    id: 'delirious',
+    note: "fever-blur — detuned, washed and drifting out of focus",
+    tokens: ['washy', 'swimming', 'tremolo-and-glide-detuning', 'drift', 'layered-ambient', 'reverb-and-delay-and-tremolo-foundational', 'free-rhythm', 'wide-diffuse-image']
+  },
+  {
+    id: 'feverish',
+    note: "heat and hurry — quickening vibrato over hard, hyped transients",
+    tokens: ['fast-attack-transient', 'rapid-tremolo', 'energetic', 'hyped-mids', 'transient-grab-aggressive', 'lively', 'unrestrained', 'accelerating-vibrato-rate']
+  },
+  {
+    id: 'rabid',
+    note: "snarling attack — saturated and biting, teeth-first",
+    tokens: ['high-gain-saturation', 'distorted', 'growly', 'transient-grab-aggressive', 'metal-context', 'shouted', 'biting', 'rough']
+  },
+  {
+    id: 'deranged',
+    note: "wrong on purpose — pitch adrift, multiphonics, no stable centre",
+    tokens: ['microtonal', 'modal-ambiguity-major-minor-blurred', 'extended-techniques', 'untempered-pitch-drift', 'multiphonic-vocal', 'free-rhythm', 'distorted', 'expressive-extended']
+  },
+  {
+    id: 'berserk',
+    note: "full tilt — cascading saturation at maximum, everything struck at once",
+    tokens: ['unrestrained', 'shouted', 'transient-grab-aggressive', 'high-gain-cascading-saturation', 'fast-attack-transient', 'metal-context', 'loud', 'percussive-attack']
+  },
+  {
+    id: 'composed',
+    note: "nothing spilled — clean articulation, stable and unhurried throughout",
+    tokens: ['controlled', 'balanced', 'stable', 'clean-articulation-low-blur', 'smoothed', 'articulate', 'consistent', 'patient']
+  },
+  {
+    id: 'poised',
+    note: "readiness held in reserve — legato control with virtuosity kept quiet",
+    tokens: ['controlled', 'balanced', 'articulate', 'focused', 'stable', 'legato', 'subtle-virtuosity', 'clean-articulation-low-blur']
+  },
+  {
+    id: 'measured',
+    note: "paced deliberately — stepped dynamics at a tempo that refuses to hurry",
+    tokens: ['patient', 'meditative-tempo', 'marcato-each-note-marked', 'controlled', 'stable', 'terraced-dynamic-steps', 'articulate', 'consistent']
+  },
+  {
+    id: 'unruffled',
+    note: "unmoved — straight tone, no wobble, nothing knocked off centre",
+    tokens: ['stable', 'smoothed', 'controlled', 'balanced', 'pure-pitch-vibrato-no-amplitude', 'patient', 'consistent', 'low-distortion-low-coloration']
+  },
+  {
+    id: 'dignified',
+    note: "bearing — ceremonial weight carried without strain",
+    tokens: ['court-ceremonial', 'controlled', 'marcato-weighted-declamation', 'ceremonial', 'projecting', 'balanced', 'legato', 'patient']
+  },
+  {
+    id: 'restrained',
+    note: "held back on purpose — quiet, minimal, well inside its own limits",
+    tokens: ['controlled', 'quiet', 'low-projection-volume', 'smoothed', 'subtle', 'minimal', 'soft-onset', 'stable']
+  },
+  {
+    id: 'deliberate',
+    note: "every note placed — marked attacks, tight articulation, nothing incidental",
+    tokens: ['marcato-each-note-marked', 'articulate', 'controlled', 'patient', 'tight-articulation', 'punctuated', 'stable', 'clean-articulation-low-blur']
+  },
+  {
+    id: 'collected',
+    note: "gathered — focused and balanced, all of it pointing one way",
+    tokens: ['controlled', 'stable', 'balanced', 'focused', 'smoothed', 'consistent', 'patient', 'clean-articulation-low-blur']
+  },
+  {
+    id: 'complex',
+    note: "many independent parts at once — compound architecture, densely layered",
+    tokens: ['compound-architecture', 'layered', 'dense', 'multi-pitch-simultaneous', 'extended', 'articulate', 'modal-improvisation', 'virtuoso']
+  },
+  {
+    id: 'intricate',
+    note: "fine detail worked small — ornament-heavy and finger-precise",
+    tokens: ['ornament-heavy', 'fast-runs', 'tight-articulation', 'subtle-virtuosity', 'articulate', 'clean-articulation-low-blur', 'ornamental', 'fingerpicked']
+  },
+  {
+    id: 'convoluted',
+    note: "hard to follow by design — the thread keeps doubling back",
+    tokens: ['compound-architecture', 'asymmetric-saturation', 'modal-ambiguity-major-minor-blurred', 'free-rhythm', 'layered', 'dense', 'extended-techniques', 'wandering-bardic']
+  },
+  {
+    id: 'labyrinthine',
+    note: "endless turning — modal wandering with no cadence in sight",
+    tokens: ['modal-improvisation', 'free-rhythm', 'compound-architecture', 'layered', 'sustained-tones-free-rhythm', 'microtonal', 'extended', 'patient']
+  },
+  {
+    id: 'polyrhythmic',
+    note: "crossed pulses — interlocking parts that never share a downbeat",
+    tokens: ['hocket-articulation', 'antiphonal-articulation', 'percussive', 'samba-foundational', 'marching-bateria', 'syncopated-speech-rhythm', 'dance-driving', 'multi-pitch-simultaneous']
+  },
+  {
+    id: 'contrapuntal',
+    note: "independent lines against each other — each one singable alone",
+    tokens: ['antiphonal-articulation', 'hocket-articulation', 'close-harmony', 'classical', 'baroque-leaning', 'articulate', 'multi-pitch-simultaneous', 'chamber-fed']
+  },
+  {
+    id: 'dense',
+    note: "packed solid — layered to the point where nothing shows through",
+    tokens: ['layered', 'dense', 'wall-of-guitars-aesthetic', 'low-mid-thick', 'full', 'lush-ambient', 'compound-architecture', 'saturation-distortion-headroom']
+  },
+  {
+    id: 'knotty',
+    note: "awkward on purpose — asymmetric and microtonal, resisting the ear",
+    tokens: ['asymmetric-saturation', 'extended-techniques', 'modal-ambiguity-major-minor-blurred', 'tight-articulation', 'compound-architecture', 'articulate', 'microtonal', 'experimental']
+  },
+  {
+    id: 'elementary',
+    note: "first principles — pentatonic and square, nothing beyond the basics",
+    tokens: ['minimal', 'straight', 'clean', 'balanced', 'pentatonic', 'homophonic-chordal-rhythm-aligned', 'articulate', 'stable']
+  },
+  {
+    id: 'simple',
+    note: "nothing extra — one clear line, plainly stated",
+    tokens: ['minimal', 'straight', 'clean', 'pure', 'soft-onset', 'balanced', 'homophonic-chordal-rhythm-aligned', 'stable']
+  },
+  {
+    id: 'plain',
+    note: "unvarnished — dry, neutral and uncoloured, presented as-is",
+    tokens: ['dry', 'neutral', 'minimal', 'straight', 'low-distortion-low-coloration', 'clean', 'balanced', 'speech-quality-modal-neutral-larynx']
+  },
+  {
+    id: 'rudimentary',
+    note: "bare craft — homemade, strummed, only the moves you need",
+    tokens: ['minimal', 'straight', 'folk-tradition', 'acoustic-only', 'strummed', 'pentatonic', 'home-recording-aesthetic', 'rough']
+  },
+  {
+    id: 'spare',
+    note: "air around every event — few notes, long decay, nothing filled in",
+    tokens: ['minimal', 'beat-free', 'quiet', 'sustained-tone', 'naturally-reverberant', 'soft-onset', 'patient', 'austere-meditative']
+  },
+  {
+    id: 'unadorned',
+    note: "no ornament at all — one note per syllable, straight tone",
+    tokens: ['straight', 'pure-pitch-vibrato-no-amplitude', 'minimal', 'clean', 'syllabic-singing-one-note-per-syllable', 'balanced', 'neutral', 'soft-onset']
+  },
+  {
+    id: 'naive',
+    note: "untutored and unbothered by it — homemade, plain and pentatonic",
+    tokens: ['folk-tradition', 'minimal', 'straight', 'home-recording-aesthetic', 'acoustic-only', 'pentatonic', 'soft', 'rough']
+  },
+  {
+    id: 'childlike',
+    note: "small-voiced wonder — light head register, high and uncomplicated",
+    tokens: ['leggiero-light-head', 'soft', 'bright', 'pentatonic', 'minimal', 'breathy', 'high', 'gentle']
+  },
+  {
+    id: 'triumphalist',
+    note: "victory declared, not felt — brass and massed voices at full projection",
+    tokens: ['cuivre-brassy-edge', 'projecting', 'marching', 'congregation-loud', 'marcato-weighted-declamation', 'orchestral', 'loud', 'declamatory']
+  },
+  {
+    id: 'wistful',
+    note: "soft longing pointed backwards — warm, quiet, unwilling to insist",
+    tokens: ['lament-leaning', 'warm-glowing', 'soft-onset', 'quiet', 'intimate-aspirated', 'smoothed', 'romantic', 'sustained-tone']
+  },
+  {
+    id: 'plaintive',
+    note: "thin complaint — high, reedy and exposed, asking rather than declaring",
+    tokens: ['mournful', 'lament-leaning', 'sustained-high-register', 'thin-true-fold-cover', 'breathy', 'expressive', 'folk-shrill', 'intimate-aspirated']
+  },
+  {
+    id: 'jaunty',
+    note: "bounce in the step — swung, snappy and bright, going somewhere",
+    tokens: ['swung', 'lively', 'snappy', 'dance-driving', 'strummed', 'bright', 'syncopated-speech-rhythm', 'energetic']
+  },
+  {
+    id: 'sprightly',
+    note: "quick and light — fast runs on a light touch, never heavy",
+    tokens: ['leggiero-light-head', 'fast-runs', 'lively', 'snappy', 'bright', 'articulate', 'energetic', 'punctuated']
+  },
+  {
+    id: 'brash',
+    note: "loud confidence — brassy, hyped and thrown forward without apology",
+    tokens: ['loud', 'projecting', 'cuivre-brassy-edge', 'biting', 'hyped-mids', 'shouted', 'transient-grab-aggressive', 'unrestrained']
+  },
+  {
+    id: 'sullen',
+    note: "closed off — dark, covered and quiet, refusing to engage",
+    tokens: ['dark', 'low-register', 'quiet', 'covered', 'dry', 'mournful', 'low-projection-volume', 'patient']
+  },
+  {
+    id: 'morose',
+    note: "heavy gloom — low fundamental at a tempo that will not lift",
+    tokens: ['dark', 'low-fundamental', 'mournful', 'meditative-tempo', 'sustained-tone', 'dark-romantic', 'low-mid-thick', 'patient']
+  },
+  {
+    id: 'peevish',
+    note: "small irritation — thin, biting and clipped, complaining in speech register",
+    tokens: ['biting', 'snappy', 'thin-true-fold-cover', 'punctuated', 'midrange', 'speech-derived', 'conversational', 'edgy']
+  },
+  {
+    id: 'smug',
+    note: "pleased with itself — easy swung control, nothing to prove and saying so",
+    tokens: ['conversational', 'swung', 'controlled', 'articulate', 'subtle', 'smoothed', 'declamatory', 'midrange']
+  },
+  {
+    id: 'aloof',
+    note: "held at distance — clinical, dry and wide, declining to come closer",
+    tokens: ['cold-clinical-mix-aesthetic', 'dry', 'neutral', 'controlled', 'low-projection-volume', 'smoothed', 'minimal', 'wide-diffuse-image']
+  },
+  {
+    id: 'curious',
+    note: "searching — free-rhythm probing with extended technique, quietly experimental",
+    tokens: ['modal-improvisation', 'free-rhythm', 'experimental', 'subtle', 'articulate', 'extended-techniques', 'quiet', 'wandering-bardic']
+  },
+  {
+    id: 'reckless',
+    note: "no brakes — hard transients and distortion, played past what it can hold",
+    tokens: ['unrestrained', 'fast-attack-transient', 'rough', 'transient-grab-aggressive', 'distorted', 'loud', 'free-rhythm', 'shouted']
+  },
+  {
+    id: 'desperate',
+    note: "last-ditch — belted cry at the top of the range, control spent",
+    tokens: ['lament-wail', 'unrestrained', 'shouted', 'sustained-high-register', 'rough', 'expressive', 'glissando-heavy', 'belt-projection']
+  },
+  {
+    id: 'maudlin',
+    note: "sentiment past the point — lush strings and wide vibrato, laid on thick",
+    tokens: ['vibrato-rich', 'romantic', 'dark-romantic', 'expressive', 'plush', 'lush-orchestral-soul-aesthetic', 'sustained-tone', 'soaring']
+  },
+  {
+    id: 'wondering',
+    note: "open awe — sustained and shimmering in a large space, beat-free",
+    tokens: ['sustained-tone', 'naturally-reverberant', 'shimmering', 'soft-onset', 'layered-ambient', 'beat-free', 'quiet', 'floating']
+  },
 ];
 
 if (typeof module !== 'undefined' && module.exports) {

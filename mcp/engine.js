@@ -283,7 +283,7 @@ export function searchCatalog({ query, types, limit = 20 } = {}) {
   return { query, total: rows.length, items: rows.slice(0, Math.min(limit, 50)) };
 }
 
-// Search the 649 prefaces (named aesthetic/technique/delivery signatures) by
+// Search the 741 prefaces (named aesthetic/technique/delivery signatures) by
 // mood words → preface ids for set_preface. Substring-ranked over id/name/tokens.
 export function searchPrefaces({ query, limit = 15 } = {}) {
   if (!query || !String(query).trim())

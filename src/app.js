@@ -15688,6 +15688,19 @@ const PREFACE_CAT_ORDER = [
   'Ornament & melisma', 'Speech & rhetoric', 'Craft & ensemble', 'Lo-fi & broken'
 ];
 const PREFACE_CAT_OVERRIDE = {
+  // Added with the 92-word completeness pass. The keyword rules put these in
+  // the wrong neighbourhood: `congregation-loud` reads as Sacred, so bawdy and
+  // vulgar landed there; `clownish` scored Grief off its slide tokens; the
+  // minimal/beat-free simplicity words drifted into Ambient.
+  clownish: 'Joy & play', bawdy: 'Joy & play', vaudevillian: 'Joy & play',
+  'music-hall': 'Joy & play', pantomime: 'Joy & play', childlike: 'Joy & play',
+  naive: 'Joy & play', vulgar: 'Rage & aggression',
+  chaste: 'Sacred & devotional', ascetic: 'Sacred & devotional',
+  melodramatic: 'Energy & the epic', triumphalist: 'Energy & the epic',
+  manic: 'Energy & the epic', feverish: 'Energy & the epic',
+  dense: 'Low end & weight', infatuated: 'Tenderness & warmth',
+  restrained: 'Craft & ensemble', guarded: 'Craft & ensemble',
+  hopeless: 'Grief & lament', fatalistic: 'Grief & lament',
   happy: 'Joy & play', merry: 'Joy & play', jovial: 'Joy & play', gleeful: 'Joy & play',
   tickled: 'Joy & play', fun: 'Joy & play', playful: 'Joy & play', funny: 'Joy & play',
   cheeky: 'Joy & play', optimistic: 'Joy & play', upbeat: 'Joy & play', hopeful: 'Joy & play',
