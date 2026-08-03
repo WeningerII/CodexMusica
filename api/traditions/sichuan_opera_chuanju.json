@@ -5,7 +5,7 @@
   "lineage": "Sichuan opera (chuanju) Chinese regional opera tradition of the Sichuan basin (Chengdu, Chongqing, and broader province), synthesizing five distinct musical styles: gaoqiang (high-pitched), kunqiang (kunqu-derived), huqin (string-led), tanxi (clapper-style), and dengdiao (Sichuan-folk-derived) into a single eclectic theatrical tradition. The chuanju is particularly known for the \"face-changing\" (bian lian) stagecraft technique where the performer switches painted masks in fractions of a second through hidden mechanisms. Performance integrates voice, stylized dance-movement, recited dialogue, percussion-led ensemble, and elaborate face-painting and costume conventions.",
   "recipe": "classic Southeast Asian mid-1930s sichuan opera, art Music, east Asian branch, east Asian Cantonese opera. thick, pressed, slow rate, interlocked note trading. jingju foundational silk canonical traditional sanxian, composite material paulownia canonical Korean horse dog asymmetric canonical Korean pansori godo janggu. wooden pagoda hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 413,
-  "score": 200.432,
+  "score": 193.876,
   "config": {
     "traditions": [
       "sichuan_opera_chuanju",
@@ -34,7 +34,7 @@
         },
         "scores": {
           "voice_register": 5.880000000000002,
-          "voice_quality": 12.924999999999997,
+          "voice_quality": 12.174999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 6.695,
@@ -42,11 +42,11 @@
           "voice_microtone": 10.984999999999992,
           "voice_tradition": 25.61,
           "voice_mechanism_compound": 4.4,
-          "voice_estill_quality": 25.73275,
-          "voice_speech_song": 22.5355,
+          "voice_estill_quality": 23.676499999999997,
+          "voice_speech_song": 21.2855,
           "voice_ensemble_config": 13.389999999999993,
-          "voice_ornament_system": 20.947499999999998,
-          "voice_pitch_organization": 13.318874999999995,
+          "voice_ornament_system": 19.697499999999998,
+          "voice_pitch_organization": 12.068874999999995,
           "voice_processing_chain": 1.9825000000000002,
           "voice_multitrack_stack": 2.8415
         }

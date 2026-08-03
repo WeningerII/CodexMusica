@@ -5,7 +5,7 @@
   "lineage": "Islamic ceremonial call-to-prayer (adhān) tradition broadcast five times daily from mosque minarets — codified through the seven phrases (takbīr, shahāda, hayya, etc.) in unmetered melismatic-modal singing, varying by regional tradition (Turkish, Egyptian, Maghrebi, Persian, Indo-Pakistani recitation schools)",
   "recipe": "classic modern athān, ritual Devotional, islamic branch, Sufi ritual devotional sufi inshad qawwali. vocal fry, declaimed, slow rate, interlocked note trading. cathedral. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 300,
-  "score": 184.691,
+  "score": 175.681,
   "config": {
     "traditions": [
       "athan_call_prayer",
@@ -35,18 +35,18 @@
         },
         "scores": {
           "voice_register": 2.4699999999999998,
-          "voice_quality": 23.074999999999996,
+          "voice_quality": 20.574999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.5612500000000002,
           "voice_articulation": 10.334999999999999,
-          "voice_microtone": 33.64,
-          "voice_tradition": 42.294,
+          "voice_microtone": 32.39,
+          "voice_tradition": 38.93399999999999,
           "voice_mechanism_compound": 6.449999999999999,
           "voice_estill_quality": 7.366999999999999,
-          "voice_speech_song": 13.129999999999997,
+          "voice_speech_song": 12.479999999999997,
           "voice_ensemble_config": 10.075,
-          "voice_ornament_system": 19.96025,
+          "voice_ornament_system": 18.71025,
           "voice_pitch_organization": 7.24875,
           "voice_processing_chain": 3.77,
           "voice_multitrack_stack": 3.6399999999999997

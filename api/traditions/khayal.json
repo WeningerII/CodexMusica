@@ -5,7 +5,7 @@
   "lineage": "The most common North Indian Hindustani classical vocal genre, replacing dhrupad as the dominant vocal form from the 18th century onward — codified through the Gwalior, Agra, Kirana, Patiala, Atrauli-Jaipur gharana lineages; characterized by the bilampat-laya-vilambit-laya (slow tempo) opening composition (cheez or bandish) followed by improvisation through alap, bol-banav (word-elaboration), tan (rapid melodic runs), and laykari (rhythmic variation)",
   "recipe": "classic South Asian early-1950s khayal, improv On Frame, indian classical improv branch, hindu ritual devotional, Sufi ritual devotional kriti gurmat sangeet. vocal fry, breath veiled tone, slow rate, interlocked note trading. indian rosewood rosewood copper tabla, low overtone rich vocal male harmonium indian, silvery suited to female vocal tanpura, gut 3 main playing strings legato sarangi. varanasi benares gharana baithak. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
   "recipe_chars": 496,
-  "score": 273.322,
+  "score": 269.167,
   "config": {
     "traditions": [
       "khayal",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
           "voice_register": 4.335,
           "voice_quality": 16.054999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 16.83,
+          "voice_vibrato": 16.529999999999998,
           "voice_articulation": 3.185000000000001,
           "voice_microtone": 2.9900000000000015,
-          "voice_tradition": 26.3,
+          "voice_tradition": 24.55,
           "voice_mechanism_compound": 13.149999999999999,
           "voice_estill_quality": 16.965,
           "voice_speech_song": 13.149999999999999,
           "voice_ensemble_config": 4.355,
           "voice_ornament_system": 21.574999999999996,
-          "voice_pitch_organization": 19.29,
+          "voice_pitch_organization": 17.439999999999998,
           "voice_processing_chain": 5.784999999999999,
-          "voice_multitrack_stack": 5.98
+          "voice_multitrack_stack": 5.92
         }
       },
       {
@@ -61,7 +61,7 @@
         },
         "scores": {
           "tabla_dayan": 11.18,
-          "tabla_bayan": 6.89,
+          "tabla_bayan": 6.845,
           "tabla_syahi": 2.5349999999999997
         }
       },
@@ -77,7 +77,7 @@
           "free_reed_technique": 1.2999999999999998,
           "harmonium_action": 4.47,
           "harmonium_voicing": 4.335,
-          "harmonium_use": 11.329999999999998
+          "harmonium_use": 11.18
         }
       },
       {

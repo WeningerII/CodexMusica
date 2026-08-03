@@ -5,7 +5,7 @@
   "lineage": "Early-1990s American feminist punk subgenre emerging in Olympia, Washington and Washington, D.C., addressing rape, domestic violence, female empowerment, and patriarchal critique through aggressive punk musical-aesthetic. Bikini Kill (1990 founded), Bratmobile, Heavens to Betsy, and Huggy Bear constitute the canonical roster; the Riot Grrrl manifesto and zine-distribution-network anchored the broader cultural movement. K Records and Kill Rock Stars provided institutional infrastructure.",
   "recipe": "classic Pacific Northwest 1990-1993 riot grrrl, distorted Rock, punk branch, regional distorted rock latin rock aussie pub rock. thick, breath veiled tone, fast rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. regional commercial 1985-2005 mid-major pacnw commercial indie. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay boss DS-1.",
   "recipe_chars": 623,
-  "score": 341.139,
+  "score": 314.114,
   "config": {
     "traditions": [
       "riot_grrrl",
@@ -34,14 +34,14 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 24.781499999999998,
+          "voice_register": 21.03149999999999,
           "voice_quality": 12.284999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.69,
           "voice_articulation": 17.549999999999997,
-          "voice_microtone": 25.345,
-          "voice_tradition": 2.73,
+          "voice_microtone": 21.59499999999999,
+          "voice_tradition": 2.0799999999999996,
           "voice_mechanism_compound": 5.070000000000002,
           "voice_estill_quality": 2.5445000000000007,
           "voice_speech_song": 17.549999999999997,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 1.4949999999999999,
           "voice_pitch_organization": 5.245000000000001,
           "voice_processing_chain": 4.95,
-          "voice_multitrack_stack": 4.3225
+          "voice_multitrack_stack": 3.6725000000000008
         }
       },
       {
@@ -71,7 +71,7 @@
         },
         "scores": {
           "electric_technique": 12.7,
-          "amp_make": 29.509999999999998,
+          "amp_make": 27.559999999999995,
           "body_wood": 3.2315,
           "neck_wood": 1.69,
           "fretboard": 1.69,
@@ -82,7 +82,7 @@
           "scale_length": 5.780000000000001,
           "string_gauge": 0.1365,
           "finish": 0,
-          "string_tuning": 18.200000000000003
+          "string_tuning": 16.25
         }
       },
       {
@@ -97,13 +97,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 13.910000000000002,
+          "amp_make": 11.959999999999999,
           "body_wood": 0.273,
           "pickup_config": 0,
-          "string_type": 32.825,
+          "string_type": 27.95,
           "scale_length_b": 0.1365,
           "fretted_or_not": 0.2265,
-          "bass_technique": 38.0765
+          "bass_technique": 34.3265
         }
       },
       {
@@ -114,7 +114,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 25.250000000000004,
+          "drum_technique": 21.5,
           "drumhead": 1.69,
           "drum_kit_kick_pedal": 0
         }

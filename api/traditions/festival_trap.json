@@ -5,7 +5,7 @@
   "lineage": "Early-2010s electronic subgenre integrating Atlanta-trap production-aesthetic with EDM-festival big-room structural framework. Baauer's \"Harlem Shake\" (2012, viral 2013) inaugurated the broader commercial visibility; Diplo, RL Grime, UZ, Flosstradamus, and the broader Mad Decent label roster defined the canonical EDM-trap roster. Distinguished from Atlanta trap proper by festival trap's explicit instrumental-EDM-functional emphasis over rap-vocal-feature.",
   "recipe": "classic festival trap, mc Rhythm, southern branch, house electronic dance tech-house. TR-808, sub bass analog synth, layered sampler. no single room 2015-present distributed distributed production. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
   "recipe_chars": 332,
-  "score": 130.909,
+  "score": 127.159,
   "config": {
     "traditions": [
       "festival_trap",
@@ -57,7 +57,7 @@
           "sampler_archetypes": 4.0375,
           "sampler_bit_depth": 1.105,
           "sampler_workflow": 14.065,
-          "sampler_classic_context": 54.984375
+          "sampler_classic_context": 52.484375
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Washington D.C.-specific funk subgenre developed in mid-1970s by Chuck Brown (1936-2012), characterized by continuous percussion-and-bass-and-vocal groove without breaks between songs (the \"go-go\" of perpetual-motion), call-and-response between bandleader and audience, and Latin-percussion (congas, timbales, cowbell) integration with funk-band horn-section. Trouble Funk, Rare Essence, Experience Unlimited, and Backyard Band extended the canonical roster.",
   "recipe": "classic North American dc go-go, functional Song, soul R&B branch, funk percussive groove percussion future funk. thick, breath veiled tone, slow rate, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright basswood mahogany humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, pre muffled edge muffled brushes-and-sticks drum kit, cowhide mid tier siam oak mid tier modern open slap hand drum congas, open slap hand drum timbales, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble heavy one piece matched to monette horn trumpet, tenor ensemble honking attack saxophone. mid manhattan 1975-1985 mid-major late70s nyc commercial. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 915,
-  "score": 389.505,
+  "score": 378.949,
   "config": {
     "traditions": [
       "dc_go_go",
@@ -48,7 +48,7 @@
           "voice_ensemble_config": 17.354999999999997,
           "voice_ornament_system": 1.9049999999999998,
           "voice_pitch_organization": 2.34,
-          "voice_processing_chain": 28.502999999999997,
+          "voice_processing_chain": 26.002999999999997,
           "voice_multitrack_stack": 9.912500000000001
         }
       },
@@ -70,16 +70,16 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 27.4815,
-          "amp_make": 28.468,
-          "body_wood": 5.07,
+          "electric_technique": 24.981499999999997,
+          "amp_make": 25.967999999999996,
+          "body_wood": 4.986000000000001,
           "neck_wood": 2.3895,
           "fretboard": 3.055,
-          "pickup_magnet": 0.42,
-          "pickup_winding": 0.42,
+          "pickup_magnet": 0.315,
+          "pickup_winding": 0.315,
           "string_material": 2.055,
           "bridge": 2.3895,
-          "scale_length": 4.875,
+          "scale_length": 4.8225,
           "string_gauge": 2.3895,
           "finish": 0,
           "string_tuning": 6.1235
@@ -103,7 +103,7 @@
           "string_type": 8.97,
           "scale_length_b": 2.3895,
           "fretted_or_not": 3.055,
-          "bass_technique": 27.45
+          "bass_technique": 24.949999999999996
         }
       },
       {
@@ -143,7 +143,7 @@
         },
         "scores": {
           "percussion_technique": 4.0175,
-          "timbales_shell": 0.756,
+          "timbales_shell": 0.5459999999999999,
           "timbales_context": 0.36750000000000005
         }
       },

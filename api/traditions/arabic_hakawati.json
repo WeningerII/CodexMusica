@@ -5,7 +5,7 @@
   "lineage": "Traditional Arab coffeehouse storytelling of the Levant, Egypt and the wider Arab world, in which the hakawati ('teller') serialises long popular epics — the Sirat Bani Hilal, the exploits of Antar ibn Shaddad, Baybars, and tales from the Thousand and One Nights — across nightly installments, often reading from a chapbook while embellishing in performance. Seated on a raised chair with a cane or sword as prop, the teller times cliffhangers to the audience and the coffee trade; the art was near-extinct by the late twentieth century and is associated with figures such as Damascus's Abu Shadi (Rashid al-Hallak). Delivery is expressive spoken narration marked by direct address, formulaic openings and pious interjection.",
   "recipe": "classic North African modern arabic hakawati coffeehouse storytelling, ballad Poetry, med east poetic branch cape verdean batuko of santiago island jeju haenyeo songs. thick, breath veiled tone, wide pitch sway, interlocked note trading. stone plaster medina room. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 327,
-  "score": 258.506,
+  "score": 257.856,
   "config": {
     "traditions": [
       "arabic_hakawati",
@@ -48,7 +48,7 @@
           "voice_ensemble_config": 28.73,
           "voice_ornament_system": 5.3315,
           "voice_pitch_organization": 5.3315,
-          "voice_processing_chain": 11.05,
+          "voice_processing_chain": 10.4,
           "voice_multitrack_stack": 5.720000000000001
         }
       }

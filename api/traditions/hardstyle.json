@@ -5,7 +5,7 @@
   "lineage": "Late-1990s onward Dutch hard-electronic-dance genre evolved from hardcore-techno and gabber through tempo deceleration to 150 bpm and the addition of reverse-bass kick-drum compositional convention — codified through Showtek, Headhunterz, Brennan Heart, Wildstylez, and the Q-dance festival-and-event-promotion network, with the form serving as the Dutch hard-dance commercial mainstream",
   "recipe": "classic 1997-1999 hardstyle, electronic Dance, hardstyle branch, continental electronic dance french touch / filter house disco. low sub bass digital subtractive, TR-909, sampler. live tracking. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
   "recipe_chars": 329,
-  "score": 90.057,
+  "score": 86.872,
   "config": {
     "traditions": [
       "hardstyle",
@@ -23,7 +23,7 @@
         "scores": {
           "electronic_technique": 3.185000000000001,
           "va_archetypes": 0.7995,
-          "digital_subtractive_context": 24.204125000000005
+          "digital_subtractive_context": 24.174125000000004
         }
       },
       {
@@ -34,7 +34,7 @@
           "tr909_production_origin": "tr909_tr_8s_modern"
         },
         "scores": {
-          "tr909_voice": 6.023999999999998,
+          "tr909_voice": 4.773999999999999,
           "drum_machine_909_context": 1.8849999999999998,
           "tr909_production_origin": 0.118
         }
@@ -53,7 +53,7 @@
           "sampler_archetypes": 2.875,
           "sampler_bit_depth": 2.8600000000000003,
           "sampler_workflow": 2,
-          "sampler_classic_context": 34.17175
+          "sampler_classic_context": 32.89175
         }
       }
     ],

@@ -3,53 +3,53 @@
   "name": "Old Norse blót invocation",
   "family": "global",
   "lineage": "Blót was the central sacrificial rite of Old Norse religion, a communal offering to the Æsir, Vanir, and land-spirits attested in Heimskringla (Hákonar saga góða describes the Trøndelag blót feasts), Eyrbyggja saga, and Adam of Bremen's account of the Uppsala temple. The gothi or chieftain-priest led the assembly, sprinkling sacrificial blood (hlaut) and pronouncing invocations and full (ceremonial toasts) over the ale to Óðinn, Njörðr, and Freyr for victory and good harvest. Delivery was declamatory rather than melodic, a heightened public oratory answered by the gathered community. The tradition is known from Old Norse-Icelandic prose sources and is reconstructed in modern Heathen practice.",
-  "recipe": "classic modern old norse blót invocation, ritual Devotional, indigenous branch shipibo-conibo icaros healing songs sufi inshad. vocal fry, breath veiled tone, straight onset, interlocked note trading. forest clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 280,
-  "score": 236.895,
+  "recipe": "classic modern old norse blót invocation, ritual Devotional, indigenous branch shipibo-conibo icaros healing songs mapuche tayil genealogical chant. extended whistle, breath veiled tone, straight note core, interlocked note trading. forest clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 312,
+  "score": 233.097,
   "config": {
     "traditions": [
       "norse_blot",
       "shipibo_icaros",
-      "sufi_inshad_egyptian"
+      "mapuche_tayil_ritual"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
+          "voice_register": "extended_whistle_register",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "qawwali_tradition",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.4949999999999999,
-          "voice_quality": 38.025000000000006,
+          "voice_register": 1.3649999999999998,
+          "voice_quality": 43.680000000000035,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.4050000000000002,
-          "voice_articulation": 24.44,
-          "voice_microtone": 37.4725,
-          "voice_tradition": 18.85,
-          "voice_mechanism_compound": 10.137375,
-          "voice_estill_quality": 9.197499999999998,
-          "voice_speech_song": 28.112500000000004,
-          "voice_ensemble_config": 26.715,
-          "voice_ornament_system": 17.950000000000003,
-          "voice_pitch_organization": 4.768000000000001,
-          "voice_processing_chain": 15.079999999999997,
-          "voice_multitrack_stack": 3.835
+          "voice_vibrato": 3.640000000000001,
+          "voice_articulation": 24.765,
+          "voice_microtone": 24.375,
+          "voice_tradition": 23.009999999999998,
+          "voice_mechanism_compound": 13.262375,
+          "voice_estill_quality": 9.165,
+          "voice_speech_song": 26.260000000000005,
+          "voice_ensemble_config": 27.04,
+          "voice_ornament_system": 10.900000000000002,
+          "voice_pitch_organization": 2.665000000000001,
+          "voice_processing_chain": 17.224999999999998,
+          "voice_multitrack_stack": 5.720000000000001
         }
       }
     ],

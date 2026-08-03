@@ -3,9 +3,9 @@
   "name": "Polish avant-garde / sonorism",
   "family": "classical",
   "lineage": "Polish post-war avant-garde compositional school of late-1950s through 1970s, distinct from Darmstadt total-serialism by emphasis on sound-texture, instrumental sonority, and dramatic-expressive content. Lutosławski's controlled-aleatoric texture, Penderecki's Threnody for the Victims of Hiroshima (1960) cluster-and-glissando textures, and Górecki's symphony-of-sorrowful-songs slow-spiritual register constitute three distinct stylistic strands within Polish sonorism.",
-  "recipe": "classic Eastern European 1957-1959 polish avant-garde / sonorism, art Music, western modern branch, western common practice art music the mighty handful grand opera. thick, breath veiled tone, slow rate, interlocked note trading. half rectified sitka spruce bigleaf maple western maple French Polish violin orchestral. shoebox concert hall. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
-  "recipe_chars": 463,
-  "score": 202.606,
+  "recipe": "classic Eastern European 1957-1959 polish avant-garde / sonorism, art Music, western modern branch, western common practice art music the mighty handful grand opera. thick, breath veiled tone, slow rate, interlocked note trading. half rectified sitka spruce bigleaf maple western maple oil varnish violin orchestral. shoebox concert hall. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 461,
+  "score": 198.743,
   "config": {
     "traditions": [
       "polish_avant_garde_sonorism",
@@ -35,7 +35,7 @@
         },
         "scores": {
           "voice_register": 7,
-          "voice_quality": 5.330000000000002,
+          "voice_quality": 4.6800000000000015,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 9.879999999999999,
@@ -43,13 +43,13 @@
           "voice_microtone": 13.129999999999995,
           "voice_tradition": 10.3025,
           "voice_mechanism_compound": 4.9,
-          "voice_estill_quality": 13.81575,
+          "voice_estill_quality": 12.56575,
           "voice_speech_song": 16.1525,
           "voice_ensemble_config": 12.414999999999996,
-          "voice_ornament_system": 11.125,
+          "voice_ornament_system": 9.875,
           "voice_pitch_organization": 4.9,
           "voice_processing_chain": 4.095000000000001,
-          "voice_multitrack_stack": 5.442500000000002
+          "voice_multitrack_stack": 5.130000000000002
         }
       },
       {
@@ -59,7 +59,7 @@
           "orch_strings": "half_rectified_gut_violin",
           "orch_top_wood": "sitka_spruce_violin_top",
           "orch_back_wood": "bigleaf_western_maple_violin",
-          "orch_varnish": "french_polish_violin",
+          "orch_varnish": "oil_amber_varnish_violin",
           "orch_setup_period": "modern_setup_violin",
           "orch_bow": "modern_bow",
           "orch_bow_stick": "pernambuco_stick_orch",
@@ -71,7 +71,7 @@
           "orch_strings": 3.55,
           "orch_top_wood": 5.925750000000001,
           "orch_back_wood": 11.2775,
-          "orch_varnish": 10.025,
+          "orch_varnish": 9.625,
           "orch_setup_period": 8.86425,
           "orch_bow": 1.69,
           "orch_bow_stick": 12.447499999999998,

@@ -5,7 +5,7 @@
   "lineage": "Karelian rune-singing tradition of the Karelian (Karjala) ethno-linguistic region straddling the Finnish-Russian border (eastern Finland, Russian Karelia), comprising the canonical Finno-Karelian narrative-and-magical-incantation oral-poetic corpus from which Elias Lönnrot compiled the Kalevala national-epic (first edition 1835, expanded second edition 1849). Performance: solo or duo unaccompanied voice in strict Kalevala-meter (four-stress eight-syllable trochaic line), often performed antiphonally with one singer providing a low-register drone or echo to the other's melodic line. The Karelian-Finnish runo-singer historical tradition was nearly extinguished by twentieth-century Soviet-and-Finnish modernization; documentary collection by Lönnrot and subsequent collectors preserved approximately 200,000 verses. Distinguished from broader Finnic vocal-music by rune-singing's strict Kalevala-meter and oral-epic-narrative orientation.",
   "recipe": "classic mid-1830s karelian rune-singing, ballad Poetry, Slavic bard branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, breath veiled tone, straight note core, interlocked note trading. birch alder karelian kantele. mountain valley. acoustic horn. wax cylinder.",
   "recipe_chars": 327,
-  "score": 213.663,
+  "score": 213.013,
   "config": {
     "traditions": [
       "karelian_rune_singing",
@@ -41,7 +41,7 @@
           "voice_vibrato": 3.640000000000001,
           "voice_articulation": 19.694999999999997,
           "voice_microtone": 19.304999999999993,
-          "voice_tradition": 24.959999999999994,
+          "voice_tradition": 24.309999999999995,
           "voice_mechanism_compound": 10.7895,
           "voice_estill_quality": 12.544999999999996,
           "voice_speech_song": 21.189999999999998,

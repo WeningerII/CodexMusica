@@ -5,7 +5,7 @@
   "lineage": "Mid-1980s-and-onward American rock subgenre integrating funk slap-bass and rhythmic-syncopation with heavy-rock guitar-bass-drum aesthetic. Red Hot Chili Peppers (Los Angeles, 1983-onward) inaugurated the canonical sound; Faith No More, Primus, Mr. Bungle, and Fishbone constitute the canonical roster. Distinguished from broader rock by funk metal's explicit syncopated-funk-bass emphasis.",
   "recipe": "classic Los Angeles funk metal, distorted Rock, alternative branch, funk percussive groove percussion future funk. thick, breath veiled tone, slow rate, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright basswood mahogany humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
   "recipe_chars": 581,
-  "score": 379.45,
+  "score": 368.82,
   "config": {
     "traditions": [
       "funk_metal",
@@ -48,7 +48,7 @@
           "voice_ensemble_config": 13.974999999999994,
           "voice_ornament_system": 1.4365,
           "voice_pitch_organization": 4.03,
-          "voice_processing_chain": 33.7865,
+          "voice_processing_chain": 31.286499999999993,
           "voice_multitrack_stack": 8.775
         }
       },
@@ -70,8 +70,8 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 28.86799999999999,
-          "amp_make": 32.183499999999995,
+          "electric_technique": 26.36799999999999,
+          "amp_make": 29.473499999999994,
           "body_wood": 10.678,
           "neck_wood": 3.4944999999999995,
           "fretboard": 3.4444999999999997,
@@ -100,10 +100,10 @@
           "amp_make": 15.014999999999999,
           "body_wood": 3.8349999999999995,
           "pickup_config": 0.195,
-          "string_type": 21.018,
+          "string_type": 20.598,
           "scale_length_b": 3.4944999999999995,
           "fretted_or_not": 3.055,
-          "bass_technique": 30.569999999999993
+          "bass_technique": 28.069999999999993
         }
       },
       {

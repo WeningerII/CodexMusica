@@ -5,7 +5,7 @@
   "lineage": "Korean sanjo (\"scattered melody\") solo virtuoso instrumental tradition emerging in late-nineteenth-century southwestern Korea (Jeolla provinces) and crystallizing into the canonical concert form through Kim Chang-jo (1865-1919) for the gayageum zither and subsequent adaptations for geomungo, daegeum, ajaeng, and haegeum. Performance is a continuous suite of progressively accelerating sections (jinyangjo, jungmori, jungjungmori, jajinmori, hwimori, danmori), with janggu hourglass-drum accompaniment marking the rhythmic-cycle changgu. The sanjo grew from sinawi shaman-ensemble heterophony into a self-standing virtuoso art-music form parallel to but distinct from pansori vocal narrative.",
   "recipe": "classic East Asian early-1860s korean sanjo, art Music, east Asian branch, indian classical improv improv on frame hindustani classical carnatic instrumental. vocal fry, breath veiled tone, slow rate, interlocked note trading. composite material paulownia canonical Korean horse dog asymmetric canonical Korean pansori godo janggu, aniri spoken narrative quality interleaved chuseong ascending into slide jungjungmori medium fast 12 8 heightened narrative no interjected chuimsae solo cross tradition fusion concert context pansori voice, court paulownia Korean gayageum, silk court paulownia canonical Korean geomungo, steel paulownia canonical Korean legato haegeum, daegeum, forsythia canonical Korean paulownia canonical Korean silk canonical Korean court legato ajaeng. korean gugak hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 866,
-  "score": 381.43,
+  "score": 361.455,
   "config": {
     "traditions": [
       "korean_sanjo_solo",
@@ -38,16 +38,16 @@
           "voice_quality": 17.485,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 21.97,
+          "voice_vibrato": 20.345,
           "voice_articulation": 11.894999999999996,
           "voice_microtone": 10.659999999999993,
-          "voice_tradition": 39.105000000000004,
-          "voice_mechanism_compound": 16.15,
-          "voice_estill_quality": 19.464999999999996,
-          "voice_speech_song": 17.215,
-          "voice_ensemble_config": 11.724999999999998,
-          "voice_ornament_system": 27.994999999999997,
-          "voice_pitch_organization": 26.65,
+          "voice_tradition": 37.055,
+          "voice_mechanism_compound": 14.9,
+          "voice_estill_quality": 18.214999999999996,
+          "voice_speech_song": 15.965,
+          "voice_ensemble_config": 11.075,
+          "voice_ornament_system": 24.595,
+          "voice_pitch_organization": 23.849999999999998,
           "voice_processing_chain": 3.2500000000000004,
           "voice_multitrack_stack": 5.46
         }
@@ -62,7 +62,7 @@
           "janggu_lineage": "janggu_pansori_godo"
         },
         "scores": {
-          "janggu_use": 13.129999999999999,
+          "janggu_use": 12.48,
           "janggu_construction": 3.5100000000000002,
           "janggu_shell_wood": 3.5999999999999996,
           "janggu_head": 3.5999999999999996,
@@ -95,7 +95,7 @@
           "gayageum_strings": "gayageum_nylon_coated_modern"
         },
         "scores": {
-          "gayageum_type": 8.45,
+          "gayageum_type": 7.8,
           "gayageum_technique": 5.2,
           "gayageum_top_wood": 3.5999999999999996,
           "gayageum_strings": -1.0650000000000002
@@ -111,7 +111,7 @@
           "geomungo_top_wood": "geomungo_paulownia"
         },
         "scores": {
-          "plucked_traditional_technique": 16.595,
+          "plucked_traditional_technique": 15.345,
           "geomungo_use": 3.7949999999999995,
           "geomungo_technique": 6.825,
           "geomungo_strings": 1.69,
@@ -127,8 +127,8 @@
           "haegeum_body_wood": "haegeum_paulownia_body"
         },
         "scores": {
-          "bowed_technique": 16.595,
-          "haegeum_use": 8.645,
+          "bowed_technique": 15.345,
+          "haegeum_use": 7.995,
           "haegeum_strings": 5.2,
           "haegeum_body_wood": 3.5999999999999996
         }
@@ -154,7 +154,7 @@
           "ajaeng_string_material": "ajaeng_silk_canonical"
         },
         "scores": {
-          "bowed_technique": 16.595,
+          "bowed_technique": 15.345,
           "ajaeng_strings": 0.38999999999999996,
           "ajaeng_bow": 3.5999999999999996,
           "ajaeng_body_wood": 3.5999999999999996,

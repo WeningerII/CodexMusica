@@ -5,7 +5,7 @@
   "lineage": "Zouglou Ivorian student-and-popular music emerging in 1990 at the University of Abidjan dormitories as a participatory call-and-response song-and-dance form expressing political commentary. The genre arose from the older bidakouro Bété percussion-and-vocal tradition adapted with French-language and Nouchi-slang lyrics. Performance grew from a-cappella dormitory-circle form into commercial studio recording from 1992 onward. Magic System's 1ère Gaou (1999) became the first international-crossover zouglou hit.",
   "recipe": "classic West African early-1990s zouglou, functional Song, African pop branch, Afro-diasporic MC rhythm south african kwaito kwaito. extended whistle, breath veiled tone, slow rate, interlocked note trading. TR-808, mahogany pyramid pure nickel bass British mid 60s era thumb muted electric bass, mahogany lower tension down tuning clean strummed single coil electric guitar. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 586,
-  "score": 172.057,
+  "score": 170.117,
   "config": {
     "traditions": [
       "zouglou_ivorian",
@@ -41,7 +41,7 @@
           "voice_vibrato": 0.975,
           "voice_articulation": 17.874999999999996,
           "voice_microtone": 15.989999999999991,
-          "voice_tradition": 26.292499999999997,
+          "voice_tradition": 24.667499999999997,
           "voice_mechanism_compound": 2.925,
           "voice_estill_quality": 2.7300000000000004,
           "voice_speech_song": 19.824999999999996,
@@ -62,7 +62,7 @@
         "scores": {
           "tr808_voice": 2.9575,
           "drum_machine_808_context": 5.067,
-          "tr808_production_origin": 0.9869999999999999
+          "tr808_production_origin": 0.8819999999999999
         }
       },
       {
@@ -79,7 +79,7 @@
         "scores": {
           "amp_make": 1.4299999999999997,
           "body_wood": 1.04,
-          "pickup_config": 0.44099999999999995,
+          "pickup_config": 0.336,
           "string_type": 2.6000000000000005,
           "scale_length_b": 1.04,
           "fretted_or_not": 0.1365,
@@ -111,7 +111,7 @@
           "pickup_magnet": 0.1365,
           "string_material": 0.195,
           "string_gauge": 1.04,
-          "bridge": 0.5774999999999999,
+          "bridge": 0.47250000000000003,
           "scale_length": 1.04,
           "finish": 0,
           "string_tuning": 1.69

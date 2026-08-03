@@ -5,7 +5,7 @@
   "lineage": "Mapuche ülkantun (\"singing\") sung-poetry tradition of the Mapuche communities of southern Argentina and central-southern Chile, distinct from the more specialized tayil women's genealogical-ritual chant. The ülkantun encompasses the broader Mapuche song-repertoire spanning everyday-occasion songs, mourning-laments, war-songs, courtship-songs, and political-resistance songs. Performance: solo singer often accompanying themselves on kultrun shallow-frame-drum (the canonical Mapuche ceremonial-percussion-instrument), with characteristic narrow-range Mapuche pentatonic melodic vocabulary and the Mapudungun language base. The post-1990 Chilean-democratic-transition cultural-revival under the Mapuche cultural-policy organizations consolidated institutional visibility; the Mapuche post-2010 political-mobilization period has reinvigorated the genre.",
   "recipe": "classic Northeast Asian early-1990s mapuche ülkantun, ballad Poetry, Latin am troubadour branch, mapuche indigenous mapuche tayil genealogical chant. extended whistle, breath veiled tone, straight note core, interlocked note trading. laurel lingue rauli wood canonical mapuche build goat or horse skin cosmological diagram painted machi shamanic ritual canonical ngillatun kultrun. open steppe outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 465,
-  "score": 166.274,
+  "score": 165.609,
   "config": {
     "traditions": [
       "mapuche_ulkantun",
@@ -59,7 +59,7 @@
           "kultrun_tradition": "kultrun_machi_shamanic_canonical"
         },
         "scores": {
-          "kultrun_body": 19.69850000000001,
+          "kultrun_body": 19.033500000000004,
           "kultrun_head": 9.1,
           "kultrun_tradition": 10.181000000000001
         }

@@ -5,7 +5,7 @@
   "lineage": "Oklahoma-Texas roots-country movement that emerged in 1970s-80s Stillwater Oklahoma as a regional alternative to the Nashville Music Row commercial-country machine — codified through the figures Bob Childers (the Red Dirt poet who became the genres elder statesman), the Red Dirt Rangers, Cross Canadian Ragweed, Stoney LaRue, Jason Boland and the Stragglers, Turnpike Troubadours, and the broader 21st-century Texas Country / Red Dirt circuit (Robert Earl Keen, Ray Wylie Hubbard, Hayes Carll) that maintains a parallel infrastructure to Nashville commercial country",
   "recipe": "classic Southern American mid-1970s red dirt, functional Song, neo trad branch, anglo singer song ballad poetry texas country-folk storyteller freak folk. thick, breath veiled tone, straight note core, interlocked note trading. travis picked parlor acoustic Fender blackface amp American 60s amp spring reverb bright open string slide resonance single coil electric guitar. nashville music row defining 1957-present major-flagship nashville rca studio b quonset hut. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 596,
-  "score": 306.913,
+  "score": 291.462,
   "config": {
     "traditions": [
       "red_dirt",
@@ -34,16 +34,16 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 40.15,
+          "voice_register": 36.4,
           "voice_quality": 15.729999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 25.735,
+          "voice_vibrato": 24.485,
           "voice_articulation": 13.129999999999992,
           "voice_microtone": 12.93499999999999,
-          "voice_tradition": 20.619999999999994,
+          "voice_tradition": 17.969999999999995,
           "voice_mechanism_compound": 1.56,
-          "voice_estill_quality": 28.04,
+          "voice_estill_quality": 26.79,
           "voice_speech_song": 19.369999999999994,
           "voice_ensemble_config": 13.454999999999993,
           "voice_ornament_system": 2.665000000000001,
@@ -62,7 +62,7 @@
           "string_acoustic_parlor": "phosphor_p"
         },
         "scores": {
-          "acoustic_technique": 38.559999999999995,
+          "acoustic_technique": 34.809999999999995,
           "string_tuning": 0,
           "top_wood_parlor": 0.65,
           "back_sides_parlor": 0.045,
@@ -86,8 +86,8 @@
           "string_tuning": "open_g"
         },
         "scores": {
-          "electric_technique": 26.03,
-          "amp_make": 25.825,
+          "electric_technique": 24.78,
+          "amp_make": 24.275,
           "body_wood": 0.65,
           "neck_wood": 0.65,
           "fretboard": 0.585,

@@ -5,7 +5,7 @@
   "lineage": "French interwar composer-collective (Georges Auric, Louis Durey, Arthur Honegger, Darius Milhaud, Francis Poulenc, Germaine Tailleferre) named in 1920 by critic Henri Collet by analogy with the Russian Mighty Five. Aesthetic of Cocteau-inspired anti-Romantic clarity, accessible-melodic neoclassicism, jazz-and-popular-music integration, and Parisian cafe-and-music-hall aesthetic. Erik Satie served as elder-mentor figure. The 1921 Les Mariés de la tour Eiffel ballet (collective composition) is the canonical group-document.",
   "recipe": "classic Western European early-1920s les six, art Music, western modern branch, western common practice art music the mighty handful early romantic. thick, breath veiled tone, slow rate, interlocked note trading. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, sitka spruce bigleaf maple western maple oil varnish amber tinted violin orchestral. intimate paris small studio. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
   "recipe_chars": 475,
-  "score": 273.842,
+  "score": 271.419,
   "config": {
     "traditions": [
       "les_six_french",
@@ -35,7 +35,7 @@
         },
         "scores": {
           "voice_register": 10.825000000000001,
-          "voice_quality": 8.709999999999999,
+          "voice_quality": 8.060000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 6.5,
@@ -68,9 +68,9 @@
         "scores": {
           "keyboard_technique": 5,
           "grand_piano_size": 0.45499999999999996,
-          "grand_piano_brand": 3.185,
-          "piano_hammer": 14.495000000000001,
-          "piano_rim": 12.995000000000001,
+          "grand_piano_brand": 2.535,
+          "piano_hammer": 14.37875,
+          "piano_rim": 12.845,
           "piano_soundboard": 10.5,
           "piano_pinblock": 10.65,
           "piano_plate": 10.59,
@@ -98,8 +98,8 @@
           "orch_back_wood": 12.870000000000001,
           "orch_varnish": 10.5,
           "orch_setup_period": 9.733125,
-          "orch_bow": 3.185,
-          "orch_bow_stick": 13.584999999999999,
+          "orch_bow": 2.535,
+          "orch_bow_stick": 13.378749999999998,
           "orch_articulation": 2.99,
           "orch_rosin": 12.610000000000001
         }

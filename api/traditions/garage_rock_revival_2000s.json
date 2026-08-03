@@ -5,7 +5,7 @@
   "lineage": "2000s deliberate-vintage garage-rock movement reviving 1960s garage-rock sonic and stylistic vocabulary through fuzz-and-reverb single-coil-guitar production, raw vocal delivery, and short-song-form construction — codified through The White Stripes (White Blood Cells 2001, Elephant 2003), The Strokes (Is This It 2001), The Hives (Veni Vidi Vicious 2000), Yeah Yeah Yeahs, The Vines, with revival-aesthetic continuing through Black Lips and the Burger Records scene",
   "recipe": "classic garage-rock revival, distorted Rock, classic branch, punk distorted rock crust punk post-punk. thick, breath veiled tone, breath pulsed, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alnico single coil electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, oil filled sticks backbeat drum kit. fetishistic vintage 1995-present vintage-revival toe rag vintage revival. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 625,
-  "score": 334.945,
+  "score": 322.782,
   "config": {
     "traditions": [
       "garage_rock_revival_2000s",
@@ -31,10 +31,10 @@
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_plate_reverb_medium",
-          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 23.639999999999997,
+          "voice_register": 22.989999999999995,
           "voice_quality": 12.024999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -45,11 +45,11 @@
           "voice_mechanism_compound": 11.8625,
           "voice_estill_quality": 1.885,
           "voice_speech_song": 15.989999999999998,
-          "voice_ensemble_config": 18.404999999999998,
+          "voice_ensemble_config": 15.905,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 1.4949999999999999,
           "voice_processing_chain": 7.345000000000001,
-          "voice_multitrack_stack": 7.637500000000001
+          "voice_multitrack_stack": 7.575000000000001
         }
       },
       {
@@ -69,8 +69,8 @@
           "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 17,
-          "amp_make": 32.96,
+          "electric_technique": 14.5,
+          "amp_make": 29.66,
           "body_wood": 0.845,
           "neck_wood": 0.845,
           "fretboard": 0.845,
@@ -101,7 +101,7 @@
           "string_type": 28.275,
           "scale_length_b": 0.845,
           "fretted_or_not": 0.045,
-          "bass_technique": 37.795
+          "bass_technique": 35.295
         }
       },
       {
@@ -113,7 +113,7 @@
         },
         "scores": {
           "drum_technique": 23.25,
-          "drumhead": 3.945,
+          "drumhead": 3.295,
           "drum_kit_kick_pedal": 0
         }
       }

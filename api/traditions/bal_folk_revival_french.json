@@ -5,7 +5,7 @@
   "lineage": "French bal-folk folk-dance-revival movement emerging in 1970s post-1968 French counter-cultural folk-music revival, reconstructing the regional folk-dance repertoires (bourrée Auvergnate, mazurka, scottish, polka, valse Aveyronaise) for participatory ballroom-style social-dance contexts. Performance: small ensemble of hurdy-gurdy, cabrette or veuze bagpipe, vielle à roue, fiddle, accordion, acoustic guitar, plus voice for sung-dance pieces. Distinguished from earlier French bal-musette by bal-folk's regional-folk-revival (vs Parisian-urban-cabaret) functional context. The Bal-Folk association network and the annual Saint-Chartier (later renamed Le Son Continu) festival anchor institutional continuity.",
   "recipe": "classic Western European mid-1970s bal-folk, functional Song, europop branch, Celtic balladic ballad poetry sean-nós solo singing swedish polska. thick, breath veiled tone, slow rate, interlocked note trading. melodic straight piano accordion, French trad petromax pignol rosin canonical French steel modern bal folk French bal folk pignol tritonik hurdy gurdy, drone like fiddle, hurdy gurdy paired dance pulse cornemuse du centre. intimate paris small studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 524,
-  "score": 399.54,
+  "score": 394.985,
   "config": {
     "traditions": [
       "bal_folk_revival_french",
@@ -46,7 +46,7 @@
           "voice_estill_quality": 1.105,
           "voice_speech_song": 10.009999999999998,
           "voice_ensemble_config": 10.984999999999994,
-          "voice_ornament_system": 25.025,
+          "voice_ornament_system": 24.275,
           "voice_pitch_organization": 0.8499999999999999,
           "voice_processing_chain": 5.240000000000001,
           "voice_multitrack_stack": 5.135
@@ -61,8 +61,8 @@
         },
         "scores": {
           "free_reed_technique": 31.340000000000018,
-          "pa_size": 14.045000000000005,
-          "pa_use": 14.045000000000005
+          "pa_size": 13.595000000000006,
+          "pa_use": 13.595000000000006
         }
       },
       {
@@ -77,11 +77,11 @@
         },
         "scores": {
           "bowed_technique": -0.05,
-          "hurdy_strings": 20.245000000000008,
+          "hurdy_strings": 19.79500000000001,
           "hurdy_buzz": 4.944999999999999,
           "hurdy_wheel_rosin": 5.55,
-          "hurdy_string_material": 20.72500000000001,
-          "hurdy_tradition": 25.145000000000007
+          "hurdy_string_material": 20.275000000000006,
+          "hurdy_tradition": 24.695000000000007
         }
       },
       {
@@ -109,9 +109,9 @@
           "cornemuse_du_centre_wood": "cornemuse_du_centre_prunier"
         },
         "scores": {
-          "cornemuse_du_centre_form": 34.095000000000006,
-          "cornemuse_du_centre_repertoire": 22.975,
-          "cornemuse_du_centre_wood": 2.165
+          "cornemuse_du_centre_form": 33.645,
+          "cornemuse_du_centre_repertoire": 22.475,
+          "cornemuse_du_centre_wood": 1.56
         }
       }
     ],

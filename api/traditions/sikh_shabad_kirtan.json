@@ -5,7 +5,7 @@
   "lineage": "Sikh devotional kirtan tradition continuous from 15th-16th century Guru-Nanak-era Sikh-spiritual-music foundation through codification under Guru Arjan and continuous performance through 17th-19th century historical-Punjab-region into modern Sikh-and-Sikh-diaspora practice; the kirtan ensemble accompanies shabad (Gurbani-scriptural) text-recitation in gurdwara context",
   "recipe": "classic South Asian mid-1980s sikh shabad kirtan, praise Song, indian subcontinent branch, middle east n African praise song, hindu ritual devotional, indian classical improv improv on frame sufi munajat and naat arabic madh and qasida. thick, declaimed, slow rate, interlocked note trading. treble-extended vocal female harmonium indian, indian rosewood rosewood copper tabla, suited to female vocal bronze steel mix wooden body miraj style tanpura. golden temple amritsar gurdwara. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
   "recipe_chars": 622,
-  "score": 264.402,
+  "score": 243.615,
   "config": {
     "traditions": [
       "sikh_shabad_kirtan",
@@ -35,19 +35,19 @@
         },
         "scores": {
           "voice_register": 2.8,
-          "voice_quality": 39.82500000000001,
+          "voice_quality": 37.325,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 10.237499999999999,
-          "voice_articulation": 10.464999999999996,
-          "voice_microtone": 24.05,
-          "voice_tradition": 27.56,
+          "voice_vibrato": 10.049999999999999,
+          "voice_articulation": 8.515,
+          "voice_microtone": 18.849999999999994,
+          "voice_tradition": 26.259999999999998,
           "voice_mechanism_compound": 11.674999999999999,
           "voice_estill_quality": 9.59,
-          "voice_speech_song": 23.009999999999994,
-          "voice_ensemble_config": 10.984999999999996,
-          "voice_ornament_system": 18.549999999999997,
-          "voice_pitch_organization": 18.819999999999997,
+          "voice_speech_song": 21.059999999999995,
+          "voice_ensemble_config": 9.035000000000002,
+          "voice_ornament_system": 16.049999999999997,
+          "voice_pitch_organization": 16.319999999999997,
           "voice_processing_chain": 2.3399999999999994,
           "voice_multitrack_stack": 3.5300000000000002
         }

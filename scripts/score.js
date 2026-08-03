@@ -37,15 +37,39 @@ const NEIGHBOR_BONUS_CAP_RATIO = 0.3; // neighbor bonus can never exceed this fr
 // Memoized — the catalog is immutable per process so context is cacheable by tradId.
 // Earlier this was being rebuilt thousands of times per recipe via the neighbor-bias
 // path inside scoreVariant; the cache makes it O(unique-tradition-references) instead.
+//
+// `includeName: false` builds the same context WITHOUT source 1's name half.
+// The two cross-tradition readers ask for it — the staple merge below and
+// neighbor-bias in scoreVariant — and the reason is the difference between what
+// a tradition IS and what it is CALLED. Scoring a tradition against its own name
+// is self-description and is stable: rename merseybeat and merseybeat's recipe
+// moves, which is what anyone would expect. Scoring it against a NEIGHBOUR's name
+// is neither. The neighbour is consulted to answer "is this variant idiomatic in
+// adjacent musical territory" — a question about sound, which its lineage,
+// family, room and archetype already answer. Its name is a label, and a label is
+// editorial: it changes when someone tidies the catalog, and it carries tokens
+// that were never claims about sound at all.
+//
+// That is not hypothetical. `Aussie pub rock (70s-80s)` put `70s` and `80s` into
+// the prose of every tradition that had it as a neighbour, and the Marshall
+// JCM800 — descriptor "British 80s rock amp" — collected the bonus. merseybeat,
+// dated 1962-1968, was recorded through a 1981 amplifier because a SIBLING's
+// name mentioned a decade. Dropping the parenthetical silently changed two
+// other traditions' gear; that coupling is the bug, not the parenthetical.
 const _buildContextCache = new Map();
-function buildContext(tradId) {
-  const cached = _buildContextCache.get(tradId);
+function buildContext(tradId, opts) {
+  const includeName = !opts || opts.includeName !== false;
+  // Distinct cache slot per mode. A space cannot occur in a tradition id (the
+  // delimiter precondition in check_rest_parity re-measures that every run), so
+  // the suffixed key can never collide with a real id.
+  const key = includeName ? tradId : tradId + ' noname';
+  const cached = _buildContextCache.get(key);
   if (cached !== undefined) return cached;
-  const result = _buildContextUncached(tradId);
-  _buildContextCache.set(tradId, result);
+  const result = _buildContextUncached(tradId, includeName);
+  _buildContextCache.set(key, result);
   return result;
 }
-function _buildContextUncached(tradId) {
+function _buildContextUncached(tradId, includeName = true) {
   const t = C.TRADITIONS.find((x) => x.id === tradId);
   const e = C.TRADITION_EXTRAS[tradId] || {};
   if (!t) return null;
@@ -91,8 +115,11 @@ function _buildContextUncached(tradId) {
     else addSingle(norm, w);
   };
 
-  // Source 1: tradition name + lineage → prose @ 1.0
-  for (const w of (t.name + ' ' + (t.lineage || '')).toLowerCase().split(/\W+/).filter(Boolean)) {
+  // Source 1: tradition name + lineage → prose @ 1.0. The name half is dropped
+  // when includeName is false (neighbor-bias only — see buildContext); lineage
+  // is the descriptive half and always contributes.
+  const source1 = (includeName ? t.name + ' ' : '') + (t.lineage || '');
+  for (const w of source1.toLowerCase().split(/\W+/).filter(Boolean)) {
     addProse(w, 1.0);
   }
   // Source 2: family → prose @ 1.0 (verbatim, no lowercase — matches old behavior)
@@ -214,7 +241,17 @@ function _buildMergedContextUncached(tradIds, stapleWeight, exclude) {
 
   for (let i = 1; i < tradIds.length; i++) {
     if (exclude.has(tradIds[i])) continue; // voice-isolated: skip this staple
-    const stapleCtx = buildContext(tradIds[i]);
+    // includeName: false — same cut as neighbor-bias, and it matters MORE here.
+    // The hill-climber staples a primary's crossRef siblings on its own
+    // (search.js traditionStapleMoves), so almost every compiled recipe ends up
+    // scored against two or three sibling records the caller never named. Those
+    // siblings contribute what they SOUND like — lineage, family, parent, room,
+    // archetype — at stapleWeight. What they are CALLED stays out: it is a
+    // label, it is edited for readability, and its tokens were never claims
+    // about sound. `merged.stapledTraditions` still carries the full tradition
+    // objects, so translate.js keeps naming them in the rendered sentence; only
+    // scoring stops reading the label.
+    const stapleCtx = buildContext(tradIds[i], { includeName: false });
     if (!stapleCtx) continue;
     merged.stapledTraditions.push(stapleCtx.tradition);
     for (const [tok, w] of stapleCtx.prose) {
@@ -664,7 +701,11 @@ function scoreVariant(variant, context, options = {}) {
     const neighbors = getNeighbors(context.tradition.id, 5);
     let neighborBonus = 0;
     for (const n of neighbors) {
-      const nctx = buildContext(n.id);
+      // includeName: false — a neighbour is consulted for its SOUND, not its
+      // label. Including its name made every tradition's gear a function of what
+      // its siblings happened to be called, so an editorial rename moved
+      // recipes that had nothing to do with it.
+      const nctx = buildContext(n.id, { includeName: false });
       if (!nctx) continue;
       // Lightweight neighbor scoring — descriptor overlap only, no recursion.
       // canonical_tags are NOT consulted in neighbor-bias (preserved behavior).

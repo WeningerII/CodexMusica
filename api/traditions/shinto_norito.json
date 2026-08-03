@@ -5,7 +5,7 @@
   "lineage": "Norito are the formal ritual prayers of Japanese Shinto, addressed by a kannushi (priest) to the kami during matsuri and purification rites, with a textual core reaching back to the Engishiki (compiled 927 CE), which preserves the oldest liturgical norito including the Ōharae no kotoba (Great Purification formula). Delivery is a slow, sustained, near-monotone intonation in archaic classical Japanese, projected with deliberate solemnity before the sanctuary. The recitation is unaccompanied and ametrical, its authority resting on precise archaic wording and priestly transmission through shrine lineages and the Jinja Honcho institutional tradition. It remains a living practice performed daily at shrines throughout Japan.",
   "recipe": "classic Southeast Asian modern shinto norito prayer recitation, ritual Devotional, indigenous branch shipibo-conibo icaros healing songs sufi inshad. balanced, breath veiled tone, slow rate, interlocked note trading. wooden pagoda hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 299,
-  "score": 221.973,
+  "score": 216.173,
   "config": {
     "traditions": [
       "shinto_norito",
@@ -40,13 +40,13 @@
           "voice_effort": 0,
           "voice_vibrato": 7.169500000000001,
           "voice_articulation": 19.369999999999997,
-          "voice_microtone": 34.092499999999994,
-          "voice_tradition": 18.85,
+          "voice_microtone": 32.467499999999994,
+          "voice_tradition": 16.575,
           "voice_mechanism_compound": 10.0365,
           "voice_estill_quality": 13.422499999999996,
-          "voice_speech_song": 21.71,
+          "voice_speech_song": 21.06,
           "voice_ensemble_config": 19.955,
-          "voice_ornament_system": 17.950000000000003,
+          "voice_ornament_system": 16.700000000000003,
           "voice_pitch_organization": 9.230000000000002,
           "voice_processing_chain": 11.7,
           "voice_multitrack_stack": 3.575000000000001

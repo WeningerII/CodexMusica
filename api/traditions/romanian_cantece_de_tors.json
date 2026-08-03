@@ -3,14 +3,14 @@
   "name": "Romanian cântece de tors (spinning songs)",
   "family": "global",
   "lineage": "Romanian spinning-song (cântece de tors) tradition continuous from premodern Romanian-rural domestic-textile-labor practice through 19th-century Romanian-folklorist documentation through 20th-century Béla Bartók Romanian-folk-collection canonical into modern Romanian-folk-revival continuous practice",
-  "recipe": "classic Northern European modern romanian cântece de tors, domestic Rhythm, Slavic baltic branch, Celtic hebridean domestic rhythm, Slavic balkan field work, European lullaby irish spinning song scottish gaelic tàladh. thick, close mic intimate, straight onset, continuous-phonation. setu farmhouse wood. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 367,
-  "score": 134.274,
+  "recipe": "classic Northern European modern romanian cântece de tors, domestic Rhythm, Slavic baltic branch, Celtic hebridean domestic rhythm, Slavic balkan field work, European lullaby irish spinning song hungarian aratónóta. thick, close mic intimate, straight onset, continuous-phonation. setu farmhouse wood. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 364,
+  "score": 123.107,
   "config": {
     "traditions": [
       "romanian_cantece_de_tors",
       "irish_spinning_song",
-      "scottish_gaelic_taladh"
+      "hungarian_aratonota"
     ],
     "instruments": [
       {
@@ -27,29 +27,29 @@
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_speech",
           "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ensemble_config": "voice_ensemble_three_voice_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
           "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 7.809999999999999,
-          "voice_quality": 4.940000000000001,
+          "voice_register": 10.884999999999996,
+          "voice_quality": 4.745,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 4.095,
-          "voice_articulation": 5.915,
-          "voice_microtone": 6.630000000000001,
-          "voice_tradition": 40.71125,
-          "voice_mechanism_compound": 2.0149999999999997,
-          "voice_estill_quality": 1.2349999999999999,
-          "voice_speech_song": 10.399999999999997,
-          "voice_ensemble_config": 5.720000000000001,
-          "voice_ornament_system": 33.18249999999999,
-          "voice_pitch_organization": 5.915,
-          "voice_processing_chain": 2.0799999999999996,
-          "voice_multitrack_stack": 2.2749999999999995
+          "voice_articulation": 6.759999999999999,
+          "voice_microtone": 7.54,
+          "voice_tradition": 32.92249999999999,
+          "voice_mechanism_compound": 1.56,
+          "voice_estill_quality": 0.975,
+          "voice_speech_song": 11.179999999999996,
+          "voice_ensemble_config": 6.922500000000001,
+          "voice_ornament_system": 21.957499999999996,
+          "voice_pitch_organization": 6.759999999999999,
+          "voice_processing_chain": 2.7300000000000004,
+          "voice_multitrack_stack": 0.975
         }
       }
     ],

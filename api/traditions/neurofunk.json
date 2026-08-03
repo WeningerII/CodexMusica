@@ -5,7 +5,7 @@
   "lineage": "Late-1990s and 2000s drum-and-bass subgenre characterized by mechanical-cinematic synth-bass lead designs, dystopian-science-fiction atmospheric pads, technical drum-programming, and minimal vocal content. Ed Rush & Optical, Noisia (Dutch trio), Phace, Mefjus, and the broader Vision Recordings-Neosignal label rosters anchor the canonical neurofunk aesthetic.",
   "recipe": "classic 1997-1999 neurofunk, bass System, bass descendants branch, industrial noise experimental electric, thrash metal dark electro / aggrotech. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, sub bass analog synth, ampeg svt amp rock bass amp mahogany la bella flats Detroit soul bass canon electric bass. no single room 2015-present distributed distributed production. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
   "recipe_chars": 522,
-  "score": 96.785,
+  "score": 95.425,
   "config": {
     "traditions": [
       "neurofunk",
@@ -21,8 +21,8 @@
           "tr808_production_origin": "tr808_roland_osaka_canonical"
         },
         "scores": {
-          "tr808_voice": 9.941,
-          "drum_machine_808_context": 10.186,
+          "tr808_voice": 9.811,
+          "drum_machine_808_context": 10.056000000000001,
           "tr808_production_origin": 5.330000000000001
         }
       },
@@ -36,8 +36,8 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 9.841000000000001,
-          "oscillator": 10.216000000000001,
+          "electronic_technique": 9.711,
+          "oscillator": 10.086,
           "filter_topology": 10.27,
           "envelope": 0.675,
           "modulation": 0.09
@@ -56,10 +56,10 @@
         },
         "scores": {
           "amp_make": 12.025,
-          "body_wood": 2.368,
+          "body_wood": 1.8080000000000003,
           "pickup_config": 0.604,
           "string_type": 10.14,
-          "scale_length_b": 1.184,
+          "scale_length_b": 0.9040000000000001,
           "fretted_or_not": 0.24,
           "bass_technique": 3.4499999999999997
         }

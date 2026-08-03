@@ -5,7 +5,7 @@
   "lineage": "Saidi music of Upper Egypt (south of Cairo extending to Aswan), the canonical pre-modern rural musical tradition of the Egyptian Nile Valley peasant Saidi communities. Performance centers on the mizmar pair (loud double-reed conical-bore aerophone played in heterophonic-melodic-elaboration) over tabla baladi or tabla dohola two-headed barrel-drum. Repertoire spans wedding-celebration cycles, mawwal vocal-lament solo declamations (free-rhythm extended-melismatic-ornament register), and tahtib stick-dance accompaniment cycles for which Saidi music is particularly known.",
   "recipe": "classic North African mid-1980s saidi music, functional Song, mid east n African pop branch, west African groove percussion indonesian jaipongan fújì. thick, breath veiled tone, straight note core, interlocked note trading. walnut bent frame canonical Iranian goat skin canonical Sufi tar frame drum, tabla, apricot canonical Egyptian arundo donax canonical nile delta mizmar, arghul. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
   "recipe_chars": 567,
-  "score": 197.786,
+  "score": 196.199,
   "config": {
     "traditions": [
       "saidi_upper_egyptian",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 8.355000000000002,
+          "voice_register": 8.205000000000002,
           "voice_quality": 12.609999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -47,7 +47,7 @@
           "voice_speech_song": 9.815,
           "voice_ensemble_config": 7.8,
           "voice_ornament_system": 4.16,
-          "voice_pitch_organization": 9.297499999999998,
+          "voice_pitch_organization": 7.859999999999998,
           "voice_processing_chain": 8.71,
           "voice_multitrack_stack": 5.459999999999999
         }

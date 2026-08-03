@@ -5,7 +5,7 @@
   "lineage": "Mid-2000s progressive-metal subgenre developed through Meshuggah-derived polymetric-rhythmic-and-down-tuned guitar production (the term \"djent\" is onomatopoeic for the distinctive percussive palm-muted heavily-distorted seven-or-eight-string guitar attack). Periphery (Misha Mansoor, founded 2005), Animals As Leaders (Tosin Abasi), TesseracT, Monuments, and the broader Sumerian Records and Basick Records label rosters anchor the canonical djent roster.",
   "recipe": "classic djent, distorted Rock, thrash branch, western modern art music american minimalism indeterminacy and aleatoric. thick, breath veiled tone, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modeled amp modern rig alder ernie ball slinky sub heavy electric bass, pre muffled edge muffled brushes-and-sticks drum kit. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 638,
-  "score": 298.165,
+  "score": 286.615,
   "config": {
     "traditions": [
       "djent",
@@ -38,17 +38,17 @@
           "voice_quality": 10.594999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 9.425,
-          "voice_articulation": 11.244999999999996,
+          "voice_vibrato": 8.775,
+          "voice_articulation": 9.945,
           "voice_microtone": 13.375000000000002,
           "voice_tradition": 7.085000000000001,
           "voice_mechanism_compound": 12.849999999999998,
           "voice_estill_quality": 4.8100000000000005,
-          "voice_speech_song": 13.259999999999996,
-          "voice_ensemble_config": 11.179999999999994,
+          "voice_speech_song": 11.959999999999997,
+          "voice_ensemble_config": 9.879999999999999,
           "voice_ornament_system": 2.6400000000000006,
           "voice_pitch_organization": 3.185000000000001,
-          "voice_processing_chain": 5.98,
+          "voice_processing_chain": 5.330000000000001,
           "voice_multitrack_stack": 7.115
         }
       },
@@ -71,16 +71,16 @@
         },
         "scores": {
           "electric_technique": 14.549999999999999,
-          "amp_make": 28.084999999999997,
-          "body_wood": 17.355,
-          "neck_wood": 4.035,
-          "fretboard": 3.985,
+          "amp_make": 26.935,
+          "body_wood": 16.705,
+          "neck_wood": 3.5349999999999997,
+          "fretboard": 3.485,
           "pickup_magnet": 4.55,
           "pickup_winding": 2.8600000000000003,
           "string_material": 0.9099999999999999,
-          "bridge": 4.035,
+          "bridge": 3.5349999999999997,
           "scale_length": 11.18,
-          "string_gauge": 5.53,
+          "string_gauge": 5.03,
           "finish": 0,
           "string_tuning": 11.18
         }
@@ -98,10 +98,10 @@
         },
         "scores": {
           "amp_make": 16.795,
-          "body_wood": 6.874999999999999,
+          "body_wood": 6.374999999999999,
           "pickup_config": 3.7700000000000005,
           "string_type": 5.485,
-          "scale_length_b": 3.84,
+          "scale_length_b": 3.34,
           "fretted_or_not": 1.3,
           "bass_technique": 5.5
         }
@@ -114,7 +114,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 11.309999999999997,
+          "drum_technique": 10.009999999999998,
           "drumhead": 6.49,
           "drum_kit_kick_pedal": 0
         }

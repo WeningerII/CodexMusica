@@ -5,7 +5,7 @@
   "lineage": "Early-2000s onward drum-and-bass subgenre emphasizing soulful-jazz harmonic foundation, melodic content, and accessible vocal-pop arrangement against rolling drum-and-bass percussion — codified through Calibre, High Contrast (True Colours 2002), Logistics, Netsky (Netsky 2010), London Elektricity, and the broader Hospital Records label catalog",
   "recipe": "classic 2000-2003 liquid funk, bass System, uk soundsystem branch, Afro-diasporic electric groove percussion afrobeat kompa. thick, breath veiled tone, straight onset, interlocked note trading. melodic pitched sampler, TR-909, sub bass digital subtractive, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 511,
-  "score": 174.713,
+  "score": 173.563,
   "config": {
     "traditions": [
       "liquid_funk",
@@ -104,16 +104,16 @@
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "fingerstyle_locked"
+          "bass_technique": "fingerstyle_walking"
         },
         "scores": {
           "amp_make": 8.255,
           "body_wood": 0.195,
           "pickup_config": 0.195,
-          "string_type": 7.54,
+          "string_type": 7.51525,
           "scale_length_b": 0.195,
           "fretted_or_not": 0,
-          "bass_technique": 6.875
+          "bass_technique": 5.75
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Early-1960s Greenwich Village (Cafe Wha, Gerdes Folk City, the Bitter End) folk-revival singer-songwriter circuit — Bob Dylan, Phil Ochs, Dave Van Ronk, Joan Baez early years, Tom Paxton, Eric Andersen",
   "recipe": "classic North American 1960s greenwich village confessional folk, ballad Poetry, 60s confessional, anglo singer song laurel canyon, anglo singer song britfolk britfolk revival. thick, incomplete closure resting, straight note core, interlocked note trading. verse-lament through-composed narrative, through composed, static dynamic envelope, vocal ornamentation as intensification. dadgad tuning fingerpicked acoustic guitar, pearwood marine band tradition brass traditional hering Brazilian premium forro canon harmonica. nyc jazz vocal engineered 1958-1998 mid tier a and r recording nyc. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 685,
-  "score": 221.293,
+  "score": 217.293,
   "config": {
     "traditions": [
       "greenwich_village_confessional",
@@ -35,7 +35,7 @@
         },
         "scores": {
           "voice_register": 22.374999999999996,
-          "voice_quality": 24.834999999999997,
+          "voice_quality": 22.834999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.48,
@@ -62,11 +62,11 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "string_tuning": 7.894999999999999,
+          "string_tuning": 6.6450000000000005,
           "top_wood": 0.195,
           "back_sides": 0.195,
           "string_acoustic": 0.9862500000000001,
-          "acoustic_om_technique": 43.685874999999996
+          "acoustic_om_technique": 42.935874999999996
         }
       },
       {

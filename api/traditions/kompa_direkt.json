@@ -5,7 +5,7 @@
   "lineage": "The original founding Haitian kompa-direkt tradition invented by Nemours Jean-Baptiste in 1955 — characterized by big-band horn-section arrangement, slower 2/4 dance tempo (90-110 BPM), and the meringue Haitian rhythmic foundation; figures Nemours Jean-Baptiste (the founder), his orchestra Ensemble Aux Calebasses, and the parallel cadence-rampa lineage of Webert Sicot",
   "recipe": "classic Caribbean mid-1950s kompa-direkt, groove Percussion, Caribbean branch, American jazz early swing-era jazz orchestra new orleans jazz. thick, breath veiled tone, straight onset, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright open string slide resonance single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, congas. port au prince Haitian recording 1970-2000 indie-commercial port au prince haitian kompa studio. sennheiser MD421, transformer-coupled solid-state pre, colored vintage console, optical compressor, parametric EQ. tape 15ips spring reverb.",
   "recipe_chars": 847,
-  "score": 249.98,
+  "score": 221.648,
   "config": {
     "traditions": [
       "kompa_direkt",
@@ -34,14 +34,14 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 17.781499999999994,
+          "voice_register": 15.281499999999994,
           "voice_quality": 5.98,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 15.617999999999999,
+          "voice_vibrato": 13.117999999999999,
           "voice_articulation": 7.735,
-          "voice_microtone": 15.319999999999995,
-          "voice_tradition": 19.587999999999997,
+          "voice_microtone": 12.819999999999995,
+          "voice_tradition": 16.637999999999998,
           "voice_mechanism_compound": 1.2349999999999999,
           "voice_estill_quality": 1.0399999999999998,
           "voice_speech_song": 8.58,
@@ -98,10 +98,10 @@
           "amp_make": 7.1175,
           "body_wood": 0.3,
           "pickup_config": 0.39,
-          "string_type": 18.159999999999997,
+          "string_type": 15.209999999999997,
           "scale_length_b": 0.5265,
           "fretted_or_not": 0.063,
-          "bass_technique": 14.874999999999998
+          "bass_technique": 12.374999999999998
         }
       },
       {
@@ -112,8 +112,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 15.144999999999996,
-          "drumhead": 18.24,
+          "drum_technique": 13.844999999999995,
+          "drumhead": 15.29,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -132,10 +132,10 @@
           "wind_articulation": 6.136,
           "sax_size": 0.3,
           "sax_reed": 0.105,
-          "sax_body_alloy": 15.624999999999998,
+          "sax_body_alloy": 13.124999999999998,
           "sax_mouthpiece": 0.105,
-          "sax_technique": 14.906499999999998,
-          "sax_maker_school": 16.605
+          "sax_technique": 12.406499999999998,
+          "sax_maker_school": 13.4225
         }
       },
       {

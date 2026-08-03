@@ -5,7 +5,7 @@
   "lineage": "Scottish Gaelic cradle-song tradition continuous from medieval Highland and Hebridean oral practice through 19th-and-20th-century Gaelic-folksong collection (Tolmie, Kennedy-Fraser) into modern Gaelic-revival vocal practice",
   "recipe": "classic Northern European modern scottish gaelic tàladh, lullaby, European branch, vocal drone modal, Celtic balladic ballad poetry, christian gospel ritual devotional sean-nós solo singing cape breton milling-frolic. vocal fry, declaimed, straight onset, interlocked note trading. scottish bothy farmhouse kitchen. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 378,
-  "score": 178.377,
+  "score": 178.227,
   "config": {
     "traditions": [
       "scottish_gaelic_taladh",
@@ -46,7 +46,7 @@
           "voice_estill_quality": 3.1525,
           "voice_speech_song": 13.194999999999993,
           "voice_ensemble_config": 11.212499999999995,
-          "voice_ornament_system": 49.48999999999999,
+          "voice_ornament_system": 49.33999999999999,
           "voice_pitch_organization": 6.045,
           "voice_processing_chain": 4.355,
           "voice_multitrack_stack": 5.069999999999999

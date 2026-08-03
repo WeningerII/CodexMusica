@@ -5,7 +5,7 @@
   "lineage": "Cairo working-class popular vernacular music tradition emerging in the 1970s-80s — codified through Ahmed Adaweya (the foundational voice, whose 1972 album Salametha Umm Hassan broke the classical-tarab dominance of Egyptian commercial music), Shaaban Abdel Rehim, Hakim, Saad El Soghayar — built on the Cairo working-class colloquial Egyptian Arabic vocabulary, oud-and-qanun urban-modernized instrumentation, and topical lyrical content addressing daily Cairo street life",
   "recipe": "classic North African mid-1970s shaabi, functional Song, mid east n African pop branch, Persian arab improv improv on frame, intl hip hop MC rhythm malhun iraqi maqam. extended whistle, breath veiled tone, slow rate, interlocked note trading. padauk Egyptian Syrian premium pyramid nylon arab school oud, metal finger picks rosewood body arab premium qanun, spun aluminum Egyptian sombaty synthetic remo mylar modern canonical Egyptian Egyptian sombaty canonical mid east darbuka, mahogany pyramid pure nickel bass British mid 60s era electric bass. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
   "recipe_chars": 732,
-  "score": 242.7,
+  "score": 233.84,
   "config": {
     "traditions": [
       "shaabi_egyptian",
@@ -38,16 +38,16 @@
           "voice_quality": 7.410000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 11.200000000000001,
+          "voice_vibrato": 10.600000000000001,
           "voice_articulation": 7.02,
-          "voice_microtone": 33.114999999999995,
-          "voice_tradition": 19.525000000000002,
+          "voice_microtone": 30.165,
+          "voice_tradition": 17.925,
           "voice_mechanism_compound": 14.545000000000002,
           "voice_estill_quality": 9.14,
           "voice_speech_song": 9.415000000000001,
           "voice_ensemble_config": 8.254999999999999,
-          "voice_ornament_system": 19.785000000000004,
-          "voice_pitch_organization": 19.89,
+          "voice_ornament_system": 18.335,
+          "voice_pitch_organization": 18.44,
           "voice_processing_chain": 3.44,
           "voice_multitrack_stack": 3.185
         }
@@ -67,8 +67,8 @@
           "plucked_traditional_technique": 7.375000000000001,
           "oud_school": 6.175,
           "oud_strings": 3.835,
-          "oud_pick": 2.04,
-          "oud_body_wood": 3.9,
+          "oud_pick": 1.8900000000000001,
+          "oud_body_wood": 3.84,
           "oud_soundboard_wood": 0.65,
           "oud_string_material": 4.16
         }
@@ -121,11 +121,11 @@
           "bass_technique": "fingerpicked_country_b"
         },
         "scores": {
-          "amp_make": 1.8399999999999999,
-          "body_wood": 2.2800000000000002,
+          "amp_make": 1.69,
+          "body_wood": 1.98,
           "pickup_config": 0.15,
           "string_type": 2.21,
-          "scale_length_b": 2.04,
+          "scale_length_b": 1.8900000000000001,
           "fretted_or_not": 0.045,
           "bass_technique": -0.035
         }

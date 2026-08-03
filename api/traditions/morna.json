@@ -5,7 +5,7 @@
   "lineage": "Cape Verdean Lusophone-archipelago melancholic ballad tradition — codified through the late-19th-century Brava and São Vicente island repertoire and through Cesária Évora’s international career from the 1990s onward (Miss Perfumado 1992), characterized by Crioulo-language poetic-confessional lyrics on themes of saudade and emigration, accompanied by cavaquinho, violão, violin, and clarinet ensemble in slow 2/4 meter",
   "recipe": "classic Western European mid-1990s morna, ballad Poetry, morna branch, chanson fado fado lisboa, iberian functional song, vocal drone modal galician kantautor and folk-pop. thick, lament wail, slow rate, interlocked note trading. cedar concert modern carbon fiber fingerpicked classical nylon-string guitar, extended range reentrant tuning steel cape verdean cavaquinho, steel sitka spruce European maple sycamore maple oil varnish violin orchestral, grenadilla African blackwood traditional clarinet, steel castagnari Italian premium folk music straight accordion, treble-extended sustaining steel upright bass. intimate paris small studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 788,
-  "score": 268.302,
+  "score": 254.912,
   "config": {
     "traditions": [
       "morna",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 8.549999999999999,
-          "voice_quality": 19.035,
+          "voice_register": 6.049999999999997,
+          "voice_quality": 17.785,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 4.9725,
-          "voice_articulation": 20.15,
-          "voice_microtone": 20.149999999999995,
-          "voice_tradition": 18.037499999999994,
+          "voice_articulation": 19.5,
+          "voice_microtone": 19.499999999999996,
+          "voice_tradition": 16.412499999999994,
           "voice_mechanism_compound": 3.509999999999999,
           "voice_estill_quality": 2.7625000000000006,
-          "voice_speech_song": 25.1875,
-          "voice_ensemble_config": 20.8,
-          "voice_ornament_system": 4.82125,
+          "voice_speech_song": 24.5375,
+          "voice_ensemble_config": 20.15,
+          "voice_ornament_system": 4.67125,
           "voice_pitch_organization": 4.940000000000001,
           "voice_processing_chain": 7.13875,
-          "voice_multitrack_stack": 7.702499999999999
+          "voice_multitrack_stack": 6.727499999999998
         }
       },
       {
@@ -63,7 +63,7 @@
           "attack_technique_cl": "apoyando_cl"
         },
         "scores": {
-          "acoustic_technique": 16.09,
+          "acoustic_technique": 14.84,
           "string_tuning": 0,
           "top_wood_classical": 5.3950000000000005,
           "bracing_classical": 1.3,
@@ -106,11 +106,11 @@
           "orch_top_wood": 2.83,
           "orch_back_wood": 4.646249999999999,
           "orch_varnish": 3.625,
-          "orch_setup_period": 5.4925,
+          "orch_setup_period": 5.3725,
           "orch_bow": 0.585,
           "orch_bow_stick": 4.87625,
           "orch_articulation": 0.39,
-          "orch_rosin": 4.7125
+          "orch_rosin": 4.5925
         }
       },
       {
@@ -125,7 +125,7 @@
         "scores": {
           "wind_articulation": 1.165,
           "clarinet_body": 4.055,
-          "clarinet_size": 4.159999999999999,
+          "clarinet_size": 3.509999999999999,
           "clarinet_reed": 0.845,
           "clarinet_articulation": 0.38999999999999996
         }
@@ -142,13 +142,13 @@
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 7.5962499999999995,
+          "free_reed_technique": 6.3462499999999995,
           "accordion_reed_material": 1.73375,
           "musette_offset": 1.04,
           "reed_config": 0.21,
           "bellows": 0.195,
           "voicing_chamber": 0.845,
-          "accordion_maker_school": 3.7049999999999996
+          "accordion_maker_school": 3.0549999999999997
         }
       },
       {

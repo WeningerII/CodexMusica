@@ -5,7 +5,7 @@
   "lineage": "Cape Verdean Atlantic-island music tradition with maritime-and-emigration thematic integration; the broader Cape Verdean musical tradition (morna, coladeira, funaná, batuque) developed across 16th-onward Portuguese-colonial-era through post-1975 independent-Cape-Verdean continuous practice; the Cape Verdean maritime-emigration culture integrates extensive maritime-and-port-departure-lament repertoire",
   "recipe": "classic West African mid-1970s cape verdean funaná, sea Shanty, atlantic branch, americas drinking song, iberian Latin protest song, chanson fado ballad poetry morna cape verdean batuko of santiago island. vocal fry, breath veiled tone, slow rate, interlocked note trading. cedar fingerpicked classical nylon-string guitar, jacaranda rosewood canonical Portuguese gut pre modern Portuguese strummed cavaquinho, castagnari Italian premium folk music accordion. batuko outdoor village. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 546,
-  "score": 247.51,
+  "score": 247.01,
   "config": {
     "traditions": [
       "cape_verdean_funana_maritime",
@@ -48,7 +48,7 @@
           "voice_ensemble_config": 26.065,
           "voice_ornament_system": 2.619999999999999,
           "voice_pitch_organization": 2.660000000000001,
-          "voice_processing_chain": 8.420000000000003,
+          "voice_processing_chain": 7.9200000000000035,
           "voice_multitrack_stack": 6.825
         }
       },

@@ -3,9 +3,9 @@
   "name": "Vietnamese cải lương (renovated opera)",
   "family": "classical",
   "lineage": "Vietnamese cải lương (\"renovated theatre\") southern-Vietnamese popular-and-classical theatrical tradition emerging in 1917 in Mekong Delta region as a modernization of the older hát bội classical-court-opera tradition, incorporating Western-style spoken dialogue and naturalistic staging while retaining the đờn ca tài tử southern-amateur-music instrumental tradition as musical foundation. The genre flourished through the colonial-period Mekong Delta and post-1945 Saigon as the dominant southern Vietnamese popular-theatre form. Performance integrates đàn tranh sixteen-string zither, đàn bầu one-string monochord, đàn nguyệt moon-lute, and đàn tỳ bà pear-lute with stylized melodic-recitative vocal-narrative content.",
-  "recipe": "classic Southeast Asian late-1910s vietnamese cải lương, art Music, southeast Asian branch, east Asian Cantonese opera. vocal fry, pressed, slow rate, interlocked note trading. dan tranh, dan bau, low mid rich spectrum vocal imitating silk pipa, dan nguyet. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 425,
-  "score": 264.021,
+  "recipe": "classic Southeast Asian late-1910s vietnamese cải lương, art Music, southeast Asian branch, east Asian Cantonese opera. vocal fry, breath veiled tone, slow rate, interlocked note trading. dan tranh, dan bau, low mid rich spectrum vocal imitating silk pipa, dan nguyet. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 436,
+  "score": 258.191,
   "config": {
     "traditions": [
       "vietnamese_cai_luong",
@@ -16,7 +16,7 @@
         "id": "voice",
         "slots": {
           "voice_register": "vocal_fry",
-          "voice_quality": "pressed_phonation_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
@@ -34,7 +34,7 @@
         },
         "scores": {
           "voice_register": 2.08,
-          "voice_quality": 10.974999999999998,
+          "voice_quality": 10.399999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 13.913499999999999,
@@ -42,11 +42,11 @@
           "voice_microtone": 10.984999999999992,
           "voice_tradition": 28.844000000000005,
           "voice_mechanism_compound": 10.899999999999999,
-          "voice_estill_quality": 28.229999999999997,
-          "voice_speech_song": 25.281499999999994,
+          "voice_estill_quality": 26.724999999999994,
+          "voice_speech_song": 24.031499999999994,
           "voice_ensemble_config": 11.699999999999992,
-          "voice_ornament_system": 23.949999999999996,
-          "voice_pitch_organization": 25.9655,
+          "voice_ornament_system": 22.699999999999996,
+          "voice_pitch_organization": 24.7155,
           "voice_processing_chain": 4.4675,
           "voice_multitrack_stack": 3.965
         }

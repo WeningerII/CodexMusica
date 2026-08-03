@@ -5,7 +5,7 @@
   "lineage": "Virtuosic death-metal sub-style codified through Atheist (Piece of Time 1990, Unquestionable Presence 1991), Cynic (Focus 1993), Death’s later records (Human 1991, Individual Thought Patterns 1993), and the Suffocation 1990s lineage — characterized by complex multi-meter compositions, fretboard-acrobatic guitar work, and jazz-fusion influences",
   "recipe": "classic North American early-1990s technical death metal, distorted Rock, death branch, prog metal progressive metal. thick, breath veiled tone, straight onset, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 613,
-  "score": 215.249,
+  "score": 210.149,
   "config": {
     "traditions": [
       "technical_death_metal",
@@ -41,7 +41,7 @@
           "voice_articulation": 5.915,
           "voice_microtone": 14.049999999999997,
           "voice_tradition": 4.270125,
-          "voice_mechanism_compound": 22.45825,
+          "voice_mechanism_compound": 21.20825,
           "voice_estill_quality": 0.7799999999999998,
           "voice_speech_song": 6.11,
           "voice_ensemble_config": 6.695,
@@ -69,19 +69,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 22.91325,
-          "amp_make": 11.894999999999998,
-          "body_wood": 9.1,
+          "electric_technique": 21.66325,
+          "amp_make": 11.245000000000001,
+          "body_wood": 8.45,
           "neck_wood": 0.7844999999999999,
           "fretboard": 0.585,
           "pickup_magnet": 0.195,
           "pickup_winding": 0.2415,
           "string_material": 0.585,
           "bridge": 0.7844999999999999,
-          "scale_length": 9.685,
+          "scale_length": 9.035,
           "string_gauge": 0.7844999999999999,
           "finish": 0.168,
-          "string_tuning": 15.34
+          "string_tuning": 14.690000000000001
         }
       },
       {

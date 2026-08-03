@@ -3,9 +3,9 @@
   "name": "Nu jazz / electro-jazz",
   "family": "jazz",
   "lineage": "2000s jazz substyle integrating electronic-production techniques, sample-and-loop-based composition, and broader club-music-influenced rhythmic vocabulary with jazz harmonic-melodic content. Norwegian Jaga Jazzist, German Jazzanova, and Swedish Esbjörn Svensson Trio anchored the European canonical sound; American counterparts including The Bad Plus and Robert Glasper extended the style into American jazz mainstream.",
-  "recipe": "classic mid-2000s nu jazz / electro-jazz, improv On Frame, fusion branch, idm glitch experimental electric chiptune / 8-bit drill'n'bass. nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, cold pressed wurzen felt oversize maple tension resonator sitka spruce grand piano, ampeg b15 amp American 60s bass amp flip top character alder thomastik infeld electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, analog synth. no single room 2015-present distributed distributed production. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
-  "recipe_chars": 674,
-  "score": 230.152,
+  "recipe": "classic mid-2000s nu jazz / electro-jazz, improv On Frame, fusion branch, idm glitch experimental electric chiptune / 8-bit drill'n'bass. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, ampeg b15 amp American 60s bass amp flip top character alder thomastik infeld electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, analog synth. no single room 2015-present distributed distributed production. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
+  "recipe_chars": 675,
+  "score": 219.91,
   "config": {
     "traditions": [
       "nu_jazz_2000s",
@@ -17,7 +17,7 @@
         "id": "saxophone",
         "slots": {
           "wind_articulation": "wind_continuous_legato",
-          "sax_size": "baritone_sax",
+          "sax_size": "alto_sax",
           "sax_reed": "soft_reed",
           "sax_body_alloy": "nickel_silver_sax",
           "sax_mouthpiece": "metal_mp",
@@ -26,12 +26,12 @@
         },
         "scores": {
           "wind_articulation": 3.8500000000000005,
-          "sax_size": 1.4949999999999999,
+          "sax_size": 1.3865,
           "sax_reed": 1.4365,
           "sax_body_alloy": 21.795,
           "sax_mouthpiece": 1.4365,
           "sax_technique": 21,
-          "sax_maker_school": 26.458750000000002
+          "sax_maker_school": 26.03875
         }
       },
       {
@@ -39,21 +39,21 @@
         "slots": {
           "keyboard_technique": "keyboard_avant_prepared",
           "grand_piano_size": "grand_7_foot",
-          "grand_piano_brand": "bosendorfer",
+          "grand_piano_brand": "yamaha_cfx",
           "piano_hammer": "ronsen_wurzen_hammer",
           "piano_rim": "mason_hamlin_oversize_rim",
-          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_soundboard": "european_spruce_soundboard",
           "piano_pinblock": "asian_multi_laminate_pinblock",
           "piano_plate": "wet_sand_cast_plate",
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
           "keyboard_technique": 5.450000000000001,
-          "grand_piano_size": 1.4949999999999999,
-          "grand_piano_brand": 1.4949999999999999,
+          "grand_piano_size": 0.845,
+          "grand_piano_brand": 1.4365,
           "piano_hammer": 4.785,
           "piano_rim": 4.7535,
-          "piano_soundboard": 1.3649999999999998,
+          "piano_soundboard": 1.25,
           "piano_pinblock": -0.05,
           "piano_plate": 1.56,
           "piano_pitch_standard": 1.38525
@@ -71,11 +71,11 @@
           "bass_technique": "fingerstyle_walking"
         },
         "scores": {
-          "amp_make": 11.684999999999999,
-          "body_wood": 2.34,
+          "amp_make": 10.385,
+          "body_wood": 1.69,
           "pickup_config": 0.845,
-          "string_type": 24.4755,
-          "scale_length_b": 1.4949999999999999,
+          "string_type": 24.0555,
+          "scale_length_b": 0.845,
           "fretted_or_not": 0,
           "bass_technique": 21
         }
@@ -88,8 +88,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 29.899999999999995,
-          "drumhead": 24.425500000000003,
+          "drum_technique": 29.249999999999996,
+          "drumhead": 24.0055,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -103,9 +103,9 @@
           "modulation": "sample_hold"
         },
         "scores": {
-          "electronic_technique": 2.8600000000000008,
-          "oscillator": 3.055,
-          "filter_topology": 4.55,
+          "electronic_technique": 1.5599999999999996,
+          "oscillator": 1.755,
+          "filter_topology": 2.6,
           "envelope": 2.535,
           "modulation": 0.15
         }

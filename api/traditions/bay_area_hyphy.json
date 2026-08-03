@@ -3,9 +3,9 @@
   "name": "Bay Area hyphy",
   "family": "hip_hop",
   "lineage": "Mid-2000s San Francisco Bay Area hip-hop subgenre characterized by hyperactive vocal-delivery, distinctive synth-heavy production with Roland 808 emphasis, and explicit Bay Area dance-culture-and-sideshow-cruising thematic content. E-40's My Ghetto Report Card (2006), Mac Dre's post-mortem catalog (Dre died 2004), and the broader Mistah F.A.B.-Federation-Keak da Sneak scene defined the canonical hyphy roster.",
-  "recipe": "classic Los Angeles 2004-2006 bay area hyphy, mc Rhythm, west coast branch, us hip hop gangsta. vocal fry, rap, slow rate, narrative. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, sub bass analog synth, orange amp British heavy crunch mahogany la bella flats Detroit soul bass canon electric bass. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
-  "recipe_chars": 532,
-  "score": 158.542,
+  "recipe": "classic Los Angeles 2004-2006 bay area hyphy, mc Rhythm, west coast branch, us hip hop gangsta. vocal fry, rap, slow rate, narrative. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, sub bass analog synth, orange amp British heavy crunch mahogany pyramid pure nickel bass electric bass. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
+  "recipe_chars": 518,
+  "score": 154.328,
   "config": {
     "traditions": [
       "bay_area_hyphy",
@@ -34,7 +34,7 @@
         },
         "scores": {
           "voice_register": 1.9165,
-          "voice_quality": 18.433750000000003,
+          "voice_quality": 16.996250000000003,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.8600000000000003,
@@ -43,12 +43,12 @@
           "voice_tradition": 10.85725,
           "voice_mechanism_compound": 2.404,
           "voice_estill_quality": 2.449,
-          "voice_speech_song": 17.801000000000002,
+          "voice_speech_song": 16.551000000000002,
           "voice_ensemble_config": 10.204999999999997,
           "voice_ornament_system": 4.550000000000002,
           "voice_pitch_organization": 2.145,
-          "voice_processing_chain": 12.87,
-          "voice_multitrack_stack": 4.54875
+          "voice_processing_chain": 11.620000000000003,
+          "voice_multitrack_stack": 4.51125
         }
       },
       {
@@ -87,17 +87,17 @@
           "amp_make": "amp_british_orange",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
-          "string_type": "la_bella_flats_motown",
+          "string_type": "pyramid_pure_nickel",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "amp_make": 3.8795000000000006,
+          "amp_make": 3.8420000000000005,
           "body_wood": 2.535,
-          "pickup_config": 0.22124999999999997,
-          "string_type": 2.8842499999999998,
-          "scale_length_b": 2.4795000000000003,
+          "pickup_config": 0.14625,
+          "string_type": 2.7950000000000004,
+          "scale_length_b": 2.442,
           "fretted_or_not": 0.0735,
           "bass_technique": 1.825
         }

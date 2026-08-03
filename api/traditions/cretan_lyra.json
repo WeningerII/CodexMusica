@@ -5,7 +5,7 @@
   "lineage": "Cretan lyra solo-and-ensemble music tradition of Crete (Greece), centered on the pear-shaped three-string upright-played fiddle of unique Cretan construction (with the fingers stopping the strings from the side rather than pressing down, allowing characteristic Cretan-style pitch-glide ornament). Performance configuration: lyra leading with laouto long-neck-lute rhythmic-and-harmonic accompaniment, plus voice for sung repertoire. Repertoire spans the canonical Cretan dance-forms (pentozali fast-warrior-dance, syrtos slow-circle-dance, sousta), mantinada improvised-couplet form, and the rizitika hilltop-mountain-village ritual-song tradition. The post-twentieth-century Anogeia village and the Psarantonis-Xylouris family lineage anchor the canonical contemporary tradition. Distinguished from broader Greek nisiotika by Cretan-specific lyra-instrument signature.",
   "recipe": "classic Southern European early-1930s cretan lyra, ballad Poetry, Mediterranean ballad branch, west African groove percussion indonesian jaipongan fújì. thick, breath veiled tone, slow rate, interlocked note trading. walnut ribs canonical mid tier spruce face pyramid nylon oud, sitka spruce hard rock maple acer saccharum Baroque setup short neck violin orchestral, mulberry canonical cretan gut pre modern cretan cretan lyra, cretan rhythmic laouto. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, tube pre, Emi redd.51, vari-mu, passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 623,
-  "score": 251.54,
+  "score": 250.14,
   "config": {
     "traditions": [
       "cretan_lyra",
@@ -47,7 +47,7 @@
           "voice_speech_song": 16.314999999999994,
           "voice_ensemble_config": 16.249999999999996,
           "voice_ornament_system": 4.16,
-          "voice_pitch_organization": 10.364999999999998,
+          "voice_pitch_organization": 8.965,
           "voice_processing_chain": 5.225,
           "voice_multitrack_stack": 5.1850000000000005
         }

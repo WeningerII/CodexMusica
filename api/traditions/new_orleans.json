@@ -3,9 +3,9 @@
   "name": "New Orleans jazz",
   "family": "jazz",
   "lineage": "New Orleans turn-of-the-20th-century African-American Creole funeral / parade / Storyville-district ensemble tradition that fused brass-band, blues, and ragtime into the foundational jazz vocabulary",
-  "recipe": "classic mid-1930s new orleans jazz, improv On Frame, early branch, American jazz bop bebop cool jazz / west coast. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral lyrical jazz balance trumpet, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris lyrical continuous-airflow saxophone, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string, growly gut upright bass, vintage ambassador asymmetric brushes drum kit, brass band new orleans, ebonite hard rubber klezmer tradition front line clarinet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor front line student commercial trombone, yellow brass canonical brass band conn vintage early jazz canon lyrical cornet, tenor guitar. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 955,
-  "score": 437.162,
+  "recipe": "classic mid-1930s new orleans jazz, improv On Frame, early branch, American jazz bop bebop cool jazz / west coast. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris lyrical continuous-airflow saxophone, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string, growly gut upright bass, vintage ambassador asymmetric brushes drum kit, brass band new orleans, ebonite hard rubber klezmer tradition front line clarinet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor front line student commercial trombone, yellow brass canonical brass band conn vintage early jazz canon front line cornet, tenor guitar. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 961,
+  "score": 418.734,
   "config": {
     "traditions": [
       "new_orleans",
@@ -16,7 +16,7 @@
       {
         "id": "trumpet",
         "slots": {
-          "wind_articulation": "wind_cool_lyrical",
+          "wind_articulation": "wind_dixieland_lead",
           "brass_size": "trumpet_b_flat",
           "trumpet_mouthpiece": "yamaha_bobby_shew_jazz_mp",
           "brass_mute": "harmon_out",
@@ -25,10 +25,10 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 7.324999999999999,
+          "wind_articulation": 7.153499999999999,
           "brass_size": 0.058499999999999996,
-          "trumpet_mouthpiece": 33.0375,
-          "brass_mute": 3.3799999999999994,
+          "trumpet_mouthpiece": 31.2775,
+          "brass_mute": 2.7299999999999995,
           "trumpet_technique": 7.153499999999999,
           "trumpet_bell_metal": 2.145,
           "trumpet_maker_school": 8.254999999999999
@@ -46,13 +46,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 7.324999999999999,
-          "sax_size": 5.303999999999999,
+          "wind_articulation": 5.924999999999999,
+          "sax_size": 4.054,
           "sax_reed": 0.054,
-          "sax_body_alloy": 29.07,
+          "sax_body_alloy": 27.82,
           "sax_mouthpiece": 0.058499999999999996,
-          "sax_technique": 28.875,
-          "sax_maker_school": 32.1205
+          "sax_technique": 27.625,
+          "sax_maker_school": 30.3605
         }
       },
       {
@@ -89,8 +89,8 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 28.875,
-          "upright_play": 28.875
+          "upright_strings": 27.625,
+          "upright_play": 27.625
         }
       },
       {
@@ -101,8 +101,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 28.875,
-          "drumhead": 32.9875,
+          "drum_technique": 27.625,
+          "drumhead": 31.227499999999996,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -147,8 +147,8 @@
         },
         "scores": {
           "wind_articulation": 7.153499999999999,
-          "trombone_type": 28.875,
-          "trombone_mouthpiece": 28.966,
+          "trombone_type": 27.625,
+          "trombone_mouthpiece": 27.716,
           "trombone_mute": 0,
           "trombone_technique": 1.8199999999999998,
           "trombone_bell_metal": 2.145,
@@ -158,18 +158,18 @@
       {
         "id": "cornet",
         "slots": {
-          "wind_articulation": "wind_cool_lyrical",
+          "wind_articulation": "wind_dixieland_lead",
           "cornet_pitch": "cornet_bb",
           "cornet_context": "cornet_early_jazz",
           "cornet_bell_metal": "cornet_yellow_brass",
           "cornet_maker_school": "cornet_conn_vintage"
         },
         "scores": {
-          "wind_articulation": 7.324999999999999,
-          "cornet_pitch": 10.909,
+          "wind_articulation": 7.153499999999999,
+          "cornet_pitch": 10.804000000000002,
           "cornet_context": 5.046749999999999,
           "cornet_bell_metal": 4.615,
-          "cornet_maker_school": 17.419999999999998
+          "cornet_maker_school": 16.769999999999996
         }
       },
       {

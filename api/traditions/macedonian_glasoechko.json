@@ -5,7 +5,7 @@
   "lineage": "Macedonian Glasoechko male two-voice diaphonic singing tradition of the Dolni Polog and Drimkol-Golo Brdo regions of western North Macedonia. The form features two-voice male singing in characteristic parallel-second and minor-third intervals over a sustained drone-tone (often an organ-point sustained by the second voice while the lead voice elaborates the melodic content), with most phrases cadencing on a unison-or-octave close. Distinguished from neighboring Balkan two-voice traditions by Glasoechko's Mijak-and-Šop dialect-specific cadential vocabulary and the characteristic Macedonian-pastoral functional context. The melodic vocabulary draws on regional pastoral-and-shepherd-call modal frameworks with characteristic narrow-range melodic-contour conventions. Accompanying instrumental contexts sometimes include the kaval end-blown shepherd-flute and the gajda Balkan bagpipe with double-reed chanter and drone-pipe. Performance traditionally outdoors in mountain-pasture contexts during summer transhumance, with the long-distance acoustic projection of the two-voice configuration suited to mountain-valley environments. The mid-twentieth-century rural depopulation of the Polog and Drimkol regions reduced active practitioners. Distinguished from Croatian Istrian diaphonic by Macedonian Glasoechko's drone-and-melody (vs Istrian's strict-two-voice-parallel) configuration and Macedonian-pastoral functional context; distinguished from Albanian iso-polyphony by Glasoechko's two-voice (vs Albanian three-or-four-voice) configuration; distinguished from neighboring Bulgarian male diaphonic by Macedonian-Mijak-dialect-specific cadential conventions.",
   "recipe": "classic modern macedonian glasoechko male diaphonic, drone Modal, vocal branch, Mediterranean ballad ballad poetry sardinian cantu a tenore and launeddas croatian klapa dalmatian close-harmony. kargyraa, breath veiled tone, straight note core, interlocked note trading. plum canonical bulgarian melodic kaval, bagpipe double reed chanter drone pipe canonical balkan macedonian glasoechko pastoral dance gajda, donkey skin bass thin treble tapan. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 525,
-  "score": 413.463,
+  "score": 407.213,
   "config": {
     "traditions": [
       "macedonian_glasoechko",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 7.595,
-          "voice_quality": 37.7,
+          "voice_quality": 37.05,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 5.47,
-          "voice_articulation": 33.605000000000004,
-          "voice_microtone": 37.375,
-          "voice_tradition": 41.146875,
+          "voice_articulation": 32.955,
+          "voice_microtone": 36.725,
+          "voice_tradition": 39.746875,
           "voice_mechanism_compound": 16.055,
           "voice_estill_quality": 10.464999999999996,
-          "voice_speech_song": 27.105,
-          "voice_ensemble_config": 52.000000000000014,
+          "voice_speech_song": 26.455000000000002,
+          "voice_ensemble_config": 51.350000000000016,
           "voice_ornament_system": 14.783125000000002,
           "voice_pitch_organization": 8.683125,
-          "voice_processing_chain": 15.014999999999997,
-          "voice_multitrack_stack": 12.219999999999995
+          "voice_processing_chain": 14.364999999999997,
+          "voice_multitrack_stack": 11.569999999999997
         }
       },
       {
@@ -75,7 +75,7 @@
         },
         "scores": {
           "gajda_body": 19.04375,
-          "gajda_tradition": 20.709999999999997
+          "gajda_tradition": 20.56
         }
       },
       {
@@ -86,7 +86,7 @@
           "tapan_build": "tapan_asymmetric_skins"
         },
         "scores": {
-          "tapan_form": 25.86,
+          "tapan_form": 25.71,
           "tapan_role": 6.845,
           "tapan_build": 5.50875
         }

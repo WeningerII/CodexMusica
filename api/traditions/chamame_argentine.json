@@ -5,7 +5,7 @@
   "lineage": "Folk-popular music of Argentine Mesopotamia region (Corrientes, Misiones, Entre Ríos, Formosa, Chaco) and adjacent eastern Paraguay. Synthesis of indigenous Guaraní vocal-melodic conventions, German-immigrant accordion-tradition, and Spanish-colonial folk-music inheritance. Voice with button-accordion, acoustic-guitar, contrabass. Lyrics draw on Guaraní and Castilian-Spanish, often bilingual.",
   "recipe": "classic Mexican mid-1950s chamamé, ballad Poetry, Latin am troubadour branch, europop functional song hungarian magyar nóta romanian lăutari. thick, breath veiled tone, straight note core, interlocked note trading. brass castagnari Italian premium folk music straight accordion, fingerpicked parlor acoustic guitar, venice catlin high twist renaissance bass carpathian spruce Baroque setup double bass. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 596,
-  "score": 176.605,
+  "score": 174.355,
   "config": {
     "traditions": [
       "chamame_argentine",
@@ -41,14 +41,14 @@
           "voice_vibrato": 1.4949999999999999,
           "voice_articulation": 13.324999999999996,
           "voice_microtone": 13.974999999999993,
-          "voice_tradition": 23.44,
+          "voice_tradition": 22.79,
           "voice_mechanism_compound": 4.225,
           "voice_estill_quality": 3.185,
-          "voice_speech_song": 20.214999999999996,
+          "voice_speech_song": 19.564999999999998,
           "voice_ensemble_config": 15.794999999999993,
           "voice_ornament_system": 2.4050000000000002,
           "voice_pitch_organization": 0.6499999999999999,
-          "voice_processing_chain": 3.445,
+          "voice_processing_chain": 2.795,
           "voice_multitrack_stack": 4.09
         }
       },
@@ -65,9 +65,9 @@
         },
         "scores": {
           "free_reed_technique": 12.904999999999998,
-          "accordion_reed_material": 1.3199999999999998,
+          "accordion_reed_material": 1.17,
           "musette_offset": 0.825,
-          "reed_config": 1.3499999999999999,
+          "reed_config": 1.2,
           "bellows": 0,
           "voicing_chamber": 0,
           "accordion_maker_school": 11.83

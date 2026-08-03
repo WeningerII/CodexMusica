@@ -3,9 +3,9 @@
   "name": "Tunisian malouf (Andalusi classical)",
   "family": "classical",
   "lineage": "Tunisian malouf classical Andalusi-Arabic art-music tradition, the Tunisian recension of the broader Maghrebi-Andalusi nuba descended from medieval al-Andalus through the post-1492 expulsion-diaspora settlement (with Testour as a principal Andalusi-refugee settlement). The Tunisian repertoire comprises thirteen canonical nubat. The early-twentieth-century Rachidia Institute (Tunis, 1934) consolidated the canon. Performance integrates male choir-and-soloist with oud, rebab, qanun, nay, and darbuka. Distinguished from Moroccan al-Āla by Tunisian-specific suite-cycle and Rachidia-Institute-canonized repertoire.",
-  "recipe": "classic North African early-1490s tunisian malouf, art Music, middle eastern classical branch, Persian arab improv improv on frame tarab turkish-romani çümbüş music. vocal fry, breath veiled tone, slow rate, interlocked note trading. rosewood premium iraqi Turkish Lebanese cedar eastern Mediterranean pyramid oud, heterophonic melodic lead legato rabab maghribi, metal finger picks rosewood body arab premium goat skin bridge plate qanun, spun aluminum Egyptian sombaty goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka. nuba courtyard hall. large-diaphragm condenser, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe": "classic North African early-1490s tunisian malouf, art Music, middle eastern classical branch, Persian arab improv improv on frame tarab turkish-romani çümbüş music. vocal fry, breath veiled tone, slow rate, interlocked note trading. padauk Egyptian Syrian premium Lebanese cedar eastern Mediterranean pyramid oud, heterophonic melodic lead legato rabab maghribi, metal finger picks rosewood body arab premium goat skin bridge plate qanun, spun aluminum Egyptian sombaty goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka. nuba courtyard hall. large-diaphragm condenser, German V72 tube pre, German tube console. tape 15ips.",
   "recipe_chars": 652,
-  "score": 398.905,
+  "score": 375.084,
   "config": {
     "traditions": [
       "tunisian_malouf",
@@ -38,16 +38,16 @@
           "voice_quality": 15.469999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 22.959999999999997,
+          "voice_vibrato": 21.051249999999996,
           "voice_articulation": 9.879999999999999,
-          "voice_microtone": 33.231375,
-          "voice_tradition": 35.0675,
-          "voice_mechanism_compound": 26.782999999999998,
-          "voice_estill_quality": 20.296249999999997,
-          "voice_speech_song": 18.2445,
+          "voice_microtone": 30.431375,
+          "voice_tradition": 33.381375,
+          "voice_mechanism_compound": 25.532999999999998,
+          "voice_estill_quality": 19.046249999999997,
+          "voice_speech_song": 16.9945,
           "voice_ensemble_config": 11.699999999999996,
-          "voice_ornament_system": 33.430125,
-          "voice_pitch_organization": 33.211125,
+          "voice_ornament_system": 31.230125,
+          "voice_pitch_organization": 31.011125,
           "voice_processing_chain": 4.16,
           "voice_multitrack_stack": 2.145
         }
@@ -59,18 +59,18 @@
           "oud_school": "oud_arab_classic",
           "oud_strings": "oud_eleven",
           "oud_pick": "risha_plastic",
-          "oud_body_wood": "oud_rosewood_body",
+          "oud_body_wood": "oud_padauk_body",
           "oud_soundboard_wood": "oud_lebanese_cedar_face",
           "oud_string_material": "oud_pyramid_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 18.25,
-          "oud_school": 3.575,
-          "oud_strings": 9.685,
+          "plucked_traditional_technique": 17,
+          "oud_school": 2.925,
+          "oud_strings": 9.035,
           "oud_pick": 0.20049999999999998,
-          "oud_body_wood": 2.4699999999999998,
+          "oud_body_wood": 2.145,
           "oud_soundboard_wood": 2.4050000000000002,
-          "oud_string_material": 6.24
+          "oud_string_material": 5.59
         }
       },
       {
@@ -82,7 +82,7 @@
           "rabab_maghribi_strings": "rabab_maghribi_gut"
         },
         "scores": {
-          "bowed_technique": 18.25,
+          "bowed_technique": 17,
           "rabab_maghribi_form": 14.605624999999996,
           "rabab_maghribi_role": 3.8695,
           "rabab_maghribi_strings": -0.035
@@ -100,11 +100,11 @@
           "qanun_string_material": "qanun_fluorocarbon"
         },
         "scores": {
-          "plucked_traditional_technique": 18.25,
-          "qanun_strings": 9.49,
+          "plucked_traditional_technique": 17,
+          "qanun_strings": 8.84,
           "qanun_levers": -1.395,
-          "qanun_pick": 9.88,
-          "qanun_body_wood": 4.485,
+          "qanun_pick": 9.23,
+          "qanun_body_wood": 3.835,
           "qanun_bridge_skin": 1.610875,
           "qanun_string_material": 0
         }
@@ -120,8 +120,8 @@
         "scores": {
           "percussion_technique": -0.07,
           "darbuka_material": 3.185,
-          "darbuka_skin": 4.615,
-          "darbuka_regional_style": 5.590000000000001
+          "darbuka_skin": 3.9635000000000002,
+          "darbuka_regional_style": 4.9399999999999995
         }
       }
     ],

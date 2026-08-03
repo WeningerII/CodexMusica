@@ -5,7 +5,7 @@
   "lineage": "Interwar compositional movement (c.1920-1950) characterized by return to clear textures, balanced forms, and reference to pre-Romantic models (Bach, Haydn, Stravinsky himself looking back to his Russian-folk past), combined with extended chromatic and rhythmic vocabulary. Stravinsky's Pulcinella (1920), Octet (1923), and Symphony of Psalms (1930) are the canonical type-specimens. Distinguished from Romantic by neoclassicism's anti-emotional-excess aesthetic and from Second Viennese serialism by retention of tonal-modal centers.",
   "recipe": "classic early-1920s neoclassicism, art Music, western modern branch, western common practice art music the mighty handful early romantic. thick, breath veiled tone, slow rate, interlocked note trading. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, synthetic sitka spruce bigleaf maple western maple oil varnish violin orchestral. shoebox concert hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 469,
-  "score": 289.793,
+  "score": 286.795,
   "config": {
     "traditions": [
       "neoclassicism_interwar",
@@ -35,13 +35,13 @@
         },
         "scores": {
           "voice_register": 10.775,
-          "voice_quality": 5.330000000000002,
+          "voice_quality": 4.6800000000000015,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 6.5,
           "voice_articulation": 11.634999999999994,
           "voice_microtone": 13.97499999999999,
-          "voice_tradition": 9.587500000000002,
+          "voice_tradition": 9.465000000000002,
           "voice_mechanism_compound": 4.9,
           "voice_estill_quality": 10.1875,
           "voice_speech_song": 16.444999999999997,
@@ -68,9 +68,9 @@
         "scores": {
           "keyboard_technique": 5,
           "grand_piano_size": 1.3649999999999998,
-          "grand_piano_brand": 6.3999999999999995,
-          "piano_hammer": 14.495000000000001,
-          "piano_rim": 12.995000000000001,
+          "grand_piano_brand": 5.45,
+          "piano_hammer": 14.384999999999998,
+          "piano_rim": 12.845,
           "piano_soundboard": 10.5,
           "piano_pinblock": 10.65,
           "piano_plate": 10.59,
@@ -98,8 +98,8 @@
           "orch_back_wood": 12.870000000000001,
           "orch_varnish": 10.5,
           "orch_setup_period": 9.7375,
-          "orch_bow": 4.874999999999999,
-          "orch_bow_stick": 13.584999999999999,
+          "orch_bow": 4.06,
+          "orch_bow_stick": 13.384999999999998,
           "orch_articulation": 2.2099999999999995,
           "orch_rosin": 12.610000000000001
         }

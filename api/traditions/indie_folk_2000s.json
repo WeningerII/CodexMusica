@@ -5,7 +5,7 @@
   "lineage": "2000s American indie-folk subgenre characterized by acoustic-guitar-led intimate arrangement, literate-introspective lyrical content, and indie-rock-derived production aesthetic — codified through Iron and Wine (The Creek Drank the Cradle 2002), Sufjan Stevens (Illinois 2005), Bon Iver (For Emma Forever Ago 2007), Fleet Foxes (Fleet Foxes 2008), and the broader Sub Pop and Saddle Creek roster of the period",
   "recipe": "classic mid-2000s indie folk, ballad Poetry, indie folk branch, pop rock functional song folk rock new wave. thick, breath veiled tone, straight note core, interlocked note trading. cedar walnut phosphor bronze bronze fingerpicked acoustic guitar, walnut mid tier light steel clawhammer canon scruggs stelling banjo 5 string, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, bowl back Italian redwood hard rock maple phosphor bronze bronze mandolin. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 666,
-  "score": 530.354,
+  "score": 517.729,
   "config": {
     "traditions": [
       "indie_folk_2000s",
@@ -34,14 +34,14 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 71.40500000000002,
+          "voice_register": 68.90500000000002,
           "voice_quality": 7.280000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 5.046250000000001,
           "voice_articulation": 18.13499999999999,
-          "voice_microtone": 43.050000000000004,
-          "voice_tradition": 33.21499999999999,
+          "voice_microtone": 41.800000000000004,
+          "voice_tradition": 31.589999999999986,
           "voice_mechanism_compound": 2.7299999999999995,
           "voice_estill_quality": 5.8825,
           "voice_speech_song": 25.544999999999995,
@@ -66,7 +66,7 @@
           "top_wood": 2.08,
           "back_sides": 2.08,
           "string_acoustic": 2.08,
-          "acoustic_om_technique": 29.87499999999999
+          "acoustic_om_technique": 28.62499999999999
         }
       },
       {
@@ -108,13 +108,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 14.169999999999998,
+          "amp_make": 13.519999999999998,
           "body_wood": 2.08,
           "pickup_config": 0.195,
-          "string_type": 33.926249999999996,
+          "string_type": 32.37625,
           "scale_length_b": 2.08,
           "fretted_or_not": 0.195,
-          "bass_technique": 30.865
+          "bass_technique": 29.615
         }
       },
       {
@@ -125,7 +125,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 26.669999999999998,
+          "drum_technique": 25.419999999999998,
           "drumhead": 17.089999999999996,
           "drum_kit_kick_pedal": 0
         }
@@ -144,9 +144,9 @@
         },
         "scores": {
           "acoustic_technique": 19.225624999999997,
-          "mandolin_shape": 11.651249999999996,
+          "mandolin_shape": 11.001249999999995,
           "mandolin_top": 2.08,
-          "mandolin_back": 13.844999999999999,
+          "mandolin_back": 13.194999999999999,
           "mandolin_bracing": 0.585,
           "mandolin_strings": 2.08,
           "mandolin_fingerboard": 2.015,

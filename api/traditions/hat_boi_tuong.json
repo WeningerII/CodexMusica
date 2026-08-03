@@ -5,7 +5,7 @@
   "lineage": "Hat boi (also tuong) is the classical theatre of Vietnam, a heroic-historical stage form crystallized under the Nguyen court in central Vietnam (Binh Dinh province and the imperial capital Hue) in the 18th and 19th centuries. Its declamation delivers stylized, emphatic, tonally shaped stage-speech, loud and rhetorically pointed for warrior and loyal-minister roles, alternating with sung passages and set against a percussion-led ensemble dominated by the trong chau drum. It is distinct from the later southern reformed opera cai luong and from the northern comic-satirical cheo. It is documented in the repertories of the Vietnam Tuong Theatre and in Vietnamese Institute of Musicology field recordings.",
   "recipe": "classic Southeast Asian modern hat boi (tuong) declamation, art Music, southeast Asian branch thai classical tibetan ache lhamo opera. thick, breath veiled tone, slow rate, interlocked note trading. wooden pagoda hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 281,
-  "score": 315.206,
+  "score": 302.847,
   "config": {
     "traditions": [
       "hat_boi_tuong",
@@ -38,16 +38,16 @@
           "voice_quality": 32.89000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 21.694,
+          "voice_vibrato": 20.345,
           "voice_articulation": 29.315000000000012,
           "voice_microtone": 27.235000000000003,
-          "voice_tradition": 30.16,
-          "voice_mechanism_compound": 17.299999999999997,
-          "voice_estill_quality": 31.15,
+          "voice_tradition": 28.535,
+          "voice_mechanism_compound": 16.049999999999997,
+          "voice_estill_quality": 28.139999999999997,
           "voice_speech_song": 33.150000000000006,
           "voice_ensemble_config": 28.860000000000003,
-          "voice_ornament_system": 22.825,
-          "voice_pitch_organization": 21.272,
+          "voice_ornament_system": 20.325,
+          "voice_pitch_organization": 19.271999999999995,
           "voice_processing_chain": 7.8,
           "voice_multitrack_stack": 5.980000000000002
         }

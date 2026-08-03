@@ -5,7 +5,7 @@
   "lineage": "2010s onward indie-pop subgenre originating in solo bedroom-DAW production — characterized by lo-fi or hi-fi DIY production, intimate vocal delivery, and adolescent thematic content — codified through Clairo (Pretty Girl 2017, Immunity 2019), Cuco, Boy Pablo, Mac DeMarco (Salad Days 2014, the genre's lineage-bearing predecessor), Beabadoobee, with the form serving as the late-2010s indie-pop mainstream",
   "recipe": "classic 2017-2019 bedroom pop, experimental Elec, lofi branch, pop rock functional song new wave yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, TR-808, sequential lineage canonical prophet 5 1978 san jose ca lead analog poly synth, ukulele. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 577,
-  "score": 437.88,
+  "score": 429.905,
   "config": {
     "traditions": [
       "bedroom_pop",
@@ -34,13 +34,13 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 51.91125000000002,
+          "voice_register": 50.66125000000002,
           "voice_quality": 16.022499999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 8.5425,
           "voice_articulation": 12.414999999999994,
-          "voice_microtone": 49.349999999999994,
+          "voice_microtone": 48.099999999999994,
           "voice_tradition": 33.345,
           "voice_mechanism_compound": 3.055,
           "voice_estill_quality": 2.665000000000001,
@@ -70,7 +70,7 @@
         },
         "scores": {
           "electric_technique": 25.960624999999997,
-          "amp_make": 16.639999999999997,
+          "amp_make": 15.989999999999997,
           "body_wood": 2.6649999999999996,
           "neck_wood": 2.6649999999999996,
           "fretboard": 2.5999999999999996,
@@ -80,7 +80,7 @@
           "bridge": 0.65,
           "scale_length": 2.6649999999999996,
           "finish": 0.09,
-          "string_tuning": 13.975
+          "string_tuning": 13.325
         }
       },
       {
@@ -95,13 +95,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 11.569999999999999,
+          "amp_make": 10.919999999999998,
           "body_wood": 2.6649999999999996,
           "pickup_config": 3.8249999999999997,
-          "string_type": 29.0875,
+          "string_type": 27.4625,
           "scale_length_b": 2.6649999999999996,
           "fretted_or_not": 0.045,
-          "bass_technique": 26.465
+          "bass_technique": 25.215
         }
       },
       {
@@ -127,7 +127,7 @@
         },
         "scores": {
           "electronic_technique": 25.290624999999995,
-          "poly_archetypes": 11.634999999999998,
+          "poly_archetypes": 10.985,
           "poly_voices": 0.78,
           "poly_maker_lineage": 1.494999999999999
         }

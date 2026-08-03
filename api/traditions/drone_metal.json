@@ -5,7 +5,7 @@
   "lineage": "extreme-minimalist sustained-tone metal — guitar-as-feedback-and-pure-overtone genre established by Earth (Earth 2 1993, Pentastar 1996) and Sunn O))) (the Earth-tribute project become canon through ØØ Void 2000, Black One 2005, Monoliths and Dimensions 2009), with Boris (drone-era), Khanate, and Nadja in the broader continuum — distinct from doom metal by abandonment of riff-progression-as-song-form in favor of sustained-distorted-chord-as-event compositional approach",
   "recipe": "classic early-1990s drone metal, distorted Rock, drone branch, doom metal, ambient experimental electric funeral doom. orange amp British heavy crunch basswood power chord humbucker electric orange amp British heavy crunch 30 inch plus extended baritone metal djent baritone electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, kevlar aramid extreme tension brushes-and-sticks drum kit. cathedral. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 556,
-  "score": 379.391,
+  "score": 363.491,
   "config": {
     "traditions": [
       "drone_metal",
@@ -31,19 +31,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 40.85977272727273,
-          "amp_make": 30.292045454545452,
-          "body_wood": 16.12,
+          "electric_technique": 39.60977272727273,
+          "amp_make": 27.792045454545452,
+          "body_wood": 15.47,
           "neck_wood": 0.195,
           "fretboard": 0.195,
           "pickup_magnet": 0.195,
           "pickup_winding": 0.195,
           "string_material": 0.195,
           "bridge": 0.39,
-          "scale_length": 16.509999999999998,
+          "scale_length": 15.86,
           "string_gauge": 1.4299999999999997,
           "finish": 0,
-          "string_tuning": 26.585
+          "string_tuning": 25.935
         }
       },
       {
@@ -58,7 +58,7 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 30.292045454545452,
+          "amp_make": 27.792045454545452,
           "body_wood": 0.195,
           "pickup_config": 0.39,
           "string_type": 20.475,
@@ -92,13 +92,13 @@
           "baritone_electric_pickup": "baritone_dual_humbucker"
         },
         "scores": {
-          "electric_technique": 32.23,
-          "amp_make": 30.292045454545452,
+          "electric_technique": 30.83,
+          "amp_make": 27.792045454545452,
           "baritone_use": 0.195,
-          "baritone_electric_tuning": 16.9,
-          "baritone_electric_scale": 17.615000000000002,
-          "baritone_electric_strings": 34.53,
-          "baritone_electric_pickup": 30.82
+          "baritone_electric_tuning": 16.25,
+          "baritone_electric_scale": 16.965,
+          "baritone_electric_strings": 33.28,
+          "baritone_electric_pickup": 29.57
         }
       }
     ],

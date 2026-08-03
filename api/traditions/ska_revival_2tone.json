@@ -5,7 +5,7 @@
   "lineage": "UK 1979-1981 multiracial ska revival movement centered on Coventry — codified through the 2 Tone Records label (founded 1979 by Jerry Dammers of The Specials) and its catalog: The Specials, The Selecter, Madness, The Beat, The Bodysnatchers, Bad Manners — translating original 1960s Jamaican ska into the post-punk era with explicit anti-racist political content and Two-Tone-checkerboard graphic identity",
   "recipe": "classic Northern European 1979-1981 2-tone ska revival, bass System, reggae diaspora branch, punk distorted rock garage punk post-punk. thick, breath veiled tone, pure, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation palm muted single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative fast tremolo tonewheel organ, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral large cup large rim orchestral bottom heavy trumpet, alto gold brass warmer tone split tone overblown saxophone, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor bass leaning trombone. London black British Caribbean 1976-1985 indie-commercial brixton uk lovers rock basement. dynamic moving-coil, tube pre.",
   "recipe_chars": 978,
-  "score": 394.19,
+  "score": 379.94,
   "config": {
     "traditions": [
       "ska_revival_2tone",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 14.439999999999994,
+          "voice_register": 14.289999999999994,
           "voice_quality": 20.799999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -45,7 +45,7 @@
           "voice_mechanism_compound": 5.265000000000001,
           "voice_estill_quality": 1.885,
           "voice_speech_song": 12.544999999999996,
-          "voice_ensemble_config": 20.63,
+          "voice_ensemble_config": 18.129999999999995,
           "voice_ornament_system": 1.5,
           "voice_pitch_organization": 5.61,
           "voice_processing_chain": 4.329999999999999,
@@ -69,8 +69,8 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 20,
-          "amp_make": 30.459999999999994,
+          "electric_technique": 17.499999999999996,
+          "amp_make": 27.659999999999993,
           "body_wood": 0.845,
           "neck_wood": 0.845,
           "fretboard": 0.78,
@@ -101,7 +101,7 @@
           "string_type": 18.3625,
           "scale_length_b": 0.845,
           "fretted_or_not": 0.045,
-          "bass_technique": 32.92
+          "bass_technique": 30.42
         }
       },
       {
@@ -112,7 +112,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 18.749999999999996,
+          "drum_technique": 16.249999999999996,
           "drumhead": 0.845,
           "drum_kit_kick_pedal": 0
         }
@@ -154,7 +154,7 @@
           "brass_mute": 0.845,
           "trumpet_technique": 9.7,
           "trumpet_bell_metal": 1.6899999999999997,
-          "trumpet_maker_school": 4.029999999999999
+          "trumpet_maker_school": 3.3799999999999994
         }
       },
       {
@@ -196,7 +196,7 @@
           "trombone_mute": 0.845,
           "trombone_technique": 0.845,
           "trombone_bell_metal": 1.6899999999999997,
-          "trombone_maker_school": 4.029999999999999
+          "trombone_maker_school": 3.3799999999999994
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Greek nisiotika (\"island music\") folk-popular music tradition of the Greek Aegean Sea islands — Naxos, Mykonos, Tinos, Andros, Skyros, Lesbos, Chios, Samos, and adjacent islands — distinguished from mainland Greek demotic music by characteristic island-dance-rhythm repertoire (the syrtos, sousta, ballos), instrumental signature (lyra Cretan-style three-string fiddle on some islands, violin elsewhere, laouto long-neck lute, and santouri hammered-dulcimer), and the broader Aegean-island maritime-cultural orientation. The mid-twentieth-century commercial-recording era at Columbia, HMV, and Pathé Athens documented the canonical island repertoire. Distinguished from the parallel Cretan lyra tradition by nisiotika's broader-Aegean-island-network and lighter dance-emphasis register.",
   "recipe": "classic Southern European early-1930s greek nisiotika, ballad Poetry, Mediterranean ballad branch, west African groove percussion indonesian jaipongan fújì. thick, breath veiled tone, slow rate, interlocked note trading. walnut ribs canonical mid tier spruce face pyramid nylon oud, sitka spruce Baroque setup short neck shorter fingerboard lighter bass bar violin orchestral, sustained and staccato hungarian tradition concert pedal cimbalom large frame pedal damper cimbalom, mulberry canonical cretan gut pre modern cretan cretan lyra, island rhythmic laouto. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, tube pre, Emi redd.51, vari-mu, passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 734,
-  "score": 256.522,
+  "score": 254.972,
   "config": {
     "traditions": [
       "greek_nisiotika",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 5.805000000000001,
+          "voice_register": 5.655000000000001,
           "voice_quality": 17.679999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -47,7 +47,7 @@
           "voice_speech_song": 14.624999999999993,
           "voice_ensemble_config": 14.559999999999992,
           "voice_ornament_system": 2.469999999999999,
-          "voice_pitch_organization": 9.064999999999998,
+          "voice_pitch_organization": 7.664999999999998,
           "voice_processing_chain": 6.465000000000001,
           "voice_multitrack_stack": 5.1850000000000005
         }

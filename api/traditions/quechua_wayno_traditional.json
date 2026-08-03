@@ -3,20 +3,20 @@
   "name": "Quechua wayno (traditional Andean)",
   "family": "global",
   "lineage": "Traditional Quechua wayno (also huayno, huayño) Andean folk-music form of the Quechua-and-Aymara-speaking populations of highland Peru, Bolivia, and Ecuador. The wayno is the canonical Andean dance-and-song form, in 2/4 meter with characteristic syncopation pattern, slow-to-medium tempo, and pentatonic-to-modal melodic vocabulary. Performance: small ensemble of quena end-blown notched flute, charango armadillo-shell ten-string-paired lute, bombo bass-drum, and voice — with the lyric content addressing rural-Andean life, love, mourning, and Quechua-cultural-identity. The mid-twentieth-century Cusco-and-Ayacucho-and-Huancayo regional canonical traditions are the most institutionally preserved; the Bolivian Cochabamba-and-Potosí lineages constitute the parallel highland-Bolivian tradition.",
-  "recipe": "classic Andean modern quechua wayno, ballad Poetry, Latin am troubadour branch, indigenous ritual devotional shipibo-conibo icaros healing songs fijian meke. thick, breath veiled tone, straight note core, interlocked note trading. bamboo melodic quena, naranjillo andean premium wood cedar andean andean classical charango, guanaco hide hide ceibo canonical Argentine leguero hollowed trunk bombo andino, call ritual conch shell horn, ceramic melodic ocarina, altiplano lead carrying mara canonical single block tarka, basswood mahogany rosewood humbucker electric guitar. bogota colombian andean studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 667,
-  "score": 445.218,
+  "recipe": "classic Andean modern quechua wayno, ballad Poetry, Latin am troubadour branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. extended whistle, breath veiled tone, straight note core, interlocked note trading. bamboo melodic quena, naranjillo andean premium wood cedar andean andean classical charango, guanaco hide hide ceibo canonical Argentine leguero hollowed trunk bombo andino, call ritual conch shell horn, ceramic melodic ocarina, altiplano lead carrying mara canonical single block tarka, basswood mahogany rosewood alnico humbucker electric guitar. bogota colombian andean studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 706,
+  "score": 447.353,
   "config": {
     "traditions": [
       "quechua_wayno_traditional",
       "shipibo_icaros",
-      "fijian_meke"
+      "mapuche_tayil_ritual"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "extended_whistle_register",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 2.750000000000001,
-          "voice_quality": 34.64500000000001,
+          "voice_register": 3.0550000000000006,
+          "voice_quality": 41.990000000000045,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.835000000000001,
-          "voice_articulation": 29.315000000000012,
-          "voice_microtone": 31.265000000000004,
-          "voice_tradition": 41.02,
-          "voice_mechanism_compound": 12.445000000000002,
+          "voice_vibrato": 5.330000000000001,
+          "voice_articulation": 28.145000000000003,
+          "voice_microtone": 29.445000000000004,
+          "voice_tradition": 41.17,
+          "voice_mechanism_compound": 12.07,
           "voice_estill_quality": 13.034999999999998,
-          "voice_speech_song": 32.695000000000014,
-          "voice_ensemble_config": 31.59000000000001,
-          "voice_ornament_system": 22.105,
-          "voice_pitch_organization": 4.485,
-          "voice_processing_chain": 15.08,
-          "voice_multitrack_stack": 3.445
+          "voice_speech_song": 31.330000000000005,
+          "voice_ensemble_config": 30.42,
+          "voice_ornament_system": 23.555,
+          "voice_pitch_organization": 3.835,
+          "voice_processing_chain": 18.915,
+          "voice_multitrack_stack": 4.485
         }
       },
       {
@@ -60,8 +60,8 @@
           "quena_pitch": "quena_g"
         },
         "scores": {
-          "wind_articulation": 6.500000000000001,
-          "quena_material": 4.17,
+          "wind_articulation": 7.1975,
+          "quena_material": 3.5199999999999996,
           "quena_pitch": 3.25
         }
       },
@@ -75,11 +75,11 @@
           "charango_string_material": "charango_nylon_canonical"
         },
         "scores": {
-          "plucked_traditional_technique": 11.465,
+          "plucked_traditional_technique": 6.565000000000001,
           "charango_back": 4.8999999999999995,
-          "charango_top_wood": 9.534999999999998,
+          "charango_top_wood": 8.885,
           "charango_strings": 4.8999999999999995,
-          "charango_string_material": 4.635
+          "charango_string_material": 3.985
         }
       },
       {
@@ -92,7 +92,7 @@
         "scores": {
           "bombo_andino_construction": 4.475,
           "bombo_andino_skin": 5.7749999999999995,
-          "bombo_andino_shell_wood": 4.784999999999999
+          "bombo_andino_shell_wood": 4.029999999999999
         }
       },
       {
@@ -103,9 +103,9 @@
           "conch_shell_horn_region": "conch_shell_horn_polynesian"
         },
         "scores": {
-          "wind_articulation": 7.9625,
+          "wind_articulation": 10.627499999999998,
           "conch_use": 1.4949999999999999,
-          "conch_shell_horn_region": 30.35500000000001
+          "conch_shell_horn_region": 29.18500000000001
         }
       },
       {
@@ -116,8 +116,8 @@
           "ocarina_material": "ocarina_ceramic"
         },
         "scores": {
-          "wind_articulation": 6.500000000000001,
-          "ocarina_chamber": 2.34,
+          "wind_articulation": 7.1975,
+          "ocarina_chamber": 3.185,
           "ocarina_material": 3.3699999999999997
         }
       },
@@ -130,7 +130,7 @@
           "tarka_body_wood": "tarka_mara_wood"
         },
         "scores": {
-          "tarka_form": 14.485,
+          "tarka_form": 13.834999999999997,
           "tarka_context": 3.295,
           "tarka_consort_voice": 1.69,
           "tarka_body_wood": 4.874999999999999
@@ -139,7 +139,7 @@
       {
         "id": "electric_guitar_humbucker",
         "slots": {
-          "electric_technique": "electric_overdriven_lead",
+          "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_mesa_dual_rectifier",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
@@ -154,19 +154,19 @@
           "string_tuning": "dadgad"
         },
         "scores": {
-          "electric_technique": 1.56,
+          "electric_technique": 1.2,
           "amp_make": 1.4949999999999999,
-          "body_wood": 6.324999999999999,
+          "body_wood": 5.674999999999999,
           "neck_wood": 1.3,
           "fretboard": 1.25,
-          "pickup_magnet": 0.65,
+          "pickup_magnet": 1.4949999999999999,
           "pickup_winding": 0.345,
           "string_material": 0,
           "bridge": 1.3,
-          "scale_length": 6.279999999999999,
+          "scale_length": 6.129999999999999,
           "string_gauge": 2.75,
           "finish": 0,
-          "string_tuning": 7.02
+          "string_tuning": 6.369999999999999
         }
       }
     ],

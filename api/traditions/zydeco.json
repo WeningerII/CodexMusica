@@ -5,7 +5,7 @@
   "lineage": "Black Creole French Louisiana dance-music tradition codified through Clifton Chenier (the King of Zydeco, the Houston-based bandleader from the 1950s through his death in 1987), Boozoo Chavis (the originator of the genre name with his 1954 Paper in My Shoe), Buckwheat Zydeco, Rockin Dopsie, Beau Jocque, Geno Delafose; characterized by piano accordion (the larger more harmonically capable cousin of the Cajun single-row accordion) plus frottoir rubboard (the metal washboard-derived percussion worn over the shoulders, the Clifton Chenier and welder Willie Landry innovation (c. 1946), popularized by Cleveland Chenier), distinct from Cajun (which is white Acadian French Louisiana with single-row diatonic accordion)",
   "recipe": "classic Southern American mid-1950s zydeco, groove Percussion, Caribbean branch, blues electric functional song chicago blues jump blues. thick, breath veiled tone, wide pitch sway, interlocked note trading. petosa seattle American premium chordal accordion, frottoir. lafayette louisiana zydeco dance hall. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 402,
-  "score": 167.142,
+  "score": 159.475,
   "config": {
     "traditions": [
       "zydeco",
@@ -23,7 +23,7 @@
           "voice_vibrato": "oscillating_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "bend_inflected",
-          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_oral_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -34,14 +34,14 @@
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 21.294499999999992,
+          "voice_register": 18.794499999999992,
           "voice_quality": 20.15,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 17.52,
+          "voice_vibrato": 15.019999999999998,
           "voice_articulation": 8.319999999999999,
-          "voice_microtone": 17.52,
-          "voice_tradition": 8.4865,
+          "voice_microtone": 15.019999999999998,
+          "voice_tradition": 8.320000000000002,
           "voice_mechanism_compound": 5.671499999999999,
           "voice_estill_quality": 8.754999999999997,
           "voice_speech_song": 12.544999999999996,

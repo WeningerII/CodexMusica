@@ -5,7 +5,7 @@
   "lineage": "Early-2000s Memphis-and-Atlanta hip-hop subgenre characterized by simple-aggressive shouted-call-and-response vocal-delivery, hyperactive drum-machine production with 808 bass emphasis, and explicit club-anthem function. Lil Jon and the East Side Boyz (Atlanta 1997-onward) inaugurated the canonical sound; Three 6 Mafia, Ying Yang Twins, and the broader BME Recordings roster constitute the canonical roster. The 2003 \"Get Low\" hit consolidated commercial peak.",
   "recipe": "classic Southern American crunk, mc Rhythm, southern branch, west African groove percussion mbalax indonesian jaipongan. vocal fry, breath veiled tone, straight note core, interlocked note trading. TR-808, fast decay focused low sub bass analog synth. vocal booth isolated 2010-present mid-major atlanta trap commercial. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
   "recipe_chars": 445,
-  "score": 181.962,
+  "score": 180.562,
   "config": {
     "traditions": [
       "crunk",
@@ -47,7 +47,7 @@
           "voice_speech_song": 15.079999999999995,
           "voice_ensemble_config": 14.169999999999993,
           "voice_ornament_system": 1.9499999999999993,
-          "voice_pitch_organization": 9.064999999999998,
+          "voice_pitch_organization": 7.664999999999998,
           "voice_processing_chain": 8.040000000000001,
           "voice_multitrack_stack": 7.442500000000001
         }

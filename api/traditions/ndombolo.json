@@ -5,7 +5,7 @@
   "lineage": "Late-1990s onward Congolese fast-tempo dance derivation of soukous codified through Wenge Musica Maison Mère (the breakthrough), JB Mpiana, Werrason, Koffi Olomide, Awilo Longomba — characterized by accelerated tempo (180+ BPM in the sebene section), heavy-percussion-foregrounded mix, and the namesake ndombolo hip-shaking dance form",
   "recipe": "classic Central African 1997-1999 ndombolo, groove Percussion, central east south African branch, west African groove percussion hiplife makossa. thick, breath veiled tone, straight onset, interlocked note trading. wenge ebony clean strummed single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, pre muffled edge muffled brushes-and-sticks drum kit, congas. kinshasa leopoldville defining 1953-present mid tier kinshasa african jazz studio. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 648,
-  "score": 152.991,
+  "score": 152.841,
   "config": {
     "traditions": [
       "ndombolo",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 8.580000000000002,
+          "voice_register": 8.430000000000001,
           "voice_quality": 6.24,
           "voice_vocal_tract": 0,
           "voice_effort": 0,

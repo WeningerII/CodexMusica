@@ -5,7 +5,7 @@
   "lineage": "Ethiopian Golden Age 1969-1974 Amha-Kaifa-Philips label canon — codified through Mulatu Astatke’s Berklee-and-NYC training brought back to Addis Ababa, the Roha Band and Walias Band as the canonical recording ensembles, Mahmoud Ahmed (Ere Mela Mela 1975), Alemayehu Eshete, and Tilahun Gessesse (also romanized Tlahoun Gèssèssè) as canonical singers; characterized by Ethiopian kignit-modal vocals over jazz-and-soul instrumental beds",
   "recipe": "classic East African mid-1970s ethio-jazz, improv On Frame, Latin jazz branch, vocal drone modal flamenco. thick, breath veiled tone, straight onset, interlocked note trading. vibraphone, psychedelic foregrounded organ driven rock Leslie rotary combo organ, tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble shallow cup lead trumpet trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor ensemble student commercial trombone, mahogany chicken-scratch single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character alder flatwound electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, wood gut ethiopian historical krar.",
   "recipe_chars": 955,
-  "score": 564.2,
+  "score": 561.175,
   "config": {
     "traditions": [
       "ethio_jazz",
@@ -43,10 +43,10 @@
           "voice_microtone": 27.819999999999993,
           "voice_tradition": 13.779999999999998,
           "voice_mechanism_compound": 8.190000000000001,
-          "voice_estill_quality": 9.587499999999999,
+          "voice_estill_quality": 7.962500000000001,
           "voice_speech_song": 27.365000000000002,
           "voice_ensemble_config": 22.425,
-          "voice_ornament_system": 4.849999999999998,
+          "voice_ornament_system": 3.45,
           "voice_pitch_organization": 14.184999999999995,
           "voice_processing_chain": 5.85,
           "voice_multitrack_stack": 5.525

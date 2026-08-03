@@ -5,7 +5,7 @@
   "lineage": "NYC Paradise-Garage house lineage named for the Larry Levan-resident Paradise Garage nightclub (1977-1987) — codified through Larry Levan, Frankie Knuckles (before his Chicago move), and the Salsoul / West End / Prelude labels; characterized by gospel-vocal-led songs, four-on-the-floor 120 BPM tempo, and live-instrument production retaining disco-era warmth",
   "recipe": "classic Asian mid-1980s garage house, electronic Dance, garage house u s branch, soul R&B functional song doo-wop alt-r&b. thick, breath veiled tone, straight note core, interlocked note trading. Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched gospel runs full spectrum slow chorale tonewheel organ, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, singing lead digital subtractive, TR-909. jazz club. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
   "recipe_chars": 643,
-  "score": 296.417,
+  "score": 295.42,
   "config": {
     "traditions": [
       "garage_house_paradise",
@@ -30,8 +30,8 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
           "voice_register": 23.974999999999998,
@@ -48,8 +48,8 @@
           "voice_ensemble_config": 17.744999999999994,
           "voice_ornament_system": 1.15,
           "voice_pitch_organization": 2.5350000000000006,
-          "voice_processing_chain": 7.754999999999999,
-          "voice_multitrack_stack": 7.182499999999999
+          "voice_processing_chain": 7.6,
+          "voice_multitrack_stack": 6.76
         }
       },
       {
@@ -88,8 +88,8 @@
           "keyboard_technique": 16.885,
           "grand_piano_size": 0.585,
           "grand_piano_brand": 1.2349999999999999,
-          "piano_hammer": 5.049999999999999,
-          "piano_rim": 6.164999999999999,
+          "piano_hammer": 4.8999999999999995,
+          "piano_rim": 6.015,
           "piano_soundboard": 4.75,
           "piano_pinblock": -0.05,
           "piano_plate": 2.2099999999999995,
@@ -114,12 +114,12 @@
         "slots": {
           "tr909_voice": "tr909_kick",
           "drum_machine_909_context": "drum_machine_909_house",
-          "tr909_production_origin": "tr909_tr_8s_modern"
+          "tr909_production_origin": "tr909_roland_osaka_canonical"
         },
         "scores": {
           "tr909_voice": 16.249999999999996,
           "drum_machine_909_context": 2.6799999999999997,
-          "tr909_production_origin": 0.8999999999999999
+          "tr909_production_origin": 0.78
         }
       }
     ],

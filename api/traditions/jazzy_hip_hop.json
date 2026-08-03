@@ -5,7 +5,7 @@
   "lineage": "2010s lo-fi hip-hop subgenre developed through YouTube streaming-channel infrastructure (especially the canonical ChilledCow / Lofi Girl 24/7 stream launched 2017, and parallel College Music, Chillhop Music streams). Characterized by jazz-piano-and-trumpet sampling, mellow-and-relaxed drum-machine production, lo-fi-cassette-tape distortion aesthetic, and explicit \"study music\" and \"ambient productivity\" functional context. Nujabes (foundational, 1974-2010), J Dilla (foundational), Idealism, Jinsang, and the broader Lofi Girl roster anchor the canonical lo-fi hip-hop roster.",
   "recipe": "classic early-1970s jazzy hip-hop / lo-fi hip-hop, mc Rhythm, us hip hop branch, ambient experimental electric vaporwave aesthetic outrun / synthwave. thick, rap, straight onset, interlocked note trading. chopped sampler, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral shallow cup lead trumpet trumpet. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 742,
-  "score": 274.425,
+  "score": 273.675,
   "config": {
     "traditions": [
       "jazzy_hip_hop",
@@ -64,7 +64,7 @@
         "scores": {
           "electronic_technique": 10.139999999999999,
           "sampler_archetypes": 20.134999999999998,
-          "sampler_bit_depth": 7.84,
+          "sampler_bit_depth": 7.6899999999999995,
           "sampler_workflow": 10.089999999999998,
           "sampler_classic_context": 32.175
         }
@@ -97,8 +97,8 @@
         },
         "scores": {
           "keyboard_technique": 7.200000000000001,
-          "grand_piano_size": 0.585,
-          "grand_piano_brand": 1.995,
+          "grand_piano_size": 0.435,
+          "grand_piano_brand": 1.5450000000000002,
           "piano_hammer": 2.5700000000000003,
           "piano_rim": 2.465,
           "piano_soundboard": 1.8150000000000002,

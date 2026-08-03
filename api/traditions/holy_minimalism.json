@@ -5,7 +5,7 @@
   "lineage": "Late-twentieth-century compositional movement centered on Estonian Arvo Pärt, English John Tavener, and late-Polish Henryk Górecki, characterized by slow tempi, modal-and-triadic harmonic vocabulary, sacred-or-spiritual textual content (often Orthodox Christian liturgical), and minimal compositional means. Pärt's tintinnabuli style (developed 1976 onward in Spiegel im Spiegel, Cantus, and Tabula Rasa) and Tavener's The Protecting Veil (1989) constitute the canonical type-specimens.",
   "recipe": "classic Caucasian mid-1970s holy minimalism, art Music, western modern branch, christian gospel ritual devotional russian orthodox liturgical chant sacred steel. thick, declaimed, straight onset, interlocked note trading. modern bright beech laminated maple laminated European tradition sitka spruce grand piano, mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. stone armenian church. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
   "recipe_chars": 599,
-  "score": 282.15,
+  "score": 280.7,
   "config": {
     "traditions": [
       "holy_minimalism",
@@ -70,7 +70,7 @@
           "grand_piano_size": 0.225,
           "grand_piano_brand": 0.78,
           "piano_hammer": 9.86,
-          "piano_rim": 14.559999999999999,
+          "piano_rim": 14.41,
           "piano_soundboard": 9.215,
           "piano_pinblock": 9.275,
           "piano_plate": 10.01,
@@ -89,7 +89,7 @@
           "choir_size": 4.485,
           "choir_polyphonic_configuration": 3.3149999999999995,
           "choir_regional_canonical_configuration": 1.4300000000000002,
-          "choir_ensemble_repertoire": 9.165
+          "choir_ensemble_repertoire": 7.864999999999998
         }
       }
     ],

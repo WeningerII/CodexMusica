@@ -5,7 +5,7 @@
   "lineage": "Late-2010s Brooklyn New York City hip-hop subgenre derived from UK drill production-style imported through producers AXL Beats, 808Melo, and Ghosty (UK-based producers serving Brooklyn artists). Characterized by sliding-Roland-808 bass patterns, dark melodic-key production, and aggressive Brooklyn-street-life lyrical content. Pop Smoke (1999-2020, killed in 2020 home-invasion) inaugurated the canonical Brooklyn drill sound through Welcome to the Party (2019); Sheff G, Sleepy Hallow, and Fivio Foreign anchor the canonical roster.",
   "recipe": "classic mid-2010s brooklyn drill, mc Rhythm, east coast branch, uk soundsystem bass system bassline future garage. extended whistle, rap, straight onset, interlocked note trading. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, sub bass analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 499,
-  "score": 148.159,
+  "score": 148.009,
   "config": {
     "traditions": [
       "brooklyn_drill",
@@ -48,7 +48,7 @@
           "voice_ensemble_config": 9.879999999999999,
           "voice_ornament_system": 2.8600000000000003,
           "voice_pitch_organization": 7.747999999999999,
-          "voice_processing_chain": 6.478000000000001,
+          "voice_processing_chain": 6.328000000000001,
           "voice_multitrack_stack": 8.529000000000002
         }
       },

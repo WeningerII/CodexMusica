@@ -3,14 +3,14 @@
   "name": "Irish caoineadh (keening)",
   "family": "global",
   "lineage": "Irish-Gaelic mourning-song tradition continuous from medieval Gaeltacht oral practice through 17th-19th century documented performance by bean chaointe professional keening-women through 20th-century suppression by Catholic clergy and partial revival within sean-nós-singing tradition",
-  "recipe": "classic Northern European modern irish caoineadh, funeral Lament, European branch, vocal drone modal, Celtic balladic ballad poetry, christian gospel ritual devotional bluegrass gospel southern gospel quartet. thick, declaimed, straight note core, multi note runs per syllable. connemara kitchen sean nos. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 368,
-  "score": 217.647,
+  "recipe": "classic Northern European modern irish caoineadh, funeral Lament, European branch, vocal drone modal, Celtic balladic ballad poetry, christian gospel ritual devotional african-american spirituals jubilee quartet. thick, declaimed, wide pitch sway, leader call answered. connemara kitchen sean nos. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 360,
+  "score": 182.36,
   "config": {
     "traditions": [
       "irish_caoineadh",
-      "bluegrass_gospel",
-      "southern_gospel_quartet"
+      "spirituals_african_american",
+      "jubilee_quartet"
     ],
     "instruments": [
       {
@@ -20,10 +20,10 @@
           "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "melisma_voice",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "call_response_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 24.565,
-          "voice_quality": 33.019999999999996,
+          "voice_register": 21.089999999999996,
+          "voice_quality": 26.145,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.805,
-          "voice_articulation": 25.04,
-          "voice_microtone": 9.165000000000001,
-          "voice_tradition": 23.830000000000002,
-          "voice_mechanism_compound": 3.705,
-          "voice_estill_quality": 25.544999999999998,
-          "voice_speech_song": 12.544999999999996,
-          "voice_ensemble_config": 23.584999999999997,
-          "voice_ornament_system": 19.614999999999995,
-          "voice_pitch_organization": 4.322500000000001,
-          "voice_processing_chain": 8.514999999999999,
-          "voice_multitrack_stack": 9.49
+          "voice_vibrato": 3.365,
+          "voice_articulation": 16.330000000000002,
+          "voice_microtone": 11.699999999999992,
+          "voice_tradition": 21.775,
+          "voice_mechanism_compound": 4.485,
+          "voice_estill_quality": 17.57,
+          "voice_speech_song": 13.844999999999994,
+          "voice_ensemble_config": 15.635,
+          "voice_ornament_system": 18.889999999999997,
+          "voice_pitch_organization": 4.680000000000001,
+          "voice_processing_chain": 6.499999999999999,
+          "voice_multitrack_stack": 9.75
         }
       }
     ],

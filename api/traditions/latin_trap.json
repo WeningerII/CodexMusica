@@ -5,7 +5,7 @@
   "lineage": "Puerto Rican-Dominican Latin-trap subgenre codified through Bad Bunny (X 100PRE 2018), Anuel AA, Ozuna, Bryant Myers — characterized by 70-80 BPM trap-808 programming with reggaeton-dembow accents, autotuned-Spanish-language vocals, and the Hear This Music label catalog driving its mainstream crossover",
   "recipe": "classic Caribbean late-2010s latin trap, mc Rhythm, reggaeton branch, us hip hop southern trap houston chopped and screwed. extended whistle, rap, straight note core, interlocked note trading. TR-808, sub bass analog poly synth, sampled chopped sampler drum machine. live tracking. shure SM58, transformerless solid-state pre, pumping sidechain, parametric EQ. lossy MP3 autotune digital delay.",
   "recipe_chars": 394,
-  "score": 180.53,
+  "score": 175.93,
   "config": {
     "traditions": [
       "latin_trap",
@@ -35,17 +35,17 @@
         },
         "scores": {
           "voice_register": 3.185,
-          "voice_quality": 15.96,
+          "voice_quality": 15.81,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.105,
-          "voice_articulation": 13.324999999999992,
-          "voice_microtone": 12.934999999999992,
+          "voice_articulation": 12.674999999999994,
+          "voice_microtone": 12.284999999999993,
           "voice_tradition": 8.76,
           "voice_mechanism_compound": 3.3149999999999995,
           "voice_estill_quality": 2.7300000000000004,
           "voice_speech_song": 15.279999999999998,
-          "voice_ensemble_config": 12.674999999999994,
+          "voice_ensemble_config": 12.024999999999993,
           "voice_ornament_system": 6.370000000000002,
           "voice_pitch_organization": 1.65,
           "voice_processing_chain": 8.519999999999998,
@@ -62,21 +62,21 @@
         "scores": {
           "tr808_voice": 10.11,
           "drum_machine_808_context": 4.29,
-          "tr808_production_origin": 0.9299999999999999
+          "tr808_production_origin": 0.78
         }
       },
       {
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_bass_sub",
-          "poly_archetypes": "juno_60",
+          "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_5_voice",
           "poly_maker_lineage": "poly_yamaha_cs"
         },
         "scores": {
-          "electronic_technique": 29.879999999999995,
-          "poly_archetypes": 0.495,
-          "poly_voices": 0.345,
+          "electronic_technique": 28.629999999999995,
+          "poly_archetypes": 0.195,
+          "poly_voices": 0.195,
           "poly_maker_lineage": 0.3249999999999998
         }
       },
@@ -89,7 +89,7 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 8.575,
+          "electronic_technique": 7.924999999999999,
           "sample_bitdepth": 1.8199999999999998,
           "sample_swing": 9.879999999999999,
           "sample_processing": 0.39

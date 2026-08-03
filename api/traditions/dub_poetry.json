@@ -3,14 +3,14 @@
   "name": "Dub poetry",
   "family": "global",
   "lineage": "Jamaican-British poetic-spoken-word performance tradition over reggae rhythm backing — codified through Linton Kwesi Johnson (UK Black-British, the figure, his 1978 Dread Beat an Blood the founding album), Mutabaruka (Jamaican), Oku Onuora (Jamaican, who coined the genre name in 1979), Mikey Smith (Jamaican), Benjamin Zephaniah (UK Black-British)",
-  "recipe": "classic Northern European late-1970s dub poetry, bass System, reggae diaspora branch, intl hip hop MC rhythm, anglo singer song ballad poetry freak folk rapso. thick, breath veiled tone, slow rate, interlocked note trading. orange amp British heavy crunch mahogany rosewood clean single coil electric guitar, orange amp British heavy crunch mahogany pyramid pure nickel bass electric bass, rim clicks drum kit. London black British Caribbean 1976-1985 indie-commercial brixton uk lovers rock basement. dynamic moving-coil, tube pre, colored vintage console, optical compressor, Pultec passive program EQ. tape 15ips echo spring reverb.",
-  "recipe_chars": 635,
-  "score": 189.177,
+  "recipe": "classic Northern European late-1970s dub poetry, bass System, reggae diaspora branch, intl hip hop MC rhythm, anglo singer song ballad poetry rapso freak folk. thick, breath veiled tone, slow rate, interlocked note trading. orange amp British heavy crunch open string slide resonance clean strummed single coil electric guitar, orange amp British heavy crunch mahogany pyramid pure nickel bass electric bass, rim clicks drum kit. London black British Caribbean 1976-1985 indie-commercial brixton uk lovers rock basement. dynamic moving-coil, tube pre, colored vintage console, optical compressor, Pultec passive program EQ. tape 15ips echo spring reverb.",
+  "recipe_chars": 654,
+  "score": 180.27,
   "config": {
     "traditions": [
       "dub_poetry",
-      "freak_folk",
-      "rapso"
+      "rapso",
+      "freak_folk_2000s"
     ],
     "instruments": [
       {
@@ -26,7 +26,7 @@
           "voice_tradition": "sean_nos_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
-          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 10.134999999999996,
-          "voice_quality": 10.919999999999993,
+          "voice_register": 8.809999999999997,
+          "voice_quality": 11.374999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.0149999999999997,
-          "voice_articulation": 11.699999999999996,
-          "voice_microtone": 12.089999999999991,
-          "voice_tradition": 18.085,
-          "voice_mechanism_compound": 1.9499999999999997,
-          "voice_estill_quality": 4.16,
-          "voice_speech_song": 15.99,
-          "voice_ensemble_config": 11.634999999999994,
-          "voice_ornament_system": 3.4450000000000016,
-          "voice_pitch_organization": 2.4699999999999998,
-          "voice_processing_chain": 5.625,
-          "voice_multitrack_stack": 2.6325000000000003
+          "voice_vibrato": 1.17,
+          "voice_articulation": 12.609999999999994,
+          "voice_microtone": 12.999999999999991,
+          "voice_tradition": 15.339999999999998,
+          "voice_mechanism_compound": 2.34,
+          "voice_estill_quality": 4.355,
+          "voice_speech_song": 16.834999999999994,
+          "voice_ensemble_config": 12.544999999999993,
+          "voice_ornament_system": 4.0950000000000015,
+          "voice_pitch_organization": 1.5274999999999994,
+          "voice_processing_chain": 5.4750000000000005,
+          "voice_multitrack_stack": 3.2825000000000006
         }
       },
       {
@@ -66,21 +66,21 @@
           "bridge": "hardtail",
           "scale_length": "scale_gibson",
           "finish": "oil_satin",
-          "string_tuning": "c_standard"
+          "string_tuning": "open_g"
         },
         "scores": {
-          "electric_technique": 7.475000000000001,
-          "amp_make": 5.15,
-          "body_wood": 1.7499999999999998,
-          "neck_wood": 1.7499999999999998,
-          "fretboard": 1.6999999999999997,
+          "electric_technique": 8.4,
+          "amp_make": 4.350000000000001,
+          "body_wood": 0.9500000000000001,
+          "neck_wood": 0.9500000000000001,
+          "fretboard": 0.9,
           "pickup_magnet": 0.345,
           "string_material": 0.195,
-          "string_gauge": 1.7499999999999998,
+          "string_gauge": 0.9500000000000001,
           "bridge": 0.15,
-          "scale_length": 1.8849999999999996,
+          "scale_length": 1.04,
           "finish": 0.195,
-          "string_tuning": 2.0799999999999996
+          "string_tuning": 1.725
         }
       },
       {
@@ -95,11 +95,11 @@
           "bass_technique": "thumb_muted"
         },
         "scores": {
-          "amp_make": 5.15,
-          "body_wood": 1.8849999999999996,
+          "amp_make": 4.350000000000001,
+          "body_wood": 1.04,
           "pickup_config": 0,
-          "string_type": 7.44,
-          "scale_length_b": 1.7499999999999998,
+          "string_type": 7.440000000000001,
+          "scale_length_b": 0.9500000000000001,
           "fretted_or_not": 0.195,
           "bass_technique": 16.67
         }
@@ -113,7 +113,7 @@
         },
         "scores": {
           "drum_technique": 16.625,
-          "drumhead": 1.8849999999999996,
+          "drumhead": 1.04,
           "drum_kit_kick_pedal": 0
         }
       }

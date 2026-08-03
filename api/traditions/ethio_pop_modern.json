@@ -5,7 +5,7 @@
   "lineage": "Modern Amharic-language popular tradition descended from the 1960s-70s Ethio-jazz canon (Mulatu Astatke, Mahmoud Ahmed) — codified through Aster Aweke, Ejigayehu Shibabaw / Gigi, Teddy Afro, and Mahmoud Ahmed’s continued career; characterized by Amharic vocals over kignit-modal-melodic frameworks with Western pop production",
   "recipe": "classic mid-1960s ethio-pop modern, functional Song, African pop branch, American jazz fusion acid jazz. thick, breath veiled tone, straight onset, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright clean strummed single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, singing lead analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 611,
-  "score": 408.465,
+  "score": 394.59,
   "config": {
     "traditions": [
       "ethio_pop_modern",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 43.34500000000001,
+          "voice_register": 42.09500000000001,
           "voice_quality": 5.135000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 31.4525,
+          "voice_vibrato": 30.2025,
           "voice_articulation": 9.945,
-          "voice_microtone": 42.25950000000001,
-          "voice_tradition": 33.795,
+          "voice_microtone": 41.00950000000001,
+          "voice_tradition": 31.645,
           "voice_mechanism_compound": 5.07,
           "voice_estill_quality": 3.99,
           "voice_speech_song": 11.959999999999994,
           "voice_ensemble_config": 9.685,
           "voice_ornament_system": 0.6499999999999999,
           "voice_pitch_organization": 2.0149999999999997,
-          "voice_processing_chain": 9.3725,
+          "voice_processing_chain": 9.2225,
           "voice_multitrack_stack": 8.84
         }
       },
@@ -98,10 +98,10 @@
           "amp_make": 7.897499999999999,
           "body_wood": 0.726,
           "pickup_config": 2.7995,
-          "string_type": 33.7365,
+          "string_type": 31.5865,
           "scale_length_b": 2.9899999999999998,
           "fretted_or_not": 0.063,
-          "bass_technique": 27.375
+          "bass_technique": 26.125
         }
       },
       {
@@ -112,8 +112,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 37.2125,
-          "drumhead": 34.550000000000004,
+          "drum_technique": 34.93749999999999,
+          "drumhead": 32.4,
           "drum_kit_kick_pedal": 0
         }
       },

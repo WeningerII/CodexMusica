@@ -3,9 +3,9 @@
   "name": "Miami bass",
   "family": "electronic",
   "lineage": "Mid-1980s Miami Florida electronic hip-hop subgenre developed at Pretty Tony's Music Specialist Productions and Luke Skyywalker Records, characterized by extreme sub-bass production (taking advantage of Miami's car-trunk-subwoofer culture), Roland TR-808 drum-machine emphasis, and explicit-sexual party-rap vocal content. 2 Live Crew (especially the 1989 As Nasty As They Wanna Be obscenity case), Magic Mike, DJ Laz, and Trick Daddy (later) extended the genre.",
-  "recipe": "classic Los Angeles 1984-1986 miami bass, functional Song, tropical song branch, us hip hop southern atlanta trap modern chicago drill. thick, rap, straight onset, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, sub bass analog synth. neve paired 1970-1995 mid-major la rock 70s 90s. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
-  "recipe_chars": 409,
-  "score": 176.112,
+  "recipe": "classic Los Angeles 1984-1986 miami bass, functional Song, tropical song branch, us hip hop southern atlanta trap modern chicago drill. thick, rap, slow rate, interlocked note trading. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, sub bass analog synth. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
+  "recipe_chars": 488,
+  "score": 172.69,
   "config": {
     "traditions": [
       "miami_bass",
@@ -20,7 +20,7 @@
           "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "beatboxing_tradition",
@@ -34,11 +34,11 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 2.57,
-          "voice_quality": 16.135,
+          "voice_register": 2.5699999999999994,
+          "voice_quality": 15.985000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.055,
+          "voice_vibrato": 2.47,
           "voice_articulation": 12.479999999999997,
           "voice_microtone": 12.284999999999995,
           "voice_tradition": 10.709999999999999,
@@ -48,7 +48,7 @@
           "voice_ensemble_config": 13.259999999999996,
           "voice_ornament_system": 2.925000000000001,
           "voice_pitch_organization": 4.03,
-          "voice_processing_chain": 10.97,
+          "voice_processing_chain": 10.670000000000002,
           "voice_multitrack_stack": 7.767500000000001
         }
       },
@@ -57,12 +57,12 @@
         "slots": {
           "tr808_voice": "tr808_kick_long",
           "drum_machine_808_context": "drum_machine_808_trap",
-          "tr808_production_origin": "tr808_tr_8s_modern"
+          "tr808_production_origin": "tr808_roland_osaka_canonical"
         },
         "scores": {
           "tr808_voice": 11.61,
-          "drum_machine_808_context": 7.02,
-          "tr808_production_origin": 5.33
+          "drum_machine_808_context": 6.369999999999999,
+          "tr808_production_origin": 5.004999999999999
         }
       },
       {
@@ -75,7 +75,7 @@
           "modulation": "lfo_pitch"
         },
         "scores": {
-          "electronic_technique": 17.879999999999995,
+          "electronic_technique": 16.629999999999995,
           "oscillator": 4.68,
           "filter_topology": 6.37,
           "envelope": 0.8,
@@ -84,7 +84,7 @@
       }
     ],
     "room": "studio_la_rock_70s_90s",
-    "archetype": "arch_pre_daw_electronic_pioneer",
+    "archetype": "arch_70s_la_rock_commercial",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "transformerless",

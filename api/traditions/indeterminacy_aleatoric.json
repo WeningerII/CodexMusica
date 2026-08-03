@@ -5,7 +5,7 @@
   "lineage": "American twentieth-century compositional approach centered on John Cage (1912-1992) employing chance procedures (I Ching coin-tossing, star-charts, environmental noise) to determine compositional material, removing the composer's expressive intentionality. Music of Changes (1951), 4'33\" (1952), Imaginary Landscape No. 4 (1951 for twelve radios), and the Number Pieces (1987-92) constitute the canonical types. Influenced subsequent Fluxus intermedia, conceptual composition, and improvisation traditions.",
   "recipe": "classic North American early-1910s indeterminacy and aleatoric, art Music, western modern branch, jam free improv on frame jam band free improvisation. thick, breath veiled tone, slow rate, interlocked note trading. no chemical hardener t rivet beech laminated maple laminated European tradition grand piano. shoebox concert hall. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 425,
-  "score": 136.542,
+  "score": 135.108,
   "config": {
     "traditions": [
       "indeterminacy_aleatoric",
@@ -30,7 +30,7 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
@@ -40,15 +40,15 @@
           "voice_effort": 0,
           "voice_vibrato": 6.32175,
           "voice_articulation": 10.399999999999999,
-          "voice_microtone": 10.854999999999995,
-          "voice_tradition": 7.605,
+          "voice_microtone": 10.205,
+          "voice_tradition": 6.885250000000001,
           "voice_mechanism_compound": 2.4,
           "voice_estill_quality": 4.532500000000001,
           "voice_speech_song": 12.154999999999998,
           "voice_ensemble_config": 9.685000000000002,
           "voice_ornament_system": 4.258,
           "voice_pitch_organization": 3.063,
-          "voice_processing_chain": 1.56,
+          "voice_processing_chain": 1.4949999999999999,
           "voice_multitrack_stack": 5.383
         }
       },

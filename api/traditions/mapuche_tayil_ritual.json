@@ -5,7 +5,7 @@
   "lineage": "Mapuche (Araucanian) tayil women's genealogical-ritual chant tradition of the Mapuche communities of southern Argentina (Neuquén, Río Negro, Chubut provinces) and adjacent southern-central Chile (Araucanía Region). Tayil is a sung-evocation of a kin-group's tayil-spirit (each Mapuche kin-group / küpan has its own tayil-spirit-melody, inherited matrilineally), with the singer's voice bringing-present the spiritual essence of the ancestor-line during the ngillatún collective-ceremony (the central Mapuche public ritual cycle, held over multiple days in a sacred clearing). Performance involves a single woman singer-evocator (tayilfe) in melismatic-narrow-range melodic style with characteristic descending-contour cadential conventions and Mapuche pentatonic-leaning modal vocabulary, accompanied by kultrún (the one-headed shamanic frame-drum with cosmological-diagram-painted goat-skin or horse-skin head, struck with a curved beater) and sometimes trutruka long-trumpet or pifüllka end-blown whistles. The tayil tradition is distinct from but adjacent to the machi shamanic ülkantun (the curing-songs of the machi shaman, a separate role and repertoire). Carol E. Robertson-DeCarbo's 1976 Indiana doctoral dissertation (Tayil: Musical Communication and Social Organization Among the Mapuche of Argentina), her 1979 Ethnomusicology article Pulling the Ancestors (23/3), and María Ester Grebe Vicuña's 1973 Revista Musical Chilena article on the kultrún constitute the foundational scholarship. Distinguished from neighboring Tehuelche and Huilliche vocal traditions by Mapuche-Mapudungun language and tayil-spirit-evocation functional framework; distinguished from broader South American indigenous ritual-music by the specific küpan-spirit-inheritance kin-group structure.",
   "recipe": "classic South American mid-1970s mapuche tayil genealogical chant, ritual Devotional, mapuche branch, Latin am troubadour ballad poetry mapuche ülkantun milonga. thick, breath veiled tone, straight note core, interlocked note trading. laurel lingue rauli wood canonical mapuche build goat or horse skin cosmological diagram painted machi shamanic ritual canonical ngillatun kultrun. ngillatun clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 465,
-  "score": 241.987,
+  "score": 241.337,
   "config": {
     "traditions": [
       "mapuche_tayil_ritual",
@@ -60,7 +60,7 @@
           "kultrun_tradition": "kultrun_machi_shamanic_canonical"
         },
         "scores": {
-          "kultrun_body": 19.240000000000002,
+          "kultrun_body": 18.590000000000003,
           "kultrun_head": 13.850000000000001,
           "kultrun_tradition": 12.43
         }

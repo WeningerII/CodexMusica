@@ -5,7 +5,7 @@
   "lineage": "Russian harvest-song (жнитвенные песни zhnitvenye pesni) tradition continuous from medieval-Russian-agricultural village-labor practice through 19th-century Russian-folklorist documentation through Soviet-era Pyatnitsky and Voronezh-Russian-Folk-Choir canonical performance into modern Russian-folk-revival continuous practice; foundational repertoire integrates rye-and-wheat-harvest songs accompanying scything-and-binding labor",
   "recipe": "classic Northern European modern russian zhnitvenye pesni, field Work, Slavic balkan branch, east Asian field work, European wedding, Slavic bard ballad poetry chinese chayang-diao vietnamese hò. thick, breath veiled tone, straight onset, interlocked note trading. baltic outdoor village. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 351,
-  "score": 134.2,
+  "score": 132.3,
   "config": {
     "traditions": [
       "russian_zhnitvenye",
@@ -44,10 +44,10 @@
           "voice_tradition": 24.304999999999996,
           "voice_mechanism_compound": 1.3199999999999998,
           "voice_estill_quality": 0.585,
-          "voice_speech_song": 20.799999999999997,
+          "voice_speech_song": 20.149999999999995,
           "voice_ensemble_config": 16.054999999999996,
           "voice_ornament_system": 4.825000000000001,
-          "voice_pitch_organization": 10.134999999999998,
+          "voice_pitch_organization": 8.884999999999998,
           "voice_processing_chain": 2.5350000000000006,
           "voice_multitrack_stack": 0.975
         }

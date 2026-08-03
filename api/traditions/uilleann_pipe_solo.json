@@ -5,7 +5,7 @@
   "lineage": "Irish bellows-blown indoor bagpipe (uilleann pipes, formerly called union pipes) solo virtuoso tradition codified through Leo Rowsome, Seamus Ennis, Willie Clancy, Liam OFlynn, Paddy Keenan, Davy Spillane — the most complex bagpipe instrument in the world with three drones, three regulators (chord-producing keys operated by the elbow), and a chanter capable of full chromatic range",
   "recipe": "classic Northern European mid-1990s uilleann pipe solo, drone Modal, wind pipe branch, Celtic traditional improv on frame irish trad session. full band African blackwood canonical Irish modern cane arundo donax canonical Irish leather canonical Irish bellows fed rowsome dublin tradition uilleann pipes. connemara kitchen sean nos. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 478,
-  "score": 27.071,
+  "score": 23.725,
   "config": {
     "traditions": [
       "uilleann_pipe_solo",
@@ -15,7 +15,7 @@
       {
         "id": "uilleann_pipes",
         "slots": {
-          "wind_articulation": "wind_ornament_heavy",
+          "wind_articulation": "wind_folk_melodic",
           "uilleann_set": "full_set",
           "uilleann_pipes_pitch": "uilleann_pipes_flat",
           "uilleann_chanter_wood": "uilleann_african_blackwood",
@@ -24,12 +24,12 @@
           "uilleann_lineage": "uilleann_rowsome"
         },
         "scores": {
-          "wind_articulation": 4.325,
-          "uilleann_set": 7.009176136363637,
+          "wind_articulation": 3.693875,
+          "uilleann_set": 6.244801136363637,
           "uilleann_pipes_pitch": 3.200659090909091,
-          "uilleann_chanter_wood": 3.00375,
-          "uilleann_reed": 2.8086363636363636,
-          "uilleann_bag": 4.238636363636363,
+          "uilleann_chanter_wood": 2.3537500000000002,
+          "uilleann_reed": 2.1586363636363637,
+          "uilleann_bag": 3.5886363636363634,
           "uilleann_lineage": 3.835
         }
       }

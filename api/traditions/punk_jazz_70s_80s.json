@@ -5,7 +5,7 @@
   "lineage": "Late-1970s-1980s convergence of free-jazz improvisational practice with punk-rock-and-no-wave aesthetic, emerging from the New York Downtown scene. James Chance and the Contortions, James Blood Ulmer (with his harmolodic system), and the Lounge Lizards constituted the canonical core; the Knitting Factory NYC venue (founded 1987) anchored the institutional infrastructure for subsequent jazz-and-experimental development.",
   "recipe": "classic North American 1977-1979 punk jazz / no-wave jazz, improv On Frame, avant branch, noise rock distorted rock. phosphor bronze selmer mark vi canonical 1954 1974 jazz paris multiphonic continuous-airflow legato saxophone, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation low output no compression humbucker electric guitar, ampeg svt amp rock bass amp thomastik infeld low tension jazz warm electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit. mid manhattan 1975-1985 mid-major late70s nyc commercial. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 698,
-  "score": 213.625,
+  "score": 206.638,
   "config": {
     "traditions": [
       "punk_jazz_70s_80s",
@@ -24,13 +24,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 14.324999999999996,
+          "wind_articulation": 13.075,
           "sax_size": 0.325,
           "sax_reed": 0.39,
           "sax_body_alloy": 17.75,
           "sax_mouthpiece": 0.39,
           "sax_technique": 17.75,
-          "sax_maker_school": 19.5845
+          "sax_maker_school": 19.18325
         }
       },
       {
@@ -51,8 +51,8 @@
           "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 8.684999999999997,
-          "amp_make": 14.95975,
+          "electric_technique": 7.435,
+          "amp_make": 14.276,
           "body_wood": 0.195,
           "neck_wood": 0.39,
           "fretboard": 0.39,
@@ -63,7 +63,7 @@
           "scale_length": 0.325,
           "string_gauge": 0.195,
           "finish": 0,
-          "string_tuning": 11.115
+          "string_tuning": 10.464999999999998
         }
       },
       {
@@ -78,13 +78,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 8.947125,
+          "amp_make": 8.248375,
           "body_wood": 0.195,
           "pickup_config": 0,
-          "string_type": 20.07125,
+          "string_type": 19.669999999999998,
           "scale_length_b": 0.195,
           "fretted_or_not": 0.041999999999999996,
-          "bass_technique": 24.469375
+          "bass_technique": 23.219375
         }
       },
       {
@@ -96,7 +96,7 @@
         },
         "scores": {
           "drum_technique": 21.514999999999997,
-          "drumhead": 20.02125,
+          "drumhead": 19.619999999999997,
           "drum_kit_kick_pedal": 0
         }
       }

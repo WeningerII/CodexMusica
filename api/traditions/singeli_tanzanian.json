@@ -5,7 +5,7 @@
   "lineage": "Singeli ultra-high-tempo Tanzanian electronic dance music emerging in 2000s in the Manzese neighborhood of Dar es Salaam from convergence of traditional ngoma drumming with PC-software production. Runs typically at 180-300 BPM with chopped vocal samples, accelerated taarab loops, and aggressive synth riffs over hyper-fast machine-drum kicks. Performance contexts: street-corner sound-system parties, weddings, and post-2017 international festival circuit through Nyege Nyege Tapes Kampala. MC calls out hyper-fast Swahili-Bongo-slang lyrical phrases.",
   "recipe": "classic East African mid-2000s singeli, electronic Dance, African dance branch, footwork electronic dance juke jersey club. vocal fry, declaimed, fast rate, interlocked note trading. chopped sampler, behringer rd 8 modern clone analog circuit reproduction TR-808. dar es salaam zanzibar taarab culture club. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 437,
-  "score": 129.04,
+  "score": 128.39,
   "config": {
     "traditions": [
       "singeli_tanzanian",
@@ -78,7 +78,7 @@
         },
         "scores": {
           "tr808_voice": 1.1374999999999997,
-          "drum_machine_808_context": 4.29,
+          "drum_machine_808_context": 3.6399999999999997,
           "tr808_production_origin": 1.5550000000000002
         }
       }

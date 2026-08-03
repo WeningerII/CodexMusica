@@ -5,7 +5,7 @@
   "lineage": "Late-1990s and 2000s clicks-and-cuts microhouse subgenre codified through Akufen (Quebec), Matthew Herbert’s Around the House (1998), Luomo / Vladislav Delay, and the Force Inc / Mille Plateaux label catalog — characterized by tiny-sample-fragment production, glitch-and-skip percussion programming, and academic-electroacoustic compositional sensibility",
   "recipe": "classic 1997-1999 microhouse, electronic Dance, microhouse branch, idm glitch experimental electric chiptune / 8-bit. digital subtractive, glitched textural sampler, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909, roland lineage canonical sh 101 tb 303 1982 1984 osaka analog mono synth. treated studio. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
   "recipe_chars": 437,
-  "score": 80.57,
+  "score": 78.84,
   "config": {
     "traditions": [
       "minimal_microhouse_classic",
@@ -23,7 +23,7 @@
         "scores": {
           "electronic_technique": 0.9431249999999999,
           "va_archetypes": 0.024,
-          "digital_subtractive_context": 14.689999999999998
+          "digital_subtractive_context": 14.04
         }
       },
       {
@@ -37,10 +37,10 @@
         },
         "scores": {
           "electronic_technique": 12.1795,
-          "sampler_archetypes": 0.105,
+          "sampler_archetypes": 0.075,
           "sampler_bit_depth": 0.020999999999999998,
           "sampler_workflow": 12.343,
-          "sampler_classic_context": 23.8875
+          "sampler_classic_context": 23.2375
         }
       },
       {
@@ -68,7 +68,7 @@
         "scores": {
           "electronic_technique": 0.19500000000000003,
           "mono_oscillator": 0.015,
-          "mono_filter": 0.39712499999999995,
+          "mono_filter": 0.24712499999999998,
           "mono_archetypes": 0.845,
           "mono_maker_lineage": 1.625
         }

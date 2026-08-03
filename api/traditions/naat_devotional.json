@@ -5,7 +5,7 @@
   "lineage": "Pan-Islamic devotional poetry-recitation tradition in praise of the Prophet Muhammad (Arabic naʿat literally means description / praise) — performed at Mawlid an-Nabi celebrations, milad-un-Nabi processions, private home and mosque gatherings; codified through the Urdu-language naat khwani tradition in Pakistan and India (reciters Owais Raza Qadri, Junaid Jamshed, Sami Yusuf), with parallel Arabic-and-Turkish-and-Indonesian language traditions across the broader Muslim world",
   "recipe": "classic South Asian mid-1980s naʿat, ritual Devotional, islamic branch, Sufi ritual devotional qawwali sufi inshad. vocal fry, declaimed, slow rate, interlocked note trading. mixed satb canonical 4 part western three voice polyphonic regional andean three voice parallel thirds quechua aymara global traditional polyphonic choir ensemble, walnut bent frame canonical Persian goat skin tacked brass rings canonical Iranian daf, low overtone rich vocal male harmonium indian. karachi lahore naat devotional majlis. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
   "recipe_chars": 651,
-  "score": 264.387,
+  "score": 253.953,
   "config": {
     "traditions": [
       "naat_devotional",
@@ -35,18 +35,18 @@
         },
         "scores": {
           "voice_register": 1.6899999999999997,
-          "voice_quality": 33.712500000000006,
+          "voice_quality": 31.212499999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.585,
           "voice_articulation": 15.144999999999996,
-          "voice_microtone": 37.022,
-          "voice_tradition": 39.27049999999999,
+          "voice_microtone": 35.772,
+          "voice_tradition": 35.891749999999995,
           "voice_mechanism_compound": 3.9499999999999993,
-          "voice_estill_quality": 5.570125,
-          "voice_speech_song": 19.629999999999995,
+          "voice_estill_quality": 5.465125,
+          "voice_speech_song": 18.979999999999997,
           "voice_ensemble_config": 14.884999999999994,
-          "voice_ornament_system": 30.410999999999998,
+          "voice_ornament_system": 29.160999999999998,
           "voice_pitch_organization": 11.444999999999999,
           "voice_processing_chain": 2.0799999999999996,
           "voice_multitrack_stack": 1.8849999999999996
@@ -77,7 +77,7 @@
           "daf_jingle_metal": "daf_brass_rings"
         },
         "scores": {
-          "daf_rings": 9.749999999999998,
+          "daf_rings": 9.099999999999998,
           "daf_context": 1.4949999999999999,
           "daf_shell_wood": 3.119999999999999,
           "daf_head_material": 1.6899999999999997,
@@ -96,7 +96,7 @@
           "free_reed_technique": 0.1365,
           "harmonium_action": 1.8849999999999996,
           "harmonium_voicing": 1.6899999999999997,
-          "harmonium_use": 11.83
+          "harmonium_use": 11.18
         }
       }
     ],

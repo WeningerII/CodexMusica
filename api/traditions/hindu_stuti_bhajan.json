@@ -5,7 +5,7 @@
   "lineage": "Pan-Indian Hindu devotional praise-song tradition continuous from medieval Bhakti-movement era (12th-18th century North-and-South-Indian bhakti-saints including Kabir, Mirabai, Tulsidas, Surdas, Tyagaraja, Annamacharya) through 19th-20th century continuous performance into modern Hindu-and-Hindu-diaspora practice",
   "recipe": "classic South Asian mid-1980s hindu stuti and bhajan, praise Song, indian subcontinent branch, middle east n African praise song, indian classical improv improv on frame, hindu ritual devotional sufi munajat and naat arabic madh and qasida. vocal fry, declaimed, slow rate, interlocked note trading. treble-extended vocal female harmonium indian, indian rosewood rosewood copper tabla, suited to female vocal bronze steel mix wooden body miraj style tanpura, small steady tala keeping manjira. vrindavan braj mandir bhajan. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
   "recipe_chars": 662,
-  "score": 298.334,
+  "score": 277.734,
   "config": {
     "traditions": [
       "hindu_stuti_bhajan",
@@ -35,19 +35,19 @@
         },
         "scores": {
           "voice_register": 1.3649999999999998,
-          "voice_quality": 45.82900000000002,
+          "voice_quality": 43.329000000000015,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 10.237499999999999,
-          "voice_articulation": 12.544999999999996,
-          "voice_microtone": 26.129999999999995,
-          "voice_tradition": 30.419999999999998,
+          "voice_articulation": 10.594999999999995,
+          "voice_microtone": 20.929999999999996,
+          "voice_tradition": 29.119999999999994,
           "voice_mechanism_compound": 11.674999999999999,
           "voice_estill_quality": 8.949499999999999,
-          "voice_speech_song": 27.169999999999998,
-          "voice_ensemble_config": 13.454999999999995,
-          "voice_ornament_system": 18.549999999999997,
-          "voice_pitch_organization": 18.134499999999996,
+          "voice_speech_song": 25.22,
+          "voice_ensemble_config": 11.504999999999995,
+          "voice_ornament_system": 16.049999999999997,
+          "voice_pitch_organization": 15.634499999999997,
           "voice_processing_chain": 2.7300000000000004,
           "voice_multitrack_stack": 3.25
         }

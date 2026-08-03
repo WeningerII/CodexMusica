@@ -3,24 +3,24 @@
   "name": "Hawaiian mele inoa (name-song / praise-chant)",
   "family": "global",
   "lineage": "Hawaiian praise-and-name-chant tradition continuous from pre-contact Hawaiian ritual-practice through 19th-century Hawaiian-Kingdom-era continuous performance and publication into 20th-century Hawaiian-cultural-revival; the mele inoa is the canonical Hawaiian praise-chant-form naming the praise-receiver through genealogical-and-place-name lineage",
-  "recipe": "classic Oceanian modern hawaiian mele inoa, praise Song, oceania pacific branch, oceania pacific funeral lament, indigenous ritual devotional, indian bard ballad poetry shipibo-conibo icaros healing songs mapuche tayil genealogical chant. extended whistle, breath veiled tone, straight note core, interlocked note trading. hawaiian heiau outdoor lava stone temple. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 427,
-  "score": 213.439,
+  "recipe": "classic Oceanian modern hawaiian mele inoa, praise Song, oceania pacific branch, oceania pacific funeral lament, indigenous ritual devotional, indian bard ballad poetry shipibo-conibo icaros healing songs druidic / neo-druid ritual invocation. vocal fry, breath veiled tone, straight onset, interlocked note trading. hawaiian heiau outdoor lava stone temple. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 421,
+  "score": 205.038,
   "config": {
     "traditions": [
       "hawaiian_mele_inoa",
       "shipibo_icaros",
-      "mapuche_tayil_ritual"
+      "druidic_invocation"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "extended_whistle_register",
+          "voice_register": "vocal_fry",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "polynesian_oli_tradition",
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_polynesian_falsetto",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.755,
-          "voice_quality": 35.49,
+          "voice_register": 1.04,
+          "voice_quality": 33.215,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.9499999999999997,
-          "voice_articulation": 18.394999999999996,
-          "voice_microtone": 18.004999999999995,
-          "voice_tradition": 53.80425000000002,
-          "voice_mechanism_compound": 10.770000000000001,
-          "voice_estill_quality": 6.11,
-          "voice_speech_song": 23.529999999999998,
-          "voice_ensemble_config": 19.759999999999998,
-          "voice_ornament_system": 7.475000000000001,
-          "voice_pitch_organization": 3.445000000000001,
-          "voice_processing_chain": 13.325,
-          "voice_multitrack_stack": 5.200000000000001
+          "voice_vibrato": 1.95,
+          "voice_articulation": 18.915,
+          "voice_microtone": 18.72,
+          "voice_tradition": 49.64800000000001,
+          "voice_mechanism_compound": 9.520000000000001,
+          "voice_estill_quality": 4.42,
+          "voice_speech_song": 24.05,
+          "voice_ensemble_config": 20.28,
+          "voice_ornament_system": 8.025000000000002,
+          "voice_pitch_organization": 3.3799999999999994,
+          "voice_processing_chain": 12.870000000000001,
+          "voice_multitrack_stack": 3.0550000000000006
         }
       }
     ],

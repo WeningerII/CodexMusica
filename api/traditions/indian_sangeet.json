@@ -5,7 +5,7 @@
   "lineage": "Pan-Indian (Hindi-Urdu, Punjabi, Bengali, and broader North-Indian) pre-wedding sangeet ceremony music continuous from medieval Mughal-era domestic-music practice through 20th-century filmi-Bollywood appropriation into modern South-Asian-and-diaspora wedding practice",
   "recipe": "classic modern indian sangeet, wedding, south Asian branch, middle eastern wedding, south Asian pop functional song, indian classical improv improv on frame thumrī carnatic vocal. thick, breath veiled tone, slow rate, interlocked note trading. synthetic remo modern stable bolt tuned modern concert stable dholak, treble-extended vocal female harmonium indian, indian rosewood rosewood copper tabla. hardwood living. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 479,
-  "score": 243.692,
+  "score": 239.754,
   "config": {
     "traditions": [
       "indian_sangeet",
@@ -41,15 +41,15 @@
           "voice_vibrato": 15.794999999999998,
           "voice_articulation": 9.424999999999999,
           "voice_microtone": 10.659999999999995,
-          "voice_tradition": 34.31125,
+          "voice_tradition": 33.81125,
           "voice_mechanism_compound": 13.374999999999998,
           "voice_estill_quality": 13.914999999999996,
           "voice_speech_song": 14.202499999999997,
           "voice_ensemble_config": 9.814999999999998,
           "voice_ornament_system": 21.665,
-          "voice_pitch_organization": 20.6075,
+          "voice_pitch_organization": 19.3575,
           "voice_processing_chain": 5.2,
-          "voice_multitrack_stack": 5.135
+          "voice_multitrack_stack": 4.484999999999999
         }
       },
       {
@@ -77,9 +77,9 @@
         },
         "scores": {
           "free_reed_technique": 0.9749999999999996,
-          "harmonium_action": 4.61625,
-          "harmonium_voicing": 4.80875,
-          "harmonium_use": 10.288749999999999
+          "harmonium_action": 4.11625,
+          "harmonium_voicing": 4.30875,
+          "harmonium_use": 9.749999999999998
         }
       },
       {

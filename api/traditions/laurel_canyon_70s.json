@@ -5,7 +5,7 @@
   "lineage": "Early-1970s Laurel Canyon (Los Angeles hill-neighborhood) singer-songwriter scene centered around Joni Mitchell, Crosby Stills Nash and Young, Jackson Browne, the Eagles, Linda Ronstadt, Carole King — codified through the A and M / Sunset Sound / Wally Heider studio canon",
   "recipe": "classic North American 1970-1973 70s laurel canyon, ballad Poetry, laurel canyon branch, outlaw country. thick, breath veiled tone, straight note core, interlocked note trading. fingerpicked acoustic Fender tweed amp American 50s amp tweed breakup soft down tuning single coil electric guitar, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, ride-driven brushes-and-sticks drum kit, raymac steel tine premium 1970s vintage replacement neoprene rubber tips canonical Rhodes stage suitcase mid 1970s centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric, Wurlitzer 200a canonical 1974 1982 solid state soft rock canon block chord wurlitzer ep. charlie chaplin studio lot 1966-1999 major-flagship a and m studios hollywood. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ.",
   "recipe_chars": 975,
-  "score": 201.189,
+  "score": 192.439,
   "config": {
     "traditions": [
       "laurel_canyon_70s",
@@ -33,16 +33,16 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 14.426249999999994,
+          "voice_register": 13.176249999999994,
           "voice_quality": 10.002499999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 8.715,
+          "voice_vibrato": 7.465000000000001,
           "voice_articulation": 6.349999999999999,
           "voice_microtone": 6.199999999999999,
           "voice_tradition": 4.2075000000000005,
           "voice_mechanism_compound": 1.71125,
-          "voice_estill_quality": 9.60375,
+          "voice_estill_quality": 8.35375,
           "voice_speech_song": 11.418749999999996,
           "voice_ensemble_config": 6.6324999999999985,
           "voice_ornament_system": 3.4787500000000002,
@@ -110,8 +110,8 @@
           "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 8.055,
-          "amp_make": 7.898750000000001,
+          "electric_technique": 6.805000000000001,
+          "amp_make": 6.648750000000001,
           "body_wood": 0.96875,
           "neck_wood": 0.96875,
           "fretboard": 0.91875,
@@ -136,13 +136,13 @@
           "bass_technique": "fingerpicked_country_b"
         },
         "scores": {
-          "amp_make": 7.898750000000001,
+          "amp_make": 6.648750000000001,
           "body_wood": 1.04,
           "pickup_config": 0,
           "string_type": 4.8925,
           "scale_length_b": 0.96875,
           "fretted_or_not": 0,
-          "bass_technique": 8.055
+          "bass_technique": 6.805000000000001
         }
       },
       {

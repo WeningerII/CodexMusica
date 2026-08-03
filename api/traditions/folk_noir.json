@@ -5,7 +5,7 @@
   "lineage": "Contemporary dark chamber-folk songwriter tradition centered around Marissa Nadler (six-album catalog from Ballads of Living and Dying 2004 through Strangers 2016), Espers (Greg Weeks / Meg Baird / Helena Espvall, Philadelphia), and the broader Kemado / Mexican Summer / Hexham Head circle — with Victorian, Pre-Raphaelite, surrealist-poetry (Nadler set Pablo Neruda on her debut), and cinematic-noir literary roots; the term was originally coined by Tony Wakeford for Sol Invictus to distance from the neofolk umbrella, but contemporary usage names the Nadler-Espers chamber-folk lineage. Distinct from gothic_americana (Southern Gothic / Pentecostal roots) and from neofolk-apocalyptic (Current 93, Death in June, post-industrial / Romantic-traditionalism lineage)",
   "recipe": "classic North American mid-2000s folk noir, ballad Poetry, anglo singer song branch, western common practice art music anglican cathedral-choral recording tradition hyperion-school classical-recording aesthetic. thick, breath veiled tone, slow rate, interlocked note trading. martin lifespan fingerpicked acoustic guitar, vintage steinway pre-war compression wired beech laminated maple laminated grand piano, pistoy cinnabar loaded red dyed deep dark red carpathian spruce cello, folk steel modern canonical 36 37 string set spruce maple modern autoharp, vocal female straight harmonium indian. hexham head studio pa chamber folk. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 745,
-  "score": 334.25,
+  "score": 304.945,
   "config": {
     "traditions": [
       "folk_noir",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 20.999999999999996,
+          "voice_register": 20.249999999999996,
           "voice_quality": 15.989999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.3375,
+          "voice_vibrato": 4.7124999999999995,
           "voice_articulation": 14.949999999999992,
           "voice_microtone": 15.534999999999993,
-          "voice_tradition": 25.13499999999999,
-          "voice_mechanism_compound": 4.7749999999999995,
-          "voice_estill_quality": 9.03,
+          "voice_tradition": 24.484999999999992,
+          "voice_mechanism_compound": 3.5249999999999995,
+          "voice_estill_quality": 7.78,
           "voice_speech_song": 18.32999999999999,
           "voice_ensemble_config": 15.469999999999994,
-          "voice_ornament_system": 4.97,
-          "voice_pitch_organization": 4.7749999999999995,
+          "voice_ornament_system": 3.7199999999999998,
+          "voice_pitch_organization": 3.5249999999999995,
           "voice_processing_chain": 3.9650000000000003,
           "voice_multitrack_stack": 1.4949999999999999
         }
@@ -83,15 +83,15 @@
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 4.875,
+          "keyboard_technique": 3.6249999999999996,
           "grand_piano_size": 0.45499999999999996,
           "grand_piano_brand": 5.015000000000001,
-          "piano_hammer": 6.965,
-          "piano_rim": 10.12,
-          "piano_soundboard": 10.754999999999999,
-          "piano_pinblock": 4.9750000000000005,
-          "piano_plate": 6.75,
-          "piano_pitch_standard": 7.035
+          "piano_hammer": 5.715,
+          "piano_rim": 8.219999999999999,
+          "piano_soundboard": 8.5475,
+          "piano_pinblock": 3.7249999999999996,
+          "piano_plate": 5.5,
+          "piano_pitch_standard": 5.6875
         }
       },
       {
@@ -108,15 +108,15 @@
           "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
-          "bowed_technique": 5.174999999999999,
+          "bowed_technique": 3.925,
           "cello_strings": 2.55,
-          "cello_top_wood": 5.46,
-          "cello_back_wood": 6.255000000000001,
-          "cello_varnish": 5.835,
-          "cello_setup_period": 5.844999999999999,
-          "cello_bow_grip": 3.1849999999999996,
-          "cello_rosin": 5.559999999999999,
-          "cello_bow_stick": 8.0925
+          "cello_top_wood": 4.209999999999999,
+          "cello_back_wood": 5.005000000000001,
+          "cello_varnish": 4.4350000000000005,
+          "cello_setup_period": 4.595,
+          "cello_bow_grip": 2.5349999999999997,
+          "cello_rosin": 4.31,
+          "cello_bow_stick": 6.467499999999999
         }
       },
       {
@@ -148,7 +148,7 @@
           "free_reed_technique": 19.644999999999996,
           "harmonium_action": 1.44,
           "harmonium_voicing": 2.585,
-          "harmonium_use": 4.29
+          "harmonium_use": 3.6399999999999997
         }
       }
     ],

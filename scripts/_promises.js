@@ -86,6 +86,13 @@ module.exports = [
     claim: 'the REST adapter and the MCP connector agree on every answer AND on every refusal',
   },
   {
+    id: 'name-isolation',
+    doc: 'AGENTS.md',
+    gate: 'check_name_isolation.js',
+    claim:
+      "a tradition's compiled configuration never depends on what any OTHER tradition is called",
+  },
+  {
     id: 'mobile-layout-usable',
     doc: 'README.md',
     gate: 'check_mobile_layout.js',

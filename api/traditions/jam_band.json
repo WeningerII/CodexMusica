@@ -5,7 +5,7 @@
   "lineage": "Late-1960s onward improvisational rock tradition with extended-form live solos and audience-tape-trading culture — Grateful Dead, Allman Brothers, Phish, Widespread Panic, Dave Matthews Band, String Cheese Incident",
   "recipe": "classic North American 1967-1969 jam band, improv On Frame, jam free branch, classic distorted rock early rock-and-roll garage-rock revival. thick, breath veiled tone, wide pitch sway, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple humbucker electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, oil filled sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched fast tremolo tonewheel organ, congas. hyde street san francisco 1969-1980 major-flagship wally heider studios sf. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 917,
-  "score": 334.467,
+  "score": 304,
   "config": {
     "traditions": [
       "jam_band",
@@ -29,25 +29,25 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
           "voice_processing_chain": "voice_processing_plate_reverb_medium",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 24.91999999999999,
+          "voice_register": 22.41999999999999,
           "voice_quality": 5.005000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.266499999999999,
-          "voice_articulation": 12.48,
-          "voice_microtone": 19.674999999999997,
-          "voice_tradition": 4.4555,
+          "voice_vibrato": 6.616499999999999,
+          "voice_articulation": 11.829999999999997,
+          "voice_microtone": 17.174999999999997,
+          "voice_tradition": 4.3505,
           "voice_mechanism_compound": 3.1200000000000006,
           "voice_estill_quality": 2.1449999999999996,
-          "voice_speech_song": 12.674999999999997,
-          "voice_ensemble_config": 10.529999999999998,
+          "voice_speech_song": 12.024999999999995,
+          "voice_ensemble_config": 9.879999999999999,
           "voice_ornament_system": 2.600000000000001,
-          "voice_pitch_organization": 0.8125,
+          "voice_pitch_organization": 0.65,
           "voice_processing_chain": 6.4025,
           "voice_multitrack_stack": 7.377500000000001
         }
@@ -71,7 +71,7 @@
         },
         "scores": {
           "electric_technique": 3.295,
-          "amp_make": 10.627499999999998,
+          "amp_make": 9.3275,
           "body_wood": 0.65,
           "neck_wood": 1.5715000000000001,
           "fretboard": 1.5715000000000001,
@@ -82,7 +82,7 @@
           "scale_length": 1.69,
           "string_gauge": 0.65,
           "finish": 0.845,
-          "string_tuning": 12.544999999999998
+          "string_tuning": 11.244999999999997
         }
       },
       {
@@ -103,7 +103,7 @@
         },
         "scores": {
           "electric_technique": 3.295,
-          "amp_make": 10.627499999999998,
+          "amp_make": 9.3275,
           "body_wood": 0.65,
           "neck_wood": 1.5715000000000001,
           "fretboard": 1.5715000000000001,
@@ -113,7 +113,7 @@
           "bridge": 0,
           "scale_length": 0.65,
           "finish": 0.845,
-          "string_tuning": 12.544999999999998
+          "string_tuning": 11.244999999999997
         }
       },
       {
@@ -128,13 +128,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 10.009999999999998,
+          "amp_make": 8.709999999999999,
           "body_wood": 0.65,
           "pickup_config": 0.045,
-          "string_type": 24.2125,
+          "string_type": 20.9625,
           "scale_length_b": 0.65,
           "fretted_or_not": 0,
-          "bass_technique": 19.635
+          "bass_technique": 17.135
         }
       },
       {
@@ -145,7 +145,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 18.865,
+          "drum_technique": 16.365,
           "drumhead": 2.82,
           "drum_kit_kick_pedal": 0
         }
@@ -162,10 +162,10 @@
         },
         "scores": {
           "keyboard_technique": 1.5299999999999998,
-          "drawbar_setting": 18.76,
-          "rotary_speed": 18.575,
-          "percussion_setting": 9.684999999999999,
-          "tonewheel_model": 10.367499999999998,
+          "drawbar_setting": 16.26,
+          "rotary_speed": 16.075,
+          "percussion_setting": 8.384999999999998,
+          "tonewheel_model": 9.067499999999999,
           "leslie_cabinet_model": 2.3075
         }
       },

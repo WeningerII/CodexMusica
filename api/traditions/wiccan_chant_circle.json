@@ -5,7 +5,7 @@
   "lineage": "Wiccan chant-circle incantation is the communal vocal practice of modern Wicca, the initiatory witchcraft religion codified by Gerald Gardner in England in the 1950s (Gardnerian tradition) and expanded through Alexandrian, Dianic, and later Reclaiming lineages. In circle, participants raise energy through repeated metrical chants — 'The Witches' Rune,' goddess-name chants such as the 'Isis Astarte' chant, and Reclaiming/Starhawk material like 'We Are a Circle' — sung in unison and accelerating toward a peak ('raising the cone of power'). Delivery is rhythmic, mantra-like, and group-based rather than soloistic, drawing on ceremonial-magic invocation and folk-revival song. The repertoire is documented in Gardner's Book of Shadows tradition and later published Wiccan liturgies.",
   "recipe": "classic mid-1950s wiccan chant-circle incantation, ritual Devotional, indigenous branch shipibo-conibo icaros healing songs maasai adumu warrior jumping-song. vocal fry, breath veiled tone, straight note core, interlocked note trading. forest clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 315,
-  "score": 241.114,
+  "score": 240.464,
   "config": {
     "traditions": [
       "wiccan_chant_circle",
@@ -44,7 +44,7 @@
           "voice_tradition": 27.104999999999997,
           "voice_mechanism_compound": 12.326000000000002,
           "voice_estill_quality": 3.835,
-          "voice_speech_song": 31.525000000000006,
+          "voice_speech_song": 30.875000000000004,
           "voice_ensemble_config": 28.080000000000002,
           "voice_ornament_system": 10.900000000000002,
           "voice_pitch_organization": 2.0474999999999994,

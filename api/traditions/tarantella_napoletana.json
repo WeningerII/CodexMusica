@@ -3,14 +3,14 @@
   "name": "Tarantella napoletana (Neapolitan)",
   "family": "global",
   "lineage": "Tarantella napoletana Southern Italian folk-dance-and-song tradition of the Naples region (Campania), characterized by fast 6/8 meter (or compound-duple), virtuoso mandolin-and-acoustic-guitar instrumental lead, and tambourine percussion (the tammorra and tamburello). Historically connected to the tarantismo ritual-healing dance-cure tradition of southern Italian rural communities (the dance ostensibly cured tarantism, the psychosomatic illness attributed to tarantula-bite). Performance contexts span village-festival celebrations, weddings, and the canonical Neapolitan urban-popular concertina contexts. Distinguished from pizzica salentina by tarantella napoletana's Campanian regional cadential-conventions and the broader Neapolitan canzone connection.",
-  "recipe": "classic Southern European modern tarantella napoletana, ballad Poetry, Mediterranean ballad branch, Brazilian groove percussion, iberian functional song catalan sardana canzone napoletana. thick, breath veiled tone, straight note core, interlocked note trading. bowl back Italian Italian alpine spruce brescian calace x brace modern mandolin mandolin, campanian healing rite tammorra, fingerpicked parlor acoustic guitar. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 575,
-  "score": 260.015,
+  "recipe": "classic Southern European modern tarantella napoletana, ballad Poetry, Mediterranean ballad branch, Brazilian groove percussion, iberian functional song pagode catalan sardana. thick, breath veiled tone, straight note core, interlocked note trading. bowl back Italian Italian alpine spruce brescian calace x brace modern mandolin mandolin, campanian healing rite tammorra, fingerpicked parlor acoustic guitar. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 563,
+  "score": 246.687,
   "config": {
     "traditions": [
       "tarantella_napoletana",
-      "catalan_sardana",
-      "canzone_napoletana"
+      "pagode",
+      "catalan_sardana"
     ],
     "instruments": [
       {
@@ -24,55 +24,55 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "mediterranean_demotic_tradition",
-          "voice_mechanism_compound": "voice_mechanism_single_source",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 7.250000000000001,
-          "voice_quality": 22.424999999999997,
+          "voice_register": 6.025,
+          "voice_quality": 27.819999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.715,
-          "voice_articulation": 18.394999999999996,
-          "voice_microtone": 19.044999999999995,
-          "voice_tradition": 20.96,
-          "voice_mechanism_compound": 1.45,
-          "voice_estill_quality": 15.745,
-          "voice_speech_song": 25.284999999999993,
-          "voice_ensemble_config": 18.329999999999995,
-          "voice_ornament_system": 10.95,
-          "voice_pitch_organization": 4.2700000000000005,
-          "voice_processing_chain": 8.395,
-          "voice_multitrack_stack": 7.345000000000001
+          "voice_vibrato": 2.1775,
+          "voice_articulation": 20.92999999999999,
+          "voice_microtone": 21.189999999999987,
+          "voice_tradition": 15.234999999999998,
+          "voice_mechanism_compound": 1.625,
+          "voice_estill_quality": 11.62,
+          "voice_speech_song": 25.02499999999999,
+          "voice_ensemble_config": 20.669999999999987,
+          "voice_ornament_system": 6.824999999999999,
+          "voice_pitch_organization": 3.62,
+          "voice_processing_chain": 7.084999999999999,
+          "voice_multitrack_stack": 8.709999999999999
         }
       },
       {
         "id": "mandolin",
         "slots": {
-          "acoustic_technique": "acoustic_drone_modal",
+          "acoustic_technique": "acoustic_strummed_ringing",
           "mandolin_shape": "flat_back",
           "mandolin_top": "italian_alpine_spruce_m",
-          "mandolin_back": "hard_rock_maple_mandolin",
+          "mandolin_back": "big_leaf_maple",
           "mandolin_bracing": "mandolin_x_brace",
           "mandolin_strings": "thomastik_jazz_mandolin_flat",
-          "mandolin_fingerboard": "mandolin_ebony_fb",
+          "mandolin_fingerboard": "mandolin_brazilian_rosewood_fb",
           "mandolin_pickup": "mandolin_k_k_twin_internal"
         },
         "scores": {
-          "acoustic_technique": 0.5499999999999999,
-          "mandolin_shape": 7.135,
-          "mandolin_top": 4.199999999999999,
-          "mandolin_back": 0.93,
+          "acoustic_technique": 1.2674999999999998,
+          "mandolin_shape": 4.834999999999999,
+          "mandolin_top": 2.8999999999999995,
+          "mandolin_back": 0.585,
           "mandolin_bracing": 1.495,
-          "mandolin_strings": 1.625,
-          "mandolin_fingerboard": 1.69,
-          "mandolin_pickup": 20.28
+          "mandolin_strings": 2.11,
+          "mandolin_fingerboard": 2.275,
+          "mandolin_pickup": 22.81499999999999
         }
       },
       {
@@ -83,8 +83,8 @@
           "tammorra_head": "tammorra_pelle_capra"
         },
         "scores": {
-          "tammorra_form": 6.23,
-          "tammorra_context": 22.22,
+          "tammorra_form": 4.605,
+          "tammorra_context": 20.97,
           "tammorra_head": -0.035
         }
       },
@@ -93,16 +93,16 @@
         "slots": {
           "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "eb_standard",
-          "top_wood_parlor": "cedar_p",
+          "top_wood_parlor": "sitka_p",
           "back_sides_parlor": "mahogany_bs_p",
-          "string_acoustic_parlor": "phosphor_p"
+          "string_acoustic_parlor": "eighty_twenty_p"
         },
         "scores": {
-          "acoustic_technique": 11.350000000000001,
+          "acoustic_technique": 7.25,
           "string_tuning": 0.595,
-          "top_wood_parlor": 0.845,
+          "top_wood_parlor": 0.21,
           "back_sides_parlor": 0,
-          "string_acoustic_parlor": 0.845
+          "string_acoustic_parlor": 0.24
         }
       }
     ],

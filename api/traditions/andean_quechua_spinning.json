@@ -5,7 +5,7 @@
   "lineage": "Andean Quechua-and-Aymara spinning-and-weaving song tradition continuous from pre-Hispanic Andean-textile labor practice through Spanish-colonial-era continuous performance into modern Quechua-and-Aymara-speaking Andean-rural continuous practice across Bolivia, Peru, and Ecuador",
   "recipe": "classic Andean modern andean quechua-aymara spinning song, domestic Rhythm, south Asian branch, sub saharan African domestic rhythm, European lullaby, andean field work andean huayno-de-trabajo wolof-senegambian grain-grinding women's song. vocal fry, forward-resonance, straight onset, interlocked note trading. andean altiplano outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 401,
-  "score": 244.625,
+  "score": 234.225,
   "config": {
     "traditions": [
       "andean_quechua_spinning",
@@ -35,18 +35,18 @@
         },
         "scores": {
           "voice_register": 0.78,
-          "voice_quality": 32.7,
+          "voice_quality": 28.94999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.2500000000000004,
           "voice_articulation": 12.804999999999994,
           "voice_microtone": 12.999999999999991,
-          "voice_tradition": 57.114999999999995,
+          "voice_tradition": 54.864999999999995,
           "voice_mechanism_compound": 2.73,
-          "voice_estill_quality": 25.774999999999995,
-          "voice_speech_song": 20.994999999999994,
-          "voice_ensemble_config": 26.359999999999996,
-          "voice_ornament_system": 36.675,
+          "voice_estill_quality": 24.524999999999995,
+          "voice_speech_song": 20.34499999999999,
+          "voice_ensemble_config": 25.109999999999996,
+          "voice_ornament_system": 35.425,
           "voice_pitch_organization": 8.95,
           "voice_processing_chain": 1.2999999999999998,
           "voice_multitrack_stack": 1.3649999999999998

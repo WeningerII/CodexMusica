@@ -5,7 +5,7 @@
   "lineage": "Pan-Latin-American electronic global-bass subgenre fusing cumbia, dembow, kuduro, and dancehall — codified through Bersa Discos, Soundway Records, and Nacional Records labels post-2010; characterized by digitally-produced tropical-rhythm samples with sub-bass and house-tempo foundations",
   "recipe": "classic early-2010s global bass, electronic Dance, Latin electric branch, Afro-diasporic MC rhythm south african kwaito kwaito. melodic pitched sampler, TR-808, sub bass digital subtractive. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 336,
-  "score": 84.487,
+  "score": 84.355,
   "config": {
     "traditions": [
       "tropical_bass",
@@ -38,8 +38,8 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 10.05675,
-          "drum_machine_808_context": 9.525749999999999,
+          "tr808_voice": 10.01925,
+          "drum_machine_808_context": 9.488249999999999,
           "tr808_production_origin": 0.768375
         }
       },
@@ -51,8 +51,8 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 9.956749999999998,
-          "va_archetypes": 0.07125,
+          "electronic_technique": 9.919249999999998,
+          "va_archetypes": 0.052500000000000005,
           "digital_subtractive_context": 15.729999999999997
         }
       }

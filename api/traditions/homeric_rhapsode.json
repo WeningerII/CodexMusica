@@ -5,7 +5,7 @@
   "lineage": "Ancient Greek professional epic-recitation practice: the rhapsode (rhapsoidos, 'song-stitcher') declaimed the Iliad and Odyssey and the Hesiodic and Cyclic poems in dactylic hexameter, holding a staff (rhabdos) rather than the earlier aoidos's lyre. Attested from the Archaic period through the Classical, most vividly in Plato's dialogue Ion, which portrays the rhapsode Ion of Ephesus competing at the Panathenaic festival in Athens where the Homeric text was recited in fixed relay. The delivery was a heightened, cantillated speech built on oral-formulaic diction, the compositional system reconstructed by Milman Parry and Albert Lord from South Slavic guslar analogues.",
   "recipe": "classic Southern European modern homeric rhapsode recitation, ballad Poetry, Mediterranean ballad branch cape verdean batuko of santiago island jeju haenyeo songs. thick, breath veiled tone, slow rate, interlocked note trading. outdoor dalmatian square. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 316,
-  "score": 250.16,
+  "score": 249.51,
   "config": {
     "traditions": [
       "homeric_rhapsode",
@@ -48,7 +48,7 @@
           "voice_ensemble_config": 25.740000000000002,
           "voice_ornament_system": 3.6345000000000005,
           "voice_pitch_organization": 4.9345,
-          "voice_processing_chain": 9.360000000000003,
+          "voice_processing_chain": 8.710000000000004,
           "voice_multitrack_stack": 5.135
         }
       }

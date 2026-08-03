@@ -5,7 +5,7 @@
   "lineage": "Commedia dell'arte was the professional improvised masked comedy of Italy from the mid-16th to the 18th century, performed by touring troupes such as the Gelosi and Confidenti on temporary trestle stages in piazzas and courts. Lazzi are the codified comic bits, verbal set-pieces, puns, and rhetorical riffs delivered by the stock masks (Arlecchino, Pantalone, il Dottore, Brighella), declaimed with broad, projected, dialect-inflected exaggeration and improvised around a scenario (canovaccio) rather than a fixed script. The tradition is documented in surviving scenario collections such as Flaminio Scala's 'Il teatro delle favole rappresentative' (1611) and in the modern revival led by Giorgio Strehler's Piccolo Teatro di Milano.",
   "recipe": "classic early-1610s commedia dell'arte lazzi delivery, art Music, western early branch thai classical tibetan ache lhamo opera. thick, breath veiled tone, slow rate, interlocked note trading. urban courtyard. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 338,
-  "score": 285.038,
+  "score": 273.402,
   "config": {
     "traditions": [
       "commedia_lazzi",
@@ -38,16 +38,16 @@
           "voice_quality": 32.89000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 18.902499999999996,
+          "voice_vibrato": 17.652499999999996,
           "voice_articulation": 24.245000000000005,
           "voice_microtone": 23.854999999999997,
-          "voice_tradition": 27.624999999999996,
-          "voice_mechanism_compound": 14.049999999999997,
-          "voice_estill_quality": 24.9045,
+          "voice_tradition": 25.999999999999996,
+          "voice_mechanism_compound": 12.799999999999997,
+          "voice_estill_quality": 21.8945,
           "voice_speech_song": 27.625,
           "voice_ensemble_config": 25.479999999999997,
-          "voice_ornament_system": 16.324999999999996,
-          "voice_pitch_organization": 17.389499999999998,
+          "voice_ornament_system": 13.824999999999996,
+          "voice_pitch_organization": 15.389499999999996,
           "voice_processing_chain": 7.994999999999998,
           "voice_multitrack_stack": 9.36
         }

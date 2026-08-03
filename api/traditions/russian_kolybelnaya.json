@@ -5,7 +5,7 @@
   "lineage": "Russian cradle-song tradition continuous from peasant-folksong rural practice through 19th-century romance art-song setting (Mussorgsky, Tchaikovsky) into Soviet-era and post-Soviet domestic practice",
   "recipe": "classic modern russian kolybelnaya, lullaby, European branch, Slavic bard ballad poetry, western common practice art music, europop functional song schlager chanson pop. thick, breath veiled tone, straight onset, interlocked note trading. bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 310,
-  "score": 89.152,
+  "score": 82.677,
   "config": {
     "traditions": [
       "russian_kolybelnaya",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 8.999999999999996,
+          "voice_register": 7.750000000000001,
           "voice_quality": 7.020000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.9399999999999995,
+          "voice_vibrato": 2.4399999999999995,
           "voice_articulation": 9.229999999999999,
           "voice_microtone": 10.854999999999993,
-          "voice_tradition": 10.26,
+          "voice_tradition": 7.76,
           "voice_mechanism_compound": 2.08,
           "voice_estill_quality": 3.380000000000001,
           "voice_speech_song": 18.654999999999994,
           "voice_ensemble_config": 9.36,
           "voice_ornament_system": 0.795,
           "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 7.4350000000000005,
-          "voice_multitrack_stack": 5.7524999999999995
+          "voice_processing_chain": 6.6850000000000005,
+          "voice_multitrack_stack": 4.7775
         }
       }
     ],

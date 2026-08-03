@@ -5,7 +5,7 @@
   "lineage": "Late-1990s-and-early-2000s American heavy-rock subgenre integrating hip-hop rhythmic-vocal influence, down-tuned-seven-string-guitar metal aesthetic, and confessional-aggressive-personal-trauma lyrical content. Korn (Bakersfield, 1993-onward), Deftones, Limp Bizkit, Slipknot, and Linkin Park constitute the canonical roster. The 1998 Family Values Tour consolidated the genre's commercial peak.",
   "recipe": "classic Los Angeles modern nu metal, distorted Rock, avant branch, us hip hop gangsta. thick, rap, straight onset, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character ernie ball slinky electric bass, jazz-trained brushes-and-sticks drum kit, sampled chopped turntable. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
   "recipe_chars": 610,
-  "score": 222.291,
+  "score": 218.238,
   "config": {
     "traditions": [
       "nu_metal_korn_limp",
@@ -34,7 +34,7 @@
         },
         "scores": {
           "voice_register": 7.83675,
-          "voice_quality": 15.506,
+          "voice_quality": 14.001000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.6075000000000004,
@@ -43,11 +43,11 @@
           "voice_tradition": 8.830000000000002,
           "voice_mechanism_compound": 12.459999999999999,
           "voice_estill_quality": 0.7799999999999998,
-          "voice_speech_song": 14.812499999999998,
+          "voice_speech_song": 13.562500000000002,
           "voice_ensemble_config": 10.204999999999997,
           "voice_ornament_system": 2.5850000000000013,
           "voice_pitch_organization": 3.835000000000001,
-          "voice_processing_chain": 10.62,
+          "voice_processing_chain": 9.37,
           "voice_multitrack_stack": 6.70075
         }
       },
@@ -96,7 +96,7 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 4.2575,
+          "amp_make": 4.2095,
           "body_wood": 0.845,
           "pickup_config": 0.105,
           "string_type": 9.099999999999998,

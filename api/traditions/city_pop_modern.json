@@ -5,7 +5,7 @@
   "lineage": "2010s-and-2020s international revival of late-1970s and 1980s Japanese city-pop genre through internet-distributed YouTube algorithm-circulation (especially the 2017 viral revival of Mariya Takeuchi's \"Plastic Love\"). Characterized by sophisticated jazz-and-fusion harmonic vocabulary, broad-AOR aesthetic (West-Coast Los Angeles 1970s session-musician influence transmitted through Tatsuro Yamashita and Haruomi Hosono), and explicit Tokyo-urban-1980s-economic-bubble nostalgia. Tomoo Nagai, Yumi Matsutoya, Anri are foundational; the modern revival scene includes Ginger Root, Night Tempo (city-pop edits), and broader vaporwave-adjacent producers.",
   "recipe": "classic 1977-1979 city pop modern revival, functional Song, east Asian pop branch, American jazz fusion acid jazz nu jazz / electro-jazz. thick, breath veiled tone, straight onset, interlocked note trading. roland jc120 amp solid state stereo chorus basswood alnico clean humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, singing lead analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 768,
-  "score": 610.25,
+  "score": 578.089,
   "config": {
     "traditions": [
       "city_pop_modern",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 46.420000000000016,
+          "voice_register": 42.67000000000001,
           "voice_quality": 7.215000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 32.74100000000001,
+          "voice_vibrato": 28.886,
           "voice_articulation": 17.549999999999997,
-          "voice_microtone": 44.48450000000001,
-          "voice_tradition": 35.260000000000005,
+          "voice_microtone": 40.73450000000001,
+          "voice_tradition": 30.505000000000003,
           "voice_mechanism_compound": 1.69,
           "voice_estill_quality": 4.266,
           "voice_speech_song": 19.954999999999995,
           "voice_ensemble_config": 18.329999999999995,
           "voice_ornament_system": 2.2,
           "voice_pitch_organization": 2.1765,
-          "voice_processing_chain": 19.962,
+          "voice_processing_chain": 19.857,
           "voice_multitrack_stack": 11.959999999999997
         }
       },
@@ -75,8 +75,8 @@
           "body_wood": 4.68,
           "neck_wood": 0.845,
           "fretboard": 0.845,
-          "pickup_magnet": 2.8099999999999996,
-          "pickup_winding": 2.8099999999999996,
+          "pickup_magnet": 2.7049999999999996,
+          "pickup_winding": 2.7049999999999996,
           "string_material": 0.845,
           "bridge": 0.258,
           "scale_length": 5.525,
@@ -99,11 +99,11 @@
         "scores": {
           "amp_make": 10.050500000000001,
           "body_wood": 0.516,
-          "pickup_config": 2.768,
-          "string_type": 35.033500000000004,
-          "scale_length_b": 2.8099999999999996,
+          "pickup_config": 2.663,
+          "string_type": 30.2785,
+          "scale_length_b": 2.7049999999999996,
           "fretted_or_not": 0.1365,
-          "bass_technique": 28.000000000000007
+          "bass_technique": 24.25
         }
       },
       {
@@ -114,8 +114,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 47.839999999999996,
-          "drumhead": 35.01500000000001,
+          "drum_technique": 45.88999999999999,
+          "drumhead": 30.26,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -136,11 +136,11 @@
           "keyboard_technique": 15.262999999999998,
           "grand_piano_size": 0.258,
           "grand_piano_brand": 0.845,
-          "piano_hammer": 23.817999999999998,
+          "piano_hammer": 23.712999999999997,
           "piano_rim": 23.717499999999998,
           "piano_soundboard": 23.382,
           "piano_pinblock": 5.855,
-          "piano_plate": 8.2045,
+          "piano_plate": 8.099499999999999,
           "piano_pitch_standard": 8.357999999999999
         }
       },
@@ -156,7 +156,7 @@
         "scores": {
           "electronic_technique": 15.336499999999997,
           "oscillator": 2.3265000000000002,
-          "filter_topology": 0.6074999999999999,
+          "filter_topology": 0.5025,
           "envelope": 1.69,
           "modulation": 0
         }

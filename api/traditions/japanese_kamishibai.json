@@ -5,7 +5,7 @@
   "lineage": "Japanese 'paper-play' storytelling in which a narrator performs a tale by sliding illustrated cards through a small wooden proscenium (butai), reading the text printed on the back while showing the picture in front. Popularised by itinerant street performers in the 1920s-1950s who drew children with candy sales before the advent of television, and later adapted for classroom and library use, it is a documented Showa-era mass-entertainment form. Delivery is animated, dramatic spoken narration timed to the beat of each card-change, with distinct character voices and cliffhanger pacing.",
   "recipe": "classic mid-1920s japanese kamishibai narration, art Music, east Asian branch tibetan ache lhamo opera beijing opera. thick, breath veiled tone, slow rate, interlocked note trading. urban courtyard. RCA 44-BX, calrec BBC-broadcast pre, BBC broadcast console, Telefunken u73b broadcast comp, broadcast loudness EQ. AM-radio broadcast.",
   "recipe_chars": 333,
-  "score": 201.852,
+  "score": 196.597,
   "config": {
     "traditions": [
       "japanese_kamishibai",
@@ -43,10 +43,10 @@
           "voice_microtone": 19.369999999999997,
           "voice_tradition": 30.0625,
           "voice_mechanism_compound": 7.049999999999999,
-          "voice_estill_quality": 23.586999999999996,
+          "voice_estill_quality": 20.831999999999997,
           "voice_speech_song": 20.019999999999996,
           "voice_ensemble_config": 21.774999999999995,
-          "voice_ornament_system": 16.459999999999997,
+          "voice_ornament_system": 13.959999999999997,
           "voice_pitch_organization": 8.3605,
           "voice_processing_chain": 6.5,
           "voice_multitrack_stack": 3.25

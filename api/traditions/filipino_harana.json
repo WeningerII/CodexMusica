@@ -5,7 +5,7 @@
   "lineage": "Filipino harana (\"serenade\") nineteenth-and-twentieth-century romantic-courtship vocal tradition of the Tagalog and broader lowland-Christian Philippine communities, in which young men serenaded young women at their windows accompanied by acoustic guitar. The form derives from Spanish-colonial seventeenth-eighteenth century romance song-tradition adapted with Tagalog-Visayan language and Philippine-tropical sensibility. Performance: small-group of male singers (often with the principal suitor) with acoustic-guitar accompaniment, performing standard repertoire of harana-classics or improvising. The form survived as a vestigial-cultural practice through the twentieth century and entered post-2000s urban-revival contexts through documentary projects and folk-music ensembles.",
   "recipe": "classic Mexican mid-2000s filipino harana, ballad Poetry, Latin am troubadour branch, iberian functional song galician kantautor and folk-pop canzone napoletana. thick, breath veiled tone, slow rate, interlocked note trading. fingerpicked parlor acoustic guitar. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 419,
-  "score": 177.826,
+  "score": 168.84,
   "config": {
     "traditions": [
       "filipino_harana",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 12.886499999999998,
+          "voice_register": 10.386499999999996,
           "voice_quality": 19.109999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.4699999999999998,
-          "voice_articulation": 15.794999999999995,
-          "voice_microtone": 15.794999999999993,
-          "voice_tradition": 22.731249999999996,
+          "voice_articulation": 15.144999999999996,
+          "voice_microtone": 15.144999999999992,
+          "voice_tradition": 21.18124999999999,
           "voice_mechanism_compound": 6.291875,
           "voice_estill_quality": 6.603875,
-          "voice_speech_song": 24.114999999999995,
-          "voice_ensemble_config": 16.379999999999995,
+          "voice_speech_song": 22.814999999999998,
+          "voice_ensemble_config": 15.729999999999995,
           "voice_ornament_system": 5.690000000000001,
           "voice_pitch_organization": 5.7200000000000015,
           "voice_processing_chain": 4.159999999999999,
-          "voice_multitrack_stack": 3.3615000000000004
+          "voice_multitrack_stack": 2.925
         }
       },
       {
@@ -62,7 +62,7 @@
           "string_acoustic_parlor": "phosphor_p"
         },
         "scores": {
-          "acoustic_technique": 17.8765,
+          "acoustic_technique": 16.626499999999997,
           "string_tuning": 0.12499999999999997,
           "top_wood_parlor": 0.845,
           "back_sides_parlor": 0,

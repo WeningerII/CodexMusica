@@ -5,7 +5,7 @@
   "lineage": "Assyrian Church of the East liturgical chant, the canonical sacred-music tradition of the East-Syriac (Edessene) rite, descending from the Mesopotamian early-Christian community at Edessa and Nisibis. The Assyrian Beth Gazo collection comprises canonical melodies organized through an eight-mode system distinct from but related to the West-Syriac (Antiochene) Beth Gazo. Liturgical language is classical Syriac (Eastern dialect). The post-1915 Sayfo and Iraqi-Syrian displacement disrupted Hakkari-Mesopotamian transmission infrastructure; the Patriarchate (currently seated in Erbil) and diaspora communities in Chicago, Detroit, and Sydney sustain practice.",
   "recipe": "classic Caucasian mid-1910s assyrian church of the east beth gazo chant, ritual Devotional, coptic branch, western early art music ars antiqua and organum renaissance sacred polyphony. thick, breath veiled tone, slow rate, interlocked note trading. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. stone armenian church. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 490,
-  "score": 249.502,
+  "score": 241.727,
   "config": {
     "traditions": [
       "assyrian_beth_gazo",
@@ -39,15 +39,15 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 10.575,
-          "voice_articulation": 21.3525,
-          "voice_microtone": 19.694999999999997,
+          "voice_articulation": 19.727499999999996,
+          "voice_microtone": 19.044999999999995,
           "voice_tradition": 16.509999999999998,
           "voice_mechanism_compound": 8.149999999999999,
-          "voice_estill_quality": 14.909999999999998,
-          "voice_speech_song": 18.199999999999996,
-          "voice_ensemble_config": 31.979999999999997,
+          "voice_estill_quality": 14.61,
+          "voice_speech_song": 17.549999999999997,
+          "voice_ensemble_config": 29.705,
           "voice_ornament_system": 9.825,
-          "voice_pitch_organization": 16.249999999999996,
+          "voice_pitch_organization": 14.624999999999998,
           "voice_processing_chain": 9.555,
           "voice_multitrack_stack": 4.8100000000000005
         }
@@ -64,7 +64,7 @@
           "choir_size": 7.93,
           "choir_polyphonic_configuration": 10.985,
           "choir_regional_canonical_configuration": 5.524999999999999,
-          "choir_ensemble_repertoire": 9.509999999999998
+          "choir_ensemble_repertoire": 8.859999999999998
         }
       }
     ],

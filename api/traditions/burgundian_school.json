@@ -5,7 +5,7 @@
   "lineage": "Mid-fifteenth-century compositional school centered on the courts of the Dukes of Burgundy (Philip the Good, Charles the Bold) at Dijon and Brussels. Guillaume Dufay (c.1397-1474) and Gilles Binchois (c.1400-1460) are the principal composers. Developed the Mass cycle (cyclic Mass based on a single cantus firmus), the rondeau and ballade chanson forms, and the smoother-consonant fauxbourdon harmonic style. Direct precursor of the Franco-Flemish polyphonic school.",
   "recipe": "classic early-1390s burgundian school, art Music, western early branch, christian gospel ritual devotional russian orthodox liturgical chant sacred steel. thick, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part four voice polyphonic regional svanetian complex three voice highland polyphonic sacred liturgical global choir ensemble, single rank treble piping chant doubling portative organ. parish church. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 523,
-  "score": 187.992,
+  "score": 185.12,
   "config": {
     "traditions": [
       "burgundian_school",
@@ -64,7 +64,7 @@
           "choir_size": 3.12,
           "choir_polyphonic_configuration": 3.3150000000000004,
           "choir_regional_canonical_configuration": 2.47,
-          "choir_ensemble_repertoire": 5.784999999999999
+          "choir_ensemble_repertoire": 4.484999999999999
         }
       },
       {
@@ -78,7 +78,7 @@
         "scores": {
           "keyboard_technique": -0.1,
           "portative_organ_form": 1.56,
-          "portative_organ_repertoire": 6.544999999999998,
+          "portative_organ_repertoire": 4.972499999999999,
           "portative_organ_pipework": -0.1
         }
       }

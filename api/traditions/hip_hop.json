@@ -5,7 +5,7 @@
   "lineage": "The hip-hop tradition — African-American and Latino culture built on rapped vocals over sampled or programmed beats, originating in Bronx block parties",
   "recipe": "classic North American mid-1970s hip-hop, mc Rhythm, east coast branch. vocal fry, rap, narrative, neutral third half flat. sampled chopped sampler drum machine, electric bass, sampled chopped turntable. concrete basement. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 354,
-  "score": 91.774,
+  "score": 91.755,
   "config": {
     "traditions": [
       "hip_hop"
@@ -33,7 +33,7 @@
         },
         "scores": {
           "voice_register": 0.78,
-          "voice_quality": 9.7705,
+          "voice_quality": 9.75175,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.325,

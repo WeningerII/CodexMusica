@@ -5,7 +5,7 @@
   "lineage": "South African post-apartheid (1994-onward) township urban dance music codified through Boom Shaka, Brenda Fassie (her late-career kwaito turn), Trompies, M_du Masilela, Arthur Mafokate, TKZee — slower-tempo (90-110 BPM) derivation of house music with Zulu and Tsotsitaal language vocals and characteristic shouted-and-rapped delivery; precursor to the post-2010 amapiano genre",
   "recipe": "classic Southern African modern kwaito, mc Rhythm, Afro-diasporic branch, African dance electronic dance amapiano kuduro. thick, breath veiled tone, straight onset, interlocked note trading. TR-909, analog poly synth, monosynth acid bass. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
   "recipe_chars": 407,
-  "score": 134.485,
+  "score": 134.335,
   "config": {
     "traditions": [
       "kwaito",
@@ -48,7 +48,7 @@
           "voice_ensemble_config": 12.804999999999993,
           "voice_ornament_system": 2.0149999999999997,
           "voice_pitch_organization": 1.4299999999999997,
-          "voice_processing_chain": 10.884999999999998,
+          "voice_processing_chain": 10.735,
           "voice_multitrack_stack": 8.775000000000002
         }
       },

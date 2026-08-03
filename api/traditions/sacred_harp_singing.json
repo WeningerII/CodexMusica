@@ -5,7 +5,7 @@
   "lineage": "Southern-US shape-note congregational hymn-singing tradition preserved through the Sacred Harp tunebook (compiled by B.F. White and E.J. King 1844, revised through successive editions, the 1991 revision still in current use) — the tradition uses 4-shape and 7-shape notation (shapes assigned to scale degrees as a pedagogical mnemonic, facilitating singing without keyboard training), with the singing-square arrangement of four sections (treble / alto / tenor / bass) seated facing inward and led by a rotating song-leader who beats time with the hand",
   "recipe": "classic Southern American mid-1840s sacred harp singing, ritual Devotional, sacred harp branch, Celtic balladic ballad poetry welsh hymn-balladry cape breton milling-frolic. thick, breath veiled tone, straight note core, interlocked note trading. a cappella small 3 to 8 one per part four voice polyphonic regional aka four part motangole ngue osese diyei sacred liturgical global choir ensemble, community specific historical regional variant shape note voice, choir brother duet, pump organ harmonium, choir sacred harp. southern white church gospel quartet. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 635,
-  "score": 189.817,
+  "score": 188.567,
   "config": {
     "traditions": [
       "sacred_harp_singing",
@@ -99,7 +99,7 @@
         "scores": {
           "keyboard_technique": -0.05,
           "pump_organ_construction": 12.934999999999999,
-          "pump_organ_stops": 9.125
+          "pump_organ_stops": 7.874999999999999
         }
       },
       {

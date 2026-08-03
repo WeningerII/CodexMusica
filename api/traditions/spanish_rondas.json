@@ -5,7 +5,7 @@
   "lineage": "Spanish-language children's circle-song (ronda) tradition continuous from medieval-and-early-modern Spanish folk-play-song origins through colonial-period transmission to Latin America and continuous practice across the Spanish-speaking Americas into modern Mexican-and-Latin-American childhood-practice",
   "recipe": "classic modern spanish and latin american rondas, nursery Rhyme, americas branch, European nursery rhyme, European lullaby, americas wedding andean matrimonio huayno english nursery rhyme. thick, forward-resonance, straight note core, interlocked note trading. urban courtyard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 340,
-  "score": 139.711,
+  "score": 131.211,
   "config": {
     "traditions": [
       "spanish_rondas",
@@ -35,18 +35,18 @@
         },
         "scores": {
           "voice_register": 3.910000000000001,
-          "voice_quality": 13.699999999999994,
+          "voice_quality": 9.949999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 5.9125000000000005,
           "voice_articulation": 14.754999999999995,
           "voice_microtone": 14.559999999999992,
-          "voice_tradition": 20.069999999999997,
+          "voice_tradition": 17.819999999999997,
           "voice_mechanism_compound": 0.7537499999999999,
-          "voice_estill_quality": 9.506249999999998,
+          "voice_estill_quality": 8.256249999999998,
           "voice_speech_song": 19.824999999999996,
           "voice_ensemble_config": 15.079999999999993,
-          "voice_ornament_system": 13.5375,
+          "voice_ornament_system": 12.2875,
           "voice_pitch_organization": 6.191250000000001,
           "voice_processing_chain": 1.2349999999999999,
           "voice_multitrack_stack": 0.975

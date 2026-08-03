@@ -5,7 +5,7 @@
   "lineage": "Late-1980s onward New York underground folk-revival movement positioning itself against the mainstream-Greenwich-Village folk tradition through deliberate amateurism, ironic-and-deadpan vocal delivery, and DIY anti-commercial cultural posture — codified through Lach (the AntiHoot open-mic series at the Sidewalk Café), Kimya Dawson and The Moldy Peaches, Beck (Mellow Gold 1994, an early commercial breakthrough), Adam Green, Jeffrey Lewis",
   "recipe": "classic 1987-1989 anti-folk, ballad Poetry, anti folk branch, lofi experimental electric bedroom pop hypnagogic pop. thick, breath veiled tone, straight onset, interlocked note trading. steel silk fingerpicked acoustic marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alnico single coil electric guitar. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 449,
-  "score": 178.221,
+  "score": 172.771,
   "config": {
     "traditions": [
       "antifolk_nyc",
@@ -22,7 +22,7 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -34,14 +34,14 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 25.902499999999993,
+          "voice_register": 23.402499999999993,
           "voice_quality": 11.634999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.59825,
+          "voice_vibrato": 2.5832500000000005,
           "voice_articulation": 11.309999999999995,
-          "voice_microtone": 12.174999999999997,
-          "voice_tradition": 18.296499999999995,
+          "voice_microtone": 11.764999999999992,
+          "voice_tradition": 18.271499999999996,
           "voice_mechanism_compound": 2.275,
           "voice_estill_quality": 3.7700000000000005,
           "voice_speech_song": 15.534999999999995,
@@ -86,7 +86,7 @@
           "string_tuning": "dadgad"
         },
         "scores": {
-          "electric_technique": 10.2,
+          "electric_technique": 7.699999999999999,
           "amp_make": 3.12,
           "body_wood": 0.195,
           "neck_wood": 0.195,

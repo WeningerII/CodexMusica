@@ -5,7 +5,7 @@
   "lineage": "Montevidean carnival chorus-theatre — a massed male chorus belting satirical cuplés in raw block harmony over the cuerda de murga battery (bombo with mounted platillos, snapping redoblante), staged on neighborhood tablados each Carnaval from the 1910s Cádiz import to Agarrate Catalina",
   "recipe": "classic South American mid-1910s murga uruguaya, carnival Processional, river plate branch, Latin am groove percussion, iberian Latin protest song. carnival scale grand entrance bombo driven murga uruguaya, ceibo canonical Argentine leguero hollowed trunk bombo andino, drumline school marching. montevideo candombe barrio sur carnival. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 399,
-  "score": 32.5,
+  "score": 32.455,
   "config": {
     "traditions": [
       "murga_uruguaya"
@@ -28,12 +28,12 @@
         "id": "bombo_andino",
         "slots": {
           "bombo_andino_construction": "bombo_andino_leguero",
-          "bombo_andino_skin": "bombo_andino_llama",
+          "bombo_andino_skin": "bombo_andino_goat",
           "bombo_andino_shell_wood": "bombo_andino_ceibo"
         },
         "scores": {
           "bombo_andino_construction": 1.095,
-          "bombo_andino_skin": 0.54,
+          "bombo_andino_skin": 0.495,
           "bombo_andino_shell_wood": 1.545
         }
       },

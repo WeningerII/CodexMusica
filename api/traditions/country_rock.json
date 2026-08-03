@@ -5,7 +5,7 @@
   "lineage": "Late-1960s through 1970s LA-centered amplified country-and-rock fusion codified by The Byrds Sweetheart of the Rodeo (1968), The Flying Burrito Brothers, Poco, the Eagles Take It Easy era, Linda Ronstadt, Emmylou Harris",
   "recipe": "classic North American 1967-1969 country rock, functional Song, country rock branch, pop rock folk rock, southern rock distorted rock. thick, breath veiled tone, wide pitch sway, interlocked note trading. open e tuning sitka spruce spruce maple steel dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright mahogany maple single coil electric guitar, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, steel double stops fiddle. hollywood flagship 1958-present major-flagship sunset sound studios hollywood. large-diaphragm condenser, Neve 1073 inductor pre.",
   "recipe_chars": 990,
-  "score": 1128.01,
+  "score": 1099.398,
   "config": {
     "traditions": [
       "country_rock",
@@ -34,14 +34,14 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 105.125,
+          "voice_register": 101.375,
           "voice_quality": 14.421124999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 35.77437499999999,
           "voice_articulation": 14.242624999999993,
-          "voice_microtone": 53.800000000000026,
-          "voice_tradition": 22.883124999999993,
+          "voice_microtone": 51.300000000000026,
+          "voice_tradition": 21.445624999999993,
           "voice_mechanism_compound": 3.2939999999999996,
           "voice_estill_quality": 33.18525,
           "voice_speech_song": 20.111249999999995,
@@ -62,7 +62,7 @@
           "string_acoustic": "silk_steel"
         },
         "scores": {
-          "acoustic_technique": 43.87499999999999,
+          "acoustic_technique": 42.62499999999999,
           "string_tuning": 4.449999999999999,
           "top_wood": 1.4300000000000002,
           "back_sides": 1.4300000000000002,
@@ -97,7 +97,7 @@
           "bridge": 0.01875,
           "scale_length": 1.04,
           "finish": 0,
-          "string_tuning": 26.270125000000007
+          "string_tuning": 24.907625000000003
         }
       },
       {
@@ -138,10 +138,10 @@
           "amp_make": 31.571249999999996,
           "body_wood": 1.04,
           "pickup_config": 0.01875,
-          "string_type": 53.28075000000001,
+          "string_type": 50.418250000000015,
           "scale_length_b": 2.1,
           "fretted_or_not": 0.195,
-          "bass_technique": 50.45625000000002
+          "bass_technique": 47.95625000000002
         }
       },
       {
@@ -152,7 +152,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 50.000000000000014,
+          "drum_technique": 47.500000000000014,
           "drumhead": 3.95,
           "drum_kit_kick_pedal": 0
         }
@@ -169,10 +169,10 @@
         },
         "scores": {
           "keyboard_technique": 4.6450000000000005,
-          "drawbar_setting": 50.506250000000016,
-          "rotary_speed": 51.625000000000014,
-          "percussion_setting": 23.28075000000001,
-          "tonewheel_model": 23.232000000000006,
+          "drawbar_setting": 48.006250000000016,
+          "rotary_speed": 49.125000000000014,
+          "percussion_setting": 21.918250000000008,
+          "tonewheel_model": 21.869500000000006,
           "leslie_cabinet_model": 3.29375
         }
       },
@@ -193,8 +193,8 @@
           "keyboard_technique": 4.6450000000000005,
           "grand_piano_size": 1.04,
           "grand_piano_brand": 1.4300000000000002,
-          "piano_hammer": 23.400750000000006,
-          "piano_rim": 23.721375000000005,
+          "piano_hammer": 22.038250000000005,
+          "piano_rim": 22.358875000000005,
           "piano_soundboard": 3.95,
           "piano_pinblock": 0.6345,
           "piano_plate": 1.101875,

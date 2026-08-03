@@ -5,7 +5,7 @@
   "lineage": "The Anglo-Appalachian and Southern-Mountain folk tradition that was caught and codified by the 1927 Bristol Sessions (the Big Bang of country music, when Ralph Peer of the Victor Talking Machine Company recorded the Carter Family and Jimmie Rodgers) and the parallel 1928 Johnson City Sessions — featuring the Carter Family (A.P. Carter, Sara Carter, Maybelle Carter, their 1927 Bristol session establishing the Carter Family songbook and the Carter scratch guitar technique), Jimmie Rodgers (the singing brakeman, the commercial country founder, his 13 blue yodels), Vernon Dalhart, Uncle Dave Macon, Charlie Poole",
   "recipe": "classic Southern American late-1920s pre-commercial country roots, functional Song, pre commercial branch, blues narrative ballad poetry classic blues women jug band. thick, breath veiled tone, wide pitch sway, interlocked note trading. open e tuning plain gut sheep gut pre 1900 parlor travis picked parlor acoustic guitar, plain gut sheep gut double stops fiddle, folk solid birch vintage 1920s 1940s autoharp, bowl back Italian adirondack red spruce loar canon big leaf maple mandolin, wood plain gut minstrel pre 1860s fretless canon compensated bridge banjo 5 string, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. bristol sessions appalachian pre commercial. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 801,
-  "score": 634.628,
+  "score": 622.253,
   "config": {
     "traditions": [
       "pre_commercial_country",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 59.58500000000001,
+          "voice_register": 58.33500000000001,
           "voice_quality": 15.079999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 48.24,
+          "voice_vibrato": 46.99,
           "voice_articulation": 22.48999999999999,
-          "voice_microtone": 30.985000000000007,
-          "voice_tradition": 17.355,
+          "voice_microtone": 29.735000000000007,
+          "voice_tradition": 16.705000000000002,
           "voice_mechanism_compound": 2.8600000000000003,
           "voice_estill_quality": 22.619999999999997,
           "voice_speech_song": 26.259999999999994,
           "voice_ensemble_config": 22.81499999999999,
           "voice_ornament_system": 1.4299999999999995,
           "voice_pitch_organization": 1.595,
-          "voice_processing_chain": 19.154999999999998,
+          "voice_processing_chain": 18.504999999999995,
           "voice_multitrack_stack": 2.860000000000001
         }
       },
@@ -165,11 +165,11 @@
         },
         "scores": {
           "harmonica_type": 2.7299999999999995,
-          "harmonica_comb": 43.25000000000001,
-          "harmonica_reed": 30.400000000000002,
-          "harmonica_technique": 31.820000000000004,
-          "harmonica_maker_school": 43.12750000000001,
-          "harmonica_tuning": 15.405000000000001
+          "harmonica_comb": 41.35,
+          "harmonica_reed": 29.150000000000002,
+          "harmonica_technique": 30.570000000000004,
+          "harmonica_maker_school": 40.8525,
+          "harmonica_tuning": 14.755000000000003
         }
       }
     ],

@@ -3,14 +3,14 @@
   "name": "Brazilian samba-school enredo (samba-enredo, Carnaval processional)",
   "family": "global",
   "lineage": "Brazilian Rio Carnaval samba-school enredo (samba-enredo, \"theme-samba\") tradition continuous from 1928 first samba-school Deixa Falar foundation through the 1930s-1980s Estação Primeira de Mangueira and Portela canonical-school era into modern Sambódromo-procession continuous practice; the enredo is the canonical annual samba composition that narrates the parade-school's theme",
-  "recipe": "classic Southern American mid-1930s brazilian samba-school enredo, carnival Processional, Brazilian branch, Caribbean carnival processional, americas wedding, Brazilian song functional song trinidad calypso-soca road march brega and tecnobrega. thick, breath veiled tone, straight onset, interlocked note trading. samba foundation mahogany samba canon steel modern cavaquinho, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro, nylon canonical rio carnival aluminum canonical modern rio escola surdo, nylon multi rod cluster canonical samba aluminum canonical rio escola tamborim. bahian terreiro outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 747,
-  "score": 307.17,
+  "recipe": "classic Southern American mid-1930s brazilian samba-school enredo, carnival Processional, Brazilian branch, Caribbean carnival processional, americas wedding, Brazilian song functional song trinidad calypso-soca road march andean matrimonio huayno. thick, breath veiled tone, straight onset, interlocked note trading. samba foundation mahogany samba canon steel modern cavaquinho, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro, nylon canonical rio carnival aluminum canonical modern rio escola surdo, nylon multi rod cluster canonical samba aluminum canonical rio escola tamborim. bahian terreiro outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 751,
+  "score": 332.465,
   "config": {
     "traditions": [
       "brazilian_samba_school_enredo",
       "trinidad_road_march",
-      "brega_tecnobrega"
+      "andean_matrimonio_huayno"
     ],
     "instruments": [
       {
@@ -23,33 +23,33 @@
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "modern_pop_vocal_training",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_tradition": "andean_quechua_tradition",
+          "voice_mechanism_compound": "voice_mechanism_yodel_M1_M2_alternation",
+          "voice_estill_quality": "voice_estill_oral_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 1.6449999999999998,
-          "voice_quality": 41.73000000000001,
+          "voice_register": 0.6175000000000002,
+          "voice_quality": 43.44250000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.2500000000000004,
-          "voice_articulation": 11.764999999999997,
-          "voice_microtone": 11.959999999999994,
-          "voice_tradition": 7.117500000000001,
-          "voice_mechanism_compound": 1.2349999999999999,
-          "voice_estill_quality": 1.0399999999999998,
-          "voice_speech_song": 16.834999999999997,
-          "voice_ensemble_config": 11.699999999999996,
-          "voice_ornament_system": 1.2999999999999998,
-          "voice_pitch_organization": 5.069999999999999,
-          "voice_processing_chain": 6.89,
-          "voice_multitrack_stack": 4.875000000000001
+          "voice_articulation": 11.439999999999994,
+          "voice_microtone": 11.829999999999993,
+          "voice_tradition": 20.504999999999995,
+          "voice_mechanism_compound": 0.78,
+          "voice_estill_quality": 7.3975,
+          "voice_speech_song": 14.559999999999995,
+          "voice_ensemble_config": 11.569999999999993,
+          "voice_ornament_system": 12.619999999999997,
+          "voice_pitch_organization": 6.759999999999999,
+          "voice_processing_chain": 5.215,
+          "voice_multitrack_stack": 5.2325
         }
       },
       {
@@ -62,11 +62,11 @@
           "cavaquinho_strings": "cavaquinho_steel"
         },
         "scores": {
-          "plucked_traditional_technique": 0.9749999999999999,
-          "cavaquinho_origin": 13.002500000000001,
-          "cavaquinho_context": 22.619999999999997,
-          "cavaquinho_body_wood": 10.870000000000001,
-          "cavaquinho_strings": 6.954999999999999
+          "plucked_traditional_technique": 1.755,
+          "cavaquinho_origin": 13.1525,
+          "cavaquinho_context": 18.33,
+          "cavaquinho_body_wood": 10.720000000000002,
+          "cavaquinho_strings": 8.84
         }
       },
       {
@@ -80,12 +80,12 @@
           "pandeiro_jingles": "pandeiro_brass_platinelas"
         },
         "scores": {
-          "percussion_technique": 0.825,
-          "pandeiro_size": 10.870000000000001,
-          "pandeiro_context": 9.165000000000001,
-          "pandeiro_head": 14.43,
-          "pandeiro_shell_wood": 14.43,
-          "pandeiro_jingles": 14.625
+          "percussion_technique": 2.5749999999999993,
+          "pandeiro_size": 10.720000000000002,
+          "pandeiro_context": 8.71,
+          "pandeiro_head": 11.959999999999999,
+          "pandeiro_shell_wood": 11.959999999999999,
+          "pandeiro_jingles": 12.155
         }
       },
       {
@@ -97,8 +97,8 @@
         },
         "scores": {
           "surdo_size": 0,
-          "surdo_skin": 14.625,
-          "surdo_shell": 8.45
+          "surdo_skin": 15.665000000000001,
+          "surdo_shell": 10.335
         }
       },
       {
@@ -110,8 +110,8 @@
         },
         "scores": {
           "tamborim_skin": 8.71,
-          "tamborim_striker": 24.765000000000004,
-          "tamborim_shell": 5.915
+          "tamborim_striker": 25.777500000000003,
+          "tamborim_shell": 6.954999999999999
         }
       }
     ],

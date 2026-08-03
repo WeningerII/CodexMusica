@@ -5,7 +5,7 @@
   "lineage": "Pontic Greek music tradition of the Pontic Greek ethnic community originating in the Black Sea coast of Anatolia (Trabzon, Sinop, Samsun regions, now Turkey), displaced post-1923 Greek-Turkish population exchange to mainland Greece (especially northern Greece, Athens, and Thessaloniki). Performance configuration centers on the Pontic kemenche (three-string upright-fiddle, distinct from Cretan lyra in tuning and playing technique), often accompanied by daouli large frame-drum and angeion bagpipe. Repertoire features fast asymmetrical-meter dance-music (omal, tik, dipat, tromakton) and slow narrative-and-lament forms (Pontic dialect of Greek with characteristic Anatolian-Greek phonological features). Distinguished from broader Greek demotic music by Pontic-Black-Sea regional identity, kemenche-instrument signature, and post-1923 diaspora-cultural-memory orientation.",
   "recipe": "classic Southern European early-1920s pontic greek music, ballad Poetry, med east poetic branch, Slavic bard ballad poetry serbian guslar epic recitation powada. breath veiled tone, slow rate, interlocked note trading, neutral third half flat. silver wound lamb gut core sitka spruce double stops violin orchestral, tambourine orch, mulberry canonical cretan gut pre modern cretan cretan lyra, cretan rhythmic laouto. athens major label 1955-1985 mid tier athens minos studios 60s 70s. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 548,
-  "score": 218.27,
+  "score": 217.82,
   "config": {
     "traditions": [
       "pontic_greek",
@@ -41,7 +41,7 @@
           "voice_vibrato": 1.625,
           "voice_articulation": 18.394999999999992,
           "voice_microtone": 22.48999999999999,
-          "voice_tradition": 33.010000000000005,
+          "voice_tradition": 32.86000000000001,
           "voice_mechanism_compound": 3.38,
           "voice_estill_quality": 3.185000000000001,
           "voice_speech_song": 19.239999999999995,
@@ -101,8 +101,8 @@
         },
         "scores": {
           "bowed_technique": -0.05,
-          "lyra_strings": 1.305,
-          "lyra_use": 1.2599999999999998,
+          "lyra_strings": 1.1549999999999998,
+          "lyra_use": 1.1099999999999999,
           "lyra_body_wood": 2.535,
           "lyra_string_material": 1.4
         }

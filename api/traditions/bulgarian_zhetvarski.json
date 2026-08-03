@@ -5,7 +5,7 @@
   "lineage": "Bulgarian harvest-song (zhetvarski pesni, женски pesni women's-songs) tradition continuous from premodern Bulgarian-agricultural village-labor practice through 19th-century Bulgarian-folklorist documentation through 20th-century Le Mystère des Voix Bulgares-era canonization into modern Bulgarian-folk-revival continuous practice; foundational harvest-song repertoire integrates women's-group-vocal close-harmony arrangement with characteristic Bulgarian-folk modal vocabulary",
   "recipe": "classic Northern European modern bulgarian zhetvarski pesni, field Work, Slavic balkan branch, east Asian field work, European wedding, European lullaby chinese chayang-diao indonesian rice-planting song traditions. thick, close mic intimate, straight onset, unrestrained. baltic outdoor village. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 359,
-  "score": 120.215,
+  "score": 118.165,
   "config": {
     "traditions": [
       "bulgarian_zhetvarski",
@@ -44,10 +44,10 @@
           "voice_tradition": 24.954999999999995,
           "voice_mechanism_compound": 4.159999999999999,
           "voice_estill_quality": 2.4699999999999998,
-          "voice_speech_song": 12.024999999999995,
+          "voice_speech_song": 11.374999999999995,
           "voice_ensemble_config": 9.685,
           "voice_ornament_system": 5.3500000000000005,
-          "voice_pitch_organization": 16.405,
+          "voice_pitch_organization": 15.004999999999999,
           "voice_processing_chain": 3.185,
           "voice_multitrack_stack": 3.3149999999999995
         }

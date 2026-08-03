@@ -5,7 +5,7 @@
   "lineage": "Tamil-language Madras (Chennai) film-song playback tradition — the Kollywood parallel canon that the catalog's hindi_filmi record explicitly scopes out — codified by Ilaiyaraaja from his 1976 debut score Annakili onward across roughly 1000 films, hand-orchestrated at a rate of about one song per session and tracked on the Madras cinema-industry scoring stages at Prasad, AVM and Gemini; the defining innovation is the fusion of Tamil village folk idiom (gaana, villuppattu, therukoothu and the nadaswaram-thavil temple-and-wedding repertoire) and Carnatic melakarta-raga melody with Western symphonic orchestration, functional harmony and genuine written counterpoint, heard on Mullum Malarum (1978), Sindhu Bhairavi (1985), Punnagai Mannan (1986), Mouna Ragam (1986) and Nayakan (1987), and carried into concert form on his own How To Name It? (1986) and Nothing But Wind (1988); preceded by the Tamil music-director generation of M.S. Viswanathan and K.V. Mahadevan (1950s-1970s); voiced by the playback axis of S.P. Balasubrahmanyam (1946-2020, some 40000 recorded songs across Tamil, Telugu, Kannada, Malayalam and Hindi) and S. Janaki (1938-), with P. Susheela, Malaysia Vasudevan, Vani Jairam and K.J. Yesudas; the core era closes with A.R. Rahman's Roja (1992), whose sampler-and-sequencer bedroom-studio method displaced the live-orchestra scoring stage and reset Tamil film sound for the 1990s. Distinct from hindi_filmi in language, industrial base (Madras rather than Bombay), Carnatic rather than Hindustani melodic source, and single-auteur rather than music-director-rotation production economy",
   "recipe": "classic South Asian early-1940s tamil filmi / kollywood playback, functional Song, south Asian pop branch, south Asian art music, indian classical improv improv on frame thumrī carnatic vocal. thick, breath veiled tone, slow rate, interlocked note trading. silver wound lamb gut core carpathian spruce European maple bosnian source violin orchestral, gourd silk pre modern vijayanagara era thanjavur canonical south indian veena, kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, ghatam, concert stage jackwood barrel canonical Tamil thavil, temple volume Tamil temple context periya melam thavil percussion pair temple procession nadaswaram, pyramid pure nickel bass British mid 60s era electric bass, pre muffled edge muffled brushes-and-sticks drum kit, yamaha cs lineage canonical cs 80 1976 hamamatsu polyphonic flagship lead analog poly synth.",
   "recipe_chars": 992,
-  "score": 679.155,
+  "score": 672.105,
   "config": {
     "traditions": [
       "tamil_filmi",
@@ -41,13 +41,13 @@
           "voice_vibrato": 19.5975,
           "voice_articulation": 34.250000000000014,
           "voice_microtone": 32.30500000000001,
-          "voice_tradition": 39.06,
+          "voice_tradition": 38.11,
           "voice_mechanism_compound": 13.025,
           "voice_estill_quality": 17.3,
-          "voice_speech_song": 41.81500000000002,
+          "voice_speech_song": 41.21500000000002,
           "voice_ensemble_config": 34.77500000000001,
-          "voice_ornament_system": 28.344999999999995,
-          "voice_pitch_organization": 28.974999999999998,
+          "voice_ornament_system": 26.644999999999996,
+          "voice_pitch_organization": 27.275,
           "voice_processing_chain": 13.227500000000001,
           "voice_multitrack_stack": 9.717499999999998
         }
@@ -112,7 +112,7 @@
         "scores": {
           "wind_articulation": 13.27,
           "bansuri_length": 4.345000000000001,
-          "bansuri_ornament": 13.939999999999998,
+          "bansuri_ornament": 13.139999999999999,
           "bansuri_body_material": 9.034999999999998,
           "bansuri_lineage": 5.784999999999999
         }
@@ -129,9 +129,9 @@
         "scores": {
           "mridangam_heads": 6.825,
           "mridangam_use": 0,
-          "mridangam_shell_wood": 4.809999999999999,
+          "mridangam_shell_wood": 4.159999999999999,
           "mridangam_heads_material": 0.585,
-          "mridangam_lineage": 6.305
+          "mridangam_lineage": 5.654999999999999
         }
       },
       {

@@ -3,9 +3,9 @@
   "name": "Ars Nova (fourteenth-century French)",
   "family": "classical",
   "lineage": "Fourteenth-century French compositional style codified in Philippe de Vitry's 1322 treatise of the same name, introducing isorhythmic motet construction, mensural rhythmic notation, and increased rhythmic-and-harmonic complexity. Guillaume de Machaut (c.1300-1377) is the principal composer; his Messe de Nostre Dame (c.1365) is the first known complete polyphonic setting of the Mass Ordinary by a single composer. Distinguished from ars antiqua by ars nova's sophisticated rhythmic-isorhythmic and notational developments.",
-  "recipe": "classic European early-1300s ars nova, art Music, western early branch, christian gospel ritual devotional sacred steel jubilee quartet. thick, declaimed, straight note core, leader call answered. a cappella small 3 to 8 one per part four voice polyphonic regional svanetian complex three voice highland polyphonic choir ensemble, rhythmic dance driving vielle medieval, single rank treble piping single line portative organ, single trapezoid box fingertip plucking medieval psaltery. parish church. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
-  "recipe_chars": 574,
-  "score": 207.431,
+  "recipe": "classic European early-1300s ars nova, art Music, western early branch, christian gospel ritual devotional sacred steel jubilee quartet. thick, declaimed, straight note core, leader call answered. a cappella small 3 to 8 one per part four voice polyphonic regional svanetian complex three voice highland polyphonic choir ensemble, rhythmic dance driving vielle medieval, single rank treble piping single line portative organ, single trapezoid box single plectrum line monophonic melodic lead medieval psaltery. parish church. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+  "recipe_chars": 600,
+  "score": 207.236,
   "config": {
     "traditions": [
       "ars_nova_french",
@@ -101,12 +101,12 @@
         "id": "medieval_psaltery",
         "slots": {
           "medieval_psaltery_form": "medieval_psaltery_form_canale",
-          "medieval_psaltery_playing": "medieval_psaltery_playing_fingertip",
+          "medieval_psaltery_playing": "medieval_psaltery_playing_single_plectrum",
           "medieval_psaltery_stringing": "medieval_psaltery_stringing_brass_wire"
         },
         "scores": {
           "medieval_psaltery_form": 1.295,
-          "medieval_psaltery_playing": 2.795,
+          "medieval_psaltery_playing": 2.5999999999999996,
           "medieval_psaltery_stringing": -0.05
         }
       }

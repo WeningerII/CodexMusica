@@ -5,7 +5,7 @@
   "lineage": "American pre-rock popular songwriting tradition centered on the West 28th Street and later Brill Building songwriter-publisher infrastructure (c. 1885-1965) — covering George M. Cohan, Irving Berlin (Alexander s Ragtime Band 1911, the Tin Pan Alley breakthrough), Cole Porter, the Gershwins, Rodgers and Hart (later Rodgers and Hammerstein), Harold Arlen, Hoagy Carmichael, and the post-WWII Brill Building era (Goffin and King, Mann and Weil, Sedaka, Bacharach and David, Leiber and Stoller); foundational repertoire for the 32-bar AABA song form that defined American popular music for half a century",
   "recipe": "classic North American early-1880s tin pan alley song, functional Song, crooners branch, American jazz early swing big band chicago jazz. thick, breath veiled tone, straight onset, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, a cappella small 3 to 8 one per part four voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu choir ensemble. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 584,
-  "score": 184.205,
+  "score": 177.865,
   "config": {
     "traditions": [
       "tin_pan_alley_song",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 19.671499999999998,
+          "voice_register": 18.421499999999998,
           "voice_quality": 11.179999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 16.348,
+          "voice_vibrato": 15.097999999999997,
           "voice_articulation": 15.665,
-          "voice_microtone": 19.918499999999995,
-          "voice_tradition": 22.482499999999998,
+          "voice_microtone": 18.668499999999995,
+          "voice_tradition": 20.662499999999998,
           "voice_mechanism_compound": 1.6899999999999997,
           "voice_estill_quality": 1.4949999999999997,
           "voice_speech_song": 19.369999999999997,
           "voice_ensemble_config": 15.599999999999998,
           "voice_ornament_system": 0.45499999999999996,
           "voice_pitch_organization": 4.355,
-          "voice_processing_chain": 6.0275,
-          "voice_multitrack_stack": 1.0874999999999997
+          "voice_processing_chain": 5.3775,
+          "voice_multitrack_stack": 0.9674999999999998
         }
       },
       {

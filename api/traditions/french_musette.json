@@ -5,7 +5,7 @@
   "lineage": "French musette accordion-led popular-folk genre developed in early-twentieth-century Paris from the convergence of Auvergnat-immigrant cabrette-bagpipe dance-music with Italian-immigrant accordion-playing in the working-class Parisian guinguette dance-hall and bistro scenes around Bastille and the rue de Lappe. Characterized by waltz-and-java rhythmic base, virtuoso accordion-melodic lead, and the canonical valse musette dance-floor accompaniment. The interwar 1920s-1930s period at Bal Tabarin and Balajo dance-halls anchored institutional crystallization. Distinguished from later French chanson by musette's instrumental-dance (vs literary-lyrical) primary functional orientation.",
   "recipe": "classic Western European mid-1920s french musette, ballad Poetry, chanson fado branch, europop functional song bal-folk hungarian magyar nóta. thick, breath veiled tone, straight note core, interlocked note trading. melodic straight piano accordion, fingerpicked parlor acoustic guitar, upright bass, carousel march brassy dance mixed ranks glockenspiel rank drum and cymbal barrel organ. intimate paris small studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 490,
-  "score": 257.475,
+  "score": 242.675,
   "config": {
     "traditions": [
       "french_musette",
@@ -34,17 +34,17 @@
           "voice_multitrack_stack": "voice_multitrack_5_part_cluster"
         },
         "scores": {
-          "voice_register": 19.920000000000005,
+          "voice_register": 17.42,
           "voice_quality": 13.129999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 6.9750000000000005,
           "voice_articulation": 13.324999999999996,
           "voice_microtone": 13.974999999999993,
-          "voice_tradition": 27.665000000000006,
+          "voice_tradition": 25.015,
           "voice_mechanism_compound": 4.225,
           "voice_estill_quality": 6.015000000000001,
-          "voice_speech_song": 20.214999999999996,
+          "voice_speech_song": 19.564999999999998,
           "voice_ensemble_config": 14.949999999999996,
           "voice_ornament_system": 3.1500000000000004,
           "voice_pitch_organization": 5.785000000000001,
@@ -60,9 +60,9 @@
           "pa_use": "pa_polka"
         },
         "scores": {
-          "free_reed_technique": 21.905,
-          "pa_size": 10.205000000000002,
-          "pa_use": 10.400000000000002
+          "free_reed_technique": 19.405,
+          "pa_size": 8.905000000000001,
+          "pa_use": 9.100000000000001
         }
       },
       {
@@ -75,7 +75,7 @@
           "string_acoustic_parlor": "phosphor_p"
         },
         "scores": {
-          "acoustic_technique": 27.295000000000005,
+          "acoustic_technique": 24.045000000000005,
           "string_tuning": 2.4,
           "top_wood_parlor": 0.39,
           "back_sides_parlor": 0,
@@ -104,7 +104,7 @@
         "scores": {
           "keyboard_technique": -0.1,
           "barrel_organ_form": 0.78,
-          "barrel_organ_programme": 13.259999999999996,
+          "barrel_organ_programme": 12.609999999999996,
           "barrel_organ_pipework": 13.454999999999997
         }
       }

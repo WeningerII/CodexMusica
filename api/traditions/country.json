@@ -5,7 +5,7 @@
   "lineage": "The broad country-music tradition — Anglo-American vernacular song built on storytelling, descended from Appalachian folk and codified through the Nashville recording industry across the 20th century",
   "recipe": "classic modern country, functional Song, contemp main branch. thick, breath veiled tone, straight note core, interlocked note trading. Fender tweed amp American 50s amp tweed breakup single coil electric guitar, Fender blackface amp American 60s amp spring reverb bright classic country mullen d10 pedal steel, Fender tweed amp American 50s amp tweed breakup fingerpicked electric bass, brushes-and-sticks drum kit, double stops fiddle. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 582,
-  "score": 197.458,
+  "score": 196.976,
   "config": {
     "traditions": [
       "country"
@@ -78,7 +78,7 @@
           "bridge": 0.2475,
           "scale_length": 0.014999999999999998,
           "finish": 0,
-          "string_tuning": 0.8594999999999998
+          "string_tuning": 0.8344999999999998
         }
       },
       {
@@ -100,7 +100,7 @@
           "string_setup": 5.719999999999999,
           "bar_material": 0.39,
           "pedal_steel_brand": 12.764249999999999,
-          "pedal_steel_neck_config": 13.95125,
+          "pedal_steel_neck_config": 13.493749999999999,
           "pedal_steel_strings": 12.629249999999999
         }
       },

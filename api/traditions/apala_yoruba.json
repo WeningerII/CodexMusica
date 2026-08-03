@@ -5,7 +5,7 @@
   "lineage": "Yoruba apàlà percussion-and-vocal genre originating in 1930s-1940s Ibadan as a Muslim-Yoruba devotional-and-praise music for post-Ramadan ìdí-l-Fitr celebrations. Performance centers on male lead singer with a battery of dùndún talking-drums (iyaalu mother-drum plus gangan pressure-drums), agogo bell, sekere shaker, and chorus response. The talking-drum lineage carries percussive-and-melodic-allusion content through standardized Yoruba drum-language. Distinguished from sákárà by apàlà's dùndún-talking-drum (vs sákárà's frame-drum-with-shawm) instrumental signature. Direct ancestor of later fuji genre.",
   "recipe": "classic West African mid-1930s apàlà, functional Song, African pop branch, west African groove percussion indonesian jaipongan fújì. thick, breath veiled tone, straight note core, interlocked note trading. omo cedrela odorata canonical Yoruba dundun goat skin leather tension cords canonical pressure bend talking drum, agogo, proto juju responsorial melodic bass found metal agidigbo. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. passive ribbon, tube pre. direct-to-disc lacquer.",
   "recipe_chars": 516,
-  "score": 258.48,
+  "score": 258.33,
   "config": {
     "traditions": [
       "apala_yoruba",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 6.355000000000002,
+          "voice_register": 6.205000000000003,
           "voice_quality": 9.23,
           "voice_vocal_tract": 0,
           "voice_effort": 0,

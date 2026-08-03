@@ -5,7 +5,7 @@
   "lineage": "English topical-narrative balladry tradition — printed cheap as broadside sheets in the 16th-19th centuries, collected by Cecil Sharp and the late-19th-century English folk-revival, revived through the post-WWII folk-club circuit (the Watersons family, Martin Carthy, A.L. Lloyd, Ewan MacColl, June Tabor, Peter Bellamy)",
   "recipe": "classic Northern European 1965-1968 english broadside ballad, ballad Poetry, English broadside branch, anglo singer song britfolk britfolk revival. thick, incomplete closure resting, interlocked note trading, neutral third half flat. dadgad tuning martin lifespan fingerpicked acoustic guitar, drone like fiddle, modern Irish carroll suttner premium revival steel reeds canonical anglo straight concertina anglo. uk folk revival club 60s. large-diaphragm condenser, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
   "recipe_chars": 562,
-  "score": 124.939,
+  "score": 120.233,
   "config": {
     "traditions": [
       "english_broadside_revival",
@@ -34,7 +34,7 @@
         },
         "scores": {
           "voice_register": 8.055625,
-          "voice_quality": 12.287499999999996,
+          "voice_quality": 10.250000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.19500000000000003,
@@ -48,7 +48,7 @@
           "voice_ornament_system": 4.761250000000001,
           "voice_pitch_organization": 0.45500000000000007,
           "voice_processing_chain": 1.774375,
-          "voice_multitrack_stack": 1.3962499999999998
+          "voice_multitrack_stack": 1.3775
         }
       },
       {
@@ -61,11 +61,11 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "string_tuning": 11.644999999999998,
+          "string_tuning": 10.395,
           "top_wood": 0.01125,
           "back_sides": 0.01125,
           "string_acoustic": 1.704375,
-          "acoustic_om_technique": 20.7975
+          "acoustic_om_technique": 20.0475
         }
       },
       {
@@ -98,7 +98,7 @@
           "free_reed_technique": 9.665,
           "concertina_anglo_config": 0.39,
           "concertina_anglo_context": 1.2249999999999999,
-          "concertina_anglo_maker_school": 2.209999999999999,
+          "concertina_anglo_maker_school": 1.5600000000000003,
           "concertina_anglo_reed": 1.795
         }
       }

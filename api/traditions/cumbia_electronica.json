@@ -5,7 +5,7 @@
   "lineage": "Late-2000s electronic remix-and-production genre re-engineering traditional Colombian-Mexican cumbia rhythmic foundation through digital production techniques — codified through ZZK Records (Buenos Aires-based label, Frikstailers, Chancha Via Circuito), Toy Selectah, Dengue Dengue Dengue, Bomba Estéreo (Elegancia Tropical 2012), and the broader Latin-American electronic-tropical-bass scene",
   "recipe": "classic 2007-2009 cumbia electrónica, electronic Dance, Latin electric branch, Latin am groove percussion cumbia peruana cumbia colombiana. thick, full chest belt, straight onset, interlocked note trading. melodic pitched sampler, low sub bass digital subtractive, roland tr 8s modern aira digital recreation TR-808, brass leather petosa seattle American premium accordion. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 519,
-  "score": 227.912,
+  "score": 225.412,
   "config": {
     "traditions": [
       "cumbia_electronica",
@@ -35,7 +35,7 @@
         },
         "scores": {
           "voice_register": 2.215,
-          "voice_quality": 32.695,
+          "voice_quality": 30.194999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.95,

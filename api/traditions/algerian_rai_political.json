@@ -3,9 +3,9 @@
   "name": "Algerian raï (political and pre-commercial)",
   "family": "global",
   "lineage": "Algerian raï tradition from its 1920s-1930s Oran-region origin as Bedouin-Andalusian women's-tradition through 1970s-1980s pre-commercial cheikha-and-cheb politicization era; the political-and-anti-clerical content of pre-commercial raï made it a target of both Algerian-state censorship and Islamist-fundamentalist violence including the 1994 assassination of Cheb Hasni",
-  "recipe": "classic West African mid-1920s algerian raï, protest Song, middle east n African branch, European protest song, mid east n African pop functional song, Persian arab improv improv on frame tarab khaliji. extended whistle, breath veiled tone, slow rate, interlocked note trading. walnut ribs canonical mid tier pyramid nylon arab school oud, clay pre modern traditional fish skin pre modern Egyptian traditional Egyptian sombaty canonical mid east darbuka, weltmeister east German mid tier vintage volk ensemble accordion, gasba, oranais processional heavy beat festive metal body guellal. dakar senegal mbalax defining 1979-present indie-commercial dakar mbalax oran rai studio. shure SM58, console-strip pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb chorus digital delay.",
-  "recipe_chars": 802,
-  "score": 352.03,
+  "recipe": "classic West African mid-1920s algerian raï, protest Song, middle east n African branch, European protest song, mid east n African pop functional song, Persian arab improv improv on frame tarab khaliji. extended whistle, breath veiled tone, slow rate, interlocked note trading. walnut ribs canonical mid tier plain gut pre 1900 period correct oud, clay pre modern traditional fish skin pre modern Egyptian traditional Egyptian sombaty canonical mid east darbuka, weltmeister east German mid tier vintage volk ensemble accordion, gasba, oranais processional heavy beat festive metal body guellal. dakar senegal mbalax defining 1979-present indie-commercial dakar mbalax oran rai studio. shure SM58, console-strip pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb chorus digital delay.",
+  "recipe_chars": 810,
+  "score": 336.38,
   "config": {
     "traditions": [
       "algerian_rai_political",
@@ -38,16 +38,16 @@
           "voice_quality": 10.269999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 12.77,
+          "voice_vibrato": 11.52,
           "voice_articulation": 17.419999999999995,
-          "voice_microtone": 37.254999999999995,
-          "voice_tradition": 20.15,
-          "voice_mechanism_compound": 15.095,
-          "voice_estill_quality": 10.409999999999998,
+          "voice_microtone": 35.855,
+          "voice_tradition": 18.4,
+          "voice_mechanism_compound": 13.845,
+          "voice_estill_quality": 9.159999999999998,
           "voice_speech_song": 22.359999999999992,
           "voice_ensemble_config": 16.70499999999999,
-          "voice_ornament_system": 20.205000000000002,
-          "voice_pitch_organization": 19.905,
+          "voice_ornament_system": 18.455000000000002,
+          "voice_pitch_organization": 18.155,
           "voice_processing_chain": 11.434999999999999,
           "voice_multitrack_stack": 5.135000000000002
         }
@@ -61,16 +61,16 @@
           "oud_pick": "risha_eagle_feather",
           "oud_body_wood": "oud_walnut_body",
           "oud_soundboard_wood": "oud_lebanese_cedar_face",
-          "oud_string_material": "oud_pyramid_nylon"
+          "oud_string_material": "oud_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 8.75,
-          "oud_school": 6.5,
-          "oud_strings": 3.83,
+          "plucked_traditional_technique": 7.5,
+          "oud_school": 6,
+          "oud_strings": 3.33,
           "oud_pick": 2.925,
           "oud_body_wood": 2.925,
           "oud_soundboard_wood": 0.9099999999999999,
-          "oud_string_material": 3.14
+          "oud_string_material": 2.8249999999999997
         }
       },
       {
@@ -84,8 +84,8 @@
         "scores": {
           "percussion_technique": -0.07,
           "darbuka_material": 5.325,
-          "darbuka_skin": 7.15,
-          "darbuka_regional_style": 10.010000000000002
+          "darbuka_skin": 6.865,
+          "darbuka_regional_style": 9.36
         }
       },
       {
@@ -100,13 +100,13 @@
           "accordion_maker_school": "accordion_weltmeister"
         },
         "scores": {
-          "free_reed_technique": 9.895,
+          "free_reed_technique": 8.645,
           "accordion_reed_material": 2.925,
           "musette_offset": 0.345,
           "reed_config": 0.69,
           "bellows": 0.345,
           "voicing_chamber": 0.15,
-          "accordion_maker_school": 8.155000000000001
+          "accordion_maker_school": 7.655000000000001
         }
       },
       {

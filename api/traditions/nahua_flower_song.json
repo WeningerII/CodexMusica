@@ -5,7 +5,7 @@
   "lineage": "In xochitl in cuicatl ('flower and song') is the Nahua difrasismo for poetry and sung oratory, the elevated verbal art of the Aztec (Mexica) and wider Nahuatl-speaking world of central Mexico. The corpus survives chiefly in two sixteenth-century manuscripts, the Cantares Mexicanos and the Romances de los señores de la Nueva España, transcribed after the conquest and preserving pre-Hispanic and early-colonial song-poems on transience, war, and the divine, alongside the huehuetlahtolli oratory of the elders. In performance, poet-singers (cuicapicqueh) declaimed and sang these texts, historically to the huehuetl and teponaztli drums whose beat patterns are notated by syllables in the manuscripts. The tradition is reconstructed from these codices and the scholarship of Ángel María Garibay and Miguel León-Portilla.",
   "recipe": "classic modern nahua/aztec flower-song (in xochitl in cuicatl) oratory, ritual Devotional, indigenous branch mongolian böö shamanic invocation shipibo-conibo icaros healing songs. kargyraa, breath veiled tone, breath pulsed, interlocked note trading. adobe room. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 325,
-  "score": 267.465,
+  "score": 266.165,
   "config": {
     "traditions": [
       "nahua_flower_song",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 2.7815000000000003,
+          "voice_register": 1.4815,
           "voice_quality": 48.23000000000004,
           "voice_vocal_tract": 0,
           "voice_effort": 0,

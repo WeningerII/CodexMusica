@@ -5,7 +5,7 @@
   "lineage": "Japanese imperial court music tradition codified during the Nara and Heian periods (eighth through twelfth centuries CE) drawing on Tang Chinese, Korean, and indigenous Japanese ceremonial-court repertoire — preserved continuously through the Imperial Household Music Department (Kunaichō Gakubu) lineage in Tokyo, with characteristic ensemble of shō mouth-organ, hichiriki double-reed, ryūteki transverse flute, biwa lute, koto zither, kakko drum, and shōko gong",
   "recipe": "classic East Asian modern gagaku, art Music, east Asian branch, buddhist ritual devotional. cluster chord bamboo sho mouth organ, bamboo cherry bark binding canonical gagaku yoshi arundo donax canonical gagaku imperial court continuous-airflow legato hichiriki double reed, biwa lute, cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk kodo sado island lineage taiko drum, Korean repertoire higher pitched six holed ryuteki, sustained cluster chords gagaku kangen. noh stage japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 646,
-  "score": 66.971,
+  "score": 66.671,
   "config": {
     "traditions": [
       "gagaku"
@@ -21,7 +21,7 @@
         "scores": {
           "free_reed_technique": 1.6249999999999998,
           "sho_pipes": 1.17,
-          "sho_warming": 0.44999999999999996
+          "sho_warming": 0.3
         }
       },
       {
@@ -83,7 +83,7 @@
           "ryuteki_material": "ryuteki_susudake"
         },
         "scores": {
-          "ryuteki_form": 7.733142857142857,
+          "ryuteki_form": 7.583142857142857,
           "ryuteki_style": 4.018000000000001,
           "ryuteki_material": 0.855
         }

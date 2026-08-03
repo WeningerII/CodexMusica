@@ -5,7 +5,7 @@
   "lineage": "Czech songwriter folk-poetic song tradition codified through Karel Kryl (the émigré protest voice of the 1968 Prague Spring), Jaromír Nohavica (the working-class storyteller), Vladimír Mišík (the rock-adjacent variant), Hutka, the Plastic People of the Universe (samizdat psychedelic-rock variant), and the broader Czech literary-poetic song tradition under and after Communist rule",
   "recipe": "classic Central European late-1960s czech písnička, ballad Poetry, Slavic bard branch, chanson fado ballad poetry morna cape verdean batuko of santiago island. thick, breath veiled tone, straight note core, interlocked note trading. martin lifespan fingerpicked acoustic guitar. prague state label studio 1948-present mid tier prague supraphon studio. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 474,
-  "score": 200.325,
+  "score": 200.032,
   "config": {
     "traditions": [
       "czech_pisnicka",
@@ -30,7 +30,7 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
           "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
         },
         "scores": {
@@ -48,7 +48,7 @@
           "voice_ensemble_config": 22.425,
           "voice_ornament_system": 1.5255,
           "voice_pitch_organization": 2.795000000000001,
-          "voice_processing_chain": 6.305000000000003,
+          "voice_processing_chain": 6.0125,
           "voice_multitrack_stack": 5.135
         }
       },

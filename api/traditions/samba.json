@@ -5,7 +5,7 @@
   "lineage": "Brazilian Rio carnival and samba-canção tradition, codified through the early-twentieth-century Rio favelas and the 1917 first-recorded-samba \"Pelo Telefone\" — through Cartola, Noel Rosa, and Ataulfo Alves codifying samba-canção lyric tradition, then Pixinguinha as the orchestrating bandleader, with samba-de-roda Bahian roots and samba-enredo carnival-school evolution",
   "recipe": "classic Southern American late-1910s samba, groove Percussion, Brazilian branch, Brazilian song functional song bossa nova brazilian samba de roda do recôncavo. thick, breath veiled tone, straight onset, interlocked note trading. low mid rich spectrum cedar classical nylon-string guitar, samba foundation mahogany samba canon strummed cavaquinho, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian hands layered pandeiro, nylon canonical rio carnival aluminum canonical modern rio escola surdo, nylon multi rod cluster canonical samba aluminum canonical rio escola tamborim, samba tradition metal construction repinique, snappy samba tradition metal construction reco reco, samba tradition metal construction ganza, metal shell canonical modern Brazilian samba calfskin internal bamboo friction rod canonical Brazilian hands layered cuica, agogo. escola samba quadra. large-diaphragm condenser, tube pre, German tube console.",
   "recipe_chars": 995,
-  "score": 585.162,
+  "score": 568.902,
   "config": {
     "traditions": [
       "samba",
@@ -35,7 +35,7 @@
         },
         "scores": {
           "voice_register": 5.820000000000001,
-          "voice_quality": 76.6855,
+          "voice_quality": 73.4355,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 4.1515,
@@ -68,7 +68,7 @@
           "top_wood_classical": 2.795,
           "bracing_classical": 0.65,
           "string_classical": 0.845,
-          "attack_technique_cl": 3.125
+          "attack_technique_cl": 1.875
         }
       },
       {
@@ -82,9 +82,9 @@
         },
         "scores": {
           "plucked_traditional_technique": 3.25,
-          "cavaquinho_origin": 18.9565,
-          "cavaquinho_context": 29.964999999999996,
-          "cavaquinho_body_wood": 16.911500000000004,
+          "cavaquinho_origin": 18.3065,
+          "cavaquinho_context": 29.314999999999998,
+          "cavaquinho_body_wood": 16.2615,
           "cavaquinho_strings": -0.06999999999999988
         }
       },
@@ -100,11 +100,11 @@
         },
         "scores": {
           "percussion_technique": 7.125,
-          "pandeiro_size": 16.806500000000003,
-          "pandeiro_context": 8.775000000000002,
-          "pandeiro_head": 13.975,
-          "pandeiro_shell_wood": 13.975,
-          "pandeiro_jingles": 13.975
+          "pandeiro_size": 16.1565,
+          "pandeiro_context": 8.125000000000002,
+          "pandeiro_head": 13.325,
+          "pandeiro_shell_wood": 13.325,
+          "pandeiro_jingles": 13.325
         }
       },
       {
@@ -116,7 +116,7 @@
         },
         "scores": {
           "surdo_size": 1.305,
-          "surdo_skin": 9.294999999999998,
+          "surdo_skin": 9.235,
           "surdo_shell": 3.769999999999999
         }
       },
@@ -129,7 +129,7 @@
         },
         "scores": {
           "tamborim_skin": 3.709999999999999,
-          "tamborim_striker": 21.556500000000003,
+          "tamborim_striker": 20.9065,
           "tamborim_shell": 5.719999999999999
         }
       },
@@ -140,8 +140,8 @@
           "repinique_technique": "repinique_one_stick_one_hand"
         },
         "scores": {
-          "repinique_shell": 22.669500000000003,
-          "repinique_technique": 22.669500000000003
+          "repinique_shell": 22.0195,
+          "repinique_technique": 22.0195
         }
       },
       {
@@ -150,7 +150,7 @@
           "reco_source": "reco_metal_springs"
         },
         "scores": {
-          "reco_source": 22.669500000000003
+          "reco_source": 22.0195
         }
       },
       {
@@ -159,7 +159,7 @@
           "ganza_source": "ganza_metal_cylinder"
         },
         "scores": {
-          "ganza_source": 22.669500000000003
+          "ganza_source": 22.0195
         }
       },
       {
@@ -173,10 +173,10 @@
         },
         "scores": {
           "percussion_technique": 7.125,
-          "cuica_size": 18.6915,
+          "cuica_size": 18.041500000000003,
           "cuica_context": 6.305,
-          "cuica_shell_material": 31.005000000000003,
-          "cuica_head": 14.365
+          "cuica_shell_material": 29.705000000000002,
+          "cuica_head": 13.715
         }
       },
       {
@@ -186,7 +186,7 @@
           "agogo_context": "agogo_bateria"
         },
         "scores": {
-          "agogo_bell": 17.788,
+          "agogo_bell": 17.138,
           "agogo_context": 3.919999999999999
         }
       }

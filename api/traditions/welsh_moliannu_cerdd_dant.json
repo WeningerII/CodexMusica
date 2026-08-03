@@ -5,7 +5,7 @@
   "lineage": "Welsh medieval praise-poetry tradition continuous from 6th-7th-century Taliesin-and-Aneirin foundational era (the Cynfeirdd \"early-poets\") through 12th-13th century Gogynfeirdd \"poets-of-the-princes\" era of court-praise-poetry through continuous-Welsh-bardic transmission into modern penillion-singing and cerdd dant (\"string-craft\") harp-and-voice tradition",
   "recipe": "classic Northern European modern welsh moliannu and cerdd dant, praise Song, Celtic British branch, sub saharan African praise song, Celtic balladic ballad poetry, string drone modal welsh hymn-balladry zulu izibongo. thick, declaimed, straight onset, interlocked note trading. cerdd dant nylon strung welsh triple harp, foundational foundational warm informal choir welsh male, folk revival bardic crwth. uk folk revival club 60s. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 494,
-  "score": 312.605,
+  "score": 304.805,
   "config": {
     "traditions": [
       "welsh_moliannu_cerdd_dant",
@@ -35,13 +35,13 @@
         },
         "scores": {
           "voice_register": 2.73,
-          "voice_quality": 29.409999999999997,
+          "voice_quality": 28.159999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.6000000000000005,
           "voice_articulation": 11.829999999999995,
           "voice_microtone": 12.34999999999999,
-          "voice_tradition": 34.644999999999996,
+          "voice_tradition": 33.99499999999999,
           "voice_mechanism_compound": 1.6899999999999997,
           "voice_estill_quality": 1.6249999999999998,
           "voice_speech_song": 17.549999999999997,
@@ -60,8 +60,8 @@
           "welsh_triple_harp_stringing": "welsh_triple_harp_nylon"
         },
         "scores": {
-          "welsh_triple_harp_form": 28.775000000000006,
-          "welsh_triple_harp_repertoire": 36.84000000000001,
+          "welsh_triple_harp_form": 27.525,
+          "welsh_triple_harp_repertoire": 35.59,
           "welsh_triple_harp_stringing": 6.42
         }
       },
@@ -86,8 +86,8 @@
         },
         "scores": {
           "bowed_technique": -0.035,
-          "crwth_form": 31.100000000000005,
-          "crwth_playing": 48.105000000000004,
+          "crwth_form": 29.699999999999996,
+          "crwth_playing": 46.105,
           "crwth_strings": 4.615
         }
       }

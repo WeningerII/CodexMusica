@@ -5,7 +5,7 @@
   "lineage": "Greek wedding-music tradition continuous from Byzantine-era through Ottoman-period through 19th-20th-century modern-Greek continuous practice; regionally distributed with strongest preservation in Crete, Mani, Epirus, and Pontic-Greek diaspora",
   "recipe": "classic Southern European modern greek gamílio glendí, wedding, European branch, middle eastern wedding, Mediterranean ballad ballad poetry, vocal drone modal lebanese-arab wedding takht persian aroosi. thick, breath veiled tone, slow rate, interlocked note trading. walnut staves canonical Greek steel canonical octave unison pairs ornamented bouzouki, mulberry canonical cretan steel modern legato cretan lyra, grenadilla African blackwood traditional continuous-airflow legato clarinet, castagnari Italian premium folk music ensemble accordion, clay pre modern traditional synthetic remo mylar modern canonical Egyptian Egyptian sombaty canonical mid east darbuka, cretan rhythmic laouto. athens piraeus rebetadika. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 781,
-  "score": 286.93,
+  "score": 281.93,
   "config": {
     "traditions": [
       "greek_gamilio_glendi",
@@ -42,12 +42,12 @@
           "voice_articulation": 10.334999999999997,
           "voice_microtone": 21.449999999999996,
           "voice_tradition": 27.949999999999996,
-          "voice_mechanism_compound": 17.849999999999998,
+          "voice_mechanism_compound": 16.599999999999998,
           "voice_estill_quality": 6.624999999999999,
           "voice_speech_song": 14.982499999999996,
           "voice_ensemble_config": 10.464999999999995,
-          "voice_ornament_system": 18.779999999999998,
-          "voice_pitch_organization": 18.975,
+          "voice_ornament_system": 17.38,
+          "voice_pitch_organization": 17.575,
           "voice_processing_chain": 1.8199999999999998,
           "voice_multitrack_stack": 2.34
         }
@@ -80,8 +80,8 @@
         },
         "scores": {
           "bowed_technique": 5.75,
-          "lyra_strings": 0.375,
-          "lyra_use": 0.57,
+          "lyra_strings": 0.22499999999999998,
+          "lyra_use": 0.42,
           "lyra_body_wood": 1.7550000000000001,
           "lyra_string_material": 3.9
         }
@@ -121,7 +121,7 @@
           "reed_config": 0.195,
           "bellows": 0.44999999999999996,
           "voicing_chamber": 0,
-          "accordion_maker_school": 10.334999999999999
+          "accordion_maker_school": 9.684999999999999
         }
       },
       {

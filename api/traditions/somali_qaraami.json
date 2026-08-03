@@ -5,7 +5,7 @@
   "lineage": "Somali qaraami art-song tradition emerging in 1940s Mogadishu and Hargeisa as urban-classical Somali popular music, incorporating Arabian peninsular oud and qanun with Somali-language poetic-meter. The genre matured through the Somali Republic golden-age 1960s-1970s with Radio Mogadishu broadcasting the canonical Hargeisa-school singers. Vocal style features melismatic ornament over Arabic maqam vocabulary with Somali-Cushitic vocal-inflection. The post-1991 civil war disrupted institutional transmission; diaspora-revival in Minneapolis, London, and Toronto sustains contemporary practice.",
   "recipe": "classic Middle Eastern mid-1940s somali qaraami song, ballad Poetry, med east poetic branch, middle eastern classical art music libyan maluf sawt. vocal fry, breath veiled tone, slow rate, interlocked note trading. nylon plastic walnut ribs canonical mid tier Lebanese cedar oud, metal finger picks walnut body canonical decorative goat skin bridge plate qanun, spun aluminum Egyptian sombaty goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka. qat chew majlis room. dynamic moving-coil, transformer-coupled solid-state pre, BBC broadcast console, optical compressor, passive program EQ. indian/lebanese/greek vinyl pressing spring reverb.",
   "recipe_chars": 667,
-  "score": 322.675,
+  "score": 309.55,
   "config": {
     "traditions": [
       "somali_qaraami",
@@ -38,16 +38,16 @@
           "voice_quality": 13.129999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 20.475,
+          "voice_vibrato": 18.85,
           "voice_articulation": 12.479999999999995,
           "voice_microtone": 31.134999999999994,
-          "voice_tradition": 32.485,
-          "voice_mechanism_compound": 20.015000000000004,
-          "voice_estill_quality": 18.055,
-          "voice_speech_song": 16.964999999999993,
+          "voice_tradition": 31.235,
+          "voice_mechanism_compound": 18.764999999999997,
+          "voice_estill_quality": 16.804999999999996,
+          "voice_speech_song": 16.314999999999994,
           "voice_ensemble_config": 11.569999999999993,
-          "voice_ornament_system": 28.790000000000003,
-          "voice_pitch_organization": 28.970000000000002,
+          "voice_ornament_system": 27.54,
+          "voice_pitch_organization": 27.72,
           "voice_processing_chain": 3.345,
           "voice_multitrack_stack": 3.440000000000001
         }
@@ -64,9 +64,9 @@
           "oud_string_material": "oud_pyramid_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 15.750000000000002,
+          "plucked_traditional_technique": 14.5,
           "oud_school": 3.3799999999999994,
-          "oud_strings": 8.190000000000001,
+          "oud_strings": 7.54,
           "oud_pick": 2.1900000000000004,
           "oud_body_wood": 1.69,
           "oud_soundboard_wood": 2.8600000000000003,
@@ -85,10 +85,10 @@
           "qanun_string_material": "qanun_fluorocarbon"
         },
         "scores": {
-          "plucked_traditional_technique": 15.750000000000002,
-          "qanun_strings": 8.190000000000001,
+          "plucked_traditional_technique": 14.5,
+          "qanun_strings": 7.54,
           "qanun_levers": -1.05,
-          "qanun_pick": 8.190000000000001,
+          "qanun_pick": 7.54,
           "qanun_body_wood": 1.69,
           "qanun_bridge_skin": 1.69,
           "qanun_string_material": 0
@@ -105,7 +105,7 @@
         "scores": {
           "percussion_technique": 1.56,
           "darbuka_material": 1.69,
-          "darbuka_skin": 1.6349999999999998,
+          "darbuka_skin": 1.4849999999999999,
           "darbuka_regional_style": 4.9399999999999995
         }
       }

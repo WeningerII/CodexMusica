@@ -5,7 +5,7 @@
   "lineage": "Korean epic-narrative solo-vocal tradition with single sorikkun (singer-storyteller) accompanied by single buk barrel-drum gosu (drummer) and aniri spoken-narration interludes between sung passages. Codified late-17th-and-18th-century onward in Cholla-province (southwestern Korean peninsula) from earlier shamanic kut-ritual narrative-chant, evolved through 19th-century master-disciple-school lineages into a 3-to-8-hour concert form covering twelve canonical madang epic-narratives (now five surviving: Chunhyangga, Simcheongga, Heungbuga, Sugungga, Jeokbyeokga). The vocal technique stresses sangchung-cheong middle-register, jjokbal-hoek tonal-coloration, and gyeongdrumeokpan throat-tearing rough-vocal-quality (deliberately broken via years of practice), with strict jangdan rhythmic-cycle alternation from slowest 18/8 jinyangjo to fastest 4/4 hwimori.",
   "recipe": "classic East Asian mid-1930s pansori, drone Modal, vocal branch, east Asian art music, Celtic balladic ballad poetry, sub saharan African praise song gwerz breton tibetan ache lhamo opera. aniri spoken narrative quality interleaved chuseong ascending into slide jungmori medium 12 4 narrative no interjected chuimsae solo canonical five madang narrative repertoire pansori voice, paulownia canonical Korean cowhide canonical Korean buk korean. korean gugak hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 535,
-  "score": 68.71,
+  "score": 66.56,
   "config": {
     "traditions": [
       "pansori",
@@ -23,11 +23,11 @@
           "pansori_voice_repertoire": "pansori_voice_canonical_five"
         },
         "scores": {
-          "pansori_phonation_mechanism": 10.985,
+          "pansori_phonation_mechanism": 10.485,
           "pansori_sigimsae_ornament": 1.3,
-          "pansori_jangdan_cycle": 9.385,
+          "pansori_jangdan_cycle": 8.885,
           "pansori_chuimsae_response": 3.575,
-          "pansori_voice_repertoire": 17.485
+          "pansori_voice_repertoire": 16.835
         }
       },
       {
@@ -39,7 +39,7 @@
           "buk_korean_head": "buk_korean_cowhide_canonical"
         },
         "scores": {
-          "buk_korean_context": 14.274999999999999,
+          "buk_korean_context": 13.774999999999999,
           "buk_korean_construction": 2.53,
           "buk_korean_shell_wood": 7.149999999999999,
           "buk_korean_head": 7.149999999999999

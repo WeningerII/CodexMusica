@@ -5,7 +5,7 @@
   "lineage": "2019-onward extension of phonk into faster-tempo (140-160 BPM) dance-oriented variant, often heavily associated with TikTok car-drifting video content. Characterized by 4/4 dance-beat-derived structure with chopped-vocal phonk-sampling aesthetic, aggressive cowbell-percussion, and explicit Russian-and-Eastern-European-producer geographic-cultural orientation (the Russian phonk scene through Kordhell, MoonDeity, and Pharmacist became the dominant 2021-2023 international scene).",
   "recipe": "classic drift phonk, mc Rhythm, southern branch, house electronic dance fidget house latin house. vocal fry, breath veiled tone, straight onset, interlocked note trading. chopped sampler, TR-808, sub bass analog synth. no single room 2015-present distributed distributed production. dynamic moving-coil, transformerless solid-state pre, brick-wall limiter. lossy MP3 autotune.",
   "recipe_chars": 376,
-  "score": 191.655,
+  "score": 188.405,
   "config": {
     "traditions": [
       "drift_phonk_modern",
@@ -66,7 +66,7 @@
           "sampler_archetypes": 3.55,
           "sampler_bit_depth": 0.52,
           "sampler_workflow": 3.45,
-          "sampler_classic_context": 46.247499999999995
+          "sampler_classic_context": 42.99749999999999
         }
       },
       {

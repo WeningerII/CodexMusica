@@ -5,7 +5,7 @@
   "lineage": "African-American gospel-belt vocal soul tradition codified through Stax Records Memphis (Otis Redding, Sam and Dave, Wilson Pickett, Eddie Floyd, Booker T and the MGs), FAME Studios Muscle Shoals (Aretha Franklin I Never Loved a Man, Wilson Pickett Mustang Sally, Etta James Tell Mama), and Muscle Shoals Sound Studio (Aretha Franklin Spirit in the Dark, Bob Seger, Wilson Pickett)",
   "recipe": "classic Southern American mid-1970s southern soul, functional Song, soul R&B branch, christian gospel ritual devotional black gospel gospel quartet. thick, blues-shouter, wide pitch sway, multi note runs per syllable. Fender blackface amp American 60s amp spring reverb bright wenge flatwound single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled sticks pocket drum kit, gospel runs upright piano, tenor gold brass warmer tone ensemble ebonite saxophone, bach stradivarius 180 canonical American orchestral ensemble standard rim orchestral balance trumpet. converted movie theatre 1957-1975 mid tier stax studio memphis. passive ribbon, Neve 1073 inductor pre, colored vintage console, LA-2A optical, Neve inductor EQ. Studer 30ips tape ibanez tube screamer TS9 / TS808.",
   "recipe_chars": 879,
-  "score": 571.347,
+  "score": 553.673,
   "config": {
     "traditions": [
       "southern_soul",
@@ -31,7 +31,7 @@
         },
         "scores": {
           "electric_technique": 15.694999999999999,
-          "amp_make": 21.384999999999998,
+          "amp_make": 21.234999999999996,
           "body_wood": 0.39,
           "neck_wood": 1,
           "fretboard": 0.195,
@@ -56,10 +56,10 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "amp_make": 24.314999999999998,
+          "amp_make": 24.014999999999997,
           "body_wood": 0.39,
           "pickup_config": 0,
-          "string_type": 19.2225,
+          "string_type": 19.072499999999998,
           "scale_length_b": 0.39749999999999996,
           "fretted_or_not": 0.39,
           "bass_technique": 15.649999999999999
@@ -86,7 +86,7 @@
           "upright_piano_size": "upright_piano_spinet"
         },
         "scores": {
-          "keyboard_technique": 51.295,
+          "keyboard_technique": 48.17,
           "upright_use": 0.24,
           "upright_piano_size": 1.3
         }
@@ -154,22 +154,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 51.26500000000001,
+          "voice_register": 48.76500000000001,
           "voice_quality": 20.214999999999986,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.075,
-          "voice_articulation": 29.625000000000004,
+          "voice_articulation": 27.125000000000007,
           "voice_microtone": 14.689999999999994,
-          "voice_tradition": 58.2175,
+          "voice_tradition": 54.917500000000004,
           "voice_mechanism_compound": 2.8600000000000003,
-          "voice_estill_quality": 45.10000000000001,
+          "voice_estill_quality": 42.60000000000001,
           "voice_speech_song": 18.33,
-          "voice_ensemble_config": 29.64,
+          "voice_ensemble_config": 27.14,
           "voice_ornament_system": 6.2749999999999995,
           "voice_pitch_organization": 1.0399999999999998,
           "voice_processing_chain": 5.3575,
-          "voice_multitrack_stack": 4.940000000000001
+          "voice_multitrack_stack": 4.290000000000001
         }
       }
     ],

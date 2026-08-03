@@ -5,7 +5,7 @@
   "lineage": "Trinidadian Carnival road-march tradition continuous from 19th-century post-emancipation Carnival celebrations through 20th-century calypso (1930s-1960s Lord Kitchener and Mighty Sparrow era) and soca (1970s-onward Lord Shorty era) into modern Trinidad-and-Tobago Carnival continuous practice; the \"Road March\" is the canonical Carnival competition for the song most-played during Carnival processional",
   "recipe": "classic Caribbean mid-1930s trinidad calypso-soca road march, carnival Processional, Caribbean branch, Brazilian carnival processional, americas wedding, iberian Latin protest song brazilian samba-school enredo andean matrimonio huayno. breath veiled tone, straight onset, interlocked note trading, neutral third half flat. concert stage steel steelpan, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral continuous-airflow legato standard rim trumpet, pre muffled edge muffled brushes-and-sticks drum kit, steel orchestra. trinidad calypso panyard outdoor. sennheiser MD421, transformer-coupled solid-state pre, MCI JH-636 US 70s indie/jazz, dbx 160 VCA, parametric EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 764,
-  "score": 199.068,
+  "score": 191.218,
   "config": {
     "traditions": [
       "trinidad_road_march",
@@ -35,18 +35,18 @@
         },
         "scores": {
           "voice_register": 0.47500000000000014,
-          "voice_quality": 25.240374999999997,
+          "voice_quality": 22.74037499999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.2500000000000004,
           "voice_articulation": 12.739999999999995,
           "voice_microtone": 12.934999999999992,
-          "voice_tradition": 22.058249999999994,
+          "voice_tradition": 19.358249999999998,
           "voice_mechanism_compound": 0.78,
-          "voice_estill_quality": 8.705625,
+          "voice_estill_quality": 7.4556249999999995,
           "voice_speech_song": 16.249999999999996,
           "voice_ensemble_config": 12.869999999999994,
-          "voice_ornament_system": 14.244999999999997,
+          "voice_ornament_system": 12.844999999999995,
           "voice_pitch_organization": 6.759999999999999,
           "voice_processing_chain": 4.9615,
           "voice_multitrack_stack": 6.045

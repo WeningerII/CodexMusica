@@ -5,7 +5,7 @@
   "lineage": "Late-1950s/60s cool-school West-Coast-jazz vocal aesthetic — Chet Baker (Sings, 1954), June Christy, Anita ODay, Julie London — restrained delivery, intimate microphone presence, small-group accompaniment, contrasted against the muscular East Coast hard bop of the same period",
   "recipe": "classic North American 1957-1959 cool jazz vocal, improv On Frame, smooth vocal branch, Latin jazz improv on frame descarga ethio-jazz. thick, breath veiled tone, straight onset, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator a 415 grand piano, growly gut upright bass, vintage ambassador asymmetric brushes drum kit, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris lyrical continuous-airflow saxophone. capitol tower 1750 vine 1956-present major-flagship capitol tower studios la. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 662,
-  "score": 381.923,
+  "score": 366.09,
   "config": {
     "traditions": [
       "cool_jazz_vocal",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 26.07875,
+          "voice_register": 24.82875,
           "voice_quality": 13.462499999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 25.701125,
+          "voice_vibrato": 24.327375000000004,
           "voice_articulation": 7.735000000000001,
-          "voice_microtone": 24.875,
-          "voice_tradition": 29.223875,
+          "voice_microtone": 23.625,
+          "voice_tradition": 27.420125,
           "voice_mechanism_compound": 2.925,
           "voice_estill_quality": 1.885,
           "voice_speech_song": 8.905000000000001,
           "voice_ensemble_config": 8.060000000000002,
           "voice_ornament_system": 0.6499999999999999,
           "voice_pitch_organization": 7.844999999999998,
-          "voice_processing_chain": 5.56925,
-          "voice_multitrack_stack": 6.333
+          "voice_processing_chain": 5.4205,
+          "voice_multitrack_stack": 6.1842500000000005
         }
       },
       {
@@ -84,8 +84,8 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 25.125,
-          "upright_play": 25.125
+          "upright_strings": 23.875,
+          "upright_play": 23.875
         }
       },
       {
@@ -96,8 +96,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 25.125,
-          "drumhead": 31.841375000000003,
+          "drum_technique": 23.875,
+          "drumhead": 30.037625000000002,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -116,10 +116,10 @@
           "wind_articulation": 6.544999999999999,
           "sax_size": 1.575,
           "sax_reed": 0.845,
-          "sax_body_alloy": 25.320000000000004,
+          "sax_body_alloy": 24.070000000000004,
           "sax_mouthpiece": 0.845,
-          "sax_technique": 25.125,
-          "sax_maker_school": 34.083875
+          "sax_technique": 23.875,
+          "sax_maker_school": 32.280125
         }
       }
     ],

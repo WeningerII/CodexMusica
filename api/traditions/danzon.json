@@ -5,7 +5,7 @@
   "lineage": "Cuban late-19th-century elegant-couple-dance tradition derived from European-contradanza imported through Haitian-French Saint-Domingue refugees 1791-onward, codified 1879-onward in Matanzas-and-Havana by orquesta-típica orchestral ensembles. The dance unfolds through ABACA rondo-form (introduction-and-paseo-promenade, A-section, B-section, A-return, C-trio-section, A-return), allowing partner-couples to alternate between dancing and resting during instrumental-trio-sections. The classic charanga-francesa ensemble: two flutes (one wooden, one metal), two violins, contrabass, piano, timbales (with cáscara stick-rhythm-on-shell), and güiro scraper. The danzón seeded the cha-cha-chá 1953-onward and danzonete vocal-variant 1929-onward and remains a living tradition through danzonera dance-hall events in Havana, Mérida, and Mexico-City.",
   "recipe": "classic Caribbean modern danzón, groove Percussion, charanga danza branch, rumba Cuban rumba cubana yambú. powell boston canonical American orchestral flute, sitka spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral, beech laminated maple laminated European tradition European spruce norway spruce grand piano, upright bass, open slap hand drum timbales, guiro. pre revolutionary cuba 1944-1960 mid tier panart puchito havana pre 1959. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 575,
-  "score": 36.857,
+  "score": 36.819,
   "config": {
     "traditions": [
       "danzon",
@@ -49,12 +49,12 @@
           "orch_strings": 0.105,
           "orch_top_wood": 2.0799999999999996,
           "orch_back_wood": 2.275,
-          "orch_varnish": 1.16125,
+          "orch_varnish": 1.14875,
           "orch_setup_period": -0.07,
           "orch_bow": 5.525,
           "orch_bow_stick": -0.05,
           "orch_articulation": 0.105,
-          "orch_rosin": 1.01125
+          "orch_rosin": 0.9987499999999999
         }
       },
       {
@@ -74,7 +74,7 @@
           "keyboard_technique": 0.52,
           "grand_piano_size": 1.11375,
           "grand_piano_brand": 0.3165,
-          "piano_hammer": 1.0787499999999999,
+          "piano_hammer": 1.06625,
           "piano_rim": 4.4075,
           "piano_soundboard": 4.578749999999999,
           "piano_pinblock": -0.05,

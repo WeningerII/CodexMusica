@@ -5,7 +5,7 @@
   "lineage": "Carnatic rhythmic showpiece genre using non-lexical jathi syllables (dhim, tarana, dhirana) alongside short Sanskrit or Telugu praise-text — the Carnatic counterpart of the Hindustani tarana, typically performed as the concert-closer of a kutcheri; composers Swati Tirunal Rama Varma (Maharaja of Travancore, 1813-1846), Pallavi Seshayyar, the modern composer Lalgudi Jayaraman",
   "recipe": "classic South Asian early-1810s tillana, ritual Devotional, hindu branch, indian classical improv improv on frame tarana tappa. vocal fry, breath veiled tone, slow rate, punctuated. jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, steel projecting modern concert lalgudi lineage carnatic legato violin carnatic, suited to female vocal wooden body miraj style tanpura. chennai madras music academy sabha. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
   "recipe_chars": 502,
-  "score": 215.586,
+  "score": 200.733,
   "config": {
     "traditions": [
       "tillana",
@@ -28,7 +28,7 @@
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_non_lexical_vocable",
           "voice_ensemble_config": "voice_ensemble_gang_vocal_unison",
-          "voice_ornament_system": "voice_ornament_hindustani_meend_gamak",
+          "voice_ornament_system": "voice_ornament_carnatic_gamaka",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_plate_reverb_medium",
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
@@ -38,16 +38,16 @@
           "voice_quality": 7.930000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 12.5125,
+          "voice_vibrato": 10.8875,
           "voice_articulation": 3.2224999999999997,
           "voice_microtone": 1.0399999999999996,
-          "voice_tradition": 21.384999999999998,
-          "voice_mechanism_compound": 9.524999999999999,
-          "voice_estill_quality": 12.522499999999996,
+          "voice_tradition": 19.759999999999998,
+          "voice_mechanism_compound": 8.274999999999999,
+          "voice_estill_quality": 11.272499999999996,
           "voice_speech_song": 13.844999999999999,
           "voice_ensemble_config": 4.8100000000000005,
-          "voice_ornament_system": 21.47375,
-          "voice_pitch_organization": 20.349999999999998,
+          "voice_ornament_system": 18.619999999999997,
+          "voice_pitch_organization": 18.799999999999997,
           "voice_processing_chain": 2.8600000000000003,
           "voice_multitrack_stack": 6.369999999999999
         }
@@ -62,9 +62,9 @@
           "mridangam_lineage": "mridangam_palghat"
         },
         "scores": {
-          "mridangam_heads": 5.004999999999999,
+          "mridangam_heads": 4.3549999999999995,
           "mridangam_use": 0,
-          "mridangam_shell_wood": 4.664999999999999,
+          "mridangam_shell_wood": 4.364999999999999,
           "mridangam_heads_material": 0,
           "mridangam_lineage": 5.525
         }
@@ -79,7 +79,7 @@
           "violin_carnatic_lineage": "violin_carnatic_lalgudi"
         },
         "scores": {
-          "bowed_technique": 10.32,
+          "bowed_technique": 9.07,
           "violin_carnatic_tuning": 4.745,
           "violin_carnatic_posture": 4.09,
           "violin_carnatic_strings": 5.195,
@@ -97,9 +97,9 @@
           "tanpura_body_wood": "tanpura_wooden_body"
         },
         "scores": {
-          "plucked_traditional_technique": 10.32,
+          "plucked_traditional_technique": 9.07,
           "tanpura_size": 5.069999999999999,
-          "tanpura_jawari": 9.625,
+          "tanpura_jawari": 8.375,
           "tanpura_strings": 1.4999999999999998,
           "tanpura_string_material": 0.24,
           "tanpura_body_wood": 1.285

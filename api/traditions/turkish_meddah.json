@@ -5,7 +5,7 @@
   "lineage": "One-man dramatic storytelling of the Ottoman and Turkish coffeehouse, in which the meddah ('panegyrist, eulogist') narrates a tale while impersonating every character through shifts of voice, dialect and gesture, using only a handkerchief (mendil) and a staff (baston) as props. Rooted in the medieval Islamic panegyric-storyteller and flourishing in Istanbul kahvehane through the nineteenth century, the art was recognised by UNESCO on the Representative List of the Intangible Cultural Heritage of Humanity in 2008. The delivery is improvisatory spoken theatre, opening with formulaic patter and rich in mimicry and topical comic aside.",
   "recipe": "classic North African late-2000s turkish meddah storytelling, ballad Poetry, med east poetic branch cape verdean batuko of santiago island jeju haenyeo songs. thick, breath veiled tone, straight note core, interlocked note trading. stone plaster medina room. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 321,
-  "score": 258.354,
+  "score": 257.704,
   "config": {
     "traditions": [
       "turkish_meddah",
@@ -48,7 +48,7 @@
           "voice_ensemble_config": 30.81,
           "voice_ornament_system": 2.795,
           "voice_pitch_organization": 6.363,
-          "voice_processing_chain": 14.43,
+          "voice_processing_chain": 13.78,
           "voice_multitrack_stack": 5.135
         }
       }

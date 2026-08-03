@@ -5,7 +5,7 @@
   "lineage": "Irish-Gaelic unaccompanied old-style solo-vocal tradition performed in Connemara (most melismatic regional school), Donegal (most straight-toned), and West Kerry / Munster (intermediate) Gaeltacht regions — repertoire includes laments (caointe), lullabies, working songs, love songs, and narrative ballads in the Irish language",
   "recipe": "classic Northern European early-1940s sean-nós solo singing, ballad Poetry, sean nos branch, vocal drone modal silbo gomero whistled language armenian duduk-accompanied chant. vocal fry, keening, slow rate, interlocked note trading. connemara kitchen sean nos. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 335,
-  "score": 244.51,
+  "score": 243.71,
   "config": {
     "traditions": [
       "sean_nos_solo",
@@ -46,8 +46,8 @@
           "voice_estill_quality": 9.1325,
           "voice_speech_song": 24.439999999999998,
           "voice_ensemble_config": 23.39999999999999,
-          "voice_ornament_system": 36.69,
-          "voice_pitch_organization": 9.155000000000001,
+          "voice_ornament_system": 36.54,
+          "voice_pitch_organization": 8.505,
           "voice_processing_chain": 9.035,
           "voice_multitrack_stack": 11.05
         }

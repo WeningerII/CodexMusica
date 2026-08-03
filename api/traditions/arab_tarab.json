@@ -5,7 +5,7 @@
   "lineage": "Arab East (Egyptian, Levantine, Syrian, Iraqi) classical-vocal art-music tradition built on the takht ensemble (oud, qanun, ney, riq, kamancheh, with violin section added in the 20th-century Egyptian extension) accompanying a virtuoso vocal soloist performing elaborated maqam-system vocal-form on classical Arabic poetry; figures include Mohammed Abdel Wahab, Sayed Darwish, and the post-WWII era anchored by Umm Kulthum and Abdel Halim Hafez",
   "recipe": "classic North African early-1940s tarab, improv On Frame, Persian arab improv branch, middle eastern classical art music, med east poetic ballad poetry shashmaqam azerbaijani mugham. vocal fry, breath veiled tone, slow rate, interlocked note trading. padauk Egyptian Syrian premium Lebanese cedar eastern Mediterranean pyramid oud, metal finger picks rosewood body arab premium goat skin bridge plate qanun, rosewood mop inlay canonical Egyptian takht fish skin canonical Egyptian light responsive brass jingles canonical takht riq, arundo donax cane canonical Persian nine segment hassan kassai canonical 20th century Persian radif continuous-airflow legato ney, kayhan kalhor canon walnut canonical Persian steel modern legato kamancheh, court tradition pre twentieth century takht arab. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
   "recipe_chars": 991,
-  "score": 675.396,
+  "score": 655.571,
   "config": {
     "traditions": [
       "arab_tarab",
@@ -38,16 +38,16 @@
           "voice_quality": 21.710000000000004,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 30.259500000000003,
+          "voice_vibrato": 28.397000000000006,
           "voice_articulation": 12.739999999999995,
           "voice_microtone": 49.82249999999999,
-          "voice_tradition": 57.90325,
-          "voice_mechanism_compound": 37.01500000000001,
-          "voice_estill_quality": 30.6965,
-          "voice_speech_song": 24.96,
+          "voice_tradition": 55.89075,
+          "voice_mechanism_compound": 35.76500000000001,
+          "voice_estill_quality": 29.4465,
+          "voice_speech_song": 23.71,
           "voice_ensemble_config": 13.909999999999993,
-          "voice_ornament_system": 39.048750000000005,
-          "voice_pitch_organization": 43.035000000000004,
+          "voice_ornament_system": 37.798750000000005,
+          "voice_pitch_organization": 41.635000000000005,
           "voice_processing_chain": 8.189999999999998,
           "voice_multitrack_stack": 4.955
         }
@@ -64,9 +64,9 @@
           "oud_string_material": "oud_pyramid_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 23.25,
+          "plucked_traditional_technique": 22,
           "oud_school": 6.960000000000001,
-          "oud_strings": 12.09,
+          "oud_strings": 11.440000000000001,
           "oud_pick": 1.19,
           "oud_body_wood": 3.3449999999999998,
           "oud_soundboard_wood": 2.8600000000000003,
@@ -85,10 +85,10 @@
           "qanun_string_material": "qanun_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 23.25,
-          "qanun_strings": 12.09,
+          "plucked_traditional_technique": 22,
+          "qanun_strings": 11.440000000000001,
           "qanun_levers": -0.7,
-          "qanun_pick": 13.325,
+          "qanun_pick": 12.675,
           "qanun_body_wood": 6.473749999999999,
           "qanun_bridge_skin": 2.5349999999999997,
           "qanun_string_material": 0.25999999999999945
@@ -104,7 +104,7 @@
           "riq_jingles": "riq_brass_jingles"
         },
         "scores": {
-          "riq_size": 14.17,
+          "riq_size": 13.52,
           "riq_context": 4.16,
           "riq_shell_wood": 6.9007499999999995,
           "riq_head_material": 5.525,
@@ -121,9 +121,9 @@
           "ney_lineage": "ney_hassan_kassai"
         },
         "scores": {
-          "wind_articulation": 23.290000000000003,
+          "wind_articulation": 22.040000000000003,
           "ney_use": 8.86375,
-          "ney_pitch": 12.09,
+          "ney_pitch": 11.440000000000001,
           "ney_body_material": 7.93,
           "ney_lineage": 15.535000000000002
         }
@@ -138,9 +138,9 @@
           "kamancheh_strings": "kamancheh_steel_modern"
         },
         "scores": {
-          "bowed_technique": 23.25,
-          "kamancheh_belly": 12.480000000000002,
-          "kamancheh_use": 18.915,
+          "bowed_technique": 22,
+          "kamancheh_belly": 11.830000000000002,
+          "kamancheh_use": 18.265,
           "kamancheh_body_wood": 7.93,
           "kamancheh_strings": 1.2349999999999997
         }

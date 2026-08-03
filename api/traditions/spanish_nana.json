@@ -5,7 +5,7 @@
   "lineage": "Spanish cradle-song tradition across the Spanish-speaking world from Andalusia through Castile to Latin America; documented from 19th-century folk-song collection forward through Federico García Lorca's 1928 Madrid lecture on the form",
   "recipe": "classic late-1920s spanish nana, lullaby, European branch, middle eastern lullaby, Mediterranean ballad ballad poetry, iberian functional song, vocal drone modal persian lālā'ī arabic tahwidah. thick, breath veiled tone, slow rate, interlocked note trading. carpeted bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 338,
-  "score": 169.727,
+  "score": 161.352,
   "config": {
     "traditions": [
       "spanish_nana",
@@ -40,14 +40,14 @@
           "voice_effort": 0,
           "voice_vibrato": 6.11,
           "voice_articulation": 7.735,
-          "voice_microtone": 30.387499999999996,
-          "voice_tradition": 22.29,
-          "voice_mechanism_compound": 15.419999999999998,
+          "voice_microtone": 28.7625,
+          "voice_tradition": 20.889999999999997,
+          "voice_mechanism_compound": 14.169999999999998,
           "voice_estill_quality": 7.335,
-          "voice_speech_song": 18.069999999999997,
+          "voice_speech_song": 16.769999999999996,
           "voice_ensemble_config": 7.67,
-          "voice_ornament_system": 16.275,
-          "voice_pitch_organization": 16.86,
+          "voice_ornament_system": 14.874999999999998,
+          "voice_pitch_organization": 15.459999999999999,
           "voice_processing_chain": 3.834999999999999,
           "voice_multitrack_stack": 4.81
         }

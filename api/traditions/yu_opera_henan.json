@@ -5,7 +5,7 @@
   "lineage": "Yu opera Henan provincial Chinese opera tradition, the largest of the bangzi (wooden-clapper) opera family by audience and the second-largest Chinese opera tradition after jingju by aggregate national reach. Origin in seventeenth-eighteenth century Henan from earlier folk-music synthesis with qinqiang influences. Distinguished from neighboring qinqiang by softer, more lyrical vocal register and accessible Henan-dialect Mandarin language. Canonical play Hua Mulan (the female-warrior legend) constitutes the type-specimen of yu opera's strong female-protagonist tradition. The post-1949 Henan Yu Opera Theatre under Chang Xiangyu consolidated the modern repertoire.",
   "recipe": "classic Southeast Asian late-1940s yu opera, art Music, east Asian branch, east Asian Cantonese opera. thick, pressed, slow rate, interlocked note trading. python skin silk canonical traditional sanxian, composite material paulownia canonical Korean horse dog asymmetric canonical Korean pansori godo janggu. wooden pagoda hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 401,
-  "score": 254.078,
+  "score": 247.657,
   "config": {
     "traditions": [
       "yu_opera_henan",
@@ -34,19 +34,19 @@
         },
         "scores": {
           "voice_register": 5.280000000000001,
-          "voice_quality": 18.124999999999996,
+          "voice_quality": 17.374999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 6.695,
           "voice_articulation": 7.799999999999999,
           "voice_microtone": 7.6049999999999995,
-          "voice_tradition": 34.92525,
+          "voice_tradition": 34.67775,
           "voice_mechanism_compound": 4.4,
-          "voice_estill_quality": 37.97050000000001,
-          "voice_speech_song": 34.404500000000006,
+          "voice_estill_quality": 36.298,
+          "voice_speech_song": 33.154500000000006,
           "voice_ensemble_config": 10.009999999999998,
-          "voice_ornament_system": 33.805,
-          "voice_pitch_organization": 17.58175,
+          "voice_ornament_system": 32.555,
+          "voice_pitch_organization": 16.331749999999996,
           "voice_processing_chain": 6.305,
           "voice_multitrack_stack": 2.502499999999999
         }

@@ -5,7 +5,7 @@
   "lineage": "Mid-to-late-2000s house subgenre characterized by aggressive distorted-synth-lead production, heavy compression, four-on-the-floor beat with prominent off-beat bass, and explicit big-room festival-targeting. Justice's Cross (2007), Daft Punk's Discovery-influenced production legacy, and the broader French house lineage anchored the canonical aesthetic. The genre spawned the broader EDM-festival era of 2008-2012.",
   "recipe": "classic 2008-2012 electro house, electronic Dance, house branch, thrash metal, industrial noise experimental electric djent. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, plucked short envelope analog synth. no single room 2015-present distributed distributed production. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
   "recipe_chars": 463,
-  "score": 32.719,
+  "score": 32.069,
   "config": {
     "traditions": [
       "electro_house_2000s",
@@ -38,7 +38,7 @@
         "scores": {
           "electronic_technique": 3.2,
           "oscillator": 2.535,
-          "filter_topology": 5.07,
+          "filter_topology": 4.42,
           "envelope": 0.845,
           "modulation": 0.09
         }

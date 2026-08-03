@@ -3,9 +3,9 @@
   "name": "Kuduro",
   "family": "global",
   "lineage": "Angolan high-tempo electronic dance genre codified in late-1980s Luanda — characterized by 140-150 BPM hectic kick patterns, Portuguese-Kimbundu vocals, batida rhythmic foundation; Tony Amado, Buraka Som Sistema (Portuguese-Angolan diaspora), and DJ Marfox extending the canon through the 2000s into international electronic music",
-  "recipe": "classic Southern African 1987-1989 kuduro, electronic Dance, African dance branch, Afro-diasporic electric groove percussion, Afro-diasporic MC rhythm kwaito south african kwaito. sygyt, breath veiled tone, straight onset, interlocked note trading. TR-808, sub bass analog poly synth, high-gain-saturation sub bass monosynth acid bass. live tracking. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
-  "recipe_chars": 434,
-  "score": 143.443,
+  "recipe": "classic Southern African 1987-1989 kuduro, electronic Dance, African dance branch, Afro-diasporic electric groove percussion, Afro-diasporic MC rhythm kwaito south african kwaito. vocal fry, breath veiled tone, straight onset, interlocked note trading. TR-808, sub bass analog poly synth, high-gain-saturation sub bass monosynth acid bass. live tracking. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
+  "recipe_chars": 438,
+  "score": 141.934,
   "config": {
     "traditions": [
       "kuduro",
@@ -16,7 +16,7 @@
       {
         "id": "voice",
         "slots": {
-          "voice_register": "sygyt_register",
+          "voice_register": "vocal_fry",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -34,16 +34,16 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 2.064625,
+          "voice_register": 2.0149999999999997,
           "voice_quality": 7.41,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.8199999999999998,
           "voice_articulation": 13.714999999999995,
           "voice_microtone": 13.51999999999999,
-          "voice_tradition": 21.018124999999998,
+          "voice_tradition": 19.768124999999998,
           "voice_mechanism_compound": 2.015,
-          "voice_estill_quality": 1.9915,
+          "voice_estill_quality": 1.8865,
           "voice_speech_song": 14.884999999999994,
           "voice_ensemble_config": 13.649999999999993,
           "voice_ornament_system": 2.470000000000001,
@@ -91,7 +91,7 @@
         "scores": {
           "electronic_technique": 3.2175000000000007,
           "wave_acid": 2.08,
-          "filter_acid": 1.8415000000000001,
+          "filter_acid": 1.7365000000000002,
           "accent_acid": 0.28462499999999996
         }
       }

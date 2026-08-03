@@ -5,7 +5,7 @@
   "lineage": "German-language children's play-song (Kinderlieder) and counting-out-rhyme (Abzählreime) tradition continuous from medieval-and-early-modern German folk-play-song origins through Brothers Grimm 19th-century Kinder- und Hausmärchen documentation context (the Grimm collection includes children's-rhyme apparatus) through 19th-20th century German school-curriculum codification into modern continuous Austrian-and-Swiss-and-German childhood-practice",
   "recipe": "classic modern german kinderlieder and abzählreime, nursery Rhyme, European branch, European lullaby, americas nursery rhyme, chanson fado ballad poetry morna cape verdean batuko of santiago island. thick, breath veiled tone, straight onset, interlocked note trading. parlor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 338,
-  "score": 182.288,
+  "score": 181.262,
   "config": {
     "traditions": [
       "german_kinderlieder",
@@ -39,16 +39,16 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.9,
-          "voice_articulation": 25.9825,
-          "voice_microtone": 27.5225,
+          "voice_articulation": 25.807499999999997,
+          "voice_microtone": 27.347499999999997,
           "voice_tradition": 19.452499999999993,
           "voice_mechanism_compound": 4.484999999999999,
           "voice_estill_quality": 3.9924999999999997,
           "voice_speech_song": 33.8325,
-          "voice_ensemble_config": 25.1775,
+          "voice_ensemble_config": 25.002499999999998,
           "voice_ornament_system": 1.2999999999999998,
           "voice_pitch_organization": 4.510000000000001,
-          "voice_processing_chain": 7.077500000000002,
+          "voice_processing_chain": 6.577500000000002,
           "voice_multitrack_stack": 4.5725
         }
       }

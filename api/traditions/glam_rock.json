@@ -5,7 +5,7 @@
   "lineage": "Early-mid-1970s UK androgynous-theatrical riff-rock — codified through T. Rex (Marc Bolans Electric Warrior 1971, Slider 1972), David Bowie (the Ziggy Stardust 1972 and Aladdin Sane 1973 glam-era persona before his Berlin Trilogy art-rock turn), Roxy Music (early glam-art-rock fusion), Slade (the British Black Country working-class glam rock canon), Sweet, Mott the Hoople, Suzi Quatro, Gary Glitter — followed by the proto-punk American extensions New York Dolls and Iggy and the Stooges glam-period albums",
   "recipe": "classic Northern European 1974-1976 glam rock, distorted Rock, glam rock branch, classic distorted rock, art rock distorted rock hard rock. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany humbucker electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, multiphonic saxophone, string machine. London major flagship studio 1968-1985 major-flagship uk 70s hard rock arena studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb MXR phase 90 dallas arbiter fuzz face.",
   "recipe_chars": 852,
-  "score": 722.142,
+  "score": 700.274,
   "config": {
     "traditions": [
       "glam_rock",
@@ -34,13 +34,13 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 67.89437500000004,
+          "voice_register": 65.39437500000004,
           "voice_quality": 19.369999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 10.209999999999999,
           "voice_articulation": 17.094999999999988,
-          "voice_microtone": 60.49500000000003,
+          "voice_microtone": 57.99500000000003,
           "voice_tradition": 5.694999999999999,
           "voice_mechanism_compound": 11.894999999999998,
           "voice_estill_quality": 5.466875,
@@ -71,7 +71,7 @@
         },
         "scores": {
           "electric_technique": 12.35,
-          "amp_make": 38.7075,
+          "amp_make": 37.4075,
           "body_wood": 3.9,
           "neck_wood": 3.9,
           "fretboard": 3.835,
@@ -82,7 +82,7 @@
           "scale_length": 3.9,
           "string_gauge": 3.9,
           "finish": 0.435,
-          "string_tuning": 34.45000000000001
+          "string_tuning": 32.50000000000001
         }
       },
       {
@@ -97,13 +97,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 32.50000000000001,
+          "amp_make": 31.20000000000001,
           "body_wood": 3.9,
           "pickup_config": 0,
-          "string_type": 67.71875000000003,
+          "string_type": 64.30000000000001,
           "scale_length_b": 4.29,
           "fretted_or_not": 0,
-          "bass_technique": 61.351875000000014
+          "bass_technique": 58.851875000000014
         }
       },
       {
@@ -114,7 +114,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 55.87062500000002,
+          "drum_technique": 53.37062500000002,
           "drumhead": 5.070625,
           "drum_kit_kick_pedal": 0
         }
@@ -136,8 +136,8 @@
           "keyboard_technique": 5.466249999999999,
           "grand_piano_size": 3.9,
           "grand_piano_brand": 4.095,
-          "piano_hammer": 31.330000000000005,
-          "piano_rim": 31.915000000000006,
+          "piano_hammer": 29.380000000000006,
+          "piano_rim": 29.965000000000003,
           "piano_soundboard": 4.914999999999999,
           "piano_pinblock": -0.05,
           "piano_plate": 0.78,

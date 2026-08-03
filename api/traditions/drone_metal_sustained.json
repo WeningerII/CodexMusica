@@ -3,9 +3,9 @@
   "name": "Drone metal (1990s extreme-deceleration sustained-tone metal)",
   "family": "rock_punk",
   "lineage": "1990s heavy-metal subgenre developed from doom metal's extreme deceleration, characterized by extreme-down-tuned distorted-guitar drone textures, glacial tempi (often single notes sustained 30-90 seconds), heavy amplifier-and-feedback emphasis, and minimal-to-absent traditional rhythmic-or-vocal content. Earth's Earth 2 (1993, Dylan Carlson) inaugurated the canonical sound; Sunn O))) (Stephen O'Malley and Greg Anderson, founded 1998), Boris, and the broader Southern Lord Records label roster anchor the canonical drone metal aesthetic.",
-  "recipe": "classic Midwestern American drone metal, distorted Rock, doom branch, ambient experimental electric dark ambient darksynth. orange amp British heavy crunch basswood mahogany rosewood humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, kevlar aramid extreme tension brushes-and-sticks drum kit. stoner doom garage amplifier room. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 524,
-  "score": 138.462,
+  "recipe": "classic Midwestern American drone metal, distorted Rock, doom branch, ambient experimental electric dark ambient darksynth. orange amp British heavy crunch basswood power chord humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, kevlar aramid extreme tension brushes-and-sticks drum kit. stoner doom garage amplifier room. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 509,
+  "score": 132.427,
   "config": {
     "traditions": [
       "drone_metal_sustained",
@@ -20,7 +20,7 @@
           "amp_make": "amp_british_orange",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "rosewood_fb_h",
+          "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
@@ -32,16 +32,16 @@
         },
         "scores": {
           "electric_technique": 25.509999999999998,
-          "amp_make": 11.954999999999998,
-          "body_wood": 15.693928571428568,
-          "neck_wood": 1.4949999999999999,
-          "fretboard": 1.4299999999999997,
+          "amp_make": 11.305,
+          "body_wood": 15.043928571428568,
+          "neck_wood": 0.845,
+          "fretboard": 0.845,
           "pickup_magnet": 0.15,
           "pickup_winding": 0.15,
           "string_material": 0.845,
-          "bridge": 1.4949999999999999,
+          "bridge": 0.845,
           "scale_length": 15.088928571428568,
-          "string_gauge": 1.4949999999999999,
+          "string_gauge": 0.845,
           "finish": 0,
           "string_tuning": 16.95392857142857
         }
@@ -58,11 +58,11 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 11.954999999999998,
-          "body_wood": 1.4949999999999999,
+          "amp_make": 11.305,
+          "body_wood": 0.845,
           "pickup_config": 0.15,
           "string_type": 5.135,
-          "scale_length_b": 1.4949999999999999,
+          "scale_length_b": 0.845,
           "fretted_or_not": 0,
           "bass_technique": 4.575
         }

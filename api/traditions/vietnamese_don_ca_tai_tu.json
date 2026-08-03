@@ -5,7 +5,7 @@
   "lineage": "Vietnamese đờn ca tài tử (\"music of talented amateurs\") southern-Vietnamese chamber-music tradition emerging in late-nineteenth-century Mekong Delta from the synthesis of the older nhã nhạc court-music tradition with southern-Vietnamese folk-music. Performance configuration: small intimate amateur-ensemble of literate-class male and female musicians playing đàn tranh sixteen-string zither, đàn bầu one-string monochord, đàn nguyệt moon-lute, đàn tỳ bà pear-lute, đàn cò two-string fiddle, plus singer. Repertoire organized around the twenty bản tổ canonical melodic patterns. The form is the direct musical ancestor of cải lương southern-popular theatre.",
   "recipe": "classic Southeast Asian mid-1930s vietnamese đờn ca tài tử, art Music, southeast Asian branch, east Asian Cantonese opera. thick, breath veiled tone, slow rate, interlocked note trading. paulownia dan tranh, dan bau, silk red sandalwood zitan premium pipa, dan nguyet. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 436,
-  "score": 175.95,
+  "score": 170.553,
   "config": {
     "traditions": [
       "vietnamese_don_ca_tai_tu",
@@ -42,11 +42,11 @@
           "voice_microtone": 5.915000000000001,
           "voice_tradition": 18.46,
           "voice_mechanism_compound": 4.4,
-          "voice_estill_quality": 17.4225,
-          "voice_speech_song": 11.916749999999999,
+          "voice_estill_quality": 15.774999999999997,
+          "voice_speech_song": 10.666749999999999,
           "voice_ensemble_config": 8.32,
-          "voice_ornament_system": 11.7,
-          "voice_pitch_organization": 25.9655,
+          "voice_ornament_system": 10.45,
+          "voice_pitch_organization": 24.7155,
           "voice_processing_chain": 3.6125000000000003,
           "voice_multitrack_stack": 2.275
         }

@@ -5,7 +5,7 @@
   "lineage": "Maronite Catholic liturgical chant of the Maronite Church (the largest Eastern Catholic Church, in full communion with Rome, centered in Lebanon). Lineage descends from the broader West-Syriac Antiochene rite. The Beth Gazo eight-mode oktoechos system is shared with Syriac Orthodox but with Maronite-Lebanese recension and Latin-rite influences from post-twelfth-century communion with Rome. The Quzhaya monastery in the Qadisha Valley (founded sixteenth century) and Patriarchal seat at Bkerké anchor institutional transmission. Liturgical language is Syriac for the Eucharistic anaphora and Arabic for most other content.",
   "recipe": "classic Caucasian modern maronite liturgical chant, ritual Devotional, coptic branch, western early art music ars antiqua and organum ars nova. thick, breath veiled tone, slow rate, interlocked note trading. mixed satb canonical 4 part western four voice polyphonic regional svanetian complex three voice highland polyphonic choir ensemble. stone armenian church. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 426,
-  "score": 161.819,
+  "score": 157.529,
   "config": {
     "traditions": [
       "maronite_chant",
@@ -39,13 +39,13 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 6.5,
-          "voice_articulation": 14.169999999999998,
-          "voice_microtone": 18.069999999999997,
+          "voice_articulation": 12.479999999999995,
+          "voice_microtone": 17.419999999999995,
           "voice_tradition": 9.48375,
           "voice_mechanism_compound": 7.6049999999999995,
           "voice_estill_quality": 7.215000000000001,
-          "voice_speech_song": 13.129999999999997,
-          "voice_ensemble_config": 17.289999999999996,
+          "voice_speech_song": 12.479999999999995,
+          "voice_ensemble_config": 16.639999999999997,
           "voice_ornament_system": 8.700000000000001,
           "voice_pitch_organization": 8.545,
           "voice_processing_chain": 4.030000000000001,
@@ -64,7 +64,7 @@
           "choir_size": 2.8600000000000003,
           "choir_polyphonic_configuration": 3.38,
           "choir_regional_canonical_configuration": 3.38,
-          "choir_ensemble_repertoire": 6.5649999999999995
+          "choir_ensemble_repertoire": 5.915
         }
       }
     ],

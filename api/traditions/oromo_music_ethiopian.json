@@ -5,7 +5,7 @@
   "lineage": "Oromo vocal-and-instrumental tradition of central-southern Ethiopia and northern Kenya, the largest Cushitic-language-speaking community in the Horn of Africa. Repertoire spans geerarsa men's heroic chant, weedduu wedding songs, irreecha thanksgiving songs at Lake Hora Arsadi, and contemporary Afaan Oromoo political-protest song. Performance integrates voice-led melodic content with krar, masenqo, and kebero accompaniment. Modal vocabulary draws on qenet pentatonic with Borana-Macha-Tulama-Arsi regional cadential vocabulary.",
   "recipe": "classic East African modern oromo music, ballad Poetry, west African griot branch, med east poetic ballad poetry pontic greek music ethiopian azmari minstrel-poet. vocal fry, breath veiled tone, pure, interlocked note trading. gut ethiopian historical krar, calfskin canonical ethiopian orthodox ethiopian olive canonical conical staved kebero, curved horsehair bow canonical ethiopian azmari canonical ethiopian minstrel masenqo. tanzanian outdoor village clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 529,
-  "score": 245.327,
+  "score": 238.127,
   "config": {
     "traditions": [
       "oromo_music_ethiopian",
@@ -47,7 +47,7 @@
           "voice_speech_song": 22.619999999999997,
           "voice_ensemble_config": 21.71,
           "voice_ornament_system": 4.04,
-          "voice_pitch_organization": 37.585,
+          "voice_pitch_organization": 34.934999999999995,
           "voice_processing_chain": 7.409999999999999,
           "voice_multitrack_stack": 3.9650000000000003
         }
@@ -62,7 +62,7 @@
         "scores": {
           "krar_strings": 2.355,
           "krar_body": 0,
-          "krar_string_material": 4.33
+          "krar_string_material": 3.6799999999999997
         }
       },
       {
@@ -73,8 +73,8 @@
           "kebero_tradition": "kebero_orthodox_tewahedo"
         },
         "scores": {
-          "kebero_skin": 5.329999999999999,
-          "kebero_shell_wood": 6.175,
+          "kebero_skin": 4.68,
+          "kebero_shell_wood": 5.525,
           "kebero_tradition": 0.845
         }
       },
@@ -91,8 +91,8 @@
           "bowed_technique": -0.05,
           "masenqo_body": 0,
           "masenqo_string": 0,
-          "masenqo_bow": 5.329999999999999,
-          "masenqo_tradition": 13.39
+          "masenqo_bow": 4.68,
+          "masenqo_tradition": 11.440000000000001
         }
       }
     ],

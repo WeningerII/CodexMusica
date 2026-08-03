@@ -5,7 +5,7 @@
   "lineage": "Solo unaccompanied African-American agricultural-labor vocal-call tradition predating recorded blues — codified through the 1933-1940s John and Alan Lomax Library of Congress field recordings at Parchman Farm penitentiary in Mississippi, with the unmetered melismatic-bent-pitch vocal aesthetic that became foundational to delta blues, work songs, and arwhoolies",
   "recipe": "classic mid-1940s field holler, ballad Poetry, field holler branch, vocal drone modal skolt sámi leuʹdd northern sámi luohti yoik. thick, blues-shouter, wide pitch sway, interlocked note trading. open air. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 278,
-  "score": 196.27,
+  "score": 194.47,
   "config": {
     "traditions": [
       "field_holler_solo",
@@ -23,7 +23,7 @@
           "voice_vibrato": "oscillating_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "sami_joik_tradition",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -41,12 +41,12 @@
           "voice_vibrato": 12.24,
           "voice_articulation": 15.924999999999997,
           "voice_microtone": 18.134999999999994,
-          "voice_tradition": 25.22,
+          "voice_tradition": 24.570000000000004,
           "voice_mechanism_compound": 7.93,
           "voice_estill_quality": 8.32,
           "voice_speech_song": 21.644999999999996,
           "voice_ensemble_config": 15.404999999999998,
-          "voice_ornament_system": 14.07,
+          "voice_ornament_system": 12.92,
           "voice_pitch_organization": 6.500000000000001,
           "voice_processing_chain": 11.96,
           "voice_multitrack_stack": 12.155

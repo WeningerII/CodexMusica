@@ -3,9 +3,9 @@
   "name": "Apache hunting-medicine song (Native American)",
   "family": "global",
   "lineage": "Apache-and-broader-Native-American hunting-medicine song tradition continuous from premodern Indigenous-North-American hunting-and-ritual practice through colonial-era continuous performance into modern Native-American continuous practice",
-  "recipe": "classic Midwestern American early-1890s apache hunting-medicine song, hunting Song, indigenous branch, arctic hunting song, sub saharan African hunting song, indigenous ritual devotional mongolian böö shamanic invocation shipibo-conibo icaros healing songs. kargyraa, breath veiled tone, fast rate, interlocked note trading. powwow drum circle. plains northern powwow drum circle outdoor. acoustic horn. wax cylinder.",
-  "recipe_chars": 417,
-  "score": 191.415,
+  "recipe": "classic Midwestern American early-1890s apache hunting-medicine song, hunting Song, indigenous branch, arctic hunting song, sub saharan African hunting song, indigenous ritual devotional mongolian böö shamanic invocation shipibo-conibo icaros healing songs. vocal fry, breath veiled tone, fast rate, interlocked note trading. powwow drum circle. plains northern powwow drum circle outdoor. acoustic horn. wax cylinder.",
+  "recipe_chars": 418,
+  "score": 190.06,
   "config": {
     "traditions": [
       "apache_hunting_medicine",
@@ -16,7 +16,7 @@
       {
         "id": "voice",
         "slots": {
-          "voice_register": "kargyraa_register",
+          "voice_register": "vocal_fry",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -34,14 +34,14 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 1.4949999999999999,
+          "voice_register": 0.65,
           "voice_quality": 26.520000000000003,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.04,
           "voice_articulation": 19.695000000000004,
           "voice_microtone": 19.5,
-          "voice_tradition": 29.119999999999997,
+          "voice_tradition": 28.61,
           "voice_mechanism_compound": 24.294999999999998,
           "voice_estill_quality": 3.6400000000000006,
           "voice_speech_song": 27.69,

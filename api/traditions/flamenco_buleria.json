@@ -5,7 +5,7 @@
   "lineage": "Andalusian bulería flamenco palo, the fast-tempo festive-celebratory form developed in late-nineteenth-century Jerez de la Frontera from the older soleá tradition. Characterized by the canonical twelve-beat bulería compás (accents shifted from soleá to beats 12, 3, 6, 8, 10 with characteristic rhythmic-displacement-and-suspension play), fast tempo, and improvisational-virtuosic vocal-and-guitar-and-palmas (hand-clapping) interplay. Lyric content spans humorous, romantic, and celebratory themes — much lighter than the cante jondo deep-songs. The bulería closes most flamenco performance sets as the festive-final palo. Distinguished from soleá by bulería's faster tempo, lighter emotional register, and the canonical Jerez-rhythmic-displacement-and-virtuosity practice.",
   "recipe": "classic North African early-1950s bulería, ballad Poetry, Mediterranean ballad branch, west African groove percussion fújì indonesian jaipongan. vocal fry, breath veiled tone, fast rate, interlocked note trading. cypress body percussive attack strong flamenco tradition low action golpe tap plate flamenco guitar. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. Neumann U47, tube pre, colored vintage console, LA-2A optical, passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 521,
-  "score": 200.346,
+  "score": 198.946,
   "config": {
     "traditions": [
       "flamenco_buleria",
@@ -47,7 +47,7 @@
           "voice_speech_song": 18.004999999999995,
           "voice_ensemble_config": 17.939999999999998,
           "voice_ornament_system": 8.95,
-          "voice_pitch_organization": 9.064999999999998,
+          "voice_pitch_organization": 7.664999999999998,
           "voice_processing_chain": 6.135,
           "voice_multitrack_stack": 7.994999999999999
         }

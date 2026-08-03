@@ -5,7 +5,7 @@
   "lineage": "American 1958-1965 songwriter-pop industry centered on the Brill Building at 1619 Broadway in Manhattan and the adjacent 1650 Broadway — codified through the Aldon Music writing rooms of Don Kirshner and Al Nevins housing Carole King and Gerry Goffin, Barry Mann and Cynthia Weil, Neil Sedaka and Howard Greenfield, Burt Bacharach and Hal David — assembly-line songwriter pairs producing girl-group and teen-idol hits",
   "recipe": "classic Los Angeles mid-1960s brill building pop, functional Song, crooners branch, pop rock functional song new wave yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, a cappella small 3 to 8 one per part call response single leader group response sardinian cantu a tenore oche mesu contra bassu choir ensemble, choir doo wop group, castanets. compound architecture 1958-1970 indie-commercial small la chambers. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 900,
-  "score": 547.072,
+  "score": 538.497,
   "config": {
     "traditions": [
       "brill_building_pop",
@@ -34,13 +34,13 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 50.10500000000001,
+          "voice_register": 48.85500000000001,
           "voice_quality": 13.552499999999991,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 6.11,
           "voice_articulation": 19.044999999999995,
-          "voice_microtone": 47.875,
+          "voice_microtone": 46.625,
           "voice_tradition": 27.754999999999992,
           "voice_mechanism_compound": 1.755,
           "voice_estill_quality": 6.029999999999999,
@@ -95,7 +95,7 @@
         },
         "scores": {
           "electric_technique": 23.454999999999995,
-          "amp_make": 17.029999999999998,
+          "amp_make": 16.379999999999995,
           "body_wood": 2.6650000000000005,
           "neck_wood": 2.6650000000000005,
           "fretboard": 2.6000000000000005,
@@ -105,7 +105,7 @@
           "bridge": 0.65,
           "scale_length": 2.6650000000000005,
           "finish": 0.09,
-          "string_tuning": 13.975
+          "string_tuning": 13.325
         }
       },
       {
@@ -120,13 +120,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 12.35,
+          "amp_make": 11.7,
           "body_wood": 2.6650000000000005,
           "pickup_config": 0.045,
-          "string_type": 30.0625,
+          "string_type": 28.4375,
           "scale_length_b": 2.6650000000000005,
           "fretted_or_not": 0.0975,
-          "bass_technique": 27.514999999999997
+          "bass_technique": 26.264999999999997
         }
       },
       {
@@ -137,7 +137,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 23.17,
+          "drum_technique": 21.92,
           "drumhead": 22.689999999999994,
           "drum_kit_kick_pedal": 0
         }

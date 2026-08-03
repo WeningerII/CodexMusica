@@ -5,7 +5,7 @@
   "lineage": "Indonesian keroncong urban-folk genre emerging in sixteenth-seventeenth century Portuguese-trading-post communities of Tugu (north Jakarta) and Maluku from the Portuguese moresco and fado-precursor folk-music brought by Portuguese and Indo-Portuguese settlers, then absorbed into the Malay-Indonesian musical-cultural sphere over four centuries. Performance configuration centers on the cuk (small ukulele-like four-string lute) and cak (smaller four-string), plus violin, flute, cello (played pizzicato), and acoustic guitar. Vocal style features mid-tempo wide-vibrato male-or-female lead with characteristic Indonesian-Malay melodic-line aesthetic over Western-tonal-harmonic framework. The mid-twentieth-century Lokananta Records era anchored commercial-recording preservation.",
   "recipe": "classic Southeast Asian mid-1930s indonesian keroncong, art Music, southeast Asian branch, chanson fado ballad poetry cape verdean batuko of santiago island greek éntechno. thick, breath veiled tone, slow rate, interlocked note trading. cedar phosphor bronze bronze fingerpicked parlor acoustic guitar, bowl back Italian redwood phosphor bronze bronze indian rosewood mandolin, carpathian spruce European maple sycamore maple cremonese pre 1750 four layer system cello. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 637,
-  "score": 335.289,
+  "score": 333.284,
   "config": {
     "traditions": [
       "indonesian_keroncong",
@@ -41,14 +41,14 @@
           "voice_vibrato": 6.7924999999999995,
           "voice_articulation": 23.854999999999997,
           "voice_microtone": 24.40749999999999,
-          "voice_tradition": 34.340999999999994,
+          "voice_tradition": 33.090999999999994,
           "voice_mechanism_compound": 7.02,
           "voice_estill_quality": 9.197499999999998,
           "voice_speech_song": 27.982499999999998,
           "voice_ensemble_config": 28.014999999999997,
           "voice_ornament_system": 2.5999999999999996,
-          "voice_pitch_organization": 15.669999999999996,
-          "voice_processing_chain": 7.5400000000000045,
+          "voice_pitch_organization": 15.564999999999998,
+          "voice_processing_chain": 6.890000000000004,
           "voice_multitrack_stack": 6.76
         }
       },
