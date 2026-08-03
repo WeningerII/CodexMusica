@@ -8,9 +8,18 @@
 #   - bare country and region names (Africa, Japan, Middle East, ...)
 #   - slash-joined pairs, split into both halves (Goth / Gothic Rock)
 #   - artist and band names (Vektroid, slayer, wu fam, elephant 6, 48g)
-#   - place-scene tags, the largest class (atlanta indie, leeds indie) —
-#     kept only where the place names a distinct practice (delta blues,
-#     detroit techno, bakersfield sound, madchester, canterbury scene)
+#   - place-scene tags where the place names an AUDIENCE, not a practice:
+#     atlanta indie, leeds indie, worcester ma indie, kelowna bc indie.
+#
+#     This filter was initially applied far too broadly. The test is not
+#     "does the name contain a place" — it is "does the recipe change":
+#     different tempo, drum programming, roster, vocal technique, or
+#     room/chain means a distinct entry. UK drill, Chicago drill and
+#     Brooklyn drill differ on nearly all of those, and the catalog was
+#     already carrying them as three separate traditions before this
+#     corpus existed — as it does for five salsa variants, five cumbia
+#     variants, and Phonk vs Drift phonk. A second pass restored ~330
+#     regional variants that the first pass had wrongly collapsed.
 #   - everynoise facet modifiers (deep X, classic X, viral X, sad X)
 #   - non-music utility tags (sleep, rain, asmr, 432hz, karaoke, focus)
 #   - bare instrument names, routed to _candidates_instruments.txt instead
@@ -1346,3 +1355,96 @@ fife and drum
 concert band
 wind ensemble
 drum corps
+afro drill
+drill and bass
+new orleans bounce
+memphis rap
+atl trap
+detroit trap
+dirty south rap
+houston rap
+bay area hip hop
+jazz rap
+chicano rap
+narco rap
+trap latino
+trap argentino
+trap brasileiro
+trap boricua
+trap mexicano
+trap chileno
+trap colombiano
+funk carioca
+funk 150 bpm
+phonk brasileiro
+dark plugg
+dream plugg
+emo rap
+cloud rap
+reggaeton
+reggaeton colombiano
+reggaeton mexicano
+reggaeton chileno
+salsa colombiana
+salsa cubana
+salsa puertorriquena
+salsa venezolana
+salsa peruana
+cumbia chilena
+cumbia argentina
+tecnocumbia
+merengue de calle
+new york garage house
+german techno
+berlin minimal techno
+birmingham techno
+south african house
+kwaito
+kenyan drill
+alte
+naija old school
+afrobeats
+afropop
+afro r&b
+afro soul
+coladeira
+isicathamiya
+mbube
+taarab
+bristol trip hop
+sheffield bleep techno
+kosmische
+zamrock
+turkish psych
+indonesian psychedelia
+thai psychedelic
+group sounds
+japanese city pop
+j-core
+korean city pop
+hokkien pop
+taiwan campus folk
+elephant six pop
+midwest emo
+skramz
+screamo
+emoviolence
+powerviolence
+street punk
+ska punk
+roots reggae
+dub
+dancehall
+jamaican dancehall
+uk dancehall
+traphall
+basshall
+rapso
+neo soul
+motown
+kansas city jazz
+west coast jazz
+outlaw country
+texas country
+oklahoma country
+new mexico music
