@@ -3,9 +3,9 @@
   "name": "Flamenco",
   "family": "global",
   "lineage": "Andalusian gitano-and-payo song-dance-guitar tradition codified across the southern Spanish provinces (Seville, Cádiz, Granada, Córdoba, Jerez de la Frontera, Málaga) with origins in the 18th-century Romaní migration through Andalusia, formalized as concert-stage repertoire from the 1840s Café de Chinitas era through the mid-20th-century commercial recording canon and into the modern Camarón de la Isla / Paco de Lucía / Tomatito flamenco-nuevo era",
-  "recipe": "classic Iberian mid-1840s flamenco, drone Modal, vocal branch, Persian arab improv improv on frame, Mediterranean ballad ballad poetry rebetiko greek nisiotika. thick, nasal, slow rate, interlocked note trading. cypress body percussive attack strong flamenco tradition rasgueado strum picado scale runs flamenco guitar, open back Afro peruvian tradition festejo tradition cajon peruano. andalusian tablao seville madrid. Neumann U47, tube pre, colored vintage console, LA-2A optical, passive program EQ. tape 15ips plate reverb.",
-  "recipe_chars": 528,
-  "score": 185.132,
+  "recipe": "classic Iberian mid-1840s flamenco, drone Modal, vocal branch, Persian arab improv improv on frame, Mediterranean ballad ballad poetry rebetiko greek nisiotika. thick, nasal, slow rate, interlocked note trading. cypress body percussive attack strong flamenco tradition low action golpe tap plate flamenco guitar, open back Afro peruvian tradition festejo tradition cajon peruano. andalusian tablao seville madrid. Neumann U47, tube pre, colored vintage console, LA-2A optical, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 521,
+  "score": 186.813,
   "config": {
     "traditions": [
       "flamenco",
@@ -41,15 +41,15 @@
           "voice_vibrato": 3.607499999999999,
           "voice_articulation": 14.624999999999993,
           "voice_microtone": 19.402499999999993,
-          "voice_tradition": 31.4705,
+          "voice_tradition": 31.6205,
           "voice_mechanism_compound": 5.265000000000001,
-          "voice_estill_quality": 13.358499999999996,
+          "voice_estill_quality": 14.003499999999995,
           "voice_speech_song": 18.492499999999993,
           "voice_ensemble_config": 14.559999999999992,
           "voice_ornament_system": 8.699999999999996,
           "voice_pitch_organization": 3.672499999999999,
           "voice_processing_chain": 6.075000000000001,
-          "voice_multitrack_stack": 5.5295000000000005
+          "voice_multitrack_stack": 5.915000000000001
         }
       },
       {
@@ -60,9 +60,9 @@
           "flamenco_technique": "flamenco_rasgueado_picado_alzapua"
         },
         "scores": {
-          "flamenco_body": 9.078999999999999,
-          "flamenco_features": 0.95,
-          "flamenco_technique": 4.644499999999999
+          "flamenco_body": 9.099999999999998,
+          "flamenco_features": 1.2349999999999999,
+          "flamenco_technique": 4.839499999999999
         }
       },
       {

@@ -1,5 +1,5 @@
 {
-  "count": 1167,
+  "count": 1145,
   "items": [
     {
       "id": "honky_tonk",
@@ -1946,12 +1946,6 @@
       "href": "traditions/galician_pipe_solo.json"
     },
     {
-      "id": "cloud_rap_experimental",
-      "name": "Cloud rap (experimental)",
-      "family": "global",
-      "href": "traditions/cloud_rap_experimental.json"
-    },
-    {
       "id": "mumble_rap",
       "name": "Mumble rap",
       "family": "global",
@@ -2328,12 +2322,6 @@
       "name": "DSBM (depressive-suicidal black metal)",
       "family": "global",
       "href": "traditions/dsbm_black_metal.json"
-    },
-    {
-      "id": "minimal_microhouse_classic",
-      "name": "Microhouse (Kompakt-era)",
-      "family": "global",
-      "href": "traditions/minimal_microhouse_classic.json"
     },
     {
       "id": "jam_band",
@@ -2862,12 +2850,6 @@
       "name": "Breton folk (kan ha diskan, fest-noz)",
       "family": "global",
       "href": "traditions/breton_folk.json"
-    },
-    {
-      "id": "sardinian_traditional",
-      "name": "Sardinian cantu a tenore and launeddas",
-      "family": "global",
-      "href": "traditions/sardinian_traditional.json"
     },
     {
       "id": "italian_southern_folk",
@@ -4238,12 +4220,6 @@
       "href": "traditions/coco_brasileiro.json"
     },
     {
-      "id": "jongo_brasileiro",
-      "name": "Jongo (Afro-Brazilian Vale do Paraíba)",
-      "family": "global",
-      "href": "traditions/jongo_brasileiro.json"
-    },
-    {
       "id": "classical_period_18c",
       "name": "Classical period (1750-1820)",
       "family": "classical",
@@ -4302,12 +4278,6 @@
       "name": "Holy Minimalism (late 20th-century spiritual minimalism)",
       "family": "classical",
       "href": "traditions/holy_minimalism.json"
-    },
-    {
-      "id": "american_minimalism",
-      "name": "American minimalism (1960s-1970s NYC and California)",
-      "family": "classical",
-      "href": "traditions/american_minimalism.json"
     },
     {
       "id": "spectralism",
@@ -4470,12 +4440,6 @@
       "name": "Chicago jazz",
       "family": "jazz",
       "href": "traditions/chicago_jazz_1920s.json"
-    },
-    {
-      "id": "swing_big_band",
-      "name": "Swing big band",
-      "family": "jazz",
-      "href": "traditions/swing_big_band.json"
     },
     {
       "id": "cool_jazz_west_coast",
@@ -4898,18 +4862,6 @@
       "href": "traditions/korean_hip_hop.json"
     },
     {
-      "id": "south_african_kwaito",
-      "name": "South African kwaito",
-      "family": "hip_hop",
-      "href": "traditions/south_african_kwaito.json"
-    },
-    {
-      "id": "amapiano_sa",
-      "name": "Amapiano (South African 2010s)",
-      "family": "electronic",
-      "href": "traditions/amapiano_sa.json"
-    },
-    {
       "id": "tribal_house",
       "name": "Tribal house",
       "family": "electronic",
@@ -4962,12 +4914,6 @@
       "name": "Jackin' house",
       "family": "electronic",
       "href": "traditions/jackin_house.json"
-    },
-    {
-      "id": "berlin_techno_basic_channel",
-      "name": "Berlin techno / Basic Channel dub-techno",
-      "family": "electronic",
-      "href": "traditions/berlin_techno_basic_channel.json"
     },
     {
       "id": "schranz_hard_techno",
@@ -5114,12 +5060,6 @@
       "href": "traditions/dungeon_synth.json"
     },
     {
-      "id": "outrun_synthwave",
-      "name": "Outrun / synthwave",
-      "family": "electronic",
-      "href": "traditions/outrun_synthwave.json"
-    },
-    {
       "id": "darksynth",
       "name": "Darksynth (mid-2010s horror-cinematic synthwave)",
       "family": "electronic",
@@ -5160,12 +5100,6 @@
       "name": "Drill'n'bass (mid-1990s UK extreme-virtuoso drum-and-bass)",
       "family": "electronic",
       "href": "traditions/drill_n_bass.json"
-    },
-    {
-      "id": "broken_beat_4hero",
-      "name": "Broken beat (4hero / IG Culture)",
-      "family": "electronic",
-      "href": "traditions/broken_beat_4hero.json"
     },
     {
       "id": "future_bass",
@@ -5246,30 +5180,6 @@
       "href": "traditions/emo_revival_2010s.json"
     },
     {
-      "id": "freak_folk",
-      "name": "Freak folk (mid-2000s American psychedelic-experimental folk)",
-      "family": "rock_punk",
-      "href": "traditions/freak_folk.json"
-    },
-    {
-      "id": "dreampop_modern",
-      "name": "Dreampop (modern)",
-      "family": "rock_punk",
-      "href": "traditions/dreampop_modern.json"
-    },
-    {
-      "id": "bedroom_pop_2010s",
-      "name": "Bedroom pop (2010s)",
-      "family": "rock_punk",
-      "href": "traditions/bedroom_pop_2010s.json"
-    },
-    {
-      "id": "sophistipop_80s",
-      "name": "Sophisti-pop (mid-1980s UK jazz-leaning adult-contemporary)",
-      "family": "pop",
-      "href": "traditions/sophistipop_80s.json"
-    },
-    {
       "id": "city_pop_modern",
       "name": "City pop modern revival",
       "family": "pop",
@@ -5336,18 +5246,6 @@
       "href": "traditions/jazzy_hip_hop.json"
     },
     {
-      "id": "chillwave_glo_fi",
-      "name": "Chillwave (2009-2012 American internet-circulated hazy-indie-electronic)",
-      "family": "rock_punk",
-      "href": "traditions/chillwave_glo_fi.json"
-    },
-    {
-      "id": "drone_metal_sustained",
-      "name": "Drone metal (1990s extreme-deceleration sustained-tone metal)",
-      "family": "rock_punk",
-      "href": "traditions/drone_metal_sustained.json"
-    },
-    {
       "id": "teen_pop_late_90s",
       "name": "Teen pop late 90s-00s",
       "family": "pop",
@@ -5366,22 +5264,10 @@
       "href": "traditions/fusion_70s_electric.json"
     },
     {
-      "id": "post_metal_2000s",
-      "name": "Post-metal (2000s post-rock-meets-sludge extended-instrumental metal)",
-      "family": "rock_punk",
-      "href": "traditions/post_metal_2000s.json"
-    },
-    {
       "id": "djent",
       "name": "Djent (mid-2000s polymetric-down-tuned progressive metal)",
       "family": "rock_punk",
       "href": "traditions/djent.json"
-    },
-    {
-      "id": "black_metal_norwegian",
-      "name": "Black metal (Norwegian second wave)",
-      "family": "rock_punk",
-      "href": "traditions/black_metal_norwegian.json"
     },
     {
       "id": "blackgaze",
@@ -5394,24 +5280,6 @@
       "name": "Post-punk revival",
       "family": "rock_punk",
       "href": "traditions/post_punk_revival.json"
-    },
-    {
-      "id": "synthpop_classic_80s",
-      "name": "Synthpop classic",
-      "family": "pop",
-      "href": "traditions/synthpop_classic_80s.json"
-    },
-    {
-      "id": "new_wave_late_70s_early_80s",
-      "name": "New wave (late 70s-early 80s)",
-      "family": "rock_punk",
-      "href": "traditions/new_wave_late_70s_early_80s.json"
-    },
-    {
-      "id": "post_punk_late_70s",
-      "name": "Post-punk (late 70s)",
-      "family": "rock_punk",
-      "href": "traditions/post_punk_late_70s.json"
     },
     {
       "id": "darkwave",

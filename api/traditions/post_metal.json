@@ -5,7 +5,7 @@
   "lineage": "US and European long-form instrumental-foregrounded metal-and-post-rock fusion that emerged from late-1990s onward — codified through Isis (the Boston-area post-metal band, Oceanic 2002, Panopticon 2004), Pelican (the Chicago instrumental-only canon, The Fire in Our Throats Will Beckon the Thaw 2005), Cult of Luna (Swedish), Russian Circles (Chicago instrumental-only), Neurosis (the founding pre-post-metal Oakland band, Through Silver in Blood 1996); built on extended-composition song structures (10-20 minute pieces), ambient-textural sections alternating with heavy crescendo peaks",
   "recipe": "classic Midwestern American 1997-1999 post-metal, distorted Rock, post metal branch, experimental distorted rock krautrock post-rock. thick, breath veiled tone, pure, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. stoner doom garage amplifier room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 592,
-  "score": 387.347,
+  "score": 381.137,
   "config": {
     "traditions": [
       "post_metal",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 28.048749999999988,
-          "voice_quality": 12.010749999999996,
+          "voice_quality": 11.620749999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 4.22875,
-          "voice_articulation": 12.756499999999996,
+          "voice_articulation": 11.976499999999994,
           "voice_microtone": 27.849499999999992,
-          "voice_tradition": 12.19375,
-          "voice_mechanism_compound": 27.865000000000002,
-          "voice_estill_quality": 5.067749999999999,
-          "voice_speech_song": 14.786999999999995,
-          "voice_ensemble_config": 11.854249999999995,
+          "voice_tradition": 11.86375,
+          "voice_mechanism_compound": 27.64,
+          "voice_estill_quality": 4.87275,
+          "voice_speech_song": 14.006999999999994,
+          "voice_ensemble_config": 11.074249999999994,
           "voice_ornament_system": 4.93875,
           "voice_pitch_organization": 2.275,
           "voice_processing_chain": 12.370249999999997,
-          "voice_multitrack_stack": 6.647500000000001
+          "voice_multitrack_stack": 6.452500000000001
         }
       },
       {
@@ -63,26 +63,26 @@
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "stoptail",
+          "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_12_hum",
           "finish": "nitro_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 30.110000000000003,
-          "amp_make": 11.777499999999996,
-          "body_wood": 12.01725,
+          "electric_technique": 29.885000000000005,
+          "amp_make": 11.552499999999997,
+          "body_wood": 11.62725,
           "neck_wood": 2.66375,
           "fretboard": 2.66375,
           "pickup_magnet": 0.45499999999999996,
           "pickup_winding": 1.7644999999999997,
           "string_material": 2.66375,
-          "bridge": 0.23825000000000002,
-          "scale_length": 14.481750000000003,
-          "string_gauge": 0.39,
+          "bridge": 0.0445,
+          "scale_length": 14.286750000000003,
+          "string_gauge": 0.34325,
           "finish": 0,
-          "string_tuning": 25.75475
+          "string_tuning": 25.334750000000003
         }
       },
       {
@@ -97,10 +97,10 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 11.564749999999998,
-          "body_wood": 0.47650000000000003,
+          "amp_make": 11.339749999999999,
+          "body_wood": 0.0865,
           "pickup_config": 0.95,
-          "string_type": 27.402499999999996,
+          "string_type": 27.177499999999995,
           "scale_length_b": 0.45499999999999996,
           "fretted_or_not": 0,
           "bass_technique": 25.124999999999996

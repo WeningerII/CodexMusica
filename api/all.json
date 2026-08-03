@@ -2,14 +2,14 @@
   "name": "Codex Musica — all recipes",
   "description": "Every tradition with its compressed recording recipe, in one file. For full structured arrangements per tradition, fetch traditions/{id}.json.",
   "generated": "2026-08-03",
-  "count": 1167,
+  "count": 1145,
   "items": [
     {
       "id": "honky_tonk",
       "name": "Honky-tonk",
       "family": "vernacular",
-      "recipe": "classic Southern American mid-1950s honky-tonk, functional Song, honky tonk era branch, anglo singer song ballad poetry texas country-folk storyteller 70s laurel canyon. thick, breath veiled tone, wide pitch sway, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Fender tweed amp American 50s amp tweed breakup nickel plated steel nickel single coil electric guitar, treble-extended sustaining steel upright bass, brushes-and-sticks drum kit, steel double stops rubber fiddle, tack upright piano. honky tonk dance hall. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb spring reverb analog bucket-brigade delay.",
-      "recipe_chars": 742
+      "recipe": "classic Southern American mid-1950s honky-tonk, functional Song, honky tonk era branch, anglo singer song ballad poetry texas country-folk storyteller indie folk. thick, breath veiled tone, wide pitch sway, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Fender blackface amp American 60s amp spring reverb bright nickel plated steel nickel single coil electric guitar, sustaining steel upright bass, pre muffled edge muffled brushes-and-sticks drum kit, steel double stops rubber fiddle, tack upright piano. honky tonk dance hall. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb spring reverb analog bucket-brigade delay.",
+      "recipe_chars": 755
     },
     {
       "id": "bakersfield",
@@ -169,15 +169,15 @@
       "id": "progressive_rock",
       "name": "Progressive rock",
       "family": "rock_punk",
-      "recipe": "classic Northern European 1967-1969 progressive rock, distorted Rock, progressive rock branch, classic distorted rock, experimental distorted rock psychedelic rock britpop. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ, mellotron m400 canonical 1970 1980 prog rock standard 35 key polyester base quarter inch iron oxide canonical mellotron block chord mellotron, gentle expressive vibrato y analog synth, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, silver powell boston canonical American orchestral continuous-airflow legato flute.",
-      "recipe_chars": 986
+      "recipe": "classic Northern European 1967-1969 progressive rock, distorted Rock, progressive rock branch, classic distorted rock, experimental distorted rock psychedelic rock post-rock. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, fiberskyn synthetic calf sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative fast tremolo tonewheel organ, mellotron m400 canonical 1970 1980 prog rock standard 35 key polyester base quarter inch iron oxide canonical mellotron mellotron, gentle expressive vibrato y analog synth, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, silver yamaha modern Japanese mid to premium continuous-airflow legato flute, string machine.",
+      "recipe_chars": 946
     },
     {
       "id": "art_rock",
       "name": "Art rock",
       "family": "rock_punk",
-      "recipe": "classic Northern European mid-1970s art rock, distorted Rock, art rock branch, experimental distorted rock, classic distorted rock psychedelic rock britpop. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, fast decay focused low short envelope analog synth, mellotron m400 canonical 1970 1980 prog rock standard 35 key polyester base quarter inch iron oxide canonical mellotron block chord mellotron, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, gold brass warmer tone multiphonic saxophone, string machine. London major flagship studio 1968-1985 major-flagship uk 70s hard rock arena studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical.",
-      "recipe_chars": 987
+      "recipe": "classic Northern European mid-1970s art rock, distorted Rock, art rock branch, experimental distorted rock, classic distorted rock psychedelic rock krautrock. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, pad like short envelope analog synth, mellotron m400 canonical 1970 1980 prog rock standard 35 key block chord mellotron, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, gold brass warmer tone keilwerth German boutique multiphonic saxophone, string machine. London major flagship studio 1968-1985 major-flagship uk 70s hard rock arena studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+      "recipe_chars": 989
     },
     {
       "id": "glam_rock",
@@ -379,8 +379,8 @@
       "id": "minimalist",
       "name": "Minimalist",
       "family": "classical",
-      "recipe": "classic European 1967-1969 minimalist, art Music, western modern branch, ambient experimental electric. soft felt lacquer voiced beech laminated maple laminated European tradition grand piano, analog synth, bass flute. shoebox concert hall. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
-      "recipe_chars": 348
+      "recipe": "classic European 1967-1969 minimalist, art Music, western modern branch, ambient experimental electric. modern bright beech laminated maple laminated European tradition sitka spruce grand piano, analog synth, bass flute. shoebox concert hall. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
+      "recipe_chars": 350
     },
     {
       "id": "gagaku",
@@ -428,8 +428,8 @@
       "id": "psychedelic_rock",
       "name": "Psychedelic rock",
       "family": "rock_punk",
-      "recipe": "classic Northern European 1967-1969 psychedelic rock, distorted Rock, classic branch, experimental distorted rock krautrock chillwave. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative fast tremolo tonewheel organ, cedar maihar gharana instrumental concert lineage classical trained lineage sitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit, mellotron m400 canonical 1970 1980 prog rock standard 35 key polyester base quarter inch iron oxide canonical mellotron mellotron. London major flagship studio 1968-1985 major-flagship uk 70s hard rock arena studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ.",
-      "recipe_chars": 959
+      "recipe": "classic Northern European 1967-1969 psychedelic rock, distorted Rock, classic branch, experimental distorted rock krautrock post-rock. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched fast tremolo tonewheel organ, cedar bone maihar gharana instrumental concert lineage classical trained lineage sitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, mellotron m400 canonical 1970 1980 prog rock standard 35 key polyester base quarter inch iron oxide canonical mellotron mellotron. London major flagship studio 1968-1985 major-flagship uk 70s hard rock arena studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ.",
+      "recipe_chars": 998
     },
     {
       "id": "hard_rock",
@@ -470,15 +470,15 @@
       "id": "heartland_rock",
       "name": "Heartland rock",
       "family": "rock",
-      "recipe": "classic North American 1977-1979 heartland rock, distorted Rock, late analog major branch, anglo singer song ballad poetry freak folk indie folk. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp arpeggiated clean single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched block chord fast tremolo tonewheel organ, richter canonical 10 hole diatonic blues harmonica. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-      "recipe_chars": 828
+      "recipe": "classic North American 1977-1979 heartland rock, distorted Rock, late analog major branch, anglo singer song ballad poetry indie folk texas country-folk storyteller. thick, breath veiled tone, straight note core, interlocked note trading. marshall plexi amp British rock amp single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard block chord fast tremolo tonewheel organ, low overtone rich traditional pearwood marine band tradition harmonica. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+      "recipe_chars": 797
     },
     {
       "id": "doom",
       "name": "Doom metal",
       "family": "rock",
-      "recipe": "classic Midwestern American mid-1970s doom metal, distorted Rock, doom branch, sludge metal post-metal. thick, larynx lowered, wide pitch sway, interlocked note trading. orange amp British heavy crunch basswood maple pau ferro humbucker electric orange amp British heavy crunch 30 inch plus extended baritone metal djent baritone electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, kevlar aramid extreme tension sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi.",
-      "recipe_chars": 663
+      "recipe": "classic Midwestern American mid-1970s doom metal, distorted Rock, doom branch, sludge metal. thick, larynx lowered, wide pitch sway, interlocked note trading. orange amp British heavy crunch basswood power chord humbucker electric orange amp British heavy crunch 30 inch plus extended baritone metal djent baritone electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi.",
+      "recipe_chars": 648
     },
     {
       "id": "black_metal",
@@ -519,8 +519,8 @@
       "id": "grunge",
       "name": "Grunge",
       "family": "rock_punk",
-      "recipe": "classic North American 1987-1989 grunge, distorted Rock, alternative branch, sludge metal post-metal. thick, larynx lowered, wide pitch sway, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. seattle grunge defining 1986-1995 indie-commercial seattle reciprocal grunge studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi boss DS-1.",
-      "recipe_chars": 662
+      "recipe": "classic North American 1987-1989 grunge, distorted Rock, alternative branch, sludge metal. thick, larynx lowered, wide pitch sway, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. seattle grunge defining 1986-1995 indie-commercial seattle reciprocal grunge studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi boss DS-1.",
+      "recipe_chars": 651
     },
     {
       "id": "chicago_house",
@@ -568,8 +568,8 @@
       "id": "ambient",
       "name": "Ambient",
       "family": "electronic",
-      "recipe": "classic Central European mid-1970s ambient, experimental Elec, ambient branch, modal electric drone modal. pad like pad analog synth, tape replay keyboard, handpan, structures sonores lasry baschet original experimental cristal wet finger friction legato glassy cristal baschet. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb analog bucket-brigade delay.",
-      "recipe_chars": 544
+      "recipe": "classic Central European mid-1970s ambient, experimental Elec, ambient branch, modal electric drone modal tuareg desert blues. pad like pad analog synth, tape replay keyboard, handpan, structures sonores lasry baschet original experimental cristal wet finger friction legato glassy cristal baschet. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb analog bucket-brigade delay.",
+      "recipe_chars": 564
     },
     {
       "id": "idm",
@@ -673,8 +673,8 @@
       "id": "flamenco",
       "name": "Flamenco",
       "family": "global",
-      "recipe": "classic Iberian mid-1840s flamenco, drone Modal, vocal branch, Persian arab improv improv on frame, Mediterranean ballad ballad poetry rebetiko greek nisiotika. thick, nasal, slow rate, interlocked note trading. cypress body percussive attack strong flamenco tradition rasgueado strum picado scale runs flamenco guitar, open back Afro peruvian tradition festejo tradition cajon peruano. andalusian tablao seville madrid. Neumann U47, tube pre, colored vintage console, LA-2A optical, passive program EQ. tape 15ips plate reverb.",
-      "recipe_chars": 528
+      "recipe": "classic Iberian mid-1840s flamenco, drone Modal, vocal branch, Persian arab improv improv on frame, Mediterranean ballad ballad poetry rebetiko greek nisiotika. thick, nasal, slow rate, interlocked note trading. cypress body percussive attack strong flamenco tradition low action golpe tap plate flamenco guitar, open back Afro peruvian tradition festejo tradition cajon peruano. andalusian tablao seville madrid. Neumann U47, tube pre, colored vintage console, LA-2A optical, passive program EQ. tape 15ips plate reverb.",
+      "recipe_chars": 521
     },
     {
       "id": "hawaiian_slack_key",
@@ -729,8 +729,8 @@
       "id": "alt_country_americana",
       "name": "Americana",
       "family": "vernacular",
-      "recipe": "classic Southern American modern americana, functional Song, americana branch, anglo singer song ballad poetry texas country-folk storyteller folk noir. thick, breath veiled tone, wide pitch sway, interlocked note trading. martin lifespan sealed travis picked dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright wenge flatwound single coil electric guitar, Fender blackface amp American 60s amp spring reverb bright classic country sho bud pedal steel, Fender tweed amp American 50s amp tweed breakup ernie ball slinky fingerpicked electric bass, pre muffled edge muffled brushes-and-sticks drum kit, folk autoharp, Wurlitzer 200a canonical 1974 1982 solid state soft rock canon block chord wurlitzer ep, bowl back Italian hard rock maple k and k twin internal mounted acoustic faithful mandolin. rural louisiana pine forest 1973-present mid tier in the country bogalusa. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ.",
-      "recipe_chars": 999
+      "recipe": "classic Southern American modern americana, functional Song, americana branch, anglo singer song ballad poetry texas country-folk storyteller indie folk. thick, breath veiled tone, wide pitch sway, interlocked note trading. travis picked dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright lower tension down tuning single coil electric guitar, Fender blackface amp American 60s amp spring reverb bright classic country sho bud pedal steel, Fender tweed amp American 50s amp tweed breakup ernie ball slinky fingerpicked electric bass, pre muffled edge muffled brushes-and-sticks drum kit, folk strummed open chord ringing overtones autoharp, Wurlitzer 200a canonical 1974 1982 solid state soft rock canon block chord wurlitzer ep, bowl back Italian hard rock maple k and k twin internal mounted acoustic faithful mandolin. rural louisiana pine forest 1973-present mid tier in the country bogalusa. large-diaphragm condenser, API 312 op-amp pre, API op-amp console.",
+      "recipe_chars": 992
     },
     {
       "id": "funk",
@@ -785,7 +785,7 @@
       "id": "western_swing",
       "name": "Western swing",
       "family": "country",
-      "recipe": "classic North American mid-1930s western swing, functional Song, western swing branch, honky tonk era country, American jazz early new orleans jazz honky-tonk. thick, breath veiled tone, wide pitch sway, interlocked note trading. steel double stops fiddle, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Fender blackface amp American 60s amp spring reverb bright nickel plated steel nickel single coil electric guitar, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow legato saxophone, light steel clawhammer canon scruggs stelling bluegrass setup mastertone flathead banjo 5 string, bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet, five string extended low swing lead tremolo shimmer electric mandolin.",
+      "recipe": "classic North American mid-1930s western swing, functional Song, western swing branch, honky tonk era country, American jazz early new orleans jazz honky-tonk. thick, breath veiled tone, wide pitch sway, interlocked note trading. steel double stops fiddle, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Fender blackface amp American 60s amp spring reverb bright nickel plated steel nickel single coil electric guitar, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow legato saxophone, light steel clawhammer canon scruggs stelling bluegrass setup mastertone flathead banjo 5 string, bach stradivarius 180 canonical American orchestral ensemble lead trumpet trumpet, five string extended low swing lead tremolo shimmer electric mandolin.",
       "recipe_chars": 996
     },
     {
@@ -813,8 +813,8 @@
       "id": "spiritual_jazz",
       "name": "Spiritual jazz",
       "family": "jazz",
-      "recipe": "classic North American 1967-1969 spiritual jazz, improv On Frame, avant branch, Afro-diasporic ritual devotional, vocal drone modal flamenco. thick, breath veiled tone, straight onset, interlocked note trading. nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris multiphonic continuous-airflow saxophone, oversize maple tension resonator sitka spruce diaphragmatic 7 ply grand piano, growly gut upright bass, fiberskyn synthetic calf brushes-and-sticks drum kit, mbira, tabla, teak bone open jawari vilayat khan canon long sustain sitar. independent loft jazz 1971-1978 indie-commercial strata east loft nyc. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
-      "recipe_chars": 739
+      "recipe": "classic North American 1967-1969 spiritual jazz, improv On Frame, avant branch, Afro-diasporic ritual devotional, vocal drone modal flamenco. thick, breath veiled tone, straight onset, interlocked note trading. nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris multiphonic continuous-airflow saxophone, oversize maple tension resonator sitka spruce diaphragmatic 7 ply grand piano, growly gut upright bass, fiberskyn synthetic calf brushes-and-sticks drum kit, traditional sustaining iron mbira, tabla, teak bone open jawari vilayat khan canon long sustain sitar. independent loft jazz 1971-1978 indie-commercial strata east loft nyc. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+      "recipe_chars": 767
     },
     {
       "id": "thrash_metal",
@@ -869,8 +869,8 @@
       "id": "drone_dark_ambient",
       "name": "Drone and dark ambient",
       "family": "electronic",
-      "recipe": "classic Central European mid-1990s drone and dark ambient, experimental Elec, ambient branch, doom metal drone metal. pad like pad analog serge lineage canonical 1973 1980s cal arts patch programmable west coast pad modular synth, overtone rich sustained brass tape replay keyboard, sustained pad string machine, ritual bronze rods canonical aquasonic waterphone. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf kling klang studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-      "recipe_chars": 601
+      "recipe": "classic Central European mid-1990s drone and dark ambient, experimental Elec, ambient branch, doom metal funeral doom. pad like pad analog emu modular 1971 1978 analog studio grade east coast precision pad modular synth, overtone rich sustained brass tape replay keyboard, sustained pad string machine, ritual waterphone. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf kling klang studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+      "recipe_chars": 559
     },
     {
       "id": "hyperpop",
@@ -953,8 +953,8 @@
       "id": "sardinian_polyphony",
       "name": "Sardinian polyphony (cantu a tenore)",
       "family": "global",
-      "recipe": "classic modern sardinian polyphony, drone Modal, vocal branch, Mediterranean ballad ballad poetry croatian klapa dalmatian close-harmony sardinian cantu a tenore and launeddas. vocal fry, false fold engaged, slow rate, interlocked note trading. a tenores quartet. parish church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 408
+      "recipe": "classic modern sardinian polyphony, drone Modal, vocal branch, Mediterranean ballad ballad poetry croatian klapa dalmatian close-harmony stornelli. thick, false fold engaged, slow rate, interlocked note trading. a tenores quartet. parish church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 375
     },
     {
       "id": "mbalax",
@@ -981,8 +981,8 @@
       "id": "hiplife",
       "name": "Hiplife",
       "family": "global",
-      "recipe": "classic West African mid-1990s hiplife, groove Percussion, west African branch, Afro-diasporic MC rhythm kwaito south african kwaito. vocal fry, rap, straight onset, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, pitched chopped sampler, basswood maple pau ferro alnico nickel plated steel humbucker electric guitar, cowhide mid tier siam oak mid tier modern open slap hand drum congas. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. FET condenser, transformerless solid-state pre, brick-wall limiter. lossy MP3 autotune digital delay.",
-      "recipe_chars": 600
+      "recipe": "classic West African mid-1990s hiplife, groove Percussion, west African branch, Afro-diasporic MC rhythm kwaito. thick, rap, straight onset, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, pitched chopped sampler, basswood maple pau ferro alnico nickel plated steel humbucker electric guitar, synthetic remo fiberskyn modern stable siam oak mid tier modern open slap hand drum congas. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. FET condenser, transformerless solid-state pre, brick-wall limiter. lossy MP3 autotune digital delay.",
+      "recipe_chars": 597
     },
     {
       "id": "afrobeats_naija",
@@ -1044,8 +1044,8 @@
       "id": "gqom",
       "name": "Gqom",
       "family": "global",
-      "recipe": "classic Southern African 2007-2009 gqom, electronic Dance, African dance branch, Afro-diasporic MC rhythm kwaito south african kwaito. vocal fry, breath veiled tone, straight onset, interlocked note trading. TR-808, sub bass monosynth acid bass, sub bass analog poly synth. live tracking. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
-      "recipe_chars": 372
+      "recipe": "classic Southern African 2007-2009 gqom, electronic Dance, African dance branch, Afro-diasporic MC rhythm kwaito. vocal fry, breath veiled tone, straight onset, interlocked note trading. TR-808, sub bass monosynth acid bass, sub bass analog poly synth. live tracking. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
+      "recipe_chars": 351
     },
     {
       "id": "amapiano",
@@ -1184,8 +1184,8 @@
       "id": "shidaiqu",
       "name": "Shidaiqu (Shanghai Mandarin jazz-pop)",
       "family": "global",
-      "recipe": "classic East Asian mid-1930s shidaiqu, functional Song, east Asian pop branch, American jazz early new orleans jazz swing-era jazz orchestra. thick, breath veiled tone, straight onset, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, lyon twisted plain cremonese pre 1750 four layer system Baroque setup double bass, vintage ambassador asymmetric brushes-and-sticks drum kit, python skin snake skin bamboo silk red sandalwood zitan erhu, silk red sandalwood zitan premium pipa, silver wound lamb gut core sitka spruce bigleaf maple western maple violin orchestral. shanghai emi pathe 1930s. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-      "recipe_chars": 978
+      "recipe": "classic East Asian mid-1930s shidaiqu, functional Song, east Asian pop branch, American jazz early new orleans jazz swing-era jazz orchestra. thick, breath veiled tone, straight onset, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral front line shallow cup lead trumpet trumpet, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, lyon twisted plain cremonese pre 1750 four layer system Baroque setup double bass, vintage ambassador asymmetric brushes-and-sticks drum kit, python skin snake skin bamboo silk red sandalwood zitan erhu, silk red sandalwood zitan premium pipa, silver wound lamb gut core sitka spruce bigleaf maple western maple violin orchestral. shanghai emi pathe 1930s. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+      "recipe_chars": 990
     },
     {
       "id": "guqin",
@@ -1338,8 +1338,8 @@
       "id": "kuduro",
       "name": "Kuduro",
       "family": "global",
-      "recipe": "classic Southern African 1987-1989 kuduro, electronic Dance, African dance branch, Afro-diasporic electric groove percussion, Afro-diasporic MC rhythm kwaito south african kwaito. vocal fry, breath veiled tone, straight onset, interlocked note trading. TR-808, sub bass analog poly synth, high-gain-saturation sub bass monosynth acid bass. live tracking. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
-      "recipe_chars": 438
+      "recipe": "classic Southern African 1987-1989 kuduro, electronic Dance, African dance branch, Afro-diasporic electric groove percussion, Afro-diasporic MC rhythm kwaito kizomba. sygyt, breath veiled tone, straight onset, interlocked note trading. TR-808, analog poly synth, piercing high-gain-saturation monosynth acid bass. live tracking. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
+      "recipe_chars": 412
     },
     {
       "id": "reggaeton",
@@ -1366,8 +1366,8 @@
       "id": "stoner_metal",
       "name": "Stoner metal",
       "family": "rock",
-      "recipe": "classic Midwestern American 1990-1993 stoner metal, distorted Rock, doom branch, sludge metal post-metal. thick, larynx lowered, wide pitch sway, interlocked note trading. orange amp British heavy crunch basswood maple pau ferro humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi proco RAT.",
-      "recipe_chars": 561
+      "recipe": "classic Midwestern American 1990-1993 stoner metal, distorted Rock, doom branch, sludge metal. thick, larynx lowered, wide pitch sway, interlocked note trading. orange amp British heavy crunch basswood maple pau ferro humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi proco RAT.",
+      "recipe_chars": 550
     },
     {
       "id": "post_metal",
@@ -1387,7 +1387,7 @@
       "id": "mathcore",
       "name": "Mathcore",
       "family": "rock",
-      "recipe": "classic Midwestern American 1997-1999 mathcore, distorted Rock, avant branch, experimental distorted rock krautrock chillwave. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. stoner doom garage amplifier room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe": "classic Midwestern American 1997-1999 mathcore, distorted Rock, avant branch, experimental distorted rock krautrock post-rock. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. stoner doom garage amplifier room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
       "recipe_chars": 595
     },
     {
@@ -1534,15 +1534,15 @@
       "id": "red_dirt",
       "name": "Red Dirt",
       "family": "country",
-      "recipe": "classic Southern American mid-1970s red dirt, functional Song, neo trad branch, anglo singer song ballad poetry texas country-folk storyteller freak folk. thick, breath veiled tone, straight note core, interlocked note trading. travis picked parlor acoustic Fender blackface amp American 60s amp spring reverb bright open string slide resonance single coil electric guitar. nashville music row defining 1957-present major-flagship nashville rca studio b quonset hut. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 596
+      "recipe": "classic Southern American mid-1970s red dirt, functional Song, neo trad branch, anglo singer song ballad poetry texas country-folk storyteller indie folk. thick, breath veiled tone, straight note core, interlocked note trading. travis picked parlor acoustic Fender blackface amp American 60s amp spring reverb bright single coil electric guitar. nashville music row defining 1957-present major-flagship nashville rca studio b quonset hut. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 568
     },
     {
       "id": "gothic_country",
       "name": "Gothic country",
       "family": "country",
-      "recipe": "classic Southern American mid-1970s gothic country, functional Song, americana branch, anglo singer song ballad poetry, honky tonk era country folk noir texas country-folk storyteller. thick, breath veiled tone, straight note core, interlocked note trading. travis picked parlor acoustic baritone electric guitar, folk autoharp, wood walnut warmer than maple mid tier scruggs stelling banjo 5 string. rural louisiana pine forest 1973-present mid tier in the country bogalusa. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-      "recipe_chars": 607
+      "recipe": "classic Southern American mid-1970s gothic country, functional Song, americana branch, anglo singer song ballad poetry, honky tonk era country folk noir indie folk. thick, breath veiled tone, straight note core, interlocked note trading. travis picked parlor acoustic arpeggiated clean baritone electric guitar, folk strummed open chord ringing overtones autoharp, wood walnut warmer than maple mid tier scruggs stelling banjo 5 string. rural louisiana pine forest 1973-present mid tier in the country bogalusa. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+      "recipe_chars": 643
     },
     {
       "id": "american_primitive",
@@ -1555,8 +1555,8 @@
       "id": "gothic_americana",
       "name": "Gothic Americana (Southern Gothic literary tradition)",
       "family": "vernacular",
-      "recipe": "classic North American mid-1990s gothic americana, functional Song, americana branch, anglo singer song ballad poetry folk noir texas country-folk storyteller. thick, breath veiled tone, wide pitch sway, interlocked note trading. wood 3 ply maple Gibson mastertone canon mahogany open back canon banjo 5 string, plain gut sheep gut double stops fiddle, folk autoharp, open d tuning martin lifespan sealed travis picked dreadnought acoustic wood body spider bridge aluminum resonator national canon medium heavy resonator 28 625 inch bass vi canon p90 Gretsch canon baritone electric guitar, steel modern bal folk French bal folk pignol tritonik hurdy gurdy. denver gothic basement studio. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-      "recipe_chars": 802
+      "recipe": "classic North American mid-1990s gothic americana, functional Song, americana branch, anglo singer song ballad poetry folk noir indie folk. thick, breath veiled tone, wide pitch sway, interlocked note trading. wood 3 ply maple Gibson mastertone canon mahogany open back canon banjo 5 string, plain gut sheep gut drone like fiddle, folk strummed open chord ringing overtones autoharp, open d tuning martin lifespan sealed travis picked dreadnought acoustic wood body spider bridge aluminum resonator national canon medium heavy resonator marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation 28 625 inch baritone electric guitar, steel modern bal folk French bal folk pignol tritonik hurdy gurdy. denver gothic basement studio. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+      "recipe_chars": 873
     },
     {
       "id": "folk_noir",
@@ -1604,8 +1604,8 @@
       "id": "tin_pan_alley_song",
       "name": "Tin Pan Alley song",
       "family": "global",
-      "recipe": "classic North American early-1880s tin pan alley song, functional Song, crooners branch, American jazz early swing big band chicago jazz. thick, breath veiled tone, straight onset, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, a cappella small 3 to 8 one per part four voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu choir ensemble. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-      "recipe_chars": 584
+      "recipe": "classic North American early-1880s tin pan alley song, functional Song, crooners branch, American jazz early chicago jazz swing-era jazz orchestra. thick, breath veiled tone, straight onset, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, a cappella small 3 to 8 one per part four voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu choir ensemble. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+      "recipe_chars": 594
     },
     {
       "id": "brill_building_pop",
@@ -1632,15 +1632,15 @@
       "id": "dream_pop",
       "name": "Dream pop",
       "family": "global",
-      "recipe": "classic Northern European mid-1980s dream pop, functional Song, pop rock branch, alternative distorted rock bedroom pop. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alder single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, sequential lineage canonical prophet 5 1978 san jose ca lead analog poly yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, original production texture omnichord. UK 4ad and creation shoegaze 1986-1995 indie-commercial dream pop shoegaze 4ad studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb electro-harmonix deluxe memory man chorus.",
-      "recipe_chars": 922
+      "recipe": "classic Northern European mid-1980s dream pop, functional Song, pop rock branch, alternative distorted rock math rock and post-rock. thick, breath veiled tone, pure, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alder single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, original omnichord. UK 4ad and creation shoegaze 1986-1995 indie-commercial dream pop shoegaze 4ad studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb electro-harmonix deluxe memory man chorus.",
+      "recipe_chars": 908
     },
     {
       "id": "jangle_pop",
       "name": "Jangle pop",
       "family": "global",
-      "recipe": "classic North American mid-1980s jangle pop, functional Song, pop rock branch, alternative distorted rock modern indie rock bedroom pop. thick, breath veiled tone, straight note core, interlocked note trading. vox ac amp British 60s amp top boost chime rotosound toaster twelve string electric, marshall plexi amp British rock amp clean strummed single coil electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-      "recipe_chars": 694
+      "recipe": "classic North American mid-1980s jangle pop, functional Song, pop rock branch, alternative distorted rock modern indie rock slowcore. thick, breath veiled tone, straight note core, interlocked note trading. vox ac amp British 60s amp top boost chime rotosound toaster twelve string electric, marshall plexi amp British rock amp mahogany rosewood clean single coil electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+      "recipe_chars": 709
     },
     {
       "id": "power_pop",
@@ -1667,15 +1667,15 @@
       "id": "twee_pop",
       "name": "Twee pop",
       "family": "global",
-      "recipe": "classic mid-1990s twee pop, functional Song, pop rock branch, anglo singer song indie folk freak folk. thick, breath veiled tone, straight note core, interlocked note trading. narrative fingerpicked acoustic marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation soft down tuning single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, ukulele, original omnichord. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-      "recipe_chars": 592
+      "recipe": "classic mid-1990s twee pop, functional Song, pop rock branch, anglo singer song indie folk. thick, breath veiled tone, straight note core, interlocked note trading. narrative fingerpicked acoustic marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation soft down tuning single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, ukulele, original omnichord. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+      "recipe_chars": 581
     },
     {
       "id": "indie_pop_modern",
       "name": "Indie pop (modern)",
       "family": "global",
-      "recipe": "classic early-2000s indie pop, functional Song, pop rock branch, alternative distorted rock bedroom pop dreampop. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation clean single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric marshall plexi amp British rock amp humbucker roundwound short-scale short scale bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog poly synth, ukulele. live tracking. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital klon centaur.",
-      "recipe_chars": 677
+      "recipe": "classic early-2000s indie pop, functional Song, pop rock branch, alternative distorted rock modern indie rock slowcore. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric marshall plexi amp British rock amp humbucker roundwound short-scale short scale bass, pre muffled edge muffled sticks backbeat drum kit, singing lead analog poly synth, ukulele. live tracking. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital klon centaur.",
+      "recipe_chars": 683
     },
     {
       "id": "bubblegum_pop",
@@ -1849,8 +1849,8 @@
       "id": "mambo",
       "name": "Mambo",
       "family": "global",
-      "recipe": "classic Caribbean modern mambo, groove Percussion, charanga danza branch, American jazz early swing big band chicago jazz. thick, full chest belt, straight onset, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator grand piano, growly gut upright bass, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, bronze open slap hand drum timbales, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor ensemble student commercial trombone, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow legato saxophone, claves. pre revolutionary cuba 1944-1960 mid tier panart puchito havana pre 1959. large-diaphragm condenser, tube pre.",
-      "recipe_chars": 988
+      "recipe": "classic Caribbean modern mambo, groove Percussion, charanga danza branch, American jazz early chicago jazz new orleans jazz. thick, full chest belt, straight onset, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, growly gut upright bass, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, bronze open slap hand drum timbales, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor front line student commercial trombone, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow legato saxophone, claves. pre revolutionary cuba 1944-1960 mid tier panart puchito havana pre 1959. large-diaphragm condenser.",
+      "recipe_chars": 1000
     },
     {
       "id": "cha_cha_cha",
@@ -1933,8 +1933,8 @@
       "id": "candombe_uruguayan",
       "name": "Candombe uruguayo",
       "family": "global",
-      "recipe": "classic South American mid-1940s candombe uruguayo, groove Percussion, Latin am branch, Afro-diasporic ritual devotional. a cappella small 3 to 8 one per part call response single leader group response sub saharan call response ostinato polyrhythmic choir ensemble, lead cowhide canonical candomble atabaque, lead open slap hand drum congas, full cuerda song accompaniment groove synthetic head weatherproof candombe tamboriles. montevideo candombe barrio sur carnival. RCA 44-BX, German V72 tube pre, German tube console. 78rpm shellac.",
-      "recipe_chars": 537
+      "recipe": "classic South American mid-1940s candombe uruguayo, groove Percussion, Latin am branch, Afro-diasporic ritual devotional. a cappella small 3 to 8 one per part call response single leader group response sub saharan call response ostinato polyrhythmic choir ensemble, lead cowhide canonical candomble atabaque, lead mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, full cuerda song accompaniment groove synthetic head weatherproof candombe tamboriles. montevideo candombe barrio sur carnival. RCA 44-BX, German V72 tube pre, German tube console. 78rpm shellac.",
+      "recipe_chars": 598
     },
     {
       "id": "forro_brasileiro",
@@ -2017,8 +2017,8 @@
       "id": "tropical_bass",
       "name": "Global bass",
       "family": "global",
-      "recipe": "classic early-2010s global bass, electronic Dance, Latin electric branch, Afro-diasporic MC rhythm south african kwaito kwaito. melodic pitched sampler, TR-808, sub bass digital subtractive. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 336
+      "recipe": "classic early-2010s global bass, electronic Dance, Latin electric branch, Afro-diasporic MC rhythm kwaito. sampler, TR-808, sub bass digital subtractive. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 299
     },
     {
       "id": "eurodance_90s",
@@ -2273,13 +2273,6 @@
       "recipe_chars": 287
     },
     {
-      "id": "cloud_rap_experimental",
-      "name": "Cloud rap (experimental)",
-      "family": "global",
-      "recipe": "classic Southern American 2010-2013 cloud rap, mc Rhythm, experimental branch, lofi experimental electric chillwave hypnagogic pop. thick, rap, straight onset, interlocked note trading. glitched textural sampler, singing lead digital subtractive, TR-808. treated studio. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay lexicon 224 / 480L.",
-      "recipe_chars": 414
-    },
-    {
       "id": "mumble_rap",
       "name": "Mumble rap",
       "family": "global",
@@ -2437,8 +2430,8 @@
       "id": "hokum_blues_vaudeville",
       "name": "Hokum blues",
       "family": "global",
-      "recipe": "classic North American mid-1920s hokum blues, ballad Poetry, hokum blues branch, American jazz early new orleans jazz swing big band. thick, breath veiled tone, wide pitch sway, interlocked note trading. flatwound thomastik slide acoustic guitar, growly gut upright bass, frottoir, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, kazoo. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-      "recipe_chars": 647
+      "recipe": "classic North American mid-1920s hokum blues, ballad Poetry, hokum blues branch, American jazz early new orleans jazz chicago jazz. thick, breath veiled tone, wide pitch sway, interlocked note trading. flatwound thomastik slide acoustic guitar, growly gut upright bass, frottoir, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, kazoo. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+      "recipe_chars": 645
     },
     {
       "id": "classic_blues_women",
@@ -2696,8 +2689,8 @@
       "id": "tech_house_classic",
       "name": "Tech-house",
       "family": "global",
-      "recipe": "classic mid-2000s tech-house, electronic Dance, tech house branch, techno electronic dance berlin techno / basic channel dub-techno detroit techno. sustained pad digital subtractive, TR-909, sound design field sampler, analog mono synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 383
+      "recipe": "classic mid-2000s tech-house, electronic Dance, tech house branch, techno electronic dance detroit techno industrial techno. digital subtractive, TR-909, sound design field sampler, analog mono synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 346
     },
     {
       "id": "minimal_tech_house",
@@ -2719,13 +2712,6 @@
       "family": "global",
       "recipe": "classic North American mid-1990s dsbm, distorted Rock, black branch, doom metal traditional doom funeral doom. thick, false fold engaged, slow rate, interlocked note trading. orange amp British heavy crunch basswood mahogany rosewood humbucker electric guitar, orange amp British heavy crunch alder ernie ball slinky electric bass, sticks backbeat drum kit, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca sub bass analog poly synth. bedroom. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
       "recipe_chars": 571
-    },
-    {
-      "id": "minimal_microhouse_classic",
-      "name": "Microhouse (Kompakt-era)",
-      "family": "global",
-      "recipe": "classic 1997-1999 microhouse, electronic Dance, microhouse branch, idm glitch experimental electric chiptune / 8-bit. digital subtractive, glitched textural sampler, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909, roland lineage canonical sh 101 tb 303 1982 1984 osaka analog mono synth. treated studio. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
-      "recipe_chars": 437
     },
     {
       "id": "jam_band",
@@ -2836,8 +2822,8 @@
       "id": "garage_rock_revival_2000s",
       "name": "Garage-rock revival (2001–2010)",
       "family": "vernacular",
-      "recipe": "classic garage-rock revival, distorted Rock, classic branch, punk distorted rock crust punk post-punk. thick, breath veiled tone, breath pulsed, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alnico single coil electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, oil filled sticks backbeat drum kit. fetishistic vintage 1995-present vintage-revival toe rag vintage revival. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-      "recipe_chars": 625
+      "recipe": "classic garage-rock revival, distorted Rock, classic branch, punk distorted rock crust punk anarcho-punk. thick, breath veiled tone, breath pulsed, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alnico single coil electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, oil filled sticks backbeat drum kit. fetishistic vintage 1995-present vintage-revival toe rag vintage revival. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+      "recipe_chars": 628
     },
     {
       "id": "minneapolis_synth_funk_pop",
@@ -2941,8 +2927,8 @@
       "id": "tropicalia",
       "name": "Tropicália",
       "family": "global",
-      "recipe": "classic Southern American 1967-1969 tropicália, groove Percussion, Brazilian branch, experimental distorted rock chillwave post-rock. thick, breath veiled tone, slow rate, interlocked note trading. cedar strummed open chord ringing overtones classical nylon-string marshall plexi amp British rock amp basswood pau ferro power chord humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog synth, berimbau, samba foundation jacaranda rosewood canonical Portuguese steel modern cavaquinho. estudios scatena sp. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
-      "recipe_chars": 749
+      "recipe": "classic Southern American 1967-1969 tropicália, groove Percussion, Brazilian branch, experimental distorted rock post-rock krautrock. thick, breath veiled tone, slow rate, interlocked note trading. cedar strummed open chord ringing overtones classical nylon-string marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog synth, berimbau, samba foundation jacaranda rosewood canonical Portuguese steel modern cavaquinho. estudios scatena sp. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
+      "recipe_chars": 778
     },
     {
       "id": "mpb",
@@ -2997,8 +2983,8 @@
       "id": "embolada",
       "name": "Embolada",
       "family": "global",
-      "recipe": "classic South American mid-1930s embolada, groove Percussion, Brazilian branch, Afro-diasporic MC rhythm kwaito south african kwaito. vocal fry, rap, fast rate, interlocked note trading. goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian hands layered pandeiro. recife brazilian northeast forro house. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-      "recipe_chars": 443
+      "recipe": "classic South American mid-1930s embolada, groove Percussion, Brazilian branch, Afro-diasporic MC rhythm kwaito. vocal fry, breath veiled tone, fast rate, interlocked note trading. goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian hands layered pandeiro. recife brazilian northeast forro house. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+      "recipe_chars": 437
     },
     {
       "id": "jongo",
@@ -3340,15 +3326,8 @@
       "id": "breton_folk",
       "name": "Breton folk (kan ha diskan, fest-noz)",
       "family": "global",
-      "recipe": "classic Northern European early-1970s breton folk, ballad Poetry, Celtic balladic branch, western early art music, anglo singer song ballad poetry freak folk. thick, breath veiled tone, straight note core, interlocked note trading. African blackwood canonical breton modern cane arundo donax canonical breton goatskin canonical breton melodic biniou, paired melodic bombarde, French trad petromax pignol rosin canonical French steel modern bal folk French bal folk pignol tritonik hurdy gurdy. brittany fest noz outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 583
-    },
-    {
-      "id": "sardinian_traditional",
-      "name": "Sardinian cantu a tenore and launeddas",
-      "family": "global",
-      "recipe": "classic Southern European early-1500s sardinian cantu a tenore and launeddas, ballad Poetry, Mediterranean ballad branch, vocal drone modal macedonian glasoechko male diaphonic alpine yodel. kargyraa, false fold engaged, straight note core, interlocked note trading. cane arundo donax three pipes canonical sardinian archaic idioglottic single reeds canonical sardinian drone like circular breathing launeddas, m1 modal compound with overtone tuning khoomei foundational mechanism 8th to 12th partial overtone range Mediterranean pastoral polyphonic subharmonic bassu throat singing voice, leather castagnari Italian premium folk music drone like accordion, softer tone ebonite hard rubber klezmer tradition clarinet. sardinian outdoor a tenore polyphony. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 818
+      "recipe": "classic Northern European early-1970s breton folk, ballad Poetry, Celtic balladic branch, western early art music, anglo singer song ballad poetry indie folk freak folk. thick, breath veiled tone, straight note core, interlocked note trading. boxwood pre modern traditional breton cane arundo donax canonical breton goatskin canonical breton melodic biniou, paired melodic bombarde, French trad petromax pignol rosin canonical French steel modern bal folk French bal folk pignol tritonik hurdy gurdy. brittany fest noz outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 590
     },
     {
       "id": "italian_southern_folk",
@@ -3417,8 +3396,8 @@
       "id": "georgian_three_voice_polyphony",
       "name": "Georgian three-voice polyphony",
       "family": "global",
-      "recipe": "classic Eastern European early-1940s georgian three-voice polyphony, drone Modal, vocal branch, Mediterranean ballad ballad poetry sardinian cantu a tenore and launeddas croatian klapa dalmatian close-harmony. sygyt, breath veiled tone, breath pulsed, interlocked note trading. drone bass choir georgian polyphonic. parish church. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
-      "recipe_chars": 464
+      "recipe": "classic Eastern European early-1940s georgian three-voice polyphony, drone Modal, vocal branch, Mediterranean ballad ballad poetry croatian klapa dalmatian close-harmony stornelli. thick, breath veiled tone, breath pulsed, interlocked note trading. drone bass choir georgian polyphonic. parish church. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
+      "recipe_chars": 435
     },
     {
       "id": "aka_baka_polyphony",
@@ -3431,8 +3410,8 @@
       "id": "corsican_paghjella",
       "name": "Corsican paghjella three-voice unaccompanied",
       "family": "global",
-      "recipe": "classic mid-1970s corsican paghjella three-voice unaccompanied, drone Modal, vocal branch, Mediterranean ballad ballad poetry sardinian cantu a tenore and launeddas croatian klapa dalmatian close-harmony. vocal fry, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part three voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble. parish church. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-      "recipe_chars": 525
+      "recipe": "classic mid-1970s corsican paghjella three-voice unaccompanied, drone Modal, vocal branch, Mediterranean ballad ballad poetry croatian klapa dalmatian close-harmony stornelli. thick, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part three voice polyphonic regional kakhetian three voice two soloists choral drone global traditional polyphonic choir ensemble. parish church. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+      "recipe_chars": 492
     },
     {
       "id": "bulgarian_diaphonic_womens",
@@ -3473,8 +3452,8 @@
       "id": "albanian_iso_polyphony",
       "name": "Albanian iso-polyphony",
       "family": "global",
-      "recipe": "classic mid-1920s albanian iso-polyphony, drone Modal, vocal branch, Mediterranean ballad ballad poetry sardinian cantu a tenore and launeddas croatian klapa dalmatian close-harmony. vocal fry, breath veiled tone, slow rate, interlocked note trading. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 330
+      "recipe": "classic mid-1920s albanian iso-polyphony, drone Modal, vocal branch, Mediterranean ballad ballad poetry croatian klapa dalmatian close-harmony stornelli. thick, breath veiled tone, slow rate, interlocked note trading. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 297
     },
     {
       "id": "azerbaijani_mugham",
@@ -3725,15 +3704,15 @@
       "id": "croatian_istrian_diaphonic",
       "name": "Croatian Istrian two-part-in-Istrian-scale",
       "family": "global",
-      "recipe": "classic Southern European early-1880s croatian istrian two-part-in-istrian-scale, drone Modal, vocal branch, Mediterranean ballad ballad poetry croatian klapa dalmatian close-harmony sardinian cantu a tenore and launeddas. kargyraa, breath veiled tone, slow rate, interlocked note trading. paired large small conical bore canonical istrian scale istrian diaphonic two part canonical croatian sopele. outdoor dalmatian square. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 488
+      "recipe": "classic Southern European early-1880s croatian istrian two-part-in-istrian-scale, drone Modal, vocal branch, Mediterranean ballad ballad poetry croatian klapa dalmatian close-harmony stornelli. thick, breath veiled tone, slow rate, interlocked note trading. paired large small conical bore canonical istrian scale istrian diaphonic two part canonical croatian sopele. outdoor dalmatian square. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 456
     },
     {
       "id": "macedonian_glasoechko",
       "name": "Macedonian Glasoechko male diaphonic",
       "family": "global",
-      "recipe": "classic modern macedonian glasoechko male diaphonic, drone Modal, vocal branch, Mediterranean ballad ballad poetry sardinian cantu a tenore and launeddas croatian klapa dalmatian close-harmony. kargyraa, breath veiled tone, straight note core, interlocked note trading. plum canonical bulgarian melodic kaval, bagpipe double reed chanter drone pipe canonical balkan macedonian glasoechko pastoral dance gajda, donkey skin bass thin treble tapan. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 525
+      "recipe": "classic modern macedonian glasoechko male diaphonic, drone Modal, vocal branch, Mediterranean ballad ballad poetry croatian klapa dalmatian close-harmony kabyle music. kargyraa, breath veiled tone, slow rate, interlocked note trading. plum canonical bulgarian melodic kaval, bagpipe double reed chanter drone pipe canonical balkan macedonian glasoechko pastoral dance gajda, donkey skin bass thin treble tapan. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 490
     },
     {
       "id": "armenian_duduk_chant",
@@ -3886,8 +3865,8 @@
       "id": "sabar_drumming_wolof",
       "name": "Sabar drumming (Senegalese Wolof)",
       "family": "global",
-      "recipe": "classic West African modern sabar drumming, groove Percussion, west African branch, Afro-diasporic MC rhythm south african kwaito kwaito. vocal fry, breath veiled tone, slow rate, interlocked note trading. iroko alternative west African goat skin leather tension cords canonical pressure bend talking drum, mbalax dimba canonical Senegalese single hollowed trunk goat skin wooden pegs canonical wolof rose family canonical Senegalese mbalax sabar. dakar senegal mbalax defining 1979-present indie-commercial dakar mbalax oran rai studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 600
+      "recipe": "classic West African modern sabar drumming, groove Percussion, west African branch, Afro-diasporic MC rhythm kwaito. vocal fry, breath veiled tone, slow rate, interlocked note trading. iroko alternative west African goat skin leather tension cords canonical pressure bend talking drum, mbalax dimba canonical Senegalese single hollowed trunk goat skin wooden pegs canonical wolof rose family canonical Senegalese mbalax sabar. dakar senegal mbalax defining 1979-present indie-commercial dakar mbalax oran rai studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 579
     },
     {
       "id": "donsongoni_hunter_harp",
@@ -3921,15 +3900,15 @@
       "id": "coupe_decale_ivorian",
       "name": "Coupé-décalé (Ivorian dance music)",
       "family": "global",
-      "recipe": "classic West African 2000-2003 coupé-décalé, electronic Dance, African dance branch, Afro-diasporic MC rhythm south african kwaito kwaito. extended whistle, breath veiled tone, straight note core, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, sub bass analog synth, ampeg svt amp rock bass amp alder pyramid pure nickel bass electric bass. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 582
+      "recipe": "classic West African 2000-2003 coupé-décalé, electronic Dance, African dance branch, Afro-diasporic MC rhythm kwaito. extended whistle, breath veiled tone, straight note core, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, singing lead analog synth, alder pyramid pure nickel bass British mid 60s era electric bass. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 557
     },
     {
       "id": "zouglou_ivorian",
       "name": "Zouglou (Ivorian student music)",
       "family": "global",
-      "recipe": "classic West African early-1990s zouglou, functional Song, African pop branch, Afro-diasporic MC rhythm south african kwaito kwaito. extended whistle, breath veiled tone, slow rate, interlocked note trading. TR-808, mahogany pyramid pure nickel bass British mid 60s era thumb muted electric bass, mahogany lower tension down tuning clean strummed single coil electric guitar. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 586
+      "recipe": "classic West African early-1990s zouglou, functional Song, African pop branch, Afro-diasporic MC rhythm kwaito. extended whistle, breath veiled tone, straight onset, interlocked note trading. TR-808, electric bass, clean strummed single coil electric guitar. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 469
     },
     {
       "id": "singeli_tanzanian",
@@ -4684,8 +4663,8 @@
       "id": "corsican_paghjella_modern",
       "name": "Corsican paghjella modern revival",
       "family": "classical",
-      "recipe": "classic North American mid-1970s corsican paghjella modern revival, drone Modal, vocal branch, Mediterranean ballad ballad poetry sardinian cantu a tenore and launeddas croatian klapa dalmatian close-harmony. vocal fry, breath veiled tone, slow rate, interlocked note trading. mountain valley. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-      "recipe_chars": 440
+      "recipe": "classic North American mid-1970s corsican paghjella modern revival, drone Modal, vocal branch, Mediterranean ballad ballad poetry croatian klapa dalmatian close-harmony stornelli. thick, breath veiled tone, slow rate, interlocked note trading. mountain valley. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+      "recipe_chars": 407
     },
     {
       "id": "banda_sinaloense",
@@ -4775,8 +4754,8 @@
       "id": "salsa_dura",
       "name": "Salsa dura (hard 70s NY salsa)",
       "family": "global",
-      "recipe": "classic North American mid-1970s salsa dura, groove Percussion, son salsa branch, Afro-diasporic MC rhythm south african kwaito kwaito. extended whistle, rap, fast rate, interlocked note trading. cold pressed wurzen felt 18 ply hard rock maple vintage production grand piano, mahogany pyramid pure nickel bass British mid 60s era thumb muted electric bass, red brass 90 10 darkest bach stradivarius 180 canonical American orchestral trumpet, red brass 90 10 darker orchestral bach 42 canonical American orchestral tenor bass leaning trombone, brass open slap hand drum timbales, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, cencerro. nuyorican fania canon 1968-1977 mid tier fania la tierra studios ny. shure SM57, API 312 op-amp pre, MCI JH-636 US 70s indie/jazz, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-      "recipe_chars": 966
+      "recipe": "classic North American mid-1970s salsa dura, groove Percussion, son salsa branch, Afro-diasporic MC rhythm kwaito. extended whistle, rap, fast rate, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator grand piano, electric bass, bach stradivarius 180 canonical American orchestral trumpet, bach 42 canonical American orchestral tenor trombone, brass open slap hand drum timbales, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, cencerro. nuyorican fania canon 1968-1977 mid tier fania la tierra studios ny. shure SM57, API 312 op-amp pre, MCI JH-636 US 70s indie/jazz, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+      "recipe_chars": 799
     },
     {
       "id": "salsa_romantica",
@@ -4789,8 +4768,8 @@
       "id": "salsa_colombiana",
       "name": "Salsa colombiana (Cali)",
       "family": "global",
-      "recipe": "classic Andean early-1980s salsa colombiana, groove Percussion, son salsa branch, Afro-diasporic MC rhythm south african kwaito kwaito. vocal fry, rap, slow rate, interlocked note trading. 7 ply quartersawn maple grand piano, alder pyramid pure nickel bass British mid 60s era thumb muted electric bass, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble trumpet, brass open slap hand drum timbales, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, steady pulse cencerro. bogota colombian andean studio. shure SM57, transformer-coupled solid-state pre, colored vintage console, optical compressor. tape 15ips spring reverb.",
-      "recipe_chars": 720
+      "recipe": "classic Andean early-1980s salsa colombiana, groove Percussion, son salsa branch, Afro-diasporic MC rhythm kwaito. rap, slow rate, interlocked note trading, neutral third half flat. grand piano, fast-attack-transient mid rich alder electric bass, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble trumpet, brass open slap hand drum timbales, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, steady pulse cencerro. bogota colombian andean studio. shure SM57, transformer-coupled solid-state pre, colored vintage console, optical compressor. tape 15ips spring reverb.",
+      "recipe_chars": 663
     },
     {
       "id": "merengue_urbano",
@@ -4824,8 +4803,8 @@
       "id": "rasin_haitian",
       "name": "Rasin (Haitian roots-Vodou rock)",
       "family": "global",
-      "recipe": "classic Caribbean 1977-1979 rasin, distorted Rock, regional branch, Afro-diasporic ritual devotional jongo haitian vodou ceremonial. thick, breath veiled tone, straight note core, interlocked note trading. marshall plexi amp British rock amp mahogany maple alnico humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, brushes-and-sticks drum kit. port au prince Haitian recording 1970-2000 indie-commercial port au prince haitian kompa studio. sennheiser MD421, transformer-coupled solid-state pre, colored vintage console, optical compressor, parametric EQ. tape 15ips spring reverb.",
-      "recipe_chars": 618
+      "recipe": "classic Caribbean 1977-1979 rasin, distorted Rock, regional branch, Afro-diasporic ritual devotional haitian vodou ceremonial lukumí ceremonial. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp mahogany maple alnico humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, brushes-and-sticks drum kit. port au prince Haitian recording 1970-2000 indie-commercial port au prince haitian kompa studio. sennheiser MD421, transformer-coupled solid-state pre, colored vintage console, optical compressor, parametric EQ. tape 15ips spring reverb.",
+      "recipe_chars": 626
     },
     {
       "id": "garifuna_punta_rock",
@@ -4894,8 +4873,8 @@
       "id": "champeta_cartagenera",
       "name": "Champeta (Cartagena Afro-Colombian)",
       "family": "global",
-      "recipe": "classic Andean mid-1980s champeta, functional Song, tropical song branch, Afro-diasporic MC rhythm south african kwaito kwaito. extended whistle, full chest belt, slow rate, interlocked note trading. basswood mahogany lower tension down tuning clean strummed humbucker electric guitar, mahogany pyramid pure nickel bass British mid 60s era thumb muted electric bass, TR-808. bogota colombian andean studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 536
+      "recipe": "classic Andean mid-1980s champeta, functional Song, tropical song branch, Afro-diasporic MC rhythm kwaito. thick, full chest belt, straight onset, interlocked note trading. clean strummed humbucker electric guitar, electric bass, TR-808. bogota colombian andean studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 399
     },
     {
       "id": "sertanejo_universitario",
@@ -4945,13 +4924,6 @@
       "family": "global",
       "recipe": "classic Southern American mid-1990s coco brasileiro, ballad Poetry, work song branch, Brazilian groove percussion pagode embolada. thick, breath veiled tone, straight note core, interlocked note trading. tambourine orch, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro. estudio rozenblit recife. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
       "recipe_chars": 439
-    },
-    {
-      "id": "jongo_brasileiro",
-      "name": "Jongo (Afro-Brazilian Vale do Paraíba)",
-      "family": "global",
-      "recipe": "classic Southern American modern jongo, ritual Devotional, Afro-diasporic branch, Brazilian groove percussion pagode embolada. vocal fry, breath veiled tone, straight note core, interlocked note trading. tambourine orch. estudios scatena sp. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 304
     },
     {
       "id": "classical_period_18c",
@@ -5022,13 +4994,6 @@
       "family": "classical",
       "recipe": "classic Caucasian mid-1970s holy minimalism, art Music, western modern branch, christian gospel ritual devotional russian orthodox liturgical chant sacred steel. thick, declaimed, straight onset, interlocked note trading. modern bright beech laminated maple laminated European tradition sitka spruce grand piano, mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. stone armenian church. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
       "recipe_chars": 599
-    },
-    {
-      "id": "american_minimalism",
-      "name": "American minimalism (1960s-1970s NYC and California)",
-      "family": "classical",
-      "recipe": "classic North American american minimalism, art Music, western modern branch, musique concrete experimental electric acousmatic music soundscape composition. thick, breath veiled tone, slow rate, interlocked note trading. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, synthetic sitka spruce European maple sycamore maple oil varnish violin orchestral. shoebox concert hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-      "recipe_chars": 550
     },
     {
       "id": "spectralism",
@@ -5209,8 +5174,8 @@
       "id": "canzone_napoletana",
       "name": "Canzone napoletana (Neapolitan song)",
       "family": "classical",
-      "recipe": "classic Southern European mid-1890s canzone napoletana, functional Song, iberian branch, Mediterranean ballad ballad poetry kabyle music greek nisiotika. thick, breath veiled tone, slow rate, interlocked note trading. bowl back Italian German spruce classical leaning phosphor bronze bronze mandolin, cedar phosphor bronze bronze fingerpicked parlor acoustic guitar, cold pressed weikert felt beech laminated maple laminated European tradition grand piano. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. Neumann U67, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
-      "recipe_chars": 661
+      "recipe": "classic Southern European mid-1890s canzone napoletana, functional Song, iberian branch, Mediterranean ballad ballad poetry kabyle music greek nisiotika. thick, breath veiled tone, slow rate, interlocked note trading. bowl back Italian German spruce classical leaning phosphor bronze bronze mandolin, cedar phosphor bronze bronze fingerpicked parlor acoustic guitar, cold pressed weikert felt oversize maple tension resonator European spruce grand piano. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. Neumann U67, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
+      "recipe_chars": 659
     },
     {
       "id": "chicago_jazz_1920s",
@@ -5218,13 +5183,6 @@
       "family": "jazz",
       "recipe": "classic North American 1927-1929 chicago jazz, improv On Frame, early branch, American jazz pre jazz ragtime. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, ebonite hard rubber klezmer tradition front line clarinet, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, growly gut upright bass, vintage ambassador asymmetric brushes drum kit. dry but alive 1948-1965 indie-commercial early tape us small. acoustic horn. 78rpm shellac.",
       "recipe_chars": 657
-    },
-    {
-      "id": "swing_big_band",
-      "name": "Swing big band",
-      "family": "jazz",
-      "recipe": "classic North American mid-1940s swing big band, improv On Frame, early branch, American jazz kansas city kansas city swing. thick, blues-shouter, straight onset, interlocked note trading. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral jazz balance trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor student commercial trombone, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, cold pressed wurzen felt oversize maple tension resonator grand piano, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. voluminous 1935-1955 major-flagship swing live room. passive ribbon, tube pre, German tube console. Studer 30ips tape.",
-      "recipe_chars": 806
     },
     {
       "id": "cool_jazz_west_coast",
@@ -5237,8 +5195,8 @@
       "id": "smooth_jazz_80s",
       "name": "Smooth jazz (1980s commercial)",
       "family": "pop",
-      "recipe": "classic Los Angeles smooth jazz, improv On Frame, smooth vocal branch, pop rock functional song sophisti-pop skiffle. thick, close mic intimate, straight onset, interlocked note trading. nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, ampeg b15 amp American 60s bass amp flip top character alder thomastik infeld electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
-      "recipe_chars": 722
+      "recipe": "classic Los Angeles smooth jazz, improv On Frame, smooth vocal branch, pop rock functional song skiffle new wave. thick, breath veiled tone, straight onset, interlocked note trading. nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, marshall plexi amp British rock amp alder thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+      "recipe_chars": 729
     },
     {
       "id": "acid_jazz_uk_90s",
@@ -5349,8 +5307,8 @@
       "id": "folk_punk",
       "name": "Folk punk (American 80s-90s)",
       "family": "rock_punk",
-      "recipe": "classic modern folk punk, distorted Rock, punk branch, anglo singer song indie folk freak folk. thick, breath veiled tone, breath pulsed, interlocked note trading. narrative fingerpicked dreadnought acoustic guitar, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string, castagnari Italian premium folk music straight accordion, ampeg b15 amp American 60s bass amp flip top character ernie ball slinky electric bass, pre muffled edge muffled sticks drum kit. isolated rural 2005-present isolation diy isolation cabin diy. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-      "recipe_chars": 687
+      "recipe": "classic modern folk punk, distorted Rock, punk branch, anglo singer song indie folk. thick, breath veiled tone, breath pulsed, interlocked note trading. narrative fingerpicked dreadnought acoustic guitar, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string, castagnari Italian premium folk music straight accordion, marshall plexi amp British rock amp ernie ball slinky electric bass, pre muffled edge muffled sticks drum kit. isolated rural 2005-present isolation diy isolation cabin diy. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+      "recipe_chars": 657
     },
     {
       "id": "riot_grrrl",
@@ -5405,8 +5363,8 @@
       "id": "slacker_rock",
       "name": "Slacker rock (early-1990s American lo-fi indie)",
       "family": "rock_punk",
-      "recipe": "classic North American slacker rock, distorted Rock, alternative branch, experimental distorted rock chillwave post-rock. thick, breath veiled tone, slow rate, interlocked note trading. marshall plexi amp British rock amp basswood arpeggiated clean humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, kevlar aramid extreme tension sticks backbeat drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb proco RAT.",
-      "recipe_chars": 594
+      "recipe": "classic North American slacker rock, distorted Rock, alternative branch, experimental distorted rock post-rock krautrock. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb proco RAT.",
+      "recipe_chars": 622
     },
     {
       "id": "chamber_pop_high_llamas",
@@ -5454,22 +5412,22 @@
       "id": "stoner_rock",
       "name": "Stoner rock",
       "family": "rock_punk",
-      "recipe": "classic Midwestern American mid-1990s stoner rock, distorted Rock, doom branch, sludge metal post-metal. thick, larynx lowered, slow rate, interlocked note trading. orange amp British heavy crunch basswood maple pau ferro humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay electro-harmonix big muff pi.",
-      "recipe_chars": 589
+      "recipe": "classic Midwestern American mid-1990s stoner rock, distorted Rock, doom branch, sludge metal. thick, larynx lowered, slow rate, interlocked note trading. orange amp British heavy crunch basswood maple pau ferro humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay electro-harmonix big muff pi.",
+      "recipe_chars": 578
     },
     {
       "id": "desert_rock_palm",
       "name": "Desert rock (Palm Desert scene)",
       "family": "rock_punk",
-      "recipe": "classic Midwestern American 1988-1992 desert rock, distorted Rock, doom branch, sludge metal post-metal. thick, larynx lowered, straight note core, interlocked note trading. orange amp British heavy crunch basswood maple pau ferro humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, kevlar aramid extreme tension sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi.",
-      "recipe_chars": 574
+      "recipe": "classic Midwestern American 1988-1992 desert rock, distorted Rock, doom branch, sludge metal. thick, breath veiled tone, straight note core, interlocked note trading. orange amp British heavy crunch basswood alnico power chord humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi.",
+      "recipe_chars": 540
     },
     {
       "id": "space_rock",
       "name": "Space rock (late-1960s through 1970s psychedelic cosmic rock)",
       "family": "rock_punk",
-      "recipe": "classic Central European space rock, distorted Rock, progressive rock branch, experimental distorted rock chillwave post-rock. thick, breath veiled tone, fast rate, interlocked note trading. marshall plexi amp British rock amp basswood maple pau ferro humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, ambient pad like analog synth, vibrato wobble internal speaker close miked stylophone. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf kling klang studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape echo plate reverb phaser.",
-      "recipe_chars": 702
+      "recipe": "classic Central European space rock, distorted Rock, progressive rock branch, experimental distorted rock post-rock krautrock. thick, breath veiled tone, fast rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, ambient pad like analog synth, vibrato wobble internal speaker close miked stylophone. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf kling klang studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape echo plate reverb phaser.",
+      "recipe_chars": 737
     },
     {
       "id": "zeuhl_french",
@@ -5717,20 +5675,6 @@
       "recipe_chars": 461
     },
     {
-      "id": "south_african_kwaito",
-      "name": "South African kwaito",
-      "family": "hip_hop",
-      "recipe": "classic Southern African 1994-1996 south african kwaito, mc Rhythm, Afro-diasporic branch, house electronic dance, Jamaican bass system latin house tech-house. vocal fry, breath veiled tone, straight onset, interlocked note trading. TR-808, sub bass analog synth, ampeg b15 amp American 60s bass amp flip top character mahogany pyramid electric bass. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
-      "recipe_chars": 519
-    },
-    {
-      "id": "amapiano_sa",
-      "name": "Amapiano (South African 2010s)",
-      "family": "electronic",
-      "recipe": "classic Southern African amapiano, electronic Dance, African dance branch, house electronic dance afro house deep house. thick, breath veiled tone, straight onset, interlocked note trading. TR-808, analog synth, log drum. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
-      "recipe_chars": 390
-    },
-    {
       "id": "tribal_house",
       "name": "Tribal house",
       "family": "electronic",
@@ -5776,8 +5720,8 @@
       "id": "melodic_house",
       "name": "Melodic house (2010s emotional-melodic deep-house)",
       "family": "electronic",
-      "recipe": "classic melodic house, electronic Dance, house branch, ambient experimental electric outrun / synthwave vaporwave aesthetic. extended whistle, breath veiled tone, straight note core, interlocked note trading. behringer rd 8 modern clone analog circuit reproduction TR-808, pad like pad analog synth, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 584
+      "recipe": "classic melodic house, electronic Dance, house branch, ambient experimental electric vaporwave aesthetic hauntology. extended whistle, breath veiled tone, straight note core, interlocked note trading. behringer rd 8 modern clone analog circuit reproduction TR-808, pad like pad analog synth, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 576
     },
     {
       "id": "fidget_house",
@@ -5792,13 +5736,6 @@
       "family": "electronic",
       "recipe": "classic 2007-2009 jackin' house, electronic Dance, house branch, funk percussive groove percussion future funk. thick, breath veiled tone, slow rate, interlocked note trading. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, fast decay focused low sub bass analog synth. no single room 2015-present distributed distributed production. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
       "recipe_chars": 484
-    },
-    {
-      "id": "berlin_techno_basic_channel",
-      "name": "Berlin techno / Basic Channel dub-techno",
-      "family": "electronic",
-      "recipe": "classic modern berlin techno / basic channel dub-techno, electronic Dance, techno branch, ambient experimental electric darksynth mallsoft. behringer rd 8 modern clone analog circuit reproduction TR-808, pad like pad analog synth. no single room 2015-present distributed distributed production. FET condenser, console-strip pre, colored vintage console, optical compressor, parametric EQ. vinyl master cut tape echo analog bucket-brigade delay spring reverb.",
-      "recipe_chars": 458
     },
     {
       "id": "schranz_hard_techno",
@@ -5860,8 +5797,8 @@
       "id": "atmospheric_dnb",
       "name": "Atmospheric drum-and-bass",
       "family": "electronic",
-      "recipe": "classic 1994-1996 atmospheric drum-and-bass, bass System, bass descendants branch, ambient experimental electric outrun / synthwave darksynth. thick, breath veiled tone, slow rate, interlocked note trading. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, pad like pad analog synth, cold pressed weikert felt 18 ply hard rock maple vintage production grand piano. no single room 2015-present distributed distributed production. shure SM58, mackie 8-bus 90s indie commercial. acetate dub plate cut digital delay lexicon 224 / 480L.",
-      "recipe_chars": 584
+      "recipe": "classic 1994-1996 atmospheric drum-and-bass, bass System, bass descendants branch, ambient experimental electric darksynth vaporwave aesthetic. thick, breath veiled tone, slow rate, interlocked note trading. TR-808, pad like pad analog synth, cold pressed weikert felt 18 ply hard rock maple vintage production grand piano. no single room 2015-present distributed distributed production. shure SM58, mackie 8-bus 90s indie commercial. acetate dub plate cut digital delay lexicon 224 / 480L.",
+      "recipe_chars": 490
     },
     {
       "id": "sambass_brazilian_dnb",
@@ -5895,8 +5832,8 @@
       "id": "future_garage",
       "name": "Future garage",
       "family": "electronic",
-      "recipe": "classic British 2007-2009 future garage, bass System, uk soundsystem branch, ambient experimental electric outrun / synthwave vaporwave aesthetic. extended whistle, breath veiled tone, straight onset, interlocked note trading. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, pad like pad analog synth. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-      "recipe_chars": 575
+      "recipe": "classic British 2007-2009 future garage, bass System, uk soundsystem branch, ambient experimental electric vaporwave aesthetic hauntology. extended whistle, breath veiled tone, straight note core, interlocked note trading. TR-808, pad like pad analog synth. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+      "recipe_chars": 476
     },
     {
       "id": "speed_garage_1990s",
@@ -5969,13 +5906,6 @@
       "recipe_chars": 283
     },
     {
-      "id": "outrun_synthwave",
-      "name": "Outrun / synthwave",
-      "family": "electronic",
-      "recipe": "classic mid-2010s outrun / synthwave, experimental Elec, ambient branch, industrial noise experimental electric dark electro / aggrotech. thick, breath veiled tone, breath pulsed, interlocked note trading. pad like pad analog synth, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 529
-    },
-    {
       "id": "darksynth",
       "name": "Darksynth (mid-2010s horror-cinematic synthwave)",
       "family": "electronic",
@@ -6023,13 +5953,6 @@
       "family": "electronic",
       "recipe": "classic British drill'n'bass, experimental Elec, idm glitch branch, bass descendants bass system atmospheric drum-and-bass neurofunk. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, sub bass analog synth, glitched textural sampler. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
       "recipe_chars": 505
-    },
-    {
-      "id": "broken_beat_4hero",
-      "name": "Broken beat (4hero / IG Culture)",
-      "family": "electronic",
-      "recipe": "classic British mid-2000s broken beat, bass System, bass descendants branch, American jazz fusion acid jazz nu jazz / electro-jazz. thick, breath veiled tone, straight onset, interlocked note trading. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, sub bass analog synth, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-      "recipe_chars": 644
     },
     {
       "id": "future_bass",
@@ -6084,22 +6007,22 @@
       "id": "alt_rnb",
       "name": "Alt-R&B (2010s atmospheric experimental R&B)",
       "family": "pop",
-      "recipe": "classic alt-r&b, functional Song, soul R&B branch, ambient experimental electric outrun / synthwave witch house. thick, breath veiled tone, fast rate, interlocked note trading. pad like pad analog synth, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 609
+      "recipe": "classic alt-r&b, functional Song, soul R&B branch, ambient experimental electric witch house vaporwave aesthetic. thick, breath veiled tone, straight onset, interlocked note trading. pad like pad analog synth, TR-808, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 520
     },
     {
       "id": "modern_indie_rock_2010s",
       "name": "Modern indie rock",
       "family": "rock_punk",
-      "recipe": "classic modern modern indie rock, distorted Rock, alternative branch, experimental distorted rock chillwave post-rock. thick, breath veiled tone, slow rate, interlocked note trading. marshall plexi amp British rock amp basswood mahogany rosewood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 587
+      "recipe": "classic modern modern indie rock, distorted Rock, alternative branch, experimental distorted rock post-rock krautrock. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 620
     },
     {
       "id": "post_rock_extended",
       "name": "Post-rock (1990s Montreal-Chicago-Glasgow extended-instrumental indie)",
       "family": "rock_punk",
-      "recipe": "classic post-rock, distorted Rock, experimental branch, western modern art music polish avant-garde / sonorism american minimalism. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, steel sitka spruce European maple sycamore maple oil varnish violin orchestral. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 669
+      "recipe": "classic post-rock, distorted Rock, experimental branch, western modern art music polish avant-garde / sonorism indeterminacy and aleatoric. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, steel sitka spruce European maple sycamore maple oil varnish violin orchestral. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 659
     },
     {
       "id": "math_rock_classic",
@@ -6123,34 +6046,6 @@
       "recipe_chars": 614
     },
     {
-      "id": "freak_folk",
-      "name": "Freak folk (mid-2000s American psychedelic-experimental folk)",
-      "family": "rock_punk",
-      "recipe": "classic North American freak folk, ballad Poetry, indie folk branch, anglo singer song confessional60s late-60s interior confessional songwriter 1960s greenwich village confessional folk. thick, breath veiled tone, slow rate, interlocked note trading. cedar phosphor bronze bronze fingerpicked parlor acoustic guitar, walnut mid tier scruggs stelling bluegrass setup mastertone flathead banjo 5 string, folk steel modern canonical 36 37 string set spruce maple modern strummed open chord ringing overtones autoharp, low mid rich spectrum traditional teak sitar, English kirkman shudi canonical mid 18th century London soft leather plectra canonical French 18th century alternative quarter comma meantone canonical renaissance early Baroque prepared harpsichord. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-      "recipe_chars": 935
-    },
-    {
-      "id": "dreampop_modern",
-      "name": "Dreampop (modern)",
-      "family": "rock_punk",
-      "recipe": "classic mid-1980s dreampop, distorted Rock, alternative branch, ambient experimental electric, anglo singer song confessional60s vaporwave aesthetic hauntology. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp basswood alnico soft down tuning humbucker electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, pad like pad analog synth. no single room 2015-present distributed distributed production. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-      "recipe_chars": 653
-    },
-    {
-      "id": "bedroom_pop_2010s",
-      "name": "Bedroom pop (2010s)",
-      "family": "rock_punk",
-      "recipe": "classic bedroom pop, distorted Rock, alternative branch, anglo singer song confessional60s late-60s interior confessional songwriter 1960s greenwich village confessional folk. thick, incomplete closure resting, straight onset, interlocked note trading. narrative fingerpicked parlor acoustic guitar, singing lead analog synth, TR-808, ukulele. no single room 2015-present distributed distributed production. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-      "recipe_chars": 506
-    },
-    {
-      "id": "sophistipop_80s",
-      "name": "Sophisti-pop (mid-1980s UK jazz-leaning adult-contemporary)",
-      "family": "pop",
-      "recipe": "classic British sophisti-pop, functional Song, pop rock branch, American jazz smooth vocal modern vocal jazz. thick, close mic intimate, straight onset, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, ampeg b15 amp American 60s bass amp flip top character mahogany thomastik infeld electric bass, pre muffled edge muffled brushes drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-      "recipe_chars": 744
-    },
-    {
       "id": "city_pop_modern",
       "name": "City pop modern revival",
       "family": "pop",
@@ -6161,15 +6056,15 @@
       "id": "k_indie",
       "name": "K-indie (Korean indie)",
       "family": "pop",
-      "recipe": "classic East Asian mid-2000s k-indie, functional Song, east Asian pop branch, alternative distorted rock dreampop modern indie rock. thick, breath veiled tone, slow rate, interlocked note trading. strummed open chord ringing overtones parlor acoustic guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 568
+      "recipe": "classic East Asian mid-2000s k-indie, functional Song, east Asian pop branch, alternative distorted rock modern indie rock slacker rock. thick, breath veiled tone, straight note core, interlocked note trading. strummed open chord ringing overtones parlor acoustic guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 581
     },
     {
       "id": "j_indie",
       "name": "J-indie (Japanese indie)",
       "family": "pop",
-      "recipe": "classic East Asian mid-1990s j-indie, functional Song, east Asian pop branch, alternative distorted rock modern indie rock bedroom pop. thick, breath veiled tone, pure, interlocked note trading. marshall plexi amp British rock amp basswood clean strummed humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 591
+      "recipe": "classic East Asian mid-1990s j-indie, functional Song, east Asian pop branch, alternative distorted rock modern indie rock slacker rock. thick, breath veiled tone, pure, interlocked note trading. marshall plexi amp British rock amp basswood low output no compression arpeggiated humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 615
     },
     {
       "id": "mandopop_modern",
@@ -6224,22 +6119,8 @@
       "id": "jazzy_hip_hop",
       "name": "Jazzy hip-hop / lo-fi hip-hop",
       "family": "hip_hop",
-      "recipe": "classic early-1970s jazzy hip-hop / lo-fi hip-hop, mc Rhythm, us hip hop branch, ambient experimental electric vaporwave aesthetic outrun / synthwave. thick, rap, straight onset, interlocked note trading. chopped sampler, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral shallow cup lead trumpet trumpet. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 742
-    },
-    {
-      "id": "chillwave_glo_fi",
-      "name": "Chillwave (2009-2012 American internet-circulated hazy-indie-electronic)",
-      "family": "rock_punk",
-      "recipe": "classic chillwave, distorted Rock, experimental branch, ambient experimental electric vaporwave aesthetic witch house. thick, breath veiled tone, straight onset, interlocked note trading. pad like vibrato y pad analog synth, TR-808, alder ernie ball slinky electric bass. no single room 2015-present distributed distributed production. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-      "recipe_chars": 434
-    },
-    {
-      "id": "drone_metal_sustained",
-      "name": "Drone metal (1990s extreme-deceleration sustained-tone metal)",
-      "family": "rock_punk",
-      "recipe": "classic Midwestern American drone metal, distorted Rock, doom branch, ambient experimental electric dark ambient darksynth. orange amp British heavy crunch basswood power chord humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, kevlar aramid extreme tension brushes-and-sticks drum kit. stoner doom garage amplifier room. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-      "recipe_chars": 509
+      "recipe": "classic early-1970s jazzy hip-hop / lo-fi hip-hop, mc Rhythm, us hip hop branch, ambient experimental electric vaporwave aesthetic witch house. thick, rap, straight onset, interlocked note trading. chopped sampler, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, Japanese factory 18 ply hard rock maple vintage production Asian spruce grand piano, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral shallow cup lead trumpet trumpet. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 729
     },
     {
       "id": "teen_pop_late_90s",
@@ -6263,25 +6144,11 @@
       "recipe_chars": 674
     },
     {
-      "id": "post_metal_2000s",
-      "name": "Post-metal (2000s post-rock-meets-sludge extended-instrumental metal)",
-      "family": "rock_punk",
-      "recipe": "classic Midwestern American post-metal, distorted Rock, sludge branch, western modern art music polish avant-garde / sonorism indeterminacy and aleatoric. thick, larynx lowered, pure, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit. stoner doom garage amplifier room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 628
-    },
-    {
       "id": "djent",
       "name": "Djent (mid-2000s polymetric-down-tuned progressive metal)",
       "family": "rock_punk",
-      "recipe": "classic djent, distorted Rock, thrash branch, western modern art music american minimalism indeterminacy and aleatoric. thick, breath veiled tone, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modeled amp modern rig alder ernie ball slinky sub heavy electric bass, pre muffled edge muffled brushes-and-sticks drum kit. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 638
-    },
-    {
-      "id": "black_metal_norwegian",
-      "name": "Black metal (Norwegian second wave)",
-      "family": "rock_punk",
-      "recipe": "classic 1990-1993 black metal, distorted Rock, death branch, thrash metal groove metal djent. thick, breath veiled tone, breath pulsed, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, kevlar aramid extreme tension brushes-and-sticks drum kit. isolated rural 2005-present isolation diy isolation cabin diy. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 615
+      "recipe": "classic djent, distorted Rock, thrash branch, western modern art music indeterminacy and aleatoric second viennese school. thick, breath veiled tone, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modeled amp modern rig alder ernie ball slinky sub heavy electric bass, pre muffled edge muffled brushes-and-sticks drum kit. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 641
     },
     {
       "id": "blackgaze",
@@ -6298,32 +6165,11 @@
       "recipe_chars": 653
     },
     {
-      "id": "synthpop_classic_80s",
-      "name": "Synthpop classic",
-      "family": "pop",
-      "recipe": "classic British 1981-1984 synthpop classic, functional Song, pop rock branch, ambient experimental electric outrun / synthwave vaporwave aesthetic. thick, breath veiled tone, straight note core, interlocked note trading. pad like lead analog synth, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, ernie ball slinky electric bass. converted victorian 1965-1985 major-flagship british class a commercial. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-      "recipe_chars": 571
-    },
-    {
-      "id": "new_wave_late_70s_early_80s",
-      "name": "New wave (late 70s-early 80s)",
-      "family": "rock_punk",
-      "recipe": "classic British mid-1980s new wave, distorted Rock, alternative branch, classic distorted rock merseybeat. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation soft down tuning single coil electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, plucked short envelope analog synth. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-      "recipe_chars": 700
-    },
-    {
-      "id": "post_punk_late_70s",
-      "name": "Post-punk (late 70s)",
-      "family": "rock_punk",
-      "recipe": "classic British 1976-1980 post-punk, distorted Rock, punk branch, alternative distorted rock new wave funk metal. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-      "recipe_chars": 636
-    },
-    {
       "id": "darkwave",
       "name": "Darkwave (1980s-1990s European post-punk-derived gothic-synth)",
       "family": "rock_punk",
-      "recipe": "classic darkwave, distorted Rock, gothic rock branch, ambient experimental electric outrun / synthwave witch house. thick, breath veiled tone, breath pulsed, interlocked note trading. pad like pad analog synth, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, marshall plexi amp British rock amp ernie ball slinky electric bass. isolated rural 2005-present isolation diy isolation cabin diy. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-      "recipe_chars": 559
+      "recipe": "classic darkwave, distorted Rock, gothic rock branch, ambient experimental electric witch house vaporwave aesthetic. thick, breath veiled tone, straight onset, interlocked note trading. pad like pad analog synth, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass. isolated rural 2005-present isolation diy isolation cabin diy. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+      "recipe_chars": 570
     },
     {
       "id": "industrial_rock",
@@ -6336,8 +6182,8 @@
       "id": "spanish_nana",
       "name": "Spanish nana (cradle song)",
       "family": "global",
-      "recipe": "classic late-1920s spanish nana, lullaby, European branch, middle eastern lullaby, Mediterranean ballad ballad poetry, iberian functional song, vocal drone modal persian lālā'ī arabic tahwidah. thick, breath veiled tone, slow rate, interlocked note trading. carpeted bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 338
+      "recipe": "classic late-1920s spanish nana, lullaby, European branch, middle eastern lullaby, Mediterranean ballad ballad poetry, iberian functional song, vocal drone modal sevdalinka homeric rhapsode recitation. thick, breath veiled tone, straight note core, interlocked note trading. carpeted bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 355
     },
     {
       "id": "german_wiegenlied",
@@ -6357,8 +6203,8 @@
       "id": "italian_ninna_nanna",
       "name": "Italian ninna-nanna (cradle song)",
       "family": "global",
-      "recipe": "classic modern italian ninna-nanna, lullaby, European branch, Mediterranean ballad ballad poetry, vocal drone modal, christian gospel ritual devotional african-american spirituals lithuanian sutartinės multipart. thick, breath veiled tone, straight note core, interlocked note trading. parlor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 356
+      "recipe": "classic modern italian ninna-nanna, lullaby, European branch, Mediterranean ballad ballad poetry, vocal drone modal, christian gospel ritual devotional african-american spirituals jubilee quartet. thick, declaimed, straight onset, leader call answered. parlor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 323
     },
     {
       "id": "french_berceuse",
@@ -6392,7 +6238,7 @@
       "id": "greek_nanourisma",
       "name": "Greek nanourisma (νανούρισμα, cradle song)",
       "family": "global",
-      "recipe": "classic modern greek nanourisma, lullaby, European branch, middle eastern lullaby, Mediterranean ballad ballad poetry, christian gospel ritual devotional african-american spirituals jubilee quartet. thick, declaimed, straight onset, leader call answered. mulberry canonical cretan gut pre modern cretan cretan lyra. carpeted bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe": "classic modern greek nanourisma, lullaby, European branch, middle eastern lullaby, Mediterranean ballad ballad poetry, christian gospel ritual devotional jubilee quartet african-american spirituals. thick, declaimed, straight onset, leader call answered. mulberry canonical cretan gut pre modern cretan cretan lyra. carpeted bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
       "recipe_chars": 396
     },
     {
@@ -6777,8 +6623,8 @@
       "id": "greek_entechno_politicized",
       "name": "Greek éntechno politicized (Theodorakis era)",
       "family": "global",
-      "recipe": "classic Southern European early-1920s greek éntechno politicized, protest Song, European branch, middle east n African protest song, Mediterranean ballad ballad poetry, iberian functional song galician kantautor and folk-pop algerian raï. thick, breath veiled tone, straight note core, interlocked note trading. walnut staves canonical Greek gut pre 1950s rebetiko strummed bouzouki, cedar pre 1940 period gut fingerpicked classical nylon-string guitar. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, tube pre, Emi redd.51, vari-mu, passive program EQ. tape 15ips plate reverb.",
-      "recipe_chars": 625
+      "recipe": "classic Southern European early-1920s greek éntechno politicized, protest Song, European branch, middle east n African protest song, Mediterranean ballad ballad poetry, iberian functional song galician kantautor and folk-pop laikó. thick, breath veiled tone, straight note core, interlocked note trading. walnut staves canonical Greek gut pre 1950s rebetiko strummed bouzouki, cedar fingerpicked classical nylon-string guitar. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, tube pre, Emi redd.51, vari-mu, passive program EQ. tape 15ips plate reverb.",
+      "recipe_chars": 598
     },
     {
       "id": "irish_rebel_song",
@@ -6896,8 +6742,8 @@
       "id": "italian_filastrocche",
       "name": "Italian filastrocche (nursery rhymes)",
       "family": "global",
-      "recipe": "classic modern italian filastrocche, nursery Rhyme, European branch, European lullaby, americas nursery rhyme, Mediterranean ballad ballad poetry homeric rhapsode recitation sardinian cantu a tenore and launeddas. thick, breath veiled tone, straight onset, interlocked note trading. parlor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 353
+      "recipe": "classic modern italian filastrocche, nursery Rhyme, European branch, European lullaby, americas nursery rhyme, Mediterranean ballad ballad poetry homeric rhapsode recitation sevdalinka. thick, breath veiled tone, straight onset, interlocked note trading. parlor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 325
     },
     {
       "id": "spanish_rondas",
@@ -7134,8 +6980,8 @@
       "id": "greek_tabachaniotika",
       "name": "Greek Cretan tabachaniotika (Cretan urban sea-faring song)",
       "family": "global",
-      "recipe": "classic Southern European early-1920s greek cretan tabachaniotika, sea Shanty, Mediterranean branch, balkan drinking song, European protest song, Mediterranean ballad ballad poetry sevdalinka georgian supra feast-singing. thick, breath veiled tone, straight note core, interlocked note trading. mulberry canonical cretan gut pre modern cretan cretan lyra, maple ribs Turkish school Lebanese cedar eastern Mediterranean la bella oud, cretan rhythmic laouto. athens piraeus rebetadika. large-diaphragm condenser, tube pre, Emi redd.51, vari-mu, passive program EQ. tape 15ips plate reverb.",
-      "recipe_chars": 587
+      "recipe": "classic Southern European early-1920s greek cretan tabachaniotika, sea Shanty, Mediterranean branch, balkan drinking song, European protest song, Mediterranean ballad ballad poetry sevdalinka stornelli. thick, breath veiled tone, straight note core, interlocked note trading. mulberry canonical cretan gut pre modern cretan cretan lyra, walnut ribs canonical mid tier Lebanese cedar eastern Mediterranean la bella oud, cretan rhythmic laouto. athens piraeus rebetadika. large-diaphragm condenser, tube pre, Emi redd.51, vari-mu, passive program EQ. tape 15ips plate reverb.",
+      "recipe_chars": 573
     },
     {
       "id": "hebridean_iorram",

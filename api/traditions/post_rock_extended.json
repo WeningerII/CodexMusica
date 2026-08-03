@@ -3,21 +3,21 @@
   "name": "Post-rock (1990s Montreal-Chicago-Glasgow extended-instrumental indie)",
   "family": "rock_punk",
   "lineage": "1990s indie rock subgenre developed in Montreal, Chicago, and Glasgow scenes characterized by extended-instrumental composition (typically 10-25 minute pieces), gradual-crescendo dynamic-architecture, classical-art-music-influenced harmonic vocabulary, and minimal-to-absent vocal-content. Godspeed You! Black Emperor (Montreal, 1994-onward) is the canonical type-specimen with F♯ A♯ ∞ (1997) and Lift Your Skinny Fists Like Antennas to Heaven (2000); Mogwai (Glasgow), Explosions in the Sky (Austin), Sigur Rós (Iceland), and Tortoise (Chicago) constitute the canonical international roster.",
-  "recipe": "classic post-rock, distorted Rock, experimental branch, western modern art music polish avant-garde / sonorism american minimalism. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, steel sitka spruce European maple sycamore maple oil varnish violin orchestral. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 669,
-  "score": 200.79,
+  "recipe": "classic post-rock, distorted Rock, experimental branch, western modern art music polish avant-garde / sonorism indeterminacy and aleatoric. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, steel sitka spruce European maple sycamore maple oil varnish violin orchestral. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 659,
+  "score": 197.435,
   "config": {
     "traditions": [
       "post_rock_extended",
       "polish_avant_garde_sonorism",
-      "american_minimalism"
+      "indeterminacy_aleatoric"
     ],
     "instruments": [
       {
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_power_chord",
-          "amp_make": "amp_mesa_dual_rectifier",
+          "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "basswood_h",
           "neck_wood": "maple_neck_h",
           "fretboard": "pau_ferro_fb_h",
@@ -32,18 +32,18 @@
         },
         "scores": {
           "electric_technique": 6.324999999999999,
-          "amp_make": 4.355,
-          "body_wood": 7.93,
-          "neck_wood": 2.54,
+          "amp_make": 3.9900000000000007,
+          "body_wood": 7.084999999999999,
+          "neck_wood": 2.9299999999999997,
           "fretboard": 3.9,
           "pickup_magnet": 2.8600000000000003,
           "pickup_winding": 2.8600000000000003,
           "string_material": 3.9,
-          "bridge": 0.845,
+          "bridge": 0.39,
           "scale_length": 10.075,
           "string_gauge": 1.8199999999999998,
           "finish": 0,
-          "string_tuning": 11.15
+          "string_tuning": 11.344999999999999
         }
       },
       {
@@ -59,7 +59,7 @@
         },
         "scores": {
           "amp_make": 3.895,
-          "body_wood": 1.7550000000000001,
+          "body_wood": 0.9099999999999999,
           "pickup_config": 3.7700000000000005,
           "string_type": 11.235,
           "scale_length_b": 2.8600000000000003,
@@ -75,8 +75,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 12.544999999999996,
-          "drumhead": 6.49,
+          "drum_technique": 10.854999999999997,
+          "drumhead": 7.140000000000001,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -89,19 +89,19 @@
           "orch_back_wood": "european_maple_general_violin",
           "orch_varnish": "oil_amber_varnish_violin",
           "orch_setup_period": "modern_setup_violin",
-          "orch_bow": "baroque_bow",
+          "orch_bow": "modern_bow",
           "orch_bow_stick": "pernambuco_stick_orch",
           "orch_articulation": "arco_orch",
           "orch_rosin": "pirastro_gold_rosin_orch"
         },
         "scores": {
           "bowed_technique": 5.9,
-          "orch_strings": 2.54,
+          "orch_strings": 2.9299999999999997,
           "orch_top_wood": 9.725,
           "orch_back_wood": 11.64,
           "orch_varnish": 11.25,
           "orch_setup_period": 13.5,
-          "orch_bow": 1.495,
+          "orch_bow": 1.69,
           "orch_bow_stick": 12.7,
           "orch_articulation": 0.9099999999999999,
           "orch_rosin": 13.695

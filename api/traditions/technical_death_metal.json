@@ -5,7 +5,7 @@
   "lineage": "Virtuosic death-metal sub-style codified through Atheist (Piece of Time 1990, Unquestionable Presence 1991), Cynic (Focus 1993), Death’s later records (Human 1991, Individual Thought Patterns 1993), and the Suffocation 1990s lineage — characterized by complex multi-meter compositions, fretboard-acrobatic guitar work, and jazz-fusion influences",
   "recipe": "classic North American early-1990s technical death metal, distorted Rock, death branch, prog metal progressive metal. thick, breath veiled tone, straight onset, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 613,
-  "score": 210.149,
+  "score": 209.289,
   "config": {
     "traditions": [
       "technical_death_metal",
@@ -37,16 +37,16 @@
           "voice_quality": 2.990000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.74025,
+          "voice_vibrato": 4.74475,
           "voice_articulation": 5.915,
-          "voice_microtone": 14.049999999999997,
+          "voice_microtone": 14.060499999999998,
           "voice_tradition": 4.270125,
-          "voice_mechanism_compound": 21.20825,
+          "voice_mechanism_compound": 20.99975,
           "voice_estill_quality": 0.7799999999999998,
           "voice_speech_song": 6.11,
           "voice_ensemble_config": 6.695,
-          "voice_ornament_system": 1.5996249999999999,
-          "voice_pitch_organization": 1.788625,
+          "voice_ornament_system": 1.6041249999999998,
+          "voice_pitch_organization": 1.7931249999999999,
           "voice_processing_chain": 2.73,
           "voice_multitrack_stack": 2.34
         }
@@ -65,11 +65,11 @@
           "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_11_hum",
-          "finish": "oil_satin_hum",
+          "finish": "nitro_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 21.66325,
+          "electric_technique": 21.45925,
           "amp_make": 11.245000000000001,
           "body_wood": 8.45,
           "neck_wood": 0.7844999999999999,
@@ -80,7 +80,7 @@
           "bridge": 0.7844999999999999,
           "scale_length": 9.035,
           "string_gauge": 0.7844999999999999,
-          "finish": 0.168,
+          "finish": 0.0315,
           "string_tuning": 14.690000000000001
         }
       },
@@ -99,10 +99,10 @@
           "amp_make": 5.3950000000000005,
           "body_wood": 1.5690000000000002,
           "pickup_config": 0.195,
-          "string_type": 12.967875,
+          "string_type": 12.769874999999999,
           "scale_length_b": 0.7844999999999999,
           "fretted_or_not": 0.195,
-          "bass_technique": 10.542624999999997
+          "bass_technique": 10.406124999999998
         }
       },
       {

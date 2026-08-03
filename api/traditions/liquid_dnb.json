@@ -5,7 +5,7 @@
   "lineage": "2000s and 2010s drum-and-bass subgenre extending atmospheric drum-and-bass with explicit soul-and-jazz vocal-feature emphasis and broader pop-crossover-friendly arrangement. Hospital Records (founded 1996, peak influence 2005-onward) anchored the canonical liquid drum-and-bass institutional infrastructure; High Contrast, Logistics, London Elektricity, Netsky, and the broader contemporary Hospital roster define the canonical liquid drum-and-bass aesthetic.",
   "recipe": "classic liquid drum-and-bass, bass System, bass descendants branch, American jazz smooth vocal modern vocal jazz. thick, close mic intimate, straight onset, interlocked note trading. TR-808, sub bass analog synth, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 498,
-  "score": 308.741,
+  "score": 308.584,
   "config": {
     "traditions": [
       "liquid_dnb",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 30.556499999999996,
-          "voice_quality": 7.049000000000001,
+          "voice_quality": 7.052500000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 25.02325,
           "voice_articulation": 17.550000000000004,
           "voice_microtone": 27.474999999999998,
-          "voice_tradition": 22.8585,
-          "voice_mechanism_compound": 2.3617500000000002,
+          "voice_tradition": 22.2605,
+          "voice_mechanism_compound": 2.49825,
           "voice_estill_quality": 6.189500000000001,
           "voice_speech_song": 19.305000000000003,
           "voice_ensemble_config": 17.485000000000003,
           "voice_ornament_system": 1.95,
           "voice_pitch_organization": 3.185,
-          "voice_processing_chain": 9.107750000000001,
-          "voice_multitrack_stack": 9.59
+          "voice_processing_chain": 9.21175,
+          "voice_multitrack_stack": 9.421
         }
       },
       {
@@ -71,14 +71,14 @@
           "electronic_technique": "electronic_bass_sub",
           "oscillator": "sine_osc",
           "filter_topology": "transistor_ladder",
-          "envelope": "pad_env",
+          "envelope": "gated_env",
           "modulation": "lfo_pitch"
         },
         "scores": {
           "electronic_technique": 11.765,
           "oscillator": 11.960000000000004,
           "filter_topology": 14.300000000000004,
-          "envelope": 0.25999999999999995,
+          "envelope": 0.35325,
           "modulation": 0
         }
       },
@@ -97,8 +97,8 @@
         },
         "scores": {
           "keyboard_technique": 6.949999999999999,
-          "grand_piano_size": 4.5805,
-          "grand_piano_brand": 4.5805,
+          "grand_piano_size": 4.717,
+          "grand_piano_brand": 4.717,
           "piano_hammer": 8.4,
           "piano_rim": 8.489999999999998,
           "piano_soundboard": 8.4505,

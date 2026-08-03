@@ -5,7 +5,7 @@
   "lineage": "Mid-2000s onward American extreme metal subgenre fusing death-metal's growl-vocal-and-blast-beat vocabulary with metalcore's breakdown-section conventions and pig-squeal / inhale-scream vocal techniques — codified through Suicide Silence (The Cleansing 2007), Whitechapel (This Is Exile 2008), Job for a Cowboy (Doom EP 2005), Carnifex, Despised Icon (The Healing Process 2005), Thy Art Is Murder",
   "recipe": "classic 2004-2006 deathcore, distorted Rock, death branch, thrash metal djent. thick, breath veiled tone, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, orange amp British heavy crunch alder ernie ball slinky electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 519,
-  "score": 345.365,
+  "score": 345.378,
   "config": {
     "traditions": [
       "deathcore",
@@ -27,7 +27,7 @@
           "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_12_hum",
-          "finish": "oil_satin_hum",
+          "finish": "nitro_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
@@ -42,7 +42,7 @@
           "bridge": 3.965,
           "scale_length": 15.534999999999998,
           "string_gauge": 4.81,
-          "finish": 0.168,
+          "finish": 0.0315,
           "string_tuning": 21.644999999999996
         }
       },
@@ -61,10 +61,10 @@
           "amp_make": 7.41,
           "body_wood": 5.46,
           "pickup_config": 1.8850000000000002,
-          "string_type": 15.9885,
+          "string_type": 16.125,
           "scale_length_b": 3.965,
           "fretted_or_not": 0.845,
-          "bass_technique": 16.14125
+          "bass_technique": 16.00475
         }
       },
       {
@@ -110,13 +110,13 @@
           "voice_microtone": 13.78,
           "voice_tradition": 5.654999999999999,
           "voice_mechanism_compound": 37.0735,
-          "voice_estill_quality": 3.3020000000000005,
+          "voice_estill_quality": 3.315000000000001,
           "voice_speech_song": 14.039999999999994,
           "voice_ensemble_config": 13.064999999999994,
           "voice_ornament_system": 0.6499999999999999,
           "voice_pitch_organization": 1.2999999999999998,
           "voice_processing_chain": 5.200000000000001,
-          "voice_multitrack_stack": 7.5832500000000005
+          "voice_multitrack_stack": 7.71975
         }
       }
     ],

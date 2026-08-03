@@ -80,7 +80,7 @@ function loose(s) {
     .trim();
 }
 
-// Head form: the name with its qualifier removed. 545 of 1167 tradition names
+// Head form: the name with its qualifier removed. 527 of 1145 tradition names
 // carry one — `Trap (southern)`, `Zeuhl (French progressive Magma)` — while an
 // imported list gives the bare name. Without this the scorer is defeated by the
 // catalog's own naming convention and reports things we already have as new,

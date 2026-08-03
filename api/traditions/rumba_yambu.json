@@ -5,7 +5,7 @@
   "lineage": "Slow-tempo Cuban rumba subform 1850s-onward, the oldest of the three rumba subforms and the precursor parent-form to guaguanco and rumba-columbia. Traditionally played on cajones wooden-shipping-crate-percussion (originating in dockworker-and-warehouse-improvised-drumming) rather than congas, alongside palitos stick-rhythm-and-clave 3-2 wood-block. Performed at funerals, wakes, and elder-honoring contexts, the yambú is the only rumba subform that prohibits the vacunao symbolic-pursuit choreographic-element — the dance is restrained, near-stationary, with subtle-hip-rotational gesture and exaggerated-elderly-mock-tremulous movement. The repertoire preserves the oldest pre-conga rumba percussion vocabulary.",
   "recipe": "classic Caribbean mid-1850s yambú, groove Percussion, rumba branch, Afro-diasporic ritual devotional candomblé ceremonial haitian vodou ceremonial. thick, breath veiled tone, straight note core, interlocked note trading. open back Afro peruvian tradition festejo tradition cajon peruano, lead mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, wood hardwood claves, a cappella small 3 to 8 one per part three voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. havana solar outdoor courtyard. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 703,
-  "score": 184.779,
+  "score": 184.964,
   "config": {
     "traditions": [
       "rumba_yambu",
@@ -38,7 +38,7 @@
           "voice_quality": 15.210000000000004,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.065,
+          "voice_vibrato": 2.87,
           "voice_articulation": 15.209999999999994,
           "voice_microtone": 15.014999999999992,
           "voice_tradition": 18.2975,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 5.4,
           "voice_pitch_organization": 8.0795,
           "voice_processing_chain": 2.795,
-          "voice_multitrack_stack": 2.535
+          "voice_multitrack_stack": 2.4945
         }
       },
       {
@@ -74,8 +74,8 @@
         "scores": {
           "percussion_technique": 10.627499999999998,
           "conga_set": 1.2349999999999999,
-          "conga_skin": 4.794999999999999,
-          "conga_shell_wood": 4.794999999999999
+          "conga_skin": 5.004999999999999,
+          "conga_shell_wood": 5.004999999999999
         }
       },
       {

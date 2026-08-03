@@ -5,7 +5,7 @@
   "lineage": "Afro-Cuban secular drum-and-vocal folkloric tradition (yambú / guaguancó / columbia subforms) originating in Havana and Matanzas tenement-courtyard contexts",
   "recipe": "classic Caribbean mid-1950s rumba cubana, groove Percussion, rumba branch, Afro-diasporic ritual devotional candomblé ceremonial haitian vodou ceremonial. vocal fry, blues-shouter, straight note core, interlocked note trading. lead mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, claves, a cappella small 3 to 8 one per part three voice polyphonic regional sub saharan call response ostinato polyrhythmic sacred liturgical global choir ensemble. havana solar outdoor courtyard. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 628,
-  "score": 126.335,
+  "score": 125.945,
   "config": {
     "traditions": [
       "rumba_cubana",
@@ -61,7 +61,7 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 14.534999999999998,
+          "percussion_technique": 14.144999999999998,
           "conga_set": 1.625,
           "conga_skin": 3.8349999999999995,
           "conga_shell_wood": 3.8349999999999995

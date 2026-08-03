@@ -333,7 +333,6 @@
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/uilleann_pipe_solo.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/didgeridoo_yidaki_solo.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/galician_pipe_solo.json</loc></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/cloud_rap_experimental.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/mumble_rap.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/hyperpop_rap.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/rage_rap.json</loc></url>
@@ -397,7 +396,6 @@
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/minimal_tech_house.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/drone_metal.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/dsbm_black_metal.json</loc></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/minimal_microhouse_classic.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/jam_band.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/free_improvisation.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/electroacoustic_improv.json</loc></url>
@@ -486,7 +484,6 @@
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/hungarian_cimbalom_trad.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/bulgarian_dance_traditional.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/breton_folk.json</loc></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/sardinian_traditional.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/italian_southern_folk.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/japanese_taiko_ensemble.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/armenian_traditional.json</loc></url>
@@ -715,7 +712,6 @@
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/repente_embolada.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/lambada_carimbo.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/coco_brasileiro.json</loc></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/jongo_brasileiro.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/classical_period_18c.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/early_romantic_19c.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/late_romantic_19c.json</loc></url>
@@ -726,7 +722,6 @@
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/darmstadt_school_total_serialism.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/polish_avant_garde_sonorism.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/holy_minimalism.json</loc></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/american_minimalism.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/spectralism.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/new_complexity.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/microtonal_composition.json</loc></url>
@@ -754,7 +749,6 @@
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/zarzuela_spanish.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/canzone_napoletana.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/chicago_jazz_1920s.json</loc></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/swing_big_band.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/cool_jazz_west_coast.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/smooth_jazz_80s.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/acid_jazz_uk_90s.json</loc></url>
@@ -825,8 +819,6 @@
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/australian_hip_hop.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/japanese_hip_hop.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/korean_hip_hop.json</loc></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/south_african_kwaito.json</loc></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/amapiano_sa.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/tribal_house.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/electro_house_2000s.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/big_room_house.json</loc></url>
@@ -836,7 +828,6 @@
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/melodic_house.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/fidget_house.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/jackin_house.json</loc></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/berlin_techno_basic_channel.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/schranz_hard_techno.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/hard_techno_2020s.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/industrial_techno.json</loc></url>
@@ -861,7 +852,6 @@
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/philly_club.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/dark_ambient_industrial.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/dungeon_synth.json</loc></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/outrun_synthwave.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/darksynth.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/ebm_european_body.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/dark_electro_aggrotech.json</loc></url>
@@ -869,7 +859,6 @@
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/chiptune_8bit.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/breakcore.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/drill_n_bass.json</loc></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/broken_beat_4hero.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/future_bass.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/festival_trap.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/glitch_2000s.json</loc></url>
@@ -883,10 +872,6 @@
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/math_rock_classic.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/post_hardcore_90s.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/emo_revival_2010s.json</loc></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/freak_folk.json</loc></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/dreampop_modern.json</loc></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/bedroom_pop_2010s.json</loc></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/sophistipop_80s.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/city_pop_modern.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/k_indie.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/j_indie.json</loc></url>
@@ -898,19 +883,12 @@
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/happy_hardcore.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/uk_hardcore_breakbeat.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/jazzy_hip_hop.json</loc></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/chillwave_glo_fi.json</loc></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/drone_metal_sustained.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/teen_pop_late_90s.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/dance_pop_2010s.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/fusion_70s_electric.json</loc></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/post_metal_2000s.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/djent.json</loc></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/black_metal_norwegian.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/blackgaze.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/post_punk_revival.json</loc></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/synthpop_classic_80s.json</loc></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/new_wave_late_70s_early_80s.json</loc></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/post_punk_late_70s.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/darkwave.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/industrial_rock.json</loc></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/spanish_nana.json</loc></url>

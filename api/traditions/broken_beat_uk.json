@@ -5,7 +5,7 @@
   "lineage": "Early-2000s UK electronic subgenre developed in West London through producers IG Culture, Bugz in the Attic, and 4hero. Characterized by complex broken-rhythm percussion (often 6/4 or 9/8 polymetric framework), jazz-and-soul-vocal integration, deep-house-and-techno harmonic vocabulary, and the canonical 4-and-7-Records label. Distinguished from drum-and-bass by broken beat's slower tempo and explicit jazz-house-fusion orientation.",
   "recipe": "classic British broken beat, bass System, bass descendants branch, American jazz fusion acid jazz nu jazz / electro-jazz. thick, breath veiled tone, straight onset, interlocked note trading. behringer rd 8 modern clone analog circuit reproduction TR-808, sub bass analog synth, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 595,
-  "score": 356.647,
+  "score": 355.982,
   "config": {
     "traditions": [
       "broken_beat_uk",
@@ -41,15 +41,15 @@
           "voice_vibrato": 28.473,
           "voice_articulation": 19.24,
           "voice_microtone": 27.354999999999997,
-          "voice_tradition": 34.013,
+          "voice_tradition": 33.494,
           "voice_mechanism_compound": 1.69,
-          "voice_estill_quality": 7.43875,
+          "voice_estill_quality": 7.57525,
           "voice_speech_song": 19.694999999999997,
           "voice_ensemble_config": 20.019999999999996,
           "voice_ornament_system": 1.95,
           "voice_pitch_organization": 4.875000000000001,
           "voice_processing_chain": 13.499999999999996,
-          "voice_multitrack_stack": 7.92325
+          "voice_multitrack_stack": 7.8745
         }
       },
       {
@@ -61,7 +61,7 @@
         },
         "scores": {
           "tr808_voice": 6.8575,
-          "drum_machine_808_context": 8.169499999999998,
+          "drum_machine_808_context": 8.305999999999997,
           "tr808_production_origin": 1.6
         }
       },
@@ -94,11 +94,11 @@
           "bass_technique": "fingerstyle_walking"
         },
         "scores": {
-          "amp_make": 22.419249999999998,
-          "body_wood": 0.663,
+          "amp_make": 22.15825,
+          "body_wood": 0.9360000000000002,
           "pickup_config": 0.3,
-          "string_type": 33.818,
-          "scale_length_b": 0.408,
+          "string_type": 33.299,
+          "scale_length_b": 0.5445,
           "fretted_or_not": 0,
           "bass_technique": 27.5
         }

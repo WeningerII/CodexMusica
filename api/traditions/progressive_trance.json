@@ -5,7 +5,7 @@
   "lineage": "Late-1990s and 2000s long-arc trance subgenre characterized by 7-12-minute track lengths with extended dynamic build-and-release arcs — codified through Sasha and John Digweed’s Northern Exposure mixes (1996-1999), Hernán Cattáneo’s Buenos Aires DJ sets, and the GU (Global Underground) mix-CD series",
   "recipe": "classic 1996-1999 progressive trance, electronic Dance, trance branch, ambient experimental electric dungeon synth vaporwave aesthetic. roland jupiter lineage canonical jupiter 8 1981 osaka pad analog poly synth, sustained pad digital subtractive, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909, field textural sampler. festival stage. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette hall reverb digital delay.",
   "recipe_chars": 495,
-  "score": 88.065,
+  "score": 88.502,
   "config": {
     "traditions": [
       "progressive_trance",
@@ -22,9 +22,9 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 10.184999999999999,
-          "poly_archetypes": 1.5299999999999998,
-          "poly_voices": 1.5299999999999998,
+          "electronic_technique": 10.223999999999998,
+          "poly_archetypes": 1.56,
+          "poly_voices": 1.56,
           "poly_maker_lineage": 2.015
         }
       },
@@ -36,8 +36,8 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 10.184999999999999,
-          "va_archetypes": 5.599999999999999,
+          "electronic_technique": 10.223999999999998,
+          "va_archetypes": 6.0939999999999985,
           "digital_subtractive_context": 17.354999999999997
         }
       },
@@ -67,7 +67,7 @@
           "electronic_technique": 7.49,
           "sampler_archetypes": 0.5849999999999999,
           "sampler_bit_depth": 0.43499999999999994,
-          "sampler_workflow": 8.04,
+          "sampler_workflow": 7.845,
           "sampler_classic_context": 17.874999999999996
         }
       }

@@ -5,7 +5,7 @@
   "lineage": "Gothenburg Swedish melodic death metal canon that emerged in the early 1990s — codified at Studio Fredman (Fredrik Nordström producer-engineer) through In Flames (The Jester Race 1996, Whoracle 1997), Dark Tranquillity (The Gallery 1995), At the Gates (Slaughter of the Soul 1995, the post-Heartwork melodic death recording), Soilwork; characterized by twin-guitar harmony NWOBHM-influenced melodic leads over death metal rhythm-section foundation, growled vocals retained from death metal but with cleaner production aesthetic",
   "recipe": "classic Northern European 1990-1993 melodic death metal, distorted Rock, death branch, power metal. thick, breath veiled tone, straight note core, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit. gothenburg Swedish metal defining 1992-present indie-commercial gothenburg swedish melodic death studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 685,
-  "score": 284.104,
+  "score": 282.913,
   "config": {
     "traditions": [
       "melodic_death_metal",
@@ -30,7 +30,7 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 36.7985,
+          "electric_technique": 36.606249999999996,
           "amp_make": 15.209999999999997,
           "body_wood": 14.82,
           "neck_wood": 0.7807499999999999,
@@ -59,11 +59,11 @@
         "scores": {
           "amp_make": 6.565000000000002,
           "body_wood": 1.5614999999999999,
-          "pickup_config": 0.24525,
-          "string_type": 14.091000000000001,
+          "pickup_config": 0.10875,
+          "string_type": 13.923750000000002,
           "scale_length_b": 0.7807499999999999,
           "fretted_or_not": 0.054,
-          "bass_technique": 12.076000000000002
+          "bass_technique": 11.939500000000002
         }
       },
       {
@@ -101,21 +101,21 @@
         },
         "scores": {
           "voice_register": 13.879749999999996,
-          "voice_quality": 10.205,
+          "voice_quality": 10.1115,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 8.481749999999998,
+          "voice_vibrato": 8.485499999999998,
           "voice_articulation": 6.305,
           "voice_microtone": 10.5,
           "voice_tradition": 2.49275,
-          "voice_mechanism_compound": 34.990750000000006,
-          "voice_estill_quality": 3.5395000000000003,
-          "voice_speech_song": 8.874749999999997,
+          "voice_mechanism_compound": 34.78725000000001,
+          "voice_estill_quality": 3.403,
+          "voice_speech_song": 8.878499999999997,
           "voice_ensemble_config": 7.279999999999999,
           "voice_ornament_system": 1.5250000000000001,
           "voice_pitch_organization": 4.160000000000001,
           "voice_processing_chain": 4.29,
-          "voice_multitrack_stack": 9.857999999999999
+          "voice_multitrack_stack": 9.725249999999999
         }
       }
     ],

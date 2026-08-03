@@ -3,14 +3,14 @@
   "name": "Heartland rock",
   "family": "rock",
   "lineage": "Late-1970s through 1980s American populist working-class rock genre with social-realist lyrical content addressing economic decline, blue-collar life, and small-town America — codified through Bruce Springsteen (Born to Run 1975, The River 1980, Born in the USA 1984), Bob Seger (Night Moves 1976), John Mellencamp (Scarecrow 1985), Tom Petty and the Heartbreakers (Damn the Torpedoes 1979), and continuing through Steve Earle",
-  "recipe": "classic North American 1977-1979 heartland rock, distorted Rock, late analog major branch, anglo singer song ballad poetry freak folk indie folk. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp arpeggiated clean single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched block chord fast tremolo tonewheel organ, richter canonical 10 hole diatonic blues harmonica. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 828,
-  "score": 347.055,
+  "recipe": "classic North American 1977-1979 heartland rock, distorted Rock, late analog major branch, anglo singer song ballad poetry indie folk texas country-folk storyteller. thick, breath veiled tone, straight note core, interlocked note trading. marshall plexi amp British rock amp single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard block chord fast tremolo tonewheel organ, low overtone rich traditional pearwood marine band tradition harmonica. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 797,
+  "score": 348.63,
   "config": {
     "traditions": [
       "heartland_rock",
-      "freak_folk",
-      "indie_folk_2000s"
+      "indie_folk_2000s",
+      "texas_country_folk_storyteller"
     ],
     "instruments": [
       {
@@ -20,12 +20,12 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
-          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 35.949999999999996,
-          "voice_quality": 12.024999999999995,
+          "voice_register": 38.07499999999999,
+          "voice_quality": 10.269999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.365,
-          "voice_articulation": 13.519999999999992,
+          "voice_vibrato": 7.01,
+          "voice_articulation": 13.974999999999993,
           "voice_microtone": 21.029999999999998,
-          "voice_tradition": 18.427499999999995,
-          "voice_mechanism_compound": 3.25,
-          "voice_estill_quality": 4.615000000000001,
-          "voice_speech_song": 17.289999999999992,
-          "voice_ensemble_config": 14.039999999999992,
-          "voice_ornament_system": 3.315000000000001,
-          "voice_pitch_organization": 3.8025,
+          "voice_tradition": 15.632499999999999,
+          "voice_mechanism_compound": 3.6399999999999997,
+          "voice_estill_quality": 10.497499999999997,
+          "voice_speech_song": 17.939999999999994,
+          "voice_ensemble_config": 14.49499999999999,
+          "voice_ornament_system": 2.8600000000000008,
+          "voice_pitch_organization": 2.405,
           "voice_processing_chain": 5.82,
           "voice_multitrack_stack": 7.755
         }
@@ -55,32 +55,32 @@
       {
         "id": "electric_guitar_single_coil",
         "slots": {
-          "electric_technique": "electric_arpeggiated_clean",
+          "electric_technique": "electric_fingerstyle_country",
           "amp_make": "amp_british_late_60s_marshall_plexi",
-          "body_wood": "mahogany",
-          "neck_wood": "mahogany_neck",
-          "fretboard": "rosewood_fb",
+          "body_wood": "pine",
+          "neck_wood": "maple",
+          "fretboard": "pau_ferro_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
-          "string_gauge": "g_11",
+          "string_gauge": "g_10",
           "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 10.069999999999997,
+          "electric_technique": 7.479999999999999,
           "amp_make": 9.004999999999999,
-          "body_wood": 0.845,
-          "neck_wood": 0.845,
-          "fretboard": 0.78,
+          "body_wood": 0.45499999999999996,
+          "neck_wood": 0.285,
+          "fretboard": 0.285,
           "pickup_magnet": 0.285,
           "string_material": 0.8550000000000002,
-          "string_gauge": 0.845,
+          "string_gauge": 0.65,
           "bridge": 0.09,
-          "scale_length": 0.845,
+          "scale_length": 0.5700000000000001,
           "finish": 0,
-          "string_tuning": 10.025
+          "string_tuning": 8.725
         }
       },
       {
@@ -90,18 +90,18 @@
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "short_scale_b",
+          "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
           "bass_technique": "pick_aggressive"
         },
         "scores": {
           "amp_make": 9.19,
-          "body_wood": 0.845,
+          "body_wood": 0.5700000000000001,
           "pickup_config": 0.135,
           "string_type": 19.72,
-          "scale_length_b": 0.845,
+          "scale_length_b": 0.28500000000000003,
           "fretted_or_not": 0.135,
-          "bass_technique": 18.62
+          "bass_technique": 18.77
         }
       },
       {
@@ -125,15 +125,15 @@
           "rotary_speed": "fast_tremolo",
           "percussion_setting": "percussion_on_long",
           "tonewheel_model": "tonewheel_hammond_b3",
-          "leslie_cabinet_model": "leslie_122_canonical"
+          "leslie_cabinet_model": "leslie_145_smaller"
         },
         "scores": {
-          "keyboard_technique": 3.2199999999999998,
+          "keyboard_technique": 4.87,
           "drawbar_setting": 18.67,
           "rotary_speed": 18.575,
           "percussion_setting": 8.2,
-          "tonewheel_model": 8.5,
-          "leslie_cabinet_model": 1.2499999999999998
+          "tonewheel_model": 7.199999999999999,
+          "leslie_cabinet_model": 0.12999999999999998
         }
       },
       {
@@ -141,18 +141,18 @@
         "slots": {
           "harmonica_type": "tremolo_harm",
           "harmonica_comb": "pearwood_comb",
-          "harmonica_reed": "brass_harm",
+          "harmonica_reed": "bronze_harm",
           "harmonica_technique": "harm_folk_first_position",
           "harmonica_maker_school": "harmonica_hering_brazilian",
           "harmonica_tuning": "harmonica_richter_canonical"
         },
         "scores": {
           "harmonica_type": 0.39,
-          "harmonica_comb": 0.26,
-          "harmonica_reed": 0.7149999999999999,
-          "harmonica_technique": 14.389999999999997,
+          "harmonica_comb": 1.4949999999999999,
+          "harmonica_reed": -0.035,
+          "harmonica_technique": 18.314999999999994,
           "harmonica_maker_school": 0.43500000000000005,
-          "harmonica_tuning": 1.63
+          "harmonica_tuning": 0.33
         }
       }
     ],

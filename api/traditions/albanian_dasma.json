@@ -5,7 +5,7 @@
   "lineage": "Albanian wedding-music tradition continuous from medieval Albanian rural practice through 19th-20th century continuous performance; particularly preserved in Northern Albanian highland zones, Southern Albanian iso-polyphonic zones, Kosovo, and Arbëresh-Italian diaspora",
   "recipe": "classic Eastern European modern albanian dasma, wedding, European branch, middle eastern wedding, Mediterranean ballad ballad poetry, vocal drone modal bulgarian women's choir persian aroosi. vocal fry, breath veiled tone, slow rate, interlocked note trading. ebonite hard rubber klezmer tradition continuous-airflow legato clarinet, castagnari Italian premium folk music ensemble accordion, clay pre modern traditional goat skin Turkish darbuka regional darbuka, magic rosin modern acrylic base drone like fiddle. klezmer simcha celebration hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 610,
-  "score": 164.235,
+  "score": 163.68,
   "config": {
     "traditions": [
       "albanian_dasma",
@@ -62,9 +62,9 @@
           "clarinet_articulation": "doina_clarinet"
         },
         "scores": {
-          "wind_articulation": 5.539,
+          "wind_articulation": 5.494,
           "clarinet_body": 4.030000000000001,
-          "clarinet_size": 1.175,
+          "clarinet_size": 1.1300000000000001,
           "clarinet_reed": 0,
           "clarinet_articulation": 0.43499999999999994
         }
@@ -73,8 +73,8 @@
         "id": "accordion",
         "slots": {
           "free_reed_technique": "free_reed_orchestral_ensemble",
-          "accordion_reed_material": "brass_reeds",
-          "musette_offset": "german_tuning",
+          "accordion_reed_material": "tipo_a_mano",
+          "musette_offset": "scottish_musette",
           "reed_config": "lmmh",
           "bellows": "cardboard_leather",
           "voicing_chamber": "cassotto",
@@ -82,10 +82,10 @@
         },
         "scores": {
           "free_reed_technique": 4.2045,
-          "accordion_reed_material": 0.15,
-          "musette_offset": 0.6,
+          "accordion_reed_material": 0.195,
+          "musette_offset": 0.495,
           "reed_config": 0.195,
-          "bellows": 0.44999999999999996,
+          "bellows": 0.3,
           "voicing_chamber": 0,
           "accordion_maker_school": 9.035
         }
@@ -115,7 +115,7 @@
           "fiddle_articulation": "arco"
         },
         "scores": {
-          "bowed_technique": 10.32,
+          "bowed_technique": 10.065000000000001,
           "fiddle_strings": 0.845,
           "fiddle_bow": 2.1125,
           "fiddle_mute": 0.24,

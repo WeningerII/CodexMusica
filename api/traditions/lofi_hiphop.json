@@ -5,7 +5,7 @@
   "lineage": "Mid-2010s onward online-distributed instrumental-hip-hop genre characterized by tape-saturated downtempo beat-tape production, jazz-and-soul sample foundations, and study-and-relax-targeted use context — codified through Nujabes (Modal Soul 2005, posthumously canonical), J Dilla (Donuts 2006, the lineage-bearing predecessor), and developed through ChilledCow and Lofi Girl YouTube live-streams, with countless bedroom-producer contributors",
   "recipe": "classic 2014-2016 lo-fi hip hop, experimental Elec, lofi branch, us hip hop modern cloud rap. chopped sampler, mark 7 modern tine post 2007 reissue centered tine pickup gap canonical balanced Rhodes voicing ostinato rhodes electric, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, roland tr 8s modern aira digital recreation TR-808, soft felt lacquer voiced 17 ply hard rock maple Asian spruce grand piano. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 560,
-  "score": 139.358,
+  "score": 139.355,
   "config": {
     "traditions": [
       "lofi_hiphop",
@@ -26,7 +26,7 @@
           "sampler_archetypes": 11.434999999999999,
           "sampler_bit_depth": 2.0175,
           "sampler_workflow": 7.821249999999999,
-          "sampler_classic_context": 18.340642857142853
+          "sampler_classic_context": 18.303517857142854
         }
       },
       {
@@ -60,7 +60,7 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "amp_make": 7.47525,
+          "amp_make": 7.4874375,
           "body_wood": 1.135,
           "pickup_config": 3.835,
           "string_type": 6.354499999999999,
@@ -77,7 +77,7 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 7.062214285714284,
+          "tr808_voice": 7.057714285714285,
           "drum_machine_808_context": 1.885,
           "tr808_production_origin": 1.6749999999999998
         }
@@ -99,12 +99,12 @@
           "keyboard_technique": 5.699999999999999,
           "grand_piano_size": 1.0675,
           "grand_piano_brand": 1.0675,
-          "piano_hammer": 4.22,
-          "piano_rim": 4.068499999999999,
-          "piano_soundboard": 4.15325,
+          "piano_hammer": 4.232187499999999,
+          "piano_rim": 4.077875,
+          "piano_soundboard": 4.14875,
           "piano_pinblock": 3.625,
-          "piano_plate": 6.099714285714286,
-          "piano_pitch_standard": 6.856
+          "piano_plate": 6.106276785714286,
+          "piano_pitch_standard": 6.8588125
         }
       }
     ],

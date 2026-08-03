@@ -344,7 +344,7 @@ function _descriptorTier(token) {
 //
 // DF used to be recomputed here over the whole INSTRUMENTS table plus TUNINGS /
 // ROOMS / CHAIN_SECTIONS, so adding ANY instrument anywhere reordered descriptor
-// chunks on cards nobody touched: measured over all 1167 traditions, of 249,622
+// chunks on cards nobody touched: measured over all traditions (1167 of them at the time of the measurement), of 249,622
 // adjacent token pairs ordered by this comparison 38,831 were decided by a DF
 // margin of exactly 1 and 81,478 were DF-tied — ~48% one catalog record away
 // from flipping, in every single tradition. That forced a re-bless of

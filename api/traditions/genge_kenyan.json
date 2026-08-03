@@ -5,7 +5,7 @@
   "lineage": "Nairobi Sheng-language hip-hop subgenre codified through Jua Cali, Nonini, P-Unit, and the Calif Records ecosystem (founded by Clemo) starting circa 2003 — characterized by Sheng-slang lyrics (Nairobi Swahili-English code-mix), kapuka-beat foundation, and street-Nairobi lyrical subject matter",
   "recipe": "classic early-2000s genge, mc Rhythm, us hip hop branch, intl hip hop MC rhythm, Afro-diasporic MC rhythm gengetone french rap. extended whistle, rap, breath pulsed, narrative. TR-808, chopped sampler, sub bass analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 374,
-  "score": 218.635,
+  "score": 218.001,
   "config": {
     "traditions": [
       "genge_kenyan",
@@ -35,16 +35,16 @@
         },
         "scores": {
           "voice_register": 2.0475,
-          "voice_quality": 24.87,
+          "voice_quality": 25.044,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.5599999999999996,
           "voice_articulation": 10.62,
           "voice_microtone": 8.32,
-          "voice_tradition": 11.49,
+          "voice_tradition": 11.295,
           "voice_mechanism_compound": 2.9899999999999998,
           "voice_estill_quality": 0.8449999999999999,
-          "voice_speech_song": 22.985,
+          "voice_speech_song": 23.11625,
           "voice_ensemble_config": 10.724999999999994,
           "voice_ornament_system": 6.695000000000003,
           "voice_pitch_organization": 3.0550000000000015,
@@ -60,7 +60,7 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 11.325,
+          "tr808_voice": 11.025,
           "drum_machine_808_context": 1.4299999999999997,
           "tr808_production_origin": 0.65
         }
@@ -77,7 +77,7 @@
         "scores": {
           "electronic_technique": 10.674999999999999,
           "sampler_archetypes": 19.857499999999998,
-          "sampler_bit_depth": 1.2025000000000001,
+          "sampler_bit_depth": 1.0150000000000001,
           "sampler_workflow": 10.899999999999999,
           "sampler_classic_context": 22.8475
         }
@@ -86,13 +86,13 @@
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_bass_sub",
-          "poly_archetypes": "prophet_5",
+          "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_16_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 12.024999999999999,
-          "poly_archetypes": 0,
+          "electronic_technique": 11.725,
+          "poly_archetypes": 0.042749999999999996,
           "poly_voices": 0.435,
           "poly_maker_lineage": -1.435
         }

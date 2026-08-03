@@ -3,9 +3,9 @@
   "name": "Candombe uruguayo",
   "family": "global",
   "lineage": "Afro-Uruguayan drum-procession tradition traced to 18th-century African slave processions through Montevideo — performed by the cuerda de tambores ensemble of three drum sizes (chico small high-pitched lead-rhythm, repique medium-pitched conversational, piano deep bass) carried on shoulder straps and played with one hand and one stick; the annual Desfile de Llamadas during Carnival brings comparsas through Barrio Sur, Palermo, and Cordón Montevideo neighborhoods with their costumed dancers and full cuerda batteries — figures Pedro Ferreira, Romero Ferreira, the modern Hugo Fattoruso extensions",
-  "recipe": "classic South American mid-1940s candombe uruguayo, groove Percussion, Latin am branch, Afro-diasporic ritual devotional. a cappella small 3 to 8 one per part call response single leader group response sub saharan call response ostinato polyrhythmic choir ensemble, lead cowhide canonical candomble atabaque, lead open slap hand drum congas, full cuerda song accompaniment groove synthetic head weatherproof candombe tamboriles. montevideo candombe barrio sur carnival. RCA 44-BX, German V72 tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 537,
-  "score": 62.567,
+  "recipe": "classic South American mid-1940s candombe uruguayo, groove Percussion, Latin am branch, Afro-diasporic ritual devotional. a cappella small 3 to 8 one per part call response single leader group response sub saharan call response ostinato polyrhythmic choir ensemble, lead cowhide canonical candomble atabaque, lead mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, full cuerda song accompaniment groove synthetic head weatherproof candombe tamboriles. montevideo candombe barrio sur carnival. RCA 44-BX, German V72 tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 598,
+  "score": 63.257,
   "config": {
     "traditions": [
       "candombe_uruguayan"
@@ -21,8 +21,8 @@
         },
         "scores": {
           "choir_size": 5.2,
-          "choir_polyphonic_configuration": 3.23625,
-          "choir_regional_canonical_configuration": 2.2725,
+          "choir_polyphonic_configuration": 3.82125,
+          "choir_regional_canonical_configuration": 2.6625,
           "choir_ensemble_repertoire": 1.95
         }
       },
@@ -48,10 +48,10 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 15.1975,
-          "conga_set": 4.73875,
-          "conga_skin": 0.9450000000000001,
-          "conga_shell_wood": 0.9450000000000001
+          "percussion_technique": 14.8075,
+          "conga_set": 4.54375,
+          "conga_skin": 1.29,
+          "conga_shell_wood": 1.29
         }
       },
       {
@@ -62,7 +62,7 @@
           "candombe_tamboriles_build": "candombe_tamboriles_synthetic"
         },
         "scores": {
-          "candombe_tamboriles_drum": 16.2975,
+          "candombe_tamboriles_drum": 15.907499999999999,
           "candombe_tamboriles_context": 6.11,
           "candombe_tamboriles_build": 2.5
         }

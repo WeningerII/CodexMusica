@@ -3,14 +3,13 @@
   "name": "Doom metal",
   "family": "rock",
   "lineage": "Doom metal as broad genre family descended from the Black Sabbath template — covering traditional doom (Pentagram, Saint Vitus, Candlemass), funeral doom (the slowest variant, 30-40 BPM, Mournful Congregation, Esoteric, Skepticism), the Electric Wizard / Cathedral UK occult-doom canon, and stoner-doom (psychedelic-sub-elements through Sleep, Electric Wizard, Bongripper) — distinct from the New Orleans sludge-and-hardcore axis covered by sludge metal and distinct from the sustained-tone minimalism covered by drone metal",
-  "recipe": "classic Midwestern American mid-1970s doom metal, distorted Rock, doom branch, sludge metal post-metal. thick, larynx lowered, wide pitch sway, interlocked note trading. orange amp British heavy crunch basswood maple pau ferro humbucker electric orange amp British heavy crunch 30 inch plus extended baritone metal djent baritone electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, kevlar aramid extreme tension sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi.",
-  "recipe_chars": 663,
-  "score": 675.738,
+  "recipe": "classic Midwestern American mid-1970s doom metal, distorted Rock, doom branch, sludge metal. thick, larynx lowered, wide pitch sway, interlocked note trading. orange amp British heavy crunch basswood power chord humbucker electric orange amp British heavy crunch 30 inch plus extended baritone metal djent baritone electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi.",
+  "recipe_chars": 648,
+  "score": 549.249,
   "config": {
     "traditions": [
       "doom",
-      "sludge_metal",
-      "post_metal_2000s"
+      "sludge_metal"
     ],
     "instruments": [
       {
@@ -23,7 +22,7 @@
           "voice_vibrato": "oscillating_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
-          "voice_tradition": "baroque_ornamental_tradition",
+          "voice_tradition": "japanese_min_yo_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -31,25 +30,25 @@
           "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
           "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 23.255499999999994,
-          "voice_quality": 41.25450000000001,
+          "voice_register": 19.238999999999994,
+          "voice_quality": 37.75450000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.1380000000000003,
-          "voice_articulation": 15.924999999999995,
-          "voice_microtone": 19.455,
-          "voice_tradition": 3.9,
-          "voice_mechanism_compound": 46.1225,
+          "voice_vibrato": 3.1425,
+          "voice_articulation": 11.699999999999996,
+          "voice_microtone": 14.924999999999997,
+          "voice_tradition": 2.405,
+          "voice_mechanism_compound": 37.4235,
           "voice_estill_quality": 2.0149999999999997,
-          "voice_speech_song": 16.509999999999994,
-          "voice_ensemble_config": 15.469999999999994,
-          "voice_ornament_system": 1.4545,
-          "voice_pitch_organization": 3.575,
-          "voice_processing_chain": 5.942499999999999,
-          "voice_multitrack_stack": 3.9
+          "voice_speech_song": 12.284999999999995,
+          "voice_ensemble_config": 11.244999999999994,
+          "voice_ornament_system": 1.474,
+          "voice_pitch_organization": 3.4699999999999998,
+          "voice_processing_chain": 5.083999999999999,
+          "voice_multitrack_stack": 3.5100000000000007
         }
       },
       {
@@ -58,31 +57,31 @@
           "electric_technique": "electric_power_chord",
           "amp_make": "amp_british_orange",
           "body_wood": "basswood_h",
-          "neck_wood": "maple_neck_h",
-          "fretboard": "pau_ferro_fb_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_5_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_12_hum",
-          "finish": "nitro_hum",
+          "finish": "oil_satin_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 40.169,
-          "amp_make": 48.7635,
-          "body_wood": 16.509999999999998,
-          "neck_wood": 1.4300000000000002,
-          "fretboard": 1.4300000000000002,
-          "pickup_magnet": 0.15000000000000002,
-          "pickup_winding": 1.625,
-          "string_material": 1.4300000000000002,
+          "electric_technique": 31.195499999999996,
+          "amp_make": 43.333499999999994,
+          "body_wood": 11.699999999999998,
+          "neck_wood": 0.585,
+          "fretboard": 0.726,
+          "pickup_magnet": 0.15450000000000003,
+          "pickup_winding": 0.78,
+          "string_material": 0.585,
           "bridge": 0.78,
-          "scale_length": 18.525,
+          "scale_length": 12.869999999999997,
           "string_gauge": 2.795,
-          "finish": 0,
-          "string_tuning": 30.354999999999993
+          "finish": 0.009,
+          "string_tuning": 23.335
         }
       },
       {
@@ -97,25 +96,25 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 48.7635,
+          "amp_make": 43.333499999999994,
           "body_wood": 0.78,
           "pickup_config": 0,
-          "string_type": 22.7885,
-          "scale_length_b": 1.5479999999999998,
+          "string_type": 18.9075,
+          "scale_length_b": 1.5524999999999998,
           "fretted_or_not": 0.3,
-          "bass_technique": 20.025
+          "bass_technique": 16.549
         }
       },
       {
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "kevlar_drumhead",
+          "drumhead": "vintage_ambassador_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 17.8795,
-          "drumhead": 2.1125,
+          "drum_technique": 14.3795,
+          "drumhead": 1.17,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -131,13 +130,13 @@
           "baritone_electric_pickup": "baritone_dual_humbucker"
         },
         "scores": {
-          "electric_technique": 34.63099999999999,
-          "amp_make": 48.7635,
-          "baritone_use": 0.5265,
-          "baritone_electric_tuning": 17.326999999999998,
-          "baritone_electric_scale": 19.304999999999996,
-          "baritone_electric_strings": 37.592499999999994,
-          "baritone_electric_pickup": 32.01599999999999
+          "electric_technique": 27.881,
+          "amp_make": 43.333499999999994,
+          "baritone_use": 0.5309999999999999,
+          "baritone_electric_tuning": 12.865499999999999,
+          "baritone_electric_scale": 14.495499999999998,
+          "baritone_electric_strings": 28.7475,
+          "baritone_electric_pickup": 25.29
         }
       }
     ],

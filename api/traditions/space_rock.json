@@ -3,14 +3,14 @@
   "name": "Space rock (late-1960s through 1970s psychedelic cosmic rock)",
   "family": "rock_punk",
   "lineage": "Late-1960s-and-1970s rock subgenre integrating extended psychedelic instrumental passages with science-fiction-cosmic thematic content. Hawkwind (UK 1969-onward) inaugurated the canonical style with Space Ritual (1973); Pink Floyd's pre-Dark-Side material, Gong's Radio Gnome Invisible trilogy, and (in the 1980s revival) Spacemen 3 and Loop continued the lineage. Distinguished from broader progressive rock by space rock's specific psychedelic-cosmic thematic focus and extended-instrumental-passage emphasis.",
-  "recipe": "classic Central European space rock, distorted Rock, progressive rock branch, experimental distorted rock chillwave post-rock. thick, breath veiled tone, fast rate, interlocked note trading. marshall plexi amp British rock amp basswood maple pau ferro humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, ambient pad like analog synth, vibrato wobble internal speaker close miked stylophone. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf kling klang studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape echo plate reverb phaser.",
-  "recipe_chars": 702,
-  "score": 396.322,
+  "recipe": "classic Central European space rock, distorted Rock, progressive rock branch, experimental distorted rock post-rock krautrock. thick, breath veiled tone, fast rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, ambient pad like analog synth, vibrato wobble internal speaker close miked stylophone. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf kling klang studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape echo plate reverb phaser.",
+  "recipe_chars": 737,
+  "score": 417.042,
   "config": {
     "traditions": [
       "space_rock",
-      "chillwave_glo_fi",
-      "post_rock_extended"
+      "post_rock_extended",
+      "krautrock"
     ],
     "instruments": [
       {
@@ -34,29 +34,29 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 30.118749999999995,
-          "voice_quality": 8.905,
+          "voice_register": 36.79375000000002,
+          "voice_quality": 10.14,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.9864999999999995,
-          "voice_articulation": 13.324999999999996,
-          "voice_microtone": 30.8035,
-          "voice_tradition": 11.591499999999998,
+          "voice_vibrato": 4.1365,
+          "voice_articulation": 13.194999999999997,
+          "voice_microtone": 36.90350000000001,
+          "voice_tradition": 13.411499999999998,
           "voice_mechanism_compound": 4.615000000000001,
-          "voice_estill_quality": 5.771750000000001,
-          "voice_speech_song": 14.072499999999996,
-          "voice_ensemble_config": 13.259999999999994,
-          "voice_ornament_system": 5.5115,
-          "voice_pitch_organization": 4.030000000000001,
-          "voice_processing_chain": 12.56425,
-          "voice_multitrack_stack": 11.373499999999998
+          "voice_estill_quality": 6.3267500000000005,
+          "voice_speech_song": 13.942499999999997,
+          "voice_ensemble_config": 12.934999999999995,
+          "voice_ornament_system": 6.4115,
+          "voice_pitch_organization": 3.38,
+          "voice_processing_chain": 10.93925,
+          "voice_multitrack_stack": 8.8535
         }
       },
       {
         "id": "electric_guitar_humbucker",
         "slots": {
-          "electric_technique": "electric_power_chord",
-          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "electric_technique": "electric_fuzz_riff",
+          "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "basswood_h",
           "neck_wood": "maple_neck_h",
           "fretboard": "pau_ferro_fb_h",
@@ -70,19 +70,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 9.978499999999999,
-          "amp_make": 15.145,
-          "body_wood": 3.575,
-          "neck_wood": 3.9864999999999995,
-          "fretboard": 3.9864999999999995,
+          "electric_technique": 9.7,
+          "amp_make": 17.028,
+          "body_wood": 1.8849999999999996,
+          "neck_wood": 4.1365,
+          "fretboard": 4.1365,
           "pickup_magnet": 0.04875,
           "pickup_winding": 0.845,
-          "string_material": 3.9864999999999995,
-          "bridge": 0.845,
-          "scale_length": 6.954999999999999,
-          "string_gauge": 0.845,
+          "string_material": 4.1365,
+          "bridge": 0.14625,
+          "scale_length": 6.305,
+          "string_gauge": 0.14625,
           "finish": 0,
-          "string_tuning": 23.60425
+          "string_tuning": 24.584249999999997
         }
       },
       {
@@ -97,13 +97,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 15.21,
-          "body_wood": 0.845,
+          "amp_make": 16.76275,
+          "body_wood": 0.2925,
           "pickup_config": 0,
-          "string_type": 32.76650000000001,
-          "scale_length_b": 0.845,
+          "string_type": 36.916500000000006,
+          "scale_length_b": 0.14625,
           "fretted_or_not": 0.02625,
-          "bass_technique": 29.373750000000005
+          "bass_technique": 34.173750000000005
         }
       },
       {
@@ -114,26 +114,26 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 29.375000000000007,
-          "drumhead": 3.9864999999999995,
+          "drum_technique": 33.75000000000001,
+          "drumhead": 4.1365,
           "drum_kit_kick_pedal": 0
         }
       },
       {
         "id": "analog_synth",
         "slots": {
-          "electronic_technique": "electronic_pad_drone",
+          "electronic_technique": "electronic_lead_line",
           "oscillator": "saw_single",
           "filter_topology": "transistor_ladder",
           "envelope": "pad_env",
           "modulation": "lfo_pitch"
         },
         "scores": {
-          "electronic_technique": 0.8249999999999998,
-          "oscillator": 3.9864999999999995,
-          "filter_topology": 0.845,
+          "electronic_technique": 1.2,
+          "oscillator": 4.1365,
+          "filter_topology": 0.31725000000000003,
           "envelope": 1.3,
-          "modulation": 0.845
+          "modulation": 0.105
         }
       },
       {
@@ -147,8 +147,8 @@
         "scores": {
           "stylophone_model": 5.3999999999999995,
           "stylophone_technique": 5.3999999999999995,
-          "stylophone_vibrato": 4.225,
-          "stylophone_output": 4.225
+          "stylophone_vibrato": 3.3799999999999994,
+          "stylophone_output": 3.3799999999999994
         }
       }
     ],

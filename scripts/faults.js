@@ -287,11 +287,11 @@ record(
     'llms.txt',
   ]);
   const f = path.join(d, 'package.json');
-  fs.writeFileSync(f, fs.readFileSync(f, 'utf8').replace('1167-tradition', '1166-tradition'));
+  fs.writeFileSync(f, fs.readFileSync(f, 'utf8').replace('1145-tradition', '1144-tradition'));
   record(
     'count-drift -> check_docs.js',
     gate(d, ['scripts/check_docs.js']),
-    /1166|1167|drift|mismatch|count|expected/i
+    /1144|1145|drift|mismatch|count|expected/i
   );
 }
 

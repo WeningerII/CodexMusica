@@ -49,6 +49,51 @@ rather than the HTTP grammar, since the connector is the only editable surface
 left. `docs/connector-directory-submission.md` stays — that is Anthropic's
 directory, for the path we are keeping.
 
+### Changed — merged 22 duplicate traditions, catalog is now 1,145
+
+The duplicate gate's review backlog is cleared. All 97 flagged pairs were
+adjudicated with a written reason in `scripts/_duplicate_rulings.json`, and the
+22 confirmed duplicate traditions have been merged by deleting the redundant
+record and repointing every reference to the survivor.
+
+Each pair was one genre entered twice: `new_wave`, `black_metal`, `post_punk`,
+`cloud_rap`, `post_metal`, `microhouse`, `dream_pop`, `sophisti_pop`,
+`bedroom_pop`, `chillwave`, `freak_folk`, `drone_metal`, `broken_beat`,
+`synthpop`, `amapiano`, `kwaito`, `dub_techno`, `big_band`, `minimalist`,
+`synthwave`, `jongo`, and Sardinian cantu a tenore.
+
+The survivor is the correctly-parented record. Fourteen of the deleted twins
+also sat in the wrong branch of the tree — `black_metal_norwegian` under
+`metal.death`, `post_metal_2000s` under `metal.sludge`, `drone_metal_sustained`
+under `metal.doom`, `outrun_synthwave` under `ambient` — so the merge fixes
+placement as well as redundancy.
+
+Repointed: `05_traditions.js`, `06_extras.js`, `_tradition_signatures.js`,
+the per-tradition descriptor map in `src/app.js`, the expected-parent
+assertions in `scripts/audit.js`, and 24 regression fixtures. Two blend
+fixtures (`champeta_cartagenera`, `desert_rock_palm`) changed output because
+they had been blending both halves of a merged pair — a tradition cannot blend
+with itself, so the recipe is now built from one contribution instead of two.
+
+### Fixed — the tradition count is no longer hardcoded
+
+Capability eval S19 asserted a literal `1167`. It now derives the expected
+count from `TRADITIONS.length`, so the published artifact is checked against
+the catalog rather than against a number that rots on every merge. Catalog
+counts in `README.md`, `index.html`, `SKILL.md`, `AGENTS.md`, `package.json`,
+`server.json` and the connector docs are updated to 1,145, along with the
+count-drift fault class in `scripts/faults.js`.
+
+### Not merged — the four "umbrella" pairs
+
+`trap`, `dubstep`, `kpop` and `afrobeats` were flagged against their specific
+twins and looked like the same duplication. They are not. Each is one of 22
+records carrying an explicit `umbrella: true` flag — a deliberate layer of
+household genre names (Pop, Rock, Jazz, Blues, Classical, Hip-hop, …) that act
+as broad entry points and are excluded from similarity scoring and search bias
+in `scripts/score.js` and `scripts/search.js`. Overlapping exemplars with a
+specific twin is what an umbrella is *for*. All four are now ruled `distinct`.
+
 ### Added — a near-duplicate gate for catalog entities
 
 `validate.js` catches id collisions. Nothing caught the two failures that

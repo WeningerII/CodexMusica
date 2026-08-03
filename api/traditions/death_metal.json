@@ -5,7 +5,7 @@
   "lineage": "Mid-1980s onward extreme metal subgenre characterized by down-tuned humbucker guitar, palm-muted chug riffs, blast-beat drumming, growl-vocal delivery, and morbid thematic content — codified through Florida-tampa-bay (Death — Scream Bloody Gore 1987, Morbid Angel — Altars of Madness 1989, Obituary, Deicide), and Stockholm (Entombed — Left Hand Path 1990, Dismember, Grave) with the genre splitting into technical, brutal, and melodic substreams by the mid-1990s",
   "recipe": "classic North American 1984-1986 death metal, distorted Rock, death branch, thrash metal djent. thick, breath veiled tone, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, orange amp British heavy crunch alder ernie ball slinky electric bass, ride-driven brushes-and-sticks drum kit. concrete basement. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay ibanez tube screamer TS9 / TS808.",
   "recipe_chars": 605,
-  "score": 346.789,
+  "score": 346.339,
   "config": {
     "traditions": [
       "death_metal",
@@ -27,7 +27,7 @@
           "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_12_hum",
-          "finish": "oil_satin_hum",
+          "finish": "nitro_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
@@ -42,7 +42,7 @@
           "bridge": 5.551,
           "scale_length": 14.364999999999998,
           "string_gauge": 6.396,
-          "finish": 0.168,
+          "finish": 0.0315,
           "string_tuning": 19.174999999999997
         }
       },
@@ -61,10 +61,10 @@
           "amp_make": 6.4350000000000005,
           "body_wood": 6.707999999999999,
           "pickup_config": 1.8850000000000002,
-          "string_type": 13.628499999999999,
+          "string_type": 13.65,
           "scale_length_b": 5.551,
           "fretted_or_not": 1.145,
-          "bass_technique": 13.906
+          "bass_technique": 13.7695
         }
       },
       {
@@ -116,7 +116,7 @@
           "voice_ornament_system": 0.6499999999999999,
           "voice_pitch_organization": 2.0799999999999996,
           "voice_processing_chain": 5.59,
-          "voice_multitrack_stack": 6.045
+          "voice_multitrack_stack": 5.846500000000001
         }
       }
     ],

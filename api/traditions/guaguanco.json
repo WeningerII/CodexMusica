@@ -5,7 +5,7 @@
   "lineage": "Cuban couple-dance rumba subform with the characteristic vacunao symbolic-pursuit-and-evasion choreographic structure, codified 1880s-onward in Havana-and-Matanzas Afro-Cuban barrios out of solar-tenement-courtyard improvised drumming. Built on three-conga interlocking pattern (tumbador low-pulse, tres-dos middle-syncopation, quinto high-improvisation lead), clave 3-2 or 2-3 wood-block timekeeper, and palitos cáscara stick-on-drum-shell pattern. Vocal structure follows decimas Spanish-poetic-form opening (canto), coro-call-and-response chorus, and montuno open-improvisation section. The faster-tempo rumba-columbia and slower-tempo rumba-yambú are the sibling subforms.",
   "recipe": "classic Caribbean mid-1880s guaguancó, groove Percussion, rumba branch, Afro-diasporic ritual devotional candomblé ceremonial haitian vodou ceremonial. vocal fry, blues-shouter, slow rate, interlocked note trading. lead mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, wood hardwood claves, a cappella small 3 to 8 one per part call response single leader group response sub saharan call response ostinato polyrhythmic sacred liturgical global choir ensemble. havana solar outdoor courtyard. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 641,
-  "score": 196.917,
+  "score": 196.617,
   "config": {
     "traditions": [
       "guaguanco",
@@ -49,7 +49,7 @@
           "voice_ornament_system": 5.4,
           "voice_pitch_organization": 8.084375,
           "voice_processing_chain": 2.795,
-          "voice_multitrack_stack": 5.290625
+          "voice_multitrack_stack": 5.095625
         }
       },
       {
@@ -61,10 +61,10 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 15.528749999999999,
-          "conga_set": 3.990625,
-          "conga_skin": 4.895,
-          "conga_shell_wood": 4.895
+          "percussion_technique": 15.138749999999998,
+          "conga_set": 3.7956250000000002,
+          "conga_skin": 5.135,
+          "conga_shell_wood": 5.135
         }
       },
       {
