@@ -1,0 +1,216 @@
+{
+  "id": "alt_z",
+  "name": "Alt-Z",
+  "family": "pop",
+  "lineage": "Streaming-era alternative pop category consolidated around 2018-2022 out of American and Anglo bedroom-production scenes (Billie Eilish and Finneas in Highland Park, Clairo, girl in red) — 80-110 BPM halftime or trap-derived programmed beats, sub-heavy 808 or synth bass, deliberately dry close-miked whisper-register lead vocals with audible breath and lip noise, sparse harmonic beds of detuned pads or muted guitar, and confessional first-person lyrics",
+  "recipe": "classic 2018-2022 alt-z, functional Song, pop rock branch, pop experimental experimental electric, anglo singer song bedroom singer song, lofi experimental electric indietronica etherpop. thick, breath veiled tone, breath pulsed, interlocked note trading. lead plus dense cluster 5 part stack heavy bus compression glue post 2010 multitrack vocal stack, singing lead analog poly synth, TR-808, orange amp British heavy crunch roasted maple maple soft down tuning single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, glitched textural sampler, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 778,
+  "score": 407.195,
+  "config": {
+    "traditions": [
+      "alt_z",
+      "indietronica",
+      "etherpop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        },
+        "scores": {
+          "voice_register": 26.164999999999992,
+          "voice_quality": 9.620000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.48,
+          "voice_articulation": 17.679999999999996,
+          "voice_microtone": 24.674999999999997,
+          "voice_tradition": 24.235,
+          "voice_mechanism_compound": 4.419999999999999,
+          "voice_estill_quality": 3.835,
+          "voice_speech_song": 22.294999999999998,
+          "voice_ensemble_config": 17.744999999999997,
+          "voice_ornament_system": 1.995,
+          "voice_pitch_organization": 2.145,
+          "voice_processing_chain": 8.085,
+          "voice_multitrack_stack": 4.965
+        }
+      },
+      {
+        "id": "multitrack_vocal_stack",
+        "slots": {
+          "multitrack_stack_density": "multitrack_density_5_part_cluster",
+          "multitrack_stack_era_aesthetic": "multitrack_era_2000s_elastic_pitch",
+          "multitrack_stack_processing": "multitrack_processing_compressed_glued"
+        },
+        "scores": {
+          "multitrack_stack_density": 3.185,
+          "multitrack_stack_era_aesthetic": 0.4225,
+          "multitrack_stack_processing": 1.5599999999999996
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_yamaha_cs"
+        },
+        "scores": {
+          "electronic_technique": 22.119999999999997,
+          "poly_archetypes": 2.8600000000000003,
+          "poly_voices": 0.24,
+          "poly_maker_lineage": -0.7350000000000001
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 4.890000000000001,
+          "drum_machine_808_context": 6.345000000000001,
+          "tr808_production_origin": 0.36
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_orange",
+          "body_wood": "basswood",
+          "neck_wood": "roasted_maple",
+          "fretboard": "ebony_fb",
+          "pickup_magnet": "alnico_5",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_short",
+          "finish": "poly",
+          "string_tuning": "eb_standard"
+        },
+        "scores": {
+          "electric_technique": 20.5,
+          "amp_make": 3.085,
+          "body_wood": 0.75,
+          "neck_wood": 1.3,
+          "fretboard": 0.345,
+          "pickup_magnet": 0.045,
+          "string_material": 0.045,
+          "string_gauge": 0.39,
+          "bridge": 0.39,
+          "scale_length": 0.39,
+          "finish": 0.195,
+          "string_tuning": 3.705
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 6.510000000000001,
+          "body_wood": 0.39,
+          "pickup_config": 0.845,
+          "string_type": 6.22,
+          "scale_length_b": 0.39,
+          "fretted_or_not": 0,
+          "bass_technique": 6.58
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_microsampling_glitch",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 16.865000000000002,
+          "sampler_archetypes": 0.975,
+          "sampler_bit_depth": 0.39,
+          "sampler_workflow": 17.755000000000003,
+          "sampler_classic_context": 20.052499999999995
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_5_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_432_alternative"
+        },
+        "scores": {
+          "keyboard_technique": 19.325,
+          "grand_piano_size": 1.64,
+          "grand_piano_brand": 0.39,
+          "piano_hammer": 19.535,
+          "piano_rim": 19.325,
+          "piano_soundboard": 19.55,
+          "piano_pinblock": 0.52,
+          "piano_plate": 1.9499999999999997,
+          "piano_pitch_standard": 5.46
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "untreated_bedroom",
+    "chain_mic": "mic_sm7b_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

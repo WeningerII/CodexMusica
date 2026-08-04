@@ -1,0 +1,203 @@
+{
+  "id": "early_modern_classical",
+  "name": "Early modern classical (1890–1930)",
+  "family": "classical",
+  "lineage": "The Paris–Vienna–Budapest rupture of roughly 1890 to 1930, codified by Debussy's whole-tone and modal planing, Stravinsky's additive-metre ostinati in the Ballets Russes scores, Bartók's field-collected Magyar and Romanian scales, and Schoenberg's move through free atonality into the twelve-tone method — scored for expanded orchestra with divisi strings, doubled woodwinds, celesta, harp and enlarged percussion, and marked by dissolved functional cadence, shifting bar lengths, and timbre treated as a structural parameter.",
+  "recipe": "classic British early modern classical, art Music, western modern branch, western common practice art music, musique concrete experimental electric german romanticism acousmatic music. silver wound lamb gut core sitka spruce European maple sycamore maple violin orchestral, synthetic carpathian spruce European maple sycamore maple oil varnish cello, silver yamaha modern Japanese mid to premium continuous-airflow legato flute, composite resin blackwood dust continuous-airflow legato clarinet, brass continuous-airflow legato french horn, beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, synthetic timpani, concert harp, legato celesta. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
+  "recipe_chars": 760,
+  "score": 400.332,
+  "config": {
+    "traditions": [
+      "early_modern_classical",
+      "german_romanticism",
+      "acousmatic_music"
+    ],
+    "instruments": [
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "orch_strings": "silver_wound_lamb_gut_violin",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "european_maple_general_violin",
+          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "liebenzeller_metal_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 8.625,
+          "orch_strings": 3.5495,
+          "orch_top_wood": 10.3595,
+          "orch_back_wood": 15.563863636363637,
+          "orch_varnish": 14.625,
+          "orch_setup_period": 14.857545454545454,
+          "orch_bow": 1.17,
+          "orch_bow_stick": 17.5,
+          "orch_articulation": 1.8199999999999998,
+          "orch_rosin": 14.625
+        }
+      },
+      {
+        "id": "cello",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "cello_strings": "cello_synthetic",
+          "cello_top_wood": "carpathian_spruce_cello",
+          "cello_back_wood": "european_maple_cello_back",
+          "cello_varnish": "oil_amber_varnish_cello",
+          "cello_setup_period": "modern_setup_cello",
+          "cello_bow_grip": "french_bow_grip",
+          "cello_rosin": "pirastro_cellisto_rosin",
+          "cello_bow_stick": "pernambuco_stick_cello"
+        },
+        "scores": {
+          "bowed_technique": 8.625,
+          "cello_strings": 3.575,
+          "cello_top_wood": 8.735,
+          "cello_back_wood": 15.563863636363637,
+          "cello_varnish": 14.625,
+          "cello_setup_period": 14.857545454545454,
+          "cello_bow_grip": 3.9,
+          "cello_rosin": 15.06,
+          "cello_bow_stick": 17.5
+        }
+      },
+      {
+        "id": "flute",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "flute_size": "piccolo_flute",
+          "flute_material": "silver_flute",
+          "flute_technique": "beatboxed_flute",
+          "flute_maker_school": "flute_yamaha"
+        },
+        "scores": {
+          "wind_articulation": 7.69,
+          "flute_size": 0.65,
+          "flute_material": 2.4050000000000002,
+          "flute_technique": 1.7550000000000001,
+          "flute_maker_school": 5.135
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "clarinet_body": "buffet_greenline_clarinet",
+          "clarinet_size": "a_clarinet",
+          "clarinet_reed": "medium_clarinet_reed",
+          "clarinet_articulation": "glissando_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 7.69,
+          "clarinet_body": 14.625,
+          "clarinet_size": 3.9,
+          "clarinet_reed": 1.8199999999999998,
+          "clarinet_articulation": 0.12999999999999998
+        }
+      },
+      {
+        "id": "french_horn",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "french_horn_bore": "french_horn_full",
+          "french_horn_metal": "horn_yellow_brass"
+        },
+        "scores": {
+          "wind_articulation": 7.69,
+          "french_horn_bore": 0.585,
+          "french_horn_metal": 1.2349999999999999
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "renner_standard_hammer",
+          "piano_rim": "european_laminated_rim_beech_maple",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "standard_multi_laminate_pinblock",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 7.5,
+          "grand_piano_size": 2.405,
+          "grand_piano_brand": 1.4949999999999999,
+          "piano_hammer": 20.15,
+          "piano_rim": 16.98090909090909,
+          "piano_soundboard": 14.625,
+          "piano_pinblock": 14.775,
+          "piano_plate": 14.715,
+          "piano_pitch_standard": 19.519
+        }
+      },
+      {
+        "id": "timpani",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "timpani_size": "timpani_4_drum_set",
+          "timpani_head": "timpani_synthetic"
+        },
+        "scores": {
+          "percussion_technique": 1.125,
+          "timpani_size": 4.485,
+          "timpani_head": 1.7550000000000001
+        }
+      },
+      {
+        "id": "concert_harp",
+        "slots": {
+          "harp_strings": "harp_47_string",
+          "harp_pedals": "harp_double_pedal"
+        },
+        "scores": {
+          "harp_strings": 4.485,
+          "harp_pedals": 4.095
+        }
+      },
+      {
+        "id": "celesta",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "celesta_model": "celesta_schiedmayer",
+          "celesta_context": "celesta_film"
+        },
+        "scores": {
+          "keyboard_technique": 7.5,
+          "celesta_model": 1.8199999999999998,
+          "celesta_context": 1.7550000000000001
+        }
+      }
+    ],
+    "room": "concert_hall_shoebox",
+    "archetype": "arch_decca_sound_orchestral",
+    "inline_chain": {
+      "mic": "mic_coles_4038_ribbon",
+      "pre": "pre_tube_german_v72",
+      "console": "clean",
+      "comp": null,
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_30ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "concert_hall_shoebox",
+    "chain_mic": "mic_coles_4038_ribbon",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_30ips",
+    "chain_console": "clean"
+  }
+}

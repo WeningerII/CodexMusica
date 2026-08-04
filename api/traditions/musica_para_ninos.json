@@ -1,0 +1,207 @@
+{
+  "id": "musica_para_ninos",
+  "name": "Música para Niños",
+  "family": "vernacular",
+  "lineage": "Spanish-language commercial children's song repertoire established by Francisco Gabilondo Soler ('Cri-Cri') on Mexico City radio XEW from 1934 and extended through Argentine and Spanish television acts, using small orchestral or piano-and-rhythm accompaniment, waltz, polka, danzón and habanera dance meters at moderate tempo, narrow-range singable melodies in major keys, and character-voice narration alternating with sung refrains for group participation.",
+  "recipe": "classic Southwestern American mid-1930s música para niños, nursery Rhyme, americas branch, European nursery rhyme, European lullaby, Mexican functional song muziek voor kinderen barnmusik. extended whistle, breath veiled tone, fast rate, interlocked note trading. a cappella small 3 to 8 one per part call response single leader group response sardinian cantu a tenore oche mesu contra bassu choir ensemble, beech laminated maple laminated European tradition European spruce norway spruce grand piano, steel weltmeister east German mid tier vintage volk accordion, aluminum wound carpathian spruce hard rock maple acer saccharum brazilwood violin orchestral, ebonite hard rubber klezmer tradition clarinet, guiro, treble-extended sustaining steel upright bass. mariachi and bolero defining room 1948-1975 mid tier mexico peerless musart 50s 60s. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 959,
+  "score": 200.373,
+  "config": {
+    "traditions": [
+      "musica_para_ninos",
+      "muziek_voor_kinderen",
+      "barnmusik"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 6.75375,
+          "voice_quality": 3.640000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.92,
+          "voice_articulation": 19.174999999999997,
+          "voice_microtone": 19.434999999999995,
+          "voice_tradition": 4.290000000000001,
+          "voice_mechanism_compound": 3.38,
+          "voice_estill_quality": 3.1850000000000005,
+          "voice_speech_song": 23.66,
+          "voice_ensemble_config": 19.955,
+          "voice_ornament_system": 1.525,
+          "voice_pitch_organization": 3.120000000000001,
+          "voice_processing_chain": 5.9799999999999995,
+          "voice_multitrack_stack": 3.802500000000001
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_call_response_leader_group",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_contemporary"
+        },
+        "scores": {
+          "choir_size": 5.479375,
+          "choir_polyphonic_configuration": 1.95,
+          "choir_regional_canonical_configuration": 3.185,
+          "choir_ensemble_repertoire": 1.7999999999999998
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "fazioli",
+          "piano_hammer": "renner_standard_hammer",
+          "piano_rim": "european_laminated_rim_beech_maple",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 3.1999999999999997,
+          "grand_piano_size": 1,
+          "grand_piano_brand": 1.1999999999999995,
+          "piano_hammer": 5.1025,
+          "piano_rim": 6.3375,
+          "piano_soundboard": 5.85,
+          "piano_pinblock": 0.375,
+          "piano_plate": 0.42,
+          "piano_pitch_standard": 9.6525
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_chordal_chugging",
+          "accordion_reed_material": "steel_reeds",
+          "musette_offset": "scottish_musette",
+          "reed_config": "lmmh",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_weltmeister"
+        },
+        "scores": {
+          "free_reed_technique": 1.45,
+          "accordion_reed_material": 1,
+          "musette_offset": 1,
+          "reed_config": 1.86375,
+          "bellows": 0.195,
+          "voicing_chamber": 1.105,
+          "accordion_maker_school": 1.2149999999999999
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "orch_strings": "aluminum_wound_gut_violin",
+          "orch_top_wood": "carpathian_spruce_violin",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "modern_synthetic_varnish_violin",
+          "orch_setup_period": "baroque_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "brazilwood_stick_orch",
+          "orch_articulation": "sul_pont_orch",
+          "orch_rosin": "liebenzeller_metal_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 2.45,
+          "orch_strings": 1.11375,
+          "orch_top_wood": 4.615,
+          "orch_back_wood": 5.7524999999999995,
+          "orch_varnish": 0.57,
+          "orch_setup_period": 0.7149999999999999,
+          "orch_bow": 1.3,
+          "orch_bow_stick": 1.375,
+          "orch_articulation": 0.6,
+          "orch_rosin": 0.32499999999999996
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "clarinet_body": "ebonite_clarinet",
+          "clarinet_size": "e_flat_clarinet",
+          "clarinet_reed": "soft_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 0.39,
+          "clarinet_body": 1.1049999999999998,
+          "clarinet_size": 1.3,
+          "clarinet_reed": 1,
+          "clarinet_articulation": 2.375
+        }
+      },
+      {
+        "id": "guiro",
+        "slots": {
+          "guiro_origin": "guiro_cuban",
+          "guiro_striker": "guiro_wood"
+        },
+        "scores": {
+          "guiro_origin": 0.39,
+          "guiro_striker": 0.195
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "steel_upright",
+          "upright_play": "arco_upright"
+        },
+        "scores": {
+          "upright_strings": 1,
+          "upright_play": 0.65
+        }
+      }
+    ],
+    "room": "mexico_peerless_musart_50s_60s",
+    "archetype": "arch_churubusco_ranchera_bolero",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "ranchera_3_4_and_2_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "ranchera_3_4_and_2_4",
+    "room": "mexico_peerless_musart_50s_60s",
+    "chain_mic": "mic_u47_tube_neumann",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
+  }
+}

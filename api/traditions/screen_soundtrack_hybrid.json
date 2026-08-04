@@ -1,0 +1,222 @@
+{
+  "id": "screen_soundtrack_hybrid",
+  "name": "Soundtrack (hybrid screen scoring)",
+  "family": "classical",
+  "lineage": "Contemporary film, television and game underscore as codified in Los Angeles and London from the mid-1990s by Hans Zimmer's Media Ventures and its descendants — sample-library and live-orchestra hybrids built to picture in a DAW, ostinato-driven minor-modal cells at 100-140 BPM, sub-bass braams and processed percussion loops layered under divisi strings, cues locked to timecode with click and stem-delivered for the dub stage",
+  "recipe": "classic 1994-1996 soundtrack, art Music, western modern branch, ambient experimental electric darksynth hauntology. sitka spruce European maple sycamore maple oil varnish amber tinted violin orchestral, synthetic engelmann spruce European maple sycamore maple oil varnish cello, french horn, synthetic timpani, modern bright 17 ply hard rock maple sitka spruce diaphragmatic grand piano, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca pad analog poly glitched textural granular synth, field textural sampler, a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody sub saharan call response ostinato polyrhythmic choir ensemble, cowhide canonical Japanese stave built modern non trunk oedo sukeroku canonical kumi daiko modern ensemble taiko drum. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 937,
+  "score": 245.317,
+  "config": {
+    "traditions": [
+      "screen_soundtrack_hybrid",
+      "darksynth",
+      "hauntology_uk_2010s"
+    ],
+    "instruments": [
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "orch_strings": "steel_orch",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "european_maple_general_violin",
+          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "sul_pont_orch",
+          "orch_rosin": "liebenzeller_metal_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 3.25,
+          "orch_strings": 0.845,
+          "orch_top_wood": 6.994999999999999,
+          "orch_back_wood": 6.4,
+          "orch_varnish": 6.25,
+          "orch_setup_period": 7.895,
+          "orch_bow": 0.845,
+          "orch_bow_stick": 6.5,
+          "orch_articulation": 1.09,
+          "orch_rosin": 7.185
+        }
+      },
+      {
+        "id": "cello",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "cello_strings": "cello_synthetic",
+          "cello_top_wood": "engelmann_spruce_cello",
+          "cello_back_wood": "european_maple_cello_back",
+          "cello_varnish": "oil_amber_varnish_cello",
+          "cello_setup_period": "modern_setup_cello",
+          "cello_bow_grip": "french_bow_grip",
+          "cello_rosin": "liebenzeller_metal_rosin_cello",
+          "cello_bow_stick": "pernambuco_stick_cello"
+        },
+        "scores": {
+          "bowed_technique": 3.25,
+          "cello_strings": 2.055,
+          "cello_top_wood": 3.75,
+          "cello_back_wood": 6.4,
+          "cello_varnish": 6.25,
+          "cello_setup_period": 7.895,
+          "cello_bow_grip": 1,
+          "cello_rosin": 7.185,
+          "cello_bow_stick": 6.5
+        }
+      },
+      {
+        "id": "french_horn",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "french_horn_bore": "french_horn_descant",
+          "french_horn_metal": "horn_yellow_brass"
+        },
+        "scores": {
+          "wind_articulation": 2.5,
+          "french_horn_bore": 0.845,
+          "french_horn_metal": 0.845
+        }
+      },
+      {
+        "id": "timpani",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "timpani_size": "timpani_4_drum_set",
+          "timpani_head": "timpani_synthetic"
+        },
+        "scores": {
+          "percussion_technique": 0.75,
+          "timpani_size": 1.3,
+          "timpani_head": 2.055
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_avant_prepared",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "renner_blue_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 6.324999999999999,
+          "grand_piano_size": 2.535,
+          "grand_piano_brand": 3.38,
+          "piano_hammer": 7.09,
+          "piano_rim": 6.81,
+          "piano_soundboard": 6.25,
+          "piano_pinblock": 6.445,
+          "piano_plate": 7.779999999999999,
+          "piano_pitch_standard": 8.885
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 5.735,
+          "poly_archetypes": 0.45499999999999996,
+          "poly_voices": 1.195,
+          "poly_maker_lineage": 1.6249999999999998
+        }
+      },
+      {
+        "id": "granular_synth",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "granular_use": "granular_idm",
+          "granular_synth_source": "granular_synth_field"
+        },
+        "scores": {
+          "electronic_technique": 7.49,
+          "granular_use": 0.39,
+          "granular_synth_source": 3.3149999999999995
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 7.49,
+          "sampler_archetypes": 4.005,
+          "sampler_bit_depth": 2.34,
+          "sampler_workflow": 8.49,
+          "sampler_classic_context": 20.182499999999997
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_drone_plus_voices",
+          "choir_regional_canonical_configuration": "choir_regional_sub_saharan_call_response_ostinato",
+          "choir_ensemble_repertoire": "choir_ensemble_contemporary"
+        },
+        "scores": {
+          "choir_size": 5.475,
+          "choir_polyphonic_configuration": 1.69,
+          "choir_regional_canonical_configuration": 2.3449999999999998,
+          "choir_ensemble_repertoire": 4.159999999999999
+        }
+      },
+      {
+        "id": "taiko_drum",
+        "slots": {
+          "taiko_size": "taiko_o_daiko",
+          "taiko_skin": "taiko_cowhide",
+          "taiko_shell_wood": "taiko_stave_built",
+          "taiko_lineage": "taiko_oedo_sukeroku",
+          "taiko_technique": "taiko_kumi_daiko"
+        },
+        "scores": {
+          "taiko_size": 0.345,
+          "taiko_skin": 1.69,
+          "taiko_shell_wood": 2.8,
+          "taiko_lineage": 1.69,
+          "taiko_technique": 1.8
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

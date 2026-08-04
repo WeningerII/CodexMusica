@@ -1,0 +1,216 @@
+{
+  "id": "japanese_soundtrack",
+  "name": "Japanese soundtrack scoring",
+  "family": "classical",
+  "lineage": "Japanese screen and game scoring consolidated from the 1950s onward — Toru Takemitsu's sparse modernist film scores for Kobayashi and Teshigahara, Joe Hisaishi's minimalist ostinato-and-melody writing for Miyazaki from 1984, Ryuichi Sakamoto's synth-and-orchestra hybrids, and the game lineage of Koichi Sugiyama and Nobuo Uematsu whose chiptune themes were later rescored for full orchestra — built on long-breathed diatonic or yo-scale themes, ostinato piano or harp figuration, restrained rubato, and orchestral colour weighted toward strings, woodwind solos and celesta.",
+  "recipe": "classic mid-1950s japanese soundtrack scoring, art Music, western modern branch, western common practice art music, east Asian pop functional song, retro aesthetic experimental electric german romanticism enka. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, sitka spruce bigleaf maple western maple oil varnish amber tinted violin orchestral, synthetic norway spruce European alpine European maple sycamore maple cello, brass legato french horn, grenadilla African blackwood canonical modern conservatoire yamaha modern Japanese legato oboe, concert harp, block chord celesta, choir cathedral satb, madake bamboo phyllostachys canonical Japanese root section kinko ryu canonical edo period concert continuous-airflow legato shakuhachi, singing lead analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 956,
+  "score": 317.89,
+  "config": {
+    "traditions": [
+      "japanese_soundtrack",
+      "german_romanticism",
+      "enka"
+    ],
+    "instruments": [
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "standard_multi_laminate_pinblock",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_441_japanese"
+        },
+        "scores": {
+          "keyboard_technique": 8.02,
+          "grand_piano_size": 3.835,
+          "grand_piano_brand": 3.445,
+          "piano_hammer": 17.774999999999995,
+          "piano_rim": 19.61,
+          "piano_soundboard": 13.95,
+          "piano_pinblock": 8.525,
+          "piano_plate": 9.465,
+          "piano_pitch_standard": 14.399999999999999
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "orch_strings": "silver_wound_lamb_gut_violin",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "bigleaf_western_maple_violin",
+          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "magic_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 7.75,
+          "orch_strings": 0.975,
+          "orch_top_wood": 7.090000000000001,
+          "orch_back_wood": 12.122500000000002,
+          "orch_varnish": 8.375,
+          "orch_setup_period": 9.245000000000001,
+          "orch_bow": 1.3,
+          "orch_bow_stick": 10.822499999999998,
+          "orch_articulation": 2.7950000000000004,
+          "orch_rosin": 11.4075
+        }
+      },
+      {
+        "id": "cello",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "cello_strings": "cello_synthetic",
+          "cello_top_wood": "norway_spruce_alpine_cello",
+          "cello_back_wood": "european_maple_cello_back",
+          "cello_varnish": "oil_amber_varnish_cello",
+          "cello_setup_period": "modern_setup_cello",
+          "cello_bow_grip": "french_bow_grip",
+          "cello_rosin": "pirastro_cellisto_rosin",
+          "cello_bow_stick": "pernambuco_stick_cello"
+        },
+        "scores": {
+          "bowed_technique": 7.75,
+          "cello_strings": 4.16,
+          "cello_top_wood": 4.859999999999999,
+          "cello_back_wood": 9.305,
+          "cello_varnish": 8.375,
+          "cello_setup_period": 9.245000000000001,
+          "cello_bow_grip": 1.95,
+          "cello_rosin": 8.96,
+          "cello_bow_stick": 10.822499999999998
+        }
+      },
+      {
+        "id": "french_horn",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "french_horn_bore": "french_horn_full",
+          "french_horn_metal": "horn_yellow_brass"
+        },
+        "scores": {
+          "wind_articulation": 4.45,
+          "french_horn_bore": 2.0799999999999996,
+          "french_horn_metal": 1.2349999999999999
+        }
+      },
+      {
+        "id": "oboe",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "oboe_reed": "oboe_american_scrape",
+          "oboe_class": "oboe_modern",
+          "oboe_body_wood": "oboe_grenadilla_canonical",
+          "oboe_maker_school": "oboe_yamaha_modern"
+        },
+        "scores": {
+          "wind_articulation": 4.45,
+          "oboe_reed": 2.1849999999999996,
+          "oboe_class": 3.1249999999999996,
+          "oboe_body_wood": 2.34,
+          "oboe_maker_school": 6.974999999999999
+        }
+      },
+      {
+        "id": "concert_harp",
+        "slots": {
+          "harp_strings": "harp_47_string",
+          "harp_pedals": "harp_double_pedal"
+        },
+        "scores": {
+          "harp_strings": 5.329999999999999,
+          "harp_pedals": 2.145
+        }
+      },
+      {
+        "id": "celesta",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "celesta_model": "celesta_schiedmayer",
+          "celesta_context": "celesta_orch"
+        },
+        "scores": {
+          "keyboard_technique": 8.02,
+          "celesta_model": 3.9299999999999997,
+          "celesta_context": 2.9899999999999998
+        }
+      },
+      {
+        "id": "choir_cathedral_satb",
+        "slots": {
+          "voicing": "satb_standard",
+          "repertoire": "modern_classical_choral"
+        },
+        "scores": {
+          "voicing": 2.34,
+          "repertoire": 1.44
+        }
+      },
+      {
+        "id": "shakuhachi",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "shaku_length": "two_one",
+          "shaku_technique": "mura_iki",
+          "shakuhachi_body_material": "shakuhachi_madake_canonical",
+          "shakuhachi_lineage": "shakuhachi_kinko"
+        },
+        "scores": {
+          "wind_articulation": 3.9400000000000004,
+          "shaku_length": 0.15,
+          "shaku_technique": 4.42,
+          "shakuhachi_body_material": 5.574999999999999,
+          "shakuhachi_lineage": 1.69
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "prophet_5",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 7.824999999999999,
+          "poly_archetypes": 1.7550000000000001,
+          "poly_voices": 0.615,
+          "poly_maker_lineage": -0.525
+        }
+      }
+    ],
+    "room": "live_room",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_modern",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "japanese_yo_scale",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "japanese_yo_scale",
+    "room": "live_room",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "tube_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

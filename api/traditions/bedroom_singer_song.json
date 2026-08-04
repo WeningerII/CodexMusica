@@ -5,7 +5,7 @@
   "lineage": "2010s onward singer-songwriter genre with intimate DIY bedroom-DAW production and a confessional first-person lyrical register — codified through Phoebe Bridgers (Stranger in the Alps 2017, Punisher 2020), Julien Baker, Lucy Dacus, Soccer Mommy, Snail Mail (Lush 2018), Mitski, with the form representing the contemporary indie-singer-songwriter mainstream",
   "recipe": "classic mid-2010s bedroom singer-songwriter, ballad Poetry, bedroom singer song branch, lofi experimental electric hypnagogic pop. thick, breath veiled tone, straight onset, interlocked note trading. narrative fingerpicked acoustic soft down tuning clean strummed single coil electric guitar, singing lead analog poly synth. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 432,
-  "score": 182.649,
+  "score": 183.299,
   "config": {
     "traditions": [
       "bedroom_singer_song",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 14.413749999999991,
+          "voice_register": 14.406249999999991,
           "voice_quality": 12.804999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.80375,
+          "voice_vibrato": 3.9312500000000004,
           "voice_articulation": 11.049999999999995,
           "voice_microtone": 11.924999999999995,
-          "voice_tradition": 13.433749999999998,
+          "voice_tradition": 13.301249999999998,
           "voice_mechanism_compound": 4.095,
-          "voice_estill_quality": 7.271250000000001,
+          "voice_estill_quality": 7.308750000000001,
           "voice_speech_song": 17.224999999999994,
           "voice_ensemble_config": 10.984999999999994,
           "voice_ornament_system": 6.656250000000001,
           "voice_pitch_organization": 0.8449999999999999,
           "voice_processing_chain": 5.005,
-          "voice_multitrack_stack": 15.29
+          "voice_multitrack_stack": 15.707499999999998
         }
       },
       {
@@ -65,7 +65,7 @@
           "string_tuning": 0.52,
           "top_wood": 0.195,
           "back_sides": 0.39,
-          "string_acoustic": 0.55875,
+          "string_acoustic": 0.5512499999999999,
           "acoustic_om_technique": 14.424999999999999
         }
       },
@@ -76,7 +76,7 @@
           "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
-          "fretboard": "ebony_fb",
+          "fretboard": "pau_ferro_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
           "string_gauge": "g_12",
@@ -86,13 +86,13 @@
           "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 9.957499999999998,
+          "electric_technique": 9.949999999999998,
           "amp_make": 2.0799999999999996,
           "body_wood": 0.195,
           "neck_wood": 0.195,
           "fretboard": 0.195,
-          "pickup_magnet": 0.0525,
-          "string_material": 0.15000000000000002,
+          "pickup_magnet": 0.195,
+          "string_material": 0.29250000000000004,
           "string_gauge": 0.195,
           "bridge": 0.195,
           "scale_length": 0.39,
@@ -106,12 +106,12 @@
           "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_16_voice",
-          "poly_maker_lineage": "poly_oberheim_tom"
+          "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 9.994999999999997,
+          "electronic_technique": 9.987499999999997,
           "poly_archetypes": 1.4949999999999999,
-          "poly_voices": 1.13375,
+          "poly_voices": 1.07875,
           "poly_maker_lineage": -1.085
         }
       }

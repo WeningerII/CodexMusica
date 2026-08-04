@@ -3,9 +3,9 @@
   "name": "Bolivian diablada de Oruro (Carnaval de Oruro)",
   "family": "global",
   "lineage": "Bolivian Carnaval de Oruro diablada (devil-dance) processional tradition continuous from pre-Hispanic Andean ritual-dance practice through Spanish-colonial-era integration with Christian-Catholic devil-dance imagery (the post-1606 syncretism of Andean-Tio-deity worship with Catholic-devil-iconography) into modern Carnaval de Oruro continuous practice",
-  "recipe": "classic Andean mid-1600s bolivian diablada de oruro, carnival Processional, andean branch, European carnival processional, americas wedding, iberian Latin protest song andean matrimonio huayno cologne karneval. thick, forward-resonance, straight onset, interlocked note trading. pvc continuous-airflow legato quena, andean tradition paired rows interlocking siku panpipes, yellow brass canonical 70 30 bach stradivarius yamaha xeno modern Japanese continuous-airflow legato standard rim trumpet, pre muffled edge muffled brushes-and-sticks drum kit, altiplano mara canonical single block tarka. andean altiplano outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 683,
-  "score": 270.311,
+  "recipe": "classic Andean mid-1600s bolivian diablada de oruro, carnival Processional, andean branch, European carnival processional, americas wedding, iberian Latin protest song andean matrimonio huayno cologne karneval. forward-resonance, straight onset, interlocked note trading, neutral third half flat. pvc continuous-airflow legato quena, andean tradition paired rows interlocking siku panpipes, yellow brass canonical 70 30 bach stradivarius yamaha xeno modern Japanese continuous-airflow legato standard rim trumpet, pre muffled edge muffled brushes-and-sticks drum kit, altiplano mara canonical single block tarka. andean altiplano outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 701,
+  "score": 271.03,
   "config": {
     "traditions": [
       "bolivian_diablada_oruro",
@@ -34,19 +34,19 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 0.502857142857143,
-          "voice_quality": 21.556428571428565,
+          "voice_register": 0.48892857142857155,
+          "voice_quality": 21.601428571428563,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 4.29,
           "voice_articulation": 7.735,
           "voice_microtone": 7.735000000000001,
-          "voice_tradition": 33.10946428571429,
-          "voice_mechanism_compound": 4.165803571428571,
+          "voice_tradition": 33.388035714285714,
+          "voice_mechanism_compound": 4.204374999999999,
           "voice_estill_quality": 18.90321428571428,
           "voice_speech_song": 9.1,
           "voice_ensemble_config": 19.236964285714283,
-          "voice_ornament_system": 25.77696428571428,
+          "voice_ornament_system": 25.968749999999993,
           "voice_pitch_organization": 5.809374999999999,
           "voice_processing_chain": 2.4700000000000006,
           "voice_multitrack_stack": 0.975
@@ -61,7 +61,7 @@
         },
         "scores": {
           "wind_articulation": 5.709375,
-          "quena_material": 4.81,
+          "quena_material": 4.806875,
           "quena_pitch": 2.75
         }
       },
@@ -72,7 +72,7 @@
           "siku_size": "siku_malta"
         },
         "scores": {
-          "siku_construction": 12.626874999999998,
+          "siku_construction": 12.821874999999999,
           "siku_size": 0.78
         }
       },
@@ -82,7 +82,7 @@
           "wind_articulation": "wind_continuous_legato",
           "brass_size": "flugelhorn",
           "trumpet_mouthpiece": "bach_trumpet_mp_3c",
-          "brass_mute": "harmon_in",
+          "brass_mute": "no_mute_brass",
           "trumpet_technique": "trumpet_punchy_ensemble",
           "trumpet_bell_metal": "trumpet_yellow_brass",
           "trumpet_maker_school": "trumpet_yamaha_xeno"
@@ -91,7 +91,7 @@
           "wind_articulation": 5.709375,
           "brass_size": 0.195,
           "trumpet_mouthpiece": 8.495,
-          "brass_mute": 0.012857142857142855,
+          "brass_mute": 0.003214285714285714,
           "trumpet_technique": 0.585,
           "trumpet_bell_metal": 2.21,
           "trumpet_maker_school": 4.42
@@ -106,7 +106,7 @@
         },
         "scores": {
           "drum_technique": 7.8,
-          "drumhead": 10.60142857142857,
+          "drumhead": 10.598214285714285,
           "drum_kit_kick_pedal": 0
         }
       },

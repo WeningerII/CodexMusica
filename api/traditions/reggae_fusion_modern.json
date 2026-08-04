@@ -5,7 +5,7 @@
   "lineage": "Late-1990s onward Caribbean popular-music genre fusing reggae rhythmic and vocal vocabulary with hip-hop, pop, R-and-B, and electronic-dance production techniques — codified through Sean Paul (Dutty Rock 2002), Shaggy (Hot Shot 2000), Sean Kingston (Sean Kingston 2007), Magic! (Don't Kill the Magic 2014), with the form serving as the international-mainstream commercial-reggae substream",
   "recipe": "classic 1997-1999 reggae fusion, bass System, reggae diaspora branch, intl hip hop MC rhythm australian hip-hop japanese hip-hop. thick, rap, straight onset, interlocked note trading. modeled amp modern rig clean strummed single coil electric guitar, modeled amp modern rig ernie ball slinky thumb muted electric bass, pre muffled edge muffled brushes-and-sticks drum kit, pitched chopped sampler, Hammond a 100 built in Leslie home spinet block chord fast tremolo tonewheel organ. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 627,
-  "score": 323.528,
+  "score": 326.362,
   "config": {
     "traditions": [
       "reggae_fusion_modern",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 11.819999999999993,
-          "voice_quality": 18.695,
+          "voice_quality": 19.2725,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.7250000000000005,
+          "voice_vibrato": 4.83,
           "voice_articulation": 15.599999999999994,
           "voice_microtone": 15.404999999999992,
-          "voice_tradition": 16.978625,
-          "voice_mechanism_compound": 3.900874999999999,
-          "voice_estill_quality": 3.600875,
-          "voice_speech_song": 17.31,
+          "voice_tradition": 17.060000000000002,
+          "voice_mechanism_compound": 4.069999999999999,
+          "voice_estill_quality": 3.965,
+          "voice_speech_song": 18.015,
           "voice_ensemble_config": 16.379999999999995,
           "voice_ornament_system": 3.7700000000000014,
           "voice_pitch_organization": 1.3649999999999995,
-          "voice_processing_chain": 13.157125,
-          "voice_multitrack_stack": 11.745000000000003
+          "voice_processing_chain": 13.120000000000001,
+          "voice_multitrack_stack": 11.835000000000003
         }
       },
       {
@@ -59,7 +59,7 @@
           "amp_make": "amp_modern_modeling",
           "body_wood": "basswood",
           "neck_wood": "maple",
-          "fretboard": "pau_ferro_fb",
+          "fretboard": "maple_fb",
           "pickup_magnet": "ceramic",
           "string_material": "pure_nickel",
           "string_gauge": "g_10",
@@ -70,14 +70,14 @@
         },
         "scores": {
           "electric_technique": 15.125,
-          "amp_make": 3.580000000000001,
+          "amp_make": 3.640000000000001,
           "body_wood": 0.845,
-          "neck_wood": 0.195,
+          "neck_wood": 0.345,
           "fretboard": 0.195,
           "pickup_magnet": 0.195,
-          "string_material": 0.337125,
+          "string_material": 0.39,
           "string_gauge": 0.39,
-          "bridge": 1.45,
+          "bridge": 1.5550000000000002,
           "scale_length": 0.3,
           "finish": 0.195,
           "string_tuning": 2.145
@@ -95,11 +95,11 @@
           "bass_technique": "thumb_muted"
         },
         "scores": {
-          "amp_make": 3.580000000000001,
+          "amp_make": 3.640000000000001,
           "body_wood": 0,
-          "pickup_config": 1.645,
-          "string_type": 2.586625,
-          "scale_length_b": 1.45,
+          "pickup_config": 1.69,
+          "string_type": 2.5,
+          "scale_length_b": 1.5550000000000002,
           "fretted_or_not": 0,
           "bass_technique": 17.199999999999996
         }
@@ -129,8 +129,8 @@
         "scores": {
           "electronic_technique": 8.649999999999999,
           "sampler_archetypes": 15.925,
-          "sampler_bit_depth": 1.6,
-          "sampler_workflow": 9.299999999999999,
+          "sampler_bit_depth": 1.69,
+          "sampler_workflow": 9.584999999999999,
           "sampler_classic_context": 27.104999999999997
         }
       },
@@ -148,7 +148,7 @@
           "keyboard_technique": 7.825,
           "drawbar_setting": 2.695,
           "rotary_speed": 2.45,
-          "percussion_setting": 1.086625,
+          "percussion_setting": 1,
           "tonewheel_model": 2.015,
           "leslie_cabinet_model": 0.78
         }

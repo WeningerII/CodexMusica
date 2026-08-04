@@ -1,0 +1,190 @@
+{
+  "id": "cumbia_pop",
+  "name": "Cumbia pop",
+  "family": "pop",
+  "lineage": "Radio-facing cumbia hybrid consolidated in Argentina, Uruguay and Mexico from the late 1990s and dominant across the Southern Cone from about 2010, codified by Los Ángeles Azules' orchestral cumbia sonidera and by Uruguayan groups such as Rombai and Márama — a bright 95-105 BPM 4/4 with güiro on every eighth, scraped-and-clicked timbal fills, a two-note synth bass or electric bass on the downbeat, sustained keyboard or accordion melody, and clean romantic tenor lead vocals with sung group choruses.",
+  "recipe": "classic 1997-1999 cumbia pop, groove Percussion, Latin am branch, Latin electric electronic dance, tropical song functional song cumbia 420 panamanian pop. thick, full chest belt, straight note core, interlocked note trading. guiro, open slap hand drum timbales, lead open slap hand drum congas, ampeg svt amp rock bass amp la bella flats Detroit soul bass canon thumb muted electric bass, singing lead analog poly synth, accordion, pre muffled edge muffled brushes-and-sticks drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 690,
+  "score": 252.062,
+  "config": {
+    "traditions": [
+      "cumbia_pop",
+      "cumbia_420",
+      "panamanian_pop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "full_chest_belt_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 9.904999999999992,
+          "voice_quality": 15.899999999999997,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.5024999999999995,
+          "voice_articulation": 23.59499999999999,
+          "voice_microtone": 22.554999999999993,
+          "voice_tradition": 9.274999999999999,
+          "voice_mechanism_compound": 4.809999999999999,
+          "voice_estill_quality": 4.7775,
+          "voice_speech_song": 27.949999999999996,
+          "voice_ensemble_config": 20.929999999999996,
+          "voice_ornament_system": 2.0149999999999997,
+          "voice_pitch_organization": 2.0149999999999997,
+          "voice_processing_chain": 7.460000000000001,
+          "voice_multitrack_stack": 8.5475
+        }
+      },
+      {
+        "id": "guiro",
+        "slots": {
+          "guiro_origin": "guiro_mexican_pvc",
+          "guiro_striker": "guiro_metal"
+        },
+        "scores": {
+          "guiro_origin": 0.8400000000000001,
+          "guiro_striker": 0.39
+        }
+      },
+      {
+        "id": "timbales",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "timbales_shell": "timbales_brass",
+          "timbales_context": "timbales_salsa"
+        },
+        "scores": {
+          "percussion_technique": 9.735000000000001,
+          "timbales_shell": 0.845,
+          "timbales_context": 1
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "quinto",
+          "conga_skin": "conga_synthetic_head",
+          "conga_shell_wood": "conga_siam_oak"
+        },
+        "scores": {
+          "percussion_technique": 9.735000000000001,
+          "conga_set": 2.34,
+          "conga_skin": 0.39,
+          "conga_shell_wood": 0.39
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "thumb_muted"
+        },
+        "scores": {
+          "amp_make": 3.3149999999999995,
+          "body_wood": 0.39,
+          "pickup_config": 0.845,
+          "string_type": 4.095,
+          "scale_length_b": 0.39,
+          "fretted_or_not": 0,
+          "bass_technique": 1.95
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 10.834999999999997,
+          "poly_archetypes": 1,
+          "poly_voices": 1,
+          "poly_maker_lineage": -0.7350000000000001
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_chromatic_jazz",
+          "accordion_reed_material": "tipo_a_mano",
+          "musette_offset": "dry_tuning",
+          "reed_config": "lmmh",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_petosa_seattle"
+        },
+        "scores": {
+          "free_reed_technique": 2.275,
+          "accordion_reed_material": 0.39,
+          "musette_offset": 1.45,
+          "reed_config": 2.045,
+          "bellows": 0.15,
+          "voicing_chamber": 0.045,
+          "accordion_maker_school": 0.78
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 20.669999999999998,
+          "drumhead": 8.495,
+          "drum_kit_kick_pedal": 0
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "cumbia_4_4_paseo",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "cumbia_4_4_paseo",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

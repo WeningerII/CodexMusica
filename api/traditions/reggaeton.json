@@ -5,7 +5,7 @@
   "lineage": "Puerto Rican dembow-based dance subgenre codified through Vico C (the foundational late-1980s figure), DJ Playero’s underground compilations (1991 onward), Daddy Yankee’s breakthrough Barrio Fino (2004), Don Omar, Tego Calderón — characterized by 90-100 BPM dembow rhythm (from the Shabba Ranks \"Dem Bow\" sample), Spanish-language reggaeton-flow vocals",
   "recipe": "classic Caribbean 1987-1989 reggaeton, mc Rhythm, reggaeton branch, Latin electric electronic dance, Jamaican bass system reggae roots jamaican dancehall. thick, breath veiled tone, straight onset, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, low sub bass analog poly synth, sampler drum machine. live tracking. shure SM58, transformerless solid-state pre, pumping sidechain, parametric EQ. lossy MP3 autotune digital delay.",
   "recipe_chars": 457,
-  "score": 121.985,
+  "score": 121.407,
   "config": {
     "traditions": [
       "reggaeton",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 4.075000000000001,
+          "voice_register": 4.1800000000000015,
           "voice_quality": 13.454999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.8199999999999998,
           "voice_articulation": 10.27,
           "voice_microtone": 9.49,
-          "voice_tradition": 5.85,
+          "voice_tradition": 5.699999999999999,
           "voice_mechanism_compound": 2.535,
           "voice_estill_quality": 2.34,
           "voice_speech_song": 10.659999999999997,
           "voice_ensemble_config": 9.425,
           "voice_ornament_system": 4.745000000000001,
           "voice_pitch_organization": 1.3649999999999998,
-          "voice_processing_chain": 8.709999999999999,
+          "voice_processing_chain": 8.604999999999999,
           "voice_multitrack_stack": 6.435000000000001
         }
       },
@@ -61,7 +61,7 @@
         },
         "scores": {
           "tr808_voice": 3.77,
-          "drum_machine_808_context": 8.3125,
+          "drum_machine_808_context": 7.93,
           "tr808_production_origin": 1.625
         }
       },
@@ -76,7 +76,7 @@
         "scores": {
           "electronic_technique": 4.875,
           "poly_archetypes": 0.39,
-          "poly_voices": 0.39,
+          "poly_voices": 0.345,
           "poly_maker_lineage": -0.875
         }
       },

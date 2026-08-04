@@ -5,7 +5,7 @@
   "lineage": "Mid-1990s UK electronic subgenre developed from hardcore breakbeat through faster-tempo (160-180 BPM) characterized by uplifting-and-bright synth-melodic-lead designs, sped-up female-vocal-sample hooks, and explicit rave-functional dance-floor-targeting. Slipmatt, Hixxy, Sharkey, Force & Styles, and the broader Bonkers compilation series anchor the canonical roster.",
   "recipe": "classic British 1994-1996 happy hardcore, electronic Dance, hardstyle branch, eurodance electronic dance freestyle music. extended whistle, breath veiled tone, straight note core, interlocked note trading. TR-808, singing lead analog synth. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 459,
-  "score": 125.097,
+  "score": 125.509,
   "config": {
     "traditions": [
       "happy_hardcore",
@@ -42,14 +42,14 @@
           "voice_articulation": 11.439999999999994,
           "voice_microtone": 11.04999999999999,
           "voice_tradition": 4.842499999999999,
-          "voice_mechanism_compound": 6.062499999999999,
-          "voice_estill_quality": 1.885,
+          "voice_mechanism_compound": 6.1674999999999995,
+          "voice_estill_quality": 1.8775,
           "voice_speech_song": 11.829999999999993,
           "voice_ensemble_config": 12.219999999999994,
           "voice_ornament_system": 1.15,
           "voice_pitch_organization": 1.8849999999999996,
           "voice_processing_chain": 18.325,
-          "voice_multitrack_stack": 7.07075
+          "voice_multitrack_stack": 7.279999999999999
         }
       },
       {
@@ -75,7 +75,7 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 6.6215,
+          "electronic_technique": 6.7265,
           "oscillator": 3.12,
           "filter_topology": 3.9650000000000003,
           "envelope": 0.195,

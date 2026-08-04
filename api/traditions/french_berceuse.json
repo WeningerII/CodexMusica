@@ -5,7 +5,7 @@
   "lineage": "French cradle-song tradition continuous from medieval and Renaissance courtly-and-rural berceuse through 19th-century Romantic art-song setting (Fauré, Berlioz, Saint-Saëns) and 20th-century chanson appropriation",
   "recipe": "classic modern french berceuse, lullaby, European branch, chanson fado ballad poetry, western common practice art music, europop functional song morna cape verdean batuko of santiago island. vocal fry, breath veiled tone, slow rate, interlocked note trading. parlor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 329,
-  "score": 176.922,
+  "score": 176.967,
   "config": {
     "traditions": [
       "french_berceuse",
@@ -47,7 +47,7 @@
           "voice_speech_song": 33.085,
           "voice_ensemble_config": 23.595,
           "voice_ornament_system": 1.6899999999999997,
-          "voice_pitch_organization": 5.135000000000001,
+          "voice_pitch_organization": 5.180000000000001,
           "voice_processing_chain": 7.605000000000003,
           "voice_multitrack_stack": 5.135
         }

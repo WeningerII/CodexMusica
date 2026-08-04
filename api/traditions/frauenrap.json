@@ -1,0 +1,158 @@
+{
+  "id": "frauenrap",
+  "name": "Frauenrap (German women's rap)",
+  "family": "hip_hop",
+  "lineage": "German-language women's rap tradition running from Cora E. and Sabrina Setlur in the early 1990s Heidelberg/Frankfurt scenes through the 2010s Berlin queer-feminist wave of Sookee, Ebow and Nura, marked by dense multisyllabic German rhyme over 85–100 BPM boom-bap or, latterly, trap hi-hat triplets and 808 glides, dry close-miked delivery, and explicitly gendered lyrical address answering the male-dominated Straßenrap canon.",
+  "recipe": "classic 1990-1993 frauenrap, mc Rhythm, intl hip hop branch, us hip hop conscious rap, European protest song conscious hip-hop greek éntechno politicized. thick, rap, straight onset, interlocked note trading. chopped sampler, TR-808, sampled chopped turntable, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, low sub bass analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 605,
+  "score": 305.718,
+  "config": {
+    "traditions": [
+      "frauenrap",
+      "conscious_hip_hop",
+      "greek_entechno_politicized"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 8.37,
+          "voice_quality": 28.874,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 5.879999999999999,
+          "voice_articulation": 18.589999999999996,
+          "voice_microtone": 18.947499999999998,
+          "voice_tradition": 11.927499999999997,
+          "voice_mechanism_compound": 2.4049999999999994,
+          "voice_estill_quality": 3.665,
+          "voice_speech_song": 27.817999999999994,
+          "voice_ensemble_config": 18.72,
+          "voice_ornament_system": 4.355000000000002,
+          "voice_pitch_organization": 2.34,
+          "voice_processing_chain": 22.524999999999995,
+          "voice_multitrack_stack": 9.0675
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 8.143999999999998,
+          "sampler_archetypes": 13.909999999999998,
+          "sampler_bit_depth": 1.9500000000000002,
+          "sampler_workflow": 10.349999999999998,
+          "sampler_classic_context": 30.0625
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 8.494,
+          "drum_machine_808_context": 2.6650000000000005,
+          "tr808_production_origin": 0.45499999999999996
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_scratch"
+        },
+        "scores": {
+          "electronic_technique": 8.143999999999998,
+          "turntable_technique": 8.875
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerstyle_walking"
+        },
+        "scores": {
+          "amp_make": 5.637999999999999,
+          "body_wood": 0.585,
+          "pickup_config": 2.145,
+          "string_type": 6.452999999999999,
+          "scale_length_b": 0.8449999999999999,
+          "fretted_or_not": 0.045,
+          "bass_technique": 3.999999999999999
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 12.263999999999998,
+          "poly_archetypes": 0.195,
+          "poly_voices": 0,
+          "poly_maker_lineage": -1.336
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_neve_1073_input",
+      "console": "console_in_the_box",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

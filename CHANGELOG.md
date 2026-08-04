@@ -6,6 +6,53 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Added — 281 traditions; catalog now 1,426
+
+The first tradition import from the screened everynoise corpus. 296 candidates
+authored by **23 agents across four concurrent workflows**, then cut to 281 on
+merge.
+
+Tradition records are far heavier than instruments — 19 fields across two
+tables, including a 13-axis signature, a description, exemplars, a roster, and
+a full room-and-chain specification. To keep the failure surface small the
+agents were handed six generated vocabulary files (every legal room, tuning,
+chain archetype, tree path and instrument id) rather than being asked to recall
+them, and were told to omit the optional `parts` field, which is the field most
+likely to produce unresolvable references.
+
+**Fifteen records were dropped as duplicates of entries that already existed or
+of each other**: `turkish_rock` against `anadolu_rock`, `brazilian_rock`
+against `rock_nacional_brasileiro`, `intelligent_dance_music` against `idm`,
+`rebel_blues` against `desert_blues`, `rap_francais` against `french_rap`,
+`nigerian_pop` against `afrobeats`, `new_york_drill` against `brooklyn_drill`,
+plus overlapping lo-fi, Mexican-regional and children's-music entries the
+agents generated in parallel without seeing each other's work.
+
+A further **27 pairs are ruled `distinct` with reasons on file** — `chicago
+blues` against `electric blues` (one city scene versus the wider category),
+`pop-punk` against `skate punk` (a 60 BPM gap and a different beat), `dangdut`
+against `javanese dangdut` (koplo plays the kendang in double time), `milonga`
+and `chacarera` against `folklore argentino` (members against their umbrella).
+
+### Fixed — a malformed tree-path vocabulary
+
+The generated `parent` path list doubled every prefix, because a tree node's
+`id` is *already* the full dotted path and the generator concatenated it with
+its parent's. Agents faithfully wrote `distortedRock.distortedRock.regional`.
+The vocabulary was corrected mid-run, and the 243 affected paths plus 692
+crossRefs were repaired deterministically by taking the longest valid suffix —
+zero unrecoverable.
+
+Also stripped **162 crossRefs that duplicated their own parent**, which
+`audit.js` counts as an error rather than a warning.
+
+### Note — 137 recipe fixtures moved
+
+Adding 281 traditions changed nearest-neighbour rankings across the similarity
+graph, so 137 of 1,149 fixtures now name different neighbours (`indie folk`
+becoming `ectofolk` in one list, for instance). The recipes themselves are
+unchanged in structure; only the neighbour segment moved. Re-blessed.
+
 ### Added — the last 14 instruments; catalog now 1,406
 
 Re-screening all 1,331 probe candidates against the merged catalog showed the

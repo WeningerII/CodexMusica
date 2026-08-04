@@ -1,0 +1,192 @@
+{
+  "id": "naija_worship",
+  "name": "Naija Worship",
+  "family": "blues_gospel",
+  "lineage": "Nigerian Pentecostal congregational worship shaped in Lagos megachurches from the 1990s and exported on record after 2010 through Sinach, Nathaniel Bassey, Dunsin Oyekan and Mercy Chinwo — 70-100 BPM 4/4 and 6/8 forms that build over long repeated refrains, Hammond and synth pad beds under electric bass and kit, talking drum and conga underlay, call-and-response between soloist and choir, and English, Yoruba or Igbo lyrics carried by a belted, melismatic lead.",
+  "recipe": "classic West African mid-1990s naija worship, ritual Devotional, pentecostal branch, christian gospel black gospel, African pop functional song contemporary urban gospel. thick, declaimed, straight onset, multi note runs per syllable. a cappella small 3 to 8 one per part antiphonal double choir alternating sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble, Hammond b3 canonical 1955 1975 jazz gospel rock standard gospel runs full spectrum fast tremolo tonewheel organ, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled brushes-and-sticks drum kit, iroko alternative west African talking drum, lead congas, singing lead digital subtractive. pentecostal storefront church. FET condenser, transformerless solid-state pre, brick-wall limiter. lossy MP3 autotune digital delay.",
+  "recipe_chars": 897,
+  "score": 503.335,
+  "config": {
+    "traditions": [
+      "naija_worship",
+      "black_gospel_choir",
+      "contemporary_urban_gospel"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 33.46500000000002,
+          "voice_quality": 37.04500000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.795,
+          "voice_articulation": 28.06500000000001,
+          "voice_microtone": 25.285000000000004,
+          "voice_tradition": 40.085,
+          "voice_mechanism_compound": 2.275,
+          "voice_estill_quality": 27.975,
+          "voice_speech_song": 29.250000000000004,
+          "voice_ensemble_config": 30.095000000000002,
+          "voice_ornament_system": 9.15,
+          "voice_pitch_organization": 3.5750000000000006,
+          "voice_processing_chain": 10.562499999999998,
+          "voice_multitrack_stack": 5.037500000000001
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_antiphonal_double_choir",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
+        },
+        "scores": {
+          "choir_size": 5.329999999999999,
+          "choir_polyphonic_configuration": 5.329999999999999,
+          "choir_regional_canonical_configuration": 3.1200000000000006,
+          "choir_ensemble_repertoire": 2.9899999999999998
+        }
+      },
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "drawbar_setting": "gospel_drawbars",
+          "rotary_speed": "fast_tremolo",
+          "percussion_setting": "percussion_on_long",
+          "tonewheel_model": "tonewheel_hammond_b3",
+          "leslie_cabinet_model": "leslie_122_canonical"
+        },
+        "scores": {
+          "keyboard_technique": 31.395000000000007,
+          "drawbar_setting": 26.195000000000007,
+          "rotary_speed": 25.950000000000003,
+          "percussion_setting": 0.195,
+          "tonewheel_model": 29.145000000000003,
+          "leslie_cabinet_model": 0.6449999999999999
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "amp_make": 7.449999999999999,
+          "body_wood": 0.36,
+          "pickup_config": 0.845,
+          "string_type": 4.005,
+          "scale_length_b": 0.845,
+          "fretted_or_not": 0.39,
+          "bass_technique": 3.3249999999999997
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 23.660000000000007,
+          "drumhead": 3.705,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "talking_drum",
+        "slots": {
+          "talking_drum_origin": "gangan_yoruba",
+          "talking_drum_context": "talking_drum_juju",
+          "talking_drum_shell_wood": "talking_drum_iroko_alt",
+          "talking_drum_head": "talking_drum_goat_skin_canonical"
+        },
+        "scores": {
+          "talking_drum_origin": 0.15,
+          "talking_drum_context": 3.445,
+          "talking_drum_shell_wood": 4.42,
+          "talking_drum_head": 0
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "quinto",
+          "conga_skin": "conga_synthetic_head",
+          "conga_shell_wood": "conga_siam_oak"
+        },
+        "scores": {
+          "percussion_technique": 1.88,
+          "conga_set": 1.3299999999999998,
+          "conga_skin": 0.845,
+          "conga_shell_wood": 0.845
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 3.42,
+          "va_archetypes": 0,
+          "digital_subtractive_context": 26.585000000000008
+        }
+      }
+    ],
+    "room": "pentecostal_storefront_church",
+    "archetype": "arch_lagos_afrobeats_digital",
+    "inline_chain": {
+      "mic": "mic_sm58_dynamic_shure",
+      "pre": "pre_console_inline_strip",
+      "console": "console_in_the_box",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "pentecostal_storefront_church",
+    "chain_mic": "mic_sm58_dynamic_shure",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

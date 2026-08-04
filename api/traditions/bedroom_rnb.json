@@ -1,0 +1,180 @@
+{
+  "id": "bedroom_rnb",
+  "name": "Bedroom R&B",
+  "family": "pop",
+  "lineage": "Bedroom R&B took shape on SoundCloud and Bandcamp from roughly 2013 through Steve Lacy, Sza's early tapes, Yellow Days, Mahalia demos and the Internet's side projects — slow 65-85 BPM swung drum programming, detuned Rhodes and nylon-guitar loops, close-miked untreated-room lead vocals with audible sibilance and noise floor, tape-saturated stacked harmony and short through-written forms tracked entirely on laptop interfaces.",
+  "recipe": "classic early-2010s bedroom r&b, functional Song, soul R&B branch, lofi experimental electric, anglo singer song bedroom singer song hypnagogic pop. thick, breath veiled tone, straight onset, interlocked note trading. lead plus third fifth 3 part stack 2010s melodyne microtuned stack chorus detuned thickener across stack multitrack vocal stack, close pickup gap more bark dirt block chord rhodes electric, Fender blackface amp American 60s amp spring reverb bright clean strummed single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, sampler drum machine. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 749,
+  "score": 201.682,
+  "config": {
+    "traditions": [
+      "bedroom_rnb",
+      "bedroom_pop",
+      "hypnagogic_pop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 17.868749999999995,
+          "voice_quality": 9.425000000000002,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.405,
+          "voice_articulation": 13.519999999999992,
+          "voice_microtone": 13.97499999999999,
+          "voice_tradition": 13.24875,
+          "voice_mechanism_compound": 3.1849999999999996,
+          "voice_estill_quality": 3.5500000000000003,
+          "voice_speech_song": 19.564999999999994,
+          "voice_ensemble_config": 13.454999999999993,
+          "voice_ornament_system": 2.2099999999999995,
+          "voice_pitch_organization": 2.02,
+          "voice_processing_chain": 4.42,
+          "voice_multitrack_stack": 11.504999999999999
+        }
+      },
+      {
+        "id": "multitrack_vocal_stack",
+        "slots": {
+          "multitrack_stack_density": "multitrack_density_3_part_third_fifth",
+          "multitrack_stack_era_aesthetic": "multitrack_era_2010s_melodyne",
+          "multitrack_stack_processing": "multitrack_processing_chorus_thickened"
+        },
+        "scores": {
+          "multitrack_stack_density": 1.532125,
+          "multitrack_stack_era_aesthetic": 4.542125,
+          "multitrack_stack_processing": 1.63
+        }
+      },
+      {
+        "id": "rhodes_electric",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "rhodes_model": "rhodes_mark1_stage",
+          "rhodes_use": "rhodes_soul",
+          "rhodes_tine_material": "rhodes_mark7_modern_tine",
+          "rhodes_hammer_tip": "rhodes_felt_hammer_tip",
+          "rhodes_pickup_position": "rhodes_pickup_close_bark"
+        },
+        "scores": {
+          "keyboard_technique": 11.465,
+          "rhodes_model": 1.4849999999999999,
+          "rhodes_use": 1.8199999999999998,
+          "rhodes_tine_material": 0.195,
+          "rhodes_hammer_tip": -0.035,
+          "rhodes_pickup_position": 1.81375
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_12",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_short",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 10.95,
+          "amp_make": 4.9121250000000005,
+          "body_wood": 0.585,
+          "neck_wood": 0.585,
+          "fretboard": 0.5199999999999999,
+          "pickup_magnet": 0.39,
+          "string_material": 0.39,
+          "string_gauge": 1.7349999999999999,
+          "bridge": 0.585,
+          "scale_length": 0.735,
+          "finish": 0,
+          "string_tuning": 2.08
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "amp_make": 5.322125,
+          "body_wood": 0.585,
+          "pickup_config": 2.9899999999999998,
+          "string_type": 4.56775,
+          "scale_length_b": 0.975,
+          "fretted_or_not": 0,
+          "bass_technique": 3.695
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twenty_four_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": -0.07,
+          "sample_bitdepth": 2.9899999999999998,
+          "sample_swing": 1.762125,
+          "sample_processing": 0.585
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "untreated_bedroom",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

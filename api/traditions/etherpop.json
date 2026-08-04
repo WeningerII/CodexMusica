@@ -1,0 +1,180 @@
+{
+  "id": "etherpop",
+  "name": "Etherpop",
+  "family": "electronic",
+  "lineage": "North American and northern-European bedroom-to-label electronic pop of 2011-2016 — Purity Ring, Grimes, Chvrches and Sylvan Esso — built at 90-125 BPM on pitched vocal samples, reverb-drenched bell and marimba-timbre synth leads, sub-bass and trap-derived hi-hat rolls under a high, breathy, heavily reverbed and layered female lead, arrangements assembled in the box with almost no acoustic sourcing and no live drum performance.",
+  "recipe": "classic mid-2010s etherpop, experimental Elec, pop experimental branch, pop rock synthpop, ambient experimental electric, lofi experimental electric shiver pop metropopolis. thick, breath veiled tone, breath pulsed, interlocked note trading. lead plus dense cluster 5 part stack 2010s melodyne microtuned stack chorus detuned thickener across stack multitrack vocal stack, singing lead wavetable glitched textural granular singing lead analog poly synth, sampler drum machine, high-gain-saturation sub bass monosynth acid bass, glockenspiel. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 649,
+  "score": 309.109,
+  "config": {
+    "traditions": [
+      "etherpop",
+      "shiver_pop",
+      "metropopolis"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_vocoder_32_band_carrier_saw",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        },
+        "scores": {
+          "voice_register": 31.709999999999994,
+          "voice_quality": 6.500000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.65,
+          "voice_articulation": 20.994999999999997,
+          "voice_microtone": 30.674999999999997,
+          "voice_tradition": 25.82,
+          "voice_mechanism_compound": 2.5349999999999997,
+          "voice_estill_quality": 2.21,
+          "voice_speech_song": 24.504999999999995,
+          "voice_ensemble_config": 20.474999999999998,
+          "voice_ornament_system": 2.5999999999999996,
+          "voice_pitch_organization": 2.4700000000000006,
+          "voice_processing_chain": 10.539375,
+          "voice_multitrack_stack": 6.703124999999999
+        }
+      },
+      {
+        "id": "multitrack_vocal_stack",
+        "slots": {
+          "multitrack_stack_density": "multitrack_density_5_part_cluster",
+          "multitrack_stack_era_aesthetic": "multitrack_era_2010s_melodyne",
+          "multitrack_stack_processing": "multitrack_processing_chorus_thickened"
+        },
+        "scores": {
+          "multitrack_stack_density": 3.104375,
+          "multitrack_stack_era_aesthetic": 2.4050000000000002,
+          "multitrack_stack_processing": 1.95
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "wt_position": "wt_morphing",
+          "wt_family": "wt_industrial",
+          "wt_polyphony": "wt_mono"
+        },
+        "scores": {
+          "electronic_technique": 25.489375,
+          "wt_position": 4.095,
+          "wt_family": 2.559375,
+          "wt_polyphony": 3.0143750000000002
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twenty_four_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": -0.07,
+          "sample_bitdepth": 2.145,
+          "sample_swing": 7.92,
+          "sample_processing": 0.39
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wave_acid": "saw_acid",
+          "filter_acid": "open_acid",
+          "accent_acid": "no_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": 6.91,
+          "wave_acid": 2.535,
+          "filter_acid": 2.169375,
+          "accent_acid": 0.24
+        }
+      },
+      {
+        "id": "granular_synth",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "granular_use": "granular_ambient",
+          "granular_synth_source": "granular_synth_field"
+        },
+        "scores": {
+          "electronic_technique": 12.065,
+          "granular_use": 0.24,
+          "granular_synth_source": 6.175
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 25.489375,
+          "poly_archetypes": 4.680000000000001,
+          "poly_voices": 0.24,
+          "poly_maker_lineage": -0.7350000000000001
+        }
+      },
+      {
+        "id": "glockenspiel",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "glockenspiel_size": "glockenspiel_orch_3",
+          "glockenspiel_mallet": "glockenspiel_plastic"
+        },
+        "scores": {
+          "percussion_technique": -0.05,
+          "glockenspiel_size": 1.04,
+          "glockenspiel_mallet": 0.345
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "untreated_bedroom",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

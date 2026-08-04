@@ -1,0 +1,152 @@
+{
+  "id": "urbano_chileno",
+  "name": "Urbano chileno (Chilean urbano)",
+  "family": "hip_hop",
+  "lineage": "Chilean urbano emerged from Santiago's Puente Alto and La Florida comunas around 2016-2019 via Pablo Chill-E, Polimá Westcoast, Paloma Mami, Young Cister and Cris Mj — home-produced trap and reggaeton hybrids at 90-100 BPM with dembow and half-time trap grids, glassy detuned plucks, heavy Auto-Tune and unmistakably Chilean slang and elided-consonant diction, released first on YouTube and later through the 2022 'tumbao chileno' club sound.",
+  "recipe": "classic 2016-2019 urbano chileno, mc Rhythm, reggaeton branch, intl hip hop MC rhythm, Latin electric electronic dance tagalog rap desi trap. extended whistle, rap, breath pulsed, interlocked note trading. TR-808, sub bass wavetable sub bass analog poly synth, sampled chopped sampler drum machine, 2010s melodyne microtuned stack chorus detuned thickener across stack multitrack vocal stack. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 565,
+  "score": 205.215,
+  "config": {
+    "traditions": [
+      "urbano_chileno",
+      "tagalog_rap",
+      "desi_trap"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "sean_nos_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 3.185,
+          "voice_quality": 16.185,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.65,
+          "voice_articulation": 21.059999999999995,
+          "voice_microtone": 24.24499999999999,
+          "voice_tradition": 6.435000000000001,
+          "voice_mechanism_compound": 2.275,
+          "voice_estill_quality": 2.5350000000000006,
+          "voice_speech_song": 21.96999999999999,
+          "voice_ensemble_config": 21.774999999999995,
+          "voice_ornament_system": 7.020000000000003,
+          "voice_pitch_organization": 1.5599999999999996,
+          "voice_processing_chain": 7.345000000000001,
+          "voice_multitrack_stack": 3.9650000000000007
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_rb",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 6.005625,
+          "drum_machine_808_context": 1.885,
+          "tr808_production_origin": 0.200625
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wt_position": "wt_morphing",
+          "wt_family": "wt_industrial",
+          "wt_polyphony": "wt_poly"
+        },
+        "scores": {
+          "electronic_technique": 16.455624999999998,
+          "wt_position": 0.9099999999999999,
+          "wt_family": 0.345,
+          "wt_polyphony": 0.195
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twelve_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "one_shots_layered"
+        },
+        "scores": {
+          "electronic_technique": 6.144375000000001,
+          "sample_bitdepth": 1.2000000000000002,
+          "sample_swing": 9.23,
+          "sample_processing": 0.39
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "prophet_5",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 16.455624999999998,
+          "poly_archetypes": 0.195,
+          "poly_voices": 0.435,
+          "poly_maker_lineage": -1.435
+        }
+      },
+      {
+        "id": "multitrack_vocal_stack",
+        "slots": {
+          "multitrack_stack_density": "multitrack_density_5_part_cluster",
+          "multitrack_stack_era_aesthetic": "multitrack_era_2010s_melodyne",
+          "multitrack_stack_processing": "multitrack_processing_chorus_thickened"
+        },
+        "scores": {
+          "multitrack_stack_density": 0.7687499999999999,
+          "multitrack_stack_era_aesthetic": 1.56,
+          "multitrack_stack_processing": 1.8693749999999998
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

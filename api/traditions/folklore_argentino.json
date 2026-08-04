@@ -1,0 +1,155 @@
+{
+  "id": "folklore_argentino",
+  "name": "Folklore Argentino",
+  "family": "global",
+  "lineage": "Argentine national folk-song repertoire codified in the 1940s-1960s by Atahualpa Yupanqui, Los Chalchaleros, Ariel Ramírez and Mercedes Sosa and centred on the Cosquín festival, comprising the slow 6/8 zamba with handkerchief-dance phrasing, the driving hemiola chacarera, the vidala and the chamamé, scored for nylon-string guitar rasgueado, bombo legüero played on head and rim, charango and quena, with declamatory rubato-heavy solo or duo singing in criollo Spanish.",
+  "recipe": "classic South American mid-1940s folklore argentino, ballad Poetry, Latin am troubadour branch, iberian Latin protest song, andean carnival processional chilean nueva canción argentine canto nuevo / canto popular. thick, breath veiled tone, slow rate, interlocked note trading. cedar nylon fingerpicked classical nylon-string guitar, driving rim accented bombo leguero, naranjillo andean premium wood cedar andean andean classical charango, melodic quena, melodic straight piano accordion. large tracking room 1920-1965 mid tier odeon rca buenos aires. RCA 44-BX, German V72 tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 620,
+  "score": 215.316,
+  "config": {
+    "traditions": [
+      "folklore_argentino",
+      "chilean_nueva_cancion",
+      "argentine_canto_nuevo"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_oral_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 8.7815,
+          "voice_quality": 12.999999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.6649999999999996,
+          "voice_articulation": 12.739999999999997,
+          "voice_microtone": 12.544999999999993,
+          "voice_tradition": 15.516,
+          "voice_mechanism_compound": 3.445,
+          "voice_estill_quality": 4.4,
+          "voice_speech_song": 19.694999999999993,
+          "voice_ensemble_config": 12.674999999999995,
+          "voice_ornament_system": 6.37,
+          "voice_pitch_organization": 0.845,
+          "voice_processing_chain": 4.773,
+          "voice_multitrack_stack": 10.745499999999996
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "nylon_normal_cl",
+          "attack_technique_cl": "fingertip_only_cl"
+        },
+        "scores": {
+          "acoustic_technique": 13.891499999999999,
+          "string_tuning": 0,
+          "top_wood_classical": 4.42,
+          "bracing_classical": 1,
+          "string_classical": 2.4265,
+          "attack_technique_cl": 1.2349999999999999
+        }
+      },
+      {
+        "id": "bombo_leguero",
+        "slots": {
+          "bombo_leguero_form": "bombo_leguero_santiagueno",
+          "bombo_leguero_style": "bombo_leguero_chacarera",
+          "bombo_leguero_head": "bombo_leguero_cabra"
+        },
+        "scores": {
+          "bombo_leguero_form": 7.199999999999999,
+          "bombo_leguero_style": 5.925,
+          "bombo_leguero_head": 0.12999999999999998
+        }
+      },
+      {
+        "id": "charango",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "charango_back": "charango_naranjillo",
+          "charango_top_wood": "charango_cedar_top",
+          "charango_strings": "charango_5_double",
+          "charango_string_material": "charango_gut_historical"
+        },
+        "scores": {
+          "plucked_traditional_technique": 12.092,
+          "charango_back": 2.34,
+          "charango_top_wood": 2.535,
+          "charango_strings": 2.34,
+          "charango_string_material": 2.275
+        }
+      },
+      {
+        "id": "quena",
+        "slots": {
+          "wind_articulation": "wind_folk_melodic",
+          "quena_material": "quena_bone",
+          "quena_pitch": "quena_g"
+        },
+        "scores": {
+          "wind_articulation": 9.458,
+          "quena_material": 0.5265,
+          "quena_pitch": 0.8865000000000001
+        }
+      },
+      {
+        "id": "piano_accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "pa_size": "pa_72_bass",
+          "pa_use": "pa_polka"
+        },
+        "scores": {
+          "free_reed_technique": 9.408,
+          "pa_size": 4.7065,
+          "pa_use": 5.85
+        }
+      }
+    ],
+    "room": "odeon_rca_buenos_aires",
+    "archetype": "arch_ba_tango_radio_orquesta",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "odeon_rca_buenos_aires",
+    "chain_mic": "mic_u47_tube_neumann",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
+  }
+}

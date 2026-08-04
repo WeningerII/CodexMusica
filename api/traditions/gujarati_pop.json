@@ -1,0 +1,189 @@
+{
+  "id": "gujarati_pop",
+  "name": "Gujarati pop",
+  "family": "pop",
+  "lineage": "Gujarati commercial pop grew out of the Navratri garba and raas industry of Ahmedabad, Vadodara and Surat, professionalised from the late 1980s by cassette labels and by the arena-scale garba productions of Falguni Pathak and Atul Purohit — the core form is a hemiola-free but relentlessly cyclic garba pattern at 90-160 BPM on dhol and dholak with clap accents, tabla or programmed kit doubling, harmonium or synth chords, and a bright female-led vocal in call-and-response with a mass chorus, accelerating across a long single cycle.",
+  "recipe": "classic 1987-1989 gujarati pop, functional Song, south Asian pop branch, south Asian carnival processional indian holi-and-diwali festival processional. extended whistle, breath veiled tone, straight onset, interlocked note trading. dhol, dholak, vocal female harmonium indian, indian rosewood rosewood clay tabla, singing lead analog poly synth, mid 20th century banaras shehnai virtuoso naubat ensemble wedding context processional sheesham indian rosewood canonical Hindustani shehnai, coated elixir nanoweb sub heavy electric bass. live tracking. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
+  "recipe_chars": 689,
+  "score": 225.987,
+  "config": {
+    "traditions": [
+      "gujarati_pop",
+      "indian_holi_diwali_processional"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_hindustani_meend_gamak",
+          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 14.7755,
+          "voice_quality": 6.955000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.2099999999999995,
+          "voice_articulation": 17.029999999999998,
+          "voice_microtone": 16.444999999999993,
+          "voice_tradition": 17.886999999999997,
+          "voice_mechanism_compound": 5.004999999999999,
+          "voice_estill_quality": 4.8100000000000005,
+          "voice_speech_song": 19.434999999999995,
+          "voice_ensemble_config": 16.574999999999996,
+          "voice_ornament_system": 6.024500000000001,
+          "voice_pitch_organization": 5.3365,
+          "voice_processing_chain": 5.297499999999999,
+          "voice_multitrack_stack": 7.729
+        }
+      },
+      {
+        "id": "dhol",
+        "slots": {
+          "dhol_form": "dhol_bihu",
+          "dhol_repertoire": "dhol_festival",
+          "dhol_shell": "dhol_mango"
+        },
+        "scores": {
+          "dhol_form": 16.705,
+          "dhol_repertoire": 7.4449999999999985,
+          "dhol_shell": 0.95
+        }
+      },
+      {
+        "id": "dholak",
+        "slots": {
+          "dholak_use": "dholak_classical",
+          "dholak_construction": "dholak_large",
+          "dholak_head": "dholak_synthetic_head",
+          "dholak_tensioning": "dholak_bolt_tuned"
+        },
+        "scores": {
+          "dholak_use": 0.7769999999999999,
+          "dholak_construction": 0.845,
+          "dholak_head": 0.845,
+          "dholak_tensioning": 0.845
+        }
+      },
+      {
+        "id": "harmonium_indian",
+        "slots": {
+          "free_reed_technique": "free_reed_overblow_modern",
+          "harmonium_action": "harmonium_hand_pump",
+          "harmonium_voicing": "harmonium_female",
+          "harmonium_use": "harmonium_classical"
+        },
+        "scores": {
+          "free_reed_technique": 0.0315,
+          "harmonium_action": 2.572,
+          "harmonium_voicing": 4.1450000000000005,
+          "harmonium_use": 2.73
+        }
+      },
+      {
+        "id": "tabla",
+        "slots": {
+          "tabla_dayan": "shisham_dayan",
+          "tabla_bayan": "clay_bayan",
+          "tabla_syahi": "aged_syahi"
+        },
+        "scores": {
+          "tabla_dayan": 4.159999999999999,
+          "tabla_bayan": 1.1885000000000001,
+          "tabla_syahi": 1.3
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 12.722499999999998,
+          "poly_archetypes": 0.16799999999999998,
+          "poly_voices": 0,
+          "poly_maker_lineage": 0.12999999999999998
+        }
+      },
+      {
+        "id": "shehnai",
+        "slots": {
+          "shehnai_register": "shehnai_standard_c",
+          "shehnai_use": "shehnai_naubat_ensemble",
+          "shehnai_body_wood": "shehnai_sheesham_canonical",
+          "shehnai_reed": "shehnai_arundo_quadruple",
+          "shehnai_lineage": "shehnai_bismillah_khan_banaras"
+        },
+        "scores": {
+          "shehnai_register": 2.73,
+          "shehnai_use": 4.225,
+          "shehnai_body_wood": 4.549999999999999,
+          "shehnai_reed": 0.195,
+          "shehnai_lineage": 0.39
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_modern_modeling",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "coated_nano_bass",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "sub_bass_synth_blend"
+        },
+        "scores": {
+          "amp_make": 0.7149999999999999,
+          "body_wood": 0.498,
+          "pickup_config": 0.845,
+          "string_type": 1.3,
+          "scale_length_b": 0.845,
+          "fretted_or_not": 0.195,
+          "bass_technique": 1.625
+        }
+      }
+    ],
+    "room": "live_room",
+    "archetype": "arch_tseries_cassette_devotional",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_console_inline_strip",
+      "console": "console_british_inline_80s",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "live_room",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "digital_std",
+    "chain_console": "console_british_inline_80s"
+  }
+}

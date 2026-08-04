@@ -3,40 +3,41 @@
   "name": "Vaporwave",
   "family": "global",
   "lineage": "2010s online-distributed electronic micro-genre nostalgically recontextualizing 1980s-1990s corporate-mall-and-soft-rock background music through pitch-shifting, chopping, and ironic-commentary visual presentation — codified through Macintosh Plus (Floral Shoppe 2011, the founding vaporwave album), Vektroid, Saint Pepsi, Blank Banshee, and continuing through the broader online-aesthetic vaporwave subscene",
-  "recipe": "classic mid-2010s vaporwave, experimental Elec, lofi branch, retro aesthetic experimental electric synthwave. sampler drum string machine, tape replay keyboard, singing lead analog synth. tape echo chamber. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 305,
-  "score": 23.437,
+  "recipe": "classic mid-2010s vaporwave, experimental Elec, lofi branch, retro aesthetic experimental electric weirdcore video game music. sampler drum string machine, tape replay keyboard, fast decay focused low analog synth. tape echo chamber. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 332,
+  "score": 24.119,
   "config": {
     "traditions": [
       "vaporwave",
-      "synthwave"
+      "weirdcore",
+      "video_game_music"
     ],
     "instruments": [
       {
         "id": "sampler_drum_machine",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sample_bitdepth": "twenty_four_bit",
+          "sample_bitdepth": "sixteen_bit",
           "sample_swing": "tight_swing",
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 0.26,
-          "sample_bitdepth": 0.700125,
-          "sample_swing": 7.25,
-          "sample_processing": 1.1549999999999998
+          "electronic_technique": 0.6174999999999999,
+          "sample_bitdepth": 0.65,
+          "sample_swing": 7.75,
+          "sample_processing": 0.8365
         }
       },
       {
         "id": "tape_replay_keyboard",
         "slots": {
-          "keyboard_technique": "keyboard_block_chord_pop",
-          "tape_voice": "flute_tape",
+          "keyboard_technique": "keyboard_arpeggio_sustain_rich",
+          "tape_voice": "choir_tape",
           "tape_state": "aged_tape"
         },
         "scores": {
-          "keyboard_technique": 2.825,
-          "tape_voice": 0.003214285714285714,
+          "keyboard_technique": 1.4749999999999999,
+          "tape_voice": 0,
           "tape_state": 0.042749999999999996
         }
       },
@@ -45,31 +46,31 @@
         "slots": {
           "electronic_technique": "electronic_pad_drone",
           "sm_voice_count": "sm_full_poly",
-          "sm_chorus": "sm_chorus_off",
-          "sm_voicing": "sm_cellos"
+          "sm_chorus": "sm_chorus_lush",
+          "sm_voicing": "sm_brass"
         },
         "scores": {
-          "electronic_technique": 0.8244999999999999,
-          "sm_voice_count": 3.12,
-          "sm_chorus": 0.3,
-          "sm_voicing": 0.0315
+          "electronic_technique": 1.6919999999999997,
+          "sm_voice_count": 3.38,
+          "sm_chorus": 1.3,
+          "sm_voicing": 0.65
         }
       },
       {
         "id": "analog_synth",
         "slots": {
-          "electronic_technique": "electronic_lead_line",
-          "oscillator": "triangle_osc",
-          "filter_topology": "transistor_ladder",
-          "envelope": "pad_env",
-          "modulation": "lfo_pitch"
+          "electronic_technique": "electronic_pluck_short",
+          "oscillator": "saw_super",
+          "filter_topology": "comb_filter",
+          "envelope": "pluck_env",
+          "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 4.375,
-          "oscillator": 0.65,
-          "filter_topology": 0.975,
-          "envelope": 0.39,
-          "modulation": 0.18525
+          "electronic_technique": 1.8199999999999998,
+          "oscillator": 0.585,
+          "filter_topology": 0.33525,
+          "envelope": 1.04,
+          "modulation": 0.195
         }
       }
     ],

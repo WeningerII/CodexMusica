@@ -5,7 +5,7 @@
   "lineage": "Catalan Nova Cançó (\"new song\") minority-language protest-song tradition continuous from 1959 founding by Els Setze Jutges collective through the Franco-era 1959-1975 Catalan-language-suppression-resistance period continuous into post-Franco Catalan-cultural-revival; centered on Lluís Llach, Raimon, Joan Manuel Serrat, Maria del Mar Bonet, Pi de la Serra",
   "recipe": "classic Iberian mid-1960s catalan nova cançó, protest Song, European branch, iberian Latin protest song, iberian functional song, chanson fado ballad poetry morna cape verdean batuko of santiago island. vocal fry, breath veiled tone, straight note core, interlocked note trading. fingerpicked acoustic guitar. iberian kantautor basque galician club. Neumann U47, tube pre, colored vintage console, LA-2A optical, passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 457,
-  "score": 189.285,
+  "score": 188.835,
   "config": {
     "traditions": [
       "catalan_nova_canco",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
         },
         "scores": {
-          "voice_register": 3.025,
-          "voice_quality": 28.6,
+          "voice_register": 3.07,
+          "voice_quality": 28.27,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.6550000000000002,
+          "voice_vibrato": 3.46,
           "voice_articulation": 20.8,
           "voice_microtone": 21.514999999999997,
-          "voice_tradition": 19.304999999999996,
-          "voice_mechanism_compound": 5.265,
-          "voice_estill_quality": 4.74,
+          "voice_tradition": 19.275,
+          "voice_mechanism_compound": 5.13,
+          "voice_estill_quality": 4.845,
           "voice_speech_song": 30.354999999999997,
           "voice_ensemble_config": 20.085,
           "voice_ornament_system": 4.565,
           "voice_pitch_organization": 6.955000000000001,
           "voice_processing_chain": 6.434999999999999,
-          "voice_multitrack_stack": 4.175
+          "voice_multitrack_stack": 4.415
         }
       },
       {
@@ -63,7 +63,7 @@
         },
         "scores": {
           "string_tuning": 1.1899999999999997,
-          "top_wood": 0.585,
+          "top_wood": 0.435,
           "back_sides": 0.705,
           "string_acoustic": 0.8450000000000001,
           "acoustic_om_technique": 10.06

@@ -1,0 +1,170 @@
+{
+  "id": "rap_espanol",
+  "name": "Rap español",
+  "family": "hip_hop",
+  "lineage": "Spanish-language hip hop of Spain, seeded by Madrid and Torrejón breakdance crews in the mid-1980s and codified between 1989 and 1994 by El Club de los Poetas Violentos and the Rap de Aquí compilations, then peaking with Zaragoza's Violadores del Verso and Seville's SFDK around 1999-2006 — 85-95 BPM sampled boom-bap drums, jazz and soul loops, scratched hooks, and dense multisyllabic Castilian rhyming with rolled r's and heavy consonantal attack.",
+  "recipe": "classic mid-2000s rap español, mc Rhythm, intl hip hop branch, us hip hop east coast, reggaeton MC rhythm boom bap new jersey rap. thick, rap, straight onset, interlocked note trading. chopped sampler, sampled chopped turntable, sampled chopped sampler drum machine, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 604,
+  "score": 423.28,
+  "config": {
+    "traditions": [
+      "rap_espanol",
+      "boom_bap",
+      "new_jersey_rap"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 14.259999999999998,
+          "voice_quality": 29.6,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 7.165,
+          "voice_articulation": 21.19,
+          "voice_microtone": 20.994999999999997,
+          "voice_tradition": 12.655,
+          "voice_mechanism_compound": 5.265,
+          "voice_estill_quality": 7.805,
+          "voice_speech_song": 28.56,
+          "voice_ensemble_config": 20.02,
+          "voice_ornament_system": 6.435000000000001,
+          "voice_pitch_organization": 1.2899999999999998,
+          "voice_processing_chain": 20.499999999999996,
+          "voice_multitrack_stack": 5.005000000000002
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 11.989999999999998,
+          "sampler_archetypes": 17.029999999999998,
+          "sampler_bit_depth": 3.6750000000000003,
+          "sampler_workflow": 14.169999999999998,
+          "sampler_classic_context": 35.96
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_scratch"
+        },
+        "scores": {
+          "electronic_technique": 11.989999999999998,
+          "turntable_technique": 17.92
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twelve_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 11.989999999999998,
+          "sample_bitdepth": 3.6750000000000003,
+          "sample_swing": 17.679999999999996,
+          "sample_processing": 1.7349999999999999
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "amp_make": 10.439999999999998,
+          "body_wood": 2.54,
+          "pickup_config": 1.15,
+          "string_type": 11.385000000000002,
+          "scale_length_b": 1.78,
+          "fretted_or_not": 0.845,
+          "bass_technique": 8.165
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 8.125,
+          "grand_piano_size": 1.885,
+          "grand_piano_brand": 1.885,
+          "piano_hammer": 3.5100000000000002,
+          "piano_rim": 3.5100000000000002,
+          "piano_soundboard": 1.29,
+          "piano_pinblock": 2.8600000000000003,
+          "piano_plate": 3.835,
+          "piano_pitch_standard": 7.540000000000001
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "pre_ua_610_tube",
+      "console": "console_in_the_box",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "mic_sm7b_dynamic_shure",
+    "chain_pre": "pre_ua_610_tube",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

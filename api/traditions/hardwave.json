@@ -1,0 +1,170 @@
+{
+  "id": "hardwave",
+  "name": "Hardwave",
+  "family": "electronic",
+  "lineage": "Online-native offshoot of the wave and trap scenes formed roughly 2018-2021 across SoundCloud and Discord through Sidewalks and Skeletons, Hyperforms, Aire Atlantica and Kanuto, pairing 140-160 BPM half-time trap drums and 808 slides with towering distorted supersaw leads, sidechained shoegaze-scale reverb walls, and pitched-up or wordless vocal fragments used as texture rather than lyric.",
+  "recipe": "classic 2018-2021 hardwave, bass System, bass descendants branch, retro aesthetic experimental electric, hardstyle electronic dance vapor twitch rawstyle. vocal fry, breath veiled tone, breath pulsed, interlocked note trading. sub bass analog poly sub bass wavetable glitched textural granular synth, TR-808, soft down tuning feedback humbucker electric guitar. no single room 2015-present distributed distributed production. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 524,
+  "score": 202.649,
+  "config": {
+    "traditions": [
+      "hardwave",
+      "vapor_twitch",
+      "rawstyle"
+    ],
+    "instruments": [
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 14.196250000000001,
+          "poly_archetypes": 0.40499999999999997,
+          "poly_voices": 0.345,
+          "poly_maker_lineage": -1.6284999999999998
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wt_position": "wt_morphing",
+          "wt_family": "wt_vocal",
+          "wt_polyphony": "wt_mono"
+        },
+        "scores": {
+          "electronic_technique": 14.196250000000001,
+          "wt_position": 5.590000000000001,
+          "wt_family": 0.345,
+          "wt_polyphony": 0.39
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 5.265,
+          "drum_machine_808_context": 5.329999999999999,
+          "tr808_production_origin": 0.585
+        }
+      },
+      {
+        "id": "granular_synth",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "granular_use": "granular_idm",
+          "granular_synth_source": "granular_synth_synthesized"
+        },
+        "scores": {
+          "electronic_technique": 7.156500000000002,
+          "granular_use": 0.65,
+          "granular_synth_source": 5.590000000000001
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_feedback_drone",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany_maple_cap",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "ebony_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "low_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "string_thru",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_12_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "eb_standard"
+        },
+        "scores": {
+          "electric_technique": 3.7199999999999998,
+          "amp_make": 2.0149999999999997,
+          "body_wood": 0.39,
+          "neck_wood": 0.39,
+          "fretboard": 0.303,
+          "pickup_magnet": 0.318,
+          "pickup_winding": 0.31249999999999994,
+          "string_material": 0.26749999999999996,
+          "bridge": 0.603,
+          "scale_length": 1.04,
+          "string_gauge": 0.6614999999999999,
+          "finish": 0,
+          "string_tuning": 3.185
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ventricular_subharmonic",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 2.6,
+          "voice_quality": 5.850000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.0437499999999997,
+          "voice_articulation": 19.759999999999998,
+          "voice_microtone": 21.059999999999995,
+          "voice_tradition": 7.756250000000001,
+          "voice_mechanism_compound": 5.291500000000001,
+          "voice_estill_quality": 2.990000000000001,
+          "voice_speech_song": 19.759999999999998,
+          "voice_ensemble_config": 18.264999999999997,
+          "voice_ornament_system": 2.4699999999999998,
+          "voice_pitch_organization": 1.755,
+          "voice_processing_chain": 14.071250000000001,
+          "voice_multitrack_stack": 6.630000000000001
+        }
+      }
+    ],
+    "room": "studio_distributed_production",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_pumping",
+      "eq": null,
+      "amp": null,
+      "medium": "mp3_lossy_modern"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_distributed_production",
+    "chain_mic": "condenser_fet",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_pumping",
+    "chain_medium": "mp3_lossy_modern",
+    "chain_console": "console_in_the_box"
+  }
+}

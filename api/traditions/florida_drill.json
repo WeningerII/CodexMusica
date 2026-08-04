@@ -1,0 +1,150 @@
+{
+  "id": "florida_drill",
+  "name": "Florida drill",
+  "family": "hip_hop",
+  "lineage": "Coalesced in Broward County, Miami-Dade and Jacksonville from roughly 2020 onward, adapting New York drill's sliding-808 template to South Florida's existing SoundCloud and Jacksonville street-rap scenes via artists such as Wizz Havinn, Loe Shimmy and Hotboii — 140-150 BPM beats with distorted 808 glides, bell and plucked-synth motifs, doubled ad-lib layers and a melodic, half-sung delivery rather than New York's flat bark.",
+  "recipe": "classic early-2020s florida drill, mc Rhythm, drill branch, us hip hop southern, us hip hop modern pittsburgh rap baton rouge rap. thick, rap, straight onset, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, sampled chopped sampler drum machine, low sub bass digital subtractive, low sub bass monosynth acid bass, 2000s elastic pitch edited stack multitrack vocal stack. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 507,
+  "score": 243.889,
+  "config": {
+    "traditions": [
+      "florida_drill",
+      "pittsburgh_rap",
+      "baton_rouge_rap"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 3.3750000000000004,
+          "voice_quality": 20.595,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 5.85125,
+          "voice_articulation": 20.084999999999994,
+          "voice_microtone": 25.284999999999993,
+          "voice_tradition": 8.525000000000002,
+          "voice_mechanism_compound": 3.185,
+          "voice_estill_quality": 2.990000000000001,
+          "voice_speech_song": 20.084999999999994,
+          "voice_ensemble_config": 19.499999999999996,
+          "voice_ornament_system": 7.995000000000003,
+          "voice_pitch_organization": 1.5899999999999999,
+          "voice_processing_chain": 11.8075,
+          "voice_multitrack_stack": 5.005000000000001
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 8.010000000000002,
+          "drum_machine_808_context": 2.9249999999999994,
+          "tr808_production_origin": 2.34
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 7.030000000000001,
+          "sample_bitdepth": 3.12,
+          "sample_swing": 12.025000000000002,
+          "sample_processing": 1.4300000000000002
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 9.2575,
+          "va_archetypes": 0.195,
+          "digital_subtractive_context": 18.979999999999997
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wave_acid": "saw_acid",
+          "filter_acid": "closed_acid",
+          "accent_acid": "no_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": 9.2575,
+          "wave_acid": 0.195,
+          "filter_acid": 0.585,
+          "accent_acid": 1.3
+        }
+      },
+      {
+        "id": "multitrack_vocal_stack",
+        "slots": {
+          "multitrack_stack_density": "multitrack_density_unison_double",
+          "multitrack_stack_era_aesthetic": "multitrack_era_2000s_elastic_pitch",
+          "multitrack_stack_processing": "multitrack_processing_tuned_perfect"
+        },
+        "scores": {
+          "multitrack_stack_density": 0.22000000000000003,
+          "multitrack_stack_era_aesthetic": 2.535,
+          "multitrack_stack_processing": 0.585
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "untreated_bedroom",
+    "chain_mic": "mic_sm7b_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

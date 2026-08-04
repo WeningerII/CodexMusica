@@ -5,7 +5,7 @@
   "lineage": "The hip-hop tradition — African-American and Latino culture built on rapped vocals over sampled or programmed beats, originating in Bronx block parties",
   "recipe": "classic North American mid-1970s hip-hop, mc Rhythm, east coast branch. vocal fry, rap, narrative, neutral third half flat. sampled chopped sampler drum machine, electric bass, sampled chopped turntable. concrete basement. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 354,
-  "score": 91.755,
+  "score": 96.219,
   "config": {
     "traditions": [
       "hip_hop"
@@ -33,20 +33,20 @@
         },
         "scores": {
           "voice_register": 0.78,
-          "voice_quality": 9.75175,
+          "voice_quality": 10.659999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.325,
-          "voice_articulation": 6.1514999999999995,
+          "voice_articulation": 6.136499999999999,
           "voice_microtone": 2.860000000000001,
-          "voice_tradition": 6.682874999999999,
-          "voice_mechanism_compound": 0.4365,
+          "voice_tradition": 6.914249999999999,
+          "voice_mechanism_compound": 1.0727499999999999,
           "voice_estill_quality": 0.585,
-          "voice_speech_song": 9.223999999999998,
+          "voice_speech_song": 10.594999999999999,
           "voice_ensemble_config": 2.990000000000001,
           "voice_ornament_system": 1.5599999999999996,
           "voice_pitch_organization": 1.3499999999999999,
-          "voice_processing_chain": 6.197,
+          "voice_processing_chain": 6.507499999999999,
           "voice_multitrack_stack": 1.17
         }
       },
@@ -59,7 +59,7 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 7.489999999999999,
+          "electronic_technique": 7.8004999999999995,
           "sample_bitdepth": 0.44999999999999996,
           "sample_swing": 10.659999999999998,
           "sample_processing": 0.39
@@ -79,11 +79,11 @@
         "scores": {
           "amp_make": 1.8199999999999998,
           "body_wood": 0.39,
-          "pickup_config": 0.0045,
+          "pickup_config": 0.13,
           "string_type": 0.39,
           "scale_length_b": 0.78,
-          "fretted_or_not": 0.14550000000000002,
-          "bass_technique": 0.30175
+          "fretted_or_not": 0.273,
+          "bass_technique": 0.31775
         }
       },
       {
@@ -93,8 +93,8 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 7.489999999999999,
-          "turntable_technique": 8.7045
+          "electronic_technique": 7.8004999999999995,
+          "turntable_technique": 8.8365
         }
       }
     ],

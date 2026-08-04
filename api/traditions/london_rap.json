@@ -1,0 +1,159 @@
+{
+  "id": "london_rap",
+  "name": "London Rap",
+  "family": "hip_hop",
+  "lineage": "London rap crystallised across the 1990s–2000s from Ladbroke Grove and Hackney reggae-soundsystem MCing and US boom-bap imports, codified by Roots Manuva, Skinnyman, Klashnekoff and later Kano and Giggs, then re-set by the 2010s road-rap generation — 84–92 BPM half-time swung breaks or slow trap kits, dub-weighted sub-bass, minor-key soul and grime-adjacent string samples, and a low-register conversational flow in Multicultural London English with patois inflection and off-beat internal rhyme.",
+  "recipe": "classic mid-1990s london rap, mc Rhythm, intl hip hop branch, drill MC rhythm, uk soundsystem bass system, us hip hop east coast boom bap new jersey rap. thick, rap, straight onset, interlocked note trading. chopped sampler, TR-808, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, low sub bass analog poly synth, sampled chopped turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 589,
+  "score": 365.467,
+  "config": {
+    "traditions": [
+      "london_rap",
+      "boom_bap",
+      "new_jersey_rap"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 10.859999999999998,
+          "voice_quality": 29.62,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.5825,
+          "voice_articulation": 18.589999999999996,
+          "voice_microtone": 21.384999999999994,
+          "voice_tradition": 9.809999999999999,
+          "voice_mechanism_compound": 4.3549999999999995,
+          "voice_estill_quality": 7.76,
+          "voice_speech_song": 29.479999999999997,
+          "voice_ensemble_config": 18.719999999999995,
+          "voice_ornament_system": 6.435000000000001,
+          "voice_pitch_organization": 1.885,
+          "voice_processing_chain": 19.79,
+          "voice_multitrack_stack": 8.320000000000002
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 8.89,
+          "sampler_archetypes": 13.7,
+          "sampler_bit_depth": 3.6750000000000003,
+          "sampler_workflow": 12.219999999999999,
+          "sampler_classic_context": 32.305
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 13.89,
+          "drum_machine_808_context": 5.525,
+          "tr808_production_origin": 0.65
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "amp_make": 13.659999999999997,
+          "body_wood": 1.4949999999999999,
+          "pickup_config": 0.65,
+          "string_type": 11.335,
+          "scale_length_b": 2.535,
+          "fretted_or_not": 0.845,
+          "bass_technique": 8.375
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 18.21,
+          "poly_archetypes": 0.5,
+          "poly_voices": 0.5,
+          "poly_maker_lineage": -1.31
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_scratch"
+        },
+        "scores": {
+          "electronic_technique": 8.89,
+          "turntable_technique": 14.910000000000002
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_1176_fet",
+      "eq": "eq_api_550",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "mic_sm7b_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_1176_fet",
+    "chain_eq": "eq_api_550",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "Spanish-language mainstream song tradition centered on Iberian and Latin American crossover — codified through Mecano, Joaquín Sabina, Alejandro Sanz, and Rosalía bringing flamenco-pop and electronic-pop fusions into the international mainstream from the 1980s through 2020s",
   "recipe": "classic mid-1980s spanish canción pop, functional Song, iberian branch, chanson fado ballad poetry cape verdean batuko of santiago island morna. thick, breath veiled tone, slow rate, interlocked note trading. martin lifespan fingerpicked acoustic wenge ebony clean strummed single coil electric guitar, low mid rich spectrum low-mid-thick mahogany electric bass, pre muffled edge muffled brushes-and-sticks drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 562,
-  "score": 329.779,
+  "score": 329.967,
   "config": {
     "traditions": [
       "spanish_cancion_pop",
@@ -23,7 +23,7 @@
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "modern_pop_vocal_training",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 19.237749999999988,
+          "voice_register": 19.19499999999999,
           "voice_quality": 27.95,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.5675,
           "voice_articulation": 25.48,
           "voice_microtone": 25.805,
-          "voice_tradition": 20.157249999999994,
+          "voice_tradition": 19.565,
           "voice_mechanism_compound": 5.654999999999999,
-          "voice_estill_quality": 9.551,
+          "voice_estill_quality": 9.620000000000001,
           "voice_speech_song": 32.305,
           "voice_ensemble_config": 24.375,
           "voice_ornament_system": 13.42,
-          "voice_pitch_organization": 5.816250000000001,
+          "voice_pitch_organization": 5.460000000000001,
           "voice_processing_chain": 11.7,
           "voice_multitrack_stack": 6.305000000000001
         }
@@ -63,7 +63,7 @@
         },
         "scores": {
           "string_tuning": 1.2999999999999998,
-          "top_wood": 0.54,
+          "top_wood": 0.8400000000000001,
           "back_sides": 0.78,
           "string_acoustic": 1.04,
           "acoustic_om_technique": 6.57
@@ -88,14 +88,14 @@
         "scores": {
           "electric_technique": 20.499999999999993,
           "amp_make": 1.7449999999999999,
-          "body_wood": 0.54,
+          "body_wood": 0.6900000000000001,
           "neck_wood": 1.4949999999999999,
           "fretboard": 1.4949999999999999,
-          "pickup_magnet": 0.15,
+          "pickup_magnet": 0.3,
           "string_material": 0.845,
           "string_gauge": 1.235,
           "bridge": 1.4949999999999999,
-          "scale_length": 1.08,
+          "scale_length": 1.38,
           "finish": 0,
           "string_tuning": 2.145
         }
@@ -112,11 +112,11 @@
           "bass_technique": "slap_pop"
         },
         "scores": {
-          "amp_make": 2.477750000000001,
-          "body_wood": 1.08,
-          "pickup_config": 0.8107500000000001,
+          "amp_make": 2.585000000000001,
+          "body_wood": 1.38,
+          "pickup_config": 0.5850000000000001,
           "string_type": 1.6899999999999997,
-          "scale_length_b": 0.8107500000000001,
+          "scale_length_b": 0.8400000000000001,
           "fretted_or_not": 1.4949999999999999,
           "bass_technique": 1.4299999999999997
         }

@@ -5,7 +5,7 @@
   "lineage": "Early-1990s Los Angeles gangsta-funk hip-hop subgenre codified by Dr. Dre on The Chronic (1992) and Snoop Doggy Doggs Doggystyle (1993), built on Parliament-Funkadelic samples, talkbox lead, high-pitched synth lead lines, and slow-tempo (90-100 BPM) syncopated drum machine programming",
   "recipe": "classic North American 1990-1993 g-funk, mc Rhythm, west coast branch, funk percussive groove percussion minneapolis synth-funk-pop. thick, breath veiled tone, slow rate, interlocked note trading. sampled chopped sampler drum machine, fast decay focused low sub bass analog synth, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, talkbox. west la 1616 butler avenue 1968-present major-flagship the village recorder west la. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 597,
-  "score": 183.447,
+  "score": 184.832,
   "config": {
     "traditions": [
       "g_funk",
@@ -34,16 +34,16 @@
           "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
         },
         "scores": {
-          "voice_register": 4.051500000000002,
+          "voice_register": 4.213000000000002,
           "voice_quality": 11.439999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.6000000000000005,
           "voice_articulation": 12.284999999999993,
           "voice_microtone": 11.50499999999999,
-          "voice_tradition": 9.946124999999999,
-          "voice_mechanism_compound": 1.0676249999999998,
-          "voice_estill_quality": 2.3612500000000005,
+          "voice_tradition": 10.033,
+          "voice_mechanism_compound": 1.0574999999999999,
+          "voice_estill_quality": 2.3500000000000005,
           "voice_speech_song": 12.739999999999991,
           "voice_ensemble_config": 13.32499999999999,
           "voice_ornament_system": 2.990000000000001,
@@ -61,9 +61,9 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 5.593749999999999,
+          "electronic_technique": 5.621499999999999,
           "sample_bitdepth": 0.44999999999999996,
-          "sample_swing": 9.434999999999999,
+          "sample_swing": 9.749999999999998,
           "sample_processing": 0.845
         }
       },
@@ -77,11 +77,11 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 6.9995,
-          "oscillator": 3.8317499999999995,
+          "electronic_technique": 7.5055,
+          "oscillator": 3.795,
           "filter_topology": 1.8199999999999998,
-          "envelope": 3.3831249999999997,
-          "modulation": 0.024375
+          "envelope": 3.42,
+          "modulation": 0.0315
         }
       },
       {
@@ -96,13 +96,13 @@
           "bass_technique": "slap_pop"
         },
         "scores": {
-          "amp_make": 3.4202500000000007,
+          "amp_make": 3.7050000000000005,
           "body_wood": 0.585,
           "pickup_config": 0.195,
           "string_type": 3.25,
           "scale_length_b": 0.975,
           "fretted_or_not": 3.055,
-          "bass_technique": 20.569999999999997
+          "bass_technique": 20.5875
         }
       },
       {

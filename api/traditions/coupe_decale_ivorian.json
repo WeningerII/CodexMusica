@@ -3,13 +3,14 @@
   "name": "Coupé-décalé (Ivorian dance music)",
   "family": "global",
   "lineage": "Coupé-décalé Ivorian dance-pop genre emerging in early-2000s Paris among the Ivorian diaspora club scene and rapidly transferred back to Abidjan. The name derives from Nouchi street-slang (\"couper\" to grab money, \"décaler\" to slip away) describing the get-rich-and-flee aspirational lifestyle. Production centers on hard four-on-the-floor digital kick with Nouchi-French lyrical content, simple call-and-response chorus, and electronic synth-bass. The death of founding figure Stéphane Hamidou Doukouré (Douk Saga) in 2006 mythologized the Paris-Abidjan founder-generation.",
-  "recipe": "classic West African 2000-2003 coupé-décalé, electronic Dance, African dance branch, Afro-diasporic MC rhythm kwaito. extended whistle, breath veiled tone, straight note core, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, singing lead analog synth, alder pyramid pure nickel bass British mid 60s era electric bass. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 557,
-  "score": 122.809,
+  "recipe": "classic West African 2000-2003 coupé-décalé, electronic Dance, African dance branch, Afro-diasporic MC rhythm kwaito afroswing. extended whistle, breath veiled tone, straight note core, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, plucked short envelope analog synth, low mid rich spectrum low-mid-thick mahogany electric bass. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 571,
+  "score": 162.299,
   "config": {
     "traditions": [
       "coupe_decale_ivorian",
-      "kwaito"
+      "kwaito",
+      "afroswing"
     ],
     "instruments": [
       {
@@ -28,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
           "voice_processing_chain": "voice_processing_vocoder_32_band_carrier_saw",
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 3.3840000000000003,
-          "voice_quality": 10.679999999999996,
+          "voice_register": 5.2275,
+          "voice_quality": 11.179999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.3772500000000005,
-          "voice_articulation": 10.27,
-          "voice_microtone": 10.075,
-          "voice_tradition": 12.415000000000001,
-          "voice_mechanism_compound": 2.925,
-          "voice_estill_quality": 4.53,
-          "voice_speech_song": 10.27,
-          "voice_ensemble_config": 11.894999999999996,
-          "voice_ornament_system": 1.4949999999999997,
-          "voice_pitch_organization": 1.8815000000000002,
+          "voice_vibrato": 3.2222500000000003,
+          "voice_articulation": 17.224999999999998,
+          "voice_microtone": 17.419999999999995,
+          "voice_tradition": 14.5925,
+          "voice_mechanism_compound": 3.77,
+          "voice_estill_quality": 4.688750000000001,
+          "voice_speech_song": 17.679999999999996,
+          "voice_ensemble_config": 18.199999999999996,
+          "voice_ornament_system": 2.925000000000001,
+          "voice_pitch_organization": 2.113,
           "voice_processing_chain": 8.652,
-          "voice_multitrack_stack": 4.586500000000001
+          "voice_multitrack_stack": 4.749000000000001
         }
       },
       {
@@ -59,47 +60,47 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 2.0149999999999997,
-          "drum_machine_808_context": 4.085500000000001,
+          "tr808_voice": 2.21,
+          "drum_machine_808_context": 4.0205,
           "tr808_production_origin": 1.3
         }
       },
       {
         "id": "analog_synth",
         "slots": {
-          "electronic_technique": "electronic_lead_line",
+          "electronic_technique": "electronic_pluck_short",
           "oscillator": "sine_osc",
           "filter_topology": "transistor_ladder",
-          "envelope": "pluck_env",
+          "envelope": "sustain_env",
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 3.2487500000000002,
-          "oscillator": 2.0799999999999996,
-          "filter_topology": 2.0799999999999996,
-          "envelope": 0.45825,
+          "electronic_technique": 5.0249999999999995,
+          "oscillator": 2.925,
+          "filter_topology": 2.4699999999999998,
+          "envelope": 0.65,
           "modulation": 0.22049999999999997
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "alder_b",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
           "pickup_config": "humbucker_mm",
-          "string_type": "pyramid_pure_nickel",
+          "string_type": "half_round",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
           "bass_technique": "sub_bass_synth_blend"
         },
         "scores": {
-          "amp_make": 1.8199999999999998,
-          "body_wood": 1.885,
+          "amp_make": 2.0149999999999997,
+          "body_wood": 2.275,
           "pickup_config": 0.37799999999999995,
-          "string_type": 2.1449999999999996,
-          "scale_length_b": 0.195,
+          "string_type": 2.8282499999999997,
+          "scale_length_b": 0.585,
           "fretted_or_not": 0.0315,
-          "bass_technique": 0.12999999999999998
+          "bass_technique": 0.5199999999999999
         }
       }
     ],

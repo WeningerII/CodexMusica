@@ -1,0 +1,179 @@
+{
+  "id": "rap_conciencia",
+  "name": "Rap de conciencia",
+  "family": "hip_hop",
+  "lineage": "Spanish-language conscious hip hop consolidated in Madrid, Zaragoza, Santiago de Chile and Mexico City from the mid-1990s onward, codified by El Chojin and Nach in Spain and by Portavoz and Ana Tijoux in the Southern Cone — boom-bap and jazz-sample production at 85-95 BPM with filtered upright bass loops, dusty drum breaks and piano or horn samples, and dense multisyllabic Castilian or Latin American Spanish verses on colonialism, class, migration and political memory, delivered in a measured, articulated flow over sung or scratched hooks.",
+  "recipe": "classic 1994-1996 rap de conciencia, mc Rhythm, intl hip hop branch, us hip hop conscious rap, iberian Latin protest song conscious hip-hop rap político. thick, rap, straight onset, interlocked note trading. sampled chopped turntable, chopped sampler, growly gut upright bass, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 760,
+  "score": 430.704,
+  "config": {
+    "traditions": [
+      "rap_conciencia",
+      "conscious_hip_hop",
+      "rap_politico"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 12.981749999999998,
+          "voice_quality": 34.966499999999996,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 9.1365,
+          "voice_articulation": 26.71500000000001,
+          "voice_microtone": 26.520000000000007,
+          "voice_tradition": 11.822249999999999,
+          "voice_mechanism_compound": 3.12,
+          "voice_estill_quality": 4.414999999999999,
+          "voice_speech_song": 32.80499999999999,
+          "voice_ensemble_config": 27.04000000000001,
+          "voice_ornament_system": 4.810000000000001,
+          "voice_pitch_organization": 2.21,
+          "voice_processing_chain": 25.177999999999997,
+          "voice_multitrack_stack": 7.897500000000001
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_scratch"
+        },
+        "scores": {
+          "electronic_technique": 11.325499999999998,
+          "turntable_technique": 13.62525
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 11.325499999999998,
+          "sampler_archetypes": 19.11,
+          "sampler_bit_depth": 1.9500000000000002,
+          "sampler_workflow": 13.349999999999998,
+          "sampler_classic_context": 45.168000000000006
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "gut_wound_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "upright_strings": 7.249999999999999,
+          "upright_play": 7.249999999999999
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 4.363999999999999,
+          "grand_piano_size": 2.4699999999999998,
+          "grand_piano_brand": 2.6649999999999996,
+          "piano_hammer": 3.07275,
+          "piano_rim": 4.160000000000001,
+          "piano_soundboard": 1.17,
+          "piano_pinblock": 0.8749999999999999,
+          "piano_plate": 2.8614999999999995,
+          "piano_pitch_standard": 8.9375
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "tenor_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "phosphor_bronze_sax",
+          "sax_mouthpiece": "ebonite_vintage",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 5.5474999999999985,
+          "sax_size": 4.2749999999999995,
+          "sax_reed": 0.30499999999999994,
+          "sax_body_alloy": 8.73425,
+          "sax_mouthpiece": 0.39,
+          "sax_technique": 7.939999999999999,
+          "sax_maker_school": 6.036999999999999
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_hat",
+          "drum_machine_909_context": "drum_machine_909_house",
+          "tr909_production_origin": "tr909_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr909_voice": 0,
+          "drum_machine_909_context": 0.6224999999999999,
+          "tr909_production_origin": 1.755
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "mic_sm7b_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -1,0 +1,186 @@
+{
+  "id": "indian_instrumental",
+  "name": "Indian Instrumental (raga instrumental recital)",
+  "family": "global",
+  "lineage": "The instrument-led branch of Hindustani and Carnatic performance codified on record from the 1950s through HMV Dum Dum and All India Radio, shaped by Ravi Shankar, Ali Akbar Khan, Vilayat Khan and Hariprasad Chaurasia: unmetered alap over a tanpura drone, then jod and jhala, then gat cycles in tintal or jhaptal with tabla, built on meend, gamak and sympathetic-string resonance rather than sung text.",
+  "recipe": "classic South Asian mid-1950s indian instrumental, improv On Frame, indian classical improv branch, south Asian art music kutiyattam sanskrit recitation telugu kirtana. calabash open jawari vilayat khan canon long sustain buzzing overtones sitar, gut 3 main playing strings legato sarangi, low overtone rich kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, steel modern tun indian cedar alternative santoor, mid 20th century banaras shehnai virtuoso classical solo raga tradition sheesham indian rosewood canonical Hindustani bismillah khan banaras lineage canonical Hindustani shehnai, indian rosewood rosewood copper tabla, harmonium indian, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic. varanasi benares gharana baithak. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 893,
+  "score": 202.315,
+  "config": {
+    "traditions": [
+      "indian_instrumental",
+      "kutiyattam_recitation",
+      "telugu_kirtana"
+    ],
+    "instruments": [
+      {
+        "id": "sitar",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "sitar_neck": "teak",
+          "sitar_resonator": "single_kaddu",
+          "sitar_jawari": "camel_bone",
+          "sitar_taraf": "taraf_13",
+          "sitar_frets": "tied_gut_parda",
+          "sitar_pluck": "wire_mizrab",
+          "sitar_main_strings": "sitar_bronze_steel_modern",
+          "sitar_jawari_style": "sitar_jawari_open",
+          "sitar_gharana": "sitar_maihar_gharana"
+        },
+        "scores": {
+          "plucked_traditional_technique": 9.5315,
+          "sitar_neck": 0.1365,
+          "sitar_resonator": 1,
+          "sitar_jawari": 0.39,
+          "sitar_taraf": 3.0679999999999996,
+          "sitar_frets": 0.3315,
+          "sitar_pluck": 4.9399999999999995,
+          "sitar_main_strings": 0.2415,
+          "sitar_jawari_style": 4.29,
+          "sitar_gharana": 9.165
+        }
+      },
+      {
+        "id": "sarangi",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "sarangi_belly": "goat_skin_sarangi",
+          "sarangi_taraf": "sarangi_40_strings",
+          "sarangi_bow": "horse_hair_loose",
+          "sarangi_main_strings": "sarangi_gut_main",
+          "sarangi_body_wood": "sarangi_tun_body"
+        },
+        "scores": {
+          "bowed_technique": 9.5315,
+          "sarangi_belly": 0.845,
+          "sarangi_taraf": 0.845,
+          "sarangi_bow": 0.1365,
+          "sarangi_main_strings": 2.405,
+          "sarangi_body_wood": 0.845
+        }
+      },
+      {
+        "id": "bansuri",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "bansuri_length": "classical_bansuri",
+          "bansuri_ornament": "meend_bansuri",
+          "bansuri_body_material": "bansuri_kerala_bamboo",
+          "bansuri_lineage": "bansuri_hariprasad_maihar"
+        },
+        "scores": {
+          "wind_articulation": 9.7815,
+          "bansuri_length": 3.77,
+          "bansuri_ornament": 9.669863636363635,
+          "bansuri_body_material": 8.839999999999998,
+          "bansuri_lineage": 2.535
+        }
+      },
+      {
+        "id": "santoor",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "santoor_courses": "santoor_70",
+          "santoor_mallets": "walnut_mallets",
+          "santoor_strings": "steel_strings_santoor",
+          "santoor_body_wood": "santoor_tun",
+          "santoor_lineage": "santoor_shivkumar_sharma_canon"
+        },
+        "scores": {
+          "plucked_traditional_technique": 9.5315,
+          "santoor_courses": 4.9399999999999995,
+          "santoor_mallets": 0.1365,
+          "santoor_strings": 5.785,
+          "santoor_body_wood": 3.6399999999999997,
+          "santoor_lineage": 0.845
+        }
+      },
+      {
+        "id": "shehnai",
+        "slots": {
+          "shehnai_register": "shehnai_standard_c",
+          "shehnai_use": "shehnai_classical_solo",
+          "shehnai_body_wood": "shehnai_sheesham_canonical",
+          "shehnai_reed": "shehnai_arundo_quadruple",
+          "shehnai_lineage": "shehnai_bismillah_khan_banaras"
+        },
+        "scores": {
+          "shehnai_register": 1.69,
+          "shehnai_use": 16.38,
+          "shehnai_body_wood": 5.719999999999999,
+          "shehnai_reed": 0.845,
+          "shehnai_lineage": 4.745
+        }
+      },
+      {
+        "id": "tabla",
+        "slots": {
+          "tabla_dayan": "shisham_dayan",
+          "tabla_bayan": "copper_bayan",
+          "tabla_syahi": "aged_syahi"
+        },
+        "scores": {
+          "tabla_dayan": 8.905,
+          "tabla_bayan": 5.785,
+          "tabla_syahi": 4.875
+        }
+      },
+      {
+        "id": "harmonium_indian",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "harmonium_action": "harmonium_hand_pump",
+          "harmonium_voicing": "harmonium_female",
+          "harmonium_use": "harmonium_classical"
+        },
+        "scores": {
+          "free_reed_technique": 0.19500000000000003,
+          "harmonium_action": 0.845,
+          "harmonium_voicing": 0.845,
+          "harmonium_use": 5.785
+        }
+      },
+      {
+        "id": "violin_carnatic",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "violin_carnatic_tuning": "violin_carnatic_carnatic",
+          "violin_carnatic_posture": "violin_carnatic_seated_south",
+          "violin_carnatic_strings": "violin_carnatic_gut_historical",
+          "violin_carnatic_lineage": "violin_carnatic_lalgudi"
+        },
+        "scores": {
+          "bowed_technique": 9.5315,
+          "violin_carnatic_tuning": 22.164999999999996,
+          "violin_carnatic_posture": 4.55,
+          "violin_carnatic_strings": 4.68,
+          "violin_carnatic_lineage": 6.76
+        }
+      }
+    ],
+    "room": "varanasi_benares_gharana_baithak",
+    "archetype": "arch_hmv_dumdum_raga",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_transformer_70s",
+      "comp": null,
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "room": "varanasi_benares_gharana_baithak",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_british_transformer_70s"
+  }
+}

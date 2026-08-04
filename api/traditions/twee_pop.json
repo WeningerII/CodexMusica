@@ -3,13 +3,14 @@
   "name": "Twee pop",
   "family": "global",
   "lineage": "1980s-onward fey indie-pop subgenre codified through C86 cassette (NME 1986) and the Sarah Records (Bristol 1987-1995) lineage — characterized by jangly minor-key guitar, soft male and female vocals, lo-fi production aesthetic, and twee-romantic lyrical subject matter; Belle and Sebastian, Tullycraft, Stars, and Camera Obscura extending the canon into the 2000s",
-  "recipe": "classic mid-1990s twee pop, functional Song, pop rock branch, anglo singer song indie folk. thick, breath veiled tone, straight note core, interlocked note trading. narrative fingerpicked acoustic marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation soft down tuning single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, ukulele, original omnichord. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 581,
-  "score": 273.381,
+  "recipe": "classic mid-1990s twee pop, functional Song, pop rock branch, anglo singer song indie folk ectofolk. thick, breath veiled tone, straight note core, interlocked note trading. narrative fingerpicked acoustic marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation soft down tuning single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, gentle melodic fingerpicked ukulele, original omnichord. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 618,
+  "score": 344.42,
   "config": {
     "traditions": [
       "twee_pop",
-      "indie_folk_2000s"
+      "indie_folk_2000s",
+      "ectofolk"
     ],
     "instruments": [
       {
@@ -29,74 +30,74 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_processing_chain": "voice_processing_talkbox",
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 31.900249999999993,
-          "voice_quality": 10.464999999999995,
+          "voice_register": 41.65025,
+          "voice_quality": 13.194999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.1774999999999998,
-          "voice_articulation": 14.364999999999995,
-          "voice_microtone": 23.674999999999997,
-          "voice_tradition": 21.189999999999998,
-          "voice_mechanism_compound": 1.56,
-          "voice_estill_quality": 1.885,
-          "voice_speech_song": 19.044999999999995,
-          "voice_ensemble_config": 14.494999999999994,
-          "voice_ornament_system": 1.72,
-          "voice_pitch_organization": 2.0474999999999994,
-          "voice_processing_chain": 4.29,
-          "voice_multitrack_stack": 7.55725
+          "voice_articulation": 17.939999999999994,
+          "voice_microtone": 28.674999999999997,
+          "voice_tradition": 26.238999999999997,
+          "voice_mechanism_compound": 3.055,
+          "voice_estill_quality": 3.5100000000000007,
+          "voice_speech_song": 24.504999999999995,
+          "voice_ensemble_config": 18.069999999999993,
+          "voice_ornament_system": 3.7050000000000005,
+          "voice_pitch_organization": 2.6975,
+          "voice_processing_chain": 5.89625,
+          "voice_multitrack_stack": 7.46575
         }
       },
       {
         "id": "acoustic_guitar_om",
         "slots": {
-          "string_tuning": "standard_tuning",
+          "string_tuning": "dadgad",
           "top_wood": "cedar_om",
           "back_sides": "mahogany_bs_om",
-          "string_acoustic": "martin_lifespan_om",
+          "string_acoustic": "silk_steel_om",
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "string_tuning": 0,
-          "top_wood": 0.278625,
+          "string_tuning": 2.3500000000000005,
+          "top_wood": 0.218625,
           "back_sides": 0.3,
-          "string_acoustic": 0.39,
-          "acoustic_om_technique": 10.344999999999997
+          "string_acoustic": 0.65,
+          "acoustic_om_technique": 19.314999999999998
         }
       },
       {
         "id": "electric_guitar_single_coil",
         "slots": {
-          "electric_technique": "electric_arpeggiated_clean",
+          "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "pine",
           "neck_wood": "mahogany_neck",
           "fretboard": "pau_ferro_fb",
           "pickup_magnet": "alnico_3",
           "string_material": "nickel_plated",
-          "string_gauge": "g_10",
+          "string_gauge": "g_12",
           "bridge": "two_point_trem",
-          "scale_length": "scale_gibson",
+          "scale_length": "scale_short",
           "finish": "nitro",
           "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 16.725124999999995,
-          "amp_make": 4.355,
+          "electric_technique": 20.825124999999996,
+          "amp_make": 4.8100000000000005,
           "body_wood": 0.45499999999999996,
-          "neck_wood": 0.2415,
+          "neck_wood": 0.1815,
           "fretboard": 0.0315,
           "pickup_magnet": 0.3,
           "string_material": 0.0315,
-          "string_gauge": 0.45499999999999996,
-          "bridge": 0.142125,
-          "scale_length": 0.378,
+          "string_gauge": 0.65,
+          "bridge": 0.18712499999999999,
+          "scale_length": 0.65,
           "finish": 0,
-          "string_tuning": 5.525
+          "string_tuning": 5.9799999999999995
         }
       },
       {
@@ -111,13 +112,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 4.16,
-          "body_wood": 0.378,
-          "pickup_config": 1.205125,
-          "string_type": 11.8625,
+          "amp_make": 4.615,
+          "body_wood": 0.258,
+          "pickup_config": 1.3,
+          "string_type": 12.8455,
           "scale_length_b": 0.39,
           "fretted_or_not": 0.03712499999999999,
-          "bass_technique": 8.18
+          "bass_technique": 8.995
         }
       },
       {
@@ -128,8 +129,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 14.429999999999994,
-          "drumhead": 15.979,
+          "drum_technique": 18.004999999999995,
+          "drumhead": 20.104,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -141,8 +142,8 @@
           "ukulele_wood": "ukulele_spruce"
         },
         "scores": {
-          "ukulele_size": 2.925,
-          "ukulele_style": 0.325,
+          "ukulele_size": 3.965,
+          "ukulele_style": 1.17,
           "ukulele_wood": 0.368625
         }
       },
@@ -151,12 +152,12 @@
         "slots": {
           "omnichord_model": "omnichord_om27",
           "omnichord_context": "omnichord_indie_strum",
-          "omnichord_sound_setting": "omnichord_full_combo"
+          "omnichord_sound_setting": "omnichord_sonic_strings"
         },
         "scores": {
-          "omnichord_model": 6.3,
-          "omnichord_context": 4.3,
-          "omnichord_sound_setting": 0.39
+          "omnichord_model": 7.324999999999999,
+          "omnichord_context": 5.324999999999999,
+          "omnichord_sound_setting": 0.65
         }
       }
     ],

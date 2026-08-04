@@ -5,7 +5,7 @@
   "lineage": "French electroacoustic-composition tradition descended from Pierre Schaeffer's 1948-onward musique concrète at Studio d'Essai / GRM (Groupe de Recherches Musicales). Acousmatic refers to music heard from loudspeakers without seeing the source, organized through reduced-listening principles. The post-Schaeffer second generation (François Bayle, Bernard Parmegiani, Luc Ferrari, Beatriz Ferreyra) developed the form into a distinct compositional aesthetic.",
   "recipe": "classic Asian modern acousmatic music, experimental Elec, musique concrete branch, ambient experimental electric dark ambient mallsoft. field textural sampler, tape replay keyboard. shoebox concert hall. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
   "recipe_chars": 337,
-  "score": 42.844,
+  "score": 42.839,
   "config": {
     "traditions": [
       "acousmatic_music",
@@ -26,7 +26,7 @@
           "electronic_technique": 10.315000000000003,
           "sampler_archetypes": 3.25,
           "sampler_bit_depth": 0.7149999999999999,
-          "sampler_workflow": 11.713875000000002,
+          "sampler_workflow": 11.664375000000001,
           "sampler_classic_context": 13.500000000000002
         }
       },
@@ -38,7 +38,7 @@
           "tape_state": "aged_tape"
         },
         "scores": {
-          "keyboard_technique": 0.8249999999999998,
+          "keyboard_technique": 0.8699999999999999,
           "tape_voice": 0.32999999999999996,
           "tape_state": 0.045
         }

@@ -3,9 +3,9 @@
   "name": "Greek rock",
   "family": "rock_punk",
   "lineage": "Greek-language rock music developed from 1960s onward, integrating Greek-laiko and rebetiko folk-music influences with broader Western rock vocabulary. The 1960s Pavlos Sidiropoulos and Stamatis Spanoudakis era inaugurated the form; the 1980s-90s \"Greek rock\" wave through Magic de Spell, Trypes, Tripes, Pyx Lax, and the broader post-1981 Athens scene consolidated commercial visibility. Distinguished by Greek-language lyrics and frequent integration of bouzouki/baglamas folk-instruments into rock contexts.",
-  "recipe": "classic Southern European mid-1960s greek rock, distorted Rock, regional branch, chanson fado Greek entechno greek éntechno. thick, breath veiled tone, slow rate, interlocked note trading. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, kevlar aramid extreme tension sticks backbeat drum kit, strummed baglamas, walnut staves canonical Greek strummed bouzouki. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 636,
-  "score": 297.918,
+  "recipe": "classic Southern European mid-1960s greek rock, distorted Rock, regional branch, chanson fado Greek entechno greek éntechno. thick, breath veiled tone, slow rate, interlocked note trading. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, strummed baglamas, walnut staves canonical Greek strummed bouzouki. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 631,
+  "score": 300.28,
   "config": {
     "traditions": [
       "greek_rock",
@@ -27,7 +27,7 @@
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_persian_tahrir",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
@@ -37,18 +37,18 @@
           "voice_quality": 8.06,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.46625,
+          "voice_vibrato": 2.38,
           "voice_articulation": 8.515,
-          "voice_microtone": 23.404999999999998,
-          "voice_tradition": 38.07699999999999,
+          "voice_microtone": 23.4365,
+          "voice_tradition": 38.147499999999994,
           "voice_mechanism_compound": 3.575,
-          "voice_estill_quality": 2.9450000000000003,
+          "voice_estill_quality": 2.975,
           "voice_speech_song": 12.772499999999997,
           "voice_ensemble_config": 8.45,
-          "voice_ornament_system": 2.5999999999999996,
+          "voice_ornament_system": 2.6314999999999995,
           "voice_pitch_organization": 3.0550000000000006,
-          "voice_processing_chain": 3.6577500000000005,
-          "voice_multitrack_stack": 6.4357500000000005
+          "voice_processing_chain": 3.6645000000000003,
+          "voice_multitrack_stack": 6.630000000000001
         }
       },
       {
@@ -74,12 +74,12 @@
           "body_wood": 0.1365,
           "neck_wood": 0.273,
           "fretboard": 0.273,
-          "pickup_magnet": 0.0315,
-          "pickup_winding": 0.20325,
+          "pickup_magnet": 0.168,
+          "pickup_winding": 0.147,
           "string_material": 0.273,
-          "bridge": 0.0735,
+          "bridge": 0.1785,
           "scale_length": 0,
-          "string_gauge": 0.0735,
+          "string_gauge": 0.21000000000000002,
           "finish": 0,
           "string_tuning": 10.009999999999998
         }
@@ -89,7 +89,7 @@
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
-          "pickup_config": "split_coil",
+          "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretless",
@@ -97,24 +97,24 @@
         },
         "scores": {
           "amp_make": 9.945,
-          "body_wood": 0,
-          "pickup_config": 0,
-          "string_type": 22.829,
+          "body_wood": 0.0315,
+          "pickup_config": 0.0315,
+          "string_type": 24.2375,
           "scale_length_b": 0.063,
           "fretted_or_not": 0.1365,
-          "bass_technique": 19.2315
+          "bass_technique": 19.368
         }
       },
       {
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "kevlar_drumhead",
+          "drumhead": "ec_pre_muffled_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
           "drum_technique": 19.25,
-          "drumhead": 1.625,
+          "drumhead": 1.7115,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -128,9 +128,9 @@
           "baglamas_strings": "baglamas_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 8.0345,
+          "plucked_traditional_technique": 8.097499999999998,
           "baglamas_config": 0.845,
-          "baglamas_context": 11.84,
+          "baglamas_context": 11.944999999999999,
           "baglamas_body_wood": 0.65,
           "baglamas_strings": 0.06500000000000011
         }
@@ -145,11 +145,11 @@
           "bouzouki_strings": "bouzouki_steel_modern"
         },
         "scores": {
-          "plucked_traditional_technique": 8.0345,
+          "plucked_traditional_technique": 8.097499999999998,
           "bouzouki_courses": 3.6694999999999998,
           "bouzouki_pick": 0.845,
-          "bouzouki_body_wood": 12.0155,
-          "bouzouki_strings": 0.37050000000000005
+          "bouzouki_body_wood": 11.918,
+          "bouzouki_strings": 0.3045
         }
       }
     ],

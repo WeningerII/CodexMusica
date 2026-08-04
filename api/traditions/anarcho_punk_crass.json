@@ -5,7 +5,7 @@
   "lineage": "British post-1977 punk substyle centered on the Crass collective at Dial House (Essex commune, founded 1967, music project 1977-1984) and the parallel Poison Girls, Flux of Pink Indians, and Conflict scenes. Combines aggressive punk musical-aesthetic with explicit anarchist-pacifist-feminist-vegan political content, DIY-distribution-and-production self-organization, and rigorous anti-commercial cultural-stance. The 1980 Reality Asylum, 1981 Penis Envy, and 1982 Christ — The Album consolidated the canonical anarcho-punk register.",
   "recipe": "classic mid-1980s anarcho-punk, distorted Rock, punk branch, regional distorted rock latin rock rasin. thick, breath veiled tone, fast rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation palm muted humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, brushes-and-sticks drum kit. isolated rural 2005-present isolation diy isolation cabin diy. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 576,
-  "score": 299.832,
+  "score": 300.312,
   "config": {
     "traditions": [
       "anarcho_punk_crass",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 18.685249999999993,
+          "voice_register": 18.499999999999993,
           "voice_quality": 12.284999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.845,
           "voice_articulation": 15.859999999999994,
-          "voice_microtone": 19.094999999999995,
+          "voice_microtone": 19.139999999999997,
           "voice_tradition": 2.34,
           "voice_mechanism_compound": 4.615000000000001,
           "voice_estill_quality": 4.030000000000001,
           "voice_speech_song": 15.859999999999994,
-          "voice_ensemble_config": 16.235,
+          "voice_ensemble_config": 16.52,
           "voice_ornament_system": 0.7749999999999999,
           "voice_pitch_organization": 2.34,
-          "voice_processing_chain": 5.67525,
+          "voice_processing_chain": 5.49,
           "voice_multitrack_stack": 5.2325
         }
       },
@@ -65,22 +65,22 @@
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_11_hum",
+          "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
           "electric_technique": 15.95,
-          "amp_make": 31.562249999999995,
+          "amp_make": 32.175,
           "body_wood": 0.845,
           "neck_wood": 0.845,
           "fretboard": 0.845,
-          "pickup_magnet": 0.045,
+          "pickup_magnet": 0.24,
           "pickup_winding": 0.21,
           "string_material": 0.845,
-          "bridge": 0.29025,
+          "bridge": 0.255,
           "scale_length": 1.4300000000000002,
-          "string_gauge": 0.18525,
+          "string_gauge": 0.3,
           "finish": 0,
           "string_tuning": 13.259999999999998
         }
@@ -92,18 +92,18 @@
           "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "short_scale_b",
+          "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive"
         },
         "scores": {
           "amp_make": 11.504999999999999,
-          "body_wood": 0.3705,
-          "pickup_config": 0.18525,
+          "body_wood": 0.045,
+          "pickup_config": 0.045,
           "string_type": 24.7,
-          "scale_length_b": 0.18525,
+          "scale_length_b": 0.09,
           "fretted_or_not": 0.845,
-          "bass_technique": 35.045
+          "bass_technique": 35.24
         }
       },
       {

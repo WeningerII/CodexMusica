@@ -3,51 +3,51 @@
   "name": "Argentine canto nuevo / canto popular",
   "family": "global",
   "lineage": "Argentine canto nuevo / canto popular protest-song tradition continuous from 1960s-1980s Argentine military-dictatorship-era political folk-and-songwriter scene; centered on Mercedes Sosa, Atahualpa Yupanqui (foundational figure), León Gieco, and the Movimiento del Nuevo Cancionero",
-  "recipe": "classic South American mid-1960s argentine canto nuevo / canto popular, protest Song, iberian Latin branch, Latin am troubadour ballad poetry, European protest song, americas wedding milonga andean matrimonio huayno. thick, forward-resonance, straight note core, interlocked note trading. martin lifespan fingerpicked acoustic guitar, naranjillo andean premium wood cedar andean andean classical charango, ceibo canonical Argentine leguero hollowed trunk bombo andino. large tracking room 1920-1965 mid tier odeon rca buenos aires. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 678,
-  "score": 200.622,
+  "recipe": "classic South American mid-1960s argentine canto nuevo / canto popular, protest Song, iberian Latin branch, Latin am troubadour ballad poetry, European protest song, americas wedding milonga cantautora mexicana. thick, breath veiled tone, straight onset, interlocked note trading. narrative fingerpicked acoustic guitar, pine traditional rural nylon strummed charango, ceibo canonical Argentine leguero hollowed trunk bombo andino. large tracking room 1920-1965 mid tier odeon rca buenos aires. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 641,
+  "score": 188.296,
   "config": {
     "traditions": [
       "argentine_canto_nuevo",
       "milonga",
-      "andean_matrimonio_huayno"
+      "cantautora_mexicana"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "twang_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "andean_quechua_tradition",
+          "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_oral_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 9.190000000000001,
-          "voice_quality": 9.244999999999996,
+          "voice_register": 14.015,
+          "voice_quality": 8.32,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.3149999999999995,
-          "voice_articulation": 14.169999999999993,
-          "voice_microtone": 14.169999999999991,
-          "voice_tradition": 20.31,
-          "voice_mechanism_compound": 2.0799999999999996,
-          "voice_estill_quality": 7.1499999999999995,
-          "voice_speech_song": 20.377499999999994,
-          "voice_ensemble_config": 14.624999999999993,
-          "voice_ornament_system": 13.979374999999997,
-          "voice_pitch_organization": 3.575,
+          "voice_vibrato": 1.365,
+          "voice_articulation": 15.534999999999995,
+          "voice_microtone": 15.339999999999991,
+          "voice_tradition": 15.957500000000003,
+          "voice_mechanism_compound": 3.1849999999999996,
+          "voice_estill_quality": 3.4775000000000005,
+          "voice_speech_song": 22.749999999999996,
+          "voice_ensemble_config": 15.989999999999995,
+          "voice_ornament_system": 4.875,
+          "voice_pitch_organization": 1.885,
           "voice_processing_chain": 4.81,
           "voice_multitrack_stack": 5.595000000000001
         }
@@ -65,8 +65,8 @@
           "string_tuning": 0.19500000000000003,
           "top_wood": 0.39,
           "back_sides": 0.39,
-          "string_acoustic": 1.4300000000000002,
-          "acoustic_om_technique": 10.795
+          "string_acoustic": 0.585,
+          "acoustic_om_technique": 15.92
         }
       },
       {
@@ -74,29 +74,29 @@
         "slots": {
           "plucked_traditional_technique": "plucked_folk_strummed",
           "charango_back": "charango_naranjillo",
-          "charango_top_wood": "charango_cedar_top",
+          "charango_top_wood": "charango_pine_top",
           "charango_strings": "charango_5_double",
-          "charango_string_material": "charango_gut_historical"
+          "charango_string_material": "charango_nylon_canonical"
         },
         "scores": {
-          "plucked_traditional_technique": 11.205000000000002,
-          "charango_back": 3.769999999999999,
-          "charango_top_wood": 5.199999999999999,
-          "charango_strings": 3.964999999999999,
-          "charango_string_material": 2.144999999999999
+          "plucked_traditional_technique": 12.755,
+          "charango_back": 0.8699999999999999,
+          "charango_top_wood": 2.859999999999999,
+          "charango_strings": 0.195,
+          "charango_string_material": 1.2349999999999999
         }
       },
       {
         "id": "bombo_andino",
         "slots": {
           "bombo_andino_construction": "bombo_andino_leguero",
-          "bombo_andino_skin": "bombo_andino_llama",
+          "bombo_andino_skin": "bombo_andino_goat",
           "bombo_andino_shell_wood": "bombo_andino_ceibo"
         },
         "scores": {
-          "bombo_andino_construction": 9.674999999999999,
-          "bombo_andino_skin": 0.585,
-          "bombo_andino_shell_wood": 8.310625
+          "bombo_andino_construction": 9.824999999999998,
+          "bombo_andino_skin": 0.24,
+          "bombo_andino_shell_wood": 7.510624999999999
         }
       }
     ],

@@ -1,0 +1,178 @@
+{
+  "id": "scorecore",
+  "name": "Scorecore",
+  "family": "classical",
+  "lineage": "Trailer-music idiom industrialised in Los Angeles from the late 1990s by production libraries such as Immediate Music, Two Steps From Hell and Audiomachine — 70-90 BPM half-time epic cues built on ostinato low strings, wordless Latinate choir, staccato brass stabs, taiko and orchestral bass-drum hits on a rising two-minute arc of statement, breakdown and full-tutti climax, sampled libraries layered with live overdubs and mastered to near-constant peak loudness",
+  "recipe": "classic 1997-1999 scorecore, art Music, western modern branch, western common practice art music, ambient experimental electric, symphonic metal german romanticism. synthetic sitka spruce bigleaf maple western maple oil varnish violin orchestral, brass continuous-airflow legato french horn, synthetic mallets timpani, stave built modern non trunk modern ensemble taiko double bass rapid double strokes bass drum, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles kakhetian three voice two soloists choral drone choir ensemble, beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, wavetable synth. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 821,
+  "score": 234.007,
+  "config": {
+    "traditions": [
+      "scorecore",
+      "german_romanticism",
+      "symphonic_metal_classic"
+    ],
+    "instruments": [
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "orch_strings": "synthetic_orch",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "bigleaf_western_maple_violin",
+          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "liebenzeller_metal_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 12.125,
+          "orch_strings": 1.8199999999999998,
+          "orch_top_wood": 7.190000000000001,
+          "orch_back_wood": 11.2125,
+          "orch_varnish": 8.375,
+          "orch_setup_period": 10.245000000000001,
+          "orch_bow": 1.17,
+          "orch_bow_stick": 10.822499999999998,
+          "orch_articulation": 3.965,
+          "orch_rosin": 11.975
+        }
+      },
+      {
+        "id": "french_horn",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "french_horn_bore": "french_horn_full",
+          "french_horn_metal": "horn_yellow_brass"
+        },
+        "scores": {
+          "wind_articulation": 3.9400000000000004,
+          "french_horn_bore": 4.13,
+          "french_horn_metal": 2.7299999999999995
+        }
+      },
+      {
+        "id": "timpani",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "timpani_size": "timpani_4_drum_set",
+          "timpani_head": "timpani_synthetic"
+        },
+        "scores": {
+          "percussion_technique": 8.375,
+          "timpani_size": 6.305,
+          "timpani_head": 2.4050000000000002
+        }
+      },
+      {
+        "id": "taiko_drum",
+        "slots": {
+          "taiko_size": "taiko_o_daiko",
+          "taiko_skin": "taiko_cowhide",
+          "taiko_shell_wood": "taiko_stave_built",
+          "taiko_lineage": "taiko_oedo_sukeroku",
+          "taiko_technique": "taiko_kumi_daiko"
+        },
+        "scores": {
+          "taiko_size": 1.5999999999999999,
+          "taiko_skin": 0.585,
+          "taiko_shell_wood": 4.025,
+          "taiko_lineage": 0.585,
+          "taiko_technique": 2.4050000000000002
+        }
+      },
+      {
+        "id": "bass_drum",
+        "slots": {
+          "bass_drum_size": "bass_drum_concert",
+          "bass_drum_beater": "bass_drum_double_pedal"
+        },
+        "scores": {
+          "bass_drum_size": 5.234999999999999,
+          "bass_drum_beater": 1.1949999999999998
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_polyrhythmic_layered",
+          "choir_regional_canonical_configuration": "choir_regional_kakhetian_three_voice",
+          "choir_ensemble_repertoire": "choir_ensemble_romantic"
+        },
+        "scores": {
+          "choir_size": 6.3950000000000005,
+          "choir_polyphonic_configuration": 2.0349999999999997,
+          "choir_regional_canonical_configuration": 4.685,
+          "choir_ensemble_repertoire": 5.59
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "renner_standard_hammer",
+          "piano_rim": "european_laminated_rim_beech_maple",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 3.75,
+          "grand_piano_size": 7.6,
+          "grand_piano_brand": 2.275,
+          "piano_hammer": 11.0825,
+          "piano_rim": 10.72,
+          "piano_soundboard": 8.375,
+          "piano_pinblock": 9.375,
+          "piano_plate": 10.35,
+          "piano_pitch_standard": 16.634999999999998
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wt_position": "wt_chaotic",
+          "wt_family": "wt_industrial",
+          "wt_polyphony": "wt_poly"
+        },
+        "scores": {
+          "electronic_technique": 2.6450000000000005,
+          "wt_position": 2.4050000000000002,
+          "wt_family": 2.4050000000000002,
+          "wt_polyphony": 3.7699999999999996
+        }
+      }
+    ],
+    "room": "concert_hall_shoebox",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "concert_hall_shoebox",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

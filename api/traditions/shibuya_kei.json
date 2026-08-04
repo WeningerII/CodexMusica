@@ -3,13 +3,14 @@
   "name": "Shibuya-kei",
   "family": "global",
   "lineage": "1990s Japanese eclectic-pop subgenre centered on Tokyo’s Shibuya district record-store scene — codified through Pizzicato Five, Cornelius (Keigo Oyamada), Fantastic Plastic Machine, and Kahimi Karie; characterized by sampledelic crate-digger production, sixties-French-pop and bossa-nova references, and ironic-cosmopolitan pop sensibility",
-  "recipe": "classic Asian mid-1990s shibuya-kei, functional Song, east Asian pop branch, pop experimental experimental electric hyperpop. extended whistle, breath veiled tone, straight onset, interlocked note trading. field textural sampler, centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric, clean strummed single coil electric guitar, ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, samba bateria. treated studio. Neumann U87, console-strip pre, SSL inline console, SMART research c1/c2, SSL surgical EQ. 16-bit digital eventide harmonizer TC electronic 2290 delay digital delay.",
-  "recipe_chars": 645,
-  "score": 291.516,
+  "recipe": "classic Asian mid-1990s shibuya-kei, functional Song, east Asian pop branch, pop experimental experimental electric indietronica etherpop. extended whistle, breath veiled tone, straight onset, interlocked note trading. glitched textural sampler, centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric, soft down tuning clean strummed single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, lead samba bateria. treated studio. Neumann U87, console-strip pre, SSL inline console, SMART research c1/c2, SSL surgical EQ. 16-bit digital eventide harmonizer TC electronic 2290 delay digital delay.",
+  "recipe_chars": 711,
+  "score": 355.779,
   "config": {
     "traditions": [
       "shibuya_kei",
-      "hyperpop"
+      "indietronica",
+      "etherpop"
     ],
     "instruments": [
       {
@@ -23,49 +24,49 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
-          "voice_mechanism_compound": "voice_mechanism_single_source",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_pansori_sigimsae",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 30.549999999999997,
-          "voice_quality": 9.879999999999999,
+          "voice_register": 30.9345,
+          "voice_quality": 12.479999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.145,
-          "voice_articulation": 11.894999999999992,
-          "voice_microtone": 27.39275,
-          "voice_tradition": 31.010124999999995,
-          "voice_mechanism_compound": 1.1264999999999998,
-          "voice_estill_quality": 0.39,
-          "voice_speech_song": 15.274999999999993,
-          "voice_ensemble_config": 12.024999999999993,
-          "voice_ornament_system": 2.2,
-          "voice_pitch_organization": 0.32500000000000007,
-          "voice_processing_chain": 3.6400000000000006,
-          "voice_multitrack_stack": 5.330000000000001
+          "voice_vibrato": 1.3,
+          "voice_articulation": 18.71999999999999,
+          "voice_microtone": 28.39275,
+          "voice_tradition": 31.908125,
+          "voice_mechanism_compound": 3.119999999999999,
+          "voice_estill_quality": 2.5349999999999997,
+          "voice_speech_song": 21.904999999999994,
+          "voice_ensemble_config": 18.004999999999992,
+          "voice_ornament_system": 2.345,
+          "voice_pitch_organization": 1.4949999999999999,
+          "voice_processing_chain": 8.968125,
+          "voice_multitrack_stack": 3.1849999999999996
         }
       },
       {
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_glitch_textural",
-          "sampler_archetypes": "ensoniq_asr10",
-          "sampler_bit_depth": "sampler_sixteen_bit",
-          "sampler_workflow": "sampler_field_recordings",
+          "sampler_archetypes": "emu_emax",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_microsampling_glitch",
           "sampler_classic_context": "sampler_classic_pop_production"
         },
         "scores": {
-          "electronic_technique": 7.199999999999999,
-          "sampler_archetypes": 0.42,
-          "sampler_bit_depth": 0.195,
-          "sampler_workflow": 7.6271249999999995,
-          "sampler_classic_context": 25.5
+          "electronic_technique": 15.07,
+          "sampler_archetypes": 0.65,
+          "sampler_bit_depth": 0.52,
+          "sampler_workflow": 15.72,
+          "sampler_classic_context": 25.73
         }
       },
       {
@@ -75,15 +76,15 @@
           "rhodes_model": "rhodes_mark2",
           "rhodes_use": "rhodes_soul",
           "rhodes_tine_material": "rhodes_mark7_modern_tine",
-          "rhodes_hammer_tip": "rhodes_harder_neoprene_late",
+          "rhodes_hammer_tip": "rhodes_felt_hammer_tip",
           "rhodes_pickup_position": "rhodes_pickup_centered"
         },
         "scores": {
-          "keyboard_technique": 25.518625,
-          "rhodes_model": 1.7265,
-          "rhodes_use": 0.78,
-          "rhodes_tine_material": 0.39,
-          "rhodes_hammer_tip": -1.05,
+          "keyboard_technique": 25.643625,
+          "rhodes_model": 1.545,
+          "rhodes_use": 1.4300000000000002,
+          "rhodes_tine_material": 0.195,
+          "rhodes_hammer_tip": -0.6300000000000001,
           "rhodes_pickup_position": 1.3
         }
       },
@@ -92,51 +93,51 @@
         "slots": {
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_american_fender_blackface",
-          "body_wood": "mahogany",
-          "neck_wood": "mahogany_neck",
+          "body_wood": "swamp_ash",
+          "neck_wood": "maple",
           "fretboard": "maple_fb",
           "pickup_magnet": "alnico_5",
           "string_material": "nickel_plated",
           "string_gauge": "g_8",
           "bridge": "hardtail",
-          "scale_length": "scale_gibson",
-          "finish": "nitro",
-          "string_tuning": "open_g"
+          "scale_length": "scale_short",
+          "finish": "poly",
+          "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 25.57375,
-          "amp_make": 0.45499999999999996,
-          "body_wood": 0.231,
-          "neck_wood": 0.231,
+          "electric_technique": 26.12375,
+          "amp_make": 2.1449999999999996,
+          "body_wood": 0.195,
+          "neck_wood": 0.195,
           "fretboard": 0.195,
-          "pickup_magnet": 0.195,
+          "pickup_magnet": 0.16874999999999998,
           "string_material": 0.10012499999999999,
           "string_gauge": 0.3,
-          "bridge": 0.27899999999999997,
-          "scale_length": 0.43050000000000005,
-          "finish": 0,
-          "string_tuning": 0.8295
+          "bridge": 0.24749999999999997,
+          "scale_length": 0.3,
+          "finish": 0.195,
+          "string_tuning": 1.7550000000000001
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_b15",
+          "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
-          "pickup_config": "humbucker_mm",
+          "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 0.5199999999999999,
-          "body_wood": 0.43050000000000005,
-          "pickup_config": 0.195,
-          "string_type": 1.1374999999999997,
-          "scale_length_b": 0.39,
+          "amp_make": 3.185,
+          "body_wood": 0.1575,
+          "pickup_config": 0.845,
+          "string_type": 2.2749999999999995,
+          "scale_length_b": 0.363,
           "fretted_or_not": 0.1365,
-          "bass_technique": 1.088625
+          "bass_technique": 2.658625
         }
       },
       {
@@ -147,19 +148,19 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 14.364999999999997,
-          "drumhead": 25.791624999999996,
+          "drum_technique": 20.149999999999995,
+          "drumhead": 27.606625,
           "drum_kit_kick_pedal": 0
         }
       },
       {
         "id": "samba_bateria",
         "slots": {
-          "sections": "sb_cuicas",
+          "sections": "sb_repiniques",
           "context": "sb_quadra"
         },
         "scores": {
-          "sections": 0.78,
+          "sections": 1.4949999999999999,
           "context": 0.195
         }
       }

@@ -3,9 +3,9 @@
   "name": "Twoubadou (Haitian troubadour)",
   "family": "global",
   "lineage": "Haitian rural-and-popular acoustic-song tradition emerging in early-twentieth-century Haiti from synthesis of Cuban son and bolero, Dominican merengue tipico, and Haitian rural folk-song. Acoustic-guitar, marímbula, mandolin, accordion, manouba scraper, voice. Working-class counterpart to elite-class urban kompa direct big-band tradition. Post-1980 acoustic-revival under Ti Coca, Manno Charlemagne, Beethova Obas.",
-  "recipe": "classic Caribbean early-1980s twoubadou, ballad Poetry, Latin am troubadour branch, chanson fado ballad poetry cape verdean batuko of santiago island french musette. thick, breath veiled tone, straight note core, interlocked note trading. fingerpicked parlor acoustic guitar, castagnari Italian premium folk music straight accordion, bowl back Italian big leaf maple modern American x brace modern mandolin mandolin. port au prince Haitian recording 1970-2000 indie-commercial port au prince haitian kompa studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 576,
-  "score": 250.809,
+  "recipe": "classic Caribbean early-1980s twoubadou, ballad Poetry, Latin am troubadour branch, chanson fado ballad poetry cape verdean batuko of santiago island french musette. thick, breath veiled tone, straight note core, interlocked note trading. parlor classic steel silk fingerpicked parlor acoustic guitar, castagnari Italian premium folk music straight accordion, bowl back Italian big leaf maple modern American x brace modern mandolin mandolin. port au prince Haitian recording 1970-2000 indie-commercial port au prince haitian kompa studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 602,
+  "score": 251.76,
   "config": {
     "traditions": [
       "twoubadou_haitian",
@@ -38,7 +38,7 @@
           "voice_quality": 26.39,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.1080000000000005,
+          "voice_vibrato": 4.045,
           "voice_articulation": 21.06,
           "voice_microtone": 21.514999999999997,
           "voice_tradition": 19.727499999999996,
@@ -62,11 +62,11 @@
           "string_acoustic_parlor": "silk_steel_p"
         },
         "scores": {
-          "acoustic_technique": 13.601500000000001,
+          "acoustic_technique": 13.570000000000002,
           "string_tuning": 0.7149999999999999,
-          "top_wood_parlor": 0.54,
-          "back_sides_parlor": 0,
-          "string_acoustic_parlor": 0.8264999999999999
+          "top_wood_parlor": 0.8400000000000001,
+          "back_sides_parlor": 0.195,
+          "string_acoustic_parlor": 1.14
         }
       },
       {
@@ -81,12 +81,12 @@
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 7.113,
-          "accordion_reed_material": 0.54,
+          "free_reed_technique": 7.050000000000001,
+          "accordion_reed_material": 0.6900000000000001,
           "musette_offset": 1.625,
           "reed_config": 4.225,
           "bellows": 0.39,
-          "voicing_chamber": 1.45,
+          "voicing_chamber": 1.6,
           "accordion_maker_school": 5.720000000000001
         }
       },

@@ -1,0 +1,200 @@
+{
+  "id": "swamp_rock",
+  "name": "Swamp rock",
+  "family": "rock",
+  "lineage": "Late-1960s American style joining Louisiana and Gulf-Coast blues and swamp-pop feel to California rock recording, defined by Creedence Clearwater Revival, Tony Joe White and Dale Hawkins — medium-tempo shuffles and straight backbeats, tremolo-and-reverb single-coil guitar riffs, sparse organ, prominent bass-and-snare pocket, and drawled narrative vocals about rivers, work and superstition",
+  "recipe": "classic North American 1967-1969 swamp rock, distorted Rock, southern rock branch, blues electric functional song, country rock country. thick, worn fold, wide pitch sway, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright swamp ash ash single coil electric open d tuning slide steel resonator guitar, ampeg svt amp rock bass amp swamp ash ash ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, reed pearwood marine band tradition brass traditional harmonica, Hammond b3 canonical 1955 1975 jazz gospel rock standard block chord fast tremolo tonewheel organ. hyde street san francisco 1969-1980 major-flagship wally heider studios sf. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
+  "recipe_chars": 830,
+  "score": 626.13,
+  "config": {
+    "traditions": [
+      "swamp_rock",
+      "country_rock",
+      "electric_blues"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "worn_fold_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 63.53250000000001,
+          "voice_quality": 10.674999999999997,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 27.548749999999995,
+          "voice_articulation": 22.360000000000003,
+          "voice_microtone": 34.92500000000001,
+          "voice_tradition": 6.89,
+          "voice_mechanism_compound": 2.6645714285714295,
+          "voice_estill_quality": 16.593428571428568,
+          "voice_speech_song": 27.235000000000003,
+          "voice_ensemble_config": 23.075000000000003,
+          "voice_ornament_system": 0.3,
+          "voice_pitch_organization": 0.26,
+          "voice_processing_chain": 5.395,
+          "voice_multitrack_stack": 6.957428571428571
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_fingerstyle_country",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "swamp_ash",
+          "neck_wood": "maple",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_8",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_short",
+          "finish": "nitro",
+          "string_tuning": "d_standard"
+        },
+        "scores": {
+          "electric_technique": 15.499999999999998,
+          "amp_make": 19.374249999999996,
+          "body_wood": 2.5999999999999996,
+          "neck_wood": 0.2824285714285715,
+          "fretboard": 0.2824285714285715,
+          "pickup_magnet": 0.2824285714285715,
+          "string_material": 0.78,
+          "string_gauge": 0.65,
+          "bridge": 0.01625,
+          "scale_length": 0.65,
+          "finish": 0,
+          "string_tuning": 22.36
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "swamp_ash_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 18.466035714285717,
+          "body_wood": 2.5999999999999996,
+          "pickup_config": 0.045,
+          "string_type": 34.05614285714286,
+          "scale_length_b": 1.75625,
+          "fretted_or_not": 0.09,
+          "bass_technique": 31.385000000000005
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 32.145,
+          "drumhead": 4.375,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "harmonica",
+        "slots": {
+          "harmonica_type": "tremolo_harm",
+          "harmonica_comb": "pearwood_comb",
+          "harmonica_reed": "brass_harm",
+          "harmonica_technique": "harm_folk_first_position",
+          "harmonica_maker_school": "harmonica_hohner_marine_band",
+          "harmonica_tuning": "harmonica_richter_canonical"
+        },
+        "scores": {
+          "harmonica_type": 1.5152499999999998,
+          "harmonica_comb": 14.098964285714283,
+          "harmonica_reed": 12.267499999999998,
+          "harmonica_technique": 17.777964285714283,
+          "harmonica_maker_school": 13.129999999999997,
+          "harmonica_tuning": 6.239999999999998
+        }
+      },
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "drawbar_setting": "rock_drawbars",
+          "rotary_speed": "fast_tremolo",
+          "percussion_setting": "percussion_on_long",
+          "tonewheel_model": "tonewheel_hammond_b3",
+          "leslie_cabinet_model": "leslie_760_solid_state"
+        },
+        "scores": {
+          "keyboard_technique": 4.961142857142857,
+          "drawbar_setting": 31.435000000000006,
+          "rotary_speed": 32.25000000000001,
+          "percussion_setting": 15.261142857142858,
+          "tonewheel_model": 13.324999999999998,
+          "leslie_cabinet_model": 0.845
+        }
+      },
+      {
+        "id": "acoustic_resonator_steel",
+        "slots": {
+          "acoustic_technique": "acoustic_bottleneck_slide",
+          "string_tuning": "open_d",
+          "cone_type": "biscuit",
+          "body_resonator": "steel_body",
+          "res_strings": "eighty_twenty_res"
+        },
+        "scores": {
+          "acoustic_technique": 9.86,
+          "string_tuning": 8.37,
+          "cone_type": 1.625,
+          "body_resonator": 0.78,
+          "res_strings": 0.45499999999999996
+        }
+      }
+    ],
+    "room": "wally_heider_studios_sf",
+    "archetype": "arch_70s_la_rock_commercial",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "pre_console_inline_strip",
+      "console": "console_american_op_amp",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "rb_shuffle_swing_12_8",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "rb_shuffle_swing_12_8",
+    "room": "wally_heider_studios_sf",
+    "chain_mic": "mic_sm57_dynamic_shure",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_american_op_amp"
+  }
+}

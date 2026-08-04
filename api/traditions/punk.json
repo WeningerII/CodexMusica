@@ -5,7 +5,7 @@
   "lineage": "Mid-1970s underground rock movement reasserting amateur three-chord rock against progressive-rock complexity, with simplified song-form, aggressive vocal delivery, and anti-establishment thematic content — codified through the New York scene (Ramones, Television, Patti Smith, the Voidoids) and the UK scene (Sex Pistols Never Mind the Bollocks 1977, The Clash 1977, Buzzcocks, The Damned), spreading worldwide through the late-1970s as a distinct underground commercial-and-DIY scene",
   "recipe": "classic North American 1974-1976 punk, distorted Rock, punk branch, classic distorted rock garage rock hard rock. thick, breath veiled tone, wide pitch sway, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, sticks backbeat drum kit. concrete basement. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb boss DS-1.",
   "recipe_chars": 562,
-  "score": 419.767,
+  "score": 420.407,
   "config": {
     "traditions": [
       "punk",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 40.497250000000015,
+          "voice_register": 40.61125000000001,
           "voice_quality": 18.459999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -47,8 +47,8 @@
           "voice_speech_song": 18.32999999999999,
           "voice_ensemble_config": 15.794999999999993,
           "voice_ornament_system": 0.195,
-          "voice_pitch_organization": 2.5047500000000005,
-          "voice_processing_chain": 12.276875,
+          "voice_pitch_organization": 2.4687500000000004,
+          "voice_processing_chain": 12.35,
           "voice_multitrack_stack": 7.651250000000001
         }
       },
@@ -91,16 +91,16 @@
           "pickup_config": "split_coil",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretless",
+          "fretted_or_not": "fretted",
           "bass_technique": "pick_aggressive"
         },
         "scores": {
           "amp_make": 19.499999999999996,
           "body_wood": 1.95,
           "pickup_config": 0,
-          "string_type": 42.639374999999994,
+          "string_type": 43.16437499999999,
           "scale_length_b": 1.95,
-          "fretted_or_not": 0.03599999999999999,
+          "fretted_or_not": 0,
           "bass_technique": 44.396249999999995
         }
       },

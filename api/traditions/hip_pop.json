@@ -1,0 +1,172 @@
+{
+  "id": "hip_pop",
+  "name": "Hip Pop",
+  "family": "pop",
+  "lineage": "American crossover style of roughly 1998-2010 in which pop and R&B singers built records on hip-hop production and rap features — Nelly, Ne-Yo, Fergie, Gwen Stefani and Chris Brown working with The Neptunes, Timbaland, Jermaine Dupri and will.i.am — using 88-105 BPM programmed breakbeats, syncopated 808 and Moog sub-bass, staccato synth-and-keyboard riffs and chopped vocal samples under a sung hook, with a guest rapper occupying the middle-eight in place of an instrumental solo.",
+  "recipe": "classic mid-2000s hip pop, functional Song, soul R&B branch, us hip hop modern, pop rock functional song new wave post-teen pop. thick, breath veiled tone, straight onset, interlocked note trading. behringer rd 8 modern clone analog circuit reproduction TR-808, singing lead analog poly synth, sampled chopped turntable, chopped sampler, ampeg b15 amp American 60s bass amp flip top character mahogany ernie ball slinky electric bass, block chord electric piano tine. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 671,
+  "score": 447.022,
+  "config": {
+    "traditions": [
+      "hip_pop",
+      "new_wave",
+      "post_teen_pop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 47.10500000000002,
+          "voice_quality": 12.934999999999992,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.1200000000000006,
+          "voice_articulation": 20.539999999999992,
+          "voice_microtone": 41.05,
+          "voice_tradition": 37.199999999999996,
+          "voice_mechanism_compound": 5.265,
+          "voice_estill_quality": 5.07,
+          "voice_speech_song": 28.599999999999994,
+          "voice_ensemble_config": 21.70999999999999,
+          "voice_ornament_system": 2.860000000000001,
+          "voice_pitch_organization": 2.085,
+          "voice_processing_chain": 8.89,
+          "voice_multitrack_stack": 6.5975
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 8.16,
+          "drum_machine_808_context": 6.825,
+          "tr808_production_origin": 1.755
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 28.464999999999996,
+          "poly_archetypes": 7.019999999999998,
+          "poly_voices": 0.39,
+          "poly_maker_lineage": -0.1050000000000002
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_backspin"
+        },
+        "scores": {
+          "electronic_technique": 4.7,
+          "turntable_technique": 3.9899999999999998
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_pop_production"
+        },
+        "scores": {
+          "electronic_technique": 4.7,
+          "sampler_archetypes": 8.19,
+          "sampler_bit_depth": 1.755,
+          "sampler_workflow": 4.65,
+          "sampler_classic_context": 29.864999999999995
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 9.665,
+          "body_wood": 1.235,
+          "pickup_config": 2.4050000000000002,
+          "string_type": 17.549999999999997,
+          "scale_length_b": 1.56,
+          "fretted_or_not": 0.345,
+          "bass_technique": 17.589999999999996
+        }
+      },
+      {
+        "id": "electric_piano_tine",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "tine_voicing": "aggressive_tine",
+          "tine_effect": "overdrive_tine"
+        },
+        "scores": {
+          "keyboard_technique": 28.029999999999998,
+          "tine_voicing": 1.56,
+          "tine_effect": 7.019999999999998
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "pre_avalon_v737",
+      "console": "console_in_the_box",
+      "comp": "comp_1176_fet",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "mic_sm7b_dynamic_shure",
+    "chain_pre": "pre_avalon_v737",
+    "chain_comp": "comp_1176_fet",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

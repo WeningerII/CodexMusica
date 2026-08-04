@@ -1,0 +1,188 @@
+{
+  "id": "punjabi_hip_hop",
+  "name": "Punjabi hip hop",
+  "family": "hip_hop",
+  "lineage": "Punjabi rap grew from mid-2000s UK and Canadian diaspora records (Bohemia's Delhi-Punjabi Urdu rap, RDB's bhangra-rap fusions) into a mass Indian form after 2017 through Sidhu Moose Wala, Karan Aujla and the Brampton-Ludhiana production axis — 90-160 BPM tracks that graft trap 808s and half-time snares onto dhol chaal accents and tumbi riffs, with rapped or half-sung Punjabi verses in a hard, chest-forward register and lyric matter running from village pride to gangster narrative.",
+  "recipe": "classic 2004-2006 punjabi hip hop, mc Rhythm, intl hip hop branch, south Asian pop functional song punjabi pop bhojpuri pop. thick, rap, slow rate, interlocked note trading. TR-808, dhol, steel single string canonical Punjabi fingerpicked tumbi, sampled chopped sampler drum machine, singing lead wavetable synth, vocal male straight harmonium indian, mahogany pyramid pure nickel bass British mid 60s era electric bass. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 528,
+  "score": 283.68,
+  "config": {
+    "traditions": [
+      "punjabi_hip_hop",
+      "punjabi_pop",
+      "bhojpuri_pop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_hindustani_meend_gamak",
+          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 15.364999999999995,
+          "voice_quality": 14.385,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.73,
+          "voice_articulation": 21.905,
+          "voice_microtone": 24.7,
+          "voice_tradition": 14.267500000000002,
+          "voice_mechanism_compound": 3.185,
+          "voice_estill_quality": 4.680000000000001,
+          "voice_speech_song": 26.65,
+          "voice_ensemble_config": 21.45,
+          "voice_ornament_system": 5.3675,
+          "voice_pitch_organization": 3.9699999999999998,
+          "voice_processing_chain": 13.099999999999998,
+          "voice_multitrack_stack": 4.535
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_rb",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 4.095,
+          "drum_machine_808_context": 3.38,
+          "tr808_production_origin": 0.345
+        }
+      },
+      {
+        "id": "dhol",
+        "slots": {
+          "dhol_form": "dhol_punjabi",
+          "dhol_repertoire": "dhol_bhangra_chaal",
+          "dhol_shell": "dhol_mango"
+        },
+        "scores": {
+          "dhol_form": 29.347500000000004,
+          "dhol_repertoire": 9.52,
+          "dhol_shell": -0.05
+        }
+      },
+      {
+        "id": "tumbi",
+        "slots": {
+          "plucked_traditional_technique": "plucked_fingerpicked",
+          "tumbi_construction": "tumbi_synthetic",
+          "tumbi_context": "tumbi_film",
+          "tumbi_string": "tumbi_steel_modern"
+        },
+        "scores": {
+          "plucked_traditional_technique": 4.795,
+          "tumbi_construction": 0.845,
+          "tumbi_context": 0.78,
+          "tumbi_string": 7.669999999999999
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 4,
+          "sample_bitdepth": 0.195,
+          "sample_swing": 5.09,
+          "sample_processing": 1.45
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "wt_position": "wt_static",
+          "wt_family": "wt_vocal",
+          "wt_polyphony": "wt_mono"
+        },
+        "scores": {
+          "electronic_technique": 10.9625,
+          "wt_position": 1.215,
+          "wt_family": 0.8250000000000001,
+          "wt_polyphony": 0.195
+        }
+      },
+      {
+        "id": "harmonium_indian",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "harmonium_action": "harmonium_hand_pump",
+          "harmonium_voicing": "harmonium_male",
+          "harmonium_use": "harmonium_classical"
+        },
+        "scores": {
+          "free_reed_technique": 6.800000000000001,
+          "harmonium_action": 1.625,
+          "harmonium_voicing": 1.6249999999999998,
+          "harmonium_use": 1.2349999999999999
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_british_orange",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerpicked_country_b"
+        },
+        "scores": {
+          "amp_make": 1.6249999999999998,
+          "body_wood": 1.4949999999999999,
+          "pickup_config": 0.345,
+          "string_type": 2.21,
+          "scale_length_b": 1.45,
+          "fretted_or_not": 0.195,
+          "bass_technique": 0.95
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "untreated_bedroom",
+    "chain_mic": "mic_sm7b_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

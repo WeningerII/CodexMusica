@@ -1,0 +1,256 @@
+{
+  "id": "broadway",
+  "name": "Broadway (musical theatre song)",
+  "family": "pop",
+  "lineage": "American musical-theatre song of the New York Broadway houses, codified between Show Boat (1927) and the Rodgers-and-Hammerstein book musical of the 1940s-50s and extended by Sondheim from Company (1970) — pit-orchestra scoring for reeds, brass, strings, piano and kit, diatonic-to-chromatic 32-bar and through-composed forms, verse-and-refrain structure, tempo and key shifts written to dramatic action, and an unamplified-legit-to-belt vocal delivery with fully articulated consonants that carries dialogue-bearing lyrics.",
+  "recipe": "classic North American mid-1940s broadway, functional Song, crooners branch, western common practice art music, stage performance spoken word german romanticism bel canto opera. thick, chest mix belt, straight note core, interlocked note trading. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu choir ensemble, birch laminated maple laminated Asian spruce hokkaido source multi laminate grand piano, steel sitka spruce bigleaf maple western maple oil varnish violin orchestral, steel Italian alpine spruce val di fiemme European maple sycamore maple cello, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn legato trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor tenor standard standard backbore trombone, composite resin blackwood dust clarinet.",
+  "recipe_chars": 969,
+  "score": 368.587,
+  "config": {
+    "traditions": [
+      "broadway",
+      "german_romanticism",
+      "bel_canto_opera"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "chest_mix_belt_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "broadway_legit_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 5.325000000000001,
+          "voice_quality": 8.494999999999994,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 5.4925,
+          "voice_articulation": 21.515,
+          "voice_microtone": 21.319999999999997,
+          "voice_tradition": 14.924999999999999,
+          "voice_mechanism_compound": 2.4,
+          "voice_estill_quality": 9.530000000000001,
+          "voice_speech_song": 29.8675,
+          "voice_ensemble_config": 20.994999999999997,
+          "voice_ornament_system": 6.025000000000001,
+          "voice_pitch_organization": 6.37,
+          "voice_processing_chain": 3.6399999999999997,
+          "voice_multitrack_stack": 3.5349999999999997
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_polyrhythmic_layered",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_romantic"
+        },
+        "scores": {
+          "choir_size": 7.395,
+          "choir_polyphonic_configuration": 3.0349999999999997,
+          "choir_regional_canonical_configuration": 2.3899999999999997,
+          "choir_ensemble_repertoire": 4.614999999999999
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "renner_standard_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "standard_multi_laminate_pinblock",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 3.395,
+          "grand_piano_size": 1.105,
+          "grand_piano_brand": 1.885,
+          "piano_hammer": 5.3625,
+          "piano_rim": 5.985,
+          "piano_soundboard": 4.875,
+          "piano_pinblock": 4.275,
+          "piano_plate": 4.215,
+          "piano_pitch_standard": 7.734999999999999
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_spiccato_articulated",
+          "orch_strings": "steel_orch",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "bigleaf_western_maple_violin",
+          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "magic_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 3.5,
+          "orch_strings": 2.04,
+          "orch_top_wood": 6.49,
+          "orch_back_wood": 5.8825,
+          "orch_varnish": 4.125,
+          "orch_setup_period": 4.645,
+          "orch_bow": 1.625,
+          "orch_bow_stick": 5.2975,
+          "orch_articulation": 1.7550000000000001,
+          "orch_rosin": 4.5825000000000005
+        }
+      },
+      {
+        "id": "cello",
+        "slots": {
+          "bowed_technique": "bowed_spiccato_articulated",
+          "cello_strings": "cello_steel",
+          "cello_top_wood": "italian_alpine_spruce_cello",
+          "cello_back_wood": "european_maple_cello_back",
+          "cello_varnish": "oil_amber_varnish_cello",
+          "cello_setup_period": "modern_setup_cello",
+          "cello_bow_grip": "french_bow_grip",
+          "cello_rosin": "pirastro_cellisto_rosin",
+          "cello_bow_stick": "pernambuco_stick_cello"
+        },
+        "scores": {
+          "bowed_technique": 3.5,
+          "cello_strings": 2.04,
+          "cello_top_wood": 4.975,
+          "cello_back_wood": 5.055,
+          "cello_varnish": 4.125,
+          "cello_setup_period": 4.645,
+          "cello_bow_grip": 1.3,
+          "cello_rosin": 4.56,
+          "cello_bow_stick": 5.2975
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "monette_unity_b1_mp",
+          "brass_mute": "straight_mute",
+          "trumpet_technique": "trumpet_classical_legato",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 2.6900000000000004,
+          "brass_size": 1.695,
+          "trumpet_mouthpiece": 8.255,
+          "brass_mute": 2.5,
+          "trumpet_technique": 2.5,
+          "trumpet_bell_metal": 3.1849999999999996,
+          "trumpet_maker_school": 3.1849999999999996
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "trombone_type": "valve_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+          "trombone_mute": "no_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 2.6900000000000004,
+          "trombone_type": 0.15,
+          "trombone_mouthpiece": 5.01,
+          "trombone_mute": 1.7550000000000001,
+          "trombone_technique": 0.24,
+          "trombone_bell_metal": 3.1849999999999996,
+          "trombone_maker_school": 3.1849999999999996
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "clarinet_body": "buffet_greenline_clarinet",
+          "clarinet_size": "e_flat_clarinet",
+          "clarinet_reed": "soft_clarinet_reed",
+          "clarinet_articulation": "glissando_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 2.6900000000000004,
+          "clarinet_body": 4.125,
+          "clarinet_size": 1.95,
+          "clarinet_reed": 1.695,
+          "clarinet_articulation": 0.09999999999999999
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 20.28,
+          "drumhead": 5.34,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "steel_upright",
+          "upright_play": "arco_upright"
+        },
+        "scores": {
+          "upright_strings": 1.74,
+          "upright_play": 1.3
+        }
+      }
+    ],
+    "room": "columbia_30th_street_studio_nyc",
+    "archetype": "arch_early_tape_us_commercial",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_tube_german_v72",
+      "console": "console_american_op_amp",
+      "comp": "comp_fairchild_670_tube",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "tin_pan_alley_thirty_two_bar_aaba",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "tin_pan_alley_thirty_two_bar_aaba",
+    "room": "columbia_30th_street_studio_nyc",
+    "chain_mic": "mic_u47_tube_neumann",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_comp": "comp_fairchild_670_tube",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_american_op_amp"
+  }
+}

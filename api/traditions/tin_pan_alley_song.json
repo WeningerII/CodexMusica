@@ -5,7 +5,7 @@
   "lineage": "American pre-rock popular songwriting tradition centered on the West 28th Street and later Brill Building songwriter-publisher infrastructure (c. 1885-1965) — covering George M. Cohan, Irving Berlin (Alexander s Ragtime Band 1911, the Tin Pan Alley breakthrough), Cole Porter, the Gershwins, Rodgers and Hart (later Rodgers and Hammerstein), Harold Arlen, Hoagy Carmichael, and the post-WWII Brill Building era (Goffin and King, Mann and Weil, Sedaka, Bacharach and David, Leiber and Stoller); foundational repertoire for the 32-bar AABA song form that defined American popular music for half a century",
   "recipe": "classic North American early-1880s tin pan alley song, functional Song, crooners branch, American jazz early chicago jazz swing-era jazz orchestra. thick, breath veiled tone, straight onset, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, a cappella small 3 to 8 one per part four voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu choir ensemble. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 594,
-  "score": 152.894,
+  "score": 153.972,
   "config": {
     "traditions": [
       "tin_pan_alley_song",
@@ -38,18 +38,18 @@
           "voice_quality": 11.959999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 10.9925,
+          "voice_vibrato": 11.0045,
           "voice_articulation": 14.040000000000001,
-          "voice_microtone": 14.693499999999997,
-          "voice_tradition": 15.87,
+          "voice_microtone": 14.766999999999998,
+          "voice_tradition": 16.237499999999997,
           "voice_mechanism_compound": 0.845,
           "voice_estill_quality": 1.8849999999999996,
           "voice_speech_song": 18.59,
           "voice_ensemble_config": 13.78,
           "voice_ornament_system": 1.4949999999999997,
           "voice_pitch_organization": 3.5100000000000007,
-          "voice_processing_chain": 4.6375,
-          "voice_multitrack_stack": 1.0094999999999998
+          "voice_processing_chain": 4.942,
+          "voice_multitrack_stack": 1.2539999999999998
         }
       },
       {
@@ -66,7 +66,7 @@
           "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": 1.02,
+          "keyboard_technique": 1.0110000000000001,
           "grand_piano_size": 0.845,
           "grand_piano_brand": 1.2349999999999999,
           "piano_hammer": 7.085,
@@ -88,7 +88,7 @@
         "scores": {
           "choir_size": 3.77,
           "choir_polyphonic_configuration": 1.8850000000000002,
-          "choir_regional_canonical_configuration": 1.3444999999999998,
+          "choir_regional_canonical_configuration": 1.4299999999999997,
           "choir_ensemble_repertoire": 3.185
         }
       }

@@ -1,0 +1,218 @@
+{
+  "id": "moroccan_pop",
+  "name": "Moroccan Pop",
+  "family": "pop",
+  "lineage": "Casablanca and Marrakech commercial chaabi-pop, professionalized from the early 1970s through Nass El Ghiwane's political song and the later cassette-label boom, combining 6/8 and 12/8 Berber-Gnawa cycles with guembri ostinato, qraqeb clatter, bendir and darbuka, unison violin and oud lines, and call-and-response chorus vocals over synthesizer pads.",
+  "recipe": "classic North African 1970-1973 moroccan pop, functional Song, mid east n African pop branch, Sufi ritual devotional, middle east n African protest song algerian raï egyptian sayyed darwish and sheikh imam political-vocal lineage. extended whistle, breath veiled tone, slow rate, interlocked note trading. guembri, qraqeb, juniper bent frame canonical Maghrebi goat skin tacked canonical Sufi bendir, spun aluminum Egyptian sombaty fish skin pre modern Egyptian traditional Egyptian sombaty canonical mid east darbuka, padauk Egyptian Syrian premium oud, carpathian spruce European maple bosnian source flamed figure oil varnish violin orchestral, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth, orange amp British heavy crunch mahogany pyramid pure nickel bass electric bass. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. large-diaphragm condenser, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 987,
+  "score": 256.294,
+  "config": {
+    "traditions": [
+      "moroccan_pop",
+      "algerian_rai_political",
+      "egyptian_sayyed_darwish_sheikh_imam"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 15.465499999999997,
+          "voice_quality": 11.24499999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.42,
+          "voice_articulation": 18.589999999999996,
+          "voice_microtone": 30.859499999999993,
+          "voice_tradition": 19.7925,
+          "voice_mechanism_compound": 2.8600000000000003,
+          "voice_estill_quality": 2.8600000000000003,
+          "voice_speech_song": 27.299999999999997,
+          "voice_ensemble_config": 20.214999999999996,
+          "voice_ornament_system": 5.925999999999999,
+          "voice_pitch_organization": 6.288000000000001,
+          "voice_processing_chain": 8.7815,
+          "voice_multitrack_stack": 6.857500000000002
+        }
+      },
+      {
+        "id": "guembri",
+        "slots": {
+          "guembri_size": "guembri_small",
+          "guembri_sersera": "guembri_sersara_on",
+          "guembri_strings": "guembri_nylon"
+        },
+        "scores": {
+          "guembri_size": 2.4050000000000002,
+          "guembri_sersera": 0,
+          "guembri_strings": 0.03899999999999999
+        }
+      },
+      {
+        "id": "qraqeb",
+        "slots": {
+          "qraqeb_tradition": "qraqeb_stambeli",
+          "qraqeb_build": "qraqeb_forged"
+        },
+        "scores": {
+          "qraqeb_tradition": 2.6,
+          "qraqeb_build": 0.3
+        }
+      },
+      {
+        "id": "bendir",
+        "slots": {
+          "bendir_snares": "bendir_no_snares",
+          "bendir_context": "bendir_sufi",
+          "bendir_shell_wood": "bendir_juniper_canonical",
+          "bendir_head": "bendir_goat_skin_canonical"
+        },
+        "scores": {
+          "bendir_snares": 0.8449999999999999,
+          "bendir_context": 0.13499999999999998,
+          "bendir_shell_wood": 1.0399999999999998,
+          "bendir_head": 1.105
+        }
+      },
+      {
+        "id": "darbuka",
+        "slots": {
+          "percussion_technique": "percussion_hands_layered",
+          "darbuka_material": "darbuka_aluminum_sombaty",
+          "darbuka_skin": "darbuka_fish_skin",
+          "darbuka_regional_style": "darbuka_egyptian_sombaty"
+        },
+        "scores": {
+          "percussion_technique": -0.07,
+          "darbuka_material": 2.9249999999999994,
+          "darbuka_skin": 2.859999999999999,
+          "darbuka_regional_style": 11.05
+        }
+      },
+      {
+        "id": "oud",
+        "slots": {
+          "plucked_traditional_technique": "plucked_drone_modal",
+          "oud_school": "oud_arab_classic",
+          "oud_strings": "oud_eleven",
+          "oud_pick": "risha_eagle_feather",
+          "oud_body_wood": "oud_padauk_body",
+          "oud_soundboard_wood": "oud_lebanese_cedar_face",
+          "oud_string_material": "oud_pyramid_nylon"
+        },
+        "scores": {
+          "plucked_traditional_technique": 1.3,
+          "oud_school": 4.42,
+          "oud_strings": 0.65,
+          "oud_pick": 2.795,
+          "oud_body_wood": 2.7299999999999995,
+          "oud_soundboard_wood": 0.45499999999999996,
+          "oud_string_material": 0.845
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "orch_strings": "plain_sheep_gut_violin",
+          "orch_top_wood": "carpathian_spruce_violin",
+          "orch_back_wood": "bosnian_flamed_maple_violin",
+          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_setup_period": "baroque_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "brazilwood_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "bernardel_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 1.25,
+          "orch_strings": 0.5814999999999999,
+          "orch_top_wood": 2.706,
+          "orch_back_wood": 2.11,
+          "orch_varnish": 1.2,
+          "orch_setup_period": 0.26,
+          "orch_bow": 0.105,
+          "orch_bow_stick": 3.3614999999999995,
+          "orch_articulation": 0.0705,
+          "orch_rosin": 1.703
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 14.489999999999997,
+          "poly_archetypes": 0.39,
+          "poly_voices": 0.045,
+          "poly_maker_lineage": 3.12
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_british_orange",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 3.380000000000001,
+          "body_wood": 2.795,
+          "pickup_config": 0.045,
+          "string_type": 3.9650000000000003,
+          "scale_length_b": 2.795,
+          "fretted_or_not": 0.195,
+          "bass_technique": 0.7
+        }
+      }
+    ],
+    "room": "casablanca_chaabi_moroccan_studio",
+    "archetype": "arch_maghreb_state_radio",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformer_solid_state",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "maqam_24edo",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "maqam_24edo",
+    "room": "casablanca_chaabi_moroccan_studio",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformer_solid_state",
+    "chain_medium": "cassette_medium",
+    "chain_console": "colored"
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "Modern Portuguese mainstream pop tradition extending past the fado canon — codified through Madredeus, Mariza’s fado-fusion, the 2000s Buraka Som Sistema kuduro crossover, and contemporary artists like Sara Tavares, David Carreira; characterized by Portuguese-language vocals over electronic-and-organic hybrid production",
   "recipe": "classic mid-2000s portuguese pop, functional Song, iberian branch, chanson fado ballad poetry cape verdean batuko of santiago island morna. extended whistle, breath veiled tone, straight onset, interlocked note trading. martin lifespan fingerpicked acoustic mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier wenge single coil electric guitar, modeled amp modern rig mahogany stainless steel roundwound electric bass, pre muffled edge muffled brushes-and-sticks drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 665,
-  "score": 341.642,
+  "score": 341.397,
   "config": {
     "traditions": [
       "portuguese_pop_modern",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 11.725749999999994,
+          "voice_register": 11.229999999999995,
           "voice_quality": 29.770000000000003,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.1027499999999995,
+          "voice_vibrato": 6.06,
           "voice_articulation": 24.96,
           "voice_microtone": 25.285,
-          "voice_tradition": 20.5035,
+          "voice_tradition": 19.62,
           "voice_mechanism_compound": 6.044999999999999,
           "voice_estill_quality": 4.94,
           "voice_speech_song": 31.2325,
           "voice_ensemble_config": 23.854999999999997,
-          "voice_ornament_system": 5.597999999999999,
-          "voice_pitch_organization": 5.816250000000001,
+          "voice_ornament_system": 5.369999999999999,
+          "voice_pitch_organization": 5.460000000000001,
           "voice_processing_chain": 13.715,
           "voice_multitrack_stack": 13.324999999999998
         }
@@ -63,10 +63,10 @@
         },
         "scores": {
           "string_tuning": 1.2999999999999998,
-          "top_wood": 0.54,
+          "top_wood": 0.8400000000000001,
           "back_sides": 0.78,
           "string_acoustic": 1.04,
-          "acoustic_om_technique": 6.312749999999999
+          "acoustic_om_technique": 6.27
         }
       },
       {
@@ -88,14 +88,14 @@
         "scores": {
           "electric_technique": 11.999999999999996,
           "amp_make": 3.575,
-          "body_wood": 0.54,
+          "body_wood": 0.6900000000000001,
           "neck_wood": 1.4949999999999999,
           "fretboard": 1.4949999999999999,
-          "pickup_magnet": 0.15,
+          "pickup_magnet": 0.3,
           "string_material": 0.845,
           "string_gauge": 1.235,
-          "bridge": 3.4649999999999994,
-          "scale_length": 1.08,
+          "bridge": 3.6149999999999993,
+          "scale_length": 1.38,
           "finish": 0,
           "string_tuning": 2.145
         }
@@ -113,10 +113,10 @@
         },
         "scores": {
           "amp_make": 3.3649999999999998,
-          "body_wood": 1.08,
-          "pickup_config": 3.4649999999999994,
-          "string_type": 4.049999999999999,
-          "scale_length_b": 3.4649999999999994,
+          "body_wood": 1.38,
+          "pickup_config": 3.5099999999999993,
+          "string_type": 4.159999999999999,
+          "scale_length_b": 3.7649999999999997,
           "fretted_or_not": 1.4949999999999999,
           "bass_technique": 7.549999999999999
         }

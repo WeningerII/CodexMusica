@@ -1,0 +1,196 @@
+{
+  "id": "turkish_hip_hop",
+  "name": "Turkish Hip Hop",
+  "family": "hip_hop",
+  "lineage": "Rap in Turkish begun by Gastarbeiter youth in Germany — Islamic Force in Berlin and Cartel's 1995 debut — then repatriated to Istanbul through Ceza and Sagopa Kajmer in the early 2000s: 90-100 BPM boom-bap and later trap, saz, zurna and arabesk-string samples over minor and hicaz-flavored loops, and an exceptionally fast, agglutination-driven Turkish flow with heavy end-syllable rhyme.",
+  "recipe": "classic Middle Eastern 2000-2003 turkish hip hop, mc Rhythm, intl hip hop branch, mid east n African pop functional song egyptian pop moroccan pop. extended whistle, rap, slow rate, interlocked note trading. sampled chopped turntable, chopped sampler, nylon cura saz softer saz baglama, maple body Turkish school qanun, TR-808, orange amp British heavy crunch alder electric bass, 2000s elastic pitch edited stack heavy bus compression glue post 2010 multitrack vocal stack. istanbul recording canon 1955-present mid tier istanbul makam kilic ali pasha studio. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 659,
+  "score": 287.785,
+  "config": {
+    "traditions": [
+      "turkish_hip_hop",
+      "egyptian_pop",
+      "moroccan_pop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_turkish_makam_53_comma",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 16.509999999999998,
+          "voice_quality": 11.495000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.99,
+          "voice_articulation": 20.864999999999995,
+          "voice_microtone": 38.427499999999995,
+          "voice_tradition": 17.354999999999997,
+          "voice_mechanism_compound": 3.7700000000000005,
+          "voice_estill_quality": 4.225000000000001,
+          "voice_speech_song": 25.414999999999996,
+          "voice_ensemble_config": 21.644999999999992,
+          "voice_ornament_system": 2.65,
+          "voice_pitch_organization": 11.639999999999999,
+          "voice_processing_chain": 8.149999999999999,
+          "voice_multitrack_stack": 3.0550000000000006
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_backspin"
+        },
+        "scores": {
+          "electronic_technique": 4.1499999999999995,
+          "turntable_technique": 4.4399999999999995
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 4.1499999999999995,
+          "sampler_archetypes": 5.52,
+          "sampler_bit_depth": 2.08,
+          "sampler_workflow": 5.6499999999999995,
+          "sampler_classic_context": 27.5475
+        }
+      },
+      {
+        "id": "saz_baglama",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "saz_size": "cura_saz",
+          "saz_frets": "saz_chromatic_frets",
+          "saz_body_wood": "saz_juniper_body",
+          "saz_strings": "saz_nylon_cura",
+          "saz_tradition": "saz_alevi_cem"
+        },
+        "scores": {
+          "plucked_traditional_technique": 2.05,
+          "saz_size": 0.195,
+          "saz_frets": 0.54,
+          "saz_body_wood": 0.45499999999999996,
+          "saz_strings": 1.3,
+          "saz_tradition": 0.45499999999999996
+        }
+      },
+      {
+        "id": "qanun",
+        "slots": {
+          "plucked_traditional_technique": "plucked_ornamented_melodic",
+          "qanun_strings": "qanun_arab_72",
+          "qanun_levers": "mandal_brass",
+          "qanun_pick": "qanun_plastic_pick",
+          "qanun_body_wood": "qanun_maple_body",
+          "qanun_bridge_skin": "qanun_synthetic_bridge",
+          "qanun_string_material": "qanun_nylon_modern"
+        },
+        "scores": {
+          "plucked_traditional_technique": 0.7249999999999999,
+          "qanun_strings": 1.23,
+          "qanun_levers": 0.195,
+          "qanun_pick": 0.345,
+          "qanun_body_wood": 4.874999999999999,
+          "qanun_bridge_skin": 0.345,
+          "qanun_string_material": 0.345
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_rb",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 4.244999999999999,
+          "drum_machine_808_context": 1.4949999999999999,
+          "tr808_production_origin": 0.8449999999999999
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_british_orange",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "half_round",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "sub_bass_synth_blend"
+        },
+        "scores": {
+          "amp_make": 4.095000000000001,
+          "body_wood": 4.16,
+          "pickup_config": 1,
+          "string_type": 3.055,
+          "scale_length_b": 3.055,
+          "fretted_or_not": 0,
+          "bass_technique": 0.995
+        }
+      },
+      {
+        "id": "multitrack_vocal_stack",
+        "slots": {
+          "multitrack_stack_density": "multitrack_density_unison_double",
+          "multitrack_stack_era_aesthetic": "multitrack_era_2000s_elastic_pitch",
+          "multitrack_stack_processing": "multitrack_processing_compressed_glued"
+        },
+        "scores": {
+          "multitrack_stack_density": 0.65,
+          "multitrack_stack_era_aesthetic": 2.645,
+          "multitrack_stack_processing": 2.8600000000000003
+        }
+      }
+    ],
+    "room": "istanbul_makam_kilic_ali_pasha_studio",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "makam_turkish",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "makam_turkish",
+    "room": "istanbul_makam_kilic_ali_pasha_studio",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

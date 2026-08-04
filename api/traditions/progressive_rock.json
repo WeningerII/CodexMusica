@@ -5,7 +5,7 @@
   "lineage": "Late-1960s through 1970s UK classical-and-jazz-influenced rock genre featuring extended composition, complex meter, virtuosic instrumental performance — codified through King Crimson (In the Court of the Crimson King 1969, the prog founding album), Yes (Fragile 1971, Close to the Edge 1972), Genesis (Selling England by the Pound 1973, the Peter Gabriel era), Pink Floyd (the post-Syd-Barrett expansion through Dark Side of the Moon 1973 and Wish You Were Here 1975), Emerson Lake and Palmer, Jethro Tull, Gentle Giant",
   "recipe": "classic Northern European 1967-1969 progressive rock, distorted Rock, progressive rock branch, classic distorted rock, experimental distorted rock psychedelic rock post-rock. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, fiberskyn synthetic calf sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative fast tremolo tonewheel organ, mellotron m400 canonical 1970 1980 prog rock standard 35 key polyester base quarter inch iron oxide canonical mellotron mellotron, gentle expressive vibrato y analog synth, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, silver yamaha modern Japanese mid to premium continuous-airflow legato flute, string machine.",
   "recipe_chars": 946,
-  "score": 823.125,
+  "score": 823.05,
   "config": {
     "traditions": [
       "progressive_rock",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 42.09000000000002,
+          "voice_register": 42.195000000000014,
           "voice_quality": 23.075000000000003,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 11.125,
+          "voice_vibrato": 11.035,
           "voice_articulation": 18.069999999999997,
           "voice_microtone": 41.22500000000001,
-          "voice_tradition": 11.045000000000002,
+          "voice_tradition": 11,
           "voice_mechanism_compound": 8.32,
-          "voice_estill_quality": 11.85,
+          "voice_estill_quality": 11.745,
           "voice_speech_song": 19.597499999999997,
           "voice_ensemble_config": 18.394999999999992,
           "voice_ornament_system": 11.905,
-          "voice_pitch_organization": 8.275,
-          "voice_processing_chain": 11.75,
+          "voice_pitch_organization": 8.425,
+          "voice_processing_chain": 11.765,
           "voice_multitrack_stack": 13.162499999999998
         }
       },
@@ -100,7 +100,7 @@
           "amp_make": 17.42,
           "body_wood": 0.845,
           "pickup_config": 0,
-          "string_type": 40.855000000000004,
+          "string_type": 40.93000000000001,
           "scale_length_b": 0.845,
           "fretted_or_not": 0,
           "bass_technique": 34.510000000000005
@@ -135,7 +135,7 @@
           "rotary_speed": 33.57500000000001,
           "percussion_setting": 17.485000000000003,
           "tonewheel_model": 25.1875,
-          "leslie_cabinet_model": 2.355
+          "leslie_cabinet_model": 2.5500000000000003
         }
       },
       {
@@ -150,7 +150,7 @@
         "scores": {
           "keyboard_technique": 1.7499999999999998,
           "mellotron_voice": 20.735000000000003,
-          "mellotron_context": 5.475,
+          "mellotron_context": 5.279999999999999,
           "mellotron_model": 23.335000000000004,
           "mellotron_tape_material": 2.2749999999999995
         }
@@ -168,7 +168,7 @@
           "electronic_technique": 1.2249999999999999,
           "oscillator": 3.675,
           "filter_topology": 2.73,
-          "envelope": 1.295,
+          "envelope": 1.49,
           "modulation": 1
         }
       },
@@ -191,10 +191,10 @@
           "grand_piano_brand": 3.63,
           "piano_hammer": 29.90000000000001,
           "piano_rim": 30.290000000000006,
-          "piano_soundboard": 10.645,
+          "piano_soundboard": 10.6,
           "piano_pinblock": 9.55,
           "piano_plate": 9.295,
-          "piano_pitch_standard": 11.175
+          "piano_pitch_standard": 11.040000000000001
         }
       },
       {
@@ -224,7 +224,7 @@
         },
         "scores": {
           "electronic_technique": 0.06499999999999999,
-          "sm_voice_count": 0.39,
+          "sm_voice_count": 0.195,
           "sm_chorus": 1.885,
           "sm_voicing": 0.95
         }

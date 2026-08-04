@@ -5,7 +5,7 @@
   "lineage": "Irish traditional instrumental dance-tune session tradition — modal melodies (Dorian and Mixolydian dominant) played on fiddle, tin whistle, flute, uilleann pipes, button accordion, concertina, bodhrán, and (in the post-Bothy-Band revival era) bouzouki and guitar in DADGAD tuning — revived from the 1960s-70s through Sean Ó Riada, Ceoltóirí Chualann, the Chieftains, the Bothy Band, Planxty, Altan, and the broader Doolin / Clare / Galway pub-session circuit",
   "recipe": "classic Northern European mid-1960s irish trad session, improv On Frame, Celtic traditional branch, string drone modal polish village fiddle huayno. magic rosin modern acrylic base double stops fiddle, African blackwood boxwood premium pre modern melodic tin whistle, flute, leather castagnari Italian premium folk music drone like accordion, dadgad tuning fingerpicked parlor acoustic guitar, low mid rich spectrum traditional gut gut string celtic harp, drone like concertina english, goat skin canonical Irish ash pre modern traditional Irish bodhran, melodic tin whistle low, full band African blackwood canonical Irish modern cane arundo donax canonical Irish leather canonical Irish bellows fed rowsome dublin tradition uilleann pipes, short-scale single string tenor banjo irish, short-scale irish bouzouki. irish pub doolin clare session. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 993,
-  "score": 194.4,
+  "score": 194.651,
   "config": {
     "traditions": [
       "celtic_irish_trad",
@@ -76,7 +76,7 @@
         "scores": {
           "free_reed_technique": 8.06,
           "accordion_reed_material": 0.9500000000000001,
-          "musette_offset": 3.715,
+          "musette_offset": 3.8349999999999995,
           "reed_config": 0.42,
           "bellows": 3.715,
           "voicing_chamber": 0.45499999999999996,
@@ -136,7 +136,7 @@
         "scores": {
           "bodhran_play": 5.525,
           "bodhran_skin": 8.895,
-          "bodhran_shell_wood": 8.168
+          "bodhran_shell_wood": 8.148499999999999
         }
       },
       {
@@ -165,7 +165,7 @@
         },
         "scores": {
           "wind_articulation": 5.92,
-          "uilleann_set": 5.489999999999999,
+          "uilleann_set": 5.64,
           "uilleann_pipes_pitch": 5.654999999999999,
           "uilleann_chanter_wood": 4.16,
           "uilleann_reed": 3.4,

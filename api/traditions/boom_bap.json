@@ -3,21 +3,21 @@
   "name": "Boom bap",
   "family": "hip_hop",
   "lineage": "East Coast 1990s sample-based hip-hop production aesthetic — codified through DJ Premier (Gang Starr, Jay-Z’s Reasonable Doubt 1996), Pete Rock, Large Professor, and Q-Tip’s A Tribe Called Quest production work; characterized by 90-95 BPM tempo, hard-snare-and-kick \"boom bap\" drum signature, jazz and soul sample loops, and East Coast lyrical-virtuoso emcee tradition",
-  "recipe": "classic North American mid-1990s boom bap, mc Rhythm, east coast branch, soul R&B functional song contemporary r&b doo-wop. thick, breath veiled tone, straight onset, narrative. sampled chopped sampler drum machine, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, sampled chopped turntable. concrete basement. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 502,
-  "score": 307.545,
+  "recipe": "classic North American mid-1990s boom bap, mc Rhythm, east coast branch, soul R&B functional song contemporary r&b. thick, blues-shouter, straight onset, narrative. sampled chopped sampler drum machine, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, sampled chopped turntable. concrete basement. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 489,
+  "score": 297.222,
   "config": {
     "traditions": [
       "boom_bap",
       "contemporary_rb_late_90s_2000s",
-      "doo_wop"
+      "hip_pop"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "aspirated_voice",
+          "voice_quality": "blues_shouter_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 27.099999999999998,
-          "voice_quality": 16.64000000000001,
+          "voice_register": 24.375,
+          "voice_quality": 13.09999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.290000000000001,
-          "voice_articulation": 19.945,
-          "voice_microtone": 19.75999999999999,
-          "voice_tradition": 17.319999999999997,
-          "voice_mechanism_compound": 5.46,
-          "voice_estill_quality": 15.744999999999997,
-          "voice_speech_song": 23.529999999999998,
-          "voice_ensemble_config": 19.824999999999992,
-          "voice_ornament_system": 2.795000000000001,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 7.55,
-          "voice_multitrack_stack": 9.229999999999999
+          "voice_vibrato": 7.065,
+          "voice_articulation": 19.795,
+          "voice_microtone": 19.629999999999992,
+          "voice_tradition": 14.37,
+          "voice_mechanism_compound": 5.785,
+          "voice_estill_quality": 12.944999999999999,
+          "voice_speech_song": 23.009999999999994,
+          "voice_ensemble_config": 19.694999999999997,
+          "voice_ornament_system": 2.860000000000001,
+          "voice_pitch_organization": 1.6899999999999997,
+          "voice_processing_chain": 11.25,
+          "voice_multitrack_stack": 7.084999999999999
         }
       },
       {
@@ -61,17 +61,17 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 6.595,
+          "electronic_technique": 8.594999999999999,
           "sample_bitdepth": 3.585,
-          "sample_swing": 10.139999999999999,
-          "sample_processing": 0.585
+          "sample_swing": 12.59,
+          "sample_processing": 0.39
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_b15",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "split_coil",
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "long_scale_b",
@@ -79,13 +79,13 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "amp_make": 21.314999999999998,
-          "body_wood": 0.585,
+          "amp_make": 18.339999999999996,
+          "body_wood": 0.5249999999999999,
           "pickup_config": 0,
-          "string_type": 22.164999999999996,
+          "string_type": 19.695,
           "scale_length_b": 0.8999999999999999,
-          "fretted_or_not": 0.105,
-          "bass_technique": 15.45
+          "fretted_or_not": 0.195,
+          "bass_technique": 13.95
         }
       },
       {
@@ -95,8 +95,8 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 6.595,
-          "turntable_technique": 13.02
+          "electronic_technique": 8.594999999999999,
+          "turntable_technique": 13.62
         }
       }
     ],

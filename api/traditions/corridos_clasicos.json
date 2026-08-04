@@ -1,0 +1,164 @@
+{
+  "id": "corridos_clasicos",
+  "name": "Corridos Clásicos",
+  "family": "global",
+  "lineage": "Mexican-Texan narrative ballad tradition rooted in the border conflicts of 1848-1930 and commercially codified on record from the 1930s-1960s by Los Alegres de Terán, Dueto América, Los Cadetes de Linares and later Los Tigres del Norte, set in strophic quatrains sung in parallel thirds by a male duo over a 3/4 or fast 2/4 norteño frame of diatonic button accordion, bajo sexto and tololoche, with formulaic opening and farewell despedida verses.",
+  "recipe": "classic Southwestern American early-1840s corridos clásicos, functional Song, corrido branch, tejano border ranchera, Mexican functional song sierreño. sygyt, full chest belt, slow rate, interlocked note trading. nickel wound modern tejano bajo sexto, castagnari Italian premium folk music chordal accordion, venice catlin high twist renaissance bass plywood laminate double bass, low mid rich spectrum broken in fast cedar classical nylon-string guitar. mariachi and bolero defining room 1948-1975 mid tier mexico peerless musart 50s 60s. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 653,
+  "score": 187.389,
+  "config": {
+    "traditions": [
+      "corridos_clasicos",
+      "ranchera",
+      "sierreno"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "sygyt_register",
+          "voice_quality": "full_chest_belt_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 1.4949999999999999,
+          "voice_quality": 20.62937499999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.5275,
+          "voice_articulation": 14.754999999999992,
+          "voice_microtone": 13.25999999999999,
+          "voice_tradition": 8.060000000000002,
+          "voice_mechanism_compound": 4.8100000000000005,
+          "voice_estill_quality": 13.079999999999998,
+          "voice_speech_song": 23.952499999999997,
+          "voice_ensemble_config": 13.649999999999993,
+          "voice_ornament_system": 0.845,
+          "voice_pitch_organization": 3.1200000000000006,
+          "voice_processing_chain": 5.069999999999999,
+          "voice_multitrack_stack": 6.3021875000000005
+        }
+      },
+      {
+        "id": "bajo_sexto",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "bajo_courses": "twelve_string_bajo",
+          "bajo_top": "cedar_bj",
+          "bajo_strings": "bajo_nickel_wound",
+          "bajo_back_wood": "bajo_mahogany_back"
+        },
+        "scores": {
+          "plucked_traditional_technique": 2.015,
+          "bajo_courses": 11.445,
+          "bajo_top": 0.24,
+          "bajo_strings": 4.55,
+          "bajo_back_wood": 0
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_chordal_chugging",
+          "accordion_reed_material": "brass_reeds",
+          "musette_offset": "italian_tuning",
+          "reed_config": "lmm",
+          "bellows": "all_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 12.112187500000001,
+          "accordion_reed_material": 0.585,
+          "musette_offset": 0.195,
+          "reed_config": 0.3,
+          "bellows": 0.195,
+          "voicing_chamber": 0.195,
+          "accordion_maker_school": 1.2349999999999999
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "bass_size": "bass_three_quarter",
+          "bass_strings": "venice_catlin_bass",
+          "bass_top_wood": "plywood_bass_top",
+          "bass_back_wood": "european_maple_bass_back",
+          "bass_varnish": "oil_amber_varnish_bass",
+          "bass_setup_period": "baroque_setup_bass",
+          "bass_play": "bass_arco",
+          "bass_rosin": "pop_kolstein_rosin",
+          "bass_bow_stick": "pernambuco_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": 0.375,
+          "bass_size": 0.195,
+          "bass_strings": 2.015,
+          "bass_top_wood": 1.25,
+          "bass_back_wood": 1.8199999999999998,
+          "bass_varnish": 1.625,
+          "bass_setup_period": 2.145,
+          "bass_play": 0.195,
+          "bass_rosin": 4.1925,
+          "bass_bow_stick": 1.6199999999999999
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "double_top_cl",
+          "string_classical": "plain_lamb_gut_classical_guitar",
+          "attack_technique_cl": "apoyando_cl"
+        },
+        "scores": {
+          "acoustic_technique": 2.9378125000000006,
+          "string_tuning": 0,
+          "top_wood_classical": 9.1,
+          "bracing_classical": 0.195,
+          "string_classical": 0.12999999999999998,
+          "attack_technique_cl": 0.57
+        }
+      }
+    ],
+    "room": "mexico_peerless_musart_50s_60s",
+    "archetype": "arch_churubusco_ranchera_bolero",
+    "inline_chain": {
+      "mic": "mic_rca_44bx_ribbon",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "ranchera_3_4_and_2_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "ranchera_3_4_and_2_4",
+    "room": "mexico_peerless_musart_50s_60s",
+    "chain_mic": "mic_rca_44bx_ribbon",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
+  }
+}

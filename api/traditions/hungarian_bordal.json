@@ -5,7 +5,7 @@
   "lineage": "Hungarian bordal (wine-song) tradition continuous from medieval-Hungarian wine-and-tavern-song origins through 19th-century Hungarian-national-Romantic-era Liszt-and-Bartók-folk-collection continuous through 20th-century Hungarian continuous wine-cellar (pince) and tavern (csárda) practice; the Hungarian wine-region tradition (Tokaj, Eger, Villány) integrates extensive wine-celebration song-repertoire",
   "recipe": "classic modern hungarian bordal, drinking Song, European branch, balkan drinking song, iberian functional song, European wedding georgian supra feast-singing macedonian-serbian kafana drinking song. thick, breath veiled tone, fast rate, interlocked note trading. synthetic magic rosin modern acrylic base drone like fiddle, sustained and staccato hungarian tradition concert pedal cimbalom large frame pedal damper cimbalom. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 498,
-  "score": 180.066,
+  "score": 179.496,
   "config": {
     "traditions": [
       "hungarian_bordal",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 4.105,
+          "voice_register": 4.255000000000001,
           "voice_quality": 8.125,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.69,
           "voice_articulation": 13.129999999999995,
           "voice_microtone": 14.169999999999991,
-          "voice_tradition": 27.8375,
+          "voice_tradition": 27.5075,
           "voice_mechanism_compound": 0.78,
           "voice_estill_quality": 0.585,
           "voice_speech_song": 30.159999999999993,
-          "voice_ensemble_config": 16.765625,
+          "voice_ensemble_config": 16.570625,
           "voice_ornament_system": 2.8149999999999995,
-          "voice_pitch_organization": 8.486875,
+          "voice_pitch_organization": 8.291875,
           "voice_processing_chain": 1.3649999999999998,
           "voice_multitrack_stack": 0.975
         }

@@ -1,0 +1,148 @@
+{
+  "id": "new_jersey_rap",
+  "name": "New Jersey Rap",
+  "family": "hip_hop",
+  "lineage": "Hip-hop of Newark, East Orange, Jersey City and South Jersey running from Sugar Hill Records' Englewood sessions in 1979 through Naughty by Nature, Redman and the Fugees in the 1990s to the Jersey-club-driven drill of Bandmanrill and Sha EK after 2020 — early phase is East Coast boom bap at 90-95 BPM with dusty soul loops and hard-swung snares; the recent phase runs 140-150 BPM over Jersey club's kick-kick-pause-kick bed-squeak pattern with sliding 808s",
+  "recipe": "classic mid-1990s new jersey rap, mc Rhythm, east coast branch, drill MC rhythm, us hip hop modern, footwork electronic dance pittsburgh rap scam rap. thick, rap, straight onset, interlocked note trading. chopped sampler, sampled chopped turntable, behringer rd 8 modern clone analog circuit reproduction TR-808, snappy to palm hand clap, regional style kit party arranger diy sequenced korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits sub bass rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 721,
+  "score": 291.41,
+  "config": {
+    "traditions": [
+      "new_jersey_rap",
+      "pittsburgh_rap",
+      "scam_rap"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 7.2700000000000005,
+          "voice_quality": 24.505000000000003,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 6.15,
+          "voice_articulation": 15.404999999999994,
+          "voice_microtone": 18.004999999999992,
+          "voice_tradition": 10.34,
+          "voice_mechanism_compound": 4.874999999999999,
+          "voice_estill_quality": 4.8100000000000005,
+          "voice_speech_song": 25.375000000000004,
+          "voice_ensemble_config": 16.184999999999995,
+          "voice_ornament_system": 8.385000000000002,
+          "voice_pitch_organization": 1.1049999999999998,
+          "voice_processing_chain": 15.11,
+          "voice_multitrack_stack": 3.607500000000001
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 8.92,
+          "sampler_archetypes": 14.95,
+          "sampler_bit_depth": 3.25,
+          "sampler_workflow": 10.45,
+          "sampler_classic_context": 29.802499999999995
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_scratch"
+        },
+        "scores": {
+          "electronic_technique": 8.92,
+          "turntable_technique": 13.665
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 9.45,
+          "drum_machine_808_context": 3.3299999999999996,
+          "tr808_production_origin": 3.25
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_room_natural"
+        },
+        "scores": {
+          "clap_technique": 1.69,
+          "clap_capture": 0.345
+        }
+      },
+      {
+        "id": "rompler_workstation",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "rompler_preset_bank": "rompler_preset_oriental_arranger",
+          "rompler_context": "rompler_context_township_midi",
+          "rompler_lineage": "rompler_korg_pa_arranger"
+        },
+        "scores": {
+          "electronic_technique": 10.495,
+          "rompler_preset_bank": 1.4300000000000002,
+          "rompler_context": 1.855,
+          "rompler_lineage": 1.4300000000000002
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "mic_sm7b_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

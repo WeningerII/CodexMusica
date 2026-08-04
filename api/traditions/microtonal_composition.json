@@ -3,9 +3,9 @@
   "name": "Microtonal composition (twentieth-century non-12-TET)",
   "family": "classical",
   "lineage": "American twentieth-century compositional movement systematically employing tunings outside twelve-tone-equal-temperament. Harry Partch (1901-1974) developed his 43-tone just-intonation system and built custom instruments (Cloud-Chamber Bowls, Marimba Eroica, Diamond Marimba) to realize it; Ben Johnston (1926-2019) extended just-intonation into traditional Western chamber-music; Pauline Oliveros, James Tenney, and La Monte Young extended into electronic-and-drone microtonality.",
-  "recipe": "classic North American early-1900s microtonal composition, art Music, western modern branch, string drone modal mbira tradition son jarocho. thick, breath veiled tone, slow rate, interlocked note trading. aluminum wound sitka spruce bigleaf maple western maple oil varnish violin orchestral, beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano. shoebox concert hall. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe": "classic North American early-1900s microtonal composition, art Music, western modern branch, string drone modal mbira tradition son jarocho. thick, breath veiled tone, slow rate, interlocked note trading. silver wound lamb gut core sitka spruce bigleaf maple western maple violin orchestral, beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano. shoebox concert hall. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 499,
-  "score": 224.685,
+  "score": 224.597,
   "config": {
     "traditions": [
       "microtonal_composition",
@@ -46,17 +46,17 @@
           "voice_estill_quality": 6.695,
           "voice_speech_song": 20.019999999999996,
           "voice_ensemble_config": 13.714999999999995,
-          "voice_ornament_system": 5.18525,
-          "voice_pitch_organization": 5.2749999999999995,
-          "voice_processing_chain": 9.725000000000001,
-          "voice_multitrack_stack": 4.385
+          "voice_ornament_system": 5,
+          "voice_pitch_organization": 5.515,
+          "voice_processing_chain": 10.16,
+          "voice_multitrack_stack": 4.430000000000001
         }
       },
       {
         "id": "violin_orchestral",
         "slots": {
           "bowed_technique": "bowed_legato_classical",
-          "orch_strings": "aluminum_wound_gut_violin",
+          "orch_strings": "silver_wound_lamb_gut_violin",
           "orch_top_wood": "sitka_spruce_violin_top",
           "orch_back_wood": "bigleaf_western_maple_violin",
           "orch_varnish": "oil_amber_varnish_violin",
@@ -68,13 +68,13 @@
         },
         "scores": {
           "bowed_technique": 2.5,
-          "orch_strings": 2.8852499999999996,
-          "orch_top_wood": 8.254999999999999,
-          "orch_back_wood": 7.0584999999999996,
+          "orch_strings": 2.79,
+          "orch_top_wood": 7.909999999999999,
+          "orch_back_wood": 6.745,
           "orch_varnish": 6.25,
-          "orch_setup_period": 5.96875,
+          "orch_setup_period": 5.755000000000001,
           "orch_bow": 1.3,
-          "orch_bow_stick": 6.4775,
+          "orch_bow_stick": 6.485,
           "orch_articulation": 1.6899999999999997,
           "orch_rosin": 6.49
         }
@@ -94,14 +94,14 @@
         },
         "scores": {
           "keyboard_technique": 2.545,
-          "grand_piano_size": 0.79975,
-          "grand_piano_brand": 2.7852499999999996,
-          "piano_hammer": 9.3375,
+          "grand_piano_size": 0.745,
+          "grand_piano_brand": 2.5999999999999996,
+          "piano_hammer": 9.344999999999999,
           "piano_rim": 10.465,
-          "piano_soundboard": 9.15,
-          "piano_pinblock": 6.34,
+          "piano_soundboard": 9.585,
+          "piano_pinblock": 6.385,
           "piano_plate": 6.49,
-          "piano_pitch_standard": 7.585
+          "piano_pitch_standard": 7.675000000000001
         }
       }
     ],

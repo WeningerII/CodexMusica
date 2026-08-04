@@ -5,7 +5,7 @@
   "lineage": "Modern Mandarin Chinese popular music developed from 2000s onward through Jay Chou's post-2000 commercial peak and the broader Taiwanese and Mainland Chinese market. Characterized by sophisticated R&B-and-hip-hop-influenced production, romantic-ballad emphasis, and contemporary Mandarin-pop commercial-radio aesthetic. Jay Chou, JJ Lin, Eason Chan (Cantopop crossover), G.E.M., and the contemporary Mainland Chinese reality-show winners constitute the canonical contemporary mandopop roster.",
   "recipe": "classic East Asian mandopop modern, functional Song, east Asian pop branch, chanson fado ballad poetry cape verdean batuko of santiago island greek éntechno. thick, breath veiled tone, straight onset, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, modeled amp modern rig mahogany stainless steel roundwound electric bass, pre muffled edge muffled brushes-and-sticks drum kit, fast decay focused low lead analog synth. hong kong flagship 1980-2000 mid tier hong kong cantopop studio 80s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 686,
-  "score": 440.514,
+  "score": 439.017,
   "config": {
     "traditions": [
       "mandopop_modern",
@@ -38,18 +38,18 @@
           "voice_quality": 28.08,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 10.271499999999998,
+          "voice_vibrato": 10.134999999999998,
           "voice_articulation": 22.164999999999996,
           "voice_microtone": 24.40749999999999,
-          "voice_tradition": 28.663999999999994,
+          "voice_tradition": 27.109999999999996,
           "voice_mechanism_compound": 5.329999999999999,
           "voice_estill_quality": 7.5075,
           "voice_speech_song": 30.322499999999994,
           "voice_ensemble_config": 21.254999999999995,
-          "voice_ornament_system": 3.1750000000000003,
-          "voice_pitch_organization": 11.064499999999995,
-          "voice_processing_chain": 15.498,
-          "voice_multitrack_stack": 16.6895
+          "voice_ornament_system": 3.3850000000000002,
+          "voice_pitch_organization": 10.759999999999996,
+          "voice_processing_chain": 15.794999999999998,
+          "voice_multitrack_stack": 16.49
         }
       },
       {
@@ -68,13 +68,13 @@
         "scores": {
           "keyboard_technique": 9.495,
           "grand_piano_size": 1.69,
-          "grand_piano_brand": 4.289999999999999,
-          "piano_hammer": 17.6565,
-          "piano_rim": 21.137999999999998,
-          "piano_soundboard": 18.5325,
+          "grand_piano_brand": 4.4399999999999995,
+          "piano_hammer": 17.415,
+          "piano_rim": 20.759999999999998,
+          "piano_soundboard": 18.375,
           "piano_pinblock": 10.24,
-          "piano_plate": 11.476500000000001,
-          "piano_pitch_standard": 13.314999999999998
+          "piano_plate": 11.34,
+          "piano_pitch_standard": 13.659999999999998
         }
       },
       {
@@ -90,10 +90,10 @@
         },
         "scores": {
           "amp_make": 3.39,
-          "body_wood": 1.08,
-          "pickup_config": 3.4899999999999998,
-          "string_type": 3.7749999999999995,
-          "scale_length_b": 3.4899999999999998,
+          "body_wood": 1.38,
+          "pickup_config": 3.5349999999999997,
+          "string_type": 3.8349999999999995,
+          "scale_length_b": 3.79,
           "fretted_or_not": 1.4949999999999999,
           "bass_technique": 7.375
         }
@@ -107,7 +107,7 @@
         },
         "scores": {
           "drum_technique": 20.929999999999996,
-          "drumhead": 17.283,
+          "drumhead": 17.01,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -121,9 +121,9 @@
           "modulation": "lfo_pitch"
         },
         "scores": {
-          "electronic_technique": 10.866499999999998,
+          "electronic_technique": 10.729999999999999,
           "oscillator": 1.4949999999999999,
-          "filter_topology": 1.3215000000000001,
+          "filter_topology": 1.635,
           "envelope": 1.4949999999999999,
           "modulation": 0.045
         }

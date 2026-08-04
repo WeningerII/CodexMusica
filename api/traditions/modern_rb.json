@@ -3,13 +3,14 @@
   "name": "Modern R&B",
   "family": "hip_hop",
   "lineage": "Modern neo-soul breath-admixed contemporary-r&b vocal aesthetic codified through D’Angelo (Brown Sugar 1995, Voodoo 2000), Erykah Badu (Baduizm 1997), Maxwell, Lauryn Hill (The Miseducation of Lauryn Hill 1998), and the Soulquarians collective with Questlove and J Dilla — characterized by jazz-chord harmonic vocabulary, drum-machine-and-live-band hybrid production, and intimate-confessional vocal performance",
-  "recipe": "classic mid-1990s modern r&b, functional Song, soul R&B branch, us hip hop modern cloud rap. thick, breath admixed, straight onset, interlocked note trading. drum machine analog, sub bass wavetable synth, gospel runs electric piano tine. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 383,
-  "score": 169.05,
+  "recipe": "classic mid-1990s modern r&b, functional Song, soul R&B branch, us hip hop modern cloud rap pittsburgh rap. thick, breath admixed, straight onset, interlocked note trading. drum machine analog, sub bass wavetable synth, gospel runs electric piano tine. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 398,
+  "score": 221.332,
   "config": {
     "traditions": [
       "modern_rb",
-      "cloud_rap"
+      "cloud_rap",
+      "pittsburgh_rap"
     ],
     "instruments": [
       {
@@ -21,10 +22,10 @@
           "shuffle_quantize": "shuffle_low"
         },
         "scores": {
-          "kick_voice": 4.20375,
-          "snare_voice": 4.09875,
-          "hat_voice": 0.27675,
-          "shuffle_quantize": 4.23525
+          "kick_voice": 5.40375,
+          "snare_voice": 5.29875,
+          "hat_voice": 0.14024999999999999,
+          "shuffle_quantize": 5.41875
         }
       },
       {
@@ -36,9 +37,9 @@
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 8.75925,
-          "wt_position": 4.09875,
-          "wt_family": 4.09875,
+          "electronic_technique": 11.172749999999999,
+          "wt_position": 5.29875,
+          "wt_family": 5.29875,
           "wt_polyphony": 0.063
         }
       },
@@ -50,8 +51,8 @@
           "tine_effect": "tremolo_tine"
         },
         "scores": {
-          "keyboard_technique": 6.74325,
-          "tine_voicing": 4.09875,
+          "keyboard_technique": 8.36825,
+          "tine_voicing": 5.29875,
           "tine_effect": 0.45499999999999996
         }
       },
@@ -71,27 +72,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 9.273249999999999,
+          "voice_register": 12.748249999999997,
           "voice_quality": 9.459999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.2935,
-          "voice_articulation": 11.764999999999997,
-          "voice_microtone": 11.179999999999993,
-          "voice_tradition": 12.960500000000001,
-          "voice_mechanism_compound": 4.355,
-          "voice_estill_quality": 6.428000000000001,
-          "voice_speech_song": 14.884999999999994,
-          "voice_ensemble_config": 11.309999999999995,
-          "voice_ornament_system": 1.8849999999999996,
-          "voice_pitch_organization": 1.1049999999999998,
-          "voice_processing_chain": 8.67375,
-          "voice_multitrack_stack": 6.045
+          "voice_vibrato": 10.7265,
+          "voice_articulation": 17.029999999999998,
+          "voice_microtone": 17.939999999999994,
+          "voice_tradition": 15.469999999999999,
+          "voice_mechanism_compound": 5.005,
+          "voice_estill_quality": 7.78,
+          "voice_speech_song": 20.149999999999995,
+          "voice_ensemble_config": 16.769999999999996,
+          "voice_ornament_system": 4.615000000000002,
+          "voice_pitch_organization": 0.9944999999999999,
+          "voice_processing_chain": 11.768749999999999,
+          "voice_multitrack_stack": 6.5325000000000015
         }
       }
     ],

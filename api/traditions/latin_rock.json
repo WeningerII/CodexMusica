@@ -5,7 +5,7 @@
   "lineage": "Late-1960s-and-onward rock subgenre integrating Afro-Cuban percussion (congas, timbales, bongos) and Latin-American rhythmic-harmonic-vocabulary with rock guitar-bass-drum aesthetic. Santana (San Francisco, 1966-onward) inaugurated the canonical Latin rock sound through the 1969 Woodstock performance and the first three Santana albums (1969-1971); Malo, El Chicano, War, and (later) Café Tacuba and Maná in Spanish-language Latin-rock extended the genre.",
   "recipe": "classic North American latin rock, distorted Rock, regional branch, son salsa Cuban salsa dura salsa colombiana. thick, breath veiled tone, fast rate, interlocked note trading. marshall plexi amp British rock amp maple pau ferro nickel plated steel humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, brass open slap hand drum timbales, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos. hyde street san francisco 1969-1980 major-flagship wally heider studios sf. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 788,
-  "score": 370.382,
+  "score": 367.163,
   "config": {
     "traditions": [
       "latin_rock",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 21.444999999999997,
+          "voice_register": 21.489999999999995,
           "voice_quality": 8.060000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.27875,
+          "voice_vibrato": 3.38,
           "voice_articulation": 12.479999999999995,
-          "voice_microtone": 21.605,
+          "voice_microtone": 21.5,
           "voice_tradition": 5.785,
           "voice_mechanism_compound": 2.535,
           "voice_estill_quality": 1.4949999999999999,
           "voice_speech_song": 12.479999999999995,
           "voice_ensemble_config": 13.259999999999994,
-          "voice_ornament_system": 2.23875,
+          "voice_ornament_system": 2.34,
           "voice_pitch_organization": 2.34,
           "voice_processing_chain": 2.34,
-          "voice_multitrack_stack": 4.795250000000001
+          "voice_multitrack_stack": 4.70375
         }
       },
       {
@@ -70,19 +70,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 4.900000000000001,
-          "amp_make": 9.629,
+          "electric_technique": 4.375000000000001,
+          "amp_make": 8.6,
           "body_wood": 0.5850000000000002,
-          "neck_wood": 2.3887500000000004,
-          "fretboard": 2.3887500000000004,
-          "pickup_magnet": 0.0765,
-          "pickup_winding": 0.22349999999999998,
-          "string_material": 2.3887500000000004,
+          "neck_wood": 2.535,
+          "fretboard": 2.535,
+          "pickup_magnet": 0.195,
+          "pickup_winding": 0.15,
+          "string_material": 2.535,
           "bridge": 0.845,
           "scale_length": 3.1200000000000006,
           "string_gauge": 0.38999999999999996,
           "finish": 0,
-          "string_tuning": 14.802750000000001
+          "string_tuning": 13.923750000000002
         }
       },
       {
@@ -97,13 +97,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 11.745500000000002,
+          "amp_make": 10.985000000000001,
           "body_wood": 0.845,
           "pickup_config": 0.845,
-          "string_type": 23.079,
+          "string_type": 22.05,
           "scale_length_b": 0.38999999999999996,
-          "fretted_or_not": 0.0315,
-          "bass_technique": 21.7765
+          "fretted_or_not": 0,
+          "bass_technique": 21.895
         }
       },
       {
@@ -115,7 +115,7 @@
         },
         "scores": {
           "drum_technique": 21.75,
-          "drumhead": 2.3887500000000004,
+          "drumhead": 2.535,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -129,20 +129,20 @@
         "scores": {
           "percussion_technique": 23.065,
           "timbales_shell": 4.289999999999998,
-          "timbales_context": 0.24
+          "timbales_context": 0.525
         }
       },
       {
         "id": "congas",
         "slots": {
           "percussion_technique": "percussion_open_slap",
-          "conga_set": "quinto",
+          "conga_set": "conga_proper",
           "conga_skin": "conga_mule_hide",
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
           "percussion_technique": 23.065,
-          "conga_set": 0.21300000000000002,
+          "conga_set": 0.195,
           "conga_skin": 8.385,
           "conga_shell_wood": 8.385
         }
@@ -158,7 +158,7 @@
         "scores": {
           "percussion_technique": 23.065,
           "bongos_skin": 15.535000000000002,
-          "bongos_context": 0.0765,
+          "bongos_context": 0.045,
           "bongos_shell_wood": 8.385
         }
       }

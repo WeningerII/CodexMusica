@@ -1,0 +1,150 @@
+{
+  "id": "funk_paulista",
+  "name": "Funk paulista (São Paulo funk)",
+  "family": "electronic",
+  "lineage": "São Paulo's branch of Brazilian funk emerged in the city's periferia from roughly 2008, running from funk ostentação (Mc Guimê, Mc Boy do Charmes) into the mandelão and bruxaria styles of DJ Kevin, DJ Arana and Mc GW — 128-135 BPM, a single distorted tamborzão or beat-mandela kick-and-atabaque pattern, extreme sub-bass, pitched siren stabs, chopped and reversed vocal snippets and shouted MC ad-libs produced entirely on cracked DAWs.",
+  "recipe": "classic late-2000s funk paulista, electronic Dance, Latin electric branch, Afro-diasporic electric groove percussion, Brazilian groove percussion funk viral deboxe. vocal fry, breath veiled tone, straight note core, interlocked note trading. sampler drum machine, TR-808, sub bass monosynth acid bass, timbal brasileiro, nylon canonical rio carnival aluminum canonical modern rio escola surdo. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 501,
+  "score": 173.329,
+  "config": {
+    "traditions": [
+      "funk_paulista",
+      "funk_viral",
+      "deboxe"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 2.27625,
+          "voice_quality": 8.32,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.7799999999999998,
+          "voice_articulation": 17.224999999999994,
+          "voice_microtone": 17.029999999999994,
+          "voice_tradition": 8.872500000000002,
+          "voice_mechanism_compound": 1.755,
+          "voice_estill_quality": 1.1049999999999998,
+          "voice_speech_song": 17.614999999999995,
+          "voice_ensemble_config": 18.199999999999996,
+          "voice_ornament_system": 3.185000000000001,
+          "voice_pitch_organization": 3.34875,
+          "voice_processing_chain": 16.854999999999997,
+          "voice_multitrack_stack": 5.07
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 2.96875,
+          "sample_bitdepth": 0.195,
+          "sample_swing": 10.5,
+          "sample_processing": 0.195
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 6.251249999999999,
+          "drum_machine_808_context": 5.915,
+          "tr808_production_origin": 0.045
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wave_acid": "saw_acid",
+          "filter_acid": "closed_acid",
+          "accent_acid": "no_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": 6.196249999999999,
+          "wave_acid": 0.585,
+          "filter_acid": 3.575,
+          "accent_acid": 0.585
+        }
+      },
+      {
+        "id": "timbal_brasileiro",
+        "slots": {
+          "timbal_head": "timbal_synthetic",
+          "timbal_size": "timbal_slim",
+          "timbal_style": "timbal_solo"
+        },
+        "scores": {
+          "timbal_head": 0.3,
+          "timbal_size": 1.59,
+          "timbal_style": 0.4025
+        }
+      },
+      {
+        "id": "surdo",
+        "slots": {
+          "surdo_size": "surdo_segunda",
+          "surdo_skin": "surdo_nylon",
+          "surdo_shell": "surdo_aluminum_canonical"
+        },
+        "scores": {
+          "surdo_size": 3.3574999999999995,
+          "surdo_skin": 3.3149999999999995,
+          "surdo_shell": 3.3149999999999995
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_pumping",
+      "eq": null,
+      "amp": null,
+      "medium": "mp3_lossy_modern"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "untreated_bedroom",
+    "chain_mic": "condenser_fet",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_pumping",
+    "chain_medium": "mp3_lossy_modern",
+    "chain_console": "console_in_the_box"
+  }
+}

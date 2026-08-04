@@ -5,7 +5,7 @@
   "lineage": "Electronic perreo Latin-trap fusion codified through 2010s Puerto Rican reggaeton evolution — Bad Bunny’s X 100PRE (2018) and YHLQMDLG (2020) as breakthrough crossover records, Rosalía’s perreo-trap collaborations, characterized by 90-100 BPM dembow rhythm with autotuned-reggaeton vocals over electronic production",
   "recipe": "classic mid-2010s perreo electrónico, electronic Dance, Latin electric branch, reggaeton MC rhythm moombahton. thick, breath veiled tone, straight onset, interlocked note trading. TR-808, layered sampler, sub bass digital subtractive. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 380,
-  "score": 126.158,
+  "score": 126.49,
   "config": {
     "traditions": [
       "perreo_electronica",
@@ -30,11 +30,11 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_processing_chain": "voice_processing_stutter_edit",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 2.5857500000000018,
+          "voice_register": 2.4650000000000016,
           "voice_quality": 5.265000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -48,7 +48,7 @@
           "voice_ensemble_config": 6.11,
           "voice_ornament_system": 5.655000000000001,
           "voice_pitch_organization": 2.3399999999999994,
-          "voice_processing_chain": 16.152999999999995,
+          "voice_processing_chain": 16.154999999999998,
           "voice_multitrack_stack": 8.515
         }
       },
@@ -62,7 +62,7 @@
         "scores": {
           "tr808_voice": 1.7550000000000001,
           "drum_machine_808_context": 3.38,
-          "tr808_production_origin": 0.42999999999999994
+          "tr808_production_origin": 0.255
         }
       },
       {
@@ -76,9 +76,9 @@
         },
         "scores": {
           "electronic_technique": 0.7149999999999999,
-          "sampler_archetypes": 0.357,
-          "sampler_bit_depth": 0.36599999999999994,
-          "sampler_workflow": 1.6800000000000002,
+          "sampler_archetypes": 1.68,
+          "sampler_bit_depth": 0.21,
+          "sampler_workflow": 1.725,
           "sampler_classic_context": 22.489999999999995
         }
       },
@@ -90,8 +90,8 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 8.217625,
-          "va_archetypes": 0.01875,
+          "electronic_technique": 7.65,
+          "va_archetypes": 0,
           "digital_subtractive_context": 6.76
         }
       }

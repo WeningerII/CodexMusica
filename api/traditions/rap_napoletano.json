@@ -1,0 +1,154 @@
+{
+  "id": "rap_napoletano",
+  "name": "Rap Napoletano",
+  "family": "hip_hop",
+  "lineage": "Neapolitan-dialect rap emerged from the early-1990s centri sociali of Naples, codified by 99 Posse, Almamegretta and La Famiglia and carried forward by Co'Sang, Clementino and Rocco Hunt — 88–100 BPM boom-bap and dub-reggae hybrids with tammorra and reggae-offbeat guitar layered under sampled loops, ragga-toasting and posse-cut delivery, melodic hooks quoting canzone napoletana melody, and militant anti-camorra and anti-fascist lyrics sung entirely in napulitano.",
+  "recipe": "classic Southern European 1990-1993 rap napoletano, mc Rhythm, intl hip hop branch, reggae diaspora bass system, Mediterranean ballad ballad poetry reggae fusion ska mexicano. thick, rap, straight note core, interlocked note trading. pitched chopped sampler, ampeg svt amp rock bass amp la bella flats Detroit soul bass canon thumb muted electric bass, TR-808, sampled chopped turntable, tambourine orch. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 625,
+  "score": 261.24,
+  "config": {
+    "traditions": [
+      "rap_napoletano",
+      "reggae_fusion_modern",
+      "ska_mexicano"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 6.940000000000001,
+          "voice_quality": 14.069999999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.5100000000000002,
+          "voice_articulation": 22.619999999999997,
+          "voice_microtone": 21.319999999999993,
+          "voice_tradition": 6.305000000000001,
+          "voice_mechanism_compound": 4.9399999999999995,
+          "voice_estill_quality": 4.745,
+          "voice_speech_song": 24.569999999999997,
+          "voice_ensemble_config": 22.035,
+          "voice_ornament_system": 2.8600000000000003,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 11.195,
+          "voice_multitrack_stack": 5.6225000000000005
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 5.375000000000001,
+          "sampler_archetypes": 6.800000000000001,
+          "sampler_bit_depth": 1.9500000000000002,
+          "sampler_workflow": 6.445,
+          "sampler_classic_context": 27.9175
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "thumb_muted"
+        },
+        "scores": {
+          "amp_make": 5.98,
+          "body_wood": 0.69,
+          "pickup_config": 0.195,
+          "string_type": 5.915000000000001,
+          "scale_length_b": 0.345,
+          "fretted_or_not": 0.3,
+          "bass_technique": 20.75
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 9.465000000000002,
+          "drum_machine_808_context": 4.29,
+          "tr808_production_origin": 0.39
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_backspin"
+        },
+        "scores": {
+          "electronic_technique": 5.375000000000001,
+          "turntable_technique": 5.465000000000001
+        }
+      },
+      {
+        "id": "tambourine_orch",
+        "slots": {
+          "tambourine_orch_jingle": "tambourine_orch_nickel",
+          "tambourine_orch_context": "tambourine_orch_pop"
+        },
+        "scores": {
+          "tambourine_orch_jingle": 0,
+          "tambourine_orch_context": 1.8200000000000003
+        }
+      }
+    ],
+    "room": "naples_canzone_napoletana_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "room": "naples_canzone_napoletana_studio",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

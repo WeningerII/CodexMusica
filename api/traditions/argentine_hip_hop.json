@@ -1,0 +1,190 @@
+{
+  "id": "argentine_hip_hop",
+  "name": "Argentine Hip Hop",
+  "family": "hip_hop",
+  "lineage": "Buenos Aires rap running from Sindicato Argentino del Hip Hop and Mustafa Yoda in the 1990s to the plaza freestyle-battle circuit of El Quinto Escalon (2012-2017) that produced Duki, Wos and Trueno: 85-95 BPM boom-bap in the older wave, 130-145 BPM half-time trap in the newer, with tango, rock nacional and cumbia villera samples and a distinctive rioplatense voseo cadence honed in acapella competition.",
+  "recipe": "classic mid-2010s argentine hip hop, mc Rhythm, intl hip hop branch, reggaeton MC rhythm cubatón. thick, rap, breath pulsed, interlocked note trading. sampled chopped turntable, chopped sampler, TR-808, rock canon ernie ball slinky electric bass, upright piano, castagnari Italian premium folk music chordal accordion, multitrack vocal stack. urban courtyard. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 458,
+  "score": 225.543,
+  "config": {
+    "traditions": [
+      "argentine_hip_hop",
+      "cubaton",
+      "reggaeton"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 4.9650000000000025,
+          "voice_quality": 17.86,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.9049999999999998,
+          "voice_articulation": 15.404999999999994,
+          "voice_microtone": 16.31499999999999,
+          "voice_tradition": 7.415,
+          "voice_mechanism_compound": 4.3549999999999995,
+          "voice_estill_quality": 4.16,
+          "voice_speech_song": 18.849999999999998,
+          "voice_ensemble_config": 14.234999999999994,
+          "voice_ornament_system": 6.045000000000002,
+          "voice_pitch_organization": 0.65,
+          "voice_processing_chain": 9.544999999999998,
+          "voice_multitrack_stack": 3.640000000000001
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_backspin"
+        },
+        "scores": {
+          "electronic_technique": 6.795,
+          "turntable_technique": 6.39
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 6.795,
+          "sampler_archetypes": 9.379999999999999,
+          "sampler_bit_depth": 1.9500000000000002,
+          "sampler_workflow": 8.245,
+          "sampler_classic_context": 22.749999999999996
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 8.774999999999999,
+          "drum_machine_808_context": 2.795,
+          "tr808_production_origin": 0.605
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 2.8350000000000004,
+          "body_wood": 0,
+          "pickup_config": 0.195,
+          "string_type": 3.25,
+          "scale_length_b": 0.195,
+          "fretted_or_not": 0.045,
+          "bass_technique": 3.2
+        }
+      },
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_concert"
+        },
+        "scores": {
+          "keyboard_technique": 1.7249999999999999,
+          "upright_use": 0,
+          "upright_piano_size": 0.045
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_chordal_chugging",
+          "accordion_reed_material": "brass_reeds",
+          "musette_offset": "demi_swing",
+          "reed_config": "lmmh",
+          "bellows": "all_leather",
+          "voicing_chamber": "cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 5.850000000000001,
+          "accordion_reed_material": 0.15,
+          "musette_offset": 0.45499999999999996,
+          "reed_config": 0.195,
+          "bellows": 0.045,
+          "voicing_chamber": 0,
+          "accordion_maker_school": 1.0799999999999998
+        }
+      },
+      {
+        "id": "multitrack_vocal_stack",
+        "slots": {
+          "multitrack_stack_density": "multitrack_density_5_part_cluster",
+          "multitrack_stack_era_aesthetic": "multitrack_era_2000s_elastic_pitch",
+          "multitrack_stack_processing": "multitrack_processing_tuned_perfect"
+        },
+        "scores": {
+          "multitrack_stack_density": 0.78,
+          "multitrack_stack_era_aesthetic": 0.4225,
+          "multitrack_stack_processing": 0.325
+        }
+      }
+    ],
+    "room": "urban_courtyard",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "mic_sm58_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "urban_courtyard",
+    "chain_mic": "mic_sm58_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -3,14 +3,14 @@
   "name": "Country-pop crossover",
   "family": "global",
   "lineage": "2000s and 2010s country-pop crossover tradition codified through Shania Twain (Come On Over 1997), Faith Hill, Tim McGraw, Taylor Swift’s first three records (2006-2010 before her full pop pivot), Carrie Underwood — characterized by country-vocal lead over pop-radio production with reduced fiddle/steel and increased programmed-percussion presence",
-  "recipe": "classic 2006-2010 country-pop crossover, functional Song, contemp main branch, pop rock functional song new wave synthpop. thick, breath veiled tone, straight note core, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright alder mahogany single coil electric guitar, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 757,
-  "score": 606.53,
+  "recipe": "classic 2006-2010 country-pop crossover, functional Song, contemp main branch, pop rock functional song new wave metropopolis. thick, breath veiled tone, straight note core, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright alder mahogany single coil electric guitar, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, singing lead analog poly synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 715,
+  "score": 606.57,
   "config": {
     "traditions": [
       "country_pop_crossover",
       "new_wave",
-      "synthpop"
+      "metropopolis"
     ],
     "instruments": [
       {
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_vedic_three_tone",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_processing_chain": "voice_processing_talkbox",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 58.70000000000002,
-          "voice_quality": 8.514999999999997,
+          "voice_register": 57.80000000000002,
+          "voice_quality": 7.409999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 13.849999999999998,
-          "voice_articulation": 13.714999999999995,
-          "voice_microtone": 44.825,
-          "voice_tradition": 39.904999999999994,
-          "voice_mechanism_compound": 2.0799999999999996,
-          "voice_estill_quality": 15.974999999999996,
-          "voice_speech_song": 21.709999999999994,
-          "voice_ensemble_config": 15.989999999999991,
-          "voice_ornament_system": 0.45499999999999996,
+          "voice_vibrato": 14.499999999999998,
+          "voice_articulation": 14.949999999999998,
+          "voice_microtone": 43.92500000000001,
+          "voice_tradition": 38.254999999999995,
+          "voice_mechanism_compound": 2.925,
+          "voice_estill_quality": 16.474999999999998,
+          "voice_speech_song": 21.904999999999998,
+          "voice_ensemble_config": 16.509999999999994,
+          "voice_ornament_system": 0.9099999999999997,
           "voice_pitch_organization": 1.56,
-          "voice_processing_chain": 15.53,
-          "voice_multitrack_stack": 9.23
+          "voice_processing_chain": 10.314999999999998,
+          "voice_multitrack_stack": 12.317499999999997
         }
       },
       {
@@ -65,22 +65,22 @@
           "string_gauge": "g_11",
           "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
-          "finish": "nitro",
+          "finish": "poly",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 32.455,
-          "amp_make": 14.244999999999997,
+          "electric_technique": 31.729999999999997,
+          "amp_make": 18.844999999999995,
           "body_wood": 1.435,
-          "neck_wood": 1.04,
-          "fretboard": 0.975,
+          "neck_wood": 1.235,
+          "fretboard": 1.17,
           "pickup_magnet": 0.195,
           "string_material": 1.72,
           "string_gauge": 1.69,
           "bridge": 1.54,
-          "scale_length": 1.04,
-          "finish": 0.09,
-          "string_tuning": 8.384999999999998
+          "scale_length": 1.235,
+          "finish": 0.5,
+          "string_tuning": 8.84
         }
       },
       {
@@ -91,17 +91,17 @@
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive"
         },
         "scores": {
           "amp_make": 13.589999999999998,
-          "body_wood": 1.04,
-          "pickup_config": 1.975,
-          "string_type": 18.525,
+          "body_wood": 1.235,
+          "pickup_config": 2.625,
+          "string_type": 19.6625,
           "scale_length_b": 1.04,
-          "fretted_or_not": 0.045,
-          "bass_technique": 18.714999999999996
+          "fretted_or_not": 0.545,
+          "bass_technique": 19.215
         }
       },
       {
@@ -112,8 +112,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 14.689999999999996,
-          "drumhead": 31.339999999999996,
+          "drum_technique": 15.275,
+          "drumhead": 29.839999999999996,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -128,18 +128,18 @@
           "piano_soundboard": "asian_spruce_soundboard",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
           "piano_plate": "wet_sand_cast_plate",
-          "piano_pitch_standard": "a_442_european"
+          "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": 31.169999999999998,
+          "keyboard_technique": 29.669999999999998,
           "grand_piano_size": 1.48,
-          "grand_piano_brand": 2.08,
-          "piano_hammer": 31.579999999999995,
-          "piano_rim": 33.285,
-          "piano_soundboard": 31.294999999999998,
+          "grand_piano_brand": 1.4300000000000002,
+          "piano_hammer": 30.579999999999995,
+          "piano_rim": 31.985,
+          "piano_soundboard": 29.794999999999998,
           "piano_pinblock": 0.9099999999999999,
-          "piano_plate": 2.9899999999999998,
-          "piano_pitch_standard": 2.6
+          "piano_plate": 3.1849999999999996,
+          "piano_pitch_standard": 3.9949999999999997
         }
       },
       {
@@ -148,13 +148,13 @@
           "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_16_voice",
-          "poly_maker_lineage": "poly_roland_jupiter"
+          "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 33.185,
-          "poly_archetypes": 7.409999999999999,
-          "poly_voices": 0.585,
-          "poly_maker_lineage": 1.6249999999999991
+          "electronic_technique": 31.609999999999996,
+          "poly_archetypes": 7.865,
+          "poly_voices": 0.39,
+          "poly_maker_lineage": 0.4549999999999999
         }
       }
     ],

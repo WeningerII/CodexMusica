@@ -1,0 +1,158 @@
+{
+  "id": "rap_cristiano",
+  "name": "Rap Cristiano",
+  "family": "hip_hop",
+  "lineage": "Spanish-language Christian hip hop developed across Puerto Rico, the Dominican Republic, Mexico and the US Latino church from the mid-1990s, professionalised after 2005 by Redimi2, Funky, Alex Zurdo and Manny Montes — 85-100 BPM boom-bap and reggaeton-inflected programming, sung R&B choruses, piano and string sample beds, and dense doctrinal or testimonial verse delivered with clear diction over 808 sub and clap-driven backbeats.",
+  "recipe": "classic 1994-1996 rap cristiano, mc Rhythm, intl hip hop branch, reggaeton MC rhythm, christian gospel ritual devotional contemporary christian music sacred steel. thick, declaimed, straight onset, interlocked note trading. sampled chopped sampler drum machine, roland tr 8s modern aira digital recreation TR-808, sub bass digital subtractive, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, snappy to palm hand clap. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 664,
+  "score": 303.011,
+  "config": {
+    "traditions": [
+      "rap_cristiano",
+      "ccm",
+      "sacred_steel"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 21.814999999999994,
+          "voice_quality": 24.339999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.45,
+          "voice_articulation": 20.734999999999992,
+          "voice_microtone": 20.539999999999992,
+          "voice_tradition": 18.694999999999997,
+          "voice_mechanism_compound": 2.275,
+          "voice_estill_quality": 13.549999999999997,
+          "voice_speech_song": 21.18999999999999,
+          "voice_ensemble_config": 22.099999999999994,
+          "voice_ornament_system": 8.399999999999999,
+          "voice_pitch_organization": 1.755,
+          "voice_processing_chain": 8.71375,
+          "voice_multitrack_stack": 7.540000000000001
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twelve_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 3.895,
+          "sample_bitdepth": 1.9500000000000002,
+          "sample_swing": 6.5,
+          "sample_processing": 1.4949999999999999
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 5.899375000000001,
+          "drum_machine_808_context": 2.795,
+          "tr808_production_origin": 1.27375
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 7.349375,
+          "va_archetypes": 0,
+          "digital_subtractive_context": 21.514999999999997
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 13.7,
+          "grand_piano_size": 1.15,
+          "grand_piano_brand": 1.48,
+          "piano_hammer": 6.119375,
+          "piano_rim": 6.55,
+          "piano_soundboard": 5.75,
+          "piano_pinblock": 3.1137500000000005,
+          "piano_plate": 3.335,
+          "piano_pitch_standard": 7.865
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_room_natural"
+        },
+        "scores": {
+          "clap_technique": 1.7312499999999997,
+          "clap_capture": 0.045
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

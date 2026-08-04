@@ -1,0 +1,199 @@
+{
+  "id": "torch_song",
+  "name": "Torch Song",
+  "family": "jazz",
+  "lineage": "American cabaret-and-popular ballad of unrequited love, named for 'carrying a torch' and codified in the late-1920s Broadway and speakeasy revues by Helen Morgan and Libby Holman, then perfected on record between 1935 and 1960 by Billie Holiday, Judy Garland, Frank Sinatra and Julie London — slow rubato 32-bar AABA or verse-and-chorus forms at roughly 55-75 BPM, lush strings and muted brass or a solo piano, a spoken-to-sung verse preamble, and a conversational, near-confessional vocal that trades vibrato for microphone intimacy.",
+  "recipe": "classic North American 1927-1929 torch song, improv On Frame, smooth vocal branch, crooners functional song, chanson fado classic chanson, American jazz bop cool jazz / west coast modal jazz. thick, breath veiled tone, straight onset, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator a 441 grand piano, string quartet inst, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris lyrical continuous-airflow saxophone, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral lyrical lead trumpet trumpet, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, vibraphone. capitol tower 1750 vine 1956-present major-flagship capitol tower studios la. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 890,
+  "score": 464.93,
+  "config": {
+    "traditions": [
+      "torch_song",
+      "cool_jazz_west_coast",
+      "modal_jazz"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "jazz_scat_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sami_yoik",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 20.744999999999994,
+          "voice_quality": 10.594999999999995,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 22.479999999999997,
+          "voice_articulation": 19.89,
+          "voice_microtone": 21.644999999999996,
+          "voice_tradition": 22.35,
+          "voice_mechanism_compound": 3.1849999999999996,
+          "voice_estill_quality": 3.335000000000001,
+          "voice_speech_song": 22.490000000000002,
+          "voice_ensemble_config": 19.37,
+          "voice_ornament_system": 0.945,
+          "voice_pitch_organization": 2.3300000000000005,
+          "voice_processing_chain": 6.044999999999999,
+          "voice_multitrack_stack": 4.874999999999999
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_5_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_441_japanese"
+        },
+        "scores": {
+          "keyboard_technique": 1.24,
+          "grand_piano_size": 1.34,
+          "grand_piano_brand": 0.39,
+          "piano_hammer": 6.89,
+          "piano_rim": 6.89,
+          "piano_soundboard": 0.49999999999999994,
+          "piano_pinblock": -0.05,
+          "piano_plate": 0.25,
+          "piano_pitch_standard": 7.9849999999999985
+        }
+      },
+      {
+        "id": "string_quartet_inst",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "quartet_school": "quartet_modern",
+          "string_quartet_inst_era": "string_quartet_inst_contemporary"
+        },
+        "scores": {
+          "bowed_technique": 0.09999999999999999,
+          "quartet_school": 0.9500000000000001,
+          "string_quartet_inst_era": 1.4249999999999998
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_cool_lyrical",
+          "sax_size": "alto_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "phosphor_bronze_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 5.444999999999999,
+          "sax_size": 5.744999999999998,
+          "sax_reed": 0.195,
+          "sax_body_alloy": 20.25,
+          "sax_mouthpiece": 0.6,
+          "sax_technique": 20.25,
+          "sax_maker_school": 22.544999999999998
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_cool_lyrical",
+          "brass_size": "flugelhorn",
+          "trumpet_mouthpiece": "yamaha_bobby_shew_lead_mp",
+          "brass_mute": "harmon_out",
+          "trumpet_technique": "trumpet_bebop_lines",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 5.444999999999999,
+          "brass_size": 0.39,
+          "trumpet_mouthpiece": 22.914999999999996,
+          "brass_mute": 2.0999999999999996,
+          "trumpet_technique": 5.249999999999999,
+          "trumpet_bell_metal": 2.145,
+          "trumpet_maker_school": 8.19
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "gut_wound_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "upright_strings": 20.25,
+          "upright_play": 20.25
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "vintage_ambassador_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 28.794999999999998,
+          "drumhead": 21.744999999999997,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "vibraphone",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "vibe_motor": "vibe_slow",
+          "vibe_mallets": "vibe_soft_mallets"
+        },
+        "scores": {
+          "percussion_technique": 0.75,
+          "vibe_motor": 22.835,
+          "vibe_mallets": 20.25
+        }
+      }
+    ],
+    "room": "capitol_tower_studios_la",
+    "archetype": "arch_60s_la_smallroom_chambers",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_ua_610_tube",
+      "console": "console_american_op_amp",
+      "comp": "comp_fairchild_670_tube",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "tin_pan_alley_thirty_two_bar_aaba",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "tin_pan_alley_thirty_two_bar_aaba",
+    "room": "capitol_tower_studios_la",
+    "chain_mic": "mic_u47_tube_neumann",
+    "chain_pre": "pre_ua_610_tube",
+    "chain_comp": "comp_fairchild_670_tube",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_american_op_amp"
+  }
+}

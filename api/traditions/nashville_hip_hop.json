@@ -1,0 +1,172 @@
+{
+  "id": "nashville_hip_hop",
+  "name": "Nashville hip-hop",
+  "family": "hip_hop",
+  "lineage": "Developed in North Nashville from the late 1990s onward through Young Buck's move into G-Unit and the independent Cashville circuit of Starlito, Don Trip and All Star — 70-90 BPM half-time Southern beats with 808 sub kicks, rolling triplet hats, sparse guitar and organ interpolations drawn from the city's session infrastructure, and dry, plainspoken conversational delivery.",
+  "recipe": "classic 1997-1999 nashville hip-hop, mc Rhythm, southern branch, us hip hop gangsta, us hip hop modern pittsburgh rap. thick, rap, straight onset, narrative. behringer rd 8 modern clone analog circuit reproduction TR-808, sampled chopped sampler drum machine, Fender blackface amp American 60s amp spring reverb bright roasted maple maple single coil electric guitar, mark 7 modern tine post 2007 reissue ostinato rhodes electric, late 1980s reverb saturated bus stack hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 743,
+  "score": 283.034,
+  "config": {
+    "traditions": [
+      "nashville_hip_hop",
+      "gangsta_rap",
+      "pittsburgh_rap"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 5.5925,
+          "voice_quality": 27.239250000000002,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 8.097875,
+          "voice_articulation": 16.60425,
+          "voice_microtone": 19.629999999999992,
+          "voice_tradition": 13.764500000000002,
+          "voice_mechanism_compound": 3.12,
+          "voice_estill_quality": 4.16,
+          "voice_speech_song": 26.154625000000003,
+          "voice_ensemble_config": 18.264999999999997,
+          "voice_ornament_system": 8.190000000000003,
+          "voice_pitch_organization": 2.062,
+          "voice_processing_chain": 17.01525,
+          "voice_multitrack_stack": 6.305000000000001
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 14.1415,
+          "drum_machine_808_context": 5.2,
+          "tr808_production_origin": 3.3571249999999995
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "chopped_break"
+        },
+        "scores": {
+          "electronic_technique": 11.78575,
+          "sample_bitdepth": 2.275,
+          "sample_swing": 20.995000000000005,
+          "sample_processing": 0.95
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "roasted_maple",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "flatwound_elec",
+          "string_gauge": "g_12",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_c"
+        },
+        "scores": {
+          "electric_technique": 14.450000000000003,
+          "amp_make": 5.5215000000000005,
+          "body_wood": 0.845,
+          "neck_wood": 1,
+          "fretboard": 0.78,
+          "pickup_magnet": 0.284625,
+          "string_material": 0.273,
+          "string_gauge": 1.04,
+          "bridge": 1.885,
+          "scale_length": 0.845,
+          "finish": 0.3,
+          "string_tuning": 1.04
+        }
+      },
+      {
+        "id": "rhodes_electric",
+        "slots": {
+          "keyboard_technique": "keyboard_ostinato_groove",
+          "rhodes_model": "rhodes_mark1_stage",
+          "rhodes_use": "rhodes_soul",
+          "rhodes_tine_material": "rhodes_mark7_modern_tine",
+          "rhodes_hammer_tip": "rhodes_harder_neoprene_late",
+          "rhodes_pickup_position": "rhodes_pickup_centered"
+        },
+        "scores": {
+          "keyboard_technique": 3.5,
+          "rhodes_model": 3.4450000000000003,
+          "rhodes_use": 1.2349999999999999,
+          "rhodes_tine_material": 1.885,
+          "rhodes_hammer_tip": 0.5850000000000002,
+          "rhodes_pickup_position": 0.845
+        }
+      },
+      {
+        "id": "multitrack_vocal_stack",
+        "slots": {
+          "multitrack_stack_density": "multitrack_density_unison_double",
+          "multitrack_stack_era_aesthetic": "multitrack_era_late_1980s_reverb_bus",
+          "multitrack_stack_processing": "multitrack_processing_tuned_perfect"
+        },
+        "scores": {
+          "multitrack_stack_density": 0.15525,
+          "multitrack_stack_era_aesthetic": 3.185,
+          "multitrack_stack_processing": 1.4299999999999997
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

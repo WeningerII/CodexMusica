@@ -1,0 +1,206 @@
+{
+  "id": "classic_texas_country",
+  "name": "Classic Texas Country",
+  "family": "country",
+  "lineage": "Texas country took shape in the beer-hall circuit between Fort Worth and San Antonio from the late 1930s through the 1960s, codified by Ernest Tubb, Lefty Frizzell, Ray Price and Willie Nelson — 110–140 BPM shuffles and 2/4 dance beats with a walking upright or electric bass, twin-fiddle harmony, pedal steel and single-coil electric lead over acoustic rhythm guitar, brushed or lightly-swung snare, and a plainspoken slurred baritone vocal built to carry across a wooden dance floor.",
+  "recipe": "classic Southern American 1937-1939 classic texas country, functional Song, neo trad branch, honky tonk era country, western swing country, outlaw country redneck rock classic oklahoma country. thick, breath veiled tone, wide pitch sway, interlocked note trading. steel double stops fiddle, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Fender blackface amp American 60s amp spring reverb bright mahogany nickel plated steel single coil electric spruce steel silk travis picked dreadnought acoustic guitar, treble-extended sustaining steel upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, upright piano. honky tonk dance hall. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
+  "recipe_chars": 808,
+  "score": 691.749,
+  "config": {
+    "traditions": [
+      "classic_texas_country",
+      "redneck_rock",
+      "classic_oklahoma_country"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 44.070000000000014,
+          "voice_quality": 13.389999999999992,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 33.767500000000005,
+          "voice_articulation": 20.149999999999995,
+          "voice_microtone": 19.694999999999993,
+          "voice_tradition": 10.399999999999997,
+          "voice_mechanism_compound": 2.9899999999999998,
+          "voice_estill_quality": 36.428000000000004,
+          "voice_speech_song": 27.689999999999998,
+          "voice_ensemble_config": 19.369999999999994,
+          "voice_ornament_system": 1.1049999999999995,
+          "voice_pitch_organization": 0.13000000000000003,
+          "voice_processing_chain": 4.595,
+          "voice_multitrack_stack": 5.655000000000001
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_bluegrass_double_stops",
+          "fiddle_strings": "steel_core",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "rubber_mute",
+          "fiddle_articulation": "sul_tasto"
+        },
+        "scores": {
+          "bowed_technique": 43.099999999999994,
+          "fiddle_strings": 5.329999999999999,
+          "fiddle_bow": 0.195,
+          "fiddle_mute": 0.65,
+          "fiddle_articulation": 0.15
+        }
+      },
+      {
+        "id": "pedal_steel",
+        "slots": {
+          "electric_technique": "electric_steel_pedal_swells",
+          "amp_make": "amp_american_fender_blackface",
+          "pickup_steel": "humbucker_steel",
+          "string_setup": "standard_e9",
+          "bar_material": "steel_bar",
+          "pedal_steel_brand": "sho_bud_classic",
+          "pedal_steel_neck_config": "pedal_steel_single_neck_e9",
+          "pedal_steel_strings": "pedal_steel_george_l_e9"
+        },
+        "scores": {
+          "electric_technique": 40.701499999999996,
+          "amp_make": 34.470000000000006,
+          "pickup_steel": 0.735,
+          "string_setup": 19.174999999999997,
+          "bar_material": 3.965,
+          "pedal_steel_brand": 37.535,
+          "pedal_steel_neck_config": 40.547,
+          "pedal_steel_strings": 34.945
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_country_chicken_pickin",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "eb_standard"
+        },
+        "scores": {
+          "electric_technique": 33.67,
+          "amp_make": 34.470000000000006,
+          "body_wood": 1.035,
+          "neck_wood": 1.035,
+          "fretboard": 0.195,
+          "pickup_magnet": 0.195,
+          "string_material": 3.965,
+          "string_gauge": 0.735,
+          "bridge": 0.15,
+          "scale_length": 1.7699999999999996,
+          "finish": 0.045,
+          "string_tuning": 5.9799999999999995
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_travis_picking",
+          "string_tuning": "eb_standard",
+          "top_wood": "adirondack",
+          "back_sides": "maple_bs",
+          "string_acoustic": "silk_steel"
+        },
+        "scores": {
+          "acoustic_technique": 32.975,
+          "string_tuning": 0.26,
+          "top_wood": 1.2599999999999998,
+          "back_sides": 0.195,
+          "string_acoustic": 4.159999999999999
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "steel_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "upright_strings": 3.965,
+          "upright_play": 2.5
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "vintage_ambassador_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 19.564999999999998,
+          "drumhead": 3.835,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_honky_tonk",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_concert"
+        },
+        "scores": {
+          "keyboard_technique": 36.099999999999994,
+          "upright_use": 0.735,
+          "upright_piano_size": 0.195
+        }
+      }
+    ],
+    "room": "honky_tonk_dance_hall",
+    "archetype": "arch_nashville_a_team",
+    "inline_chain": {
+      "mic": "mic_rca_44bx_ribbon",
+      "pre": "pre_tube_german_v72",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "country_nashville_three_chord_train_beat",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "country_nashville_three_chord_train_beat",
+    "room": "honky_tonk_dance_hall",
+    "chain_mic": "mic_rca_44bx_ribbon",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "Portuguese música de intervenção (\"intervention music\") protest-song tradition continuous from 1960s-1974 Estado Novo dictatorship-era political folk-and-songwriter scene; centered on José Afonso, Adriano Correia de Oliveira, Sérgio Godinho, José Mário Branco; José Afonso's \"Grândola Vila Morena\" was the radio-signal that triggered the April 25 1974 Carnation Revolution",
   "recipe": "classic Iberian mid-1960s portuguese música de intervenção, protest Song, European branch, iberian Latin protest song, chanson fado ballad poetry, iberian functional song morna cape verdean batuko of santiago island. thick, breath veiled tone, slow rate, interlocked note trading. martin lifespan fingerpicked acoustic guitar, twelve string paired courses high pitched ringing fado lisboa tradition jacaranda Portuguese rosewood spruce canonical fado guitarra portuguesa. iberian kantautor basque galician club. Neumann U47, tube pre, colored vintage console, LA-2A optical, passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 619,
-  "score": 233.825,
+  "score": 231.762,
   "config": {
     "traditions": [
       "portuguese_musica_de_intervencao",
@@ -35,20 +35,20 @@
         },
         "scores": {
           "voice_register": 5.07,
-          "voice_quality": 30.29,
+          "voice_quality": 29.12,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.5675,
           "voice_articulation": 22.490000000000002,
           "voice_microtone": 23.205,
-          "voice_tradition": 20.604999999999997,
+          "voice_tradition": 20.394999999999996,
           "voice_mechanism_compound": 5.265,
           "voice_estill_quality": 4.5825,
           "voice_speech_song": 30.355,
           "voice_ensemble_config": 21.775,
           "voice_ornament_system": 4.37,
-          "voice_pitch_organization": 3.185000000000001,
-          "voice_processing_chain": 6.0125,
+          "voice_pitch_organization": 3.1550000000000007,
+          "voice_processing_chain": 5.87,
           "voice_multitrack_stack": 8.2875
         }
       },
@@ -62,10 +62,10 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "string_tuning": 1.2999999999999998,
-          "top_wood": 0.54,
-          "back_sides": 0.78,
-          "string_acoustic": 1.73,
+          "string_tuning": 1.1799999999999997,
+          "top_wood": 0.585,
+          "back_sides": 0.75,
+          "string_acoustic": 1.535,
           "acoustic_om_technique": 11.16
         }
       },
@@ -80,9 +80,9 @@
         },
         "scores": {
           "guitarra_tuning_school": 10.595,
-          "guitarra_body_wood": 5.135,
+          "guitarra_body_wood": 4.97,
           "guitarra_top_wood": 5.135,
-          "guitarra_strings": 5.59,
+          "guitarra_strings": 5.545,
           "guitarra_technique": 6.175
         }
       }

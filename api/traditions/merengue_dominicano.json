@@ -3,9 +3,9 @@
   "name": "Merengue dominicano",
   "family": "global",
   "lineage": "Dominican-Republic national-couple-dance and rhythm 1850s-origin (recorded canon 1970-1995), codified into modern merengue-típico by mid-20th-century with three-instrument perico-ripiao canonical-ensemble: tambora two-headed barrel-drum, güira metallic-scraper, and accordion (originally diatonic German button-accordion imported via late-19th-century Hamburg-trade routes). The 2/4 fast-tempo merengue-clave (one-bar pattern: down-down-up-down on tambora) accelerates and accents the second eighth-note. The 1960s-1980s era added brass-section merengue-orquesta (modeled on Cuban big-band mambo) and electric-bass-and-keyboards, culminating in the international 1980s-merengue-mainstream wave. Three regional-variants: merengue-típico-cibaeño (Cibao-region accordion-led), merengue-de-orquesta (urban-Santo-Domingo big-band), and merengue-de-calle (1990s-onward street-and-urban variant).",
-  "recipe": "classic Caribbean mid-1980s merengue dominicano, groove Percussion, Latin am branch, son salsa Cuban salsa romántica guaracha. thick, close mic intimate, slow rate, interlocked note trading. weltmeister east German mid tier vintage volk accordion, wood avocado canonical Dominican male female goat skin asymmetric merengue tradition tambora band fast scrape guira dominicana, guiro, alder pyramid pure nickel bass British mid 60s era sub heavy electric bass, gold brass warmer tone selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone. Dominican canon 1970-1995 mid tier dominican capital studio 80s. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 722,
-  "score": 225.671,
+  "recipe": "classic Caribbean mid-1980s merengue dominicano, groove Percussion, Latin am branch, son salsa Cuban salsa romántica guaracha. extended whistle, breath veiled tone, slow rate, interlocked note trading. weltmeister east German mid tier vintage volk accordion, wood avocado canonical Dominican male female goat skin asymmetric merengue tradition tambora band fast scrape guira dominicana, guiro, alder pyramid pure nickel bass British mid 60s era sub heavy electric bass, gold brass warmer tone selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone. Dominican canon 1970-1995 mid tier dominican capital studio 80s. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 733,
+  "score": 224.026,
   "config": {
     "traditions": [
       "merengue_dominicano",
@@ -16,8 +16,8 @@
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
-          "voice_quality": "crooner_voice",
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
@@ -34,8 +34,8 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 1.6129999999999995,
-          "voice_quality": 8.1575,
+          "voice_register": 1.56,
+          "voice_quality": 8.060000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.925,
@@ -46,10 +46,10 @@
           "voice_estill_quality": 1.4949999999999999,
           "voice_speech_song": 16.444999999999997,
           "voice_ensemble_config": 15.534999999999995,
-          "voice_ornament_system": 2.1649999999999996,
+          "voice_ornament_system": 2.1049999999999995,
           "voice_pitch_organization": 2.05,
-          "voice_processing_chain": 10.770999999999999,
-          "voice_multitrack_stack": 11.341249999999997
+          "voice_processing_chain": 10.674999999999999,
+          "voice_multitrack_stack": 11.116249999999997
         }
       },
       {
@@ -64,13 +64,13 @@
           "accordion_maker_school": "accordion_weltmeister"
         },
         "scores": {
-          "free_reed_technique": 1.2349999999999999,
-          "accordion_reed_material": 2.9899999999999998,
-          "musette_offset": 0.39,
-          "reed_config": 0.39,
+          "free_reed_technique": 1.19,
+          "accordion_reed_material": 2.7874999999999996,
+          "musette_offset": 0.54,
+          "reed_config": 0.7949999999999999,
           "bellows": 0.045,
-          "voicing_chamber": 0.39,
-          "accordion_maker_school": 3.8924999999999996
+          "voicing_chamber": 0.54,
+          "accordion_maker_school": 3.7874999999999996
         }
       },
       {
@@ -82,9 +82,9 @@
           "tambora_dominicana_heads": "tambora_dominicana_male_female"
         },
         "scores": {
-          "tambora_shell": 10.09525,
-          "tambora_technique": 10.128000000000002,
-          "tambora_dominicana_shell_wood": 3.835,
+          "tambora_shell": 9.64375,
+          "tambora_technique": 9.750000000000002,
+          "tambora_dominicana_shell_wood": 3.7337500000000006,
           "tambora_dominicana_heads": 2.145
         }
       },
@@ -112,10 +112,10 @@
         },
         "scores": {
           "amp_make": 2.7300000000000004,
-          "body_wood": 4.387499999999999,
+          "body_wood": 4.2825,
           "pickup_config": 1.495,
           "string_type": 5.85,
-          "scale_length_b": 2.9899999999999998,
+          "scale_length_b": 2.7874999999999996,
           "fretted_or_not": 0,
           "bass_technique": 2.65
         }
@@ -133,10 +133,10 @@
         },
         "scores": {
           "wind_articulation": 4.095000000000001,
-          "sax_size": 2.9899999999999998,
-          "sax_reed": 0.39,
-          "sax_body_alloy": 3.555,
-          "sax_mouthpiece": 0.39,
+          "sax_size": 2.7874999999999996,
+          "sax_reed": 0.54,
+          "sax_body_alloy": 3.495,
+          "sax_mouthpiece": 0.54,
           "sax_technique": -0.05,
           "sax_maker_school": 2.0149999999999997
         }
@@ -149,8 +149,8 @@
           "guira_dominicana_sheet": "guira_dominicana_brass"
         },
         "scores": {
-          "guira_dominicana_form": 7.3774999999999995,
-          "guira_dominicana_pattern": 29.368,
+          "guira_dominicana_form": 7.25,
+          "guira_dominicana_pattern": 29.229999999999997,
           "guira_dominicana_sheet": 3.25
         }
       }

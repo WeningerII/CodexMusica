@@ -1,0 +1,204 @@
+{
+  "id": "preschool_childrens_music",
+  "name": "Preschool Children's Music",
+  "family": "vernacular",
+  "lineage": "North American commercial repertoire for children under six, professionalized from the 1950s Ella Jenkins and Mister Rogers broadcasts through Raffi's late-1970s Canadian albums and the 1990s Wiggles and Laurie Berkner catalogues — narrow-range diatonic melodies inside an octave at 90-120 BPM, strummed acoustic guitar or ukulele with glockenspiel and toy-piano color, four-square phrases with built-in call-and-response and gesture cues, and a bright, clearly enunciated adult voice doubled by a children's chorus.",
+  "recipe": "classic 1977-1979 preschool children's music, nursery Rhyme, americas branch, European nursery rhyme, European lullaby, narration spoken word old-time radio announcer barnmusik. extended whistle, breath veiled tone, fast rate, interlocked note trading. a cappella small 3 to 8 one per part four voice polyphonic regional gallura five voice tripli octave doubled choir ensemble, controlled maple dreadnought acoustic guitar, bright projecting spruce ukulele, glockenspiel, music box naive celeste toy upright piano, tambourine orch, recorder, brushes-and-sticks drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 715,
+  "score": 212.795,
+  "config": {
+    "traditions": [
+      "preschool_childrens_music",
+      "oldtime_radio_announcer",
+      "barnmusik"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 3.055,
+          "voice_quality": 13.03,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.92,
+          "voice_articulation": 23.205,
+          "voice_microtone": 22.814999999999998,
+          "voice_tradition": 4.29,
+          "voice_mechanism_compound": 3.9999999999999996,
+          "voice_estill_quality": 3.6550000000000002,
+          "voice_speech_song": 25.35,
+          "voice_ensemble_config": 27.429999999999996,
+          "voice_ornament_system": 1.9400000000000002,
+          "voice_pitch_organization": 3.5100000000000007,
+          "voice_processing_chain": 7.54,
+          "voice_multitrack_stack": 4.160000000000001
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_four_voice_polyphonic",
+          "choir_regional_canonical_configuration": "choir_regional_gallura_five_voice",
+          "choir_ensemble_repertoire": "choir_ensemble_romantic"
+        },
+        "scores": {
+          "choir_size": 5.505,
+          "choir_polyphonic_configuration": 3.265,
+          "choir_regional_canonical_configuration": 4.335,
+          "choir_ensemble_repertoire": 2.04
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood": "cedar",
+          "back_sides": "maple_bs",
+          "string_acoustic": "phosphor_bronze"
+        },
+        "scores": {
+          "acoustic_technique": 2,
+          "string_tuning": 0,
+          "top_wood": 0.74,
+          "back_sides": 1.1549999999999998,
+          "string_acoustic": 0.845
+        }
+      },
+      {
+        "id": "ukulele",
+        "slots": {
+          "ukulele_size": "ukulele_baritone",
+          "ukulele_style": "ukulele_strum",
+          "ukulele_wood": "ukulele_spruce"
+        },
+        "scores": {
+          "ukulele_size": 2.295,
+          "ukulele_style": 1.25,
+          "ukulele_wood": 1.645
+        }
+      },
+      {
+        "id": "glockenspiel",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "glockenspiel_size": "glockenspiel_orch_3",
+          "glockenspiel_mallet": "glockenspiel_plastic"
+        },
+        "scores": {
+          "percussion_technique": -0.05,
+          "glockenspiel_size": 2.535,
+          "glockenspiel_mallet": 0.6950000000000001
+        }
+      },
+      {
+        "id": "toy_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "toy_piano_type": "toy_piano_schoenhut_rods",
+          "toy_piano_aesthetic": "toy_piano_naive_celeste"
+        },
+        "scores": {
+          "keyboard_technique": 0.7,
+          "toy_piano_type": 0,
+          "toy_piano_aesthetic": 1.5999999999999999
+        }
+      },
+      {
+        "id": "tambourine_orch",
+        "slots": {
+          "tambourine_orch_jingle": "tambourine_orch_mixed",
+          "tambourine_orch_context": "tambourine_orch_pop"
+        },
+        "scores": {
+          "tambourine_orch_jingle": 0.195,
+          "tambourine_orch_context": 2.645
+        }
+      },
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_jazz_comping",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_spinet"
+        },
+        "scores": {
+          "keyboard_technique": 1.9900000000000002,
+          "upright_use": 0.74,
+          "upright_piano_size": 1.755
+        }
+      },
+      {
+        "id": "recorder",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "recorder_size": "bass_recorder",
+          "recorder_context": "recorder_baroque_solo",
+          "recorder_body_wood": "recorder_maple"
+        },
+        "scores": {
+          "wind_articulation": -0.07,
+          "recorder_size": 0.09,
+          "recorder_context": 2.275,
+          "recorder_body_wood": 0.6950000000000001
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "double_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 23.075,
+          "drumhead": 1.9999999999999998,
+          "drum_kit_kick_pedal": 0
+        }
+      }
+    ],
+    "room": "live_room",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "transformer_solid_state",
+      "console": "clean",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "live_room",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "digital_std",
+    "chain_console": "clean"
+  }
+}

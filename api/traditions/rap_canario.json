@@ -1,0 +1,181 @@
+{
+  "id": "rap_canario",
+  "name": "Rap canario",
+  "family": "hip_hop",
+  "lineage": "Canary Islands Spanish-language hip-hop, active in Las Palmas and Santa Cruz de Tenerife from the mid-1990s and prominent nationally from the 2010s through Cruz Cafuné, Bejo, La Pantera and the Elton Mackay circle — 80-140 BPM beats built in the DAW over trap hi-hat rolls or dembow-leaning bounce, melodic autotuned hooks, and rapping in the Canarian accent with island slang, guagua-and-barrio imagery and frequent code-switching into Latin American Spanish and English.",
+  "recipe": "classic 1994-1996 rap canario, mc Rhythm, intl hip hop branch, reggaeton MC rhythm, us hip hop modern, Latin electric electronic dance cloud rap pittsburgh rap. thick, rap, straight onset, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, sampled chopped sampler drum machine, sub bass analog poly sub bass wavetable synth, Fender blackface amp American 60s amp spring reverb bright mahogany clean single coil electric guitar, sampled chopped turntable. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 589,
+  "score": 319.848,
+  "config": {
+    "traditions": [
+      "rap_canario",
+      "cloud_rap",
+      "pittsburgh_rap"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 3.540000000000001,
+          "voice_quality": 26.726,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.8855,
+          "voice_articulation": 19.759999999999998,
+          "voice_microtone": 21.059999999999995,
+          "voice_tradition": 12.424499999999998,
+          "voice_mechanism_compound": 4.225,
+          "voice_estill_quality": 3.835,
+          "voice_speech_song": 26.911499999999997,
+          "voice_ensemble_config": 20.279999999999998,
+          "voice_ornament_system": 8.385000000000002,
+          "voice_pitch_organization": 0.9749999999999996,
+          "voice_processing_chain": 17.535,
+          "voice_multitrack_stack": 7.5075
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 10.974,
+          "drum_machine_808_context": 2.8600000000000003,
+          "tr808_production_origin": 2.4805
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 10.12,
+          "sample_bitdepth": 2.3155,
+          "sample_swing": 15.693,
+          "sample_processing": 1.3
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_yamaha_cs"
+        },
+        "scores": {
+          "electronic_technique": 16.174,
+          "poly_archetypes": 0.195,
+          "poly_voices": 0.195,
+          "poly_maker_lineage": -0.08750000000000008
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wt_position": "wt_chaotic",
+          "wt_family": "wt_industrial",
+          "wt_polyphony": "wt_mono"
+        },
+        "scores": {
+          "electronic_technique": 16.174,
+          "wt_position": 2.5105000000000004,
+          "wt_family": 2.3155,
+          "wt_polyphony": 0.14400000000000002
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_12",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_gibson",
+          "finish": "poly",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 12.700000000000001,
+          "amp_make": 3.5940000000000003,
+          "body_wood": 1,
+          "neck_wood": 1,
+          "fretboard": 0.95,
+          "pickup_magnet": 0.5,
+          "string_material": 0.5,
+          "string_gauge": 1.39,
+          "bridge": 2.3155,
+          "scale_length": 1,
+          "finish": 0.15,
+          "string_tuning": 1.3
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_scratch"
+        },
+        "scores": {
+          "electronic_technique": 10.12,
+          "turntable_technique": 11.865
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "room": "untreated_bedroom",
+    "chain_mic": "mic_sm7b_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

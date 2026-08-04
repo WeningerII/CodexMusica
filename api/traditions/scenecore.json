@@ -1,0 +1,188 @@
+{
+  "id": "scenecore",
+  "name": "Scenecore",
+  "family": "rock_punk",
+  "lineage": "American MySpace-era post-hardcore hybrid of roughly 2006-2011 centred on Ohio, Arizona and Florida bands like Attack Attack!, blessthefall and Brokencyde — down-tuned seven-string breakdowns at half-time against 170-200 BPM double-kick verses, alternating unclean screams and Auto-Tuned clean choruses, trance-derived supersaw and arpeggiated synth layers sitting on top of the guitars, and fully grid-edited digital tracking with replaced drum samples.",
+  "recipe": "classic mid-2000s scenecore, distorted Rock, emo branch, metal distorted rock, pop punk distorted rock, pop experimental experimental electric etherpop post-metal. thick, breath veiled tone, pure, interlocked note trading. low b chord melody seven string electric, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, glitched textural wavetable yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, field textural sampler, polychordal major seven nine eleven stack 2000s elastic pitch edited stack heavy bus compression glue post 2010 multitrack vocal stack. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 830,
+  "score": 357.533,
+  "config": {
+    "traditions": [
+      "scenecore",
+      "etherpop",
+      "post_metal"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 27.386249999999993,
+          "voice_quality": 6.955000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.145,
+          "voice_articulation": 20.084999999999994,
+          "voice_microtone": 25.174999999999997,
+          "voice_tradition": 11.55375,
+          "voice_mechanism_compound": 24.17475,
+          "voice_estill_quality": 2.990000000000001,
+          "voice_speech_song": 20.019999999999992,
+          "voice_ensemble_config": 17.289999999999992,
+          "voice_ornament_system": 1.2999999999999998,
+          "voice_pitch_organization": 1.8849999999999996,
+          "voice_processing_chain": 9.685,
+          "voice_multitrack_stack": 6.305000000000001
+        }
+      },
+      {
+        "id": "seven_string_electric",
+        "slots": {
+          "seven_string_tuning": "seven_string_low_b",
+          "seven_string_technique": "seven_string_jazz_chord_melody"
+        },
+        "scores": {
+          "seven_string_tuning": 2.8600000000000003,
+          "seven_string_technique": 1.04
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 9.75,
+          "body_wood": 3.565249999999999,
+          "pickup_config": 2.24,
+          "string_type": 20.9625,
+          "scale_length_b": 1.8519999999999999,
+          "fretted_or_not": 0.09,
+          "bass_technique": 18.31
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 18.914999999999996,
+          "drumhead": 11.695,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "wt_position": "wt_morphing",
+          "wt_family": "wt_vocal",
+          "wt_polyphony": "wt_mono"
+        },
+        "scores": {
+          "electronic_technique": 10.670000000000002,
+          "wt_position": 1.615,
+          "wt_family": 1.1625,
+          "wt_polyphony": 0.74
+        }
+      },
+      {
+        "id": "fm_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "fm_algorithm": "fm_classic",
+          "fm_modulator_ratio": "fm_harmonic",
+          "fm_polyphony": "fm_mono",
+          "fm_model_lineage": "fm_yamaha_dx7"
+        },
+        "scores": {
+          "electronic_technique": 10.394999999999998,
+          "fm_algorithm": 5.040000000000001,
+          "fm_modulator_ratio": 0.845,
+          "fm_polyphony": 0.74,
+          "fm_model_lineage": 2.405
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "roland_s750",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 10.670000000000002,
+          "sampler_archetypes": 1.4949999999999999,
+          "sampler_bit_depth": 1.6899999999999997,
+          "sampler_workflow": 10.26,
+          "sampler_classic_context": 19.662499999999998
+        }
+      },
+      {
+        "id": "multitrack_vocal_stack",
+        "slots": {
+          "multitrack_stack_density": "multitrack_density_polychordal_7_9_11",
+          "multitrack_stack_era_aesthetic": "multitrack_era_2000s_elastic_pitch",
+          "multitrack_stack_processing": "multitrack_processing_compressed_glued"
+        },
+        "scores": {
+          "multitrack_stack_density": 1.51375,
+          "multitrack_stack_era_aesthetic": 2.174375,
+          "multitrack_stack_processing": 7.475
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+    "room": "treated_studio",
+    "chain_mic": "mic_sm57_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

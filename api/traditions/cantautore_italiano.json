@@ -5,7 +5,7 @@
   "lineage": "Italian songwriter tradition codified through the Genoa school (Fabrizio De André, Luigi Tenco, Bruno Lauzi, Gino Paoli, Umberto Bindi), the Milan school (Enzo Jannacci, Giorgio Gaber), the Roman school (Antonello Venditti, Francesco De Gregori, Lucio Dalla, Claudio Baglioni), and the modern continuation (Vinicio Capossela, Cristiano De André), with French chanson and Brazilian bossa nova as primary external lineage influences",
   "recipe": "classic Central European mid-1960s cantautore italiano, ballad Poetry, post chanson branch, chanson fado classic chanson, chanson fado fado lisboa chanson classique. thick, lament wail, slow rate, interlocked note trading. cedar walnut phosphor bronze bronze fingerpicked acoustic guitar, birch laminated maple laminated sitka spruce diaphragmatic multi laminate grand piano, mahogany pyramid pure nickel bass British mid 60s era sub heavy electric bass, pre muffled edge muffled brushes-and-sticks drum kit. german liedermacher kabarett berlin. Neumann U67, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
   "recipe_chars": 659,
-  "score": 157.981,
+  "score": 158.611,
   "config": {
     "traditions": [
       "cantautore_italiano",
@@ -43,7 +43,7 @@
           "voice_microtone": 8.319999999999999,
           "voice_tradition": 6.739999999999999,
           "voice_mechanism_compound": 2.5349999999999997,
-          "voice_estill_quality": 5.755,
+          "voice_estill_quality": 6.1435,
           "voice_speech_song": 10.302499999999998,
           "voice_ensemble_config": 8.645,
           "voice_ornament_system": 3.575,
@@ -91,7 +91,7 @@
           "piano_soundboard": 5.345,
           "piano_pinblock": 4.51125,
           "piano_plate": 4.5,
-          "piano_pitch_standard": 5.4875
+          "piano_pitch_standard": 5.729
         }
       },
       {

@@ -3,9 +3,9 @@
   "name": "Gengetone",
   "family": "global",
   "lineage": "Nairobi group-rap street-pop that exploded circa 2018-2019 (Boondocks Gang, Sailors, Ethic Entertainment) as a raw, raunchy, call-and-response descendant of early-2000s genge — Sheng-language hooks chanted over dembow-and-dancehall-leaning riddims and deliberately lo-fi DIY production",
-  "recipe": "classic 2018-2019 gengetone, mc Rhythm, intl hip hop branch, Afro-diasporic MC rhythm conscious hip-hop gangsta rap. thick, rap, straight onset, narrative. TR-808, chopped sampler, low sub bass analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 357,
-  "score": 315.451,
+  "recipe": "classic 2018-2019 gengetone, mc Rhythm, intl hip hop branch, Afro-diasporic MC rhythm conscious hip-hop gangsta rap. thick, rap, straight onset, narrative. TR-808, pitched chopped sampler, low sub bass analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 365,
+  "score": 317.476,
   "config": {
     "traditions": [
       "gengetone",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 12.219999999999997,
-          "voice_quality": 34.053124999999994,
+          "voice_register": 12.369999999999997,
+          "voice_quality": 34.758125,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.77,
+          "voice_vibrato": 7.544999999999999,
           "voice_articulation": 18.004999999999995,
           "voice_microtone": 17.744999999999997,
-          "voice_tradition": 12.448125,
+          "voice_tradition": 12.598125,
           "voice_mechanism_compound": 1.625,
           "voice_estill_quality": 5.232499999999999,
-          "voice_speech_song": 32.5875,
+          "voice_speech_song": 32.887499999999996,
           "voice_ensemble_config": 18.459999999999997,
           "voice_ornament_system": 7.345000000000002,
           "voice_pitch_organization": 2.145,
           "voice_processing_chain": 24.009999999999994,
-          "voice_multitrack_stack": 7.494375000000001
+          "voice_multitrack_stack": 7.449375000000001
         }
       },
       {
@@ -60,8 +60,8 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 12.254999999999999,
-          "drum_machine_808_context": 5.5687500000000005,
+          "tr808_voice": 12.69,
+          "drum_machine_808_context": 5.478750000000001,
           "tr808_production_origin": 0.65
         }
       },
@@ -71,14 +71,14 @@
           "electronic_technique": "electronic_sample_chopped",
           "sampler_archetypes": "emu_sp1200",
           "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
-          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_workflow": "sampler_one_shot_pitched",
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 11.259999999999998,
+          "electronic_technique": 11.454999999999998,
           "sampler_archetypes": 21.904999999999998,
-          "sampler_bit_depth": 3.0300000000000002,
-          "sampler_workflow": 11.864999999999998,
+          "sampler_bit_depth": 3.12,
+          "sampler_workflow": 11.94,
           "sampler_classic_context": 32.6625
         }
       },
@@ -91,10 +91,10 @@
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 14.158749999999998,
+          "electronic_technique": 14.638749999999998,
           "poly_archetypes": 0.195,
           "poly_voices": 0.195,
-          "poly_maker_lineage": -1.5099999999999998
+          "poly_maker_lineage": -1.7049999999999998
         }
       }
     ],

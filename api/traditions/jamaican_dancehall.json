@@ -3,14 +3,14 @@
   "name": "Jamaican dancehall",
   "family": "global",
   "lineage": "Jamaican dancehall genre emerging in the early 1980s as the post-roots-reggae evolution toward digital-rhythm computer-riddim DJ-toasting tradition — breakthrough recordings the Sleng Teng riddim 1985 (Wayne Smith Under Mi Sleng Teng, the first all-computer-generated reggae riddim), then through Yellowman, Eek-A-Mouse, Shabba Ranks, Buju Banton, Beenie Man, Bounty Killer, Vybz Kartel, and the broader 1990s-2000s Greensleeves / VP Records dancehall catalog",
-  "recipe": "classic Caribbean 1980-1983 jamaican dancehall, bass System, Jamaican branch, Afro-diasporic MC rhythm, house electronic dance chicago house tech-house. thick, breath veiled tone, straight note core, interlocked note trading. ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, roland tr 8s modern aira digital recreation TR-808, roland tr 8s modern aira digital recreation TR-909, sampler, Fender blackface amp American 60s amp spring reverb bright clean strummed single coil electric guitar, Hammond a 100 built in Leslie home spinet Leslie 145 smaller 25w tube home club gospel runs fast tremolo tonewheel organ, sub bass analog poly synth. Kingston channel one defining 1972-1985 indie-commercial kingston channel one maxfield avenue. shure SM58, console-strip pre, soundcraft TS24 / 3200, dbx 160 VCA, SSL surgical EQ.",
-  "recipe_chars": 939,
-  "score": 277.533,
+  "recipe": "classic Caribbean 1980-1983 jamaican dancehall, bass System, Jamaican branch, Afro-diasporic MC rhythm, house electronic dance chicago house deep house. thick, breath veiled tone, straight onset, interlocked note trading. ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, roland tr 8s modern aira digital recreation TR-808, roland tr 8s modern aira digital recreation TR-909, sampler, Fender blackface amp American 60s amp spring reverb bright chicken-scratch single coil electric guitar, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 145 smaller 25w tube home club gospel runs slow chorale tonewheel organ, sub bass analog poly synth. Kingston channel one defining 1972-1985 indie-commercial kingston channel one maxfield avenue. shure SM58, console-strip pre, soundcraft TS24 / 3200, dbx 160 VCA, SSL surgical EQ.",
+  "recipe_chars": 951,
+  "score": 317.34,
   "config": {
     "traditions": [
       "jamaican_dancehall",
       "chicago_house",
-      "tech_house_classic"
+      "deep_house_soulful"
     ],
     "instruments": [
       {
@@ -20,10 +20,10 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_tradition": "gospel_pentecostal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 6.815,
-          "voice_quality": 12.479999999999995,
+          "voice_register": 12.859999999999998,
+          "voice_quality": 12.284999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.9849999999999994,
-          "voice_articulation": 15.405,
-          "voice_microtone": 14.819999999999997,
-          "voice_tradition": 5.005000000000001,
-          "voice_mechanism_compound": 1.625,
-          "voice_estill_quality": 3.9750000000000005,
-          "voice_speech_song": 16.574999999999996,
-          "voice_ensemble_config": 15.794999999999995,
-          "voice_ornament_system": 1.9999999999999996,
-          "voice_pitch_organization": 2.145,
-          "voice_processing_chain": 11.894999999999998,
-          "voice_multitrack_stack": 5.355
+          "voice_vibrato": 4.784999999999999,
+          "voice_articulation": 14.43,
+          "voice_microtone": 14.234999999999994,
+          "voice_tradition": 9.735,
+          "voice_mechanism_compound": 0.585,
+          "voice_estill_quality": 8.849999999999998,
+          "voice_speech_song": 16.054999999999996,
+          "voice_ensemble_config": 14.819999999999997,
+          "voice_ornament_system": 2.0149999999999997,
+          "voice_pitch_organization": 2.34,
+          "voice_processing_chain": 12.075,
+          "voice_multitrack_stack": 6.220000000000001
         }
       },
       {
@@ -59,16 +59,16 @@
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "la_bella_flats_motown",
-          "scale_length_b": "long_scale_b",
+          "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
           "bass_technique": "thumb_muted"
         },
         "scores": {
-          "amp_make": 5.3050000000000015,
+          "amp_make": 8.1,
           "body_wood": 0.845,
-          "pickup_config": 0.39,
-          "string_type": 5.460000000000001,
-          "scale_length_b": 1.04,
+          "pickup_config": 0.195,
+          "string_type": 9.444999999999999,
+          "scale_length_b": 0.845,
           "fretted_or_not": 0.39,
           "bass_technique": 7.199999999999999
         }
@@ -81,8 +81,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 15.339999999999998,
-          "drumhead": 1.56,
+          "drum_technique": 15.404999999999998,
+          "drumhead": 3.7399999999999993,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -94,8 +94,8 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 3.25,
-          "drum_machine_808_context": 9.75,
+          "tr808_voice": 3.5100000000000002,
+          "drum_machine_808_context": 10.23,
           "tr808_production_origin": 3.1750000000000003
         }
       },
@@ -107,8 +107,8 @@
           "tr909_production_origin": "tr909_tr_8s_modern"
         },
         "scores": {
-          "tr909_voice": 16.625,
-          "drum_machine_909_context": 3.8999999999999995,
+          "tr909_voice": 13.999999999999998,
+          "drum_machine_909_context": 4.744999999999999,
           "tr909_production_origin": 3.1750000000000003
         }
       },
@@ -123,16 +123,16 @@
         },
         "scores": {
           "electronic_technique": 0.52,
-          "sampler_archetypes": 0.39,
-          "sampler_bit_depth": 1.1049999999999998,
-          "sampler_workflow": 0.7149999999999999,
-          "sampler_classic_context": 43.9075
+          "sampler_archetypes": 1.04,
+          "sampler_bit_depth": 1.7550000000000001,
+          "sampler_workflow": 0.5199999999999999,
+          "sampler_classic_context": 40.94999999999999
         }
       },
       {
         "id": "electric_guitar_single_coil",
         "slots": {
-          "electric_technique": "electric_clean_strummed",
+          "electric_technique": "electric_chicken_scratch",
           "amp_make": "amp_american_fender_blackface",
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
@@ -141,23 +141,23 @@
           "string_material": "nickel_plated",
           "string_gauge": "g_12",
           "bridge": "vintage_trem",
-          "scale_length": "scale_gibson",
+          "scale_length": "scale_baritone",
           "finish": "oil_satin",
-          "string_tuning": "drop_c"
+          "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 5,
-          "amp_make": 3.2800000000000007,
+          "electric_technique": 5.344999999999999,
+          "amp_make": 5.334999999999999,
           "body_wood": 0.845,
           "neck_wood": 0.845,
           "fretboard": 0.78,
-          "pickup_magnet": 0.39,
-          "string_material": 0.39,
+          "pickup_magnet": 0.585,
+          "string_material": 0.585,
           "string_gauge": 0.845,
           "bridge": 0.195,
-          "scale_length": 0.845,
+          "scale_length": 2.2099999999999995,
           "finish": 0.045,
-          "string_tuning": 1.4300000000000002
+          "string_tuning": 1.625
         }
       },
       {
@@ -165,17 +165,17 @@
         "slots": {
           "keyboard_technique": "keyboard_gospel_chord_runs",
           "drawbar_setting": "jazz_drawbars",
-          "rotary_speed": "fast_tremolo",
+          "rotary_speed": "slow_chorale",
           "percussion_setting": "percussion_on_short",
-          "tonewheel_model": "tonewheel_hammond_a100",
+          "tonewheel_model": "tonewheel_hammond_b3",
           "leslie_cabinet_model": "leslie_145_smaller"
         },
         "scores": {
-          "keyboard_technique": 4.86,
-          "drawbar_setting": 2.32,
-          "rotary_speed": 2.0749999999999997,
-          "percussion_setting": 1.25,
-          "tonewheel_model": 3.3149999999999995,
+          "keyboard_technique": 9.735,
+          "drawbar_setting": 4.409999999999999,
+          "rotary_speed": 5.199999999999999,
+          "percussion_setting": 3.2499999999999996,
+          "tonewheel_model": 6.464999999999999,
           "leslie_cabinet_model": 1.4299999999999997
         }
       },
@@ -183,15 +183,15 @@
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_bass_sub",
-          "poly_archetypes": "juno_60",
+          "poly_archetypes": "jupiter_8",
           "poly_voices": "poly_5_voice",
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 3.1200000000000006,
-          "poly_archetypes": 0.39,
-          "poly_voices": 0.39,
-          "poly_maker_lineage": 0.325
+          "electronic_technique": 3.380000000000001,
+          "poly_archetypes": 0.195,
+          "poly_voices": 1.04,
+          "poly_maker_lineage": 0.5199999999999999
         }
       }
     ],

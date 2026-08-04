@@ -1,0 +1,156 @@
+{
+  "id": "rap_politico",
+  "name": "Rap Político",
+  "family": "hip_hop",
+  "lineage": "Spanish-language political hip-hop formed in the 1990s across Madrid, Santiago, Havana, Caracas and Mexico City — codified by Chile's Tiro de Gracia and Ana Tijoux, Cuba's Orishas and Los Aldeanos, and Spain's Def Con Dos and SFDK — 85-95 BPM sample loops drawn from nueva canción, son and Andean folk records, sparse scratched hooks, and long unhurried verses of denunciatory rhetoric delivered in an oratorical register closer to protest song than to battle rap",
+  "recipe": "classic mid-1990s rap político, protest Song, iberian Latin branch, urban American protest song, intl hip hop MC rhythm, Latin am troubadour ballad poetry rap español american political hip-hop and conscious rap. thick, rap, straight onset, interlocked note trading. chopped sampler, sampled chopped turntable, ampeg b15 amp American 60s bass amp flip top character alder pyramid electric bass, quena, TR-808. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 582,
+  "score": 305.636,
+  "config": {
+    "traditions": [
+      "rap_politico",
+      "rap_espanol",
+      "american_political_hip_hop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_oral_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 6.073125000000001,
+          "voice_quality": 30.73375,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.009375,
+          "voice_articulation": 22.555,
+          "voice_microtone": 22.36,
+          "voice_tradition": 9.363749999999998,
+          "voice_mechanism_compound": 2.08,
+          "voice_estill_quality": 3.345,
+          "voice_speech_song": 28.535,
+          "voice_ensemble_config": 21.84,
+          "voice_ornament_system": 3.7,
+          "voice_pitch_organization": 2.21,
+          "voice_processing_chain": 21.300624999999997,
+          "voice_multitrack_stack": 6.7275
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 8.475624999999999,
+          "sampler_archetypes": 12.869999999999997,
+          "sampler_bit_depth": 1.1049999999999998,
+          "sampler_workflow": 8.724999999999998,
+          "sampler_classic_context": 34.58
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_scratch"
+        },
+        "scores": {
+          "electronic_technique": 8.475624999999999,
+          "turntable_technique": 10.734999999999998
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_walking"
+        },
+        "scores": {
+          "amp_make": 6.89,
+          "body_wood": 1.885,
+          "pickup_config": 0.65,
+          "string_type": 4.29,
+          "scale_length_b": 1.2349999999999999,
+          "fretted_or_not": 0,
+          "bass_technique": 1.625
+        }
+      },
+      {
+        "id": "quena",
+        "slots": {
+          "wind_articulation": "wind_folk_melodic",
+          "quena_material": "quena_pvc",
+          "quena_pitch": "quena_quenacho"
+        },
+        "scores": {
+          "wind_articulation": 2.5006250000000003,
+          "quena_material": 0.15,
+          "quena_pitch": 1.2531249999999998
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 8.988124999999998,
+          "drum_machine_808_context": 4.795,
+          "tr808_production_origin": 0.15
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "mic_sm7b_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

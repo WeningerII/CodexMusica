@@ -1,0 +1,140 @@
+{
+  "id": "rawstyle",
+  "name": "Rawstyle",
+  "family": "electronic",
+  "lineage": "Dutch hardstyle offshoot codified around 2010-2013 by Radical Redemption, Warface and E-Force out of the Rotterdam-Eindhoven hard-dance circuit — 150-160 BPM with a distorted, heavily overdriven reverse-bass kick whose tail carries the bassline, screech and hoover leads, pitched-down horror or spoken-word vocal samples, and long tension-release breakdowns built for arena hard-dance events.",
+  "recipe": "classic 2010-2013 rawstyle, electronic Dance, hardstyle branch, techno electronic dance, industrial noise experimental electric peak-time techno. vocal fry, breath veiled tone, straight note core, interlocked note trading. sub bass digital subtractive, glitched textural wavetable sub bass analog poly synth, sampler drum machine. bedroom. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+  "recipe_chars": 474,
+  "score": 167.252,
+  "config": {
+    "traditions": [
+      "rawstyle",
+      "peak_techno",
+      "industrial"
+    ],
+    "instruments": [
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 3.185000000000001,
+          "va_archetypes": 0,
+          "digital_subtractive_context": 13.909999999999997
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "wt_position": "wt_morphing",
+          "wt_family": "wt_industrial",
+          "wt_polyphony": "wt_mono"
+        },
+        "scores": {
+          "electronic_technique": 5.699999999999999,
+          "wt_position": 7.930000000000001,
+          "wt_family": 0,
+          "wt_polyphony": 0.24
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 0.06499999999999999,
+          "sample_bitdepth": 0.585,
+          "sample_swing": 16.12,
+          "sample_processing": 0.345
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_yamaha_cs"
+        },
+        "scores": {
+          "electronic_technique": 3.185000000000001,
+          "poly_archetypes": 0.45499999999999996,
+          "poly_voices": 0.345,
+          "poly_maker_lineage": -1.33
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_fall_off_400_cents",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 1.6899999999999997,
+          "voice_quality": 9.879999999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.380000000000001,
+          "voice_articulation": 14.494999999999996,
+          "voice_microtone": 13.51999999999999,
+          "voice_tradition": 7.4,
+          "voice_mechanism_compound": 8.515,
+          "voice_estill_quality": 2.2749999999999995,
+          "voice_speech_song": 14.754999999999995,
+          "voice_ensemble_config": 14.689999999999994,
+          "voice_ornament_system": 0.6499999999999999,
+          "voice_pitch_organization": 1,
+          "voice_processing_chain": 16.875,
+          "voice_multitrack_stack": 6.955000000000001
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_festival_edm_itb",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_pumping",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "untreated_bedroom",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_pumping",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

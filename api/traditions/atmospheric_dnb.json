@@ -5,7 +5,7 @@
   "lineage": "Mid-1990s and onward drum-and-bass subgenre emphasizing ambient-textural production, jazz-and-classical-influenced harmonic-vocabulary, and emotional-melodic development over rave-functional utility. LTJ Bukem and the Good Looking Records label (founded 1991) anchored the canonical atmospheric sound; Photek, Source Direct, Calibre, and the broader Hospital Records, Metalheadz, and Innerground label rosters extended the genre.",
   "recipe": "classic 1994-1996 atmospheric drum-and-bass, bass System, bass descendants branch, ambient experimental electric darksynth vaporwave aesthetic. thick, breath veiled tone, slow rate, interlocked note trading. TR-808, pad like pad analog synth, cold pressed weikert felt 18 ply hard rock maple vintage production grand piano. no single room 2015-present distributed distributed production. shure SM58, mackie 8-bus 90s indie commercial. acetate dub plate cut digital delay lexicon 224 / 480L.",
   "recipe_chars": 490,
-  "score": 215.22,
+  "score": 212.743,
   "config": {
     "traditions": [
       "atmospheric_dnb",
@@ -30,7 +30,7 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_processing_chain": "voice_processing_stutter_edit",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
@@ -38,17 +38,17 @@
           "voice_quality": 13.97499999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.205,
+          "voice_vibrato": 6.4,
           "voice_articulation": 17.160000000000004,
           "voice_microtone": 16.965,
           "voice_tradition": 10.822499999999998,
-          "voice_mechanism_compound": 3.1500000000000004,
-          "voice_estill_quality": 5.105500000000001,
+          "voice_mechanism_compound": 3.1950000000000003,
+          "voice_estill_quality": 4.735000000000001,
           "voice_speech_song": 17.160000000000004,
           "voice_ensemble_config": 17.940000000000005,
           "voice_ornament_system": 5.49,
           "voice_pitch_organization": 4.030000000000001,
-          "voice_processing_chain": 8.200000000000001,
+          "voice_processing_chain": 8.22,
           "voice_multitrack_stack": 3.9650000000000007
         }
       },
@@ -60,8 +60,8 @@
           "tr808_production_origin": "tr808_roland_osaka_canonical"
         },
         "scores": {
-          "tr808_voice": 6.138,
-          "drum_machine_808_context": 6.4879999999999995,
+          "tr808_voice": 5.34,
+          "drum_machine_808_context": 5.795,
           "tr808_production_origin": 0.7150000000000001
         }
       },
@@ -76,8 +76,8 @@
         },
         "scores": {
           "electronic_technique": 8.985,
-          "oscillator": 6.188,
-          "filter_topology": 8.528,
+          "oscillator": 5.39,
+          "filter_topology": 7.73,
           "envelope": 4.55,
           "modulation": 0.045
         }
@@ -93,18 +93,18 @@
           "piano_soundboard": "european_spruce_soundboard",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
           "piano_plate": "wet_sand_cast_plate",
-          "piano_pitch_standard": "a_432_alternative"
+          "piano_pitch_standard": "a_442_european"
         },
         "scores": {
           "keyboard_technique": 6.324999999999999,
-          "grand_piano_size": 2.3850000000000002,
+          "grand_piano_size": 2.535,
           "grand_piano_brand": 3.38,
-          "piano_hammer": 6.130000000000001,
-          "piano_rim": 6.22025,
-          "piano_soundboard": 3.295,
+          "piano_hammer": 6.325,
+          "piano_rim": 6.035,
+          "piano_soundboard": 3.64,
           "piano_pinblock": 3.395,
-          "piano_plate": 5.810250000000001,
-          "piano_pitch_standard": 3.34
+          "piano_plate": 5.73,
+          "piano_pitch_standard": 3.6350000000000002
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Chinese seven-string scholar-zither solo tradition with documented written scores (jianzipu tablature-notation) dating from the Han-dynasty (206 BCE-220 CE) onward, making it the oldest continuously-notated musical tradition. Constructed of paulownia-tung-wood top and zi-wood bottom with thirteen mother-of-pearl hui position-markers and silk or steel-nylon strings. The repertoire layers Wei-Jin-and-Tang dynasty meditative-philosophical pieces with Song-Yuan-and-Ming court-and-scholar-amateur literati compositions, performed solo in studio-and-garden settings as a wenrenhua scholar-painting-music-poetry integrated-art-form practice. Microtonal sliding (yin-and-rou portamento), harmonics (fan-yin), and silent-finger gestures comprise the canonical performance vocabulary.",
   "recipe": "classic East Asian modern gǔqín, art Music, east Asian branch, string drone modal. silk tongmu aged tang song canon guqin. chinese traditional teahouse. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 282,
-  "score": 21.841,
+  "score": 21.143,
   "config": {
     "traditions": [
       "guqin"
@@ -21,10 +21,10 @@
           "guqin_lacquer": "guqin_lacquer_modern_plain"
         },
         "scores": {
-          "plucked_traditional_technique": 2.59025,
-          "guqin_strings": 2.9205,
+          "plucked_traditional_technique": 2.5475,
+          "guqin_strings": 2.5500000000000003,
           "guqin_context": 4.55,
-          "guqin_body_wood": 6.4750000000000005,
+          "guqin_body_wood": 6.19,
           "guqin_lacquer": 0.78
         }
       }

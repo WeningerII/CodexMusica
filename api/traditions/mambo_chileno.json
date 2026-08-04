@@ -1,0 +1,218 @@
+{
+  "id": "mambo_chileno",
+  "name": "Mambo chileno",
+  "family": "global",
+  "lineage": "Chilean adaptation of Cuban mambo taken up by Santiago dance orchestras after Perez Prado's South American tours of the early 1950s, carried by Orquesta Huambaly and Orquesta Ritmo y Juventud — 2/3 clave-based 4/4 at brisk dance tempo, riffing saxophone sections answered by high-screaming trumpets, piano guajeo, upright bass tumbao, congas and timbales, with Spanish vocal refrains and shouted interjections",
+  "recipe": "classic South American 1950-1953 mambo chileno, groove Percussion, son salsa branch, charanga danza Cuban, American jazz Latin jazz cha-cha-chá. thick, breath veiled tone, straight onset, interlocked note trading. bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet, alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor ensemble student commercial trombone, cold pressed wurzen felt oversize maple tension resonator sitka spruce grand piano, growly gut upright bass, lead mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, bronze open slap hand drum timbales, maracas. large tracking room 1920-1965 mid tier odeon rca buenos aires. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 934,
+  "score": 472.4,
+  "config": {
+    "traditions": [
+      "mambo_chileno",
+      "latin_jazz",
+      "cha_cha_cha"
+    ],
+    "instruments": [
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "yamaha_bobby_shew_jazz_mp",
+          "brass_mute": "cup_mute",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 4.030000000000001,
+          "brass_size": 0.65,
+          "trumpet_mouthpiece": 22.85800000000001,
+          "brass_mute": 0,
+          "trumpet_technique": 4.030000000000001,
+          "trumpet_bell_metal": 0.845,
+          "trumpet_maker_school": 5.330000000000001
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "alto_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "nickel_silver_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 4.030000000000001,
+          "sax_size": 3.1615,
+          "sax_reed": 0.65,
+          "sax_body_alloy": 21.37500000000001,
+          "sax_mouthpiece": 0.65,
+          "sax_technique": 20.12500000000001,
+          "sax_maker_school": 24.19450000000001
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_12c",
+          "trombone_mute": "cup_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 4.030000000000001,
+          "trombone_type": 20.12500000000001,
+          "trombone_mouthpiece": 20.18000000000001,
+          "trombone_mute": 0,
+          "trombone_technique": 4.615,
+          "trombone_bell_metal": 1.04,
+          "trombone_maker_school": 5.135
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_jazz_comping",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "yamaha_cfx",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 0.75,
+          "grand_piano_size": 0.3,
+          "grand_piano_brand": 0.65,
+          "piano_hammer": 5.3765,
+          "piano_rim": 4.615,
+          "piano_soundboard": 1.305,
+          "piano_pinblock": 1.355,
+          "piano_plate": 2.745,
+          "piano_pitch_standard": 3.445
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "gut_wound_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "upright_strings": 20.12500000000001,
+          "upright_play": 20.12500000000001
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "quinto",
+          "conga_skin": "conga_mule_hide",
+          "conga_shell_wood": "conga_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": 13.463,
+          "conga_set": 1.0315,
+          "conga_skin": 9.49,
+          "conga_shell_wood": 9.49
+        }
+      },
+      {
+        "id": "timbales",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "timbales_shell": "timbales_bronze",
+          "timbales_context": "timbales_salsa"
+        },
+        "scores": {
+          "percussion_technique": 13.463,
+          "timbales_shell": 10.465000000000005,
+          "timbales_context": 4.9399999999999995
+        }
+      },
+      {
+        "id": "maracas",
+        "slots": {
+          "maracas_construction": "maracas_gourd",
+          "maracas_filling": "maracas_beads"
+        },
+        "scores": {
+          "maracas_construction": 0.0315,
+          "maracas_filling": 0.9099999999999997
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "jazz_scat_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 21.401500000000006,
+          "voice_quality": 17.224999999999998,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 20.365000000000013,
+          "voice_articulation": 17.874999999999996,
+          "voice_microtone": 20.67500000000001,
+          "voice_tradition": 23.79450000000001,
+          "voice_mechanism_compound": 4.55,
+          "voice_estill_quality": 4.8100000000000005,
+          "voice_speech_song": 21.384999999999994,
+          "voice_ensemble_config": 18.459999999999994,
+          "voice_ornament_system": 1.45,
+          "voice_pitch_organization": 3.0550000000000006,
+          "voice_processing_chain": 5.6129999999999995,
+          "voice_multitrack_stack": 4.036499999999999
+        }
+      }
+    ],
+    "room": "odeon_rca_buenos_aires",
+    "archetype": "arch_early_tape_us_commercial",
+    "inline_chain": {
+      "mic": "mic_rca_44bx_ribbon",
+      "pre": "tube_pre",
+      "console": "console_german_tube_50s",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "son_clave_2_3",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "son_clave_2_3",
+    "room": "odeon_rca_buenos_aires",
+    "chain_mic": "mic_rca_44bx_ribbon",
+    "chain_pre": "tube_pre",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
+  }
+}

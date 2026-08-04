@@ -5,7 +5,7 @@
   "lineage": "Cuban troubadour-song tradition emerging in late-nineteenth-century Santiago de Cuba and Havana from synthesis of Spanish romance ballad with Cuban son and bolero. Solo voice or duo with one or two acoustic guitars, intimate-confessional register. Trova tradicional (1890s-1920s, Sindo Garay, Manuel Corona) crystallized the genre; nueva trova (post-1968, Silvio Rodríguez, Pablo Milanés) integrated revolutionary-political content.",
   "recipe": "classic Caribbean mid-1890s trova cubana, ballad Poetry, Latin am troubadour branch, chanson fado ballad poetry cape verdean batuko of santiago island morna. vocal fry, breath veiled tone, slow rate, interlocked note trading. fingerpicked parlor acoustic guitar. Cuban state recording 1962-present mid tier estudios areito havana. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 440,
-  "score": 185.156,
+  "score": 185.245,
   "config": {
     "traditions": [
       "trova_cubana",
@@ -46,7 +46,7 @@
           "voice_estill_quality": 6.760000000000002,
           "voice_speech_song": 26.325000000000003,
           "voice_ensemble_config": 22.815,
-          "voice_ornament_system": 1.9252500000000001,
+          "voice_ornament_system": 1.74,
           "voice_pitch_organization": 2.795000000000001,
           "voice_processing_chain": 6.0125,
           "voice_multitrack_stack": 5.135
@@ -64,9 +64,9 @@
         "scores": {
           "acoustic_technique": 11.770000000000001,
           "string_tuning": 1.2999999999999998,
-          "top_wood_parlor": 0.7252500000000001,
-          "back_sides_parlor": 0,
-          "string_acoustic_parlor": 0.7252500000000001
+          "top_wood_parlor": 0.8400000000000001,
+          "back_sides_parlor": 0.195,
+          "string_acoustic_parlor": 0.6900000000000001
         }
       }
     ],

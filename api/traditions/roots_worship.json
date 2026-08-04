@@ -1,0 +1,220 @@
+{
+  "id": "roots_worship",
+  "name": "Roots Worship",
+  "family": "blues_gospel",
+  "lineage": "Acoustic, Americana-inflected congregational worship that emerged in North American and Northern Irish church-planting circles after 2008 — Rend Collective, All Sons & Daughters and Shane & Shane stripped arena-worship synth pads back to dreadnought guitar, mandolin, upright-toned bass, brushed kit and Hammond, with 70-100 BPM 6/8 and 4/4 hymn-shaped forms, congregational unison choruses and unaffected, slightly rough lead vocals.",
+  "recipe": "classic late-2000s roots worship, ritual Devotional, christian gospel branch, americana country, anglo singer song indie folk stomp and flutter stomp and holler. thick, declaimed, straight note core, interlocked note trading. maple phosphor bronze modern martin fingerpicked dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright alder soft down tuning single coil electric guitar, bowl back Italian adirondack red spruce loar canon big leaf maple mandolin, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, Hammond a 100 built in Leslie home spinet Leslie 122 canonical 6l6 tube 40w rotary Hammond matched gospel runs full spectrum fast tremolo tonewheel organ, a cappella small 3 to 8 one per part call response single leader group response sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter.",
+  "recipe_chars": 997,
+  "score": 341.197,
+  "config": {
+    "traditions": [
+      "roots_worship",
+      "stomp_and_flutter",
+      "stomp_and_holler"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 24.029999999999994,
+          "voice_quality": 7.435000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.4774999999999996,
+          "voice_articulation": 19.89,
+          "voice_microtone": 19.499999999999996,
+          "voice_tradition": 17.2095,
+          "voice_mechanism_compound": 3.38,
+          "voice_estill_quality": 6.955000000000001,
+          "voice_speech_song": 24.569999999999997,
+          "voice_ensemble_config": 21.254999999999992,
+          "voice_ornament_system": 3.65,
+          "voice_pitch_organization": 1.1049999999999998,
+          "voice_processing_chain": 6.3375,
+          "voice_multitrack_stack": 5.135
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "drop_d",
+          "top_wood": "adirondack",
+          "back_sides": "maple_bs",
+          "string_acoustic": "phosphor_bronze"
+        },
+        "scores": {
+          "acoustic_technique": 16.324999999999996,
+          "string_tuning": 1.025,
+          "top_wood": 0.9500000000000001,
+          "back_sides": 1.2599999999999998,
+          "string_acoustic": 2.015
+        }
+      },
+      {
+        "id": "mandolin",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "mandolin_shape": "flat_back",
+          "mandolin_top": "adirondack_m",
+          "mandolin_back": "big_leaf_maple",
+          "mandolin_bracing": "mandolin_x_brace",
+          "mandolin_strings": "thomastik_jazz_mandolin_flat",
+          "mandolin_fingerboard": "mandolin_indian_rosewood_fb",
+          "mandolin_pickup": "mandolin_k_k_twin_internal"
+        },
+        "scores": {
+          "acoustic_technique": 5.075,
+          "mandolin_shape": 7.15,
+          "mandolin_top": 1.595,
+          "mandolin_back": 3.77,
+          "mandolin_bracing": 3.1079999999999997,
+          "mandolin_strings": 1.99,
+          "mandolin_fingerboard": 0.12999999999999998,
+          "mandolin_pickup": 21.970000000000002
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_arpeggiated_clean",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "alder",
+          "neck_wood": "wenge_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_10",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "eb_standard"
+        },
+        "scores": {
+          "electric_technique": 8.649999999999999,
+          "amp_make": 5.505,
+          "body_wood": 1.69,
+          "neck_wood": 0.33,
+          "fretboard": 0.12999999999999998,
+          "pickup_magnet": 0,
+          "string_material": 0.65,
+          "string_gauge": 2.2099999999999995,
+          "bridge": 0.975,
+          "scale_length": 0.195,
+          "finish": 0,
+          "string_tuning": 2.4050000000000002
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 5.6875,
+          "body_wood": 0.195,
+          "pickup_config": 1.8199999999999998,
+          "string_type": 4.387500000000001,
+          "scale_length_b": 0.975,
+          "fretted_or_not": 0.3,
+          "bass_technique": 3.8200000000000003
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 19.11,
+          "drumhead": 4.9015,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "drawbar_setting": "gospel_drawbars",
+          "rotary_speed": "fast_tremolo",
+          "percussion_setting": "percussion_on_long",
+          "tonewheel_model": "tonewheel_hammond_a100",
+          "leslie_cabinet_model": "leslie_122_canonical"
+        },
+        "scores": {
+          "keyboard_technique": 4.1725,
+          "drawbar_setting": 4.640000000000001,
+          "rotary_speed": 7.125,
+          "percussion_setting": 1.7550000000000001,
+          "tonewheel_model": 10.79,
+          "leslie_cabinet_model": 1.0865
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_call_response_leader_group",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
+        },
+        "scores": {
+          "choir_size": 9.0045,
+          "choir_polyphonic_configuration": 1.04,
+          "choir_regional_canonical_configuration": 3.965,
+          "choir_ensemble_repertoire": 1.5149999999999997
+        }
+      }
+    ],
+    "room": "live_room",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_neve_1073_input",
+      "console": "console_in_the_box",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "live_room",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

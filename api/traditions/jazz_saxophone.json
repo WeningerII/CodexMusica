@@ -1,0 +1,149 @@
+{
+  "id": "jazz_saxophone",
+  "name": "Jazz saxophone tradition",
+  "family": "jazz",
+  "lineage": "American saxophone-led improvising lineage running from Coleman Hawkins's vertical arpeggiated approach and Lester Young's linear behind-the-beat phrasing in the 1930s, through Charlie Parker's bebop vocabulary codified 1945-1950, to the hard-bop and modal saxophone of Sonny Rollins and John Coltrane at Van Gelder's studios between 1955 and 1965 — swing-eighth 4/4 at 120-300 BPM, head-solos-head form over 32-bar and blues frames, and a reed-and-mouthpiece sound culture ranging from Hawkins's wide subtone vibrato to Coltrane's hardened cutting attack.",
+  "recipe": "classic North American mid-1940s jazz saxophone tradition, improv On Frame, American jazz branch, American jazz bop, American jazz hard bop, American jazz avant punk jazz / no-wave jazz. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, silver wound lamb gut core Baroque setup lighter bass bar no endpin double bass, vintage ambassador asymmetric brushes-and-sticks drum kit, sterling silver bell premium projecting bach stradivarius 180 canonical American orchestral jazz balance trumpet. cedar and redwood vaulted ceiling 1959-2016 mid tier van gelder englewood cliffs. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 827,
+  "score": 403.898,
+  "config": {
+    "traditions": [
+      "jazz_saxophone",
+      "hard_bop",
+      "punk_jazz_70s_80s"
+    ],
+    "instruments": [
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_bebop_runs",
+          "sax_size": "alto_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "nickel_silver_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 6,
+          "sax_size": 7.522749999999999,
+          "sax_reed": 0.65,
+          "sax_body_alloy": 35.365000000000016,
+          "sax_mouthpiece": 1.829,
+          "sax_technique": 34.25000000000001,
+          "sax_maker_school": 43.68225
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_avant_prepared",
+          "grand_piano_size": "grand_5_foot",
+          "grand_piano_brand": "yamaha_cfx",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_432_alternative"
+        },
+        "scores": {
+          "keyboard_technique": 5.25,
+          "grand_piano_size": 0.195,
+          "grand_piano_brand": 0.65,
+          "piano_hammer": 10.3675,
+          "piano_rim": 12.447500000000002,
+          "piano_soundboard": 2.414,
+          "piano_pinblock": 0.325,
+          "piano_plate": 0.325,
+          "piano_pitch_standard": 2.5675
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_sul_ponticello",
+          "bass_size": "bass_three_quarter",
+          "bass_strings": "silver_wound_lamb_gut_bass",
+          "bass_top_wood": "carpathian_spruce_bass",
+          "bass_back_wood": "european_maple_bass_back",
+          "bass_varnish": "oil_amber_varnish_bass",
+          "bass_setup_period": "baroque_setup_bass",
+          "bass_play": "bass_pizz",
+          "bass_rosin": "nyman_bass_rosin",
+          "bass_bow_stick": "pernambuco_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": 3.625,
+          "bass_size": 0,
+          "bass_strings": 2.21,
+          "bass_top_wood": 0.42,
+          "bass_back_wood": 0.41500000000000004,
+          "bass_varnish": 0.325,
+          "bass_setup_period": 2.405,
+          "bass_play": 35.50062500000001,
+          "bass_rosin": 43.45756250000001,
+          "bass_bow_stick": 1.2024999999999997
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "vintage_ambassador_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 39.455,
+          "drumhead": 42.806000000000004,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_bebop_runs",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "yamaha_bobby_shew_jazz_mp",
+          "brass_mute": "harmon_out",
+          "trumpet_technique": "trumpet_bebop_lines",
+          "trumpet_bell_metal": "trumpet_sterling_silver_bell",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 6,
+          "brass_size": 1.829,
+          "trumpet_mouthpiece": 42.189750000000004,
+          "brass_mute": 0.39,
+          "trumpet_technique": 6,
+          "trumpet_bell_metal": 1.04,
+          "trumpet_maker_school": 10.725
+        }
+      }
+    ],
+    "room": "van_gelder_englewood_cliffs",
+    "archetype": "arch_van_gelder_hard_bop",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "tube_pre",
+      "console": "console_american_op_amp",
+      "comp": "comp_fairchild_670_tube",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "bebop_complex_changes",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "bebop_complex_changes",
+    "room": "van_gelder_englewood_cliffs",
+    "chain_mic": "mic_u47_tube_neumann",
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_fairchild_670_tube",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_american_op_amp"
+  }
+}

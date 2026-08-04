@@ -1,0 +1,181 @@
+{
+  "id": "trap_triste",
+  "name": "Trap Triste (Latin melancholic trap)",
+  "family": "hip_hop",
+  "lineage": "Spanish-language melancholic trap crystallized in San Juan, Medellín and Madrid around 2016-2019 through Bad Bunny's early SoundCloud sides, Duki and Cazzu — 130-145 BPM half-time trap with rolled hi-hats and long 808 glides, minor-key detuned piano or guitar loops soaked in reverb, and heavily Auto-Tuned confessional vocals about heartbreak and dissociation delivered in a slurred, near-spoken register",
+  "recipe": "classic 2016-2019 trap triste, mc Rhythm, reggaeton branch, us hip hop modern, tropical song functional song pittsburgh rap cloud rap. thick, rap, straight onset, interlocked note trading. octuple plus dense stack multi track instrument 2000s elastic pitch edited stack chorus detuned thickener across stack multitrack vocal stack, roland tr 8s modern aira digital recreation TR-808, sampled chopped sampler drum machine, soft felt lacquer voiced 17 ply hard rock maple Asian spruce grand piano, cedar concert modern carbon fiber classical nylon-string guitar, sub bass analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 761,
+  "score": 275.315,
+  "config": {
+    "traditions": [
+      "trap_triste",
+      "pittsburgh_rap",
+      "cloud_rap"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 3.7225000000000006,
+          "voice_quality": 16.2775,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 5.752500000000001,
+          "voice_articulation": 17.939999999999998,
+          "voice_microtone": 22.619999999999994,
+          "voice_tradition": 9.2925,
+          "voice_mechanism_compound": 4.225,
+          "voice_estill_quality": 3.835,
+          "voice_speech_song": 20.149999999999995,
+          "voice_ensemble_config": 17.679999999999993,
+          "voice_ornament_system": 6.565000000000002,
+          "voice_pitch_organization": 3.0550000000000006,
+          "voice_processing_chain": 9.215,
+          "voice_multitrack_stack": 4.647500000000001
+        }
+      },
+      {
+        "id": "multitrack_vocal_stack",
+        "slots": {
+          "multitrack_stack_density": "multitrack_density_octuple_plus",
+          "multitrack_stack_era_aesthetic": "multitrack_era_2000s_elastic_pitch",
+          "multitrack_stack_processing": "multitrack_processing_chorus_thickened"
+        },
+        "scores": {
+          "multitrack_stack_density": 1.0699999999999998,
+          "multitrack_stack_era_aesthetic": 2.0475,
+          "multitrack_stack_processing": 1.8399999999999999
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 6.465,
+          "drum_machine_808_context": 3.25,
+          "tr808_production_origin": 2.8600000000000003
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 5.7250000000000005,
+          "sample_bitdepth": 2.8600000000000003,
+          "sample_swing": 10.855,
+          "sample_processing": 1.2925
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 1.5750000000000002,
+          "grand_piano_size": 0.2475,
+          "grand_piano_brand": 0.78,
+          "piano_hammer": 6.685,
+          "piano_rim": 6.015000000000001,
+          "piano_soundboard": 5.840000000000001,
+          "piano_pinblock": 6.275000000000001,
+          "piano_plate": 7.49,
+          "piano_pitch_standard": 13.7775
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "lattice_cl",
+          "string_classical": "carbon_cl",
+          "attack_technique_cl": "fingertip_only_cl"
+        },
+        "scores": {
+          "acoustic_technique": 2.3000000000000003,
+          "string_tuning": 0,
+          "top_wood_classical": 6.760000000000002,
+          "bracing_classical": 2.8600000000000003,
+          "string_classical": 2.8600000000000003,
+          "attack_technique_cl": 1.04
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 20.665000000000003,
+          "poly_archetypes": 0.195,
+          "poly_voices": 0.195,
+          "poly_maker_lineage": -0.08750000000000008
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_avalon_v737",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_avalon_v737",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

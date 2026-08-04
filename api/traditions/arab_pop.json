@@ -1,0 +1,253 @@
+{
+  "id": "arab_pop",
+  "name": "Arab Pop",
+  "family": "pop",
+  "lineage": "Pan-Arab commercial pop consolidated in Cairo and Beirut from the late 1980s onward — Amr Diab's 1996 'Nour El Ain' fixing the template — setting maqam-inflected melody and Egyptian-dialect lyric over a 100-130 BPM four-on-the-floor bed with programmed darbuka/riq maqsum and baladi patterns, synth-doubled qanun and violin unisons, and a lightly ornamented mid-register chest vocal.",
+  "recipe": "classic 1987-1989 arab pop, functional Song, mid east n African pop branch, med east poetic ballad poetry, Persian arab improv improv on frame somali qaraami song ethiopian azmari minstrel-poet. extended whistle, breath veiled tone, slow rate, interlocked note trading. walnut ribs canonical mid tier spruce face pyramid nylon oud, metal finger picks rosewood body arab premium goat skin bridge plate drone like qanun, arundo donax cane canonical Persian nine segment hassan kassai canonical 20th century Persian radif ney, rosewood mop inlay canonical Egyptian takht fish skin canonical Egyptian light responsive brass jingles canonical takht riq, spun aluminum Egyptian sombaty synthetic remo mylar modern canonical Egyptian Egyptian sombaty canonical mid east darbuka, carpathian spruce European maple bosnian source flamed figure cremonese pre 1750 violin orchestral, singing lead analog poly synth, sampler, alder pyramid pure nickel bass British mid 60s era electric bass. treated studio.",
+  "recipe_chars": 994,
+  "score": 404.377,
+  "config": {
+    "traditions": [
+      "arab_pop",
+      "somali_qaraami",
+      "azmari_ethiopian"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 15.044999999999998,
+          "voice_quality": 19.305,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 7.715000000000001,
+          "voice_articulation": 21.71,
+          "voice_microtone": 33.7675,
+          "voice_tradition": 24.83,
+          "voice_mechanism_compound": 8.384999999999998,
+          "voice_estill_quality": 7.344999999999999,
+          "voice_speech_song": 25.740000000000002,
+          "voice_ensemble_config": 21.255000000000003,
+          "voice_ornament_system": 10.845,
+          "voice_pitch_organization": 30.25999999999999,
+          "voice_processing_chain": 8.075,
+          "voice_multitrack_stack": 4.5600000000000005
+        }
+      },
+      {
+        "id": "oud",
+        "slots": {
+          "plucked_traditional_technique": "plucked_drone_modal",
+          "oud_school": "oud_arab_classic",
+          "oud_strings": "oud_eleven",
+          "oud_pick": "risha_eagle_feather",
+          "oud_body_wood": "oud_walnut_body",
+          "oud_soundboard_wood": "oud_spruce_face",
+          "oud_string_material": "oud_pyramid_nylon"
+        },
+        "scores": {
+          "plucked_traditional_technique": 6.090000000000001,
+          "oud_school": 6.629999999999999,
+          "oud_strings": 1.3,
+          "oud_pick": 2.695,
+          "oud_body_wood": 4.385,
+          "oud_soundboard_wood": 1.69,
+          "oud_string_material": 5.73
+        }
+      },
+      {
+        "id": "qanun",
+        "slots": {
+          "plucked_traditional_technique": "plucked_drone_modal",
+          "qanun_strings": "qanun_arab_72",
+          "qanun_levers": "mandal_brass",
+          "qanun_pick": "qanun_finger_picks",
+          "qanun_body_wood": "qanun_rosewood_body",
+          "qanun_bridge_skin": "qanun_goat_skin_bridge",
+          "qanun_string_material": "qanun_nylon_modern"
+        },
+        "scores": {
+          "plucked_traditional_technique": 6.090000000000001,
+          "qanun_strings": 1.3,
+          "qanun_levers": 0,
+          "qanun_pick": 1.69,
+          "qanun_body_wood": 2.95,
+          "qanun_bridge_skin": 1.69,
+          "qanun_string_material": 0
+        }
+      },
+      {
+        "id": "ney",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "ney_use": "ney_persian_classical",
+          "ney_pitch": "ney_kerdaniye",
+          "ney_body_material": "ney_arundo_canonical",
+          "ney_lineage": "ney_hassan_kassai"
+        },
+        "scores": {
+          "wind_articulation": 2.45,
+          "ney_use": 2.9899999999999998,
+          "ney_pitch": 1.3,
+          "ney_body_material": 2.6,
+          "ney_lineage": 3.4450000000000003
+        }
+      },
+      {
+        "id": "riq",
+        "slots": {
+          "riq_size": "riq_medium",
+          "riq_context": "riq_wedding",
+          "riq_shell_wood": "riq_rosewood_inlaid",
+          "riq_head_material": "riq_fish_skin_canonical",
+          "riq_jingles": "riq_brass_jingles"
+        },
+        "scores": {
+          "riq_size": 1.3,
+          "riq_context": 0.845,
+          "riq_shell_wood": 2.835,
+          "riq_head_material": 3.2299999999999995,
+          "riq_jingles": 1.69
+        }
+      },
+      {
+        "id": "darbuka",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "darbuka_material": "darbuka_aluminum_sombaty",
+          "darbuka_skin": "darbuka_synthetic_mylar",
+          "darbuka_regional_style": "darbuka_egyptian_sombaty"
+        },
+        "scores": {
+          "percussion_technique": 0.7149999999999999,
+          "darbuka_material": 2.885,
+          "darbuka_skin": 2.885,
+          "darbuka_regional_style": 11.05
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "orch_strings": "steel_orch",
+          "orch_top_wood": "carpathian_spruce_violin",
+          "orch_back_wood": "bosnian_flamed_maple_violin",
+          "orch_varnish": "cremonese_pre_1750_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "bernardel_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 3.25,
+          "orch_strings": 0.39,
+          "orch_top_wood": 3.8,
+          "orch_back_wood": 3.295,
+          "orch_varnish": 2.685,
+          "orch_setup_period": 2.45,
+          "orch_bow": 1.2349999999999999,
+          "orch_bow_stick": 3.1200000000000006,
+          "orch_articulation": 0.39,
+          "orch_rosin": 2.5
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 11.95,
+          "poly_archetypes": 0.845,
+          "poly_voices": 0.845,
+          "poly_maker_lineage": -0.06999999999999988
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "roland_s750",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_orchestral_library",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": -0.1,
+          "sampler_archetypes": 0.845,
+          "sampler_bit_depth": 2.7900000000000005,
+          "sampler_workflow": 0.75,
+          "sampler_classic_context": 25.61
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_british_orange",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_motown"
+        },
+        "scores": {
+          "amp_make": 2.4950000000000006,
+          "body_wood": 2.89,
+          "pickup_config": 0.39,
+          "string_type": 3.3950000000000005,
+          "scale_length_b": 2.5,
+          "fretted_or_not": 0,
+          "bass_technique": 0.78
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "maqam_24edo",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "maqam_24edo",
+    "room": "treated_studio",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

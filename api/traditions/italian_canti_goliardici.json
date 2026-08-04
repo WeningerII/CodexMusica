@@ -5,7 +5,7 @@
   "lineage": "Italian goliardic-and-drinking-song tradition continuous from medieval-Italian goliardic-Latin-student tradition (the same goliardic tradition documented in the German Carmina Burana manuscript has Italian-university analogues at Bologna, Padua, Pavia) through 19th-20th-century Italian university-fraternity drinking-song repertoire into modern Italian university-and-osteria continuous practice; foundational repertoire includes \"Gaudeamus igitur\" (Latin-international student-song)",
   "recipe": "classic modern italian canti goliardici, drinking Song, European branch, americas drinking song, iberian functional song, chanson fado ballad poetry morna cape verdean batuko of santiago island. vocal fry, breath veiled tone, slow rate, interlocked note trading. cedar concert modern carbon fiber fingerpicked classical nylon-string guitar. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 414,
-  "score": 256.178,
+  "score": 255.982,
   "config": {
     "traditions": [
       "italian_canti_goliardici",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 3.2199999999999998,
+          "voice_register": 3.025,
           "voice_quality": 29.119999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -43,11 +43,11 @@
           "voice_microtone": 23.725,
           "voice_tradition": 24.700000000000003,
           "voice_mechanism_compound": 4.484999999999999,
-          "voice_estill_quality": 28.185000000000002,
+          "voice_estill_quality": 28.290000000000003,
           "voice_speech_song": 35.9775,
           "voice_ensemble_config": 22.685,
           "voice_ornament_system": 23.825000000000003,
-          "voice_pitch_organization": 4.245,
+          "voice_pitch_organization": 4.2,
           "voice_processing_chain": 7.605000000000003,
           "voice_multitrack_stack": 4.745
         }
@@ -65,7 +65,7 @@
         "scores": {
           "acoustic_technique": 6.27,
           "string_tuning": 0,
-          "top_wood_classical": 7.77,
+          "top_wood_classical": 7.709999999999999,
           "bracing_classical": 1.69,
           "string_classical": 2.4699999999999998,
           "attack_technique_cl": 2.38

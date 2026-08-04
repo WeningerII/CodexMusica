@@ -3,21 +3,21 @@
   "name": "Schlager",
   "family": "global",
   "lineage": "German-language popular sentimental song genre with 1920s Weimar cabaret roots, mid-century commercial extension (Heino, Roy Black, Freddy Quinn), and modern continuation (Helene Fischer, Andrea Berg) — major-key sentimental melodies, accordion-and-strings-and-occasional-yodel arrangements, lyrical content concerning love, home country (Heimat), nostalgia, holidays, alpine landscapes; distinct from Liedermacher (politically engaged literary-cabaret tradition)",
-  "recipe": "classic Central European mid-1920s schlager, functional Song, europop branch, crooners functional song brill building pop american barbershop quartet. thick, breath veiled tone, wide pitch sway, interlocked note trading. weltmeister east German mid tier vintage volk straight accordion, Fender tweed amp American 50s amp tweed breakup alder pyramid electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog poly synth. german liedermacher kabarett berlin. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
-  "recipe_chars": 574,
-  "score": 200.523,
+  "recipe": "classic Central European mid-1920s schlager, functional Song, europop branch, crooners functional song brill building pop adult standards. thick, close mic intimate, wide pitch sway, interlocked note trading. weltmeister east German mid tier vintage volk accordion, Fender tweed amp American 50s amp tweed breakup alder pyramid electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog poly synth. german liedermacher kabarett berlin. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 553,
+  "score": 227.535,
   "config": {
     "traditions": [
       "schlager_german",
       "brill_building_pop",
-      "barbershop_quartet"
+      "adult_standards"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "aspirated_voice",
+          "voice_quality": "crooner_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "oscillating_vibrato",
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_just_intonation",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 12.186624999999994,
-          "voice_quality": 9.165000000000001,
+          "voice_register": 13.586624999999996,
+          "voice_quality": 9.3275,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.7116250000000006,
-          "voice_articulation": 14.299999999999995,
-          "voice_microtone": 14.754999999999992,
-          "voice_tradition": 12.756125,
-          "voice_mechanism_compound": 3.12,
-          "voice_estill_quality": 6.5596250000000005,
-          "voice_speech_song": 21.904999999999998,
-          "voice_ensemble_config": 13.974999999999994,
-          "voice_ornament_system": 0.7749999999999999,
-          "voice_pitch_organization": 3.561,
-          "voice_processing_chain": 7.345000000000001,
-          "voice_multitrack_stack": 6.175
+          "voice_vibrato": 3.486625,
+          "voice_articulation": 19.434999999999995,
+          "voice_microtone": 20.539999999999996,
+          "voice_tradition": 13.145125000000002,
+          "voice_mechanism_compound": 3.965,
+          "voice_estill_quality": 6.901625,
+          "voice_speech_song": 27.884999999999998,
+          "voice_ensemble_config": 18.914999999999996,
+          "voice_ornament_system": 0.39,
+          "voice_pitch_organization": 2.15,
+          "voice_processing_chain": 5.392625000000001,
+          "voice_multitrack_stack": 3.575
         }
       },
       {
@@ -58,19 +58,19 @@
           "free_reed_technique": "free_reed_folk_first_position",
           "accordion_reed_material": "tipo_a_mano",
           "musette_offset": "italian_tuning",
-          "reed_config": "lmmm",
-          "bellows": "cardboard_leather",
-          "voicing_chamber": "cassotto",
+          "reed_config": "lm_only",
+          "bellows": "all_leather",
+          "voicing_chamber": "no_cassotto",
           "accordion_maker_school": "accordion_weltmeister"
         },
         "scores": {
-          "free_reed_technique": 3.6425,
-          "accordion_reed_material": 1.885,
-          "musette_offset": 1.3056249999999998,
-          "reed_config": 0.8774999999999998,
-          "bellows": 0,
-          "voicing_chamber": 0,
-          "accordion_maker_school": 5.281625
+          "free_reed_technique": 2.975,
+          "accordion_reed_material": 2.535,
+          "musette_offset": 1.2006249999999998,
+          "reed_config": 0.45499999999999996,
+          "bellows": 0.65,
+          "voicing_chamber": 0.15,
+          "accordion_maker_school": 6.021625
         }
       },
       {
@@ -82,16 +82,16 @@
           "string_type": "pyramid_pure_nickel",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
-          "bass_technique": "sub_bass_synth_blend"
+          "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 6.888375,
-          "body_wood": 1.885,
-          "pickup_config": 1.95,
-          "string_type": 3.7700000000000005,
-          "scale_length_b": 1.885,
-          "fretted_or_not": 1.6,
-          "bass_technique": 3.75
+          "amp_make": 5.2,
+          "body_wood": 2.535,
+          "pickup_config": 1.4949999999999999,
+          "string_type": 4.2250000000000005,
+          "scale_length_b": 2.73,
+          "fretted_or_not": 0.39,
+          "bass_technique": 3.025625
         }
       },
       {
@@ -102,8 +102,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 13.714999999999996,
-          "drumhead": 8.665000000000001,
+          "drum_technique": 19.304999999999996,
+          "drumhead": 9.33,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -116,8 +116,8 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 7.42,
-          "poly_archetypes": 1.625,
+          "electronic_technique": 7.395000000000001,
+          "poly_archetypes": 1.885,
           "poly_voices": 0.372,
           "poly_maker_lineage": -0.035
         }

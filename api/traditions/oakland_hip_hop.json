@@ -1,0 +1,177 @@
+{
+  "id": "oakland_hip_hop",
+  "name": "Oakland hip-hop",
+  "family": "hip_hop",
+  "lineage": "Developed in Oakland and the wider East Bay from 1985 onward through Too $hort's self-distributed tapes, Digital Underground, Souls of Mischief and Hieroglyphics, and later Mac Dre and E-40's Sick Wid It camp — 90-105 BPM tracks over live-played P-funk and Parliament-derived bass lines, slapping programmed snares, wah guitar and synth leads, with drawled, elastic flows and heavy local slang.",
+  "recipe": "classic North American mid-1980s oakland hip-hop, mc Rhythm, west coast branch, us hip hop gangsta, us hip hop conscious rap conscious hip-hop. thick, rap, straight onset, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, chopped sampler, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, low sub bass analog poly synth, sampled chopped turntable, pocket ostinato rhodes electric. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 626,
+  "score": 444.945,
+  "config": {
+    "traditions": [
+      "oakland_hip_hop",
+      "conscious_hip_hop",
+      "gangsta_rap"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 10.267999999999997,
+          "voice_quality": 35.432,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 7.376499999999998,
+          "voice_articulation": 23.92,
+          "voice_microtone": 23.725,
+          "voice_tradition": 14.484000000000002,
+          "voice_mechanism_compound": 3.3150000000000004,
+          "voice_estill_quality": 4.785499999999999,
+          "voice_speech_song": 33.825,
+          "voice_ensemble_config": 26.130000000000003,
+          "voice_ornament_system": 7.345000000000002,
+          "voice_pitch_organization": 0.8449999999999999,
+          "voice_processing_chain": 25.332499999999996,
+          "voice_multitrack_stack": 7.48575
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 16.236250000000002,
+          "drum_machine_808_context": 5.478,
+          "tr808_production_origin": 1.6927500000000002
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 13.804,
+          "sampler_archetypes": 23.79,
+          "sampler_bit_depth": 1.2999999999999998,
+          "sampler_workflow": 14.385000000000002,
+          "sampler_classic_context": 39.160000000000004
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "amp_make": 9.0345,
+          "body_wood": 1.4299999999999997,
+          "pickup_config": 0.45499999999999996,
+          "string_type": 10.1115,
+          "scale_length_b": 1.4299999999999997,
+          "fretted_or_not": 0.08474999999999999,
+          "bass_technique": 9.45
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 17.987750000000002,
+          "poly_archetypes": 0.195,
+          "poly_voices": 0.195,
+          "poly_maker_lineage": 0.7149999999999999
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_scratch"
+        },
+        "scores": {
+          "electronic_technique": 13.804,
+          "turntable_technique": 17.595000000000002
+        }
+      },
+      {
+        "id": "rhodes_electric",
+        "slots": {
+          "keyboard_technique": "keyboard_ostinato_groove",
+          "rhodes_model": "rhodes_mark1_stage",
+          "rhodes_use": "rhodes_soul",
+          "rhodes_tine_material": "rhodes_mark7_modern_tine",
+          "rhodes_hammer_tip": "rhodes_harder_neoprene_late",
+          "rhodes_pickup_position": "rhodes_pickup_close_bark"
+        },
+        "scores": {
+          "keyboard_technique": 9.499999999999998,
+          "rhodes_model": 6.464999999999999,
+          "rhodes_use": 1.8199999999999998,
+          "rhodes_tine_material": -1.38225,
+          "rhodes_hammer_tip": -0.5950000000000001,
+          "rhodes_pickup_position": 0.585
+        }
+      }
+    ],
+    "room": "studio_indie_commercial_us_80s",
+    "archetype": "arch_80s_indie_commercial_us",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_api_312",
+      "console": "console_american_op_amp",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "room": "studio_indie_commercial_us_80s",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_api_312",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "digital_std",
+    "chain_console": "console_american_op_amp"
+  }
+}

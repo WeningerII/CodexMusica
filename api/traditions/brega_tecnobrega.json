@@ -3,9 +3,9 @@
   "name": "Brega and tecnobrega (Belém-Pará)",
   "family": "global",
   "lineage": "Brega and tecnobrega Brazilian popular-music genres of the northern Brazilian Amazonian Pará state (especially Belém). Brega (\"kitsch\") originated as a mid-late-twentieth-century commercial sentimental-popular music; tecnobrega is its 2000s-onward electronic-DIY remix-and-production reformulation, with characteristic synthesizer-and-808-drum-machine production, fast tempo, and an outdoor-aparelhagem sound-system street-party performance context. Distinguished from sertanejo by brega's northern-Amazonian-Brazilian regional base.",
-  "recipe": "classic Southern American mid-2000s brega and tecnobrega, functional Song, Brazilian song branch, reggaeton MC rhythm moombahton. thick, breath veiled tone, straight onset, interlocked note trading. TR-808, fast decay focused low short envelope analog synth, basswood mahogany rosewood alnico lower tension down tuning humbucker electric guitar. estudio rozenblit recife. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 501,
-  "score": 146.958,
+  "recipe": "classic Southern American mid-2000s brega and tecnobrega, functional Song, Brazilian song branch, reggaeton MC rhythm moombahton. thick, breath veiled tone, straight onset, interlocked note trading. TR-808, fast decay focused low short envelope analog synth, basswood mahogany ebony alnico soft down tuning humbucker electric guitar. estudio rozenblit recife. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 489,
+  "score": 147.245,
   "config": {
     "traditions": [
       "brega_tecnobrega",
@@ -34,11 +34,11 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 2.3015000000000017,
+          "voice_register": 2.165000000000002,
           "voice_quality": 6.955000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.9680000000000004,
+          "voice_vibrato": 2.8000000000000007,
           "voice_articulation": 12.349999999999994,
           "voice_microtone": 12.804999999999993,
           "voice_tradition": 4.615,
@@ -48,8 +48,8 @@
           "voice_ensemble_config": 12.089999999999995,
           "voice_ornament_system": 4.355,
           "voice_pitch_organization": 2.3399999999999994,
-          "voice_processing_chain": 9.2615,
-          "voice_multitrack_stack": 7.671750000000002
+          "voice_processing_chain": 9.455,
+          "voice_multitrack_stack": 8.025000000000002
         }
       },
       {
@@ -61,8 +61,8 @@
         },
         "scores": {
           "tr808_voice": 0.585,
-          "drum_machine_808_context": 7.49825,
-          "tr808_production_origin": 0.18525000000000003
+          "drum_machine_808_context": 7.5649999999999995,
+          "tr808_production_origin": 0.255
         }
       },
       {
@@ -75,10 +75,10 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 3.25,
+          "electronic_technique": 3.55,
           "oscillator": 0.65,
-          "filter_topology": 2.34,
-          "envelope": 1.3,
+          "filter_topology": 2.235,
+          "envelope": 1.345,
           "modulation": 0.45499999999999996
         }
       },
@@ -89,29 +89,29 @@
           "amp_make": "amp_roland_jc120",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "rosewood_fb_h",
+          "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
-          "string_material": "nickel_plated_h",
+          "string_material": "pure_nickel_h",
           "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_12_hum",
           "finish": "nitro_hum",
-          "string_tuning": "d_standard"
+          "string_tuning": "eb_standard"
         },
         "scores": {
           "electric_technique": 10.75,
-          "amp_make": 1.6249999999999998,
-          "body_wood": 3.3799999999999994,
-          "neck_wood": 1.4852500000000002,
-          "fretboard": 1.43525,
-          "pickup_magnet": 1.4365,
-          "pickup_winding": 0.1365,
-          "string_material": 0.0315,
-          "bridge": 1.8599999999999999,
+          "amp_make": 1.5349999999999997,
+          "body_wood": 3.0949999999999998,
+          "neck_wood": 1.3,
+          "fretboard": 1.345,
+          "pickup_magnet": 1.405,
+          "pickup_winding": 0.105,
+          "string_material": 0.6,
+          "bridge": 1.9049999999999998,
           "scale_length": 1.6899999999999997,
-          "string_gauge": 2.46675,
-          "finish": 0,
+          "string_gauge": 2.1900000000000004,
+          "finish": 0.045,
           "string_tuning": 2.5349999999999997
         }
       }

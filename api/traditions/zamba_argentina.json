@@ -5,7 +5,7 @@
   "lineage": "Argentine slow-romantic folk-dance-and-song tradition of northwestern provinces, derived from Peruvian zamacueca (which also derived Chilean cueca and Andean tondero). Slow 6/8 meter, melancholic register addressing romance, loss, and northwestern-Argentine pampas-mountain landscape. Mid-twentieth-century commercial-folklore revival under Yupanqui, Cuchi Leguizamón, Mercedes Sosa consolidated canonical zamba repertoire.",
   "recipe": "classic Mexican modern zamba, ballad Poetry, Latin am troubadour branch, chanson fado ballad poetry cape verdean batuko of santiago island morna. thick, breath veiled tone, slow rate, interlocked note trading. cedar phosphor bronze bronze fingerpicked parlor acoustic guitar, swaying bombo leguero. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 445,
-  "score": 219.205,
+  "score": 219.327,
   "config": {
     "traditions": [
       "zamba_argentina",
@@ -38,7 +38,7 @@
           "voice_quality": 24.96,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 8.825,
+          "voice_vibrato": 8.9375,
           "voice_articulation": 23.92,
           "voice_microtone": 24.245000000000005,
           "voice_tradition": 18.849999999999994,
@@ -46,7 +46,7 @@
           "voice_estill_quality": 4.5825,
           "voice_speech_song": 28.015,
           "voice_ensemble_config": 22.815,
-          "voice_ornament_system": 3.9252500000000006,
+          "voice_ornament_system": 3.74,
           "voice_pitch_organization": 2.795000000000001,
           "voice_processing_chain": 10.985000000000001,
           "voice_multitrack_stack": 5.135
@@ -65,7 +65,7 @@
           "acoustic_technique": 13.770000000000001,
           "string_tuning": 1.2999999999999998,
           "top_wood_parlor": 1.69,
-          "back_sides_parlor": 0,
+          "back_sides_parlor": 0.195,
           "string_acoustic_parlor": 1.69
         }
       },
@@ -74,7 +74,7 @@
         "slots": {
           "bombo_leguero_form": "bombo_leguero_santiagueno",
           "bombo_leguero_style": "bombo_leguero_zamba",
-          "bombo_leguero_head": "bombo_leguero_sintetico"
+          "bombo_leguero_head": "bombo_leguero_vacuno"
         },
         "scores": {
           "bombo_leguero_form": 9.794999999999998,

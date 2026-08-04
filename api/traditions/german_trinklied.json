@@ -5,7 +5,7 @@
   "lineage": "German Trinklieder (drinking-song) tradition continuous from medieval Vagantenlieder (the Carmina Burana 13th-century goliardic-Latin-drinking-song manuscript), 16th-century Reformation-era Tischlieder (table-songs), and 19th-century Studentenlieder fraternity-and-Burschenschaft drinking-song tradition into modern Bavarian Oktoberfest and broader German Bierstube practice; foundational repertoire includes \"Ein Prosit,\" \"Trink, trink, Brüderlein, trink,\" \"Die ganze Woche fröhlich sein\"",
   "recipe": "classic modern german trinklieder, drinking Song, European branch, americas drinking song, americana country, chanson fado ballad poetry cape verdean batuko of santiago island gothic americana. thick, breath veiled tone, straight note core, interlocked note trading. hohner gola canonical premium German concert straight accordion. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 405,
-  "score": 218.917,
+  "score": 218.269,
   "config": {
     "traditions": [
       "german_trinklied",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
         },
         "scores": {
-          "voice_register": 16.789999999999996,
-          "voice_quality": 28.832499999999996,
+          "voice_register": 16.939999999999994,
+          "voice_quality": 28.442499999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 11.238749999999998,
           "voice_articulation": 19.435,
           "voice_microtone": 20.084999999999997,
-          "voice_tradition": 19.174999999999997,
+          "voice_tradition": 19.141249999999996,
           "voice_mechanism_compound": 4.68,
-          "voice_estill_quality": 13.393749999999999,
+          "voice_estill_quality": 13.498749999999998,
           "voice_speech_song": 32.24,
           "voice_ensemble_config": 19.759999999999998,
           "voice_ornament_system": 1.3,
           "voice_pitch_organization": 3.7900000000000005,
           "voice_processing_chain": 6.565000000000003,
-          "voice_multitrack_stack": 4.26
+          "voice_multitrack_stack": 3.9749999999999996
         }
       },
       {
@@ -68,7 +68,7 @@
           "accordion_reed_material": 0.375,
           "musette_offset": 0.845,
           "reed_config": 0.48000000000000004,
-          "bellows": 0.195,
+          "bellows": 0,
           "voicing_chamber": 0.9099999999999999,
           "accordion_maker_school": 6.037499999999998
         }

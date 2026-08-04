@@ -1,0 +1,218 @@
+{
+  "id": "taiwan_pop",
+  "name": "Taiwanese Mandopop (Taipei ballad industry)",
+  "family": "pop",
+  "lineage": "Taipei became the centre of Mandarin-language pop after 1980 when Rock Records, UFO and later Sony Music Taiwan built an export industry aimed at the whole Chinese-speaking world — Teresa Teng's soft-voiced ballad style, Lo Ta-yu's songwriter turn and Jonathan Lee's producer-arranger school established the canonical form: 60-90 BPM piano-and-string ballads in 4/4, verse-prechorus-chorus with a modulated final chorus, close-miked breathy chest-voice Mandarin delivery, and from the 1990s an R&B-inflected Jay Chou variant with mumbled syncopated phrasing and pentatonic 'China wind' hooks.",
+  "recipe": "classic East Asian mid-1990s taiwanese mandopop, functional Song, east Asian pop branch, pop rock functional song new wave yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, rectified machine polished hard rock maple acer saccharum French Polish violin orchestral, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, cedar phosphor bronze modern martin strummed open chord ringing overtones dreadnought acoustic guitar, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly synth, shell wutong paulownia padauk mid tier guzheng. hong kong flagship 1980-2000 mid tier hong kong cantopop studio 80s. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 944,
+  "score": 624.579,
+  "config": {
+    "traditions": [
+      "taiwan_pop",
+      "new_wave",
+      "yacht_rock"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 53.73000000000001,
+          "voice_quality": 17.322499999999994,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 7.279999999999999,
+          "voice_articulation": 17.224999999999994,
+          "voice_microtone": 52.12499999999999,
+          "voice_tradition": 33.6125,
+          "voice_mechanism_compound": 4.355,
+          "voice_estill_quality": 3.9650000000000007,
+          "voice_speech_song": 23.98499999999999,
+          "voice_ensemble_config": 19.04499999999999,
+          "voice_ornament_system": 2.285,
+          "voice_pitch_organization": 7.525,
+          "voice_processing_chain": 10.545000000000002,
+          "voice_multitrack_stack": 11.2775
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_432_alternative"
+        },
+        "scores": {
+          "keyboard_technique": 26.779499999999995,
+          "grand_piano_size": 2.6650000000000005,
+          "grand_piano_brand": 2.6650000000000005,
+          "piano_hammer": 26.32999999999999,
+          "piano_rim": 26.689999999999994,
+          "piano_soundboard": 27.544999999999995,
+          "piano_pinblock": 2.9,
+          "piano_plate": 1.0074999999999998,
+          "piano_pitch_standard": 4.485
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "orch_strings": "rectified_gut_violin",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "french_polish_violin",
+          "orch_setup_period": "baroque_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "carbon_fiber_stick_orch",
+          "orch_articulation": "sul_pont_orch",
+          "orch_rosin": "magic_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 0.25,
+          "orch_strings": 1.3649999999999998,
+          "orch_top_wood": 0.6824999999999999,
+          "orch_back_wood": 12.9675,
+          "orch_varnish": 1.2675,
+          "orch_setup_period": 0.45499999999999996,
+          "orch_bow": 0.3,
+          "orch_bow_stick": 1.3324999999999998,
+          "orch_articulation": 0.39,
+          "orch_rosin": 0.4875
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 12.219999999999999,
+          "body_wood": 2.6650000000000005,
+          "pickup_config": 0.195,
+          "string_type": 30.7125,
+          "scale_length_b": 2.6650000000000005,
+          "fretted_or_not": 0.045,
+          "bass_technique": 27.715
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 23.8,
+          "drumhead": 26.345,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "d_standard",
+          "top_wood": "cedar",
+          "back_sides": "maple_bs",
+          "string_acoustic": "phosphor_bronze"
+        },
+        "scores": {
+          "acoustic_technique": 26.674999999999997,
+          "string_tuning": 0.8999999999999999,
+          "top_wood": 4.16,
+          "back_sides": 0.585,
+          "string_acoustic": 2.8600000000000003
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 26.699999999999996,
+          "poly_archetypes": 12.675,
+          "poly_voices": 1.17,
+          "poly_maker_lineage": 4.94
+        }
+      },
+      {
+        "id": "guzheng",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "guzheng_strings": "guzheng_21",
+          "guzheng_picks": "guzheng_tortoise",
+          "guzheng_top_wood": "guzheng_wutong_paulownia",
+          "guzheng_frame": "guzheng_padauk_frame",
+          "guzheng_string_material": "guzheng_nylon_steel_wound"
+        },
+        "scores": {
+          "plucked_traditional_technique": 0.25,
+          "guzheng_strings": 0.3625,
+          "guzheng_picks": 2.6000000000000005,
+          "guzheng_top_wood": 1,
+          "guzheng_frame": 3.6150000000000007,
+          "guzheng_string_material": 0.195
+        }
+      }
+    ],
+    "room": "hong_kong_cantopop_studio_80s",
+    "archetype": "arch_hk_cantopop_ballad_factory",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_inline_80s",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "hong_kong_cantopop_studio_80s",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "digital_std",
+    "chain_console": "console_british_inline_80s"
+  }
+}

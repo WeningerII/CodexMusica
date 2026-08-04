@@ -3,25 +3,25 @@
   "name": "Garage house",
   "family": "global",
   "lineage": "NYC Paradise-Garage house lineage named for the Larry Levan-resident Paradise Garage nightclub (1977-1987) — codified through Larry Levan, Frankie Knuckles (before his Chicago move), and the Salsoul / West End / Prelude labels; characterized by gospel-vocal-led songs, four-on-the-floor 120 BPM tempo, and live-instrument production retaining disco-era warmth",
-  "recipe": "classic Asian mid-1980s garage house, electronic Dance, garage house u s branch, soul R&B functional song doo-wop alt-r&b. thick, breath veiled tone, straight note core, interlocked note trading. Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched gospel runs full spectrum slow chorale tonewheel organ, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, singing lead digital subtractive, TR-909. jazz club. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
-  "recipe_chars": 643,
-  "score": 295.42,
+  "recipe": "classic Asian mid-1980s garage house, electronic Dance, garage house u s branch, soul R&B functional song british soul doo-wop. thick, blues-shouter, slow rate, narrative. Hammond b3 canonical 1955 1975 jazz gospel rock standard gospel runs full spectrum slow chorale tonewheel organ, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, singing lead digital subtractive, TR-909. jazz club. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 562,
+  "score": 353.73,
   "config": {
     "traditions": [
       "garage_house_paradise",
-      "doo_wop",
-      "alt_rnb"
+      "british_soul",
+      "doo_wop"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "aspirated_voice",
+          "voice_quality": "blues_shouter_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "hocket_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "gospel_pentecostal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 23.974999999999998,
-          "voice_quality": 20.020000000000007,
+          "voice_register": 31.549999999999994,
+          "voice_quality": 20.67499999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.2999999999999998,
-          "voice_articulation": 15.729999999999995,
-          "voice_microtone": 15.339999999999991,
-          "voice_tradition": 17.919999999999998,
-          "voice_mechanism_compound": 1.95,
-          "voice_estill_quality": 16.195,
-          "voice_speech_song": 20.019999999999992,
-          "voice_ensemble_config": 17.744999999999994,
+          "voice_vibrato": 1.5599999999999996,
+          "voice_articulation": 17.845000000000002,
+          "voice_microtone": 16.834999999999994,
+          "voice_tradition": 25.669999999999998,
+          "voice_mechanism_compound": 2.145,
+          "voice_estill_quality": 23.944999999999997,
+          "voice_speech_song": 21.96999999999999,
+          "voice_ensemble_config": 20.279999999999994,
           "voice_ornament_system": 1.15,
-          "voice_pitch_organization": 2.5350000000000006,
-          "voice_processing_chain": 7.6,
-          "voice_multitrack_stack": 6.76
+          "voice_pitch_organization": 0.8449999999999999,
+          "voice_processing_chain": 7.505000000000001,
+          "voice_multitrack_stack": 6.954999999999999
         }
       },
       {
@@ -60,15 +60,15 @@
           "rotary_speed": "slow_chorale",
           "percussion_setting": "percussion_on_long",
           "tonewheel_model": "tonewheel_hammond_b3",
-          "leslie_cabinet_model": "leslie_122_canonical"
+          "leslie_cabinet_model": "leslie_145_smaller"
         },
         "scores": {
-          "keyboard_technique": 16.885,
-          "drawbar_setting": 6.000000000000001,
-          "rotary_speed": 10.145,
-          "percussion_setting": 1.4949999999999999,
-          "tonewheel_model": 7.410000000000001,
-          "leslie_cabinet_model": 1.17
+          "keyboard_technique": 24.785,
+          "drawbar_setting": 6.375,
+          "rotary_speed": 17.52,
+          "percussion_setting": 1.3,
+          "tonewheel_model": 7.41,
+          "leslie_cabinet_model": 0.9450000000000001
         }
       },
       {
@@ -76,24 +76,24 @@
         "slots": {
           "keyboard_technique": "keyboard_gospel_chord_runs",
           "grand_piano_size": "grand_7_foot",
-          "grand_piano_brand": "yamaha_cfx",
+          "grand_piano_brand": "bosendorfer",
           "piano_hammer": "japanese_1980s_hammer",
           "piano_rim": "asian_laminated_rim_birch_maple",
           "piano_soundboard": "asian_spruce_soundboard",
-          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
           "piano_plate": "wet_sand_cast_plate",
-          "piano_pitch_standard": "a_432_alternative"
+          "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": 16.885,
-          "grand_piano_size": 0.585,
-          "grand_piano_brand": 1.2349999999999999,
-          "piano_hammer": 4.8999999999999995,
-          "piano_rim": 6.015,
-          "piano_soundboard": 4.75,
-          "piano_pinblock": -0.05,
-          "piano_plate": 2.2099999999999995,
-          "piano_pitch_standard": 0.975
+          "keyboard_technique": 24.785,
+          "grand_piano_size": 1.6249999999999998,
+          "grand_piano_brand": 2.2099999999999995,
+          "piano_hammer": 4.5249999999999995,
+          "piano_rim": 5.64,
+          "piano_soundboard": 4.375,
+          "piano_pinblock": 0.52,
+          "piano_plate": 1.3649999999999998,
+          "piano_pitch_standard": 2.015
         }
       },
       {
@@ -104,9 +104,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 5.2749999999999995,
+          "electronic_technique": 5.699999999999999,
           "va_archetypes": 0.24,
-          "digital_subtractive_context": 16.119999999999997
+          "digital_subtractive_context": 18.459999999999997
         }
       },
       {
@@ -114,12 +114,12 @@
         "slots": {
           "tr909_voice": "tr909_kick",
           "drum_machine_909_context": "drum_machine_909_house",
-          "tr909_production_origin": "tr909_roland_osaka_canonical"
+          "tr909_production_origin": "tr909_tr_8s_modern"
         },
         "scores": {
           "tr909_voice": 16.249999999999996,
-          "drum_machine_909_context": 2.6799999999999997,
-          "tr909_production_origin": 0.78
+          "drum_machine_909_context": 3.18,
+          "tr909_production_origin": 0.75
         }
       }
     ],

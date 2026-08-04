@@ -5,7 +5,7 @@
   "lineage": "Colombian Caribbean-coast cortejo-procession couple-dance tradition originating mid-17th-century onward in Cartagena-and-Barranquilla Atlantic-coastal-region from Afro-Indigenous-Spanish fusion (enslaved-Africans-of-the-Bantu-Yoruba diaspora + Zenú-Wayuu Indigenous-coast + Spanish colonial Catholic-feast-day procession). The canonical conjunto-de-cumbia ensemble: gaitas Indigenous-Wayuu vertical-clay-and-cane flutes (gaita-macho lead, gaita-hembra accompaniment), tambor-mayor low-bass-drum (African-derived), llamador high-pulse-drum, alegre middle-improvisation-drum, maracas-and-guache shakers. The cumbia-clave 4-beat pattern emphasizes beats 1 and 3 (the conga-pattern echo). The 1940s-1960s commercial-mainstream cumbia adaptation by big-band-with-accordion-and-brass (cumbia-de-orquesta) spread Colombian-cumbia internationally; the 1960s-onward Peruvian-Mexican-and-Argentine cumbia-variants emerged from this diaspora.",
   "recipe": "classic South American mid-1940s cumbia colombiana, groove Percussion, Latin am branch, tropical song functional song bachata garifuna punta-rock. thick, full chest belt, slow rate, interlocked note trading. weltmeister east German mid tier vintage volk accordion, gaita macho rhythmic drone gaita deep barrel coastal cumbia head and shell steady pulse tambora colombiana, ampeg svt amp rock bass amp mahogany pyramid pure nickel bass electric bass, guiro, maracas, cumbia lead gaita ensemble tambor alegre. colombian canon 1934-present mid tier discos fuentes medellin. shure SM57, transformer-coupled solid-state pre, colored vintage console, optical compressor. tape 15ips spring reverb.",
   "recipe_chars": 690,
-  "score": 317.413,
+  "score": 315.39,
   "config": {
     "traditions": [
       "cumbia_colombiana",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 3.4430000000000014,
-          "voice_quality": 25.612124999999995,
+          "voice_register": 3.3950000000000014,
+          "voice_quality": 25.574999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 4.68,
           "voice_articulation": 16.185000000000002,
           "voice_microtone": 15.794999999999998,
-          "voice_tradition": 11.25525,
+          "voice_tradition": 10.935,
           "voice_mechanism_compound": 8.799999999999999,
           "voice_estill_quality": 3.4450000000000003,
           "voice_speech_song": 23.14,
           "voice_ensemble_config": 16.315,
           "voice_ornament_system": 1.4949999999999992,
           "voice_pitch_organization": 2.3000000000000003,
-          "voice_processing_chain": 10.259,
-          "voice_multitrack_stack": 10.889999999999999
+          "voice_processing_chain": 10.01,
+          "voice_multitrack_stack": 10.829999999999998
         }
       },
       {
@@ -64,8 +64,8 @@
           "accordion_maker_school": "accordion_weltmeister"
         },
         "scores": {
-          "free_reed_technique": 2.748625,
-          "accordion_reed_material": 3.16375,
+          "free_reed_technique": 2.8600000000000003,
+          "accordion_reed_material": 3.34,
           "musette_offset": 1,
           "reed_config": 0.15,
           "bellows": 0.845,
@@ -81,7 +81,7 @@
         },
         "scores": {
           "wind_articulation": -0.1,
-          "gaita_colombiana_pair": 27.629999999999995
+          "gaita_colombiana_pair": 27.374999999999996
         }
       },
       {
@@ -98,11 +98,11 @@
         "scores": {
           "amp_make": 4.615,
           "body_wood": 3.445,
-          "pickup_config": 0.12374999999999999,
+          "pickup_config": 0.045,
           "string_type": 4.550000000000001,
-          "scale_length_b": 3.16375,
+          "scale_length_b": 3.385,
           "fretted_or_not": 0,
-          "bass_technique": 3.107125
+          "bass_technique": 3.07
         }
       },
       {
@@ -113,8 +113,8 @@
           "tambora_colombiana_build": "tambora_colombiana_build_goatskin"
         },
         "scores": {
-          "tambora_colombiana_form": 22.778249999999996,
-          "tambora_colombiana_pattern": 37.873375,
+          "tambora_colombiana_form": 21.705,
+          "tambora_colombiana_pattern": 38.44,
           "tambora_colombiana_build": -0.15000000000000002
         }
       },
@@ -132,7 +132,7 @@
       {
         "id": "maracas",
         "slots": {
-          "maracas_construction": "maracas_leather",
+          "maracas_construction": "maracas_gourd",
           "maracas_filling": "maracas_seeds"
         },
         "scores": {
@@ -148,8 +148,8 @@
           "tambor_alegre_build": "tambor_alegre_build_moderno"
         },
         "scores": {
-          "tambor_alegre_form": 32.199374999999996,
-          "tambor_alegre_role": 9.46575,
+          "tambor_alegre_form": 31.034999999999997,
+          "tambor_alegre_role": 9.69,
           "tambor_alegre_build": 3.0199999999999996
         }
       }

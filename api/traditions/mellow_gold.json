@@ -1,0 +1,225 @@
+{
+  "id": "mellow_gold",
+  "name": "Mellow gold",
+  "family": "pop_rock",
+  "lineage": "Soft-rock AM-radio format of roughly 1970-1980 centred on Los Angeles session infrastructure (Wrecking Crew successors, Sunset Sound, Village Recorder) and singer-songwriter labels Asylum and A&M — mid-tempo 70-110 BPM 4/4 with brushed or lightly damped kit, warm compressed electric bass, Rhodes and acoustic guitar beds, extended seventh and ninth harmony borrowed from jazz-pop, string or horn sweetening, and close-miked conversational lead vocals with tight background stacks",
+  "recipe": "classic Los Angeles mid-1970s mellow gold, functional Song, pop rock branch, pop rock yacht rock, anglo singer song laurel canyon. thick, breath veiled tone, straight onset, interlocked note trading. cedar maple flatwound thomastik strummed dreadnought acoustic guitar, raymac steel tine premium 1970s vintage replacement neoprene rubber tips canonical Rhodes stage suitcase mid 1970s centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, soft felt lacquer voiced birch laminated maple laminated Asian spruce grand piano, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, steel hard rock maple acer saccharum modern setup longer neck violin orchestral. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console.",
+  "recipe_chars": 998,
+  "score": 499.158,
+  "config": {
+    "traditions": [
+      "mellow_gold",
+      "yacht_rock",
+      "laurel_canyon_70s"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 45.22150000000001,
+          "voice_quality": 8.45,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 8.923000000000002,
+          "voice_articulation": 15.274999999999993,
+          "voice_microtone": 41.60000000000001,
+          "voice_tradition": 17.9725,
+          "voice_mechanism_compound": 3.9650000000000003,
+          "voice_estill_quality": 5.752500000000001,
+          "voice_speech_song": 21.644999999999992,
+          "voice_ensemble_config": 15.989999999999991,
+          "voice_ornament_system": 3.7585000000000006,
+          "voice_pitch_organization": 1.4949999999999997,
+          "voice_processing_chain": 9.959,
+          "voice_multitrack_stack": 12.010499999999999
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood": "cedar",
+          "back_sides": "maple_bs",
+          "string_acoustic": "thomastik_flat_top"
+        },
+        "scores": {
+          "acoustic_technique": 13.496000000000002,
+          "string_tuning": 0,
+          "top_wood": 4.8175,
+          "back_sides": 1.99,
+          "string_acoustic": 4.7125
+        }
+      },
+      {
+        "id": "rhodes_electric",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "rhodes_model": "rhodes_mark1_stage",
+          "rhodes_use": "rhodes_soul",
+          "rhodes_tine_material": "rhodes_raymac_tine",
+          "rhodes_hammer_tip": "rhodes_neoprene_hammer_tip",
+          "rhodes_pickup_position": "rhodes_pickup_centered"
+        },
+        "scores": {
+          "keyboard_technique": 16.2145,
+          "rhodes_model": 8.949000000000002,
+          "rhodes_use": 4.16,
+          "rhodes_tine_material": 2.7950000000000004,
+          "rhodes_hammer_tip": 7.313000000000001,
+          "rhodes_pickup_position": 2.6715
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 13.259999999999996,
+          "body_wood": 3.12,
+          "pickup_config": 0.3405,
+          "string_type": 27.796499999999995,
+          "scale_length_b": 3.2175,
+          "fretted_or_not": 0.03599999999999999,
+          "bass_technique": 23.179999999999993
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 23.192499999999992,
+          "drumhead": 12.606500000000002,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "standard_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_441_japanese"
+        },
+        "scores": {
+          "keyboard_technique": 16.2145,
+          "grand_piano_size": 2.949,
+          "grand_piano_brand": 3.12,
+          "piano_hammer": 13.974999999999994,
+          "piano_rim": 12.606500000000002,
+          "piano_soundboard": 12.575000000000003,
+          "piano_pinblock": 1.4949999999999999,
+          "piano_plate": 0.481,
+          "piano_pitch_standard": 2.9185
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "baritone_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "nickel_silver_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 1.2999999999999998,
+          "sax_size": 2.9175,
+          "sax_reed": 2.2165,
+          "sax_body_alloy": 6.044500000000001,
+          "sax_mouthpiece": 1.9165,
+          "sax_technique": 6.000000000000001,
+          "sax_maker_school": 5.0315
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "orch_strings": "steel_orch",
+          "orch_top_wood": "norway_spruce_alpine_violin",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "modern_synthetic_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "modern_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "magic_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 1.4499999999999997,
+          "orch_strings": 1.9165,
+          "orch_top_wood": 0.26,
+          "orch_back_wood": 12.739999999999997,
+          "orch_varnish": 0.5199999999999999,
+          "orch_setup_period": 1.17,
+          "orch_bow": 0.231,
+          "orch_bow_stick": 0.45500000000000007,
+          "orch_articulation": 0.40349999999999997,
+          "orch_rosin": -0.035
+        }
+      }
+    ],
+    "room": "studio_la_rock_70s_90s",
+    "archetype": "arch_70s_la_rock_commercial",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_neve_1073_input",
+      "console": "console_quad_eight_la_70s",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_la_rock_70s_90s",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_quad_eight_la_70s"
+  }
+}

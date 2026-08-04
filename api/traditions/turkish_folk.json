@@ -1,0 +1,185 @@
+{
+  "id": "turkish_folk",
+  "name": "Turkish Folk (Türk Halk Müziği)",
+  "family": "global",
+  "lineage": "Anatolian village repertoire codified for broadcast by the Ankara Radio and TRT collecting programmes from the 1930s under Muzaffer Sarısözen — long-metre free-rhythm uzun hava and metred kırık hava forms, aksak 9/8 and 5/8 dance metres, bağlama family lutes fretted to makam commas, outdoor davul-and-zurna pairing, and âşık bardic singing with heavy vibrato and glottal breaks.",
+  "recipe": "classic Middle Eastern mid-1930s turkish folk, drone Modal, string branch, heterophonic drone modal, med east poetic ballad poetry, middle eastern classical art music andalusī nūba armenian liturgical and folk. thick, breath veiled tone, slow rate, interlocked note trading. makam correct juniper bowl eastern anatolian asik wandering bardic saz baglama, makam correct microtonal bend cura sazi, divan saz, apricot canonical anatolian ottoman zurna, davul, plum canonical bulgarian continuous-airflow legato kaval, mulberry canonical black sea legato kemence. istanbul recording canon 1955-present mid tier istanbul makam kilic ali pasha studio. large-diaphragm condenser, transformer-coupled solid-state pre, colored vintage console, vari-mu, passive program EQ. vinyl master cut tape echo spring reverb germanium fuzz wah / envelope filter.",
+  "recipe_chars": 842,
+  "score": 285.395,
+  "config": {
+    "traditions": [
+      "turkish_folk",
+      "andalusi_nuba",
+      "armenian_traditional"
+    ],
+    "instruments": [
+      {
+        "id": "saz_baglama",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "saz_size": "cura_saz",
+          "saz_frets": "saz_microtonal_frets",
+          "saz_body_wood": "saz_juniper_body",
+          "saz_strings": "saz_nylon_cura",
+          "saz_tradition": "saz_asik_tradition"
+        },
+        "scores": {
+          "plucked_traditional_technique": 9.695,
+          "saz_size": 2.34,
+          "saz_frets": 1.75,
+          "saz_body_wood": 4.19,
+          "saz_strings": 0,
+          "saz_tradition": 1.345
+        }
+      },
+      {
+        "id": "cura_sazi",
+        "slots": {
+          "cura_sazi_size": "cura_sazi_small",
+          "cura_sazi_frets": "cura_sazi_microtonal"
+        },
+        "scores": {
+          "cura_sazi_size": 0,
+          "cura_sazi_frets": 1.75
+        }
+      },
+      {
+        "id": "divan_saz",
+        "slots": {
+          "divan_saz_courses": "divan_saz_triple",
+          "divan_saz_technique": "divan_saz_mizrap",
+          "divan_saz_body": "divan_saz_mulberry"
+        },
+        "scores": {
+          "divan_saz_courses": 3.9,
+          "divan_saz_technique": 0.3,
+          "divan_saz_body": 0
+        }
+      },
+      {
+        "id": "zurna",
+        "slots": {
+          "wind_articulation": "wind_ornament_heavy",
+          "zurna_size": "zurna_kaba",
+          "zurna_context": "zurna_mehter",
+          "zurna_body_wood": "zurna_apricot_canonical",
+          "zurna_reed": "zurna_arundo_canonical"
+        },
+        "scores": {
+          "wind_articulation": -0.15000000000000002,
+          "zurna_size": 3.1449999999999996,
+          "zurna_context": 0.975,
+          "zurna_body_wood": 2.0799999999999996,
+          "zurna_reed": 0.39
+        }
+      },
+      {
+        "id": "davul",
+        "slots": {
+          "davul_form": "davul_anatolian",
+          "davul_context": "davul_zurna_pairing",
+          "davul_head_material": "davul_synthetic"
+        },
+        "scores": {
+          "davul_form": 5.625,
+          "davul_context": 21.0275,
+          "davul_head_material": 1.25
+        }
+      },
+      {
+        "id": "kaval",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "kaval_region": "kaval_turkish",
+          "kaval_context": "kaval_art_music",
+          "kaval_body_wood": "kaval_plum_canonical"
+        },
+        "scores": {
+          "wind_articulation": 9.495,
+          "kaval_region": 2.645,
+          "kaval_context": 0.24,
+          "kaval_body_wood": 1.4100000000000001
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "persian_dastgah_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_persian_tahrir",
+          "voice_pitch_organization": "voice_pitch_persian_dastgah",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_5_part_cluster"
+        },
+        "scores": {
+          "voice_register": 4.845000000000001,
+          "voice_quality": 9.75,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 10.864999999999998,
+          "voice_articulation": 18.005,
+          "voice_microtone": 30.5175,
+          "voice_tradition": 19.69,
+          "voice_mechanism_compound": 15.155000000000001,
+          "voice_estill_quality": 12.479999999999997,
+          "voice_speech_song": 19.63,
+          "voice_ensemble_config": 17.095,
+          "voice_ornament_system": 14.065,
+          "voice_pitch_organization": 14.515,
+          "voice_processing_chain": 3.1200000000000006,
+          "voice_multitrack_stack": 1.69
+        }
+      },
+      {
+        "id": "kemence",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "kemence_type": "classical_kemence",
+          "kemence_context": "kemence_classical",
+          "kemence_body_wood": "kemence_mulberry",
+          "kemence_strings": "kemence_goat_gut_historical"
+        },
+        "scores": {
+          "bowed_technique": 9.695,
+          "kemence_type": 3.3149999999999995,
+          "kemence_context": 10.075,
+          "kemence_body_wood": 2.19,
+          "kemence_strings": -0.63
+        }
+      }
+    ],
+    "room": "istanbul_makam_kilic_ali_pasha_studio",
+    "archetype": "arch_unkapani_plak_arabesk",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "console_german_tube_50s",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "makam_turkish",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "makam_turkish",
+    "room": "istanbul_makam_kilic_ali_pasha_studio",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "tube_pre",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
+  }
+}

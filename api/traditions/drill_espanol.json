@@ -1,0 +1,152 @@
+{
+  "id": "drill_espanol",
+  "name": "Drill en Español",
+  "family": "hip_hop",
+  "lineage": "Spanish-language drill scene developing from 2020 across Madrid, Barcelona and the Latin American diaspora (Morad, Beny Jr, Duki-adjacent Argentine trap producers), applying 140-146 BPM half-time drill drum programming and pitched 808 slides to Spanish and Catalan-inflected flows, with Andalusian and Maghrebi melodic material — flamenco-derived Phrygian guitar and Arabic string samples — replacing UK drill's minor-piano leads.",
+  "recipe": "classic early-2020s drill en español, mc Rhythm, drill branch, intl hip hop MC rhythm, reggaeton MC rhythm, iberian functional song pinoy trap desi trap. thick, rap, straight note core, interlocked note trading. TR-808, pitched chopped sampler, cypress body percussive attack strong flamenco tradition rasgueado strum picado scale runs flamenco guitar, sub bass digital subtractive, sub bass monosynth acid bass. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 585,
+  "score": 255.602,
+  "config": {
+    "traditions": [
+      "drill_espanol",
+      "pinoy_trap",
+      "desi_trap"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "inuit_katajjaq_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ventricular_subharmonic",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 3.176250000000002,
+          "voice_quality": 17.225,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.9749999999999999,
+          "voice_articulation": 18.784999999999993,
+          "voice_microtone": 29.184999999999988,
+          "voice_tradition": 6.695,
+          "voice_mechanism_compound": 5.000625,
+          "voice_estill_quality": 6.4175,
+          "voice_speech_song": 19.499999999999996,
+          "voice_ensemble_config": 18.069999999999993,
+          "voice_ornament_system": 7.735000000000001,
+          "voice_pitch_organization": 3.1500000000000004,
+          "voice_processing_chain": 7.995000000000002,
+          "voice_multitrack_stack": 5.19375
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 5.8656250000000005,
+          "drum_machine_808_context": 1.69,
+          "tr808_production_origin": 0.3125
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 4.6000000000000005,
+          "sampler_archetypes": 6.890000000000001,
+          "sampler_bit_depth": 0.44999999999999996,
+          "sampler_workflow": 8.662500000000001,
+          "sampler_classic_context": 25.675
+        }
+      },
+      {
+        "id": "flamenco_guitar",
+        "slots": {
+          "flamenco_body": "flamenco_blanca_cypress",
+          "flamenco_features": "flamenco_low_action_golpe_plate",
+          "flamenco_technique": "flamenco_rasgueado_picado_alzapua"
+        },
+        "scores": {
+          "flamenco_body": 2.34,
+          "flamenco_features": 0.20749999999999996,
+          "flamenco_technique": 1.345
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 13.065625,
+          "va_archetypes": 0.195,
+          "digital_subtractive_context": 18.33
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wave_acid": "saw_acid",
+          "filter_acid": "closed_acid",
+          "accent_acid": "subtle_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": 13.065625,
+          "wave_acid": 0.39,
+          "filter_acid": 1.04,
+          "accent_acid": 0
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "mic_sm7b_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

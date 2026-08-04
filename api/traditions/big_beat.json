@@ -1,0 +1,192 @@
+{
+  "id": "big_beat",
+  "name": "Big Beat",
+  "family": "electronic",
+  "lineage": "British breakbeat dance style codified 1993-1999 around Brighton's Big Beat Boutique and Skint/Wall of Sound by The Chemical Brothers, Fatboy Slim and The Prodigy, running 110-140 BPM over chopped funk and hip-hop breaks layered with acid-303 bass, heavily distorted and filter-swept synths, loud crash-cymbal fills, and rock-scale drum compression with vocal hooks reduced to single sampled shouts.",
+  "recipe": "classic mid-1990s big beat, electronic Dance, continental branch, uk soundsystem bass system, idm glitch experimental electric dubstep breakcore. thick, breath veiled tone, slow rate, interlocked note trading. glitched textural sampler, sampled chopped turntable, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909, classic acid sub bass monosynth acid ampeg svt amp rock bass amp alder pyramid pure nickel bass electric bass, Fender blackface amp American 60s amp spring reverb bright basswood mahogany humbucker electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
+  "recipe_chars": 734,
+  "score": 253.217,
+  "config": {
+    "traditions": [
+      "big_beat",
+      "dubstep_140",
+      "breakcore"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_microsampling_glitch",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 7.445,
+          "sampler_archetypes": 4.91,
+          "sampler_bit_depth": 1.4949999999999999,
+          "sampler_workflow": 7.25,
+          "sampler_classic_context": 21.775
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_backspin"
+        },
+        "scores": {
+          "electronic_technique": 5.36,
+          "turntable_technique": 4.1275
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "tr909_production_origin": "tr909_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr909_voice": 1.8199999999999998,
+          "drum_machine_909_context": 2.275,
+          "tr909_production_origin": 2.6649999999999996
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wave_acid": "saw_acid",
+          "filter_acid": "opening_acid",
+          "accent_acid": "heavy_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": 9.230000000000002,
+          "wave_acid": 0.39,
+          "filter_acid": 1.15,
+          "accent_acid": 3.585
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_wah_funk",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "low_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_12_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 5.07,
+          "amp_make": 5.260000000000001,
+          "body_wood": 3.77,
+          "neck_wood": 1.625,
+          "fretboard": 1.56,
+          "pickup_magnet": 0.845,
+          "pickup_winding": 1.3,
+          "string_material": 0.195,
+          "bridge": 1.625,
+          "scale_length": 2.145,
+          "string_gauge": 2.015,
+          "finish": 0,
+          "string_tuning": 4.68
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 7.475000000000001,
+          "body_wood": 2.4699999999999998,
+          "pickup_config": 0.845,
+          "string_type": 6.954999999999999,
+          "scale_length_b": 2.4699999999999998,
+          "fretted_or_not": 0,
+          "bass_technique": 5.275000000000001
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 4.660000000000002,
+          "voice_quality": 10.594999999999994,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.145,
+          "voice_articulation": 15.989999999999997,
+          "voice_microtone": 17.484999999999992,
+          "voice_tradition": 5.3625,
+          "voice_mechanism_compound": 4.330000000000001,
+          "voice_estill_quality": 3.185,
+          "voice_speech_song": 15.989999999999997,
+          "voice_ensemble_config": 16.509999999999994,
+          "voice_ornament_system": 1.885,
+          "voice_pitch_organization": 1.4949999999999997,
+          "voice_processing_chain": 15.145000000000001,
+          "voice_multitrack_stack": 6.37
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_pre_daw_electronic_pioneer",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_soundcraft_3200_uk_80s",
+      "comp": "comp_1176_fet",
+      "eq": "eq_api_550",
+      "amp": null,
+      "medium": "medium_dat_pro_late80s_90s"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_1176_fet",
+    "chain_eq": "eq_api_550",
+    "chain_medium": "medium_dat_pro_late80s_90s",
+    "chain_console": "console_soundcraft_3200_uk_80s"
+  }
+}

@@ -3,53 +3,53 @@
   "name": "Merengue urbano",
   "family": "global",
   "lineage": "Electronic-and-rap-influenced Dominican merengue variant emerging in 1990s-2000s. Synthesis of traditional merengue rhythmic pulse with hip-hop production and reggaeton harmonic-rhythmic vocabulary. Drum-machine-and-sampler production, faster 2/4 tempo than traditional merengue, simpler chord-progressions, explicit MC-rapped vocal sections alongside sung verse-and-chorus. Omega \"El Fuerte\" and El Cata anchored the 2000s commercial sound.",
-  "recipe": "classic Caribbean mid-1990s merengue urbano, functional Song, tropical song branch, reggaeton MC rhythm moombahton. thick, rap, slow rate, interlocked note trading. TR-808, sub bass analog synth, electric bass. Dominican canon 1970-1995 mid tier dominican capital studio 80s. shure SM58, transformerless solid-state pre, pumping sidechain, parametric EQ. lossy MP3 autotune digital delay.",
-  "recipe_chars": 388,
-  "score": 136.768,
+  "recipe": "classic Caribbean mid-1990s merengue urbano, functional Song, tropical song branch, reggaeton MC rhythm cubatón. extended whistle, rap, breath pulsed, interlocked note trading. TR-808, sub bass analog synth, la bella flats Detroit soul bass canon electric bass. Dominican canon 1970-1995 mid tier dominican capital studio 80s. shure SM58, transformerless solid-state pre, pumping sidechain, parametric EQ. lossy MP3 autotune digital delay.",
+  "recipe_chars": 439,
+  "score": 147.442,
   "config": {
     "traditions": [
       "merengue_urbano",
       "reggaeton",
-      "moombahton"
+      "cubaton"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "extended_whistle_register",
           "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "diaphragm_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "sean_nos_tradition",
+          "voice_tradition": "beatboxing_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 2.3015000000000017,
-          "voice_quality": 13.485,
+          "voice_register": 2.0475,
+          "voice_quality": 15.729999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.47,
-          "voice_articulation": 12.739999999999997,
-          "voice_microtone": 13.194999999999993,
-          "voice_tradition": 4.615,
-          "voice_mechanism_compound": 5.2,
-          "voice_estill_quality": 3.3150000000000004,
-          "voice_speech_song": 16.639999999999997,
-          "voice_ensemble_config": 12.479999999999995,
-          "voice_ornament_system": 4.355000000000001,
-          "voice_pitch_organization": 2.3399999999999994,
-          "voice_processing_chain": 9.075,
-          "voice_multitrack_stack": 9.646499999999996
+          "voice_vibrato": 1.9049999999999998,
+          "voice_articulation": 16.314999999999994,
+          "voice_microtone": 15.92499999999999,
+          "voice_tradition": 4.515000000000001,
+          "voice_mechanism_compound": 6.044999999999999,
+          "voice_estill_quality": 4.16,
+          "voice_speech_song": 20.474999999999994,
+          "voice_ensemble_config": 15.144999999999992,
+          "voice_ornament_system": 3.7050000000000014,
+          "voice_pitch_organization": 1.24,
+          "voice_processing_chain": 5.345000000000001,
+          "voice_multitrack_stack": 8.725
         }
       },
       {
@@ -60,25 +60,25 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 3.185,
-          "drum_machine_808_context": 6.117999999999999,
-          "tr808_production_origin": 0.5145
+          "tr808_voice": 4.575,
+          "drum_machine_808_context": 4.965,
+          "tr808_production_origin": 0.255
         }
       },
       {
         "id": "analog_synth",
         "slots": {
           "electronic_technique": "electronic_bass_sub",
-          "oscillator": "triangle_osc",
+          "oscillator": "sine_osc",
           "filter_topology": "transistor_ladder",
           "envelope": "gated_env",
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 3.6060000000000003,
-          "oscillator": 1.345,
-          "filter_topology": 0.65,
-          "envelope": 2.7364999999999995,
+          "electronic_technique": 4.9,
+          "oscillator": 2.145,
+          "filter_topology": 1.4949999999999999,
+          "envelope": 2.8399999999999994,
           "modulation": 0.45499999999999996
         }
       },
@@ -86,21 +86,21 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_b15",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "soapbar",
-          "string_type": "roundwound_s",
-          "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretted",
-          "bass_technique": "thumb_muted"
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "sub_bass_synth_blend"
         },
         "scores": {
-          "amp_make": 0.585,
-          "body_wood": 0.546,
-          "pickup_config": 0.3315,
-          "string_type": 0.546,
-          "scale_length_b": 0.2415,
-          "fretted_or_not": 0,
-          "bass_technique": 0.325
+          "amp_make": 1.4299999999999995,
+          "body_wood": 0,
+          "pickup_config": 0.195,
+          "string_type": 1.3649999999999998,
+          "scale_length_b": 0.195,
+          "fretted_or_not": 0.045,
+          "bass_technique": 0.78
         }
       }
     ],

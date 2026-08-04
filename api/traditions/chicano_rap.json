@@ -1,0 +1,158 @@
+{
+  "id": "chicano_rap",
+  "name": "Chicano rap",
+  "family": "hip_hop",
+  "lineage": "Mexican-American rap of Los Angeles, San Diego and South Texas codified by Kid Frost's 'La Raza' (1990) over El Chicano's 'Viva Tirado' and carried on by Cypress Hill, Delinquent Habits, Lil Rob and Mr. Capone-E — mid-tempo 85-95 BPM G-funk-adjacent beats built on East LA oldies and Latin-soul samples, live-feel bass and whining portamento synth leads, Spanglish couplets, lowrider-cruise subject matter and sung Chicano-soul hooks.",
+  "recipe": "classic North American early-1990s chicano rap, mc Rhythm, west coast branch, us hip hop gangsta, tejano border functional song corridos tumbados. thick, rap, slow rate, interlocked note trading. pitched chopped sampler, TR-808, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca sub bass analog poly synth, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, sampled chopped turntable. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 614,
+  "score": 331.83,
+  "config": {
+    "traditions": [
+      "chicano_rap",
+      "gangsta_rap",
+      "corridos_tumbados"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 7.715,
+          "voice_quality": 21.874999999999996,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.4699999999999998,
+          "voice_articulation": 20.279999999999994,
+          "voice_microtone": 20.084999999999994,
+          "voice_tradition": 9.18,
+          "voice_mechanism_compound": 2.6649999999999996,
+          "voice_estill_quality": 8.559999999999999,
+          "voice_speech_song": 24.569999999999993,
+          "voice_ensemble_config": 20.409999999999993,
+          "voice_ornament_system": 7.300000000000002,
+          "voice_pitch_organization": 1.235,
+          "voice_processing_chain": 16.865,
+          "voice_multitrack_stack": 3.1200000000000006
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 7.1499999999999995,
+          "sampler_archetypes": 10.819999999999999,
+          "sampler_bit_depth": 2.3749999999999996,
+          "sampler_workflow": 7.095,
+          "sampler_classic_context": 29.444999999999997
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr808_voice": 11.675,
+          "drum_machine_808_context": 4.615,
+          "tr808_production_origin": 0.975
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "prophet_5",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 17.5,
+          "poly_archetypes": 0.24,
+          "poly_voices": 0.845,
+          "poly_maker_lineage": 4.225
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "amp_make": 13.774999999999997,
+          "body_wood": 2.145,
+          "pickup_config": 0.845,
+          "string_type": 13.955,
+          "scale_length_b": 3.085,
+          "fretted_or_not": 0.135,
+          "bass_technique": 11.575
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_scratch"
+        },
+        "scores": {
+          "electronic_technique": 7.1499999999999995,
+          "turntable_technique": 10.05
+        }
+      }
+    ],
+    "room": "studio_indie_commercial_us_80s",
+    "archetype": "arch_80s_indie_commercial_us",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "transformer_solid_state",
+      "console": "console_american_op_amp",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "room": "studio_indie_commercial_us_80s",
+    "chain_mic": "mic_sm7b_dynamic_shure",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "digital_std",
+    "chain_console": "console_american_op_amp"
+  }
+}

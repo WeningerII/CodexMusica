@@ -3,14 +3,14 @@
   "name": "Gothic country",
   "family": "country",
   "lineage": "Dark-themed americana subgenre with Old Testament / Southern Gothic / murder-ballad subject matter — Sixteen Horsepower, Wovenhand, Murder by Death, the Handsome Family, early Johnny Cash American Recordings IV",
-  "recipe": "classic Southern American mid-1970s gothic country, functional Song, americana branch, anglo singer song ballad poetry, honky tonk era country folk noir indie folk. thick, breath veiled tone, straight note core, interlocked note trading. travis picked parlor acoustic arpeggiated clean baritone electric guitar, folk strummed open chord ringing overtones autoharp, wood walnut warmer than maple mid tier scruggs stelling banjo 5 string. rural louisiana pine forest 1973-present mid tier in the country bogalusa. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 643,
-  "score": 271.365,
+  "recipe": "classic Southern American mid-1970s gothic country, functional Song, americana branch, anglo singer song ballad poetry, honky tonk era country folk noir ectofolk. thick, breath veiled tone, straight note core, interlocked note trading. travis picked parlor acoustic clean strummed baritone electric guitar, folk strummed open chord ringing overtones autoharp, wood walnut warmer than maple mid tier scruggs stelling banjo 5 string. rural louisiana pine forest 1973-present mid tier in the country bogalusa. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 638,
+  "score": 268.865,
   "config": {
     "traditions": [
       "gothic_country",
       "folk_noir",
-      "indie_folk_2000s"
+      "ectofolk"
     ],
     "instruments": [
       {
@@ -31,42 +31,42 @@
           "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_pelog_7",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 33.95,
-          "voice_quality": 10.919999999999993,
+          "voice_register": 31.39999999999999,
+          "voice_quality": 9.815000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 14.81,
-          "voice_articulation": 13.194999999999993,
-          "voice_microtone": 14.16999999999999,
-          "voice_tradition": 22.39249999999999,
-          "voice_mechanism_compound": 4.680000000000001,
-          "voice_estill_quality": 18.14,
-          "voice_speech_song": 20.149999999999995,
-          "voice_ensemble_config": 14.104999999999993,
-          "voice_ornament_system": 3.0550000000000006,
-          "voice_pitch_organization": 2.935000000000001,
-          "voice_processing_chain": 5.525,
-          "voice_multitrack_stack": 2.2425000000000006
+          "voice_vibrato": 14.035,
+          "voice_articulation": 12.609999999999994,
+          "voice_microtone": 13.77999999999999,
+          "voice_tradition": 23.334999999999994,
+          "voice_mechanism_compound": 5.3950000000000005,
+          "voice_estill_quality": 18.54,
+          "voice_speech_song": 20.019999999999992,
+          "voice_ensemble_config": 13.324999999999996,
+          "voice_ornament_system": 3.7050000000000005,
+          "voice_pitch_organization": 3.435000000000001,
+          "voice_processing_chain": 4.29,
+          "voice_multitrack_stack": 4.2250000000000005
         }
       },
       {
         "id": "acoustic_guitar_parlor",
         "slots": {
           "acoustic_technique": "acoustic_travis_picking",
-          "string_tuning": "open_d",
-          "top_wood_parlor": "sitka_p",
+          "string_tuning": "dadgad",
+          "top_wood_parlor": "cedar_p",
           "back_sides_parlor": "mahogany_bs_p",
           "string_acoustic_parlor": "silk_steel_p"
         },
         "scores": {
-          "acoustic_technique": 25.634999999999998,
-          "string_tuning": 0.06499999999999999,
-          "top_wood_parlor": 0.45499999999999996,
+          "acoustic_technique": 25.01,
+          "string_tuning": 2.7400000000000007,
+          "top_wood_parlor": 0.32999999999999996,
           "back_sides_parlor": 0.195,
-          "string_acoustic_parlor": 0.5249999999999999
+          "string_acoustic_parlor": 0.65
         }
       },
       {
@@ -79,9 +79,9 @@
           "autoharp_body_wood": "autoharp_spruce_maple"
         },
         "scores": {
-          "acoustic_technique": 4.63,
-          "autoharp_chord_bars": 6.8249999999999975,
-          "autoharp_context": 6.37,
+          "acoustic_technique": 6.779999999999999,
+          "autoharp_chord_bars": 6.499999999999999,
+          "autoharp_context": 6.825,
           "autoharp_strings": 0,
           "autoharp_body_wood": -1.455
         }
@@ -89,7 +89,7 @@
       {
         "id": "baritone_electric",
         "slots": {
-          "electric_technique": "electric_arpeggiated_clean",
+          "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_british_marshall_jcm800",
           "baritone_use": "baritone_metal",
           "baritone_electric_tuning": "baritone_electric_drop_a",
@@ -98,9 +98,9 @@
           "baritone_electric_pickup": "baritone_single_coil_jaguar"
         },
         "scores": {
-          "electric_technique": 6.5699999999999985,
-          "amp_make": 1.8199999999999994,
-          "baritone_use": 1.8849999999999996,
+          "electric_technique": 4.87,
+          "amp_make": 0.39000000000000007,
+          "baritone_use": 1.6899999999999997,
           "baritone_electric_tuning": 0.45499999999999996,
           "baritone_electric_scale": 0.585,
           "baritone_electric_strings": 0.39,
@@ -124,14 +124,14 @@
         "scores": {
           "banjo_back": 0.39,
           "tone_ring": 1.3900000000000001,
-          "banjo_head": 13.389999999999997,
+          "banjo_head": 12.804999999999996,
           "banjo_pot": 0.5099999999999999,
           "banjo_play": 1.135,
-          "banjo_rim_wood": 1.035,
+          "banjo_rim_wood": 1.1849999999999998,
           "banjo_neck_wood": 1.04,
           "banjo_strings": 0.195,
           "banjo_bridge": 0.12999999999999998,
-          "banjo_setup_period": 13.519999999999996
+          "banjo_setup_period": 12.934999999999997
         }
       }
     ],

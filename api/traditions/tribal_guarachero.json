@@ -3,53 +3,53 @@
   "name": "Tribal guarachero",
   "family": "global",
   "lineage": "Mexican-American electronic dance subgenre codified circa 2008-2012 in Monterrey, Mexico — characterized by 130-140 BPM accelerated cumbia rhythm with synth-flute melodies and tribal-drum patterns; DJ Erick Rincón, DJ Otto, and the 3BallMTY collective as canonical exponents",
-  "recipe": "classic 2008-2012 tribal guarachero, electronic Dance, Latin electric branch, Latin am groove percussion cumbia peruana cumbia colombiana. thick, full chest belt, slow rate, interlocked note trading. TR-808, melodic pitched sampler, digital subtractive. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 399,
-  "score": 172.86,
+  "recipe": "classic 2008-2012 tribal guarachero, electronic Dance, Latin electric branch, Latin am groove percussion cumbia peruana cumbia chilena. extended whistle, full chest belt, straight note core, interlocked note trading. TR-808, melodic pitched sampler, digital subtractive. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 416,
+  "score": 166.735,
   "config": {
     "traditions": [
       "tribal_guarachero",
       "cumbia_peruvian",
-      "cumbia_colombiana"
+      "cumbia_chilena"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "extended_whistle_register",
           "voice_quality": "full_chest_belt_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "inuit_katajjaq_tradition",
+          "voice_tradition": "andean_quechua_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_oral_twang",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_andean_huayno",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.9399999999999995,
-          "voice_quality": 20.194999999999997,
+          "voice_register": 1.77,
+          "voice_quality": 16.694999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.885,
-          "voice_articulation": 14.495000000000001,
-          "voice_microtone": 14.949999999999998,
-          "voice_tradition": 6.174999999999999,
+          "voice_vibrato": 1.3975,
+          "voice_articulation": 15.469999999999999,
+          "voice_microtone": 15.924999999999995,
+          "voice_tradition": 5.817499999999999,
           "voice_mechanism_compound": 5.135,
-          "voice_estill_quality": 5.124999999999999,
-          "voice_speech_song": 15.6,
-          "voice_ensemble_config": 15.47,
+          "voice_estill_quality": 4.940000000000001,
+          "voice_speech_song": 16.574999999999996,
+          "voice_ensemble_config": 16.444999999999997,
           "voice_ornament_system": 4.1899999999999995,
-          "voice_pitch_organization": 1.755,
-          "voice_processing_chain": 11.084999999999999,
-          "voice_multitrack_stack": 5.265000000000001
+          "voice_pitch_organization": 2.1199999999999997,
+          "voice_processing_chain": 10.584999999999999,
+          "voice_multitrack_stack": 5.655000000000001
         }
       },
       {
@@ -60,8 +60,8 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 2.2749999999999995,
-          "drum_machine_808_context": 2.9899999999999998,
+          "tr808_voice": 1.4299999999999997,
+          "drum_machine_808_context": 1.4949999999999999,
           "tr808_production_origin": 0.885
         }
       },
@@ -76,10 +76,10 @@
         },
         "scores": {
           "electronic_technique": -0.1,
-          "sampler_archetypes": 1.2349999999999999,
-          "sampler_bit_depth": 0.65,
+          "sampler_archetypes": 0.585,
+          "sampler_bit_depth": 0.9,
           "sampler_workflow": 1.17,
-          "sampler_classic_context": 20.540000000000003
+          "sampler_classic_context": 20.215
         }
       },
       {
@@ -90,9 +90,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 2.7950000000000004,
-          "va_archetypes": 0.65,
-          "digital_subtractive_context": 15.730000000000004
+          "electronic_technique": 1.2999999999999998,
+          "va_archetypes": 0.44999999999999996,
+          "digital_subtractive_context": 15.860000000000001
         }
       }
     ],

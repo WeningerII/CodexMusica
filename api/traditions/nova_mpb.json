@@ -1,0 +1,193 @@
+{
+  "id": "nova_mpb",
+  "name": "Nova MPB",
+  "family": "global",
+  "lineage": "Brazilian singer-songwriter revival that formed in São Paulo, Rio and Brasília from roughly 2008 onward on independent labels and streaming platforms, codified by Tiago Iorc, Silva, Tulipa Ruiz, Marcelo Jeneci and Anavitória — nylon-string guitar and Rhodes-or-piano harmony carrying bossa and samba-derived voicings at relaxed 75-105 BPM, light pandeiro and brushed kit, discreet synth pads and programmed textures, and close-miked breathy Portuguese vocals with conversational phrasing.",
+  "recipe": "classic late-2000s nova mpb, functional Song, Brazilian song branch, Latin am troubadour ballad poetry, pop rock functional song new wave folk rock. thick, breath veiled tone, straight note core, interlocked note trading. cedar nylon strummed open chord ringing overtones classical nylon-string guitar, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog poly synth, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 883,
+  "score": 475.02,
+  "config": {
+    "traditions": [
+      "nova_mpb",
+      "new_wave",
+      "folk_rock"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 46.96500000000002,
+          "voice_quality": 29.314999999999998,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.3475,
+          "voice_articulation": 22.944999999999997,
+          "voice_microtone": 33.800000000000004,
+          "voice_tradition": 15.404999999999998,
+          "voice_mechanism_compound": 2.4699999999999998,
+          "voice_estill_quality": 5.6225000000000005,
+          "voice_speech_song": 32.305,
+          "voice_ensemble_config": 24.765,
+          "voice_ornament_system": 1.39,
+          "voice_pitch_organization": 1.45,
+          "voice_processing_chain": 8.275,
+          "voice_multitrack_stack": 8.0275
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "double_top_cl",
+          "string_classical": "nylon_normal_cl",
+          "attack_technique_cl": "thumb_attack_cl"
+        },
+        "scores": {
+          "acoustic_technique": 16.599999999999998,
+          "string_tuning": 0,
+          "top_wood_classical": 6.369999999999999,
+          "bracing_classical": 0.43499999999999994,
+          "string_classical": 3.4800000000000004,
+          "attack_technique_cl": 3.25
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_432_alternative"
+        },
+        "scores": {
+          "keyboard_technique": 15.474999999999998,
+          "grand_piano_size": 2.08,
+          "grand_piano_brand": 2.275,
+          "piano_hammer": 14.049999999999999,
+          "piano_rim": 17.229999999999997,
+          "piano_soundboard": 13.749999999999998,
+          "piano_pinblock": 0.4149999999999999,
+          "piano_plate": 0.42249999999999993,
+          "piano_pitch_standard": 1.985
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 9.474999999999998,
+          "body_wood": 2.08,
+          "pickup_config": 0.345,
+          "string_type": 20.96999999999999,
+          "scale_length_b": 2.08,
+          "fretted_or_not": 0.195,
+          "bass_technique": 24.96999999999999
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 25.740000000000002,
+          "drumhead": 13.989999999999998,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 13.564999999999998,
+          "poly_archetypes": 8.294999999999998,
+          "poly_voices": 0.24,
+          "poly_maker_lineage": 0.9749999999999996
+        }
+      },
+      {
+        "id": "pandeiro",
+        "slots": {
+          "percussion_technique": "percussion_hands_layered",
+          "pandeiro_size": "pandeiro_medio",
+          "pandeiro_context": "pandeiro_samba",
+          "pandeiro_head": "pandeiro_goatskin_canonical",
+          "pandeiro_shell_wood": "pandeiro_eucalyptus",
+          "pandeiro_jingles": "pandeiro_brass_platinelas"
+        },
+        "scores": {
+          "percussion_technique": 2.0749999999999997,
+          "pandeiro_size": 1.8399999999999999,
+          "pandeiro_context": 0.845,
+          "pandeiro_head": 4.029999999999999,
+          "pandeiro_shell_wood": 4.029999999999999,
+          "pandeiro_jingles": 4.029999999999999
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

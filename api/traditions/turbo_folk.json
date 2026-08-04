@@ -1,0 +1,208 @@
+{
+  "id": "turbo_folk",
+  "name": "Turbo-folk",
+  "family": "global",
+  "lineage": "Serbian commercial style consolidated 1990-1999 on Belgrade's TV Pink and PGP-RTS/ZaM labels — Ceca, Dragana Mirković, Šaban Šaulić's successors — setting Balkan and Romani novokomponovana melody, melismatic Eastern ornament and clarinet/accordion lines over four-on-the-floor Eurodance drum machines, synth-bass, and mid-tempo 110-135 BPM digital arrangements sung in a chest-heavy, wide-vibrato belt.",
+  "recipe": "classic Eastern European mid-1990s turbo-folk, functional Song, europop branch, balkan drinking song, eurodance electronic dance macedonian-serbian kafana drinking song freestyle music. thick, chest mix belt, slow rate, interlocked note trading. low sub bass digital subtractive, sampler drum machine, castagnari Italian premium folk music straight accordion, grenadilla African blackwood traditional clarinet, ampeg b15 amp American 60s bass amp flip top character mahogany pyramid electric bass, donkey skin bass thin treble tapan, rectified machine polished sitka spruce hard rock maple acer saccharum violin orchestral. treated studio. large-diaphragm condenser, German V72 tube pre, Neve transformer console, LA-2A optical, Neve inductor EQ. tape 15ips plate reverb spring reverb.",
+  "recipe_chars": 785,
+  "score": 254.4,
+  "config": {
+    "traditions": [
+      "turbo_folk",
+      "macedonian_kafana_drinking",
+      "freestyle_music"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "chest_mix_belt_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 7.5264999999999995,
+          "voice_quality": 9.7645,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.7700000000000005,
+          "voice_articulation": 15.664999999999994,
+          "voice_microtone": 14.754999999999992,
+          "voice_tradition": 24.804000000000002,
+          "voice_mechanism_compound": 1.95,
+          "voice_estill_quality": 2.3800000000000003,
+          "voice_speech_song": 22.879999999999992,
+          "voice_ensemble_config": 17.09499999999999,
+          "voice_ornament_system": 2.22,
+          "voice_pitch_organization": 1.6899999999999997,
+          "voice_processing_chain": 6.075,
+          "voice_multitrack_stack": 2.9899999999999998
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 3.8800000000000003,
+          "va_archetypes": 0.585,
+          "digital_subtractive_context": 15.209999999999997
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 0.7749999999999999,
+          "sample_bitdepth": 1.04,
+          "sample_swing": 5.025,
+          "sample_processing": 2.145
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "accordion_reed_material": "tipo_a_mano",
+          "musette_offset": "german_tuning",
+          "reed_config": "lmmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 5.089500000000001,
+          "accordion_reed_material": 2.145,
+          "musette_offset": 1.21,
+          "reed_config": 0.2625,
+          "bellows": 0,
+          "voicing_chamber": 1.04,
+          "accordion_maker_school": 3.38
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "clarinet_body": "grenadilla_clarinet",
+          "clarinet_size": "e_flat_clarinet",
+          "clarinet_reed": "soft_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 1.5599999999999996,
+          "clarinet_body": 1.6300000000000001,
+          "clarinet_size": 2.8800000000000003,
+          "clarinet_reed": 1.04,
+          "clarinet_articulation": 0
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "sub_bass_synth_blend"
+        },
+        "scores": {
+          "amp_make": 4.663,
+          "body_wood": 2.145,
+          "pickup_config": 0.845,
+          "string_type": 5.200000000000001,
+          "scale_length_b": 2.145,
+          "fretted_or_not": 0.3165,
+          "bass_technique": 3.4699999999999998
+        }
+      },
+      {
+        "id": "tapan",
+        "slots": {
+          "tapan_form": "tapan_balkan",
+          "tapan_role": "tapan_zurna_pair",
+          "tapan_build": "tapan_asymmetric_skins"
+        },
+        "scores": {
+          "tapan_form": 22.595,
+          "tapan_role": 5.575,
+          "tapan_build": 2.275
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_klezmer_ornamented",
+          "orch_strings": "rectified_gut_violin",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "modern_synthetic_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "brazilwood_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "magic_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 1.2999999999999998,
+          "orch_strings": 1.17,
+          "orch_top_wood": 2.66,
+          "orch_back_wood": 3.0225,
+          "orch_varnish": 3.0875,
+          "orch_setup_period": 4.387500000000001,
+          "orch_bow": 3.3149999999999995,
+          "orch_bow_stick": 3.363,
+          "orch_articulation": 0.39,
+          "orch_rosin": 2.1125
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_jugoton_yugoslav",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "transformer_solid_state",
+      "console": "console_dda_uk_80s",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "balkan_odd_meter_aksak",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "balkan_odd_meter_aksak",
+    "room": "treated_studio",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "digital_std",
+    "chain_console": "console_dda_uk_80s"
+  }
+}

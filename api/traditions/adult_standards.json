@@ -1,0 +1,251 @@
+{
+  "id": "adult_standards",
+  "name": "Adult Standards",
+  "family": "pop",
+  "lineage": "American mid-century popular-song repertoire — the Tin Pan Alley and Broadway catalogue as sung by post-swing crooners in New York and Hollywood between roughly 1946 and 1965, codified by Sinatra's Capitol concept albums with Nelson Riddle and Gordon Jenkins: 32-bar AABA and ABAC forms at ballad-to-medium-swing tempos, lush string-and-reed orchestration with muted brass punctuation, brushed kit and walking bass, and a conversational baritone delivery that treats lyric diction and rubato phrasing as the primary expressive instrument.",
+  "recipe": "classic North American mid-1940s adult standards, functional Song, crooners branch, American jazz smooth vocal, pop rock functional song, chanson fado classic chanson new wave skiffle. thick, breath veiled tone, straight onset, interlocked note trading. extended harmony through composed jazz big band, sitka spruce hard rock maple acer saccharum Baroque setup short neck violin orchestral, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, venice catlin high twist renaissance bass Baroque setup lighter bass bar double bass, pre muffled edge muffled brushes-and-sticks drum kit, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral jazz balance ensemble trumpet, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, concert harp, block chord celesta. converted armenian church 1949-1981 major-flagship columbia 30th street studio nyc.",
+  "recipe_chars": 985,
+  "score": 490.127,
+  "config": {
+    "traditions": [
+      "adult_standards",
+      "new_wave",
+      "skiffle"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 49.65875000000001,
+          "voice_quality": 15.76249999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 7.669999999999998,
+          "voice_articulation": 25.414999999999996,
+          "voice_microtone": 40.22500000000001,
+          "voice_tradition": 19.79875,
+          "voice_mechanism_compound": 5.004999999999999,
+          "voice_estill_quality": 4.8100000000000005,
+          "voice_speech_song": 34.515,
+          "voice_ensemble_config": 24.634999999999998,
+          "voice_ornament_system": 0.45499999999999996,
+          "voice_pitch_organization": 1.4949999999999999,
+          "voice_processing_chain": 7.189375,
+          "voice_multitrack_stack": 4.452500000000001
+        }
+      },
+      {
+        "id": "jazz_big_band",
+        "slots": {
+          "sections": "bb_trumpets",
+          "era": "bb_progressive"
+        },
+        "scores": {
+          "sections": 0.39,
+          "era": 3.314999999999999
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_chopped_old_time",
+          "orch_strings": "rectified_gut_violin",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "french_polish_violin",
+          "orch_setup_period": "baroque_setup_violin",
+          "orch_bow": "modern_bow",
+          "orch_bow_stick": "brazilwood_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "bernardel_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 0.59,
+          "orch_strings": 0.975,
+          "orch_top_wood": 1.9656249999999997,
+          "orch_back_wood": 10.562499999999998,
+          "orch_varnish": 0.6824999999999999,
+          "orch_setup_period": 4.095000000000001,
+          "orch_bow": 1.195,
+          "orch_bow_stick": 0.4875,
+          "orch_articulation": 0.585,
+          "orch_rosin": 1.145
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_432_alternative"
+        },
+        "scores": {
+          "keyboard_technique": 16.909999999999997,
+          "grand_piano_size": 2.73,
+          "grand_piano_brand": 2.73,
+          "piano_hammer": 15.489999999999998,
+          "piano_rim": 17.544999999999998,
+          "piano_soundboard": 16.9,
+          "piano_pinblock": 0.42249999999999993,
+          "piano_plate": 0.675625,
+          "piano_pitch_standard": 4.68
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "bass_size": "bass_three_quarter",
+          "bass_strings": "venice_catlin_bass",
+          "bass_top_wood": "plywood_bass_top",
+          "bass_back_wood": "european_maple_bass_back",
+          "bass_varnish": "spirit_varnish_bass",
+          "bass_setup_period": "baroque_setup_bass",
+          "bass_play": "bass_pizz",
+          "bass_rosin": "nyman_bass_rosin",
+          "bass_bow_stick": "brazilwood_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": -0.05,
+          "bass_size": 0.39,
+          "bass_strings": 2.6650000000000005,
+          "bass_top_wood": 0.4875,
+          "bass_back_wood": 0.42249999999999993,
+          "bass_varnish": 0.375,
+          "bass_setup_period": 4.095000000000001,
+          "bass_play": 7.1899999999999995,
+          "bass_rosin": 12.089999999999998,
+          "bass_bow_stick": 0.375
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 28.275,
+          "drumhead": 16.9,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_ska_skank_stab",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "yamaha_bobby_shew_jazz_mp",
+          "brass_mute": "plunger",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 1.4199999999999997,
+          "brass_size": 0.195,
+          "trumpet_mouthpiece": 9.749999999999998,
+          "brass_mute": 1.625,
+          "trumpet_technique": 1.2025,
+          "trumpet_bell_metal": 1.885,
+          "trumpet_maker_school": 4.42
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_ska_skank_stab",
+          "sax_size": "baritone_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "nickel_silver_sax",
+          "sax_mouthpiece": "ebonite_vintage",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 1.4199999999999997,
+          "sax_size": 2.34,
+          "sax_reed": 0.585,
+          "sax_body_alloy": 6.874999999999999,
+          "sax_mouthpiece": 0.5418749999999999,
+          "sax_technique": 6.499999999999999,
+          "sax_maker_school": 9.23
+        }
+      },
+      {
+        "id": "concert_harp",
+        "slots": {
+          "harp_strings": "harp_47_string",
+          "harp_pedals": "harp_double_pedal"
+        },
+        "scores": {
+          "harp_strings": 0.39,
+          "harp_pedals": 0.045
+        }
+      },
+      {
+        "id": "celesta",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "celesta_model": "celesta_schiedmayer",
+          "celesta_context": "celesta_chamber"
+        },
+        "scores": {
+          "keyboard_technique": 16.909999999999997,
+          "celesta_model": 0.845,
+          "celesta_context": 1
+        }
+      }
+    ],
+    "room": "columbia_30th_street_studio_nyc",
+    "archetype": "arch_swing_era_live_studio",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_ua_610_tube",
+      "console": "colored",
+      "comp": "comp_fairchild_670_tube",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "tin_pan_alley_thirty_two_bar_aaba",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "tin_pan_alley_thirty_two_bar_aaba",
+    "room": "columbia_30th_street_studio_nyc",
+    "chain_mic": "mic_u47_tube_neumann",
+    "chain_pre": "pre_ua_610_tube",
+    "chain_comp": "comp_fairchild_670_tube",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

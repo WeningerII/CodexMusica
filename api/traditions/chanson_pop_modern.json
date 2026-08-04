@@ -5,7 +5,7 @@
   "lineage": "Modern French songwriter pop tradition extending the chanson lineage past the 1960s yé-yé era — Vanessa Paradis, MC Solaar, Mylène Farmer in the 1990s; Carla Bruni, Cœur de Pirate, Christine and the Queens, Stromae (Belgian) extending the form into the 2000s-2020s with electronic and hip-hop production influences",
   "recipe": "classic mid-1960s chanson pop, functional Song, europop branch, chanson fado ballad poetry cape verdean batuko of santiago island greek éntechno. thick, breath veiled tone, straight onset, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, fingerpicked acoustic guitar, modeled amp modern rig stainless steel roundwound sub heavy electric bass, pre muffled edge muffled brushes-and-sticks drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 610,
-  "score": 396.927,
+  "score": 396.795,
   "config": {
     "traditions": [
       "chanson_pop_modern",
@@ -28,7 +28,7 @@
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_ornament_system": "voice_ornament_persian_tahrir",
           "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
@@ -38,17 +38,17 @@
           "voice_quality": 32.76,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.2775,
+          "voice_vibrato": 6.1725,
           "voice_articulation": 19.045,
           "voice_microtone": 21.287499999999994,
-          "voice_tradition": 25.30925,
+          "voice_tradition": 25.14125,
           "voice_mechanism_compound": 7.409999999999999,
           "voice_estill_quality": 7.5075,
           "voice_speech_song": 27.5925,
           "voice_ensemble_config": 18.525,
-          "voice_ornament_system": 2.6314999999999995,
+          "voice_ornament_system": 2.5999999999999996,
           "voice_pitch_organization": 2.6449999999999996,
-          "voice_processing_chain": 16.643,
+          "voice_processing_chain": 16.85,
           "voice_multitrack_stack": 10.2375
         }
       },
@@ -69,12 +69,12 @@
           "keyboard_technique": 8.749999999999998,
           "grand_piano_size": 0.78,
           "grand_piano_brand": 0.78,
-          "piano_hammer": 16.057499999999997,
-          "piano_rim": 20.77675,
+          "piano_hammer": 15.952499999999999,
+          "piano_rim": 20.608749999999997,
           "piano_soundboard": 15.374999999999998,
           "piano_pinblock": 10.24,
-          "piano_plate": 12.082499999999998,
-          "piano_pitch_standard": 13.6465
+          "piano_plate": 11.9775,
+          "piano_pitch_standard": 13.959999999999999
         }
       },
       {
@@ -106,11 +106,11 @@
           "bass_technique": "sub_bass_synth_blend"
         },
         "scores": {
-          "amp_make": 3.8325,
+          "amp_make": 3.7275,
           "body_wood": 0.39,
-          "pickup_config": 3.6325,
+          "pickup_config": 3.5725,
           "string_type": 3.8349999999999995,
-          "scale_length_b": 3.6325,
+          "scale_length_b": 3.8274999999999997,
           "fretted_or_not": 1.4949999999999999,
           "bass_technique": 7.375
         }

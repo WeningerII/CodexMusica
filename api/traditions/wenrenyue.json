@@ -5,7 +5,7 @@
   "lineage": "Chinese scholar-amateur literati chamber music tradition with guqin (seven-string zither) and xiao (vertical bamboo flute) at its core — codified through the Tang dynasty (618-907 CE) scholar-official aesthetic, continued through Song-Yuan-Ming-Qing dynasties, formalized in the seven major guqin schools (Wu, Yu, Shu, Jiu Yi, Mei An, Zha’an, and Guangling), and preserved through the 20th-century rescue work of Zha Fuxi and the Beiping Guqin Research Society",
   "recipe": "classic East Asian mid-1930s wenrenyue, art Music, east Asian branch, string drone modal, western early art music medieval latin chant and notre dame organum ars antiqua and organum. silk tongmu aged tang song canon guqin, purple bamboo phyllostachys canonical literati premium continuous-airflow legato xiao, bawu, hulusi, no membrane buzz bitter bamboo phyllostachys nigra canonical jiangnan suzhou qudi southern jiangnan kunqu canonical lyrical continuous-airflow legato dizi. chinese traditional teahouse. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 582,
-  "score": 85.4,
+  "score": 84.275,
   "config": {
     "traditions": [
       "wenrenyue",
@@ -23,9 +23,9 @@
           "guqin_lacquer": "guqin_lacquer_changran"
         },
         "scores": {
-          "plucked_traditional_technique": 5.09,
+          "plucked_traditional_technique": 5.045,
           "guqin_strings": 3.1,
-          "guqin_context": 10.370000000000001,
+          "guqin_context": 10.01,
           "guqin_body_wood": 5.59,
           "guqin_lacquer": 0.28500000000000003
         }
@@ -40,7 +40,7 @@
         },
         "scores": {
           "wind_articulation": 5.13,
-          "xiao_pitch": 2.585,
+          "xiao_pitch": 2.54,
           "xiao_context": 21.125000000000004,
           "xiao_body_material": 4.199999999999999
         }
@@ -55,7 +55,7 @@
         "scores": {
           "free_reed_technique": 0.6499999999999999,
           "bawu_pitch": 0.65,
-          "bawu_context": 8.895
+          "bawu_context": 8.58
         }
       },
       {
@@ -68,7 +68,7 @@
         "scores": {
           "free_reed_technique": 0.6499999999999999,
           "hulusi_config": 0.8099999999999999,
-          "hulusi_context": 8.895
+          "hulusi_context": 8.58
         }
       },
       {
@@ -82,7 +82,7 @@
         },
         "scores": {
           "wind_articulation": 5.13,
-          "dizi_membrane": 3.84,
+          "dizi_membrane": 3.795,
           "dizi_pitch": 1.3900000000000001,
           "dizi_body_material": 2.9,
           "dizi_regional_style": 1.6899999999999997

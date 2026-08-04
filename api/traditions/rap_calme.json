@@ -1,0 +1,164 @@
+{
+  "id": "rap_calme",
+  "name": "Rap calme (French mellow rap)",
+  "family": "hip_hop",
+  "lineage": "Streaming-era French mellow-rap tendency consolidated in Paris around 2015-2020 by Lomepal, Josman, Nekfeu and Ichon — 70-95 BPM half-time or lightly swung drums, Rhodes and warm sampled loops, low dynamic range, close-mic conversational and half-sung delivery in French with introspective, non-confrontational writing designed for late-night and playlist listening.",
+  "recipe": "classic Western European mid-2010s rap calme, mc Rhythm, intl hip hop branch, us hip hop conscious rap, lofi experimental electric conscious hip-hop bossbeat. thick, rap, straight onset, interlocked note trading. late 1980s reverb saturated bus stack multitrack vocal stack, centered tine pickup gap canonical balanced Rhodes voicing gospel runs rhodes electric, chopped sampler, ampeg b15 amp American 60s bass amp flip top character mahogany thomastik infeld electric bass, TR-808. paris marseille French rap 1989-present indie-commercial paris french rap studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 695,
+  "score": 317.31,
+  "config": {
+    "traditions": [
+      "rap_calme",
+      "conscious_hip_hop",
+      "bossbeat"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ventricular_subharmonic",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 8.726499999999998,
+          "voice_quality": 31.544999999999995,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 8.55,
+          "voice_articulation": 19.435,
+          "voice_microtone": 21.839999999999996,
+          "voice_tradition": 11.4165,
+          "voice_mechanism_compound": 3.120000000000001,
+          "voice_estill_quality": 3.665,
+          "voice_speech_song": 31.695999999999998,
+          "voice_ensemble_config": 19.174999999999997,
+          "voice_ornament_system": 4.355000000000002,
+          "voice_pitch_organization": 0.39,
+          "voice_processing_chain": 25.069999999999997,
+          "voice_multitrack_stack": 7.8975
+        }
+      },
+      {
+        "id": "multitrack_vocal_stack",
+        "slots": {
+          "multitrack_stack_density": "multitrack_density_3_part_third_fifth",
+          "multitrack_stack_era_aesthetic": "multitrack_era_late_1980s_reverb_bus",
+          "multitrack_stack_processing": "multitrack_processing_natural"
+        },
+        "scores": {
+          "multitrack_stack_density": 0.195,
+          "multitrack_stack_era_aesthetic": 2.6975000000000002,
+          "multitrack_stack_processing": 0.195
+        }
+      },
+      {
+        "id": "rhodes_electric",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "rhodes_model": "rhodes_mark1_stage",
+          "rhodes_use": "rhodes_soul",
+          "rhodes_tine_material": "rhodes_mark7_modern_tine",
+          "rhodes_hammer_tip": "rhodes_harder_neoprene_late",
+          "rhodes_pickup_position": "rhodes_pickup_centered"
+        },
+        "scores": {
+          "keyboard_technique": 3.5749999999999993,
+          "rhodes_model": 6.529999999999999,
+          "rhodes_use": 3.12,
+          "rhodes_tine_material": 0.45499999999999996,
+          "rhodes_hammer_tip": 0.5850000000000002,
+          "rhodes_pickup_position": 2.145
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 9.504999999999999,
+          "sampler_archetypes": 13.129999999999999,
+          "sampler_bit_depth": 2.34,
+          "sampler_workflow": 8.534999999999998,
+          "sampler_classic_context": 31.427500000000002
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "thomastik_jazz_bass_flat",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_walking"
+        },
+        "scores": {
+          "amp_make": 6.6265,
+          "body_wood": 1.885,
+          "pickup_config": 0.45499999999999996,
+          "string_type": 8.399999999999999,
+          "scale_length_b": 2.4899999999999998,
+          "fretted_or_not": 0,
+          "bass_technique": 4.749999999999999
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 7.874999999999999,
+          "drum_machine_808_context": 2.9575000000000005,
+          "tr808_production_origin": 0.45499999999999996
+        }
+      }
+    ],
+    "room": "paris_french_rap_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_avalon_v737",
+      "console": "console_in_the_box",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "paris_french_rap_studio",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_avalon_v737",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

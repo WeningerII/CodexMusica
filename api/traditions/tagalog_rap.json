@@ -1,0 +1,163 @@
+{
+  "id": "tagalog_rap",
+  "name": "Tagalog Rap",
+  "family": "hip_hop",
+  "lineage": "Manila-centred Filipino-language hip hop that broke commercially in 1990 when Francis Magalona's 'Mga Kababayan Ko' and Andrew E's 'Humanap Ka Ng Panget' put Tagalog and Taglish flow over imported boom-bap and new-jack breaks, later hardened by Gloc-9's rapid multisyllabic socio-political verses and the 2010s FlipTop battle-league and Ex Battalion trap wave — typically 85-100 BPM sampled or programmed beats, a sung Tagalog hook over the chorus, and rhyme schemes exploiting the language's abundant open-vowel and -an/-in suffix endings.",
+  "recipe": "classic mid-2010s tagalog rap, mc Rhythm, intl hip hop branch, us hip hop east coast, east Asian pop functional song, drill MC rhythm new jersey rap new york city rap. thick, rap, straight onset, interlocked note trading. chopped sampler, TR-808, sampled chopped turntable, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, gospel runs rhodes electric. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 615,
+  "score": 332.423,
+  "config": {
+    "traditions": [
+      "tagalog_rap",
+      "new_jersey_rap",
+      "nyc_rap"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 7.415000000000001,
+          "voice_quality": 29.305,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.4050000000000002,
+          "voice_articulation": 18.849999999999994,
+          "voice_microtone": 18.654999999999994,
+          "voice_tradition": 10.98,
+          "voice_mechanism_compound": 3.965,
+          "voice_estill_quality": 4.875,
+          "voice_speech_song": 28.219999999999995,
+          "voice_ensemble_config": 19.954999999999995,
+          "voice_ornament_system": 7.3450000000000015,
+          "voice_pitch_organization": 2.5300000000000007,
+          "voice_processing_chain": 20.175,
+          "voice_multitrack_stack": 7.279999999999999
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 12.614999999999998,
+          "sampler_archetypes": 17.03,
+          "sampler_bit_depth": 3.6750000000000003,
+          "sampler_workflow": 14.145,
+          "sampler_classic_context": 34.2225
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 10.955,
+          "drum_machine_808_context": 2.0149999999999997,
+          "tr808_production_origin": 0.65
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_scratch"
+        },
+        "scores": {
+          "electronic_technique": 12.614999999999998,
+          "turntable_technique": 14.294999999999998
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "amp_make": 4.680000000000001,
+          "body_wood": 0.39,
+          "pickup_config": 1.04,
+          "string_type": 4.8100000000000005,
+          "scale_length_b": 0.65,
+          "fretted_or_not": 0.845,
+          "bass_technique": 3.24
+        }
+      },
+      {
+        "id": "rhodes_electric",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "rhodes_model": "rhodes_mark1_stage",
+          "rhodes_use": "rhodes_soul",
+          "rhodes_tine_material": "rhodes_mark7_modern_tine",
+          "rhodes_hammer_tip": "rhodes_felt_hammer_tip",
+          "rhodes_pickup_position": "rhodes_pickup_centered"
+        },
+        "scores": {
+          "keyboard_technique": 4,
+          "rhodes_model": 2.015,
+          "rhodes_use": 0.585,
+          "rhodes_tine_material": 0.65,
+          "rhodes_hammer_tip": -0.9800000000000001,
+          "rhodes_pickup_position": 0.65
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_1176_fet",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_1176_fet",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}
