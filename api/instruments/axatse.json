@@ -1,0 +1,164 @@
+{
+  "id": "axatse",
+  "name": "Axatse (Ewe gourd rattle, net-strung)",
+  "family": "percussion",
+  "class": "gourd_rattle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "axatse",
+  "parts": [
+    {
+      "id": "axatse_size",
+      "name": "Gourd size",
+      "variants": [
+        {
+          "id": "axatse_medium",
+          "default": true,
+          "name": "Medium calabash (standard Ewe axatse)",
+          "descriptors": [
+            "dry-rattle",
+            "crisp-attack"
+          ],
+          "match_tokens": [
+            "gourd-rattle",
+            "ewe"
+          ]
+        },
+        {
+          "id": "axatse_small",
+          "name": "Small gourd",
+          "descriptors": [
+            "tight",
+            "high-pitched"
+          ],
+          "match_tokens": [
+            "shaken-idiophone"
+          ]
+        },
+        {
+          "id": "axatse_large",
+          "name": "Large calabash",
+          "descriptors": [
+            "broad-hiss",
+            "dark-rattle"
+          ],
+          "match_tokens": [
+            "gourd-rattle"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "axatse_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "axatse_thigh_hand",
+          "default": true,
+          "name": "Thigh-and-hand alternation (seated)",
+          "descriptors": [
+            "driving",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "dance-rhythm",
+            "hand-percussion"
+          ]
+        },
+        {
+          "id": "axatse_standing",
+          "name": "Standing shake-and-strike",
+          "descriptors": [
+            "loose",
+            "swinging"
+          ],
+          "match_tokens": [
+            "shaken-idiophone"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "axatse_size",
+      "name": "Gourd size",
+      "variants": [
+        {
+          "id": "axatse_medium",
+          "default": true,
+          "name": "Medium calabash (standard Ewe axatse)",
+          "descriptors": [
+            "dry-rattle",
+            "crisp-attack"
+          ],
+          "match_tokens": [
+            "gourd-rattle",
+            "ewe"
+          ]
+        },
+        {
+          "id": "axatse_small",
+          "name": "Small gourd",
+          "descriptors": [
+            "tight",
+            "high-pitched"
+          ],
+          "match_tokens": [
+            "shaken-idiophone"
+          ]
+        },
+        {
+          "id": "axatse_large",
+          "name": "Large calabash",
+          "descriptors": [
+            "broad-hiss",
+            "dark-rattle"
+          ],
+          "match_tokens": [
+            "gourd-rattle"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "axatse_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "axatse_thigh_hand",
+          "default": true,
+          "name": "Thigh-and-hand alternation (seated)",
+          "descriptors": [
+            "driving",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "dance-rhythm",
+            "hand-percussion"
+          ]
+        },
+        {
+          "id": "axatse_standing",
+          "name": "Standing shake-and-strike",
+          "descriptors": [
+            "loose",
+            "swinging"
+          ],
+          "match_tokens": [
+            "shaken-idiophone"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "id": "isitolotolo",
+  "name": "Isitolotolo (Zulu jaw harp)",
+  "family": "plucked_traditional",
+  "class": "jaw_harp",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 0,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -2
+  },
+  "short": "isitolotolo",
+  "parts": [
+    {
+      "id": "isitolotolo_frame",
+      "name": "Frame type",
+      "variants": [
+        {
+          "id": "isitolotolo_imported_steel",
+          "default": true,
+          "name": "Imported steel trade jaw harp",
+          "descriptors": [
+            "twanging",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "zulu"
+          ]
+        },
+        {
+          "id": "isitolotolo_handmade",
+          "name": "Locally forged wire frame",
+          "descriptors": [
+            "rough-toned",
+            "raspy"
+          ],
+          "match_tokens": [
+            "jaw-harp"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "isitolotolo_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "isitolotolo_speech",
+          "default": true,
+          "name": "Speech-shaped courting melody",
+          "descriptors": [
+            "vowel-shifting",
+            "talking"
+          ],
+          "match_tokens": [
+            "mouth-resonated",
+            "courting"
+          ]
+        },
+        {
+          "id": "isitolotolo_rhythmic",
+          "name": "Fast rhythmic pulsing",
+          "descriptors": [
+            "driving",
+            "chattering"
+          ],
+          "match_tokens": [
+            "rhythmic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "isitolotolo_frame",
+      "name": "Frame type",
+      "variants": [
+        {
+          "id": "isitolotolo_imported_steel",
+          "default": true,
+          "name": "Imported steel trade jaw harp",
+          "descriptors": [
+            "twanging",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "zulu"
+          ]
+        },
+        {
+          "id": "isitolotolo_handmade",
+          "name": "Locally forged wire frame",
+          "descriptors": [
+            "rough-toned",
+            "raspy"
+          ],
+          "match_tokens": [
+            "jaw-harp"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "isitolotolo_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "isitolotolo_speech",
+          "default": true,
+          "name": "Speech-shaped courting melody",
+          "descriptors": [
+            "vowel-shifting",
+            "talking"
+          ],
+          "match_tokens": [
+            "mouth-resonated",
+            "courting"
+          ]
+        },
+        {
+          "id": "isitolotolo_rhythmic",
+          "name": "Fast rhythmic pulsing",
+          "descriptors": [
+            "driving",
+            "chattering"
+          ],
+          "match_tokens": [
+            "rhythmic"
+          ]
+        }
+      ]
+    }
+  ]
+}

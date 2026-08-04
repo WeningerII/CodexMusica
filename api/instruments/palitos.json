@@ -1,0 +1,178 @@
+{
+  "id": "palitos",
+  "name": "Palitos (Afro-Caribbean sticks struck on a wooden body)",
+  "family": "percussion",
+  "class": "concussion_idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "palitos",
+  "parts": [
+    {
+      "id": "palitos_surface",
+      "name": "Struck surface",
+      "variants": [
+        {
+          "id": "palitos_drum_shell",
+          "default": true,
+          "name": "Struck on the side of a drum shell (guagua)",
+          "descriptors": [
+            "woody",
+            "clicking",
+            "cutting"
+          ],
+          "match_tokens": [
+            "struck",
+            "clave-pattern",
+            "rumba"
+          ]
+        },
+        {
+          "id": "palitos_bamboo",
+          "name": "Struck on a hollow bamboo tube",
+          "descriptors": [
+            "hollow-toned",
+            "resonant-click"
+          ],
+          "match_tokens": [
+            "struck",
+            "bamboo"
+          ]
+        },
+        {
+          "id": "palitos_bench",
+          "name": "Struck on a bench or board",
+          "descriptors": [
+            "dry",
+            "dead-toned",
+            "sharp"
+          ],
+          "match_tokens": [
+            "struck",
+            "dry-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "palitos_pattern",
+      "name": "Pattern role",
+      "variants": [
+        {
+          "id": "palitos_cascara",
+          "default": true,
+          "name": "Cáscara / guagua timeline",
+          "descriptors": [
+            "timeline",
+            "relentless",
+            "precise"
+          ],
+          "match_tokens": [
+            "struck",
+            "timekeeping"
+          ]
+        },
+        {
+          "id": "palitos_clave",
+          "name": "Clave-locked accent pattern",
+          "descriptors": [
+            "skeletal",
+            "anchoring"
+          ],
+          "match_tokens": [
+            "struck",
+            "clave-pattern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "palitos_surface",
+      "name": "Struck surface",
+      "variants": [
+        {
+          "id": "palitos_drum_shell",
+          "default": true,
+          "name": "Struck on the side of a drum shell (guagua)",
+          "descriptors": [
+            "woody",
+            "clicking",
+            "cutting"
+          ],
+          "match_tokens": [
+            "struck",
+            "clave-pattern",
+            "rumba"
+          ]
+        },
+        {
+          "id": "palitos_bamboo",
+          "name": "Struck on a hollow bamboo tube",
+          "descriptors": [
+            "hollow-toned",
+            "resonant-click"
+          ],
+          "match_tokens": [
+            "struck",
+            "bamboo"
+          ]
+        },
+        {
+          "id": "palitos_bench",
+          "name": "Struck on a bench or board",
+          "descriptors": [
+            "dry",
+            "dead-toned",
+            "sharp"
+          ],
+          "match_tokens": [
+            "struck",
+            "dry-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "palitos_pattern",
+      "name": "Pattern role",
+      "variants": [
+        {
+          "id": "palitos_cascara",
+          "default": true,
+          "name": "Cáscara / guagua timeline",
+          "descriptors": [
+            "timeline",
+            "relentless",
+            "precise"
+          ],
+          "match_tokens": [
+            "struck",
+            "timekeeping"
+          ]
+        },
+        {
+          "id": "palitos_clave",
+          "name": "Clave-locked accent pattern",
+          "descriptors": [
+            "skeletal",
+            "anchoring"
+          ],
+          "match_tokens": [
+            "struck",
+            "clave-pattern"
+          ]
+        }
+      ]
+    }
+  ]
+}

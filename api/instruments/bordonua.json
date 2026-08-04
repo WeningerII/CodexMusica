@@ -1,0 +1,182 @@
+{
+  "id": "bordonua",
+  "name": "Bordonúa (Puerto Rican deep-bodied bass lute)",
+  "family": "acoustic_strings",
+  "class": "plucked_string_rhythm",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": -2,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "bordonua",
+  "parts": [
+    {
+      "id": "bordonua_form",
+      "name": "Historical form",
+      "variants": [
+        {
+          "id": "bordonua_moderna",
+          "default": true,
+          "name": "Modern five-course bordonúa",
+          "descriptors": [
+            "deep-toned",
+            "full-bodied",
+            "resonant"
+          ],
+          "match_tokens": [
+            "puerto-rico",
+            "bass-lute",
+            "plucked"
+          ]
+        },
+        {
+          "id": "bordonua_antigua",
+          "name": "Antique carved (bordonúa antigua)",
+          "descriptors": [
+            "archaic",
+            "dry",
+            "woody"
+          ],
+          "match_tokens": [
+            "puerto-rico",
+            "plucked"
+          ]
+        },
+        {
+          "id": "bordonua_ponce",
+          "name": "Ponce large-body form",
+          "descriptors": [
+            "booming",
+            "broad",
+            "warm"
+          ],
+          "match_tokens": [
+            "puerto-rico",
+            "bass-lute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bordonua_role",
+      "name": "Playing role",
+      "variants": [
+        {
+          "id": "bordonua_bass",
+          "default": true,
+          "name": "Bass and rhythmic foundation in jíbaro trio",
+          "descriptors": [
+            "underpinning",
+            "steady",
+            "low-register"
+          ],
+          "match_tokens": [
+            "bass-line",
+            "jibaro"
+          ]
+        },
+        {
+          "id": "bordonua_strum",
+          "name": "Chordal strumming (seis / aguinaldo)",
+          "descriptors": [
+            "strummed",
+            "festive",
+            "driving"
+          ],
+          "match_tokens": [
+            "strummed",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "bordonua_form",
+      "name": "Historical form",
+      "variants": [
+        {
+          "id": "bordonua_moderna",
+          "default": true,
+          "name": "Modern five-course bordonúa",
+          "descriptors": [
+            "deep-toned",
+            "full-bodied",
+            "resonant"
+          ],
+          "match_tokens": [
+            "puerto-rico",
+            "bass-lute",
+            "plucked"
+          ]
+        },
+        {
+          "id": "bordonua_antigua",
+          "name": "Antique carved (bordonúa antigua)",
+          "descriptors": [
+            "archaic",
+            "dry",
+            "woody"
+          ],
+          "match_tokens": [
+            "puerto-rico",
+            "plucked"
+          ]
+        },
+        {
+          "id": "bordonua_ponce",
+          "name": "Ponce large-body form",
+          "descriptors": [
+            "booming",
+            "broad",
+            "warm"
+          ],
+          "match_tokens": [
+            "puerto-rico",
+            "bass-lute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bordonua_role",
+      "name": "Playing role",
+      "variants": [
+        {
+          "id": "bordonua_bass",
+          "default": true,
+          "name": "Bass and rhythmic foundation in jíbaro trio",
+          "descriptors": [
+            "underpinning",
+            "steady",
+            "low-register"
+          ],
+          "match_tokens": [
+            "bass-line",
+            "jibaro"
+          ]
+        },
+        {
+          "id": "bordonua_strum",
+          "name": "Chordal strumming (seis / aguinaldo)",
+          "descriptors": [
+            "strummed",
+            "festive",
+            "driving"
+          ],
+          "match_tokens": [
+            "strummed",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ]
+}

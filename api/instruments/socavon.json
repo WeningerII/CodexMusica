@@ -1,0 +1,156 @@
+{
+  "id": "socavon",
+  "name": "Socavón (Panamanian four-string bordón guitar)",
+  "family": "acoustic_strings",
+  "class": "plucked_string_rhythm",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "socavon",
+  "parts": [
+    {
+      "id": "socavon_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "socavon_bocona",
+          "default": true,
+          "name": "Socavón bocón (deep four-string bass form)",
+          "descriptors": [
+            "deep-toned",
+            "booming",
+            "grounding"
+          ],
+          "match_tokens": [
+            "panama",
+            "bass-guitar",
+            "plucked"
+          ]
+        },
+        {
+          "id": "socavon_pequeno",
+          "name": "Small socavón (higher four-string)",
+          "descriptors": [
+            "compact",
+            "punchy",
+            "mid-register"
+          ],
+          "match_tokens": [
+            "panama",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "socavon_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "socavon_bordon",
+          "default": true,
+          "name": "Bordón bass line under mejoranera",
+          "descriptors": [
+            "walking-bass",
+            "steady",
+            "underpinning"
+          ],
+          "match_tokens": [
+            "bass-line",
+            "panama"
+          ]
+        },
+        {
+          "id": "socavon_tamborito",
+          "name": "Tamborito / cumbia accompaniment",
+          "descriptors": [
+            "driving",
+            "syncopated",
+            "rustic"
+          ],
+          "match_tokens": [
+            "dance-rhythm",
+            "strummed"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "socavon_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "socavon_bocona",
+          "default": true,
+          "name": "Socavón bocón (deep four-string bass form)",
+          "descriptors": [
+            "deep-toned",
+            "booming",
+            "grounding"
+          ],
+          "match_tokens": [
+            "panama",
+            "bass-guitar",
+            "plucked"
+          ]
+        },
+        {
+          "id": "socavon_pequeno",
+          "name": "Small socavón (higher four-string)",
+          "descriptors": [
+            "compact",
+            "punchy",
+            "mid-register"
+          ],
+          "match_tokens": [
+            "panama",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "socavon_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "socavon_bordon",
+          "default": true,
+          "name": "Bordón bass line under mejoranera",
+          "descriptors": [
+            "walking-bass",
+            "steady",
+            "underpinning"
+          ],
+          "match_tokens": [
+            "bass-line",
+            "panama"
+          ]
+        },
+        {
+          "id": "socavon_tamborito",
+          "name": "Tamborito / cumbia accompaniment",
+          "descriptors": [
+            "driving",
+            "syncopated",
+            "rustic"
+          ],
+          "match_tokens": [
+            "dance-rhythm",
+            "strummed"
+          ]
+        }
+      ]
+    }
+  ]
+}

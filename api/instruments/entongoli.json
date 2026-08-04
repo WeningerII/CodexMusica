@@ -1,0 +1,148 @@
+{
+  "id": "entongoli",
+  "name": "Entongoli (Ganda eight-string bowl lyre)",
+  "family": "plucked_traditional",
+  "class": "plucked_lyre",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "entongoli",
+  "parts": [
+    {
+      "id": "entongoli_body",
+      "name": "Bowl and membrane",
+      "variants": [
+        {
+          "id": "entongoli_cowhide",
+          "default": true,
+          "name": "Wooden bowl with cowhide soundtable",
+          "descriptors": [
+            "warm",
+            "dry-pluck",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowl-lyre",
+            "buganda"
+          ]
+        },
+        {
+          "id": "entongoli_lizard",
+          "name": "Monitor-lizard skin soundtable",
+          "descriptors": [
+            "crisp",
+            "tight-toned"
+          ],
+          "match_tokens": [
+            "lyre",
+            "uganda"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "entongoli_role",
+      "name": "Musical role",
+      "variants": [
+        {
+          "id": "entongoli_song",
+          "default": true,
+          "name": "Self-accompanied court song",
+          "descriptors": [
+            "interlocking",
+            "steady-ostinato"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ganda"
+          ]
+        },
+        {
+          "id": "entongoli_ensemble",
+          "name": "Ensemble with endingidi and drums",
+          "descriptors": [
+            "cyclic",
+            "supporting"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "entongoli_body",
+      "name": "Bowl and membrane",
+      "variants": [
+        {
+          "id": "entongoli_cowhide",
+          "default": true,
+          "name": "Wooden bowl with cowhide soundtable",
+          "descriptors": [
+            "warm",
+            "dry-pluck",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowl-lyre",
+            "buganda"
+          ]
+        },
+        {
+          "id": "entongoli_lizard",
+          "name": "Monitor-lizard skin soundtable",
+          "descriptors": [
+            "crisp",
+            "tight-toned"
+          ],
+          "match_tokens": [
+            "lyre",
+            "uganda"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "entongoli_role",
+      "name": "Musical role",
+      "variants": [
+        {
+          "id": "entongoli_song",
+          "default": true,
+          "name": "Self-accompanied court song",
+          "descriptors": [
+            "interlocking",
+            "steady-ostinato"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ganda"
+          ]
+        },
+        {
+          "id": "entongoli_ensemble",
+          "name": "Ensemble with endingidi and drums",
+          "descriptors": [
+            "cyclic",
+            "supporting"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ]
+}

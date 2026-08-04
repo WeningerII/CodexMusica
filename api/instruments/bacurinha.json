@@ -1,0 +1,146 @@
+{
+  "id": "bacurinha",
+  "name": "Bacurinha (small Pernambucan stick-played drum of cavalo-marinho and maracatu)",
+  "family": "percussion",
+  "class": "double_headed_drum",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 0,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "bacurinha",
+  "parts": [
+    {
+      "id": "bacurinha_context",
+      "name": "Ensemble context",
+      "variants": [
+        {
+          "id": "bacurinha_cavalo_marinho",
+          "default": true,
+          "name": "Cavalo-marinho ensemble (with rabeca and mineiro)",
+          "descriptors": [
+            "dry",
+            "clattering",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "pernambuco",
+            "stick-drum",
+            "brazilian"
+          ]
+        },
+        {
+          "id": "bacurinha_maracatu",
+          "name": "Maracatu rural baque solto",
+          "descriptors": [
+            "frenetic",
+            "cutting"
+          ],
+          "match_tokens": [
+            "maracatu",
+            "pernambuco"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bacurinha_head",
+      "name": "Head and tensioning",
+      "variants": [
+        {
+          "id": "bacurinha_goatskin",
+          "default": true,
+          "name": "Goatskin heads, rope-tensioned",
+          "descriptors": [
+            "papery",
+            "crisp"
+          ],
+          "match_tokens": [
+            "skin-head"
+          ]
+        },
+        {
+          "id": "bacurinha_synthetic",
+          "name": "Synthetic head, bolt-tuned",
+          "descriptors": [
+            "sharp-attack",
+            "bright"
+          ],
+          "match_tokens": [
+            "stick-struck"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "bacurinha_context",
+      "name": "Ensemble context",
+      "variants": [
+        {
+          "id": "bacurinha_cavalo_marinho",
+          "default": true,
+          "name": "Cavalo-marinho ensemble (with rabeca and mineiro)",
+          "descriptors": [
+            "dry",
+            "clattering",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "pernambuco",
+            "stick-drum",
+            "brazilian"
+          ]
+        },
+        {
+          "id": "bacurinha_maracatu",
+          "name": "Maracatu rural baque solto",
+          "descriptors": [
+            "frenetic",
+            "cutting"
+          ],
+          "match_tokens": [
+            "maracatu",
+            "pernambuco"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bacurinha_head",
+      "name": "Head and tensioning",
+      "variants": [
+        {
+          "id": "bacurinha_goatskin",
+          "default": true,
+          "name": "Goatskin heads, rope-tensioned",
+          "descriptors": [
+            "papery",
+            "crisp"
+          ],
+          "match_tokens": [
+            "skin-head"
+          ]
+        },
+        {
+          "id": "bacurinha_synthetic",
+          "name": "Synthetic head, bolt-tuned",
+          "descriptors": [
+            "sharp-attack",
+            "bright"
+          ],
+          "match_tokens": [
+            "stick-struck"
+          ]
+        }
+      ]
+    }
+  ]
+}

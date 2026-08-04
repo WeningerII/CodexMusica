@@ -1,0 +1,152 @@
+{
+  "id": "adja_bell",
+  "name": "Adja (Vodun handheld iron clapper bell)",
+  "family": "percussion",
+  "class": "struck_idiophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 2,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "adja",
+  "parts": [
+    {
+      "id": "adja_form",
+      "name": "Bell form",
+      "variants": [
+        {
+          "id": "adja_single",
+          "default": true,
+          "name": "Single tapered iron bell with internal clapper",
+          "descriptors": [
+            "clanging",
+            "piercing",
+            "metallic"
+          ],
+          "match_tokens": [
+            "hand-bell",
+            "vodun",
+            "fon"
+          ]
+        },
+        {
+          "id": "adja_double",
+          "name": "Double-bell adja (paired cones)",
+          "descriptors": [
+            "two-tone",
+            "jangling"
+          ],
+          "match_tokens": [
+            "hand-bell",
+            "benin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "adja_use",
+      "name": "Ritual use",
+      "variants": [
+        {
+          "id": "adja_invocation",
+          "default": true,
+          "name": "Priest's invocation shaking (summoning spirits)",
+          "descriptors": [
+            "insistent",
+            "ceremonial",
+            "trance-inducing"
+          ],
+          "match_tokens": [
+            "shaken",
+            "ritual"
+          ]
+        },
+        {
+          "id": "adja_timeline",
+          "name": "Timeline ostinato with drum battery",
+          "descriptors": [
+            "steady-pulse",
+            "cutting-through"
+          ],
+          "match_tokens": [
+            "timeline",
+            "shaken"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "adja_form",
+      "name": "Bell form",
+      "variants": [
+        {
+          "id": "adja_single",
+          "default": true,
+          "name": "Single tapered iron bell with internal clapper",
+          "descriptors": [
+            "clanging",
+            "piercing",
+            "metallic"
+          ],
+          "match_tokens": [
+            "hand-bell",
+            "vodun",
+            "fon"
+          ]
+        },
+        {
+          "id": "adja_double",
+          "name": "Double-bell adja (paired cones)",
+          "descriptors": [
+            "two-tone",
+            "jangling"
+          ],
+          "match_tokens": [
+            "hand-bell",
+            "benin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "adja_use",
+      "name": "Ritual use",
+      "variants": [
+        {
+          "id": "adja_invocation",
+          "default": true,
+          "name": "Priest's invocation shaking (summoning spirits)",
+          "descriptors": [
+            "insistent",
+            "ceremonial",
+            "trance-inducing"
+          ],
+          "match_tokens": [
+            "shaken",
+            "ritual"
+          ]
+        },
+        {
+          "id": "adja_timeline",
+          "name": "Timeline ostinato with drum battery",
+          "descriptors": [
+            "steady-pulse",
+            "cutting-through"
+          ],
+          "match_tokens": [
+            "timeline",
+            "shaken"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "id": "mbung_mbung",
+  "name": "Mbung mbung (Wolof sabar-family single-headed drum)",
+  "family": "percussion",
+  "class": "single_headed_drum",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 0,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "mbung mbung",
+  "parts": [
+    {
+      "id": "mbung_mbung_size",
+      "name": "Size within sabar set",
+      "variants": [
+        {
+          "id": "mbung_mbung_bal",
+          "default": true,
+          "name": "Mbung-mbung bal (larger, accompaniment)",
+          "descriptors": [
+            "deep-toned",
+            "rolling"
+          ],
+          "match_tokens": [
+            "sabar-drum",
+            "wolof"
+          ]
+        },
+        {
+          "id": "mbung_mbung_tungune",
+          "name": "Mbung-mbung tungune (smaller, higher)",
+          "descriptors": [
+            "high-pitched",
+            "cutting-slap"
+          ],
+          "match_tokens": [
+            "sabar-drum",
+            "wolof"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mbung_mbung_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "mbung_mbung_stick_hand",
+          "default": true,
+          "name": "One stick (galan) and open hand",
+          "descriptors": [
+            "sharp-attack",
+            "cracking"
+          ],
+          "match_tokens": [
+            "stick-and-hand"
+          ]
+        },
+        {
+          "id": "mbung_mbung_hands",
+          "name": "Both hands (softer accompaniment)",
+          "descriptors": [
+            "muffled",
+            "warm"
+          ],
+          "match_tokens": [
+            "hand-drum"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "mbung_mbung_size",
+      "name": "Size within sabar set",
+      "variants": [
+        {
+          "id": "mbung_mbung_bal",
+          "default": true,
+          "name": "Mbung-mbung bal (larger, accompaniment)",
+          "descriptors": [
+            "deep-toned",
+            "rolling"
+          ],
+          "match_tokens": [
+            "sabar-drum",
+            "wolof"
+          ]
+        },
+        {
+          "id": "mbung_mbung_tungune",
+          "name": "Mbung-mbung tungune (smaller, higher)",
+          "descriptors": [
+            "high-pitched",
+            "cutting-slap"
+          ],
+          "match_tokens": [
+            "sabar-drum",
+            "wolof"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mbung_mbung_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "mbung_mbung_stick_hand",
+          "default": true,
+          "name": "One stick (galan) and open hand",
+          "descriptors": [
+            "sharp-attack",
+            "cracking"
+          ],
+          "match_tokens": [
+            "stick-and-hand"
+          ]
+        },
+        {
+          "id": "mbung_mbung_hands",
+          "name": "Both hands (softer accompaniment)",
+          "descriptors": [
+            "muffled",
+            "warm"
+          ],
+          "match_tokens": [
+            "hand-drum"
+          ]
+        }
+      ]
+    }
+  ]
+}

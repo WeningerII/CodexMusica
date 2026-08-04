@@ -1,0 +1,154 @@
+{
+  "id": "carangano",
+  "name": "Carángano (Llanero bamboo idiochord struck tube zither)",
+  "family": "plucked_traditional",
+  "class": "tube_zither",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": -1,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "carangano",
+  "parts": [
+    {
+      "id": "carangano_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "carangano_llanero",
+          "default": true,
+          "name": "Llanero bamboo tube with raised idiochord strips and gourd resonator",
+          "descriptors": [
+            "buzzing-timbre",
+            "percussive",
+            "rustic"
+          ],
+          "match_tokens": [
+            "struck-string",
+            "bamboo",
+            "llanos"
+          ]
+        },
+        {
+          "id": "carangano_ground_bow",
+          "name": "Earth-resonated bow form (carángano de tierra)",
+          "descriptors": [
+            "thumping",
+            "dull-toned",
+            "archaic"
+          ],
+          "match_tokens": [
+            "struck-string",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "carangano_technique",
+      "name": "Striking technique",
+      "variants": [
+        {
+          "id": "carangano_sticks",
+          "default": true,
+          "name": "Struck with two light sticks",
+          "descriptors": [
+            "dry-attack",
+            "clattering",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "struck",
+            "rhythm-driving"
+          ]
+        },
+        {
+          "id": "carangano_stick_and_scrape",
+          "name": "Struck plus scraped tube notches",
+          "descriptors": [
+            "rasping",
+            "gritty"
+          ],
+          "match_tokens": [
+            "scraped",
+            "struck"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "carangano_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "carangano_llanero",
+          "default": true,
+          "name": "Llanero bamboo tube with raised idiochord strips and gourd resonator",
+          "descriptors": [
+            "buzzing-timbre",
+            "percussive",
+            "rustic"
+          ],
+          "match_tokens": [
+            "struck-string",
+            "bamboo",
+            "llanos"
+          ]
+        },
+        {
+          "id": "carangano_ground_bow",
+          "name": "Earth-resonated bow form (carángano de tierra)",
+          "descriptors": [
+            "thumping",
+            "dull-toned",
+            "archaic"
+          ],
+          "match_tokens": [
+            "struck-string",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "carangano_technique",
+      "name": "Striking technique",
+      "variants": [
+        {
+          "id": "carangano_sticks",
+          "default": true,
+          "name": "Struck with two light sticks",
+          "descriptors": [
+            "dry-attack",
+            "clattering",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "struck",
+            "rhythm-driving"
+          ]
+        },
+        {
+          "id": "carangano_stick_and_scrape",
+          "name": "Struck plus scraped tube notches",
+          "descriptors": [
+            "rasping",
+            "gritty"
+          ],
+          "match_tokens": [
+            "scraped",
+            "struck"
+          ]
+        }
+      ]
+    }
+  ]
+}

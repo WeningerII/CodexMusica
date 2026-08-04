@@ -1,0 +1,178 @@
+{
+  "id": "tanbou_ka",
+  "name": "Tanbou ka (Creole hand-played goatskin ka of the léwòz ceremony)",
+  "family": "percussion",
+  "class": "single_headed_hand_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "tanbou ka",
+  "parts": [
+    {
+      "id": "tanbou_ka_seating",
+      "name": "Playing posture",
+      "variants": [
+        {
+          "id": "tanbou_ka_straddled",
+          "default": true,
+          "name": "Straddled and played seated, heels damping the head",
+          "descriptors": [
+            "pitch-bending",
+            "muted-and-open",
+            "expressive"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "gwoka",
+            "creole"
+          ]
+        },
+        {
+          "id": "tanbou_ka_strapped",
+          "name": "Strapped and played standing (street processional)",
+          "descriptors": [
+            "projecting",
+            "marching",
+            "loud"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "procession"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tanbou_ka_tuning",
+      "name": "Head tuning method",
+      "variants": [
+        {
+          "id": "tanbou_ka_fire",
+          "default": true,
+          "name": "Tuned over open fire before playing",
+          "descriptors": [
+            "dry",
+            "crisp",
+            "raw"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "fire-tuned"
+          ]
+        },
+        {
+          "id": "tanbou_ka_rope",
+          "name": "Rope-and-wedge tensioned",
+          "descriptors": [
+            "stable",
+            "even-toned"
+          ],
+          "match_tokens": [
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "tanbou_ka_slack",
+          "name": "Left slack for a low ritual voice",
+          "descriptors": [
+            "boomy",
+            "dark",
+            "ritual"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "low-register"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tanbou_ka_seating",
+      "name": "Playing posture",
+      "variants": [
+        {
+          "id": "tanbou_ka_straddled",
+          "default": true,
+          "name": "Straddled and played seated, heels damping the head",
+          "descriptors": [
+            "pitch-bending",
+            "muted-and-open",
+            "expressive"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "gwoka",
+            "creole"
+          ]
+        },
+        {
+          "id": "tanbou_ka_strapped",
+          "name": "Strapped and played standing (street processional)",
+          "descriptors": [
+            "projecting",
+            "marching",
+            "loud"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "procession"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tanbou_ka_tuning",
+      "name": "Head tuning method",
+      "variants": [
+        {
+          "id": "tanbou_ka_fire",
+          "default": true,
+          "name": "Tuned over open fire before playing",
+          "descriptors": [
+            "dry",
+            "crisp",
+            "raw"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "fire-tuned"
+          ]
+        },
+        {
+          "id": "tanbou_ka_rope",
+          "name": "Rope-and-wedge tensioned",
+          "descriptors": [
+            "stable",
+            "even-toned"
+          ],
+          "match_tokens": [
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "tanbou_ka_slack",
+          "name": "Left slack for a low ritual voice",
+          "descriptors": [
+            "boomy",
+            "dark",
+            "ritual"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "low-register"
+          ]
+        }
+      ]
+    }
+  ]
+}

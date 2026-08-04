@@ -1,0 +1,180 @@
+{
+  "id": "boula",
+  "name": "Boula (Caribbean low steady-pulse hand drum)",
+  "family": "percussion",
+  "class": "single_headed_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -2,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "boula",
+  "parts": [
+    {
+      "id": "boula_tradition",
+      "name": "Tradition and role",
+      "variants": [
+        {
+          "id": "boula_gwoka",
+          "default": true,
+          "name": "Guadeloupean gwoka boula (steady supporting pulse)",
+          "descriptors": [
+            "deep-toned",
+            "hypnotic",
+            "grounding"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "gwoka",
+            "bass-foundation"
+          ]
+        },
+        {
+          "id": "boula_haitian_rada",
+          "name": "Haitian Rada boula (smallest of the three, stick-and-hand)",
+          "descriptors": [
+            "tight",
+            "insistent",
+            "ritual"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "vodou",
+            "ritual"
+          ]
+        },
+        {
+          "id": "boula_bele",
+          "name": "Martinican bèlè bel-air pulse drum",
+          "descriptors": [
+            "rolling",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "bele"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "boula_head",
+      "surface": false,
+      "name": "Head and tuning",
+      "variants": [
+        {
+          "id": "boula_goatskin_rope",
+          "default": true,
+          "name": "Goatskin head, rope-and-peg tensioned",
+          "descriptors": [
+            "warm",
+            "earthy"
+          ],
+          "match_tokens": [
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "boula_fire_tuned",
+          "name": "Fire-tuned slack skin",
+          "descriptors": [
+            "boomy",
+            "loose",
+            "raw"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "low-register"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "boula_tradition",
+      "name": "Tradition and role",
+      "variants": [
+        {
+          "id": "boula_gwoka",
+          "default": true,
+          "name": "Guadeloupean gwoka boula (steady supporting pulse)",
+          "descriptors": [
+            "deep-toned",
+            "hypnotic",
+            "grounding"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "gwoka",
+            "bass-foundation"
+          ]
+        },
+        {
+          "id": "boula_haitian_rada",
+          "name": "Haitian Rada boula (smallest of the three, stick-and-hand)",
+          "descriptors": [
+            "tight",
+            "insistent",
+            "ritual"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "vodou",
+            "ritual"
+          ]
+        },
+        {
+          "id": "boula_bele",
+          "name": "Martinican bèlè bel-air pulse drum",
+          "descriptors": [
+            "rolling",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "bele"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "boula_head",
+      "surface": false,
+      "name": "Head and tuning",
+      "variants": [
+        {
+          "id": "boula_goatskin_rope",
+          "default": true,
+          "name": "Goatskin head, rope-and-peg tensioned",
+          "descriptors": [
+            "warm",
+            "earthy"
+          ],
+          "match_tokens": [
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "boula_fire_tuned",
+          "name": "Fire-tuned slack skin",
+          "descriptors": [
+            "boomy",
+            "loose",
+            "raw"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "low-register"
+          ]
+        }
+      ]
+    }
+  ]
+}

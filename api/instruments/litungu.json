@@ -1,0 +1,148 @@
+{
+  "id": "litungu",
+  "name": "Litungu (Luhya seven-string lyre)",
+  "family": "plucked_traditional",
+  "class": "plucked_lyre",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "litungu",
+  "parts": [
+    {
+      "id": "litungu_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "litungu_bukusu",
+          "default": true,
+          "name": "Bukusu seven-string litungu",
+          "descriptors": [
+            "bright-pluck",
+            "interlocking",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "lyre",
+            "luhya"
+          ]
+        },
+        {
+          "id": "litungu_tiriki",
+          "name": "Tiriki/Isukha smaller lyre",
+          "descriptors": [
+            "light-toned",
+            "intimate"
+          ],
+          "match_tokens": [
+            "lyre",
+            "kenya"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "litungu_technique",
+      "name": "Damping technique",
+      "variants": [
+        {
+          "id": "litungu_damped",
+          "default": true,
+          "name": "Left-hand string damping (selective sounding)",
+          "descriptors": [
+            "staccato",
+            "pattern-locked"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ostinato"
+          ]
+        },
+        {
+          "id": "litungu_open",
+          "name": "Open strum across all strings",
+          "descriptors": [
+            "ringing",
+            "full-chorded"
+          ],
+          "match_tokens": [
+            "strummed",
+            "lyre"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "litungu_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "litungu_bukusu",
+          "default": true,
+          "name": "Bukusu seven-string litungu",
+          "descriptors": [
+            "bright-pluck",
+            "interlocking",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "lyre",
+            "luhya"
+          ]
+        },
+        {
+          "id": "litungu_tiriki",
+          "name": "Tiriki/Isukha smaller lyre",
+          "descriptors": [
+            "light-toned",
+            "intimate"
+          ],
+          "match_tokens": [
+            "lyre",
+            "kenya"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "litungu_technique",
+      "name": "Damping technique",
+      "variants": [
+        {
+          "id": "litungu_damped",
+          "default": true,
+          "name": "Left-hand string damping (selective sounding)",
+          "descriptors": [
+            "staccato",
+            "pattern-locked"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ostinato"
+          ]
+        },
+        {
+          "id": "litungu_open",
+          "name": "Open strum across all strings",
+          "descriptors": [
+            "ringing",
+            "full-chorded"
+          ],
+          "match_tokens": [
+            "strummed",
+            "lyre"
+          ]
+        }
+      ]
+    }
+  ]
+}

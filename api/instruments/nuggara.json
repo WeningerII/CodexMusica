@@ -1,0 +1,178 @@
+{
+  "id": "nuggara",
+  "name": "Nuggara (Sudanese paired kettledrums)",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "nuggara",
+  "parts": [
+    {
+      "id": "nuggara_form",
+      "name": "Bowl form / size",
+      "variants": [
+        {
+          "id": "nuggara_pair",
+          "default": true,
+          "name": "Paired clay/metal kettles (high and low)",
+          "descriptors": [
+            "punchy",
+            "interlocking",
+            "dry"
+          ],
+          "match_tokens": [
+            "struck",
+            "kettledrum",
+            "sudanese"
+          ]
+        },
+        {
+          "id": "nuggara_large",
+          "name": "Large ceremonial royal kettle",
+          "descriptors": [
+            "deep-toned",
+            "booming",
+            "stately"
+          ],
+          "match_tokens": [
+            "struck",
+            "low-register"
+          ]
+        },
+        {
+          "id": "nuggara_small",
+          "name": "Small hand-held kettle",
+          "descriptors": [
+            "tight",
+            "high-pitched",
+            "clipped"
+          ],
+          "match_tokens": [
+            "struck",
+            "high-pitched"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nuggara_strike",
+      "name": "Striking method",
+      "variants": [
+        {
+          "id": "nuggara_sticks",
+          "default": true,
+          "name": "Curved sticks",
+          "descriptors": [
+            "sharp-attack",
+            "cracking"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-struck"
+          ]
+        },
+        {
+          "id": "nuggara_hands",
+          "name": "Bare hands",
+          "descriptors": [
+            "muffled",
+            "warm-thud"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-drum"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "nuggara_form",
+      "name": "Bowl form / size",
+      "variants": [
+        {
+          "id": "nuggara_pair",
+          "default": true,
+          "name": "Paired clay/metal kettles (high and low)",
+          "descriptors": [
+            "punchy",
+            "interlocking",
+            "dry"
+          ],
+          "match_tokens": [
+            "struck",
+            "kettledrum",
+            "sudanese"
+          ]
+        },
+        {
+          "id": "nuggara_large",
+          "name": "Large ceremonial royal kettle",
+          "descriptors": [
+            "deep-toned",
+            "booming",
+            "stately"
+          ],
+          "match_tokens": [
+            "struck",
+            "low-register"
+          ]
+        },
+        {
+          "id": "nuggara_small",
+          "name": "Small hand-held kettle",
+          "descriptors": [
+            "tight",
+            "high-pitched",
+            "clipped"
+          ],
+          "match_tokens": [
+            "struck",
+            "high-pitched"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nuggara_strike",
+      "name": "Striking method",
+      "variants": [
+        {
+          "id": "nuggara_sticks",
+          "default": true,
+          "name": "Curved sticks",
+          "descriptors": [
+            "sharp-attack",
+            "cracking"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-struck"
+          ]
+        },
+        {
+          "id": "nuggara_hands",
+          "name": "Bare hands",
+          "descriptors": [
+            "muffled",
+            "warm-thud"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-drum"
+          ]
+        }
+      ]
+    }
+  ]
+}

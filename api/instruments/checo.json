@@ -1,0 +1,154 @@
+{
+  "id": "checo",
+  "name": "Checo (Afro-Peruvian gourd drum of Zaña)",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": -1,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "checo",
+  "parts": [
+    {
+      "id": "checo_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "checo_seated",
+          "default": true,
+          "name": "Gourd on the ground, hands and heel muting the hole",
+          "descriptors": [
+            "boomy",
+            "pitch-bending",
+            "earthy"
+          ],
+          "match_tokens": [
+            "afro-peruvian",
+            "gourd-drum",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "checo_lap",
+          "name": "Held on the lap, fingertip strokes",
+          "descriptors": [
+            "dry",
+            "pattering",
+            "nimble"
+          ],
+          "match_tokens": [
+            "gourd-drum",
+            "hand-struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "checo_size",
+      "name": "Gourd size",
+      "variants": [
+        {
+          "id": "checo_large",
+          "default": true,
+          "name": "Large calabash (deep bass hole)",
+          "descriptors": [
+            "deep-toned",
+            "booming",
+            "resonant"
+          ],
+          "match_tokens": [
+            "gourd-drum",
+            "low-register"
+          ]
+        },
+        {
+          "id": "checo_small",
+          "name": "Small calabash",
+          "descriptors": [
+            "mid-register",
+            "punchy",
+            "tight"
+          ],
+          "match_tokens": [
+            "gourd-drum"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "checo_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "checo_seated",
+          "default": true,
+          "name": "Gourd on the ground, hands and heel muting the hole",
+          "descriptors": [
+            "boomy",
+            "pitch-bending",
+            "earthy"
+          ],
+          "match_tokens": [
+            "afro-peruvian",
+            "gourd-drum",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "checo_lap",
+          "name": "Held on the lap, fingertip strokes",
+          "descriptors": [
+            "dry",
+            "pattering",
+            "nimble"
+          ],
+          "match_tokens": [
+            "gourd-drum",
+            "hand-struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "checo_size",
+      "name": "Gourd size",
+      "variants": [
+        {
+          "id": "checo_large",
+          "default": true,
+          "name": "Large calabash (deep bass hole)",
+          "descriptors": [
+            "deep-toned",
+            "booming",
+            "resonant"
+          ],
+          "match_tokens": [
+            "gourd-drum",
+            "low-register"
+          ]
+        },
+        {
+          "id": "checo_small",
+          "name": "Small calabash",
+          "descriptors": [
+            "mid-register",
+            "punchy",
+            "tight"
+          ],
+          "match_tokens": [
+            "gourd-drum"
+          ]
+        }
+      ]
+    }
+  ]
+}

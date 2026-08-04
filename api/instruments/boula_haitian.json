@@ -1,0 +1,148 @@
+{
+  "id": "boula_haitian",
+  "name": "Boula (smallest Haitian Vodou drum)",
+  "family": "percussion",
+  "class": "single_headed_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "vodou boula",
+  "parts": [
+    {
+      "id": "boula_rite",
+      "name": "Rite / ensemble context",
+      "variants": [
+        {
+          "id": "boula_rada",
+          "default": true,
+          "name": "Rada boula (small peg-tuned drum, two sticks)",
+          "descriptors": [
+            "high-pitched",
+            "ostinato",
+            "relentless"
+          ],
+          "match_tokens": [
+            "haitian",
+            "vodou-drum",
+            "timekeeper"
+          ]
+        },
+        {
+          "id": "boula_petwo",
+          "name": "Petwo boula (rope-tuned, hand-played)",
+          "descriptors": [
+            "dry",
+            "snappy"
+          ],
+          "match_tokens": [
+            "haitian",
+            "petwo",
+            "hand-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "boula_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "boula_two_sticks",
+          "default": true,
+          "name": "Two thin sticks (baget)",
+          "descriptors": [
+            "clattering",
+            "tight-pulse"
+          ],
+          "match_tokens": [
+            "stick-struck"
+          ]
+        },
+        {
+          "id": "boula_hands",
+          "name": "Bare hands",
+          "descriptors": [
+            "warm",
+            "rounded"
+          ],
+          "match_tokens": [
+            "hand-struck"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "boula_rite",
+      "name": "Rite / ensemble context",
+      "variants": [
+        {
+          "id": "boula_rada",
+          "default": true,
+          "name": "Rada boula (small peg-tuned drum, two sticks)",
+          "descriptors": [
+            "high-pitched",
+            "ostinato",
+            "relentless"
+          ],
+          "match_tokens": [
+            "haitian",
+            "vodou-drum",
+            "timekeeper"
+          ]
+        },
+        {
+          "id": "boula_petwo",
+          "name": "Petwo boula (rope-tuned, hand-played)",
+          "descriptors": [
+            "dry",
+            "snappy"
+          ],
+          "match_tokens": [
+            "haitian",
+            "petwo",
+            "hand-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "boula_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "boula_two_sticks",
+          "default": true,
+          "name": "Two thin sticks (baget)",
+          "descriptors": [
+            "clattering",
+            "tight-pulse"
+          ],
+          "match_tokens": [
+            "stick-struck"
+          ]
+        },
+        {
+          "id": "boula_hands",
+          "name": "Bare hands",
+          "descriptors": [
+            "warm",
+            "rounded"
+          ],
+          "match_tokens": [
+            "hand-struck"
+          ]
+        }
+      ]
+    }
+  ]
+}

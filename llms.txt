@@ -1,7 +1,7 @@
 # Codex Musica
 
 > A static, server-free catalog of recording "recipes" for 1145 recorded-music
-> traditions and 1056 instruments. Each tradition resolves to a compressed
+> traditions and 1163 instruments. Each tradition resolves to a compressed
 > descriptor-stack recipe (how to record a song in that style) plus a structured
 > arrangement (ensemble, room, signal chain, tuning). All data is plain JSON served as
 > static files — open a URL and read it. No API key, no server, no rate limit.

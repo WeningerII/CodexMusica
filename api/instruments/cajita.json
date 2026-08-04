@@ -1,0 +1,152 @@
+{
+  "id": "cajita",
+  "name": "Cajita (Peruvian hinged-lid percussion box)",
+  "family": "percussion",
+  "class": "struck_idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "cajita",
+  "parts": [
+    {
+      "id": "cajita_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "cajita_lid_stick",
+          "default": true,
+          "name": "Lid slam plus stick strike on side",
+          "descriptors": [
+            "clacking",
+            "dry-snap",
+            "syncopated"
+          ],
+          "match_tokens": [
+            "afro-peruvian",
+            "wood-box",
+            "struck"
+          ]
+        },
+        {
+          "id": "cajita_lid_only",
+          "name": "Lid slams alone",
+          "descriptors": [
+            "hollow-knock",
+            "sparse",
+            "percussive"
+          ],
+          "match_tokens": [
+            "afro-peruvian",
+            "struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cajita_build",
+      "name": "Box construction",
+      "variants": [
+        {
+          "id": "cajita_thin",
+          "default": true,
+          "name": "Thin plywood alms-box form",
+          "descriptors": [
+            "bright-crack",
+            "light",
+            "papery"
+          ],
+          "match_tokens": [
+            "wood-box"
+          ]
+        },
+        {
+          "id": "cajita_hardwood",
+          "name": "Hardwood box",
+          "descriptors": [
+            "deeper-knock",
+            "solid",
+            "woody"
+          ],
+          "match_tokens": [
+            "wood-box"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "cajita_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "cajita_lid_stick",
+          "default": true,
+          "name": "Lid slam plus stick strike on side",
+          "descriptors": [
+            "clacking",
+            "dry-snap",
+            "syncopated"
+          ],
+          "match_tokens": [
+            "afro-peruvian",
+            "wood-box",
+            "struck"
+          ]
+        },
+        {
+          "id": "cajita_lid_only",
+          "name": "Lid slams alone",
+          "descriptors": [
+            "hollow-knock",
+            "sparse",
+            "percussive"
+          ],
+          "match_tokens": [
+            "afro-peruvian",
+            "struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cajita_build",
+      "name": "Box construction",
+      "variants": [
+        {
+          "id": "cajita_thin",
+          "default": true,
+          "name": "Thin plywood alms-box form",
+          "descriptors": [
+            "bright-crack",
+            "light",
+            "papery"
+          ],
+          "match_tokens": [
+            "wood-box"
+          ]
+        },
+        {
+          "id": "cajita_hardwood",
+          "name": "Hardwood box",
+          "descriptors": [
+            "deeper-knock",
+            "solid",
+            "woody"
+          ],
+          "match_tokens": [
+            "wood-box"
+          ]
+        }
+      ]
+    }
+  ]
+}

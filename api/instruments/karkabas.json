@@ -1,0 +1,202 @@
+{
+  "id": "karkabas",
+  "name": "Karkabas (Gnawa iron double-castanets)",
+  "family": "percussion",
+  "class": "concussion_idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "karkabas",
+  "parts": [
+    {
+      "id": "karkabas_size",
+      "name": "Size / weight",
+      "variants": [
+        {
+          "id": "karkabas_standard",
+          "default": true,
+          "name": "Standard forged-iron pair",
+          "descriptors": [
+            "clanging",
+            "metallic",
+            "driving"
+          ],
+          "match_tokens": [
+            "clashed",
+            "gnawa",
+            "morocco"
+          ]
+        },
+        {
+          "id": "karkabas_large",
+          "name": "Large heavy pair (lila / deep clang)",
+          "descriptors": [
+            "heavy",
+            "dark-metal",
+            "booming-clang"
+          ],
+          "match_tokens": [
+            "clashed",
+            "low-register"
+          ]
+        },
+        {
+          "id": "karkabas_small",
+          "name": "Small light pair",
+          "descriptors": [
+            "bright-attack",
+            "crisp",
+            "chattering"
+          ],
+          "match_tokens": [
+            "clashed",
+            "high-pitched"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "karkabas_pattern",
+      "name": "Playing pattern",
+      "variants": [
+        {
+          "id": "karkabas_trance",
+          "default": true,
+          "name": "Continuous trance ostinato",
+          "descriptors": [
+            "hypnotic",
+            "relentless"
+          ],
+          "match_tokens": [
+            "clashed",
+            "ostinato"
+          ]
+        },
+        {
+          "id": "karkabas_triplet",
+          "name": "Triplet shuffle roll",
+          "descriptors": [
+            "rolling",
+            "shuffling"
+          ],
+          "match_tokens": [
+            "clashed",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "karkabas_call",
+          "name": "Sparse processional accents",
+          "descriptors": [
+            "punctuating",
+            "open-spaced"
+          ],
+          "match_tokens": [
+            "clashed",
+            "processional"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "karkabas_size",
+      "name": "Size / weight",
+      "variants": [
+        {
+          "id": "karkabas_standard",
+          "default": true,
+          "name": "Standard forged-iron pair",
+          "descriptors": [
+            "clanging",
+            "metallic",
+            "driving"
+          ],
+          "match_tokens": [
+            "clashed",
+            "gnawa",
+            "morocco"
+          ]
+        },
+        {
+          "id": "karkabas_large",
+          "name": "Large heavy pair (lila / deep clang)",
+          "descriptors": [
+            "heavy",
+            "dark-metal",
+            "booming-clang"
+          ],
+          "match_tokens": [
+            "clashed",
+            "low-register"
+          ]
+        },
+        {
+          "id": "karkabas_small",
+          "name": "Small light pair",
+          "descriptors": [
+            "bright-attack",
+            "crisp",
+            "chattering"
+          ],
+          "match_tokens": [
+            "clashed",
+            "high-pitched"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "karkabas_pattern",
+      "name": "Playing pattern",
+      "variants": [
+        {
+          "id": "karkabas_trance",
+          "default": true,
+          "name": "Continuous trance ostinato",
+          "descriptors": [
+            "hypnotic",
+            "relentless"
+          ],
+          "match_tokens": [
+            "clashed",
+            "ostinato"
+          ]
+        },
+        {
+          "id": "karkabas_triplet",
+          "name": "Triplet shuffle roll",
+          "descriptors": [
+            "rolling",
+            "shuffling"
+          ],
+          "match_tokens": [
+            "clashed",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "karkabas_call",
+          "name": "Sparse processional accents",
+          "descriptors": [
+            "punctuating",
+            "open-spaced"
+          ],
+          "match_tokens": [
+            "clashed",
+            "processional"
+          ]
+        }
+      ]
+    }
+  ]
+}

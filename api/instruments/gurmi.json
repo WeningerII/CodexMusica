@@ -1,0 +1,146 @@
+{
+  "id": "gurmi",
+  "name": "Gurmi (Hausa two-string calabash-bodied plucked lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "gurmi",
+  "parts": [
+    {
+      "id": "gurmi_body",
+      "name": "Gourd size",
+      "variants": [
+        {
+          "id": "gurmi_standard",
+          "default": true,
+          "name": "Standard calabash body with goatskin table",
+          "descriptors": [
+            "boomy",
+            "dry-tone",
+            "thumping"
+          ],
+          "match_tokens": [
+            "calabash-lute",
+            "hausa"
+          ]
+        },
+        {
+          "id": "gurmi_large",
+          "name": "Large gourd (deeper, drum-like)",
+          "descriptors": [
+            "deep-toned",
+            "percussive-attack"
+          ],
+          "match_tokens": [
+            "calabash-lute",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gurmi_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "gurmi_strum_tap",
+          "default": true,
+          "name": "Plucked with gourd-tapping accompaniment",
+          "descriptors": [
+            "percussive-attack",
+            "rhythm-driven"
+          ],
+          "match_tokens": [
+            "calabash-lute",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "gurmi_plucked_only",
+          "name": "Finger-plucked melodic only",
+          "descriptors": [
+            "intimate",
+            "plangent"
+          ],
+          "match_tokens": [
+            "calabash-lute"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "gurmi_body",
+      "name": "Gourd size",
+      "variants": [
+        {
+          "id": "gurmi_standard",
+          "default": true,
+          "name": "Standard calabash body with goatskin table",
+          "descriptors": [
+            "boomy",
+            "dry-tone",
+            "thumping"
+          ],
+          "match_tokens": [
+            "calabash-lute",
+            "hausa"
+          ]
+        },
+        {
+          "id": "gurmi_large",
+          "name": "Large gourd (deeper, drum-like)",
+          "descriptors": [
+            "deep-toned",
+            "percussive-attack"
+          ],
+          "match_tokens": [
+            "calabash-lute",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gurmi_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "gurmi_strum_tap",
+          "default": true,
+          "name": "Plucked with gourd-tapping accompaniment",
+          "descriptors": [
+            "percussive-attack",
+            "rhythm-driven"
+          ],
+          "match_tokens": [
+            "calabash-lute",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "gurmi_plucked_only",
+          "name": "Finger-plucked melodic only",
+          "descriptors": [
+            "intimate",
+            "plangent"
+          ],
+          "match_tokens": [
+            "calabash-lute"
+          ]
+        }
+      ]
+    }
+  ]
+}

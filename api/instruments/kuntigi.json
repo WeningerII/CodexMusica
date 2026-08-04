@@ -1,0 +1,146 @@
+{
+  "id": "kuntigi",
+  "name": "Kuntigi (Hausa single-string tin-resonator lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "kuntigi",
+  "parts": [
+    {
+      "id": "kuntigi_resonator",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "kuntigi_tin",
+          "default": true,
+          "name": "Sardine-tin / metal can resonator with hide table",
+          "descriptors": [
+            "nasal-tone",
+            "buzzing-timbre",
+            "thin-toned"
+          ],
+          "match_tokens": [
+            "one-string-lute",
+            "hausa"
+          ]
+        },
+        {
+          "id": "kuntigi_gourd",
+          "name": "Small gourd resonator (older form)",
+          "descriptors": [
+            "woody",
+            "muted"
+          ],
+          "match_tokens": [
+            "one-string-lute",
+            "sahel"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kuntigi_style",
+      "surface": false,
+      "name": "Performance style",
+      "variants": [
+        {
+          "id": "kuntigi_praise",
+          "default": true,
+          "name": "Solo praise-singer self-accompaniment",
+          "descriptors": [
+            "fast-picked",
+            "voice-shadowing"
+          ],
+          "match_tokens": [
+            "praise-music"
+          ]
+        },
+        {
+          "id": "kuntigi_dance",
+          "name": "Dance-band lead line",
+          "descriptors": [
+            "driving",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kuntigi_resonator",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "kuntigi_tin",
+          "default": true,
+          "name": "Sardine-tin / metal can resonator with hide table",
+          "descriptors": [
+            "nasal-tone",
+            "buzzing-timbre",
+            "thin-toned"
+          ],
+          "match_tokens": [
+            "one-string-lute",
+            "hausa"
+          ]
+        },
+        {
+          "id": "kuntigi_gourd",
+          "name": "Small gourd resonator (older form)",
+          "descriptors": [
+            "woody",
+            "muted"
+          ],
+          "match_tokens": [
+            "one-string-lute",
+            "sahel"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kuntigi_style",
+      "surface": false,
+      "name": "Performance style",
+      "variants": [
+        {
+          "id": "kuntigi_praise",
+          "default": true,
+          "name": "Solo praise-singer self-accompaniment",
+          "descriptors": [
+            "fast-picked",
+            "voice-shadowing"
+          ],
+          "match_tokens": [
+            "praise-music"
+          ]
+        },
+        {
+          "id": "kuntigi_dance",
+          "name": "Dance-band lead line",
+          "descriptors": [
+            "driving",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ]
+}

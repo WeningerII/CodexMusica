@@ -1,0 +1,180 @@
+{
+  "id": "subidor",
+  "name": "Subidor (Puerto Rican bomba lead barrel drum, primo)",
+  "family": "percussion",
+  "class": "single_headed_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "subidor",
+  "parts": [
+    {
+      "id": "subidor_role",
+      "name": "Playing role",
+      "variants": [
+        {
+          "id": "subidor_piquetes",
+          "default": true,
+          "name": "Marking the dancer's piquetes (improvised repique)",
+          "descriptors": [
+            "responsive",
+            "explosive",
+            "conversational"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "bomba",
+            "improvisatory"
+          ]
+        },
+        {
+          "id": "subidor_sica",
+          "name": "Sicá / holandé lead phrasing",
+          "descriptors": [
+            "punchy",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "bomba"
+          ]
+        },
+        {
+          "id": "subidor_yuba",
+          "name": "Yubá slow ritual lead",
+          "descriptors": [
+            "weighty",
+            "deliberate",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "ritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "subidor_build",
+      "name": "Shell and head",
+      "variants": [
+        {
+          "id": "subidor_rum_barrel",
+          "default": true,
+          "name": "Rum-barrel stave shell with goatskin head",
+          "descriptors": [
+            "open-toned",
+            "punchy",
+            "resonant"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "barrel-drum"
+          ]
+        },
+        {
+          "id": "subidor_tuned_hardware",
+          "name": "Modern hardware-tuned barril",
+          "descriptors": [
+            "tight",
+            "bright-slap",
+            "projecting"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "loud-projection"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "subidor_role",
+      "name": "Playing role",
+      "variants": [
+        {
+          "id": "subidor_piquetes",
+          "default": true,
+          "name": "Marking the dancer's piquetes (improvised repique)",
+          "descriptors": [
+            "responsive",
+            "explosive",
+            "conversational"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "bomba",
+            "improvisatory"
+          ]
+        },
+        {
+          "id": "subidor_sica",
+          "name": "Sicá / holandé lead phrasing",
+          "descriptors": [
+            "punchy",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "bomba"
+          ]
+        },
+        {
+          "id": "subidor_yuba",
+          "name": "Yubá slow ritual lead",
+          "descriptors": [
+            "weighty",
+            "deliberate",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "ritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "subidor_build",
+      "name": "Shell and head",
+      "variants": [
+        {
+          "id": "subidor_rum_barrel",
+          "default": true,
+          "name": "Rum-barrel stave shell with goatskin head",
+          "descriptors": [
+            "open-toned",
+            "punchy",
+            "resonant"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "barrel-drum"
+          ]
+        },
+        {
+          "id": "subidor_tuned_hardware",
+          "name": "Modern hardware-tuned barril",
+          "descriptors": [
+            "tight",
+            "bright-slap",
+            "projecting"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "loud-projection"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "id": "gaita_macho_corta",
+  "name": "Gaita macho (Colombian male drone-and-rhythm cactus flute)",
+  "family": "wind",
+  "class": "duct_flute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": -1,
+    "range": -2,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "gaita macho",
+  "parts": [
+    {
+      "id": "gaita_macho_role",
+      "name": "Accompaniment role",
+      "variants": [
+        {
+          "id": "gaita_macho_drone",
+          "default": true,
+          "name": "Two-hole rhythmic drone with maraca in the free hand",
+          "descriptors": [
+            "droning",
+            "pulsing",
+            "supportive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation",
+            "cumbia"
+          ]
+        },
+        {
+          "id": "gaita_macho_counter",
+          "name": "Counter-melodic answering line",
+          "descriptors": [
+            "interlocking",
+            "call-and-response"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "colombian-coast"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gaita_macho_build",
+      "name": "Tube construction",
+      "variants": [
+        {
+          "id": "gaita_macho_cardon",
+          "default": true,
+          "name": "Cardón cactus stem with beeswax head and quill duct",
+          "descriptors": [
+            "breathy",
+            "husky",
+            "earthy"
+          ],
+          "match_tokens": [
+            "duct-flute",
+            "beeswax-head"
+          ]
+        },
+        {
+          "id": "gaita_macho_pvc",
+          "name": "PVC or wood-bodied modern build",
+          "descriptors": [
+            "steadier",
+            "focused"
+          ],
+          "match_tokens": [
+            "duct-flute"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "gaita_macho_role",
+      "name": "Accompaniment role",
+      "variants": [
+        {
+          "id": "gaita_macho_drone",
+          "default": true,
+          "name": "Two-hole rhythmic drone with maraca in the free hand",
+          "descriptors": [
+            "droning",
+            "pulsing",
+            "supportive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation",
+            "cumbia"
+          ]
+        },
+        {
+          "id": "gaita_macho_counter",
+          "name": "Counter-melodic answering line",
+          "descriptors": [
+            "interlocking",
+            "call-and-response"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "colombian-coast"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gaita_macho_build",
+      "name": "Tube construction",
+      "variants": [
+        {
+          "id": "gaita_macho_cardon",
+          "default": true,
+          "name": "Cardón cactus stem with beeswax head and quill duct",
+          "descriptors": [
+            "breathy",
+            "husky",
+            "earthy"
+          ],
+          "match_tokens": [
+            "duct-flute",
+            "beeswax-head"
+          ]
+        },
+        {
+          "id": "gaita_macho_pvc",
+          "name": "PVC or wood-bodied modern build",
+          "descriptors": [
+            "steadier",
+            "focused"
+          ],
+          "match_tokens": [
+            "duct-flute"
+          ]
+        }
+      ]
+    }
+  ]
+}

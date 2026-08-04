@@ -1,0 +1,154 @@
+{
+  "id": "salidor",
+  "name": "Salidor (low conga marking the rumba pulse)",
+  "family": "percussion",
+  "class": "single_headed_hand_drum",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -2,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "salidor",
+  "parts": [
+    {
+      "id": "salidor_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "salidor_marcha",
+          "default": true,
+          "name": "Marcha / salida timekeeping pattern",
+          "descriptors": [
+            "steady",
+            "grounding",
+            "deep-toned"
+          ],
+          "match_tokens": [
+            "rumba",
+            "conga",
+            "timekeeping"
+          ]
+        },
+        {
+          "id": "salidor_tresdos",
+          "name": "Paired with tres-dos (interlocking)",
+          "descriptors": [
+            "interlocking",
+            "conversational",
+            "swinging"
+          ],
+          "match_tokens": [
+            "rumba",
+            "interlocking"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "salidor_head",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "salidor_cowhide",
+          "default": true,
+          "name": "Thick cowhide head",
+          "descriptors": [
+            "fat-toned",
+            "warm",
+            "thudding"
+          ],
+          "match_tokens": [
+            "cowhide"
+          ]
+        },
+        {
+          "id": "salidor_synthetic",
+          "name": "Synthetic head",
+          "descriptors": [
+            "dry",
+            "punchy",
+            "consistent"
+          ],
+          "match_tokens": [
+            "synthetic-head"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "salidor_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "salidor_marcha",
+          "default": true,
+          "name": "Marcha / salida timekeeping pattern",
+          "descriptors": [
+            "steady",
+            "grounding",
+            "deep-toned"
+          ],
+          "match_tokens": [
+            "rumba",
+            "conga",
+            "timekeeping"
+          ]
+        },
+        {
+          "id": "salidor_tresdos",
+          "name": "Paired with tres-dos (interlocking)",
+          "descriptors": [
+            "interlocking",
+            "conversational",
+            "swinging"
+          ],
+          "match_tokens": [
+            "rumba",
+            "interlocking"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "salidor_head",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "salidor_cowhide",
+          "default": true,
+          "name": "Thick cowhide head",
+          "descriptors": [
+            "fat-toned",
+            "warm",
+            "thudding"
+          ],
+          "match_tokens": [
+            "cowhide"
+          ]
+        },
+        {
+          "id": "salidor_synthetic",
+          "name": "Synthetic head",
+          "descriptors": [
+            "dry",
+            "punchy",
+            "consistent"
+          ],
+          "match_tokens": [
+            "synthetic-head"
+          ]
+        }
+      ]
+    }
+  ]
+}

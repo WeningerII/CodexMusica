@@ -1,0 +1,144 @@
+{
+  "id": "ugubhu",
+  "name": "Ugubhu (Zulu gourd-resonated struck bow)",
+  "family": "plucked_traditional",
+  "class": "chordophone",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 0,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": -1,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "ugubhu",
+  "parts": [
+    {
+      "id": "ugubhu_gourd",
+      "name": "Gourd position",
+      "variants": [
+        {
+          "id": "ugubhu_open_gourd",
+          "default": true,
+          "name": "Gourd held away from the chest (open)",
+          "descriptors": [
+            "hollow-resonance",
+            "full-toned"
+          ],
+          "match_tokens": [
+            "gourd-bow",
+            "zulu"
+          ]
+        },
+        {
+          "id": "ugubhu_closed_gourd",
+          "name": "Gourd closed against the body",
+          "descriptors": [
+            "muffled",
+            "wah-shading"
+          ],
+          "match_tokens": [
+            "gourd-bow",
+            "muted"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ugubhu_fundamentals",
+      "name": "Fundamental technique",
+      "variants": [
+        {
+          "id": "ugubhu_two_fundamentals",
+          "default": true,
+          "name": "Two fundamentals (open and stopped string)",
+          "descriptors": [
+            "two-tone-drone",
+            "harmonic-shifting"
+          ],
+          "match_tokens": [
+            "musical-bow",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "ugubhu_single",
+          "name": "Single unstopped fundamental",
+          "descriptors": [
+            "monotone-drone",
+            "archaic"
+          ],
+          "match_tokens": [
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ugubhu_gourd",
+      "name": "Gourd position",
+      "variants": [
+        {
+          "id": "ugubhu_open_gourd",
+          "default": true,
+          "name": "Gourd held away from the chest (open)",
+          "descriptors": [
+            "hollow-resonance",
+            "full-toned"
+          ],
+          "match_tokens": [
+            "gourd-bow",
+            "zulu"
+          ]
+        },
+        {
+          "id": "ugubhu_closed_gourd",
+          "name": "Gourd closed against the body",
+          "descriptors": [
+            "muffled",
+            "wah-shading"
+          ],
+          "match_tokens": [
+            "gourd-bow",
+            "muted"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ugubhu_fundamentals",
+      "name": "Fundamental technique",
+      "variants": [
+        {
+          "id": "ugubhu_two_fundamentals",
+          "default": true,
+          "name": "Two fundamentals (open and stopped string)",
+          "descriptors": [
+            "two-tone-drone",
+            "harmonic-shifting"
+          ],
+          "match_tokens": [
+            "musical-bow",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "ugubhu_single",
+          "name": "Single unstopped fundamental",
+          "descriptors": [
+            "monotone-drone",
+            "archaic"
+          ],
+          "match_tokens": [
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ]
+}

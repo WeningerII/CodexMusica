@@ -1,0 +1,148 @@
+{
+  "id": "sanku_harp_lute",
+  "name": "Sanku (Akan seperewa-type harp-lute)",
+  "family": "plucked_traditional",
+  "class": "harp_lute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "sanku",
+  "parts": [
+    {
+      "id": "sanku_strings",
+      "name": "String count / tuning",
+      "variants": [
+        {
+          "id": "sanku_six",
+          "default": true,
+          "name": "Six-string double-rank tuning",
+          "descriptors": [
+            "interlocking",
+            "gentle-pluck",
+            "warm"
+          ],
+          "match_tokens": [
+            "harp-lute",
+            "akan"
+          ]
+        },
+        {
+          "id": "sanku_ten",
+          "name": "Ten-string extended range",
+          "descriptors": [
+            "wide-ranging",
+            "rippling"
+          ],
+          "match_tokens": [
+            "harp-lute",
+            "ghana"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sanku_resonator",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "sanku_calabash",
+          "default": true,
+          "name": "Calabash gourd with hide soundboard",
+          "descriptors": [
+            "mellow",
+            "boxy-resonance"
+          ],
+          "match_tokens": [
+            "gourd-resonator",
+            "plucked"
+          ]
+        },
+        {
+          "id": "sanku_wood",
+          "name": "Carved wooden bowl",
+          "descriptors": [
+            "fuller-toned",
+            "projecting"
+          ],
+          "match_tokens": [
+            "plucked",
+            "harp-lute"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sanku_strings",
+      "name": "String count / tuning",
+      "variants": [
+        {
+          "id": "sanku_six",
+          "default": true,
+          "name": "Six-string double-rank tuning",
+          "descriptors": [
+            "interlocking",
+            "gentle-pluck",
+            "warm"
+          ],
+          "match_tokens": [
+            "harp-lute",
+            "akan"
+          ]
+        },
+        {
+          "id": "sanku_ten",
+          "name": "Ten-string extended range",
+          "descriptors": [
+            "wide-ranging",
+            "rippling"
+          ],
+          "match_tokens": [
+            "harp-lute",
+            "ghana"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sanku_resonator",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "sanku_calabash",
+          "default": true,
+          "name": "Calabash gourd with hide soundboard",
+          "descriptors": [
+            "mellow",
+            "boxy-resonance"
+          ],
+          "match_tokens": [
+            "gourd-resonator",
+            "plucked"
+          ]
+        },
+        {
+          "id": "sanku_wood",
+          "name": "Carved wooden bowl",
+          "descriptors": [
+            "fuller-toned",
+            "projecting"
+          ],
+          "match_tokens": [
+            "plucked",
+            "harp-lute"
+          ]
+        }
+      ]
+    }
+  ]
+}

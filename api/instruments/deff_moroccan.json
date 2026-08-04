@@ -1,0 +1,180 @@
+{
+  "id": "deff_moroccan",
+  "name": "Deff (Moroccan square/round frame drum)",
+  "family": "percussion",
+  "class": "frame_drum",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 0,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "deff",
+  "parts": [
+    {
+      "id": "deff_form",
+      "name": "Frame form",
+      "variants": [
+        {
+          "id": "deff_square",
+          "default": true,
+          "name": "Square double-headed deff (Chaabi/Amazigh)",
+          "descriptors": [
+            "dry-thump",
+            "boxy",
+            "driving"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "morocco"
+          ]
+        },
+        {
+          "id": "deff_round",
+          "name": "Round shallow deff",
+          "descriptors": [
+            "open-toned",
+            "ringing",
+            "broad"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "deff_jingled",
+          "name": "Jingled deff (riqq-like rings)",
+          "descriptors": [
+            "shimmering",
+            "jangling",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "jingles"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deff_technique",
+      "name": "Stroke pattern",
+      "variants": [
+        {
+          "id": "deff_dance",
+          "default": true,
+          "name": "Wedding/dance ostinato",
+          "descriptors": [
+            "driving",
+            "repetitive",
+            "punchy"
+          ],
+          "match_tokens": [
+            "dance-rhythm",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "deff_accompaniment",
+          "name": "Song accompaniment (soft edge taps)",
+          "descriptors": [
+            "soft",
+            "supporting",
+            "pattering"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "light-touch"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "deff_form",
+      "name": "Frame form",
+      "variants": [
+        {
+          "id": "deff_square",
+          "default": true,
+          "name": "Square double-headed deff (Chaabi/Amazigh)",
+          "descriptors": [
+            "dry-thump",
+            "boxy",
+            "driving"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "morocco"
+          ]
+        },
+        {
+          "id": "deff_round",
+          "name": "Round shallow deff",
+          "descriptors": [
+            "open-toned",
+            "ringing",
+            "broad"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "deff_jingled",
+          "name": "Jingled deff (riqq-like rings)",
+          "descriptors": [
+            "shimmering",
+            "jangling",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "jingles"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deff_technique",
+      "name": "Stroke pattern",
+      "variants": [
+        {
+          "id": "deff_dance",
+          "default": true,
+          "name": "Wedding/dance ostinato",
+          "descriptors": [
+            "driving",
+            "repetitive",
+            "punchy"
+          ],
+          "match_tokens": [
+            "dance-rhythm",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "deff_accompaniment",
+          "name": "Song accompaniment (soft edge taps)",
+          "descriptors": [
+            "soft",
+            "supporting",
+            "pattering"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "light-touch"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,266 @@
+{
+  "id": "alegre_drum",
+  "name": "Alegre (Colombian tambor alegre, conical hand drum)",
+  "family": "percussion",
+  "class": "single_headed_hand_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "alegre",
+  "parts": [
+    {
+      "id": "alegre_role",
+      "name": "Playing role / repertoire",
+      "variants": [
+        {
+          "id": "alegre_cumbia",
+          "default": true,
+          "name": "Cumbia improvising lead",
+          "descriptors": [
+            "improvisatory",
+            "open-toned",
+            "driving"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "colombian-coast",
+            "cumbia"
+          ]
+        },
+        {
+          "id": "alegre_porro",
+          "name": "Porro / fandango ensemble part",
+          "descriptors": [
+            "festive",
+            "interlocking",
+            "punchy"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "porro"
+          ]
+        },
+        {
+          "id": "alegre_bullerengue",
+          "name": "Bullerengue call-and-response",
+          "descriptors": [
+            "responsive",
+            "sharp-slaps",
+            "ritual"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "bullerengue"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "alegre_head",
+      "name": "Head and tuning",
+      "variants": [
+        {
+          "id": "alegre_deerskin",
+          "default": true,
+          "name": "Deerskin head with wedge-and-ring (cuñas) tuning",
+          "descriptors": [
+            "dry-attack",
+            "woody",
+            "traditional"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "goat-skin"
+          ]
+        },
+        {
+          "id": "alegre_goatskin",
+          "name": "Goatskin head",
+          "descriptors": [
+            "bright-slap",
+            "tight",
+            "cutting"
+          ],
+          "match_tokens": [
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "alegre_fire_tuned",
+          "name": "Fire-tuned slack head (open-air)",
+          "descriptors": [
+            "loose",
+            "deep-toned",
+            "boomy"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "alegre_shell",
+      "surface": false,
+      "name": "Shell wood",
+      "variants": [
+        {
+          "id": "alegre_banco",
+          "default": true,
+          "name": "Hollowed banco / campano log shell",
+          "descriptors": [
+            "warm",
+            "resonant"
+          ],
+          "match_tokens": [
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "alegre_ceiba",
+          "name": "Ceiba or balsa-light shell",
+          "descriptors": [
+            "airy",
+            "light-bodied"
+          ],
+          "match_tokens": [
+            "hand-struck"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "alegre_role",
+      "name": "Playing role / repertoire",
+      "variants": [
+        {
+          "id": "alegre_cumbia",
+          "default": true,
+          "name": "Cumbia improvising lead",
+          "descriptors": [
+            "improvisatory",
+            "open-toned",
+            "driving"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "colombian-coast",
+            "cumbia"
+          ]
+        },
+        {
+          "id": "alegre_porro",
+          "name": "Porro / fandango ensemble part",
+          "descriptors": [
+            "festive",
+            "interlocking",
+            "punchy"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "porro"
+          ]
+        },
+        {
+          "id": "alegre_bullerengue",
+          "name": "Bullerengue call-and-response",
+          "descriptors": [
+            "responsive",
+            "sharp-slaps",
+            "ritual"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "bullerengue"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "alegre_head",
+      "name": "Head and tuning",
+      "variants": [
+        {
+          "id": "alegre_deerskin",
+          "default": true,
+          "name": "Deerskin head with wedge-and-ring (cuñas) tuning",
+          "descriptors": [
+            "dry-attack",
+            "woody",
+            "traditional"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "goat-skin"
+          ]
+        },
+        {
+          "id": "alegre_goatskin",
+          "name": "Goatskin head",
+          "descriptors": [
+            "bright-slap",
+            "tight",
+            "cutting"
+          ],
+          "match_tokens": [
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "alegre_fire_tuned",
+          "name": "Fire-tuned slack head (open-air)",
+          "descriptors": [
+            "loose",
+            "deep-toned",
+            "boomy"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "alegre_shell",
+      "surface": false,
+      "name": "Shell wood",
+      "variants": [
+        {
+          "id": "alegre_banco",
+          "default": true,
+          "name": "Hollowed banco / campano log shell",
+          "descriptors": [
+            "warm",
+            "resonant"
+          ],
+          "match_tokens": [
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "alegre_ceiba",
+          "name": "Ceiba or balsa-light shell",
+          "descriptors": [
+            "airy",
+            "light-bodied"
+          ],
+          "match_tokens": [
+            "hand-struck"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,200 @@
+{
+  "id": "tabl_baladi",
+  "name": "Tabl baladi (Egyptian double-headed bass drum)",
+  "family": "percussion",
+  "class": "double_headed_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -2,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "tabl baladi",
+  "parts": [
+    {
+      "id": "tabl_baladi_size",
+      "name": "Shell size",
+      "variants": [
+        {
+          "id": "tabl_baladi_standard",
+          "default": true,
+          "name": "Standard slung baladi drum",
+          "descriptors": [
+            "booming",
+            "outdoor",
+            "punchy"
+          ],
+          "match_tokens": [
+            "struck",
+            "double-headed-drum",
+            "egyptian"
+          ]
+        },
+        {
+          "id": "tabl_baladi_large",
+          "name": "Large processional shell",
+          "descriptors": [
+            "deep-toned",
+            "thunderous",
+            "loud-projection"
+          ],
+          "match_tokens": [
+            "struck",
+            "low-register"
+          ]
+        },
+        {
+          "id": "tabl_baladi_small",
+          "name": "Small saidi-size shell",
+          "descriptors": [
+            "tight",
+            "cracking"
+          ],
+          "match_tokens": [
+            "struck",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tabl_baladi_sticks",
+      "name": "Beater pair",
+      "variants": [
+        {
+          "id": "tabl_baladi_asaya_kirsh",
+          "default": true,
+          "name": "Heavy stick (asaya) plus thin switch (kirsh)",
+          "descriptors": [
+            "boom-and-crack",
+            "contrasting",
+            "driving"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-struck"
+          ]
+        },
+        {
+          "id": "tabl_baladi_two_heavy",
+          "name": "Two heavy mallets",
+          "descriptors": [
+            "thudding",
+            "weighty"
+          ],
+          "match_tokens": [
+            "struck",
+            "low-register"
+          ]
+        },
+        {
+          "id": "tabl_baladi_hand",
+          "name": "Hand-and-stick mix",
+          "descriptors": [
+            "muffled",
+            "nuanced"
+          ],
+          "match_tokens": [
+            "struck"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tabl_baladi_size",
+      "name": "Shell size",
+      "variants": [
+        {
+          "id": "tabl_baladi_standard",
+          "default": true,
+          "name": "Standard slung baladi drum",
+          "descriptors": [
+            "booming",
+            "outdoor",
+            "punchy"
+          ],
+          "match_tokens": [
+            "struck",
+            "double-headed-drum",
+            "egyptian"
+          ]
+        },
+        {
+          "id": "tabl_baladi_large",
+          "name": "Large processional shell",
+          "descriptors": [
+            "deep-toned",
+            "thunderous",
+            "loud-projection"
+          ],
+          "match_tokens": [
+            "struck",
+            "low-register"
+          ]
+        },
+        {
+          "id": "tabl_baladi_small",
+          "name": "Small saidi-size shell",
+          "descriptors": [
+            "tight",
+            "cracking"
+          ],
+          "match_tokens": [
+            "struck",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tabl_baladi_sticks",
+      "name": "Beater pair",
+      "variants": [
+        {
+          "id": "tabl_baladi_asaya_kirsh",
+          "default": true,
+          "name": "Heavy stick (asaya) plus thin switch (kirsh)",
+          "descriptors": [
+            "boom-and-crack",
+            "contrasting",
+            "driving"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-struck"
+          ]
+        },
+        {
+          "id": "tabl_baladi_two_heavy",
+          "name": "Two heavy mallets",
+          "descriptors": [
+            "thudding",
+            "weighty"
+          ],
+          "match_tokens": [
+            "struck",
+            "low-register"
+          ]
+        },
+        {
+          "id": "tabl_baladi_hand",
+          "name": "Hand-and-stick mix",
+          "descriptors": [
+            "muffled",
+            "nuanced"
+          ],
+          "match_tokens": [
+            "struck"
+          ]
+        }
+      ]
+    }
+  ]
+}

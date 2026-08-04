@@ -1,0 +1,238 @@
+{
+  "id": "dallouka",
+  "name": "Dallouka (Sudanese women's clay goblet drum)",
+  "family": "percussion",
+  "class": "clay_pot_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "dallouka",
+  "parts": [
+    {
+      "id": "dallouka_body",
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "dallouka_clay",
+          "default": true,
+          "name": "Fired clay body",
+          "descriptors": [
+            "earthy",
+            "dry-slap",
+            "resonant-boom"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "sudanese",
+            "clay-drum"
+          ]
+        },
+        {
+          "id": "dallouka_wood",
+          "name": "Carved wood body",
+          "descriptors": [
+            "woody",
+            "focused"
+          ],
+          "match_tokens": [
+            "hand-drum"
+          ]
+        },
+        {
+          "id": "dallouka_aluminium",
+          "name": "Aluminium / modern shell",
+          "descriptors": [
+            "ringing",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dallouka_head",
+      "name": "Head and tuning",
+      "variants": [
+        {
+          "id": "dallouka_goat_fire",
+          "default": true,
+          "name": "Goatskin head tuned by fire",
+          "descriptors": [
+            "snappy",
+            "warm",
+            "open-tone"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "skin-head"
+          ]
+        },
+        {
+          "id": "dallouka_paste",
+          "name": "Skin loaded with tuning paste",
+          "descriptors": [
+            "deep-toned",
+            "thick",
+            "damped"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dallouka_rhythm",
+      "name": "Rhythmic context",
+      "variants": [
+        {
+          "id": "dallouka_dalayib",
+          "default": true,
+          "name": "Wedding dalayib / tom-tom song rhythms",
+          "descriptors": [
+            "swinging",
+            "celebratory"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "dallouka_zar",
+          "name": "Zar ceremonial cycles",
+          "descriptors": [
+            "hypnotic",
+            "insistent"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "ritual"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dallouka_body",
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "dallouka_clay",
+          "default": true,
+          "name": "Fired clay body",
+          "descriptors": [
+            "earthy",
+            "dry-slap",
+            "resonant-boom"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "sudanese",
+            "clay-drum"
+          ]
+        },
+        {
+          "id": "dallouka_wood",
+          "name": "Carved wood body",
+          "descriptors": [
+            "woody",
+            "focused"
+          ],
+          "match_tokens": [
+            "hand-drum"
+          ]
+        },
+        {
+          "id": "dallouka_aluminium",
+          "name": "Aluminium / modern shell",
+          "descriptors": [
+            "ringing",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dallouka_head",
+      "name": "Head and tuning",
+      "variants": [
+        {
+          "id": "dallouka_goat_fire",
+          "default": true,
+          "name": "Goatskin head tuned by fire",
+          "descriptors": [
+            "snappy",
+            "warm",
+            "open-tone"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "skin-head"
+          ]
+        },
+        {
+          "id": "dallouka_paste",
+          "name": "Skin loaded with tuning paste",
+          "descriptors": [
+            "deep-toned",
+            "thick",
+            "damped"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dallouka_rhythm",
+      "name": "Rhythmic context",
+      "variants": [
+        {
+          "id": "dallouka_dalayib",
+          "default": true,
+          "name": "Wedding dalayib / tom-tom song rhythms",
+          "descriptors": [
+            "swinging",
+            "celebratory"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "dallouka_zar",
+          "name": "Zar ceremonial cycles",
+          "descriptors": [
+            "hypnotic",
+            "insistent"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "ritual"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,242 @@
+{
+  "id": "maguare",
+  "name": "Maguaré (Amazonian Uitoto paired slit drums)",
+  "family": "percussion",
+  "class": "slit_gong",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": -2,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "maguare",
+  "parts": [
+    {
+      "id": "maguare_pair",
+      "name": "Drum of the pair",
+      "variants": [
+        {
+          "id": "maguare_male",
+          "default": true,
+          "name": "Male drum (lower, larger trunk)",
+          "descriptors": [
+            "booming",
+            "deep-toned",
+            "far-carrying"
+          ],
+          "match_tokens": [
+            "slit-drum",
+            "amazon",
+            "signal-drum"
+          ]
+        },
+        {
+          "id": "maguare_female",
+          "name": "Female drum (higher, smaller)",
+          "descriptors": [
+            "mid-register",
+            "woody",
+            "clear-attack"
+          ],
+          "match_tokens": [
+            "slit-drum",
+            "amazon"
+          ]
+        },
+        {
+          "id": "maguare_pair_both",
+          "name": "Both drums played as a pair",
+          "descriptors": [
+            "interlocking",
+            "talking-rhythm",
+            "resonant"
+          ],
+          "match_tokens": [
+            "slit-drum",
+            "interlocking"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "maguare_function",
+      "name": "Function",
+      "variants": [
+        {
+          "id": "maguare_signal",
+          "default": true,
+          "name": "Long-distance signalling (speech-surrogate)",
+          "descriptors": [
+            "talking-rhythm",
+            "declamatory",
+            "far-carrying"
+          ],
+          "match_tokens": [
+            "signal-drum",
+            "speech-surrogate"
+          ]
+        },
+        {
+          "id": "maguare_ritual",
+          "name": "Ritual dance accompaniment",
+          "descriptors": [
+            "driving",
+            "ceremonial",
+            "heavy"
+          ],
+          "match_tokens": [
+            "ritual",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "maguare_beater",
+      "surface": false,
+      "name": "Beater",
+      "variants": [
+        {
+          "id": "maguare_rubber",
+          "default": true,
+          "name": "Rubber-tipped hardwood mallet",
+          "descriptors": [
+            "round-toned",
+            "full"
+          ],
+          "match_tokens": [
+            "mallet-struck"
+          ]
+        },
+        {
+          "id": "maguare_bare",
+          "name": "Bare hardwood stick",
+          "descriptors": [
+            "hard-attack",
+            "clacking"
+          ],
+          "match_tokens": [
+            "stick-struck"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "maguare_pair",
+      "name": "Drum of the pair",
+      "variants": [
+        {
+          "id": "maguare_male",
+          "default": true,
+          "name": "Male drum (lower, larger trunk)",
+          "descriptors": [
+            "booming",
+            "deep-toned",
+            "far-carrying"
+          ],
+          "match_tokens": [
+            "slit-drum",
+            "amazon",
+            "signal-drum"
+          ]
+        },
+        {
+          "id": "maguare_female",
+          "name": "Female drum (higher, smaller)",
+          "descriptors": [
+            "mid-register",
+            "woody",
+            "clear-attack"
+          ],
+          "match_tokens": [
+            "slit-drum",
+            "amazon"
+          ]
+        },
+        {
+          "id": "maguare_pair_both",
+          "name": "Both drums played as a pair",
+          "descriptors": [
+            "interlocking",
+            "talking-rhythm",
+            "resonant"
+          ],
+          "match_tokens": [
+            "slit-drum",
+            "interlocking"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "maguare_function",
+      "name": "Function",
+      "variants": [
+        {
+          "id": "maguare_signal",
+          "default": true,
+          "name": "Long-distance signalling (speech-surrogate)",
+          "descriptors": [
+            "talking-rhythm",
+            "declamatory",
+            "far-carrying"
+          ],
+          "match_tokens": [
+            "signal-drum",
+            "speech-surrogate"
+          ]
+        },
+        {
+          "id": "maguare_ritual",
+          "name": "Ritual dance accompaniment",
+          "descriptors": [
+            "driving",
+            "ceremonial",
+            "heavy"
+          ],
+          "match_tokens": [
+            "ritual",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "maguare_beater",
+      "surface": false,
+      "name": "Beater",
+      "variants": [
+        {
+          "id": "maguare_rubber",
+          "default": true,
+          "name": "Rubber-tipped hardwood mallet",
+          "descriptors": [
+            "round-toned",
+            "full"
+          ],
+          "match_tokens": [
+            "mallet-struck"
+          ]
+        },
+        {
+          "id": "maguare_bare",
+          "name": "Bare hardwood stick",
+          "descriptors": [
+            "hard-attack",
+            "clacking"
+          ],
+          "match_tokens": [
+            "stick-struck"
+          ]
+        }
+      ]
+    }
+  ]
+}

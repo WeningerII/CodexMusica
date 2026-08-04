@@ -1,0 +1,146 @@
+{
+  "id": "petia",
+  "name": "Petia (Akan small supporting drum of the fontomfrom/adowa set)",
+  "family": "percussion",
+  "class": "single_headed_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 1,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "petia",
+  "parts": [
+    {
+      "id": "petia_size",
+      "name": "Shell size",
+      "variants": [
+        {
+          "id": "petia_standard",
+          "default": true,
+          "name": "Standard narrow carved shell",
+          "descriptors": [
+            "tight",
+            "high-pitched"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "akan"
+          ]
+        },
+        {
+          "id": "petia_deep",
+          "name": "Deeper shell",
+          "descriptors": [
+            "fuller-tone",
+            "rounded"
+          ],
+          "match_tokens": [
+            "membranophone",
+            "ghana"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "petia_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "petia_ostinato",
+          "default": true,
+          "name": "Fixed supporting ostinato",
+          "descriptors": [
+            "steady-pulse",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "dance-rhythm",
+            "adowa"
+          ]
+        },
+        {
+          "id": "petia_fontomfrom",
+          "name": "Fontomfrom ensemble part",
+          "descriptors": [
+            "driving",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "fontomfrom",
+            "royal-ensemble"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "petia_size",
+      "name": "Shell size",
+      "variants": [
+        {
+          "id": "petia_standard",
+          "default": true,
+          "name": "Standard narrow carved shell",
+          "descriptors": [
+            "tight",
+            "high-pitched"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "akan"
+          ]
+        },
+        {
+          "id": "petia_deep",
+          "name": "Deeper shell",
+          "descriptors": [
+            "fuller-tone",
+            "rounded"
+          ],
+          "match_tokens": [
+            "membranophone",
+            "ghana"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "petia_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "petia_ostinato",
+          "default": true,
+          "name": "Fixed supporting ostinato",
+          "descriptors": [
+            "steady-pulse",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "dance-rhythm",
+            "adowa"
+          ]
+        },
+        {
+          "id": "petia_fontomfrom",
+          "name": "Fontomfrom ensemble part",
+          "descriptors": [
+            "driving",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "fontomfrom",
+            "royal-ensemble"
+          ]
+        }
+      ]
+    }
+  ]
+}

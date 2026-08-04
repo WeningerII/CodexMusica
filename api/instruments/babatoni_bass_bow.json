@@ -1,0 +1,144 @@
+{
+  "id": "babatoni_bass_bow",
+  "name": "Babatoni (South African one-string bass bow)",
+  "family": "plucked_traditional",
+  "class": "chordophone",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -2,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "babatoni",
+  "parts": [
+    {
+      "id": "babatoni_resonator",
+      "name": "Resonator type",
+      "variants": [
+        {
+          "id": "babatoni_drum_tin",
+          "default": true,
+          "name": "Oil-drum / paraffin-tin resonator",
+          "descriptors": [
+            "deep-toned",
+            "metallic-boom"
+          ],
+          "match_tokens": [
+            "bass-bow",
+            "township"
+          ]
+        },
+        {
+          "id": "babatoni_gourd",
+          "name": "Large gourd resonator",
+          "descriptors": [
+            "woody-boom",
+            "earthy"
+          ],
+          "match_tokens": [
+            "gourd-bow",
+            "south-african"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "babatoni_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "babatoni_bassline",
+          "default": true,
+          "name": "Walking bass foundation",
+          "descriptors": [
+            "thumping",
+            "groove-anchor"
+          ],
+          "match_tokens": [
+            "bass-line",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "babatoni_solo",
+          "name": "Solo self-accompanied song",
+          "descriptors": [
+            "sparse",
+            "voice-shadowing"
+          ],
+          "match_tokens": [
+            "song-accompaniment"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "babatoni_resonator",
+      "name": "Resonator type",
+      "variants": [
+        {
+          "id": "babatoni_drum_tin",
+          "default": true,
+          "name": "Oil-drum / paraffin-tin resonator",
+          "descriptors": [
+            "deep-toned",
+            "metallic-boom"
+          ],
+          "match_tokens": [
+            "bass-bow",
+            "township"
+          ]
+        },
+        {
+          "id": "babatoni_gourd",
+          "name": "Large gourd resonator",
+          "descriptors": [
+            "woody-boom",
+            "earthy"
+          ],
+          "match_tokens": [
+            "gourd-bow",
+            "south-african"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "babatoni_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "babatoni_bassline",
+          "default": true,
+          "name": "Walking bass foundation",
+          "descriptors": [
+            "thumping",
+            "groove-anchor"
+          ],
+          "match_tokens": [
+            "bass-line",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "babatoni_solo",
+          "name": "Solo self-accompanied song",
+          "descriptors": [
+            "sparse",
+            "voice-shadowing"
+          ],
+          "match_tokens": [
+            "song-accompaniment"
+          ]
+        }
+      ]
+    }
+  ]
+}

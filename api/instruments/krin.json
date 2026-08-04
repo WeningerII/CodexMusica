@@ -1,0 +1,170 @@
+{
+  "id": "krin",
+  "name": "Krin (Guinean Malinke slit log drum)",
+  "family": "percussion",
+  "class": "slit_gong",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": -2,
+    "register": 0,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "krin",
+  "parts": [
+    {
+      "id": "krin_size",
+      "name": "Log size",
+      "variants": [
+        {
+          "id": "krin_standard",
+          "default": true,
+          "name": "Standard hollowed log with two or three tongues",
+          "descriptors": [
+            "woody",
+            "dry-tone",
+            "clacking"
+          ],
+          "match_tokens": [
+            "slit-drum",
+            "malinke"
+          ]
+        },
+        {
+          "id": "krin_large",
+          "name": "Large bass krin",
+          "descriptors": [
+            "deep-toned",
+            "resonant"
+          ],
+          "match_tokens": [
+            "slit-drum",
+            "low-register"
+          ]
+        },
+        {
+          "id": "krin_small",
+          "name": "Small high krin (kolokolo)",
+          "descriptors": [
+            "high-pitched",
+            "cutting"
+          ],
+          "match_tokens": [
+            "slit-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "krin_context",
+      "surface": false,
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "krin_forest",
+          "default": true,
+          "name": "Forest-region dance and harvest rhythms",
+          "descriptors": [
+            "interlocking",
+            "driving"
+          ],
+          "match_tokens": [
+            "dance-rhythm",
+            "guinea"
+          ]
+        },
+        {
+          "id": "krin_signal",
+          "name": "Signalling / announcement patterns",
+          "descriptors": [
+            "speech-like",
+            "carrying"
+          ],
+          "match_tokens": [
+            "slit-drum"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "krin_size",
+      "name": "Log size",
+      "variants": [
+        {
+          "id": "krin_standard",
+          "default": true,
+          "name": "Standard hollowed log with two or three tongues",
+          "descriptors": [
+            "woody",
+            "dry-tone",
+            "clacking"
+          ],
+          "match_tokens": [
+            "slit-drum",
+            "malinke"
+          ]
+        },
+        {
+          "id": "krin_large",
+          "name": "Large bass krin",
+          "descriptors": [
+            "deep-toned",
+            "resonant"
+          ],
+          "match_tokens": [
+            "slit-drum",
+            "low-register"
+          ]
+        },
+        {
+          "id": "krin_small",
+          "name": "Small high krin (kolokolo)",
+          "descriptors": [
+            "high-pitched",
+            "cutting"
+          ],
+          "match_tokens": [
+            "slit-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "krin_context",
+      "surface": false,
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "krin_forest",
+          "default": true,
+          "name": "Forest-region dance and harvest rhythms",
+          "descriptors": [
+            "interlocking",
+            "driving"
+          ],
+          "match_tokens": [
+            "dance-rhythm",
+            "guinea"
+          ]
+        },
+        {
+          "id": "krin_signal",
+          "name": "Signalling / announcement patterns",
+          "descriptors": [
+            "speech-like",
+            "carrying"
+          ],
+          "match_tokens": [
+            "slit-drum"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "id": "kudu_horn",
+  "name": "Kudu horn (Southern African antelope-horn trumpet)",
+  "family": "wind",
+  "class": "natural_trumpet",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -1,
+    "range": -2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "kudu horn",
+  "parts": [
+    {
+      "id": "kudu_horn_embouchure",
+      "name": "Blowing hole placement",
+      "variants": [
+        {
+          "id": "kudu_horn_side_blown",
+          "default": true,
+          "name": "Side-blown (lateral embouchure hole)",
+          "descriptors": [
+            "raw-blast",
+            "husky"
+          ],
+          "match_tokens": [
+            "antelope-horn",
+            "side-blown"
+          ]
+        },
+        {
+          "id": "kudu_horn_end_blown",
+          "name": "End-blown tip embouchure",
+          "descriptors": [
+            "focused",
+            "brassy"
+          ],
+          "match_tokens": [
+            "antelope-horn",
+            "end-blown"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kudu_horn_use",
+      "name": "Signalling context",
+      "variants": [
+        {
+          "id": "kudu_horn_call",
+          "default": true,
+          "name": "Single ceremonial / rally call",
+          "descriptors": [
+            "piercing",
+            "summoning"
+          ],
+          "match_tokens": [
+            "ritual-call",
+            "signal-horn"
+          ]
+        },
+        {
+          "id": "kudu_horn_ensemble",
+          "name": "Hocketing horn ensemble part",
+          "descriptors": [
+            "interlocking",
+            "layered"
+          ],
+          "match_tokens": [
+            "hocketing",
+            "horn-ensemble"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kudu_horn_embouchure",
+      "name": "Blowing hole placement",
+      "variants": [
+        {
+          "id": "kudu_horn_side_blown",
+          "default": true,
+          "name": "Side-blown (lateral embouchure hole)",
+          "descriptors": [
+            "raw-blast",
+            "husky"
+          ],
+          "match_tokens": [
+            "antelope-horn",
+            "side-blown"
+          ]
+        },
+        {
+          "id": "kudu_horn_end_blown",
+          "name": "End-blown tip embouchure",
+          "descriptors": [
+            "focused",
+            "brassy"
+          ],
+          "match_tokens": [
+            "antelope-horn",
+            "end-blown"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kudu_horn_use",
+      "name": "Signalling context",
+      "variants": [
+        {
+          "id": "kudu_horn_call",
+          "default": true,
+          "name": "Single ceremonial / rally call",
+          "descriptors": [
+            "piercing",
+            "summoning"
+          ],
+          "match_tokens": [
+            "ritual-call",
+            "signal-horn"
+          ]
+        },
+        {
+          "id": "kudu_horn_ensemble",
+          "name": "Hocketing horn ensemble part",
+          "descriptors": [
+            "interlocking",
+            "layered"
+          ],
+          "match_tokens": [
+            "hocketing",
+            "horn-ensemble"
+          ]
+        }
+      ]
+    }
+  ]
+}

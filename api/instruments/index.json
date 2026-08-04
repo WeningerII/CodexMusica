@@ -1,5 +1,5 @@
 {
-  "count": 1056,
+  "count": 1163,
   "items": [
     {
       "id": "choir_ensemble",
@@ -6336,6 +6336,648 @@
       "name": "Tiorba (Italian theorbo, long-necked continuo lute)",
       "family": "plucked_traditional",
       "href": "instruments/tiorba.json"
+    },
+    {
+      "id": "gonje",
+      "name": "Gonje (Dagbamba one-string bowed spike fiddle)",
+      "family": "bowed",
+      "href": "instruments/gonje.json"
+    },
+    {
+      "id": "molo",
+      "name": "Molo (Hausa/Songhai three-string plucked skin-faced lute)",
+      "family": "plucked_traditional",
+      "href": "instruments/molo.json"
+    },
+    {
+      "id": "hoddu",
+      "name": "Hoddu (Fulani/Haalpulaar plucked skin-faced lute)",
+      "family": "plucked_traditional",
+      "href": "instruments/hoddu.json"
+    },
+    {
+      "id": "gurmi",
+      "name": "Gurmi (Hausa two-string calabash-bodied plucked lute)",
+      "family": "plucked_traditional",
+      "href": "instruments/gurmi.json"
+    },
+    {
+      "id": "kuntigi",
+      "name": "Kuntigi (Hausa single-string tin-resonator lute)",
+      "family": "plucked_traditional",
+      "href": "instruments/kuntigi.json"
+    },
+    {
+      "id": "garaya",
+      "name": "Garaya (Hausa two-string Bori-cult plucked lute)",
+      "family": "plucked_traditional",
+      "href": "instruments/garaya.json"
+    },
+    {
+      "id": "komo_drum",
+      "name": "Komo (Bamana kòmò-society ritual single-headed drum)",
+      "family": "percussion",
+      "href": "instruments/komo_drum.json"
+    },
+    {
+      "id": "mbung_mbung",
+      "name": "Mbung mbung (Wolof sabar-family single-headed drum)",
+      "family": "percussion",
+      "href": "instruments/mbung_mbung.json"
+    },
+    {
+      "id": "tama_talking_drum",
+      "name": "Tama (Wolof/Mandinka hourglass talking drum)",
+      "family": "percussion",
+      "href": "instruments/tama_talking_drum.json"
+    },
+    {
+      "id": "djun_djun",
+      "name": "Djun djun (Mande cylindrical bass drum with bell)",
+      "family": "percussion",
+      "href": "instruments/djun_djun.json"
+    },
+    {
+      "id": "kenkeni_drum",
+      "name": "Kenkeni (smallest Mande dunun bass drum)",
+      "family": "percussion",
+      "href": "instruments/kenkeni_drum.json"
+    },
+    {
+      "id": "krin",
+      "name": "Krin (Guinean Malinke slit log drum)",
+      "family": "percussion",
+      "href": "instruments/krin.json"
+    },
+    {
+      "id": "bolombato",
+      "name": "Bolombato (Mandinka three-string arched bass harp)",
+      "family": "plucked_traditional",
+      "href": "instruments/bolombato.json"
+    },
+    {
+      "id": "kese_kese",
+      "name": "Kese kese (Guinean woven basket rattle)",
+      "family": "percussion",
+      "href": "instruments/kese_kese.json"
+    },
+    {
+      "id": "wassakumba",
+      "name": "Wassakumba (Mandinka calabash-and-net rattle)",
+      "family": "percussion",
+      "href": "instruments/wassakumba.json"
+    },
+    {
+      "id": "axatse",
+      "name": "Axatse (Ewe gourd rattle, net-strung)",
+      "family": "percussion",
+      "href": "instruments/axatse.json"
+    },
+    {
+      "id": "frikyiwa",
+      "name": "Frikyiwa (Akan finger-castanet bell)",
+      "family": "percussion",
+      "href": "instruments/frikyiwa.json"
+    },
+    {
+      "id": "apentemma",
+      "name": "Apentemma (Akan small conical hand drum)",
+      "family": "percussion",
+      "href": "instruments/apentemma.json"
+    },
+    {
+      "id": "petia",
+      "name": "Petia (Akan small supporting drum of the fontomfrom/adowa set)",
+      "family": "percussion",
+      "href": "instruments/petia.json"
+    },
+    {
+      "id": "brekete",
+      "name": "Brekete (Dagbamba/Ewe double-headed cylindrical bass drum)",
+      "family": "percussion",
+      "href": "instruments/brekete.json"
+    },
+    {
+      "id": "adenkum",
+      "name": "Adenkum (Akan long-necked calabash vessel flute/percussion gourd)",
+      "family": "percussion",
+      "href": "instruments/adenkum.json"
+    },
+    {
+      "id": "igba",
+      "name": "Igba (Igbo single-headed conical hand drum)",
+      "family": "percussion",
+      "href": "instruments/igba.json"
+    },
+    {
+      "id": "ekwe",
+      "name": "Ekwe (Igbo wooden slit drum)",
+      "family": "percussion",
+      "href": "instruments/ekwe.json"
+    },
+    {
+      "id": "ogene",
+      "name": "Ogene (Igbo forged iron clapperless bell)",
+      "family": "percussion",
+      "href": "instruments/ogene.json"
+    },
+    {
+      "id": "oja",
+      "name": "Oja (Igbo wooden notched vertical flute)",
+      "family": "wind",
+      "href": "instruments/oja.json"
+    },
+    {
+      "id": "opi",
+      "name": "Opi (Igbo side-blown wooden/horn trumpet)",
+      "family": "wind",
+      "href": "instruments/opi.json"
+    },
+    {
+      "id": "shantu",
+      "name": "Shantu (Hausa women's calabash tube stamping rattle)",
+      "family": "percussion",
+      "href": "instruments/shantu.json"
+    },
+    {
+      "id": "kuntukun_drum",
+      "name": "Kuntukun (Akan deep-toned funeral drum)",
+      "family": "percussion",
+      "href": "instruments/kuntukun_drum.json"
+    },
+    {
+      "id": "kalangu",
+      "name": "Kalangu (Hausa hourglass talking drum)",
+      "family": "percussion",
+      "href": "instruments/kalangu.json"
+    },
+    {
+      "id": "sanku_harp_lute",
+      "name": "Sanku (Akan seperewa-type harp-lute)",
+      "family": "plucked_traditional",
+      "href": "instruments/sanku_harp_lute.json"
+    },
+    {
+      "id": "mongongo_mouth_bow",
+      "name": "Mongongo (Venda mouth-resonated musical bow)",
+      "family": "plucked_traditional",
+      "href": "instruments/mongongo_mouth_bow.json"
+    },
+    {
+      "id": "obokano",
+      "name": "Obokano (Gusii large bowl lyre)",
+      "family": "plucked_traditional",
+      "href": "instruments/obokano.json"
+    },
+    {
+      "id": "litungu",
+      "name": "Litungu (Luhya seven-string lyre)",
+      "family": "plucked_traditional",
+      "href": "instruments/litungu.json"
+    },
+    {
+      "id": "wandindi",
+      "name": "Wandindi (Kikuyu one-string bowed tube fiddle)",
+      "family": "bowed",
+      "href": "instruments/wandindi.json"
+    },
+    {
+      "id": "kayamba",
+      "name": "Kayamba (Swahili coast flat raft rattle)",
+      "family": "percussion",
+      "href": "instruments/kayamba.json"
+    },
+    {
+      "id": "chivoti",
+      "name": "Chivoti (Mijikenda transverse bamboo flute)",
+      "family": "wind",
+      "href": "instruments/chivoti.json"
+    },
+    {
+      "id": "entongoli",
+      "name": "Entongoli (Ganda eight-string bowl lyre)",
+      "family": "plucked_traditional",
+      "href": "instruments/entongoli.json"
+    },
+    {
+      "id": "engalabi",
+      "name": "Engalabi (Ganda long lizard-skin drum)",
+      "family": "percussion",
+      "href": "instruments/engalabi.json"
+    },
+    {
+      "id": "namunjoloba",
+      "name": "Namunjoloba (Ganda small stick-beaten drum set)",
+      "family": "percussion",
+      "href": "instruments/namunjoloba.json"
+    },
+    {
+      "id": "embaire",
+      "name": "Embaire (Busoga large log xylophone)",
+      "family": "percussion",
+      "href": "instruments/embaire.json"
+    },
+    {
+      "id": "kalumbu",
+      "name": "Kalumbu (Tonga gourd-resonated musical bow)",
+      "family": "plucked_traditional",
+      "href": "instruments/kalumbu.json"
+    },
+    {
+      "id": "babatoni_bass_bow",
+      "name": "Babatoni (South African one-string bass bow)",
+      "family": "plucked_traditional",
+      "href": "instruments/babatoni_bass_bow.json"
+    },
+    {
+      "id": "setinkane",
+      "name": "Setinkane (Sotho-Tswana lamellophone)",
+      "family": "percussion",
+      "href": "instruments/setinkane.json"
+    },
+    {
+      "id": "lekolulo",
+      "name": "Lekolulo (Sotho herdboy's end-blown flute)",
+      "family": "wind",
+      "href": "instruments/lekolulo.json"
+    },
+    {
+      "id": "lesiba",
+      "name": "Lesiba (Sotho quill-and-string mouth-blown bow)",
+      "family": "wind",
+      "href": "instruments/lesiba.json"
+    },
+    {
+      "id": "mbila_mutondo",
+      "name": "Mbila mutondo (Venda large gourd-resonated xylophone)",
+      "family": "percussion",
+      "href": "instruments/mbila_mutondo.json"
+    },
+    {
+      "id": "chizambi",
+      "name": "Chizambi (Shona scraped musical bow)",
+      "family": "plucked_traditional",
+      "href": "instruments/chizambi.json"
+    },
+    {
+      "id": "umrhubhe",
+      "name": "Umrhubhe (Xhosa mouth-resonated friction bow)",
+      "family": "bowed",
+      "href": "instruments/umrhubhe.json"
+    },
+    {
+      "id": "ugubhu",
+      "name": "Ugubhu (Zulu gourd-resonated struck bow)",
+      "family": "plucked_traditional",
+      "href": "instruments/ugubhu.json"
+    },
+    {
+      "id": "isitolotolo",
+      "name": "Isitolotolo (Zulu jaw harp)",
+      "family": "plucked_traditional",
+      "href": "instruments/isitolotolo.json"
+    },
+    {
+      "id": "makhoyane",
+      "name": "Makhoyane (Swazi braced gourd bow)",
+      "family": "plucked_traditional",
+      "href": "instruments/makhoyane.json"
+    },
+    {
+      "id": "kudu_horn",
+      "name": "Kudu horn (Southern African antelope-horn trumpet)",
+      "family": "wind",
+      "href": "instruments/kudu_horn.json"
+    },
+    {
+      "id": "mbaqanga_guitar",
+      "name": "Mbaqanga guitar (South African township lead/rhythm guitar)",
+      "family": "acoustic_strings",
+      "href": "instruments/mbaqanga_guitar.json"
+    },
+    {
+      "id": "ramkie",
+      "name": "Ramkie (Khoi-Cape three-string tin-body lute)",
+      "family": "plucked_traditional",
+      "href": "instruments/ramkie.json"
+    },
+    {
+      "id": "mamokhorong",
+      "name": "Mamokhorong (Basotho single-string bowed stick fiddle)",
+      "family": "bowed",
+      "href": "instruments/mamokhorong.json"
+    },
+    {
+      "id": "mangour_hoof_rattle",
+      "name": "Mangour (Sudanese goat-hoof dancer's rattle belt)",
+      "family": "percussion",
+      "href": "instruments/mangour_hoof_rattle.json"
+    },
+    {
+      "id": "karkabas",
+      "name": "Karkabas (Gnawa iron double-castanets)",
+      "family": "percussion",
+      "href": "instruments/karkabas.json"
+    },
+    {
+      "id": "nuggara",
+      "name": "Nuggara (Sudanese paired kettledrums)",
+      "family": "percussion",
+      "href": "instruments/nuggara.json"
+    },
+    {
+      "id": "dallouka",
+      "name": "Dallouka (Sudanese women's clay goblet drum)",
+      "family": "percussion",
+      "href": "instruments/dallouka.json"
+    },
+    {
+      "id": "tabl_baladi",
+      "name": "Tabl baladi (Egyptian double-headed bass drum)",
+      "family": "percussion",
+      "href": "instruments/tabl_baladi.json"
+    },
+    {
+      "id": "shimshal",
+      "name": "Shimshal (Kurdish end-blown shepherd's flute)",
+      "family": "wind",
+      "href": "instruments/shimshal.json"
+    },
+    {
+      "id": "narme_nay",
+      "name": "Narme nay (soft-toned Persian small reed flute)",
+      "family": "wind",
+      "href": "instruments/narme_nay.json"
+    },
+    {
+      "id": "dozaleh",
+      "name": "Dozaleh (Kurdish double single-reed clarinet)",
+      "family": "wind",
+      "href": "instruments/dozaleh.json"
+    },
+    {
+      "id": "rebaba_bedouin",
+      "name": "Rebaba (Bedouin one-string bowed spike fiddle)",
+      "family": "bowed",
+      "href": "instruments/rebaba_bedouin.json"
+    },
+    {
+      "id": "minjayrah",
+      "name": "Minjayrah (Levantine open end-blown shepherd flute)",
+      "family": "wind",
+      "href": "instruments/minjayrah.json"
+    },
+    {
+      "id": "zummara",
+      "name": "Zummara (Egyptian double single-reed pipe)",
+      "family": "wind",
+      "href": "instruments/zummara.json"
+    },
+    {
+      "id": "arghul_egyptian",
+      "name": "Argul (Egyptian single-reed pipe with long drone)",
+      "family": "wind",
+      "href": "instruments/arghul_egyptian.json"
+    },
+    {
+      "id": "zokra",
+      "name": "Zokra (Tunisian double-reed bagpipe)",
+      "family": "wind",
+      "href": "instruments/zokra.json"
+    },
+    {
+      "id": "hajhouj",
+      "name": "Hajhouj (Gnawa three-string bass lute, Moroccan)",
+      "family": "plucked_traditional",
+      "href": "instruments/hajhouj.json"
+    },
+    {
+      "id": "taarija",
+      "name": "Taarija (small Moroccan clay goblet drum)",
+      "family": "percussion",
+      "href": "instruments/taarija.json"
+    },
+    {
+      "id": "deff_moroccan",
+      "name": "Deff (Moroccan square/round frame drum)",
+      "family": "percussion",
+      "href": "instruments/deff_moroccan.json"
+    },
+    {
+      "id": "mejoranera",
+      "name": "Mejoranera (Panamanian five-string folk guitar)",
+      "family": "acoustic_strings",
+      "href": "instruments/mejoranera.json"
+    },
+    {
+      "id": "socavon",
+      "name": "Socavón (Panamanian four-string bordón guitar)",
+      "family": "acoustic_strings",
+      "href": "instruments/socavon.json"
+    },
+    {
+      "id": "bordonua",
+      "name": "Bordonúa (Puerto Rican deep-bodied bass lute)",
+      "family": "acoustic_strings",
+      "href": "instruments/bordonua.json"
+    },
+    {
+      "id": "laud_cubano",
+      "name": "Laúd cubano (Cuban twelve-string lute)",
+      "family": "acoustic_strings",
+      "href": "instruments/laud_cubano.json"
+    },
+    {
+      "id": "chillador",
+      "name": "Chillador (Andean steel-strung charango)",
+      "family": "plucked_traditional",
+      "href": "instruments/chillador.json"
+    },
+    {
+      "id": "maguare",
+      "name": "Maguaré (Amazonian Uitoto paired slit drums)",
+      "family": "percussion",
+      "href": "instruments/maguare.json"
+    },
+    {
+      "id": "tumbadora",
+      "name": "Tumbadora (Cuban conga drum)",
+      "family": "percussion",
+      "href": "instruments/tumbadora.json"
+    },
+    {
+      "id": "quinto_conga",
+      "name": "Quinto (highest Cuban conga, lead rumba drum)",
+      "family": "percussion",
+      "href": "instruments/quinto_conga.json"
+    },
+    {
+      "id": "salidor",
+      "name": "Salidor (low conga marking the rumba pulse)",
+      "family": "percussion",
+      "href": "instruments/salidor.json"
+    },
+    {
+      "id": "cajita",
+      "name": "Cajita (Peruvian hinged-lid percussion box)",
+      "family": "percussion",
+      "href": "instruments/cajita.json"
+    },
+    {
+      "id": "checo",
+      "name": "Checo (Afro-Peruvian gourd drum of Zaña)",
+      "family": "percussion",
+      "href": "instruments/checo.json"
+    },
+    {
+      "id": "alegre_drum",
+      "name": "Alegre (Colombian tambor alegre, conical hand drum)",
+      "family": "percussion",
+      "href": "instruments/alegre_drum.json"
+    },
+    {
+      "id": "llamador",
+      "name": "Llamador (Colombian tambor llamador, small pulse drum)",
+      "family": "percussion",
+      "href": "instruments/llamador.json"
+    },
+    {
+      "id": "gaita_hembra_larga",
+      "name": "Gaita hembra (Colombian long female cactus-stem duct flute)",
+      "family": "wind",
+      "href": "instruments/gaita_hembra_larga.json"
+    },
+    {
+      "id": "gaita_macho_corta",
+      "name": "Gaita macho (Colombian male drone-and-rhythm cactus flute)",
+      "family": "wind",
+      "href": "instruments/gaita_macho_corta.json"
+    },
+    {
+      "id": "carangano",
+      "name": "Carángano (Llanero bamboo idiochord struck tube zither)",
+      "family": "plucked_traditional",
+      "href": "instruments/carangano.json"
+    },
+    {
+      "id": "furruco",
+      "name": "Furruco (Venezuelan friction drum of the aguinaldo)",
+      "family": "percussion",
+      "href": "instruments/furruco.json"
+    },
+    {
+      "id": "pandereta_puertorriquena",
+      "name": "Pandereta (Puerto Rican plena handheld frame drum)",
+      "family": "percussion",
+      "href": "instruments/pandereta_puertorriquena.json"
+    },
+    {
+      "id": "palitos",
+      "name": "Palitos (Afro-Caribbean sticks struck on a wooden body)",
+      "family": "percussion",
+      "href": "instruments/palitos.json"
+    },
+    {
+      "id": "cua",
+      "name": "Cuá (Puerto Rican bomba stick-struck idiophone)",
+      "family": "percussion",
+      "href": "instruments/cua.json"
+    },
+    {
+      "id": "subidor",
+      "name": "Subidor (Puerto Rican bomba lead barrel drum, primo)",
+      "family": "percussion",
+      "href": "instruments/subidor.json"
+    },
+    {
+      "id": "boula",
+      "name": "Boula (Caribbean low steady-pulse hand drum)",
+      "family": "percussion",
+      "href": "instruments/boula.json"
+    },
+    {
+      "id": "ka_drum",
+      "name": "Ka (Guadeloupean gwo ka barrel drum)",
+      "family": "percussion",
+      "href": "instruments/ka_drum.json"
+    },
+    {
+      "id": "tanbou_ka",
+      "name": "Tanbou ka (Creole hand-played goatskin ka of the léwòz ceremony)",
+      "family": "percussion",
+      "href": "instruments/tanbou_ka.json"
+    },
+    {
+      "id": "tanbou_dejanbe",
+      "name": "Tanbou dejanbe (Haitian tall leg-straddled ritual hand drum)",
+      "family": "percussion",
+      "href": "instruments/tanbou_dejanbe.json"
+    },
+    {
+      "id": "manman_drum",
+      "name": "Manman (largest Haitian Rada drum)",
+      "family": "percussion",
+      "href": "instruments/manman_drum.json"
+    },
+    {
+      "id": "segon_drum",
+      "name": "Segon (middle drum of the Haitian Rada battery)",
+      "family": "percussion",
+      "href": "instruments/segon_drum.json"
+    },
+    {
+      "id": "boula_haitian",
+      "name": "Boula (smallest Haitian Vodou drum)",
+      "family": "percussion",
+      "href": "instruments/boula_haitian.json"
+    },
+    {
+      "id": "vaksin",
+      "name": "Vaksin (Haitian single-note bamboo trumpet)",
+      "family": "wind",
+      "href": "instruments/vaksin.json"
+    },
+    {
+      "id": "tan_tan_drum",
+      "name": "Tan-tan (Brazilian samba hand tumbadora)",
+      "family": "percussion",
+      "href": "instruments/tan_tan_drum.json"
+    },
+    {
+      "id": "timbal_brasileiro",
+      "name": "Timbal (Bahian conical hand drum)",
+      "family": "percussion",
+      "href": "instruments/timbal_brasileiro.json"
+    },
+    {
+      "id": "viola_de_cocho",
+      "name": "Viola de cocho (hollowed-log five-string lute of Mato Grosso)",
+      "family": "plucked_traditional",
+      "href": "instruments/viola_de_cocho.json"
+    },
+    {
+      "id": "bacurinha",
+      "name": "Bacurinha (small Pernambucan stick-played drum of cavalo-marinho and maracatu)",
+      "family": "percussion",
+      "href": "instruments/bacurinha.json"
+    },
+    {
+      "id": "xequere",
+      "name": "Xequerê (Afro-Brazilian beaded gourd rattle)",
+      "family": "percussion",
+      "href": "instruments/xequere.json"
+    },
+    {
+      "id": "ilu_yoruba",
+      "name": "Ìlù (Yoruba/Afro-Cuban single-headed conical drum)",
+      "family": "percussion",
+      "href": "instruments/ilu_yoruba.json"
+    },
+    {
+      "id": "adja_bell",
+      "name": "Adja (Vodun handheld iron clapper bell)",
+      "family": "percussion",
+      "href": "instruments/adja_bell.json"
     }
   ]
 }

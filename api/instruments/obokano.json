@@ -1,0 +1,208 @@
+{
+  "id": "obokano",
+  "name": "Obokano (Gusii large bowl lyre)",
+  "family": "plucked_traditional",
+  "class": "plucked_lyre",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "obokano",
+  "parts": [
+    {
+      "id": "obokano_bowl",
+      "name": "Bowl and membrane",
+      "variants": [
+        {
+          "id": "obokano_hide",
+          "default": true,
+          "name": "Large wooden bowl with cowhide belly",
+          "descriptors": [
+            "deep-toned",
+            "booming",
+            "buzzy"
+          ],
+          "match_tokens": [
+            "bowl-lyre",
+            "gusii"
+          ]
+        },
+        {
+          "id": "obokano_small",
+          "name": "Smaller travelling bowl",
+          "descriptors": [
+            "mid-toned",
+            "punchy"
+          ],
+          "match_tokens": [
+            "lyre",
+            "kenya"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "obokano_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "obokano_strum",
+          "default": true,
+          "name": "Strummed with self-accompanied song",
+          "descriptors": [
+            "driving-strum",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "strummed",
+            "lyre"
+          ]
+        },
+        {
+          "id": "obokano_pluck",
+          "name": "Individually plucked ostinato",
+          "descriptors": [
+            "interlocking",
+            "clear-pluck"
+          ],
+          "match_tokens": [
+            "plucked",
+            "east-africa"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "obokano_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "obokano_sinew",
+          "default": true,
+          "name": "Cattle sinew strings",
+          "descriptors": [
+            "thuddy",
+            "warm"
+          ],
+          "match_tokens": [
+            "gut-string"
+          ]
+        },
+        {
+          "id": "obokano_nylon",
+          "name": "Nylon strings",
+          "descriptors": [
+            "bright-attack",
+            "sustaining"
+          ],
+          "match_tokens": [
+            "nylon-string"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "obokano_bowl",
+      "name": "Bowl and membrane",
+      "variants": [
+        {
+          "id": "obokano_hide",
+          "default": true,
+          "name": "Large wooden bowl with cowhide belly",
+          "descriptors": [
+            "deep-toned",
+            "booming",
+            "buzzy"
+          ],
+          "match_tokens": [
+            "bowl-lyre",
+            "gusii"
+          ]
+        },
+        {
+          "id": "obokano_small",
+          "name": "Smaller travelling bowl",
+          "descriptors": [
+            "mid-toned",
+            "punchy"
+          ],
+          "match_tokens": [
+            "lyre",
+            "kenya"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "obokano_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "obokano_strum",
+          "default": true,
+          "name": "Strummed with self-accompanied song",
+          "descriptors": [
+            "driving-strum",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "strummed",
+            "lyre"
+          ]
+        },
+        {
+          "id": "obokano_pluck",
+          "name": "Individually plucked ostinato",
+          "descriptors": [
+            "interlocking",
+            "clear-pluck"
+          ],
+          "match_tokens": [
+            "plucked",
+            "east-africa"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "obokano_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "obokano_sinew",
+          "default": true,
+          "name": "Cattle sinew strings",
+          "descriptors": [
+            "thuddy",
+            "warm"
+          ],
+          "match_tokens": [
+            "gut-string"
+          ]
+        },
+        {
+          "id": "obokano_nylon",
+          "name": "Nylon strings",
+          "descriptors": [
+            "bright-attack",
+            "sustaining"
+          ],
+          "match_tokens": [
+            "nylon-string"
+          ]
+        }
+      ]
+    }
+  ]
+}

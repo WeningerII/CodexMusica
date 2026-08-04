@@ -1,0 +1,202 @@
+{
+  "id": "ramkie",
+  "name": "Ramkie (Khoi-Cape three-string tin-body lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "ramkie",
+  "parts": [
+    {
+      "id": "ramkie_body",
+      "name": "Body construction",
+      "variants": [
+        {
+          "id": "ramkie_tin",
+          "default": true,
+          "name": "Paraffin-tin / oil-can body",
+          "descriptors": [
+            "tinny",
+            "boxy-resonance"
+          ],
+          "match_tokens": [
+            "tin-can-lute",
+            "cape"
+          ]
+        },
+        {
+          "id": "ramkie_gourd",
+          "name": "Half-gourd body with skin belly",
+          "descriptors": [
+            "earthy",
+            "muted-warmth"
+          ],
+          "match_tokens": [
+            "gourd-lute",
+            "khoikhoi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ramkie_strings",
+      "name": "String count and material",
+      "variants": [
+        {
+          "id": "ramkie_three_gut",
+          "default": true,
+          "name": "Three gut / fibre strings",
+          "descriptors": [
+            "soft-toned",
+            "mellow"
+          ],
+          "match_tokens": [
+            "three-string"
+          ]
+        },
+        {
+          "id": "ramkie_four_wire",
+          "name": "Four steel wire strings",
+          "descriptors": [
+            "bright-attack",
+            "jangly"
+          ],
+          "match_tokens": [
+            "wire-strung"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ramkie_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "ramkie_strummed",
+          "default": true,
+          "name": "Strummed song accompaniment",
+          "descriptors": [
+            "driving-strum",
+            "dance-rhythm"
+          ],
+          "match_tokens": [
+            "strummed",
+            "song-accompaniment"
+          ]
+        },
+        {
+          "id": "ramkie_picked",
+          "name": "Finger-picked melodic style",
+          "descriptors": [
+            "plinking",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "finger-picked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ramkie_body",
+      "name": "Body construction",
+      "variants": [
+        {
+          "id": "ramkie_tin",
+          "default": true,
+          "name": "Paraffin-tin / oil-can body",
+          "descriptors": [
+            "tinny",
+            "boxy-resonance"
+          ],
+          "match_tokens": [
+            "tin-can-lute",
+            "cape"
+          ]
+        },
+        {
+          "id": "ramkie_gourd",
+          "name": "Half-gourd body with skin belly",
+          "descriptors": [
+            "earthy",
+            "muted-warmth"
+          ],
+          "match_tokens": [
+            "gourd-lute",
+            "khoikhoi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ramkie_strings",
+      "name": "String count and material",
+      "variants": [
+        {
+          "id": "ramkie_three_gut",
+          "default": true,
+          "name": "Three gut / fibre strings",
+          "descriptors": [
+            "soft-toned",
+            "mellow"
+          ],
+          "match_tokens": [
+            "three-string"
+          ]
+        },
+        {
+          "id": "ramkie_four_wire",
+          "name": "Four steel wire strings",
+          "descriptors": [
+            "bright-attack",
+            "jangly"
+          ],
+          "match_tokens": [
+            "wire-strung"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ramkie_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "ramkie_strummed",
+          "default": true,
+          "name": "Strummed song accompaniment",
+          "descriptors": [
+            "driving-strum",
+            "dance-rhythm"
+          ],
+          "match_tokens": [
+            "strummed",
+            "song-accompaniment"
+          ]
+        },
+        {
+          "id": "ramkie_picked",
+          "name": "Finger-picked melodic style",
+          "descriptors": [
+            "plinking",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "finger-picked"
+          ]
+        }
+      ]
+    }
+  ]
+}

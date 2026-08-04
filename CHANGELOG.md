@@ -6,6 +6,39 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Added — 107 more instruments, catalog now 1,163
+
+Wave 2 of the instrument backfill. A second obscure 238-name probe returned
+**44 present, 65 near-matches, 129 new**, of which 20 were the probe's own
+qualifier artefact — **109 genuine gaps**, authored by eight parallel agents
+and validated against the live catalog before insertion.
+
+Two records were dropped at the gate as the same instrument entered twice
+(`udu_igbo` against `udu`, `molo_hausa` against `molo`, which already carries a
+Hausa variant). Net **+107**.
+
+**The tail is not thinning.** Probe 1 missed at 55% against a 871-instrument
+catalog; probe 2 missed at 54% against a 1,056-instrument catalog that had just
+absorbed probe 1's additions. Two passes at a constant miss rate means these
+probes are sampling a much larger universe rather than exhausting a finite
+list, so the remaining gap cannot be sized by probing — it needs an external
+instrument list, the way everynoise supplied a denominator for the genres.
+
+`boula` and `boula_haitian` are ruled distinct: the Guadeloupean gwoka boula is
+the steady low pulse under the marqueur, the Haitian Vodou boula the smallest
+and highest of the three-drum battery. Same name across the Francophone
+Caribbean, different drums; the Haitian record prints as `vodou boula` to keep
+short labels unique.
+
+### Changed — re-froze the descriptor frequency table
+
+Adding 294 instruments across the two waves pushed token coverage to 95.61%,
+under the 97% floor, because every new descriptor was unknown to the frozen
+table and fell to df 999. `npm run freeze:df` re-counted from the live catalog
+(**9,457 tokens, back to 100%**), which reorders descriptor output, so the
+recipe snapshots and the published artifacts were re-blessed in this same
+commit as the freeze requires.
+
 ### Added — 185 instruments, catalog now 1,056
 
 The instrument catalog was not as complete as an earlier screen suggested. That

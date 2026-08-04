@@ -1,0 +1,202 @@
+{
+  "id": "shimshal",
+  "name": "Shimshal (Kurdish end-blown shepherd's flute)",
+  "family": "wind",
+  "class": "end_blown_flute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 0,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "shimshal",
+  "parts": [
+    {
+      "id": "shimshal_tube",
+      "name": "Tube material / length",
+      "variants": [
+        {
+          "id": "shimshal_wood",
+          "default": true,
+          "name": "Apricot-wood tube",
+          "descriptors": [
+            "breathy",
+            "mellow",
+            "airy"
+          ],
+          "match_tokens": [
+            "blown",
+            "kurdish",
+            "shepherd-flute"
+          ]
+        },
+        {
+          "id": "shimshal_reed",
+          "name": "Cane tube",
+          "descriptors": [
+            "thin-toned",
+            "rustic",
+            "hollow"
+          ],
+          "match_tokens": [
+            "blown",
+            "cane-flute"
+          ]
+        },
+        {
+          "id": "shimshal_metal",
+          "name": "Metal tube (modern)",
+          "descriptors": [
+            "bright",
+            "piercing"
+          ],
+          "match_tokens": [
+            "blown",
+            "high-pitched"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shimshal_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "shimshal_pastoral",
+          "default": true,
+          "name": "Free-rhythm pastoral melody",
+          "descriptors": [
+            "rubato",
+            "plaintive",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "blown",
+            "solo"
+          ]
+        },
+        {
+          "id": "shimshal_dance",
+          "name": "Dance-tune playing (govend)",
+          "descriptors": [
+            "driving",
+            "repetitive"
+          ],
+          "match_tokens": [
+            "blown",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "shimshal_throat_drone",
+          "name": "Hummed throat drone under melody",
+          "descriptors": [
+            "droning",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "blown",
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "shimshal_tube",
+      "name": "Tube material / length",
+      "variants": [
+        {
+          "id": "shimshal_wood",
+          "default": true,
+          "name": "Apricot-wood tube",
+          "descriptors": [
+            "breathy",
+            "mellow",
+            "airy"
+          ],
+          "match_tokens": [
+            "blown",
+            "kurdish",
+            "shepherd-flute"
+          ]
+        },
+        {
+          "id": "shimshal_reed",
+          "name": "Cane tube",
+          "descriptors": [
+            "thin-toned",
+            "rustic",
+            "hollow"
+          ],
+          "match_tokens": [
+            "blown",
+            "cane-flute"
+          ]
+        },
+        {
+          "id": "shimshal_metal",
+          "name": "Metal tube (modern)",
+          "descriptors": [
+            "bright",
+            "piercing"
+          ],
+          "match_tokens": [
+            "blown",
+            "high-pitched"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shimshal_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "shimshal_pastoral",
+          "default": true,
+          "name": "Free-rhythm pastoral melody",
+          "descriptors": [
+            "rubato",
+            "plaintive",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "blown",
+            "solo"
+          ]
+        },
+        {
+          "id": "shimshal_dance",
+          "name": "Dance-tune playing (govend)",
+          "descriptors": [
+            "driving",
+            "repetitive"
+          ],
+          "match_tokens": [
+            "blown",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "shimshal_throat_drone",
+          "name": "Hummed throat drone under melody",
+          "descriptors": [
+            "droning",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "blown",
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ]
+}

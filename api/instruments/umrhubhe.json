@@ -1,0 +1,167 @@
+{
+  "id": "umrhubhe",
+  "name": "Umrhubhe (Xhosa mouth-resonated friction bow)",
+  "family": "bowed",
+  "class": "bowed",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 1,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 0,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -2
+  },
+  "short": "umrhubhe",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "umrhubhe_technique",
+      "name": "Excitation technique",
+      "variants": [
+        {
+          "id": "umrhubhe_friction_stick",
+          "default": true,
+          "name": "Thin stick rubbed across the string",
+          "descriptors": [
+            "whistling-overtones",
+            "breathy"
+          ],
+          "match_tokens": [
+            "mouth-bow",
+            "xhosa"
+          ]
+        },
+        {
+          "id": "umrhubhe_bowed",
+          "name": "Bowed with a hair bow",
+          "descriptors": [
+            "sustained",
+            "singing"
+          ],
+          "match_tokens": [
+            "bowed-bow"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "umrhubhe_use",
+      "name": "Musical use",
+      "variants": [
+        {
+          "id": "umrhubhe_song",
+          "default": true,
+          "name": "Self-accompanied song with overtone melody",
+          "descriptors": [
+            "ethereal",
+            "voice-shadowing"
+          ],
+          "match_tokens": [
+            "overtone-singing",
+            "song-accompaniment"
+          ]
+        },
+        {
+          "id": "umrhubhe_solo",
+          "name": "Solo overtone instrumental",
+          "descriptors": [
+            "floating",
+            "harmonic-series"
+          ],
+          "match_tokens": [
+            "overtone"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "umrhubhe_technique",
+      "name": "Excitation technique",
+      "variants": [
+        {
+          "id": "umrhubhe_friction_stick",
+          "default": true,
+          "name": "Thin stick rubbed across the string",
+          "descriptors": [
+            "whistling-overtones",
+            "breathy"
+          ],
+          "match_tokens": [
+            "mouth-bow",
+            "xhosa"
+          ]
+        },
+        {
+          "id": "umrhubhe_bowed",
+          "name": "Bowed with a hair bow",
+          "descriptors": [
+            "sustained",
+            "singing"
+          ],
+          "match_tokens": [
+            "bowed-bow"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "umrhubhe_use",
+      "name": "Musical use",
+      "variants": [
+        {
+          "id": "umrhubhe_song",
+          "default": true,
+          "name": "Self-accompanied song with overtone melody",
+          "descriptors": [
+            "ethereal",
+            "voice-shadowing"
+          ],
+          "match_tokens": [
+            "overtone-singing",
+            "song-accompaniment"
+          ]
+        },
+        {
+          "id": "umrhubhe_solo",
+          "name": "Solo overtone instrumental",
+          "descriptors": [
+            "floating",
+            "harmonic-series"
+          ],
+          "match_tokens": [
+            "overtone"
+          ]
+        }
+      ]
+    }
+  ]
+}

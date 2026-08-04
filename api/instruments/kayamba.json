@@ -1,0 +1,148 @@
+{
+  "id": "kayamba",
+  "name": "Kayamba (Swahili coast flat raft rattle)",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 2,
+    "range": -2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "kayamba",
+  "parts": [
+    {
+      "id": "kayamba_fill",
+      "name": "Seed fill",
+      "variants": [
+        {
+          "id": "kayamba_millet",
+          "default": true,
+          "name": "Millet / mtama grain fill",
+          "descriptors": [
+            "hissing",
+            "fine-grained",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "raft-rattle",
+            "swahili"
+          ]
+        },
+        {
+          "id": "kayamba_pebble",
+          "name": "Small pebble or shot fill",
+          "descriptors": [
+            "sharper-rattle",
+            "gritty"
+          ],
+          "match_tokens": [
+            "shaker",
+            "mijikenda"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kayamba_technique",
+      "name": "Shaking technique",
+      "variants": [
+        {
+          "id": "kayamba_shake",
+          "default": true,
+          "name": "Two-handed lateral shake",
+          "descriptors": [
+            "steady-hiss",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "shaken",
+            "rattle"
+          ]
+        },
+        {
+          "id": "kayamba_slap",
+          "name": "Accent slaps against the reed frame",
+          "descriptors": [
+            "accented",
+            "crackling"
+          ],
+          "match_tokens": [
+            "struck",
+            "rattle"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kayamba_fill",
+      "name": "Seed fill",
+      "variants": [
+        {
+          "id": "kayamba_millet",
+          "default": true,
+          "name": "Millet / mtama grain fill",
+          "descriptors": [
+            "hissing",
+            "fine-grained",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "raft-rattle",
+            "swahili"
+          ]
+        },
+        {
+          "id": "kayamba_pebble",
+          "name": "Small pebble or shot fill",
+          "descriptors": [
+            "sharper-rattle",
+            "gritty"
+          ],
+          "match_tokens": [
+            "shaker",
+            "mijikenda"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kayamba_technique",
+      "name": "Shaking technique",
+      "variants": [
+        {
+          "id": "kayamba_shake",
+          "default": true,
+          "name": "Two-handed lateral shake",
+          "descriptors": [
+            "steady-hiss",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "shaken",
+            "rattle"
+          ]
+        },
+        {
+          "id": "kayamba_slap",
+          "name": "Accent slaps against the reed frame",
+          "descriptors": [
+            "accented",
+            "crackling"
+          ],
+          "match_tokens": [
+            "struck",
+            "rattle"
+          ]
+        }
+      ]
+    }
+  ]
+}

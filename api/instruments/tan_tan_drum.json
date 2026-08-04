@@ -1,0 +1,150 @@
+{
+  "id": "tan_tan_drum",
+  "name": "Tan-tan (Brazilian samba hand tumbadora)",
+  "family": "percussion",
+  "class": "single_headed_hand_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "tan-tan",
+  "parts": [
+    {
+      "id": "tan_tan_shell",
+      "name": "Shell construction",
+      "variants": [
+        {
+          "id": "tan_tan_wood",
+          "default": true,
+          "name": "Wooden stave shell",
+          "descriptors": [
+            "warm",
+            "woody",
+            "round-bass"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "pagode",
+            "brazilian"
+          ]
+        },
+        {
+          "id": "tan_tan_aluminum",
+          "name": "Aluminium shell (lightweight modern)",
+          "descriptors": [
+            "bright",
+            "projecting"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "samba"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tan_tan_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "tan_tan_pagode",
+          "default": true,
+          "name": "Pagode groove (bass, slap, muffled tones)",
+          "descriptors": [
+            "swinging",
+            "bass-driven"
+          ],
+          "match_tokens": [
+            "pagode",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "tan_tan_partido",
+          "name": "Partido-alto marking",
+          "descriptors": [
+            "syncopated",
+            "conversational"
+          ],
+          "match_tokens": [
+            "samba",
+            "hand-struck"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tan_tan_shell",
+      "name": "Shell construction",
+      "variants": [
+        {
+          "id": "tan_tan_wood",
+          "default": true,
+          "name": "Wooden stave shell",
+          "descriptors": [
+            "warm",
+            "woody",
+            "round-bass"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "pagode",
+            "brazilian"
+          ]
+        },
+        {
+          "id": "tan_tan_aluminum",
+          "name": "Aluminium shell (lightweight modern)",
+          "descriptors": [
+            "bright",
+            "projecting"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "samba"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tan_tan_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "tan_tan_pagode",
+          "default": true,
+          "name": "Pagode groove (bass, slap, muffled tones)",
+          "descriptors": [
+            "swinging",
+            "bass-driven"
+          ],
+          "match_tokens": [
+            "pagode",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "tan_tan_partido",
+          "name": "Partido-alto marking",
+          "descriptors": [
+            "syncopated",
+            "conversational"
+          ],
+          "match_tokens": [
+            "samba",
+            "hand-struck"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,168 @@
+{
+  "id": "molo",
+  "name": "Molo (Hausa/Songhai three-string plucked skin-faced lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "molo",
+  "parts": [
+    {
+      "id": "molo_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "molo_hausa",
+          "default": true,
+          "name": "Hausa molo (boat-shaped wooden body, hide soundtable)",
+          "descriptors": [
+            "dry-tone",
+            "percussive-attack",
+            "plangent"
+          ],
+          "match_tokens": [
+            "skin-lute",
+            "hausa"
+          ]
+        },
+        {
+          "id": "molo_songhai",
+          "name": "Songhai/Zarma molo (river-valley form)",
+          "descriptors": [
+            "rolling",
+            "hypnotic"
+          ],
+          "match_tokens": [
+            "skin-lute",
+            "niger-river"
+          ]
+        },
+        {
+          "id": "molo_fulani",
+          "name": "Fulani herders' molo (small travelling size)",
+          "descriptors": [
+            "thin-toned",
+            "intimate"
+          ],
+          "match_tokens": [
+            "skin-lute",
+            "sahel"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "molo_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "molo_gut",
+          "default": true,
+          "name": "Gut / hide strings",
+          "descriptors": [
+            "warm",
+            "muted"
+          ],
+          "match_tokens": [
+            "gut-string"
+          ]
+        },
+        {
+          "id": "molo_nylon",
+          "name": "Nylon fishing-line strings",
+          "descriptors": [
+            "bright-attack",
+            "snappy"
+          ],
+          "match_tokens": [
+            "nylon-string"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "molo_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "molo_hausa",
+          "default": true,
+          "name": "Hausa molo (boat-shaped wooden body, hide soundtable)",
+          "descriptors": [
+            "dry-tone",
+            "percussive-attack",
+            "plangent"
+          ],
+          "match_tokens": [
+            "skin-lute",
+            "hausa"
+          ]
+        },
+        {
+          "id": "molo_songhai",
+          "name": "Songhai/Zarma molo (river-valley form)",
+          "descriptors": [
+            "rolling",
+            "hypnotic"
+          ],
+          "match_tokens": [
+            "skin-lute",
+            "niger-river"
+          ]
+        },
+        {
+          "id": "molo_fulani",
+          "name": "Fulani herders' molo (small travelling size)",
+          "descriptors": [
+            "thin-toned",
+            "intimate"
+          ],
+          "match_tokens": [
+            "skin-lute",
+            "sahel"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "molo_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "molo_gut",
+          "default": true,
+          "name": "Gut / hide strings",
+          "descriptors": [
+            "warm",
+            "muted"
+          ],
+          "match_tokens": [
+            "gut-string"
+          ]
+        },
+        {
+          "id": "molo_nylon",
+          "name": "Nylon fishing-line strings",
+          "descriptors": [
+            "bright-attack",
+            "snappy"
+          ],
+          "match_tokens": [
+            "nylon-string"
+          ]
+        }
+      ]
+    }
+  ]
+}

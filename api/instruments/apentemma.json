@@ -1,0 +1,146 @@
+{
+  "id": "apentemma",
+  "name": "Apentemma (Akan small conical hand drum)",
+  "family": "percussion",
+  "class": "single_headed_hand_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": 1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "apentemma",
+  "parts": [
+    {
+      "id": "apentemma_head",
+      "name": "Head and tensioning",
+      "variants": [
+        {
+          "id": "apentemma_peg",
+          "default": true,
+          "name": "Antelope skin, peg-tensioned",
+          "descriptors": [
+            "crisp-slap",
+            "ringing-tone"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "akan"
+          ]
+        },
+        {
+          "id": "apentemma_goat",
+          "name": "Goatskin head",
+          "descriptors": [
+            "warm",
+            "open-toned"
+          ],
+          "match_tokens": [
+            "membranophone",
+            "ghana"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "apentemma_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "apentemma_hands",
+          "default": true,
+          "name": "Bare hands (tone / slap / bass)",
+          "descriptors": [
+            "articulate",
+            "conversational"
+          ],
+          "match_tokens": [
+            "hand-percussion",
+            "adowa"
+          ]
+        },
+        {
+          "id": "apentemma_stick_hand",
+          "name": "One stick and one hand",
+          "descriptors": [
+            "sharp-attack",
+            "cutting"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "apentemma_head",
+      "name": "Head and tensioning",
+      "variants": [
+        {
+          "id": "apentemma_peg",
+          "default": true,
+          "name": "Antelope skin, peg-tensioned",
+          "descriptors": [
+            "crisp-slap",
+            "ringing-tone"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "akan"
+          ]
+        },
+        {
+          "id": "apentemma_goat",
+          "name": "Goatskin head",
+          "descriptors": [
+            "warm",
+            "open-toned"
+          ],
+          "match_tokens": [
+            "membranophone",
+            "ghana"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "apentemma_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "apentemma_hands",
+          "default": true,
+          "name": "Bare hands (tone / slap / bass)",
+          "descriptors": [
+            "articulate",
+            "conversational"
+          ],
+          "match_tokens": [
+            "hand-percussion",
+            "adowa"
+          ]
+        },
+        {
+          "id": "apentemma_stick_hand",
+          "name": "One stick and one hand",
+          "descriptors": [
+            "sharp-attack",
+            "cutting"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,204 @@
+{
+  "id": "hoddu",
+  "name": "Hoddu (Fulani/Haalpulaar plucked skin-faced lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "hoddu",
+  "parts": [
+    {
+      "id": "hoddu_strings",
+      "name": "String count / tuning",
+      "variants": [
+        {
+          "id": "hoddu_five",
+          "default": true,
+          "name": "Five-string hoddu (standard Haalpulaar tuning)",
+          "descriptors": [
+            "ostinato-driven",
+            "dry-tone"
+          ],
+          "match_tokens": [
+            "skin-lute",
+            "fulani"
+          ]
+        },
+        {
+          "id": "hoddu_four",
+          "name": "Four-string older form",
+          "descriptors": [
+            "archaic",
+            "sparse"
+          ],
+          "match_tokens": [
+            "skin-lute",
+            "sahel"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hoddu_body",
+      "name": "Body size",
+      "variants": [
+        {
+          "id": "hoddu_standard",
+          "default": true,
+          "name": "Standard carved wooden trough with cowhide table",
+          "descriptors": [
+            "plangent",
+            "warm"
+          ],
+          "match_tokens": [
+            "skin-lute"
+          ]
+        },
+        {
+          "id": "hoddu_large",
+          "name": "Large low-tuned hoddu",
+          "descriptors": [
+            "deep-toned",
+            "thumping"
+          ],
+          "match_tokens": [
+            "skin-lute",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hoddu_role",
+      "surface": false,
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "hoddu_griot",
+          "default": true,
+          "name": "Griot (gawlo) praise and epic accompaniment",
+          "descriptors": [
+            "declamatory",
+            "cyclic"
+          ],
+          "match_tokens": [
+            "praise-music"
+          ]
+        },
+        {
+          "id": "hoddu_dance",
+          "name": "Yela / dance accompaniment",
+          "descriptors": [
+            "driving",
+            "percussive-attack"
+          ],
+          "match_tokens": [
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "hoddu_strings",
+      "name": "String count / tuning",
+      "variants": [
+        {
+          "id": "hoddu_five",
+          "default": true,
+          "name": "Five-string hoddu (standard Haalpulaar tuning)",
+          "descriptors": [
+            "ostinato-driven",
+            "dry-tone"
+          ],
+          "match_tokens": [
+            "skin-lute",
+            "fulani"
+          ]
+        },
+        {
+          "id": "hoddu_four",
+          "name": "Four-string older form",
+          "descriptors": [
+            "archaic",
+            "sparse"
+          ],
+          "match_tokens": [
+            "skin-lute",
+            "sahel"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hoddu_body",
+      "name": "Body size",
+      "variants": [
+        {
+          "id": "hoddu_standard",
+          "default": true,
+          "name": "Standard carved wooden trough with cowhide table",
+          "descriptors": [
+            "plangent",
+            "warm"
+          ],
+          "match_tokens": [
+            "skin-lute"
+          ]
+        },
+        {
+          "id": "hoddu_large",
+          "name": "Large low-tuned hoddu",
+          "descriptors": [
+            "deep-toned",
+            "thumping"
+          ],
+          "match_tokens": [
+            "skin-lute",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hoddu_role",
+      "surface": false,
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "hoddu_griot",
+          "default": true,
+          "name": "Griot (gawlo) praise and epic accompaniment",
+          "descriptors": [
+            "declamatory",
+            "cyclic"
+          ],
+          "match_tokens": [
+            "praise-music"
+          ]
+        },
+        {
+          "id": "hoddu_dance",
+          "name": "Yela / dance accompaniment",
+          "descriptors": [
+            "driving",
+            "percussive-attack"
+          ],
+          "match_tokens": [
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ]
+}

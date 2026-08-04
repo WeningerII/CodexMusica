@@ -1,0 +1,142 @@
+{
+  "id": "lekolulo",
+  "name": "Lekolulo (Sotho herdboy's end-blown flute)",
+  "family": "wind",
+  "class": "end_blown_flute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "lekolulo",
+  "parts": [
+    {
+      "id": "lekolulo_tube",
+      "name": "Tube material",
+      "variants": [
+        {
+          "id": "lekolulo_reed",
+          "default": true,
+          "name": "River-reed tube",
+          "descriptors": [
+            "airy",
+            "breathy-tone"
+          ],
+          "match_tokens": [
+            "end-blown-flute",
+            "lesotho"
+          ]
+        },
+        {
+          "id": "lekolulo_metal",
+          "name": "Metal pipe tube",
+          "descriptors": [
+            "piercing",
+            "bright-tone"
+          ],
+          "match_tokens": [
+            "end-blown-flute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lekolulo_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "lekolulo_herding",
+          "default": true,
+          "name": "Solo herding melody",
+          "descriptors": [
+            "lonely",
+            "pastoral"
+          ],
+          "match_tokens": [
+            "pastoral",
+            "solo-melody"
+          ]
+        },
+        {
+          "id": "lekolulo_overblown",
+          "name": "Overblown harmonic calls",
+          "descriptors": [
+            "shrill",
+            "overtone-rich"
+          ],
+          "match_tokens": [
+            "overblown"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "lekolulo_tube",
+      "name": "Tube material",
+      "variants": [
+        {
+          "id": "lekolulo_reed",
+          "default": true,
+          "name": "River-reed tube",
+          "descriptors": [
+            "airy",
+            "breathy-tone"
+          ],
+          "match_tokens": [
+            "end-blown-flute",
+            "lesotho"
+          ]
+        },
+        {
+          "id": "lekolulo_metal",
+          "name": "Metal pipe tube",
+          "descriptors": [
+            "piercing",
+            "bright-tone"
+          ],
+          "match_tokens": [
+            "end-blown-flute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lekolulo_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "lekolulo_herding",
+          "default": true,
+          "name": "Solo herding melody",
+          "descriptors": [
+            "lonely",
+            "pastoral"
+          ],
+          "match_tokens": [
+            "pastoral",
+            "solo-melody"
+          ]
+        },
+        {
+          "id": "lekolulo_overblown",
+          "name": "Overblown harmonic calls",
+          "descriptors": [
+            "shrill",
+            "overtone-rich"
+          ],
+          "match_tokens": [
+            "overblown"
+          ]
+        }
+      ]
+    }
+  ]
+}

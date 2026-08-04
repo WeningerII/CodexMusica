@@ -1,0 +1,174 @@
+{
+  "id": "mangour_hoof_rattle",
+  "name": "Mangour (Sudanese goat-hoof dancer's rattle belt)",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "mangour",
+  "parts": [
+    {
+      "id": "mangour_material",
+      "name": "Rattle material",
+      "variants": [
+        {
+          "id": "mangour_hoof",
+          "default": true,
+          "name": "Goat-hoof belt (traditional)",
+          "descriptors": [
+            "clattering",
+            "dry-rattle",
+            "husky"
+          ],
+          "match_tokens": [
+            "rattle",
+            "sudanese",
+            "zar"
+          ]
+        },
+        {
+          "id": "mangour_shell",
+          "name": "Shell / seed-pod belt",
+          "descriptors": [
+            "shaker-like",
+            "hissing"
+          ],
+          "match_tokens": [
+            "rattle",
+            "shaken"
+          ]
+        },
+        {
+          "id": "mangour_metal",
+          "name": "Metal-jingle belt",
+          "descriptors": [
+            "jangling",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "rattle",
+            "jingling"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mangour_motion",
+      "name": "Dance motion",
+      "variants": [
+        {
+          "id": "mangour_hip",
+          "default": true,
+          "name": "Hip-shaking continuous pattern",
+          "descriptors": [
+            "continuous",
+            "swishing"
+          ],
+          "match_tokens": [
+            "shaken",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "mangour_accent",
+          "name": "Accented stamping punctuation",
+          "descriptors": [
+            "sharp-attack",
+            "punctuating"
+          ],
+          "match_tokens": [
+            "shaken",
+            "accented"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "mangour_material",
+      "name": "Rattle material",
+      "variants": [
+        {
+          "id": "mangour_hoof",
+          "default": true,
+          "name": "Goat-hoof belt (traditional)",
+          "descriptors": [
+            "clattering",
+            "dry-rattle",
+            "husky"
+          ],
+          "match_tokens": [
+            "rattle",
+            "sudanese",
+            "zar"
+          ]
+        },
+        {
+          "id": "mangour_shell",
+          "name": "Shell / seed-pod belt",
+          "descriptors": [
+            "shaker-like",
+            "hissing"
+          ],
+          "match_tokens": [
+            "rattle",
+            "shaken"
+          ]
+        },
+        {
+          "id": "mangour_metal",
+          "name": "Metal-jingle belt",
+          "descriptors": [
+            "jangling",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "rattle",
+            "jingling"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mangour_motion",
+      "name": "Dance motion",
+      "variants": [
+        {
+          "id": "mangour_hip",
+          "default": true,
+          "name": "Hip-shaking continuous pattern",
+          "descriptors": [
+            "continuous",
+            "swishing"
+          ],
+          "match_tokens": [
+            "shaken",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "mangour_accent",
+          "name": "Accented stamping punctuation",
+          "descriptors": [
+            "sharp-attack",
+            "punctuating"
+          ],
+          "match_tokens": [
+            "shaken",
+            "accented"
+          ]
+        }
+      ]
+    }
+  ]
+}

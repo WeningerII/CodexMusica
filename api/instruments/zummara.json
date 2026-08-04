@@ -1,0 +1,212 @@
+{
+  "id": "zummara",
+  "name": "Zummara (Egyptian double single-reed pipe)",
+  "family": "wind",
+  "class": "single_reed_double_clarinet",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": 1,
+    "range": -1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "zummara",
+  "parts": [
+    {
+      "id": "zummara_form",
+      "name": "Pipe configuration",
+      "variants": [
+        {
+          "id": "zummara_twin_melody",
+          "default": true,
+          "name": "Twin equal melody pipes (parallel fingering)",
+          "descriptors": [
+            "beating",
+            "reedy",
+            "thick"
+          ],
+          "match_tokens": [
+            "double-pipe",
+            "egyptian",
+            "single-reed"
+          ]
+        },
+        {
+          "id": "zummara_melody_drone",
+          "name": "Melody pipe with fewer-hole drone pipe",
+          "descriptors": [
+            "droning",
+            "continuous"
+          ],
+          "match_tokens": [
+            "double-pipe",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zummara_material",
+      "name": "Pipe material",
+      "variants": [
+        {
+          "id": "zummara_cane",
+          "default": true,
+          "name": "Cane pipes",
+          "descriptors": [
+            "rustic",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "cane"
+          ]
+        },
+        {
+          "id": "zummara_metal",
+          "name": "Metal-tube pipes (modern)",
+          "descriptors": [
+            "bright",
+            "harsh",
+            "loud"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zummara_breath",
+      "name": "Breath technique",
+      "variants": [
+        {
+          "id": "zummara_circular",
+          "default": true,
+          "name": "Circular breathing",
+          "descriptors": [
+            "seamless",
+            "relentless"
+          ],
+          "match_tokens": [
+            "blown",
+            "circular-breathing"
+          ]
+        },
+        {
+          "id": "zummara_phrased",
+          "name": "Phrased breathing",
+          "descriptors": [
+            "song-like",
+            "breathing-phrases"
+          ],
+          "match_tokens": [
+            "blown"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "zummara_form",
+      "name": "Pipe configuration",
+      "variants": [
+        {
+          "id": "zummara_twin_melody",
+          "default": true,
+          "name": "Twin equal melody pipes (parallel fingering)",
+          "descriptors": [
+            "beating",
+            "reedy",
+            "thick"
+          ],
+          "match_tokens": [
+            "double-pipe",
+            "egyptian",
+            "single-reed"
+          ]
+        },
+        {
+          "id": "zummara_melody_drone",
+          "name": "Melody pipe with fewer-hole drone pipe",
+          "descriptors": [
+            "droning",
+            "continuous"
+          ],
+          "match_tokens": [
+            "double-pipe",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zummara_material",
+      "name": "Pipe material",
+      "variants": [
+        {
+          "id": "zummara_cane",
+          "default": true,
+          "name": "Cane pipes",
+          "descriptors": [
+            "rustic",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "cane"
+          ]
+        },
+        {
+          "id": "zummara_metal",
+          "name": "Metal-tube pipes (modern)",
+          "descriptors": [
+            "bright",
+            "harsh",
+            "loud"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zummara_breath",
+      "name": "Breath technique",
+      "variants": [
+        {
+          "id": "zummara_circular",
+          "default": true,
+          "name": "Circular breathing",
+          "descriptors": [
+            "seamless",
+            "relentless"
+          ],
+          "match_tokens": [
+            "blown",
+            "circular-breathing"
+          ]
+        },
+        {
+          "id": "zummara_phrased",
+          "name": "Phrased breathing",
+          "descriptors": [
+            "song-like",
+            "breathing-phrases"
+          ],
+          "match_tokens": [
+            "blown"
+          ]
+        }
+      ]
+    }
+  ]
+}

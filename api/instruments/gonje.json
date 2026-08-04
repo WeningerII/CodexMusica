@@ -1,0 +1,253 @@
+{
+  "id": "gonje",
+  "name": "Gonje (Dagbamba one-string bowed spike fiddle)",
+  "family": "bowed",
+  "class": "bowed_spike_fiddle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "gonje",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "gonje_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "gonje_dagbamba",
+          "default": true,
+          "name": "Dagbamba gonje (Dagbon calabash-bodied, lizard-skin belly)",
+          "descriptors": [
+            "nasal-tone",
+            "reedy",
+            "voice-shadowing"
+          ],
+          "match_tokens": [
+            "spike-fiddle",
+            "northern-ghana"
+          ]
+        },
+        {
+          "id": "gonje_gonja",
+          "name": "Gonja gonje (court praise form)",
+          "descriptors": [
+            "declamatory",
+            "sustained"
+          ],
+          "match_tokens": [
+            "spike-fiddle",
+            "praise-music"
+          ]
+        },
+        {
+          "id": "gonje_goge_hausa",
+          "name": "Hausa-influenced goge form (larger gourd)",
+          "descriptors": [
+            "buzzing-timbre",
+            "piercing"
+          ],
+          "match_tokens": [
+            "spike-fiddle",
+            "hausa"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gonje_string",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "gonje_horsehair",
+          "default": true,
+          "name": "Twisted horsehair string and horsehair bow",
+          "descriptors": [
+            "grainy",
+            "rough-edged"
+          ],
+          "match_tokens": [
+            "horsehair-string"
+          ]
+        },
+        {
+          "id": "gonje_nylon",
+          "name": "Modern nylon string",
+          "descriptors": [
+            "smooth",
+            "bright-tone"
+          ],
+          "match_tokens": [
+            "nylon-string"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gonje_role",
+      "surface": false,
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "gonje_praise",
+          "default": true,
+          "name": "Praise-singing accompaniment (with singer)",
+          "descriptors": [
+            "voice-shadowing",
+            "melismatic"
+          ],
+          "match_tokens": [
+            "praise-music"
+          ]
+        },
+        {
+          "id": "gonje_ensemble",
+          "name": "Gonje ensemble with gourd rattles",
+          "descriptors": [
+            "driving",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "gonje_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "gonje_dagbamba",
+          "default": true,
+          "name": "Dagbamba gonje (Dagbon calabash-bodied, lizard-skin belly)",
+          "descriptors": [
+            "nasal-tone",
+            "reedy",
+            "voice-shadowing"
+          ],
+          "match_tokens": [
+            "spike-fiddle",
+            "northern-ghana"
+          ]
+        },
+        {
+          "id": "gonje_gonja",
+          "name": "Gonja gonje (court praise form)",
+          "descriptors": [
+            "declamatory",
+            "sustained"
+          ],
+          "match_tokens": [
+            "spike-fiddle",
+            "praise-music"
+          ]
+        },
+        {
+          "id": "gonje_goge_hausa",
+          "name": "Hausa-influenced goge form (larger gourd)",
+          "descriptors": [
+            "buzzing-timbre",
+            "piercing"
+          ],
+          "match_tokens": [
+            "spike-fiddle",
+            "hausa"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gonje_string",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "gonje_horsehair",
+          "default": true,
+          "name": "Twisted horsehair string and horsehair bow",
+          "descriptors": [
+            "grainy",
+            "rough-edged"
+          ],
+          "match_tokens": [
+            "horsehair-string"
+          ]
+        },
+        {
+          "id": "gonje_nylon",
+          "name": "Modern nylon string",
+          "descriptors": [
+            "smooth",
+            "bright-tone"
+          ],
+          "match_tokens": [
+            "nylon-string"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gonje_role",
+      "surface": false,
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "gonje_praise",
+          "default": true,
+          "name": "Praise-singing accompaniment (with singer)",
+          "descriptors": [
+            "voice-shadowing",
+            "melismatic"
+          ],
+          "match_tokens": [
+            "praise-music"
+          ]
+        },
+        {
+          "id": "gonje_ensemble",
+          "name": "Gonje ensemble with gourd rattles",
+          "descriptors": [
+            "driving",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ]
+}

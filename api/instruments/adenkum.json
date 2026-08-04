@@ -1,0 +1,146 @@
+{
+  "id": "adenkum",
+  "name": "Adenkum (Akan long-necked calabash vessel flute/percussion gourd)",
+  "family": "percussion",
+  "class": "struck_idiophone",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "adenkum",
+  "parts": [
+    {
+      "id": "adenkum_gourd",
+      "name": "Gourd form",
+      "variants": [
+        {
+          "id": "adenkum_long_neck",
+          "default": true,
+          "name": "Long-necked bottle calabash",
+          "descriptors": [
+            "hollow-boom",
+            "breathy-resonance"
+          ],
+          "match_tokens": [
+            "gourd",
+            "akan"
+          ]
+        },
+        {
+          "id": "adenkum_round",
+          "name": "Rounder short-necked gourd",
+          "descriptors": [
+            "deep-toned",
+            "muffled"
+          ],
+          "match_tokens": [
+            "gourd",
+            "ghana"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "adenkum_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "adenkum_struck",
+          "default": true,
+          "name": "Struck with palm while women sing",
+          "descriptors": [
+            "thumping",
+            "soft-attack"
+          ],
+          "match_tokens": [
+            "hand-percussion",
+            "women-song"
+          ]
+        },
+        {
+          "id": "adenkum_blown",
+          "name": "Blown across the neck opening",
+          "descriptors": [
+            "airy",
+            "low-hoot"
+          ],
+          "match_tokens": [
+            "vessel-flute",
+            "breathy"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "adenkum_gourd",
+      "name": "Gourd form",
+      "variants": [
+        {
+          "id": "adenkum_long_neck",
+          "default": true,
+          "name": "Long-necked bottle calabash",
+          "descriptors": [
+            "hollow-boom",
+            "breathy-resonance"
+          ],
+          "match_tokens": [
+            "gourd",
+            "akan"
+          ]
+        },
+        {
+          "id": "adenkum_round",
+          "name": "Rounder short-necked gourd",
+          "descriptors": [
+            "deep-toned",
+            "muffled"
+          ],
+          "match_tokens": [
+            "gourd",
+            "ghana"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "adenkum_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "adenkum_struck",
+          "default": true,
+          "name": "Struck with palm while women sing",
+          "descriptors": [
+            "thumping",
+            "soft-attack"
+          ],
+          "match_tokens": [
+            "hand-percussion",
+            "women-song"
+          ]
+        },
+        {
+          "id": "adenkum_blown",
+          "name": "Blown across the neck opening",
+          "descriptors": [
+            "airy",
+            "low-hoot"
+          ],
+          "match_tokens": [
+            "vessel-flute",
+            "breathy"
+          ]
+        }
+      ]
+    }
+  ]
+}

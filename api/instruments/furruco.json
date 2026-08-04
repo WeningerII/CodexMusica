@@ -1,0 +1,152 @@
+{
+  "id": "furruco",
+  "name": "Furruco (Venezuelan friction drum of the aguinaldo)",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": -2,
+    "range": -1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "furruco",
+  "parts": [
+    {
+      "id": "furruco_role",
+      "name": "Repertoire role",
+      "variants": [
+        {
+          "id": "furruco_aguinaldo",
+          "default": true,
+          "name": "Aguinaldo / parranda navideña bass pulse",
+          "descriptors": [
+            "growling",
+            "bass-heavy",
+            "pulsing"
+          ],
+          "match_tokens": [
+            "friction-drum",
+            "venezuelan",
+            "bass-foundation"
+          ]
+        },
+        {
+          "id": "furruco_gaita_zuliana",
+          "name": "Gaita zuliana groove",
+          "descriptors": [
+            "throbbing",
+            "insistent",
+            "earthy"
+          ],
+          "match_tokens": [
+            "friction-drum",
+            "gaita-zuliana"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "furruco_build",
+      "name": "Body and stick",
+      "variants": [
+        {
+          "id": "furruco_barrel",
+          "default": true,
+          "name": "Wooden barrel body with waxed cane rubbing stick",
+          "descriptors": [
+            "deep-toned",
+            "resonant",
+            "rough"
+          ],
+          "match_tokens": [
+            "friction-drum"
+          ]
+        },
+        {
+          "id": "furruco_tin",
+          "name": "Metal tin or drum-can body",
+          "descriptors": [
+            "nasal",
+            "tinny",
+            "raw"
+          ],
+          "match_tokens": [
+            "friction-drum"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "furruco_role",
+      "name": "Repertoire role",
+      "variants": [
+        {
+          "id": "furruco_aguinaldo",
+          "default": true,
+          "name": "Aguinaldo / parranda navideña bass pulse",
+          "descriptors": [
+            "growling",
+            "bass-heavy",
+            "pulsing"
+          ],
+          "match_tokens": [
+            "friction-drum",
+            "venezuelan",
+            "bass-foundation"
+          ]
+        },
+        {
+          "id": "furruco_gaita_zuliana",
+          "name": "Gaita zuliana groove",
+          "descriptors": [
+            "throbbing",
+            "insistent",
+            "earthy"
+          ],
+          "match_tokens": [
+            "friction-drum",
+            "gaita-zuliana"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "furruco_build",
+      "name": "Body and stick",
+      "variants": [
+        {
+          "id": "furruco_barrel",
+          "default": true,
+          "name": "Wooden barrel body with waxed cane rubbing stick",
+          "descriptors": [
+            "deep-toned",
+            "resonant",
+            "rough"
+          ],
+          "match_tokens": [
+            "friction-drum"
+          ]
+        },
+        {
+          "id": "furruco_tin",
+          "name": "Metal tin or drum-can body",
+          "descriptors": [
+            "nasal",
+            "tinny",
+            "raw"
+          ],
+          "match_tokens": [
+            "friction-drum"
+          ]
+        }
+      ]
+    }
+  ]
+}
