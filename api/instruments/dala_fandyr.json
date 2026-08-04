@@ -1,0 +1,144 @@
+{
+  "id": "dala_fandyr",
+  "name": "Dala-fandyr (Ossetian plucked three-string lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "dala-fandyr",
+  "parts": [
+    {
+      "id": "dala_fandyr_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "dala_fandyr_carved",
+          "default": true,
+          "name": "Single-block carved dala-fandyr with skin belly",
+          "descriptors": [
+            "dry",
+            "muted",
+            "archaic"
+          ],
+          "match_tokens": [
+            "plucked-lute",
+            "ossetian"
+          ]
+        },
+        {
+          "id": "dala_fandyr_wood",
+          "name": "Wood-bellied concert dala-fandyr",
+          "descriptors": [
+            "ringing",
+            "projecting"
+          ],
+          "match_tokens": [
+            "plucked-lute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dala_fandyr_style",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "dala_fandyr_song",
+          "default": true,
+          "name": "Nart-saga song accompaniment",
+          "descriptors": [
+            "supporting",
+            "recitative"
+          ],
+          "match_tokens": [
+            "accompaniment",
+            "epic"
+          ]
+        },
+        {
+          "id": "dala_fandyr_solo",
+          "name": "Solo instrumental tune",
+          "descriptors": [
+            "plinking",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "solo-melody"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dala_fandyr_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "dala_fandyr_carved",
+          "default": true,
+          "name": "Single-block carved dala-fandyr with skin belly",
+          "descriptors": [
+            "dry",
+            "muted",
+            "archaic"
+          ],
+          "match_tokens": [
+            "plucked-lute",
+            "ossetian"
+          ]
+        },
+        {
+          "id": "dala_fandyr_wood",
+          "name": "Wood-bellied concert dala-fandyr",
+          "descriptors": [
+            "ringing",
+            "projecting"
+          ],
+          "match_tokens": [
+            "plucked-lute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dala_fandyr_style",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "dala_fandyr_song",
+          "default": true,
+          "name": "Nart-saga song accompaniment",
+          "descriptors": [
+            "supporting",
+            "recitative"
+          ],
+          "match_tokens": [
+            "accompaniment",
+            "epic"
+          ]
+        },
+        {
+          "id": "dala_fandyr_solo",
+          "name": "Solo instrumental tune",
+          "descriptors": [
+            "plinking",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "solo-melody"
+          ]
+        }
+      ]
+    }
+  ]
+}

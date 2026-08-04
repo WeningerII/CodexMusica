@@ -1,0 +1,232 @@
+{
+  "id": "duduki_georgian",
+  "name": "Duduki (Georgian double-reed, Tbilisi urban form)",
+  "family": "wind",
+  "class": "double_reed",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "duduki",
+  "parts": [
+    {
+      "id": "duduki_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "duduki_lead",
+          "default": true,
+          "name": "Lead duduki (melody voice)",
+          "descriptors": [
+            "plaintive",
+            "voice-like",
+            "warm"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "georgian"
+          ]
+        },
+        {
+          "id": "duduki_dam",
+          "name": "Dam duduki (continuous drone)",
+          "descriptors": [
+            "droning",
+            "sustained"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "duduki_size",
+      "name": "Size / tuning",
+      "variants": [
+        {
+          "id": "duduki_a",
+          "default": true,
+          "name": "Standard A duduki (apricot wood)",
+          "descriptors": [
+            "mellow",
+            "dark-toned"
+          ],
+          "match_tokens": [
+            "double-reed"
+          ]
+        },
+        {
+          "id": "duduki_small",
+          "name": "Small high duduki",
+          "descriptors": [
+            "bright-tone",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "high-register"
+          ]
+        },
+        {
+          "id": "duduki_bass",
+          "name": "Large low duduki",
+          "descriptors": [
+            "deep-toned",
+            "breathy-tone"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "duduki_style",
+      "surface": false,
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "duduki_urban",
+          "default": true,
+          "name": "Tbilisi urban song / shakhruli",
+          "descriptors": [
+            "sentimental",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "urban",
+            "georgian"
+          ]
+        },
+        {
+          "id": "duduki_lament",
+          "name": "Funeral lament",
+          "descriptors": [
+            "mournful",
+            "rubato"
+          ],
+          "match_tokens": [
+            "lament"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "duduki_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "duduki_lead",
+          "default": true,
+          "name": "Lead duduki (melody voice)",
+          "descriptors": [
+            "plaintive",
+            "voice-like",
+            "warm"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "georgian"
+          ]
+        },
+        {
+          "id": "duduki_dam",
+          "name": "Dam duduki (continuous drone)",
+          "descriptors": [
+            "droning",
+            "sustained"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "duduki_size",
+      "name": "Size / tuning",
+      "variants": [
+        {
+          "id": "duduki_a",
+          "default": true,
+          "name": "Standard A duduki (apricot wood)",
+          "descriptors": [
+            "mellow",
+            "dark-toned"
+          ],
+          "match_tokens": [
+            "double-reed"
+          ]
+        },
+        {
+          "id": "duduki_small",
+          "name": "Small high duduki",
+          "descriptors": [
+            "bright-tone",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "high-register"
+          ]
+        },
+        {
+          "id": "duduki_bass",
+          "name": "Large low duduki",
+          "descriptors": [
+            "deep-toned",
+            "breathy-tone"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "duduki_style",
+      "surface": false,
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "duduki_urban",
+          "default": true,
+          "name": "Tbilisi urban song / shakhruli",
+          "descriptors": [
+            "sentimental",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "urban",
+            "georgian"
+          ]
+        },
+        {
+          "id": "duduki_lament",
+          "name": "Funeral lament",
+          "descriptors": [
+            "mournful",
+            "rubato"
+          ],
+          "match_tokens": [
+            "lament"
+          ]
+        }
+      ]
+    }
+  ]
+}

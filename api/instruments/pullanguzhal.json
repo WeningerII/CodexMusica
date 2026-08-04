@@ -1,0 +1,200 @@
+{
+  "id": "pullanguzhal",
+  "name": "Pullanguzhal (Tamil bamboo flute of Carnatic music)",
+  "family": "wind",
+  "class": "transverse_flute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 2,
+    "register": 1,
+    "range": 1,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "pullanguzhal",
+  "parts": [
+    {
+      "id": "pullanguzhal_holes",
+      "name": "Hole configuration",
+      "variants": [
+        {
+          "id": "pullanguzhal_eight_hole",
+          "default": true,
+          "name": "Eight finger-hole Tamil pullanguzhal (canonical)",
+          "descriptors": [
+            "sweet-toned",
+            "fluid",
+            "breathy"
+          ],
+          "match_tokens": [
+            "bamboo-flute",
+            "tamil"
+          ]
+        },
+        {
+          "id": "pullanguzhal_seven_hole",
+          "name": "Older seven-hole form",
+          "descriptors": [
+            "archaic",
+            "softer",
+            "limited-range"
+          ],
+          "match_tokens": [
+            "bamboo-flute",
+            "tamil"
+          ]
+        },
+        {
+          "id": "pullanguzhal_nine_hole",
+          "name": "Extended nine-hole (low-range extension)",
+          "descriptors": [
+            "wide-range",
+            "deep-lower-octave"
+          ],
+          "match_tokens": [
+            "bamboo-flute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pullanguzhal_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "pullanguzhal_temple",
+          "default": true,
+          "name": "Temple and devotional playing",
+          "descriptors": [
+            "plaintive",
+            "devotional",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bamboo-flute",
+            "devotional"
+          ]
+        },
+        {
+          "id": "pullanguzhal_concert",
+          "name": "Concert Carnatic solo",
+          "descriptors": [
+            "gamaka-rich",
+            "virtuosic"
+          ],
+          "match_tokens": [
+            "bamboo-flute",
+            "carnatic"
+          ]
+        },
+        {
+          "id": "pullanguzhal_folk",
+          "name": "Tamil folk / pastoral tunes",
+          "descriptors": [
+            "simple",
+            "lilting",
+            "open-toned"
+          ],
+          "match_tokens": [
+            "bamboo-flute",
+            "folk-melody"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "pullanguzhal_holes",
+      "name": "Hole configuration",
+      "variants": [
+        {
+          "id": "pullanguzhal_eight_hole",
+          "default": true,
+          "name": "Eight finger-hole Tamil pullanguzhal (canonical)",
+          "descriptors": [
+            "sweet-toned",
+            "fluid",
+            "breathy"
+          ],
+          "match_tokens": [
+            "bamboo-flute",
+            "tamil"
+          ]
+        },
+        {
+          "id": "pullanguzhal_seven_hole",
+          "name": "Older seven-hole form",
+          "descriptors": [
+            "archaic",
+            "softer",
+            "limited-range"
+          ],
+          "match_tokens": [
+            "bamboo-flute",
+            "tamil"
+          ]
+        },
+        {
+          "id": "pullanguzhal_nine_hole",
+          "name": "Extended nine-hole (low-range extension)",
+          "descriptors": [
+            "wide-range",
+            "deep-lower-octave"
+          ],
+          "match_tokens": [
+            "bamboo-flute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pullanguzhal_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "pullanguzhal_temple",
+          "default": true,
+          "name": "Temple and devotional playing",
+          "descriptors": [
+            "plaintive",
+            "devotional",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bamboo-flute",
+            "devotional"
+          ]
+        },
+        {
+          "id": "pullanguzhal_concert",
+          "name": "Concert Carnatic solo",
+          "descriptors": [
+            "gamaka-rich",
+            "virtuosic"
+          ],
+          "match_tokens": [
+            "bamboo-flute",
+            "carnatic"
+          ]
+        },
+        {
+          "id": "pullanguzhal_folk",
+          "name": "Tamil folk / pastoral tunes",
+          "descriptors": [
+            "simple",
+            "lilting",
+            "open-toned"
+          ],
+          "match_tokens": [
+            "bamboo-flute",
+            "folk-melody"
+          ]
+        }
+      ]
+    }
+  ]
+}

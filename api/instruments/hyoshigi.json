@@ -1,0 +1,176 @@
+{
+  "id": "hyoshigi",
+  "name": "Hyoshigi (Japanese hardwood clapper sticks)",
+  "family": "percussion",
+  "class": "concussion_idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "hyoshigi",
+  "parts": [
+    {
+      "id": "hyoshigi_wood",
+      "name": "Wood",
+      "variants": [
+        {
+          "id": "hyoshigi_oak",
+          "default": true,
+          "name": "White oak (kashi) blocks",
+          "descriptors": [
+            "sharp-crack",
+            "hard-toned",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "clappers",
+            "wood-block",
+            "japanese"
+          ]
+        },
+        {
+          "id": "hyoshigi_bamboo",
+          "name": "Bamboo clappers",
+          "descriptors": [
+            "dry-click",
+            "lighter-toned"
+          ],
+          "match_tokens": [
+            "clappers",
+            "bamboo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hyoshigi_stroke",
+      "name": "Stroke pattern",
+      "variants": [
+        {
+          "id": "hyoshigi_ki",
+          "default": true,
+          "name": "Ki single announcing strike (kabuki cue)",
+          "descriptors": [
+            "punctuating",
+            "startling"
+          ],
+          "match_tokens": [
+            "clappers",
+            "kabuki"
+          ]
+        },
+        {
+          "id": "hyoshigi_kizami",
+          "name": "Accelerating roll (kizami / batabata)",
+          "descriptors": [
+            "accelerating",
+            "clattering",
+            "dramatic"
+          ],
+          "match_tokens": [
+            "clappers",
+            "kabuki"
+          ]
+        },
+        {
+          "id": "hyoshigi_yobawari",
+          "name": "Slow night-watch beats (yobawari)",
+          "descriptors": [
+            "spaced",
+            "stark"
+          ],
+          "match_tokens": [
+            "clappers",
+            "street"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "hyoshigi_wood",
+      "name": "Wood",
+      "variants": [
+        {
+          "id": "hyoshigi_oak",
+          "default": true,
+          "name": "White oak (kashi) blocks",
+          "descriptors": [
+            "sharp-crack",
+            "hard-toned",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "clappers",
+            "wood-block",
+            "japanese"
+          ]
+        },
+        {
+          "id": "hyoshigi_bamboo",
+          "name": "Bamboo clappers",
+          "descriptors": [
+            "dry-click",
+            "lighter-toned"
+          ],
+          "match_tokens": [
+            "clappers",
+            "bamboo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hyoshigi_stroke",
+      "name": "Stroke pattern",
+      "variants": [
+        {
+          "id": "hyoshigi_ki",
+          "default": true,
+          "name": "Ki single announcing strike (kabuki cue)",
+          "descriptors": [
+            "punctuating",
+            "startling"
+          ],
+          "match_tokens": [
+            "clappers",
+            "kabuki"
+          ]
+        },
+        {
+          "id": "hyoshigi_kizami",
+          "name": "Accelerating roll (kizami / batabata)",
+          "descriptors": [
+            "accelerating",
+            "clattering",
+            "dramatic"
+          ],
+          "match_tokens": [
+            "clappers",
+            "kabuki"
+          ]
+        },
+        {
+          "id": "hyoshigi_yobawari",
+          "name": "Slow night-watch beats (yobawari)",
+          "descriptors": [
+            "spaced",
+            "stark"
+          ],
+          "match_tokens": [
+            "clappers",
+            "street"
+          ]
+        }
+      ]
+    }
+  ]
+}

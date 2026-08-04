@@ -1,0 +1,146 @@
+{
+  "id": "shan_koobyz",
+  "name": "Shan-qobyz (Kazakh metal jaw harp)",
+  "family": "plucked_traditional",
+  "class": "jaw_harp",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 0,
+    "polyphony": -1,
+    "harmonicity": -2,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -2
+  },
+  "short": "shan-qobyz",
+  "parts": [
+    {
+      "id": "shan_material",
+      "name": "Frame material",
+      "variants": [
+        {
+          "id": "shan_steel",
+          "default": true,
+          "name": "Forged steel bow-frame harp",
+          "descriptors": [
+            "twanging",
+            "metallic",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "kazakh"
+          ]
+        },
+        {
+          "id": "shan_bronze",
+          "name": "Bronze frame",
+          "descriptors": [
+            "mellow-buzz",
+            "dark"
+          ],
+          "match_tokens": [
+            "jaw-harp"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shan_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "shan_breath",
+          "default": true,
+          "name": "Breath-and-vowel overtone shaping",
+          "descriptors": [
+            "overtone-rich",
+            "whispery"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "overtone"
+          ]
+        },
+        {
+          "id": "shan_gallop",
+          "name": "Galloping-horse imitation",
+          "descriptors": [
+            "pulsing",
+            "imitative"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "shan_material",
+      "name": "Frame material",
+      "variants": [
+        {
+          "id": "shan_steel",
+          "default": true,
+          "name": "Forged steel bow-frame harp",
+          "descriptors": [
+            "twanging",
+            "metallic",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "kazakh"
+          ]
+        },
+        {
+          "id": "shan_bronze",
+          "name": "Bronze frame",
+          "descriptors": [
+            "mellow-buzz",
+            "dark"
+          ],
+          "match_tokens": [
+            "jaw-harp"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shan_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "shan_breath",
+          "default": true,
+          "name": "Breath-and-vowel overtone shaping",
+          "descriptors": [
+            "overtone-rich",
+            "whispery"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "overtone"
+          ]
+        },
+        {
+          "id": "shan_gallop",
+          "name": "Galloping-horse imitation",
+          "descriptors": [
+            "pulsing",
+            "imitative"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ]
+}

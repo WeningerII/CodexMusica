@@ -1,0 +1,152 @@
+{
+  "id": "pyeongyeong",
+  "name": "Pyeongyeong (Korean set of 16 tuned stone chimes)",
+  "family": "percussion",
+  "class": "tuned_idiophone",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 0,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "pyeongyeong",
+  "parts": [
+    {
+      "id": "pyeongyeong_stone",
+      "name": "Chime stone",
+      "variants": [
+        {
+          "id": "pyeongyeong_jade",
+          "default": true,
+          "name": "L-shaped jade/limestone slabs (16, two rows)",
+          "descriptors": [
+            "glassy-ping",
+            "cold",
+            "clear"
+          ],
+          "match_tokens": [
+            "stone-chime",
+            "korean",
+            "court-music"
+          ]
+        },
+        {
+          "id": "pyeongyeong_teukgyeong",
+          "name": "Teukgyeong (single large stone chime)",
+          "descriptors": [
+            "solitary",
+            "deep-ping",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "stone-chime",
+            "ritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pyeongyeong_mallet",
+      "name": "Mallet",
+      "variants": [
+        {
+          "id": "pyeongyeong_horn",
+          "default": true,
+          "name": "Ox-horn mallet",
+          "descriptors": [
+            "hard-attack",
+            "pure-ping"
+          ],
+          "match_tokens": [
+            "struck",
+            "bright-attack"
+          ]
+        },
+        {
+          "id": "pyeongyeong_soft",
+          "name": "Softer padded mallet",
+          "descriptors": [
+            "rounded-attack",
+            "mellow"
+          ],
+          "match_tokens": [
+            "struck",
+            "soft-attack"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "pyeongyeong_stone",
+      "name": "Chime stone",
+      "variants": [
+        {
+          "id": "pyeongyeong_jade",
+          "default": true,
+          "name": "L-shaped jade/limestone slabs (16, two rows)",
+          "descriptors": [
+            "glassy-ping",
+            "cold",
+            "clear"
+          ],
+          "match_tokens": [
+            "stone-chime",
+            "korean",
+            "court-music"
+          ]
+        },
+        {
+          "id": "pyeongyeong_teukgyeong",
+          "name": "Teukgyeong (single large stone chime)",
+          "descriptors": [
+            "solitary",
+            "deep-ping",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "stone-chime",
+            "ritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pyeongyeong_mallet",
+      "name": "Mallet",
+      "variants": [
+        {
+          "id": "pyeongyeong_horn",
+          "default": true,
+          "name": "Ox-horn mallet",
+          "descriptors": [
+            "hard-attack",
+            "pure-ping"
+          ],
+          "match_tokens": [
+            "struck",
+            "bright-attack"
+          ]
+        },
+        {
+          "id": "pyeongyeong_soft",
+          "name": "Softer padded mallet",
+          "descriptors": [
+            "rounded-attack",
+            "mellow"
+          ],
+          "match_tokens": [
+            "struck",
+            "soft-attack"
+          ]
+        }
+      ]
+    }
+  ]
+}

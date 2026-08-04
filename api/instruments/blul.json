@@ -1,0 +1,194 @@
+{
+  "id": "blul",
+  "name": "Blul (Armenian shepherd's end-blown flute)",
+  "family": "wind",
+  "class": "end_blown_flute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "blul",
+  "parts": [
+    {
+      "id": "blul_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "blul_apricot",
+          "default": true,
+          "name": "Apricot-wood blul (standard shepherd's flute)",
+          "descriptors": [
+            "breathy-tone",
+            "plaintive",
+            "airy"
+          ],
+          "match_tokens": [
+            "end-blown-flute",
+            "armenian"
+          ]
+        },
+        {
+          "id": "blul_pku",
+          "name": "Pku-style short blul (higher, brighter)",
+          "descriptors": [
+            "bright-attack",
+            "piercing"
+          ],
+          "match_tokens": [
+            "end-blown-flute",
+            "high-register"
+          ]
+        },
+        {
+          "id": "blul_cane",
+          "name": "Cane / reed-tube blul (archaic pastoral)",
+          "descriptors": [
+            "rustic",
+            "hissing-air"
+          ],
+          "match_tokens": [
+            "end-blown-flute",
+            "pastoral"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "blul_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "blul_pastoral",
+          "default": true,
+          "name": "Free-rhythm pastoral melody",
+          "descriptors": [
+            "rubato",
+            "melismatic"
+          ],
+          "match_tokens": [
+            "solo-melody",
+            "armenian"
+          ]
+        },
+        {
+          "id": "blul_dance",
+          "name": "Dance-tune playing",
+          "descriptors": [
+            "driving",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "blul_breath",
+          "name": "Breath-vibrato lament",
+          "descriptors": [
+            "quavering",
+            "mournful"
+          ],
+          "match_tokens": [
+            "lament",
+            "expressive"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "blul_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "blul_apricot",
+          "default": true,
+          "name": "Apricot-wood blul (standard shepherd's flute)",
+          "descriptors": [
+            "breathy-tone",
+            "plaintive",
+            "airy"
+          ],
+          "match_tokens": [
+            "end-blown-flute",
+            "armenian"
+          ]
+        },
+        {
+          "id": "blul_pku",
+          "name": "Pku-style short blul (higher, brighter)",
+          "descriptors": [
+            "bright-attack",
+            "piercing"
+          ],
+          "match_tokens": [
+            "end-blown-flute",
+            "high-register"
+          ]
+        },
+        {
+          "id": "blul_cane",
+          "name": "Cane / reed-tube blul (archaic pastoral)",
+          "descriptors": [
+            "rustic",
+            "hissing-air"
+          ],
+          "match_tokens": [
+            "end-blown-flute",
+            "pastoral"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "blul_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "blul_pastoral",
+          "default": true,
+          "name": "Free-rhythm pastoral melody",
+          "descriptors": [
+            "rubato",
+            "melismatic"
+          ],
+          "match_tokens": [
+            "solo-melody",
+            "armenian"
+          ]
+        },
+        {
+          "id": "blul_dance",
+          "name": "Dance-tune playing",
+          "descriptors": [
+            "driving",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "blul_breath",
+          "name": "Breath-vibrato lament",
+          "descriptors": [
+            "quavering",
+            "mournful"
+          ],
+          "match_tokens": [
+            "lament",
+            "expressive"
+          ]
+        }
+      ]
+    }
+  ]
+}

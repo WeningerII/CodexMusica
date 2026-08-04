@@ -1,0 +1,168 @@
+{
+  "id": "nay_tajik",
+  "name": "Nay tajik (Tajik/Badakhshan reed flute)",
+  "family": "wind",
+  "class": "end_blown_flute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "tajik nay",
+  "parts": [
+    {
+      "id": "nay_tajik_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "nay_tajik_reed",
+          "default": true,
+          "name": "Cane reed nay (end-blown, oblique embouchure)",
+          "descriptors": [
+            "breathy-tone",
+            "airy",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "end-blown-flute",
+            "tajik"
+          ]
+        },
+        {
+          "id": "nay_tajik_wood",
+          "name": "Wooden nay (turned, sturdier)",
+          "descriptors": [
+            "focused",
+            "warm"
+          ],
+          "match_tokens": [
+            "end-blown-flute"
+          ]
+        },
+        {
+          "id": "nay_tajik_metal",
+          "name": "Metal-tube nay (modern)",
+          "descriptors": [
+            "bright-tone",
+            "clean"
+          ],
+          "match_tokens": [
+            "end-blown-flute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nay_tajik_style",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "nay_tajik_falak",
+          "default": true,
+          "name": "Falak / free-rhythm mountain melody",
+          "descriptors": [
+            "rubato",
+            "mournful"
+          ],
+          "match_tokens": [
+            "solo-melody",
+            "lament"
+          ]
+        },
+        {
+          "id": "nay_tajik_shashmaqom",
+          "name": "Shashmaqom ensemble line",
+          "descriptors": [
+            "ornamented",
+            "sustained"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "classical"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "nay_tajik_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "nay_tajik_reed",
+          "default": true,
+          "name": "Cane reed nay (end-blown, oblique embouchure)",
+          "descriptors": [
+            "breathy-tone",
+            "airy",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "end-blown-flute",
+            "tajik"
+          ]
+        },
+        {
+          "id": "nay_tajik_wood",
+          "name": "Wooden nay (turned, sturdier)",
+          "descriptors": [
+            "focused",
+            "warm"
+          ],
+          "match_tokens": [
+            "end-blown-flute"
+          ]
+        },
+        {
+          "id": "nay_tajik_metal",
+          "name": "Metal-tube nay (modern)",
+          "descriptors": [
+            "bright-tone",
+            "clean"
+          ],
+          "match_tokens": [
+            "end-blown-flute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nay_tajik_style",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "nay_tajik_falak",
+          "default": true,
+          "name": "Falak / free-rhythm mountain melody",
+          "descriptors": [
+            "rubato",
+            "mournful"
+          ],
+          "match_tokens": [
+            "solo-melody",
+            "lament"
+          ]
+        },
+        {
+          "id": "nay_tajik_shashmaqom",
+          "name": "Shashmaqom ensemble line",
+          "descriptors": [
+            "ornamented",
+            "sustained"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "classical"
+          ]
+        }
+      ]
+    }
+  ]
+}

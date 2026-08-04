@@ -1,0 +1,167 @@
+{
+  "id": "spinet_keyboard",
+  "name": "Spinet (bentside plucked keyboard)",
+  "family": "keyboard",
+  "class": "keyboard_acoustic",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 0,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "spinet",
+  "parts": [
+    {
+      "id": "keyboard_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "keyboard_block_chord_pop",
+          "default": true,
+          "name": "Block-chord pop",
+          "descriptors": [
+            "block-chord"
+          ],
+          "match_tokens": [
+            "chordal",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "pop",
+            "singer-songwriter"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "spinet_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "spinet_bentside",
+          "default": true,
+          "name": "English bentside spinet",
+          "descriptors": [
+            "clear-pluck",
+            "light-toned"
+          ],
+          "match_tokens": [
+            "plucked-keyboard",
+            "domestic"
+          ]
+        },
+        {
+          "id": "spinet_italian",
+          "name": "Italian polygonal spinetta",
+          "descriptors": [
+            "nasal",
+            "quick-speaking"
+          ],
+          "match_tokens": [
+            "plucked-keyboard",
+            "italian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "spinet_plectra",
+      "surface": false,
+      "name": "Plectrum material",
+      "variants": [
+        {
+          "id": "spinet_quill",
+          "default": true,
+          "name": "Quill plectra",
+          "descriptors": [
+            "crisp-pluck",
+            "incisive"
+          ],
+          "match_tokens": [
+            "plucked-keyboard"
+          ]
+        },
+        {
+          "id": "spinet_leather",
+          "name": "Leather plectra",
+          "descriptors": [
+            "mellow",
+            "soft-attack"
+          ],
+          "match_tokens": [
+            "plucked-keyboard"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "spinet_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "spinet_bentside",
+          "default": true,
+          "name": "English bentside spinet",
+          "descriptors": [
+            "clear-pluck",
+            "light-toned"
+          ],
+          "match_tokens": [
+            "plucked-keyboard",
+            "domestic"
+          ]
+        },
+        {
+          "id": "spinet_italian",
+          "name": "Italian polygonal spinetta",
+          "descriptors": [
+            "nasal",
+            "quick-speaking"
+          ],
+          "match_tokens": [
+            "plucked-keyboard",
+            "italian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "spinet_plectra",
+      "surface": false,
+      "name": "Plectrum material",
+      "variants": [
+        {
+          "id": "spinet_quill",
+          "default": true,
+          "name": "Quill plectra",
+          "descriptors": [
+            "crisp-pluck",
+            "incisive"
+          ],
+          "match_tokens": [
+            "plucked-keyboard"
+          ]
+        },
+        {
+          "id": "spinet_leather",
+          "name": "Leather plectra",
+          "descriptors": [
+            "mellow",
+            "soft-attack"
+          ],
+          "match_tokens": [
+            "plucked-keyboard"
+          ]
+        }
+      ]
+    }
+  ]
+}

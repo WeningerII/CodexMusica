@@ -1,0 +1,144 @@
+{
+  "id": "aiumaa",
+  "name": "Aiumaa (Abkhaz arched harp)",
+  "family": "plucked_traditional",
+  "class": "arched_harp",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "aiumaa",
+  "parts": [
+    {
+      "id": "aiumaa_size",
+      "name": "Size / string count",
+      "variants": [
+        {
+          "id": "aiumaa_14",
+          "default": true,
+          "name": "Fourteen-string aiumaa (traditional)",
+          "descriptors": [
+            "shimmering",
+            "soft-plucked",
+            "archaic"
+          ],
+          "match_tokens": [
+            "arched-harp",
+            "abkhaz"
+          ]
+        },
+        {
+          "id": "aiumaa_small",
+          "name": "Small six-string aiumaa",
+          "descriptors": [
+            "intimate",
+            "dry"
+          ],
+          "match_tokens": [
+            "arched-harp"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aiumaa_style",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "aiumaa_song",
+          "default": true,
+          "name": "Heroic song accompaniment",
+          "descriptors": [
+            "supporting",
+            "rippling"
+          ],
+          "match_tokens": [
+            "accompaniment",
+            "epic"
+          ]
+        },
+        {
+          "id": "aiumaa_solo",
+          "name": "Solo instrumental piece",
+          "descriptors": [
+            "lyrical",
+            "sparse"
+          ],
+          "match_tokens": [
+            "solo-melody"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "aiumaa_size",
+      "name": "Size / string count",
+      "variants": [
+        {
+          "id": "aiumaa_14",
+          "default": true,
+          "name": "Fourteen-string aiumaa (traditional)",
+          "descriptors": [
+            "shimmering",
+            "soft-plucked",
+            "archaic"
+          ],
+          "match_tokens": [
+            "arched-harp",
+            "abkhaz"
+          ]
+        },
+        {
+          "id": "aiumaa_small",
+          "name": "Small six-string aiumaa",
+          "descriptors": [
+            "intimate",
+            "dry"
+          ],
+          "match_tokens": [
+            "arched-harp"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aiumaa_style",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "aiumaa_song",
+          "default": true,
+          "name": "Heroic song accompaniment",
+          "descriptors": [
+            "supporting",
+            "rippling"
+          ],
+          "match_tokens": [
+            "accompaniment",
+            "epic"
+          ]
+        },
+        {
+          "id": "aiumaa_solo",
+          "name": "Solo instrumental piece",
+          "descriptors": [
+            "lyrical",
+            "sparse"
+          ],
+          "match_tokens": [
+            "solo-melody"
+          ]
+        }
+      ]
+    }
+  ]
+}

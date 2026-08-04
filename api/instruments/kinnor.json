@@ -1,0 +1,156 @@
+{
+  "id": "kinnor",
+  "name": "Kinnor (biblical Hebrew lyre of David)",
+  "family": "plucked_traditional",
+  "class": "plucked_lyre",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "kinnor",
+  "parts": [
+    {
+      "id": "kinnor_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "kinnor_asymmetric",
+          "default": true,
+          "name": "Asymmetric-armed Levantine lyre",
+          "descriptors": [
+            "clear",
+            "ringing",
+            "archaic"
+          ],
+          "match_tokens": [
+            "lyre",
+            "hebrew",
+            "plucked"
+          ]
+        },
+        {
+          "id": "kinnor_symmetric",
+          "name": "Symmetric box lyre (Judean coin type)",
+          "descriptors": [
+            "even-toned",
+            "bright",
+            "balanced"
+          ],
+          "match_tokens": [
+            "lyre",
+            "hebrew"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kinnor_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "kinnor_plectrum",
+          "default": true,
+          "name": "Plectrum strum with damping",
+          "descriptors": [
+            "bright-attack",
+            "chordal",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "plectrum",
+            "strummed"
+          ]
+        },
+        {
+          "id": "kinnor_fingers",
+          "name": "Finger-plucked psalm accompaniment",
+          "descriptors": [
+            "gentle",
+            "intimate",
+            "speech-following"
+          ],
+          "match_tokens": [
+            "finger-plucked",
+            "song-accompaniment"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kinnor_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "kinnor_asymmetric",
+          "default": true,
+          "name": "Asymmetric-armed Levantine lyre",
+          "descriptors": [
+            "clear",
+            "ringing",
+            "archaic"
+          ],
+          "match_tokens": [
+            "lyre",
+            "hebrew",
+            "plucked"
+          ]
+        },
+        {
+          "id": "kinnor_symmetric",
+          "name": "Symmetric box lyre (Judean coin type)",
+          "descriptors": [
+            "even-toned",
+            "bright",
+            "balanced"
+          ],
+          "match_tokens": [
+            "lyre",
+            "hebrew"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kinnor_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "kinnor_plectrum",
+          "default": true,
+          "name": "Plectrum strum with damping",
+          "descriptors": [
+            "bright-attack",
+            "chordal",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "plectrum",
+            "strummed"
+          ]
+        },
+        {
+          "id": "kinnor_fingers",
+          "name": "Finger-plucked psalm accompaniment",
+          "descriptors": [
+            "gentle",
+            "intimate",
+            "speech-following"
+          ],
+          "match_tokens": [
+            "finger-plucked",
+            "song-accompaniment"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,178 @@
+{
+  "id": "shime_daiko",
+  "name": "Shime-daiko (rope-tensioned high-pitched Japanese drum)",
+  "family": "percussion",
+  "class": "double_headed_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 1,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "shime-daiko",
+  "parts": [
+    {
+      "id": "shime_daiko_tension",
+      "name": "Tension grade",
+      "variants": [
+        {
+          "id": "shime_daiko_namitsuke",
+          "default": true,
+          "name": "Namitsuke (standard tension, hayashi use)",
+          "descriptors": [
+            "crisp",
+            "cutting",
+            "dry-attack"
+          ],
+          "match_tokens": [
+            "taiko",
+            "japanese",
+            "rope-tensioned"
+          ]
+        },
+        {
+          "id": "shime_daiko_gochou",
+          "name": "Go-chou (heavy tension, kumi-daiko)",
+          "descriptors": [
+            "very-high-pitched",
+            "snapping",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "taiko",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "shime_daiko_noh",
+          "name": "Taiko of the noh hayashi (loose, patch-headed)",
+          "descriptors": [
+            "dry",
+            "hollow",
+            "ritualized"
+          ],
+          "match_tokens": [
+            "taiko",
+            "noh"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shime_daiko_hardware",
+      "name": "Tensioning hardware",
+      "variants": [
+        {
+          "id": "shime_daiko_rope",
+          "default": true,
+          "name": "Rope-laced tension",
+          "descriptors": [
+            "organic",
+            "subtly-uneven"
+          ],
+          "match_tokens": [
+            "taiko",
+            "rope-tensioned"
+          ]
+        },
+        {
+          "id": "shime_daiko_bolt",
+          "name": "Bolt-tuned shell",
+          "descriptors": [
+            "consistent",
+            "tight",
+            "modern"
+          ],
+          "match_tokens": [
+            "taiko"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "shime_daiko_tension",
+      "name": "Tension grade",
+      "variants": [
+        {
+          "id": "shime_daiko_namitsuke",
+          "default": true,
+          "name": "Namitsuke (standard tension, hayashi use)",
+          "descriptors": [
+            "crisp",
+            "cutting",
+            "dry-attack"
+          ],
+          "match_tokens": [
+            "taiko",
+            "japanese",
+            "rope-tensioned"
+          ]
+        },
+        {
+          "id": "shime_daiko_gochou",
+          "name": "Go-chou (heavy tension, kumi-daiko)",
+          "descriptors": [
+            "very-high-pitched",
+            "snapping",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "taiko",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "shime_daiko_noh",
+          "name": "Taiko of the noh hayashi (loose, patch-headed)",
+          "descriptors": [
+            "dry",
+            "hollow",
+            "ritualized"
+          ],
+          "match_tokens": [
+            "taiko",
+            "noh"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shime_daiko_hardware",
+      "name": "Tensioning hardware",
+      "variants": [
+        {
+          "id": "shime_daiko_rope",
+          "default": true,
+          "name": "Rope-laced tension",
+          "descriptors": [
+            "organic",
+            "subtly-uneven"
+          ],
+          "match_tokens": [
+            "taiko",
+            "rope-tensioned"
+          ]
+        },
+        {
+          "id": "shime_daiko_bolt",
+          "name": "Bolt-tuned shell",
+          "descriptors": [
+            "consistent",
+            "tight",
+            "modern"
+          ],
+          "match_tokens": [
+            "taiko"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,216 @@
+{
+  "id": "gambang_bali",
+  "name": "Gambang Bali (Balinese sacred wooden-keyed xylophone)",
+  "family": "percussion",
+  "class": "tuned_percussion",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "gambang bali",
+  "parts": [
+    {
+      "id": "gambang_bali_keys",
+      "name": "Key material",
+      "variants": [
+        {
+          "id": "gambang_bali_bamboo_keys",
+          "default": true,
+          "name": "Fourteen bamboo keys over a carved wooden trough (canonical gamelan gambang)",
+          "descriptors": [
+            "woody",
+            "dry",
+            "hollow"
+          ],
+          "match_tokens": [
+            "xylophone",
+            "balinese"
+          ]
+        },
+        {
+          "id": "gambang_bali_hardwood_keys",
+          "name": "Hardwood (jackfruit) keys",
+          "descriptors": [
+            "clear-strike",
+            "brighter"
+          ],
+          "match_tokens": [
+            "xylophone",
+            "balinese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gambang_bali_mallet",
+      "name": "Mallet",
+      "variants": [
+        {
+          "id": "gambang_bali_forked_panggul",
+          "default": true,
+          "name": "Paired two-pronged forked panggul (octave kempyung strokes)",
+          "descriptors": [
+            "clattering",
+            "interlocking",
+            "percussive"
+          ],
+          "match_tokens": [
+            "xylophone",
+            "balinese"
+          ]
+        },
+        {
+          "id": "gambang_bali_single_mallet",
+          "name": "Single-headed wooden mallets",
+          "descriptors": [
+            "clean-attack",
+            "sparse"
+          ],
+          "match_tokens": [
+            "xylophone",
+            "balinese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gambang_bali_context",
+      "surface": false,
+      "name": "Ritual context",
+      "variants": [
+        {
+          "id": "gambang_bali_pitra_yadnya",
+          "default": true,
+          "name": "Pitra yadnya cremation-rite ensemble (canonical)",
+          "descriptors": [
+            "ceremonial",
+            "archaic",
+            "cyclic"
+          ],
+          "match_tokens": [
+            "balinese",
+            "ritual"
+          ]
+        },
+        {
+          "id": "gambang_bali_temple",
+          "name": "Temple odalan performance",
+          "descriptors": [
+            "flowing",
+            "meditative"
+          ],
+          "match_tokens": [
+            "balinese",
+            "ritual"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "gambang_bali_keys",
+      "name": "Key material",
+      "variants": [
+        {
+          "id": "gambang_bali_bamboo_keys",
+          "default": true,
+          "name": "Fourteen bamboo keys over a carved wooden trough (canonical gamelan gambang)",
+          "descriptors": [
+            "woody",
+            "dry",
+            "hollow"
+          ],
+          "match_tokens": [
+            "xylophone",
+            "balinese"
+          ]
+        },
+        {
+          "id": "gambang_bali_hardwood_keys",
+          "name": "Hardwood (jackfruit) keys",
+          "descriptors": [
+            "clear-strike",
+            "brighter"
+          ],
+          "match_tokens": [
+            "xylophone",
+            "balinese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gambang_bali_mallet",
+      "name": "Mallet",
+      "variants": [
+        {
+          "id": "gambang_bali_forked_panggul",
+          "default": true,
+          "name": "Paired two-pronged forked panggul (octave kempyung strokes)",
+          "descriptors": [
+            "clattering",
+            "interlocking",
+            "percussive"
+          ],
+          "match_tokens": [
+            "xylophone",
+            "balinese"
+          ]
+        },
+        {
+          "id": "gambang_bali_single_mallet",
+          "name": "Single-headed wooden mallets",
+          "descriptors": [
+            "clean-attack",
+            "sparse"
+          ],
+          "match_tokens": [
+            "xylophone",
+            "balinese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gambang_bali_context",
+      "surface": false,
+      "name": "Ritual context",
+      "variants": [
+        {
+          "id": "gambang_bali_pitra_yadnya",
+          "default": true,
+          "name": "Pitra yadnya cremation-rite ensemble (canonical)",
+          "descriptors": [
+            "ceremonial",
+            "archaic",
+            "cyclic"
+          ],
+          "match_tokens": [
+            "balinese",
+            "ritual"
+          ]
+        },
+        {
+          "id": "gambang_bali_temple",
+          "name": "Temple odalan performance",
+          "descriptors": [
+            "flowing",
+            "meditative"
+          ],
+          "match_tokens": [
+            "balinese",
+            "ritual"
+          ]
+        }
+      ]
+    }
+  ]
+}

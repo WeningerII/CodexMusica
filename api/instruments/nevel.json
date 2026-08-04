@@ -1,0 +1,182 @@
+{
+  "id": "nevel",
+  "name": "Nevel (biblical Hebrew harp/large lyre)",
+  "family": "acoustic_strings",
+  "class": "plucked_harp",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "nevel",
+  "parts": [
+    {
+      "id": "nevel_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "nevel_harp",
+          "default": true,
+          "name": "Angular harp form with skin-covered belly",
+          "descriptors": [
+            "deep-toned",
+            "sonorous",
+            "full"
+          ],
+          "match_tokens": [
+            "harp",
+            "hebrew",
+            "temple-music"
+          ]
+        },
+        {
+          "id": "nevel_bass_lyre",
+          "name": "Large bass lyre form",
+          "descriptors": [
+            "woody",
+            "booming",
+            "archaic"
+          ],
+          "match_tokens": [
+            "lyre",
+            "hebrew"
+          ]
+        },
+        {
+          "id": "nevel_asor",
+          "name": "Nevel asor (ten-string)",
+          "descriptors": [
+            "ringing",
+            "open-toned",
+            "psalmodic"
+          ],
+          "match_tokens": [
+            "ten-string",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nevel_context",
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "nevel_temple",
+          "default": true,
+          "name": "Levite temple psalmody",
+          "descriptors": [
+            "solemn",
+            "sustaining",
+            "antiphonal"
+          ],
+          "match_tokens": [
+            "temple-music",
+            "song-accompaniment"
+          ]
+        },
+        {
+          "id": "nevel_procession",
+          "name": "Festal procession",
+          "descriptors": [
+            "joyful",
+            "strummed",
+            "carrying"
+          ],
+          "match_tokens": [
+            "procession",
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "nevel_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "nevel_harp",
+          "default": true,
+          "name": "Angular harp form with skin-covered belly",
+          "descriptors": [
+            "deep-toned",
+            "sonorous",
+            "full"
+          ],
+          "match_tokens": [
+            "harp",
+            "hebrew",
+            "temple-music"
+          ]
+        },
+        {
+          "id": "nevel_bass_lyre",
+          "name": "Large bass lyre form",
+          "descriptors": [
+            "woody",
+            "booming",
+            "archaic"
+          ],
+          "match_tokens": [
+            "lyre",
+            "hebrew"
+          ]
+        },
+        {
+          "id": "nevel_asor",
+          "name": "Nevel asor (ten-string)",
+          "descriptors": [
+            "ringing",
+            "open-toned",
+            "psalmodic"
+          ],
+          "match_tokens": [
+            "ten-string",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nevel_context",
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "nevel_temple",
+          "default": true,
+          "name": "Levite temple psalmody",
+          "descriptors": [
+            "solemn",
+            "sustaining",
+            "antiphonal"
+          ],
+          "match_tokens": [
+            "temple-music",
+            "song-accompaniment"
+          ]
+        },
+        {
+          "id": "nevel_procession",
+          "name": "Festal procession",
+          "descriptors": [
+            "joyful",
+            "strummed",
+            "carrying"
+          ],
+          "match_tokens": [
+            "procession",
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

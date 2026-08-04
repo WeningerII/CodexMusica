@@ -1,0 +1,193 @@
+{
+  "id": "ghijak_pamiri",
+  "name": "Ghijak pamiri (Pamiri spike fiddle)",
+  "family": "bowed",
+  "class": "bowed_spike_fiddle",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "pamiri ghijak",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "ghijak_pamiri_body",
+      "name": "Body / resonator",
+      "variants": [
+        {
+          "id": "ghijak_pamiri_gourd",
+          "default": true,
+          "name": "Gourd body with skin belly",
+          "descriptors": [
+            "nasal",
+            "buzzing-timbre",
+            "archaic"
+          ],
+          "match_tokens": [
+            "spike-fiddle",
+            "pamiri"
+          ]
+        },
+        {
+          "id": "ghijak_pamiri_tin",
+          "name": "Metal-can resonator (highland improvised)",
+          "descriptors": [
+            "metallic",
+            "edgy"
+          ],
+          "match_tokens": [
+            "spike-fiddle"
+          ]
+        },
+        {
+          "id": "ghijak_pamiri_wood",
+          "name": "Carved wooden bowl body",
+          "descriptors": [
+            "warm",
+            "rounded"
+          ],
+          "match_tokens": [
+            "spike-fiddle"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ghijak_pamiri_style",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "ghijak_pamiri_falak",
+          "default": true,
+          "name": "Falak lament melody",
+          "descriptors": [
+            "mournful",
+            "melismatic"
+          ],
+          "match_tokens": [
+            "lament",
+            "solo-melody"
+          ]
+        },
+        {
+          "id": "ghijak_pamiri_ensemble",
+          "name": "Ensemble with rubab and daf",
+          "descriptors": [
+            "droning",
+            "voice-shadowing"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ghijak_pamiri_body",
+      "name": "Body / resonator",
+      "variants": [
+        {
+          "id": "ghijak_pamiri_gourd",
+          "default": true,
+          "name": "Gourd body with skin belly",
+          "descriptors": [
+            "nasal",
+            "buzzing-timbre",
+            "archaic"
+          ],
+          "match_tokens": [
+            "spike-fiddle",
+            "pamiri"
+          ]
+        },
+        {
+          "id": "ghijak_pamiri_tin",
+          "name": "Metal-can resonator (highland improvised)",
+          "descriptors": [
+            "metallic",
+            "edgy"
+          ],
+          "match_tokens": [
+            "spike-fiddle"
+          ]
+        },
+        {
+          "id": "ghijak_pamiri_wood",
+          "name": "Carved wooden bowl body",
+          "descriptors": [
+            "warm",
+            "rounded"
+          ],
+          "match_tokens": [
+            "spike-fiddle"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ghijak_pamiri_style",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "ghijak_pamiri_falak",
+          "default": true,
+          "name": "Falak lament melody",
+          "descriptors": [
+            "mournful",
+            "melismatic"
+          ],
+          "match_tokens": [
+            "lament",
+            "solo-melody"
+          ]
+        },
+        {
+          "id": "ghijak_pamiri_ensemble",
+          "name": "Ensemble with rubab and daf",
+          "descriptors": [
+            "droning",
+            "voice-shadowing"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ]
+}

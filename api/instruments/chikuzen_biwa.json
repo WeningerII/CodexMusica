@@ -1,0 +1,218 @@
+{
+  "id": "chikuzen_biwa",
+  "name": "Chikuzen biwa (four/five-string narrative biwa of Fukuoka)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "chikuzen biwa",
+  "parts": [
+    {
+      "id": "chikuzen_biwa_stringing",
+      "name": "Stringing / course count",
+      "variants": [
+        {
+          "id": "chikuzen_biwa_five_string",
+          "default": true,
+          "name": "Five-string chikuzen biwa (modern concert)",
+          "descriptors": [
+            "bright-attack",
+            "buzzing-timbre",
+            "wide-ranged"
+          ],
+          "match_tokens": [
+            "plucked",
+            "japanese",
+            "narrative-lute"
+          ]
+        },
+        {
+          "id": "chikuzen_biwa_four_string",
+          "name": "Four-string chikuzen biwa (older form)",
+          "descriptors": [
+            "dry-toned",
+            "archaic",
+            "voice-supporting"
+          ],
+          "match_tokens": [
+            "plucked",
+            "japanese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chikuzen_biwa_plectrum",
+      "name": "Plectrum (bachi) size",
+      "variants": [
+        {
+          "id": "chikuzen_biwa_small_bachi",
+          "default": true,
+          "name": "Small boxwood bachi (chikuzen style)",
+          "descriptors": [
+            "nimble",
+            "crisp-attack"
+          ],
+          "match_tokens": [
+            "plucked",
+            "struck-string"
+          ]
+        },
+        {
+          "id": "chikuzen_biwa_large_bachi",
+          "name": "Broad bachi (satsuma-influenced striking)",
+          "descriptors": [
+            "percussive",
+            "body-slapping",
+            "forceful"
+          ],
+          "match_tokens": [
+            "plucked",
+            "percussive-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chikuzen_biwa_context",
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "chikuzen_biwa_katarimono",
+          "default": true,
+          "name": "Sung narrative (katarimono) accompaniment",
+          "descriptors": [
+            "declamatory",
+            "sparse",
+            "voice-shadowing"
+          ],
+          "match_tokens": [
+            "japanese",
+            "narrative"
+          ]
+        },
+        {
+          "id": "chikuzen_biwa_solo",
+          "name": "Instrumental solo (shirabe)",
+          "descriptors": [
+            "ornamented",
+            "tremolo-rich"
+          ],
+          "match_tokens": [
+            "plucked",
+            "solo"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "chikuzen_biwa_stringing",
+      "name": "Stringing / course count",
+      "variants": [
+        {
+          "id": "chikuzen_biwa_five_string",
+          "default": true,
+          "name": "Five-string chikuzen biwa (modern concert)",
+          "descriptors": [
+            "bright-attack",
+            "buzzing-timbre",
+            "wide-ranged"
+          ],
+          "match_tokens": [
+            "plucked",
+            "japanese",
+            "narrative-lute"
+          ]
+        },
+        {
+          "id": "chikuzen_biwa_four_string",
+          "name": "Four-string chikuzen biwa (older form)",
+          "descriptors": [
+            "dry-toned",
+            "archaic",
+            "voice-supporting"
+          ],
+          "match_tokens": [
+            "plucked",
+            "japanese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chikuzen_biwa_plectrum",
+      "name": "Plectrum (bachi) size",
+      "variants": [
+        {
+          "id": "chikuzen_biwa_small_bachi",
+          "default": true,
+          "name": "Small boxwood bachi (chikuzen style)",
+          "descriptors": [
+            "nimble",
+            "crisp-attack"
+          ],
+          "match_tokens": [
+            "plucked",
+            "struck-string"
+          ]
+        },
+        {
+          "id": "chikuzen_biwa_large_bachi",
+          "name": "Broad bachi (satsuma-influenced striking)",
+          "descriptors": [
+            "percussive",
+            "body-slapping",
+            "forceful"
+          ],
+          "match_tokens": [
+            "plucked",
+            "percussive-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chikuzen_biwa_context",
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "chikuzen_biwa_katarimono",
+          "default": true,
+          "name": "Sung narrative (katarimono) accompaniment",
+          "descriptors": [
+            "declamatory",
+            "sparse",
+            "voice-shadowing"
+          ],
+          "match_tokens": [
+            "japanese",
+            "narrative"
+          ]
+        },
+        {
+          "id": "chikuzen_biwa_solo",
+          "name": "Instrumental solo (shirabe)",
+          "descriptors": [
+            "ornamented",
+            "tremolo-rich"
+          ],
+          "match_tokens": [
+            "plucked",
+            "solo"
+          ]
+        }
+      ]
+    }
+  ]
+}

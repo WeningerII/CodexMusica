@@ -1,0 +1,180 @@
+{
+  "id": "tongali",
+  "name": "Tongali (Kalinga nose flute)",
+  "family": "wind",
+  "class": "nose_flute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 0,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -2
+  },
+  "short": "tongali",
+  "parts": [
+    {
+      "id": "tongali_size",
+      "name": "Tube size / register",
+      "variants": [
+        {
+          "id": "tongali_standard",
+          "default": true,
+          "name": "Standard four-hole bamboo tongali",
+          "descriptors": [
+            "breathy",
+            "airy",
+            "soft-attack"
+          ],
+          "match_tokens": [
+            "nose-flute",
+            "kalinga"
+          ]
+        },
+        {
+          "id": "tongali_long",
+          "name": "Long large-bore tongali",
+          "descriptors": [
+            "low-toned",
+            "hollow",
+            "wide-breath"
+          ],
+          "match_tokens": [
+            "nose-flute",
+            "low-register"
+          ]
+        },
+        {
+          "id": "tongali_short",
+          "name": "Short small-bore tongali",
+          "descriptors": [
+            "high-pitched",
+            "thin",
+            "whistling"
+          ],
+          "match_tokens": [
+            "nose-flute",
+            "bright-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tongali_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "tongali_courtship",
+          "default": true,
+          "name": "Courtship / evening serenade",
+          "descriptors": [
+            "intimate",
+            "lyrical",
+            "breathy"
+          ],
+          "match_tokens": [
+            "nose-flute",
+            "solo"
+          ]
+        },
+        {
+          "id": "tongali_ritual",
+          "name": "Rice-ritual playing",
+          "descriptors": [
+            "meditative",
+            "sparse",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "nose-flute",
+            "ritual"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tongali_size",
+      "name": "Tube size / register",
+      "variants": [
+        {
+          "id": "tongali_standard",
+          "default": true,
+          "name": "Standard four-hole bamboo tongali",
+          "descriptors": [
+            "breathy",
+            "airy",
+            "soft-attack"
+          ],
+          "match_tokens": [
+            "nose-flute",
+            "kalinga"
+          ]
+        },
+        {
+          "id": "tongali_long",
+          "name": "Long large-bore tongali",
+          "descriptors": [
+            "low-toned",
+            "hollow",
+            "wide-breath"
+          ],
+          "match_tokens": [
+            "nose-flute",
+            "low-register"
+          ]
+        },
+        {
+          "id": "tongali_short",
+          "name": "Short small-bore tongali",
+          "descriptors": [
+            "high-pitched",
+            "thin",
+            "whistling"
+          ],
+          "match_tokens": [
+            "nose-flute",
+            "bright-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tongali_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "tongali_courtship",
+          "default": true,
+          "name": "Courtship / evening serenade",
+          "descriptors": [
+            "intimate",
+            "lyrical",
+            "breathy"
+          ],
+          "match_tokens": [
+            "nose-flute",
+            "solo"
+          ]
+        },
+        {
+          "id": "tongali_ritual",
+          "name": "Rice-ritual playing",
+          "descriptors": [
+            "meditative",
+            "sparse",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "nose-flute",
+            "ritual"
+          ]
+        }
+      ]
+    }
+  ]
+}

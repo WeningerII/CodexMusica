@@ -1,0 +1,194 @@
+{
+  "id": "dung_dkar",
+  "name": "Dung dkar (Tibetan conch-shell trumpet)",
+  "family": "wind",
+  "class": "ritual_trumpet",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": -2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "dung dkar",
+  "parts": [
+    {
+      "id": "dung_dkar_shell",
+      "name": "Shell and mount",
+      "variants": [
+        {
+          "id": "dung_dkar_plain",
+          "default": true,
+          "name": "Plain white conch, side-blown hole (canonical)",
+          "descriptors": [
+            "hollow-toned",
+            "calling",
+            "breathy-edge"
+          ],
+          "match_tokens": [
+            "conch-trumpet",
+            "tibetan-tradition"
+          ]
+        },
+        {
+          "id": "dung_dkar_silver_mounted",
+          "name": "Silver-and-turquoise mounted conch with flared wing",
+          "descriptors": [
+            "broad-toned",
+            "ceremonial",
+            "projecting"
+          ],
+          "match_tokens": [
+            "conch-trumpet",
+            "tibetan-tradition"
+          ]
+        },
+        {
+          "id": "dung_dkar_right_spiral",
+          "name": "Rare right-spiralling conch (sacred)",
+          "descriptors": [
+            "clear-toned",
+            "auspicious"
+          ],
+          "match_tokens": [
+            "conch-trumpet",
+            "ritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dung_dkar_call",
+      "name": "Blowing pattern",
+      "variants": [
+        {
+          "id": "dung_dkar_assembly",
+          "default": true,
+          "name": "Long assembly call (summoning monks)",
+          "descriptors": [
+            "sustained",
+            "carrying"
+          ],
+          "match_tokens": [
+            "conch-trumpet",
+            "summoning-call"
+          ]
+        },
+        {
+          "id": "dung_dkar_pulsed",
+          "name": "Pulsed triple-blast ritual signal",
+          "descriptors": [
+            "punctuating",
+            "declamatory"
+          ],
+          "match_tokens": [
+            "conch-trumpet"
+          ]
+        },
+        {
+          "id": "dung_dkar_overblown",
+          "name": "Overblown upper-partial cry",
+          "descriptors": [
+            "strained",
+            "piercing"
+          ],
+          "match_tokens": [
+            "conch-trumpet"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dung_dkar_shell",
+      "name": "Shell and mount",
+      "variants": [
+        {
+          "id": "dung_dkar_plain",
+          "default": true,
+          "name": "Plain white conch, side-blown hole (canonical)",
+          "descriptors": [
+            "hollow-toned",
+            "calling",
+            "breathy-edge"
+          ],
+          "match_tokens": [
+            "conch-trumpet",
+            "tibetan-tradition"
+          ]
+        },
+        {
+          "id": "dung_dkar_silver_mounted",
+          "name": "Silver-and-turquoise mounted conch with flared wing",
+          "descriptors": [
+            "broad-toned",
+            "ceremonial",
+            "projecting"
+          ],
+          "match_tokens": [
+            "conch-trumpet",
+            "tibetan-tradition"
+          ]
+        },
+        {
+          "id": "dung_dkar_right_spiral",
+          "name": "Rare right-spiralling conch (sacred)",
+          "descriptors": [
+            "clear-toned",
+            "auspicious"
+          ],
+          "match_tokens": [
+            "conch-trumpet",
+            "ritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dung_dkar_call",
+      "name": "Blowing pattern",
+      "variants": [
+        {
+          "id": "dung_dkar_assembly",
+          "default": true,
+          "name": "Long assembly call (summoning monks)",
+          "descriptors": [
+            "sustained",
+            "carrying"
+          ],
+          "match_tokens": [
+            "conch-trumpet",
+            "summoning-call"
+          ]
+        },
+        {
+          "id": "dung_dkar_pulsed",
+          "name": "Pulsed triple-blast ritual signal",
+          "descriptors": [
+            "punctuating",
+            "declamatory"
+          ],
+          "match_tokens": [
+            "conch-trumpet"
+          ]
+        },
+        {
+          "id": "dung_dkar_overblown",
+          "name": "Overblown upper-partial cry",
+          "descriptors": [
+            "strained",
+            "piercing"
+          ],
+          "match_tokens": [
+            "conch-trumpet"
+          ]
+        }
+      ]
+    }
+  ]
+}

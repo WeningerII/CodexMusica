@@ -1,0 +1,176 @@
+{
+  "id": "pommer",
+  "name": "Pommer (Renaissance bass shawm)",
+  "family": "wind",
+  "class": "double_reed_shawm",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -2,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "pommer",
+  "parts": [
+    {
+      "id": "pommer_size",
+      "name": "Size / pitch",
+      "variants": [
+        {
+          "id": "pommer_bass",
+          "default": true,
+          "name": "Bass pommer (bombard in F)",
+          "descriptors": [
+            "buzzy",
+            "deep-toned",
+            "raucous"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "shawm",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "pommer_tenor",
+          "name": "Tenor pommer (nicolo)",
+          "descriptors": [
+            "reedy",
+            "full-toned"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "shawm"
+          ]
+        },
+        {
+          "id": "pommer_great",
+          "name": "Great bass pommer with extension keys",
+          "descriptors": [
+            "growling",
+            "ponderous"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pommer_context",
+      "name": "Ensemble context",
+      "variants": [
+        {
+          "id": "pommer_alta",
+          "default": true,
+          "name": "Alta capella loud band",
+          "descriptors": [
+            "outdoor",
+            "blaring",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "shawm",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "pommer_consort",
+          "name": "Indoor shawm consort",
+          "descriptors": [
+            "blended",
+            "chorale-like"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "consort"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "pommer_size",
+      "name": "Size / pitch",
+      "variants": [
+        {
+          "id": "pommer_bass",
+          "default": true,
+          "name": "Bass pommer (bombard in F)",
+          "descriptors": [
+            "buzzy",
+            "deep-toned",
+            "raucous"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "shawm",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "pommer_tenor",
+          "name": "Tenor pommer (nicolo)",
+          "descriptors": [
+            "reedy",
+            "full-toned"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "shawm"
+          ]
+        },
+        {
+          "id": "pommer_great",
+          "name": "Great bass pommer with extension keys",
+          "descriptors": [
+            "growling",
+            "ponderous"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pommer_context",
+      "name": "Ensemble context",
+      "variants": [
+        {
+          "id": "pommer_alta",
+          "default": true,
+          "name": "Alta capella loud band",
+          "descriptors": [
+            "outdoor",
+            "blaring",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "shawm",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "pommer_consort",
+          "name": "Indoor shawm consort",
+          "descriptors": [
+            "blended",
+            "chorale-like"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "consort"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "id": "ozi_drum",
+  "name": "Ozi (Burmese long goblet drum)",
+  "family": "percussion",
+  "class": "single_headed_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "ozi",
+  "parts": [
+    {
+      "id": "ozi_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "ozi_long_goblet",
+          "default": true,
+          "name": "Long carved wooden goblet body, shoulder-slung (canonical)",
+          "descriptors": [
+            "deep-thump",
+            "ringing-slap"
+          ],
+          "match_tokens": [
+            "goblet-drum",
+            "burmese"
+          ]
+        },
+        {
+          "id": "ozi_short",
+          "name": "Shorter village ozi",
+          "descriptors": [
+            "punchy",
+            "mid-toned"
+          ],
+          "match_tokens": [
+            "goblet-drum",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ozi_head",
+      "surface": false,
+      "name": "Head treatment",
+      "variants": [
+        {
+          "id": "ozi_pat_sa",
+          "default": true,
+          "name": "Rice-paste tuning patch (pat sa)",
+          "descriptors": [
+            "pitched-thump",
+            "damped"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "tuned-head"
+          ]
+        },
+        {
+          "id": "ozi_plain",
+          "name": "Plain hide head",
+          "descriptors": [
+            "open-toned",
+            "bright-slap"
+          ],
+          "match_tokens": [
+            "hand-drum"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ozi_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "ozi_long_goblet",
+          "default": true,
+          "name": "Long carved wooden goblet body, shoulder-slung (canonical)",
+          "descriptors": [
+            "deep-thump",
+            "ringing-slap"
+          ],
+          "match_tokens": [
+            "goblet-drum",
+            "burmese"
+          ]
+        },
+        {
+          "id": "ozi_short",
+          "name": "Shorter village ozi",
+          "descriptors": [
+            "punchy",
+            "mid-toned"
+          ],
+          "match_tokens": [
+            "goblet-drum",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ozi_head",
+      "surface": false,
+      "name": "Head treatment",
+      "variants": [
+        {
+          "id": "ozi_pat_sa",
+          "default": true,
+          "name": "Rice-paste tuning patch (pat sa)",
+          "descriptors": [
+            "pitched-thump",
+            "damped"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "tuned-head"
+          ]
+        },
+        {
+          "id": "ozi_plain",
+          "name": "Plain hide head",
+          "descriptors": [
+            "open-toned",
+            "bright-slap"
+          ],
+          "match_tokens": [
+            "hand-drum"
+          ]
+        }
+      ]
+    }
+  ]
+}

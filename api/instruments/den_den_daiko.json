@@ -1,0 +1,148 @@
+{
+  "id": "den_den_daiko",
+  "name": "Den-den daiko (Japanese two-headed pellet swivel drum)",
+  "family": "percussion",
+  "class": "double_headed_drum",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -1,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "den-den daiko",
+  "parts": [
+    {
+      "id": "den_den_daiko_size",
+      "name": "Size / type",
+      "variants": [
+        {
+          "id": "den_den_daiko_toy",
+          "default": true,
+          "name": "Small toy pellet drum",
+          "descriptors": [
+            "clicking",
+            "rapid-patter",
+            "light-toned"
+          ],
+          "match_tokens": [
+            "pellet-drum",
+            "japanese",
+            "rattle-drum"
+          ]
+        },
+        {
+          "id": "den_den_daiko_furi",
+          "name": "Large furi-tsuzumi ritual pellet drum",
+          "descriptors": [
+            "fuller-toned",
+            "ceremonial",
+            "thudding"
+          ],
+          "match_tokens": [
+            "pellet-drum",
+            "ritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "den_den_daiko_beads",
+      "name": "Striker beads",
+      "variants": [
+        {
+          "id": "den_den_daiko_wood_bead",
+          "default": true,
+          "name": "Wooden knotted beads",
+          "descriptors": [
+            "woody-click",
+            "dry"
+          ],
+          "match_tokens": [
+            "pellet-drum"
+          ]
+        },
+        {
+          "id": "den_den_daiko_knotted_cord",
+          "name": "Knotted cord ends only",
+          "descriptors": [
+            "soft-patter",
+            "muted"
+          ],
+          "match_tokens": [
+            "pellet-drum"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "den_den_daiko_size",
+      "name": "Size / type",
+      "variants": [
+        {
+          "id": "den_den_daiko_toy",
+          "default": true,
+          "name": "Small toy pellet drum",
+          "descriptors": [
+            "clicking",
+            "rapid-patter",
+            "light-toned"
+          ],
+          "match_tokens": [
+            "pellet-drum",
+            "japanese",
+            "rattle-drum"
+          ]
+        },
+        {
+          "id": "den_den_daiko_furi",
+          "name": "Large furi-tsuzumi ritual pellet drum",
+          "descriptors": [
+            "fuller-toned",
+            "ceremonial",
+            "thudding"
+          ],
+          "match_tokens": [
+            "pellet-drum",
+            "ritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "den_den_daiko_beads",
+      "name": "Striker beads",
+      "variants": [
+        {
+          "id": "den_den_daiko_wood_bead",
+          "default": true,
+          "name": "Wooden knotted beads",
+          "descriptors": [
+            "woody-click",
+            "dry"
+          ],
+          "match_tokens": [
+            "pellet-drum"
+          ]
+        },
+        {
+          "id": "den_den_daiko_knotted_cord",
+          "name": "Knotted cord ends only",
+          "descriptors": [
+            "soft-patter",
+            "muted"
+          ],
+          "match_tokens": [
+            "pellet-drum"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,206 @@
+{
+  "id": "chalil",
+  "name": "Chalil (biblical Hebrew reed pipe)",
+  "family": "wind",
+  "class": "double_reed",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "chalil",
+  "parts": [
+    {
+      "id": "chalil_form",
+      "name": "Pipe configuration",
+      "variants": [
+        {
+          "id": "chalil_single",
+          "default": true,
+          "name": "Single reed-blown pipe",
+          "descriptors": [
+            "reedy",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "levantine"
+          ]
+        },
+        {
+          "id": "chalil_double",
+          "name": "Paired divergent pipes (melody plus drone)",
+          "descriptors": [
+            "droning",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "double-pipe",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chalil_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "chalil_festal",
+          "default": true,
+          "name": "Festal / pilgrimage playing",
+          "descriptors": [
+            "piercing",
+            "celebratory"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "chalil_lament",
+          "name": "Funeral lament",
+          "descriptors": [
+            "wailing",
+            "melismatic"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "expressive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chalil_bore",
+      "surface": false,
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "chalil_cane",
+          "default": true,
+          "name": "Cane body",
+          "descriptors": [
+            "breathy",
+            "rustic"
+          ],
+          "match_tokens": [
+            "double-reed"
+          ]
+        },
+        {
+          "id": "chalil_bone",
+          "name": "Bone or boxwood body",
+          "descriptors": [
+            "focused",
+            "hard-edged"
+          ],
+          "match_tokens": [
+            "double-reed"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "chalil_form",
+      "name": "Pipe configuration",
+      "variants": [
+        {
+          "id": "chalil_single",
+          "default": true,
+          "name": "Single reed-blown pipe",
+          "descriptors": [
+            "reedy",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "levantine"
+          ]
+        },
+        {
+          "id": "chalil_double",
+          "name": "Paired divergent pipes (melody plus drone)",
+          "descriptors": [
+            "droning",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "double-pipe",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chalil_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "chalil_festal",
+          "default": true,
+          "name": "Festal / pilgrimage playing",
+          "descriptors": [
+            "piercing",
+            "celebratory"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "chalil_lament",
+          "name": "Funeral lament",
+          "descriptors": [
+            "wailing",
+            "melismatic"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "expressive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chalil_bore",
+      "surface": false,
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "chalil_cane",
+          "default": true,
+          "name": "Cane body",
+          "descriptors": [
+            "breathy",
+            "rustic"
+          ],
+          "match_tokens": [
+            "double-reed"
+          ]
+        },
+        {
+          "id": "chalil_bone",
+          "name": "Bone or boxwood body",
+          "descriptors": [
+            "focused",
+            "hard-edged"
+          ],
+          "match_tokens": [
+            "double-reed"
+          ]
+        }
+      ]
+    }
+  ]
+}

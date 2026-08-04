@@ -1,0 +1,229 @@
+{
+  "id": "shichepshin",
+  "name": "Shichepshin (Circassian/Adyghe bowed fiddle)",
+  "family": "bowed",
+  "class": "bowed_fiddle",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "shichepshin",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "shichepshin_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "shichepshin_two",
+          "default": true,
+          "name": "Two-string boat-shaped shichepshin",
+          "descriptors": [
+            "nasal",
+            "rasping",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed-fiddle",
+            "circassian"
+          ]
+        },
+        {
+          "id": "shichepshin_three",
+          "name": "Three-string modern shichepshin",
+          "descriptors": [
+            "fuller",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed-fiddle"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shichepshin_style",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "shichepshin_epic",
+          "default": true,
+          "name": "Nart epic song accompaniment",
+          "descriptors": [
+            "declamatory",
+            "drone-heavy"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "epic"
+          ]
+        },
+        {
+          "id": "shichepshin_dance",
+          "name": "Dance tune (zafak / islamey)",
+          "descriptors": [
+            "driving",
+            "fast-ornamented"
+          ],
+          "match_tokens": [
+            "dance-rhythm"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shichepshin_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "shichepshin_horsehair",
+          "default": true,
+          "name": "Horsehair strings",
+          "descriptors": [
+            "rasping",
+            "husky"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        },
+        {
+          "id": "shichepshin_gut",
+          "name": "Gut strings",
+          "descriptors": [
+            "warm",
+            "smooth"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "shichepshin_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "shichepshin_two",
+          "default": true,
+          "name": "Two-string boat-shaped shichepshin",
+          "descriptors": [
+            "nasal",
+            "rasping",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed-fiddle",
+            "circassian"
+          ]
+        },
+        {
+          "id": "shichepshin_three",
+          "name": "Three-string modern shichepshin",
+          "descriptors": [
+            "fuller",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed-fiddle"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shichepshin_style",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "shichepshin_epic",
+          "default": true,
+          "name": "Nart epic song accompaniment",
+          "descriptors": [
+            "declamatory",
+            "drone-heavy"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "epic"
+          ]
+        },
+        {
+          "id": "shichepshin_dance",
+          "name": "Dance tune (zafak / islamey)",
+          "descriptors": [
+            "driving",
+            "fast-ornamented"
+          ],
+          "match_tokens": [
+            "dance-rhythm"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shichepshin_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "shichepshin_horsehair",
+          "default": true,
+          "name": "Horsehair strings",
+          "descriptors": [
+            "rasping",
+            "husky"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        },
+        {
+          "id": "shichepshin_gut",
+          "name": "Gut strings",
+          "descriptors": [
+            "warm",
+            "smooth"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ]
+}

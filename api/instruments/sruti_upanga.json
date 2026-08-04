@@ -1,0 +1,166 @@
+{
+  "id": "sruti_upanga",
+  "name": "Sruti upanga (South Indian bellows-blown drone bagpipe)",
+  "family": "wind",
+  "class": "bellows_bagpipe",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": -1,
+    "range": -2,
+    "articulation": -2,
+    "transduction": -2,
+    "dynamics": -2
+  },
+  "short": "sruti upanga",
+  "parts": [
+    {
+      "id": "sruti_upanga_bag",
+      "name": "Bag and bellows",
+      "variants": [
+        {
+          "id": "sruti_upanga_hide_bag",
+          "default": true,
+          "name": "Leather bag with hand-pumped bellows (canonical)",
+          "descriptors": [
+            "unbroken-drone",
+            "reedy",
+            "steady"
+          ],
+          "match_tokens": [
+            "drone-bagpipe",
+            "south-indian"
+          ]
+        },
+        {
+          "id": "sruti_upanga_mouth_blown",
+          "name": "Mouth-blown bag variant",
+          "descriptors": [
+            "breath-modulated",
+            "slightly-wavering"
+          ],
+          "match_tokens": [
+            "drone-bagpipe"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sruti_upanga_tuning",
+      "name": "Drone tuning",
+      "variants": [
+        {
+          "id": "sruti_upanga_sa_pa",
+          "default": true,
+          "name": "Tonic and fifth (sa-pa) double drone",
+          "descriptors": [
+            "open-fifth",
+            "grounding"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "tonic-fifth"
+          ]
+        },
+        {
+          "id": "sruti_upanga_sa_ma",
+          "name": "Tonic and fourth (sa-ma) drone",
+          "descriptors": [
+            "darker",
+            "suspended"
+          ],
+          "match_tokens": [
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "sruti_upanga_single",
+          "name": "Single tonic drone pipe",
+          "descriptors": [
+            "plain",
+            "focused"
+          ],
+          "match_tokens": [
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sruti_upanga_bag",
+      "name": "Bag and bellows",
+      "variants": [
+        {
+          "id": "sruti_upanga_hide_bag",
+          "default": true,
+          "name": "Leather bag with hand-pumped bellows (canonical)",
+          "descriptors": [
+            "unbroken-drone",
+            "reedy",
+            "steady"
+          ],
+          "match_tokens": [
+            "drone-bagpipe",
+            "south-indian"
+          ]
+        },
+        {
+          "id": "sruti_upanga_mouth_blown",
+          "name": "Mouth-blown bag variant",
+          "descriptors": [
+            "breath-modulated",
+            "slightly-wavering"
+          ],
+          "match_tokens": [
+            "drone-bagpipe"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sruti_upanga_tuning",
+      "name": "Drone tuning",
+      "variants": [
+        {
+          "id": "sruti_upanga_sa_pa",
+          "default": true,
+          "name": "Tonic and fifth (sa-pa) double drone",
+          "descriptors": [
+            "open-fifth",
+            "grounding"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "tonic-fifth"
+          ]
+        },
+        {
+          "id": "sruti_upanga_sa_ma",
+          "name": "Tonic and fourth (sa-ma) drone",
+          "descriptors": [
+            "darker",
+            "suspended"
+          ],
+          "match_tokens": [
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "sruti_upanga_single",
+          "name": "Single tonic drone pipe",
+          "descriptors": [
+            "plain",
+            "focused"
+          ],
+          "match_tokens": [
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ]
+}

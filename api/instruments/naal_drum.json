@@ -1,0 +1,146 @@
+{
+  "id": "naal_drum",
+  "name": "Naal (Maharashtrian barrel drum with paste-loaded heads)",
+  "family": "percussion",
+  "class": "double_headed_drum",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "naal",
+  "parts": [
+    {
+      "id": "naal_form",
+      "name": "Build",
+      "variants": [
+        {
+          "id": "naal_wood",
+          "default": true,
+          "name": "Wooden barrel shell with paste-tuned bass head",
+          "descriptors": [
+            "warm-boom",
+            "crisp-slap"
+          ],
+          "match_tokens": [
+            "barrel-drum",
+            "maharashtra"
+          ]
+        },
+        {
+          "id": "naal_fiber",
+          "name": "Modern fiberglass shell",
+          "descriptors": [
+            "bright-attack",
+            "projecting"
+          ],
+          "match_tokens": [
+            "barrel-drum",
+            "stage-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "naal_tuning",
+      "surface": false,
+      "name": "Head loading",
+      "variants": [
+        {
+          "id": "naal_syahi",
+          "default": true,
+          "name": "Syahi-loaded treble head",
+          "descriptors": [
+            "ringing-tone",
+            "pitched-slap"
+          ],
+          "match_tokens": [
+            "barrel-drum",
+            "tuned-head"
+          ]
+        },
+        {
+          "id": "naal_plain",
+          "name": "Plain untreated heads",
+          "descriptors": [
+            "dry-tone",
+            "open"
+          ],
+          "match_tokens": [
+            "barrel-drum"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "naal_form",
+      "name": "Build",
+      "variants": [
+        {
+          "id": "naal_wood",
+          "default": true,
+          "name": "Wooden barrel shell with paste-tuned bass head",
+          "descriptors": [
+            "warm-boom",
+            "crisp-slap"
+          ],
+          "match_tokens": [
+            "barrel-drum",
+            "maharashtra"
+          ]
+        },
+        {
+          "id": "naal_fiber",
+          "name": "Modern fiberglass shell",
+          "descriptors": [
+            "bright-attack",
+            "projecting"
+          ],
+          "match_tokens": [
+            "barrel-drum",
+            "stage-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "naal_tuning",
+      "surface": false,
+      "name": "Head loading",
+      "variants": [
+        {
+          "id": "naal_syahi",
+          "default": true,
+          "name": "Syahi-loaded treble head",
+          "descriptors": [
+            "ringing-tone",
+            "pitched-slap"
+          ],
+          "match_tokens": [
+            "barrel-drum",
+            "tuned-head"
+          ]
+        },
+        {
+          "id": "naal_plain",
+          "name": "Plain untreated heads",
+          "descriptors": [
+            "dry-tone",
+            "open"
+          ],
+          "match_tokens": [
+            "barrel-drum"
+          ]
+        }
+      ]
+    }
+  ]
+}

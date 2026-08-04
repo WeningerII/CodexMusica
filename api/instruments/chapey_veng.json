@@ -1,0 +1,212 @@
+{
+  "id": "chapey_veng",
+  "name": "Chapey dang veng (Cambodian long-necked lute)",
+  "family": "plucked_traditional",
+  "class": "long_neck_lute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "chapey veng",
+  "parts": [
+    {
+      "id": "chapey_veng_body",
+      "name": "Body and neck",
+      "variants": [
+        {
+          "id": "chapey_veng_long_neck_canonical",
+          "default": true,
+          "name": "Long fretted neck with flat wooden soundbox (canonical)",
+          "descriptors": [
+            "woody",
+            "dry",
+            "percussive-pluck"
+          ],
+          "match_tokens": [
+            "long-neck-lute",
+            "khmer"
+          ]
+        },
+        {
+          "id": "chapey_veng_amplified",
+          "name": "Contact-miked modern stage build",
+          "descriptors": [
+            "projecting",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "long-neck-lute",
+            "khmer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapey_veng_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "chapey_veng_nylon",
+          "default": true,
+          "name": "Nylon strings (modern standard)",
+          "descriptors": [
+            "mellow",
+            "warm"
+          ],
+          "match_tokens": [
+            "plucked",
+            "khmer"
+          ]
+        },
+        {
+          "id": "chapey_veng_silk",
+          "name": "Silk strings (older practice)",
+          "descriptors": [
+            "soft-decay",
+            "archaic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "khmer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapey_veng_style",
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "chapey_veng_bard",
+          "default": true,
+          "name": "Sung narrative bardic repertoire (canonical)",
+          "descriptors": [
+            "declamatory",
+            "call-response",
+            "sparse"
+          ],
+          "match_tokens": [
+            "khmer",
+            "storytelling"
+          ]
+        },
+        {
+          "id": "chapey_veng_wedding",
+          "name": "Phleng kar wedding ensemble part",
+          "descriptors": [
+            "cyclic",
+            "supporting"
+          ],
+          "match_tokens": [
+            "khmer",
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "chapey_veng_body",
+      "name": "Body and neck",
+      "variants": [
+        {
+          "id": "chapey_veng_long_neck_canonical",
+          "default": true,
+          "name": "Long fretted neck with flat wooden soundbox (canonical)",
+          "descriptors": [
+            "woody",
+            "dry",
+            "percussive-pluck"
+          ],
+          "match_tokens": [
+            "long-neck-lute",
+            "khmer"
+          ]
+        },
+        {
+          "id": "chapey_veng_amplified",
+          "name": "Contact-miked modern stage build",
+          "descriptors": [
+            "projecting",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "long-neck-lute",
+            "khmer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapey_veng_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "chapey_veng_nylon",
+          "default": true,
+          "name": "Nylon strings (modern standard)",
+          "descriptors": [
+            "mellow",
+            "warm"
+          ],
+          "match_tokens": [
+            "plucked",
+            "khmer"
+          ]
+        },
+        {
+          "id": "chapey_veng_silk",
+          "name": "Silk strings (older practice)",
+          "descriptors": [
+            "soft-decay",
+            "archaic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "khmer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapey_veng_style",
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "chapey_veng_bard",
+          "default": true,
+          "name": "Sung narrative bardic repertoire (canonical)",
+          "descriptors": [
+            "declamatory",
+            "call-response",
+            "sparse"
+          ],
+          "match_tokens": [
+            "khmer",
+            "storytelling"
+          ]
+        },
+        {
+          "id": "chapey_veng_wedding",
+          "name": "Phleng kar wedding ensemble part",
+          "descriptors": [
+            "cyclic",
+            "supporting"
+          ],
+          "match_tokens": [
+            "khmer",
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ]
+}

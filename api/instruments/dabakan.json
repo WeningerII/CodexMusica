@@ -1,0 +1,180 @@
+{
+  "id": "dabakan",
+  "name": "Dabakan (Maguindanao goblet drum of the kulintang ensemble)",
+  "family": "percussion",
+  "class": "single_headed_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "dabakan",
+  "parts": [
+    {
+      "id": "dabakan_head",
+      "name": "Drumhead skin",
+      "variants": [
+        {
+          "id": "dabakan_lizard",
+          "default": true,
+          "name": "Bayawak (monitor lizard) skin head",
+          "descriptors": [
+            "crisp",
+            "dry-crack",
+            "papery"
+          ],
+          "match_tokens": [
+            "goblet-drum",
+            "maguindanao"
+          ]
+        },
+        {
+          "id": "dabakan_goat",
+          "name": "Goatskin head",
+          "descriptors": [
+            "warmer",
+            "fuller",
+            "rounded"
+          ],
+          "match_tokens": [
+            "goblet-drum",
+            "skin-head"
+          ]
+        },
+        {
+          "id": "dabakan_synthetic",
+          "name": "Synthetic head (modern)",
+          "descriptors": [
+            "bright",
+            "consistent",
+            "tight"
+          ],
+          "match_tokens": [
+            "goblet-drum",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dabakan_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "dabakan_sticks",
+          "default": true,
+          "name": "Struck with two thin bamboo/rattan sticks",
+          "descriptors": [
+            "sharp-attack",
+            "rattling",
+            "driving"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "kulintang"
+          ]
+        },
+        {
+          "id": "dabakan_hand",
+          "name": "Hand-struck strokes",
+          "descriptors": [
+            "softer",
+            "muted",
+            "fleshy"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "goblet-drum"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dabakan_head",
+      "name": "Drumhead skin",
+      "variants": [
+        {
+          "id": "dabakan_lizard",
+          "default": true,
+          "name": "Bayawak (monitor lizard) skin head",
+          "descriptors": [
+            "crisp",
+            "dry-crack",
+            "papery"
+          ],
+          "match_tokens": [
+            "goblet-drum",
+            "maguindanao"
+          ]
+        },
+        {
+          "id": "dabakan_goat",
+          "name": "Goatskin head",
+          "descriptors": [
+            "warmer",
+            "fuller",
+            "rounded"
+          ],
+          "match_tokens": [
+            "goblet-drum",
+            "skin-head"
+          ]
+        },
+        {
+          "id": "dabakan_synthetic",
+          "name": "Synthetic head (modern)",
+          "descriptors": [
+            "bright",
+            "consistent",
+            "tight"
+          ],
+          "match_tokens": [
+            "goblet-drum",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dabakan_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "dabakan_sticks",
+          "default": true,
+          "name": "Struck with two thin bamboo/rattan sticks",
+          "descriptors": [
+            "sharp-attack",
+            "rattling",
+            "driving"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "kulintang"
+          ]
+        },
+        {
+          "id": "dabakan_hand",
+          "name": "Hand-struck strokes",
+          "descriptors": [
+            "softer",
+            "muted",
+            "fleshy"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "goblet-drum"
+          ]
+        }
+      ]
+    }
+  ]
+}

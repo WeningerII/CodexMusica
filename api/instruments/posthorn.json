@@ -1,0 +1,174 @@
+{
+  "id": "posthorn",
+  "name": "Posthorn (coiled natural signal horn)",
+  "family": "wind",
+  "class": "natural_trumpet",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 2,
+    "register": 1,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "posthorn",
+  "parts": [
+    {
+      "id": "posthorn_form",
+      "name": "Tubing form",
+      "variants": [
+        {
+          "id": "posthorn_coiled",
+          "default": true,
+          "name": "Small coiled brass posthorn",
+          "descriptors": [
+            "bright-attack",
+            "piercing",
+            "fanfare-like"
+          ],
+          "match_tokens": [
+            "natural-horn",
+            "signal-horn"
+          ]
+        },
+        {
+          "id": "posthorn_straight",
+          "name": "Straight long coach horn",
+          "descriptors": [
+            "far-carrying",
+            "stark"
+          ],
+          "match_tokens": [
+            "natural-horn",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "posthorn_valved",
+          "name": "Valved posthorn (concert solo type)",
+          "descriptors": [
+            "agile",
+            "chromatic",
+            "showy"
+          ],
+          "match_tokens": [
+            "valved-brass",
+            "virtuosic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "posthorn_use",
+      "name": "Signalling use",
+      "variants": [
+        {
+          "id": "posthorn_signal",
+          "default": true,
+          "name": "Mail-coach arrival signal",
+          "descriptors": [
+            "calling",
+            "clipped"
+          ],
+          "match_tokens": [
+            "signal-horn",
+            "fanfare"
+          ]
+        },
+        {
+          "id": "posthorn_galop",
+          "name": "Orchestral galop / posthorn solo",
+          "descriptors": [
+            "jaunty",
+            "brilliant"
+          ],
+          "match_tokens": [
+            "brass",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "posthorn_form",
+      "name": "Tubing form",
+      "variants": [
+        {
+          "id": "posthorn_coiled",
+          "default": true,
+          "name": "Small coiled brass posthorn",
+          "descriptors": [
+            "bright-attack",
+            "piercing",
+            "fanfare-like"
+          ],
+          "match_tokens": [
+            "natural-horn",
+            "signal-horn"
+          ]
+        },
+        {
+          "id": "posthorn_straight",
+          "name": "Straight long coach horn",
+          "descriptors": [
+            "far-carrying",
+            "stark"
+          ],
+          "match_tokens": [
+            "natural-horn",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "posthorn_valved",
+          "name": "Valved posthorn (concert solo type)",
+          "descriptors": [
+            "agile",
+            "chromatic",
+            "showy"
+          ],
+          "match_tokens": [
+            "valved-brass",
+            "virtuosic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "posthorn_use",
+      "name": "Signalling use",
+      "variants": [
+        {
+          "id": "posthorn_signal",
+          "default": true,
+          "name": "Mail-coach arrival signal",
+          "descriptors": [
+            "calling",
+            "clipped"
+          ],
+          "match_tokens": [
+            "signal-horn",
+            "fanfare"
+          ]
+        },
+        {
+          "id": "posthorn_galop",
+          "name": "Orchestral galop / posthorn solo",
+          "descriptors": [
+            "jaunty",
+            "brilliant"
+          ],
+          "match_tokens": [
+            "brass",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ]
+}

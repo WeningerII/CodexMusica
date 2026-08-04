@@ -1,0 +1,146 @@
+{
+  "id": "metziltayim",
+  "name": "Metziltayim (biblical Hebrew hand cymbals)",
+  "family": "percussion",
+  "class": "hand_cymbals",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 2,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "metziltayim",
+  "parts": [
+    {
+      "id": "metz_size",
+      "name": "Cymbal size",
+      "variants": [
+        {
+          "id": "metz_small",
+          "default": true,
+          "name": "Small bronze plates (finger-held)",
+          "descriptors": [
+            "bright-attack",
+            "tinkling"
+          ],
+          "match_tokens": [
+            "cymbals",
+            "bronze"
+          ]
+        },
+        {
+          "id": "metz_large",
+          "name": "Large clashed plates (temple ensemble)",
+          "descriptors": [
+            "crashing",
+            "long-ringing"
+          ],
+          "match_tokens": [
+            "cymbals",
+            "loud-projection"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "metz_stroke",
+      "name": "Stroke type",
+      "variants": [
+        {
+          "id": "metz_clash",
+          "default": true,
+          "name": "Vertical clash (open ring)",
+          "descriptors": [
+            "splashy",
+            "sustained-shimmer"
+          ],
+          "match_tokens": [
+            "cymbals",
+            "struck"
+          ]
+        },
+        {
+          "id": "metz_choke",
+          "name": "Damped clash (choked)",
+          "descriptors": [
+            "clipped",
+            "dry-accent"
+          ],
+          "match_tokens": [
+            "cymbals",
+            "accent"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "metz_size",
+      "name": "Cymbal size",
+      "variants": [
+        {
+          "id": "metz_small",
+          "default": true,
+          "name": "Small bronze plates (finger-held)",
+          "descriptors": [
+            "bright-attack",
+            "tinkling"
+          ],
+          "match_tokens": [
+            "cymbals",
+            "bronze"
+          ]
+        },
+        {
+          "id": "metz_large",
+          "name": "Large clashed plates (temple ensemble)",
+          "descriptors": [
+            "crashing",
+            "long-ringing"
+          ],
+          "match_tokens": [
+            "cymbals",
+            "loud-projection"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "metz_stroke",
+      "name": "Stroke type",
+      "variants": [
+        {
+          "id": "metz_clash",
+          "default": true,
+          "name": "Vertical clash (open ring)",
+          "descriptors": [
+            "splashy",
+            "sustained-shimmer"
+          ],
+          "match_tokens": [
+            "cymbals",
+            "struck"
+          ]
+        },
+        {
+          "id": "metz_choke",
+          "name": "Damped clash (choked)",
+          "descriptors": [
+            "clipped",
+            "dry-accent"
+          ],
+          "match_tokens": [
+            "cymbals",
+            "accent"
+          ]
+        }
+      ]
+    }
+  ]
+}

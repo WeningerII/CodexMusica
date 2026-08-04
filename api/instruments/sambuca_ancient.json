@@ -1,0 +1,156 @@
+{
+  "id": "sambuca_ancient",
+  "name": "Sambuca (ancient angular harp of Near Eastern origin)",
+  "family": "plucked_traditional",
+  "class": "arched_harp",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "sambuca",
+  "parts": [
+    {
+      "id": "sambuca_form",
+      "name": "Frame form",
+      "variants": [
+        {
+          "id": "sambuca_angular",
+          "default": true,
+          "name": "Angular harp with horizontal soundbox",
+          "descriptors": [
+            "silvery",
+            "high-pitched",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "angular-harp",
+            "plucked",
+            "near-eastern"
+          ]
+        },
+        {
+          "id": "sambuca_arched",
+          "name": "Arched (bow) harp form",
+          "descriptors": [
+            "mellow",
+            "rounded",
+            "archaic"
+          ],
+          "match_tokens": [
+            "arched-harp",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sambuca_context",
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "sambuca_courtesan",
+          "default": true,
+          "name": "Sambucistria solo entertainment",
+          "descriptors": [
+            "ornate",
+            "florid",
+            "light"
+          ],
+          "match_tokens": [
+            "plucked",
+            "chamber"
+          ]
+        },
+        {
+          "id": "sambuca_ensemble",
+          "name": "Hellenistic ensemble with pipes",
+          "descriptors": [
+            "blending",
+            "supporting",
+            "glinting"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sambuca_form",
+      "name": "Frame form",
+      "variants": [
+        {
+          "id": "sambuca_angular",
+          "default": true,
+          "name": "Angular harp with horizontal soundbox",
+          "descriptors": [
+            "silvery",
+            "high-pitched",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "angular-harp",
+            "plucked",
+            "near-eastern"
+          ]
+        },
+        {
+          "id": "sambuca_arched",
+          "name": "Arched (bow) harp form",
+          "descriptors": [
+            "mellow",
+            "rounded",
+            "archaic"
+          ],
+          "match_tokens": [
+            "arched-harp",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sambuca_context",
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "sambuca_courtesan",
+          "default": true,
+          "name": "Sambucistria solo entertainment",
+          "descriptors": [
+            "ornate",
+            "florid",
+            "light"
+          ],
+          "match_tokens": [
+            "plucked",
+            "chamber"
+          ]
+        },
+        {
+          "id": "sambuca_ensemble",
+          "name": "Hellenistic ensemble with pipes",
+          "descriptors": [
+            "blending",
+            "supporting",
+            "glinting"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "id": "cornopean",
+  "name": "Cornopean (early valved cornet à pistons)",
+  "family": "wind",
+  "class": "brass",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "cornopean",
+  "parts": [
+    {
+      "id": "cornopean_valves",
+      "name": "Valve system",
+      "variants": [
+        {
+          "id": "cornopean_stolzel",
+          "default": true,
+          "name": "Stölzel valves with shepherd's-crook wrap",
+          "descriptors": [
+            "mellow",
+            "veiled",
+            "conical"
+          ],
+          "match_tokens": [
+            "cornet",
+            "valved-brass",
+            "victorian"
+          ]
+        },
+        {
+          "id": "cornopean_clapper",
+          "name": "Clapper-key / disc-valve variant",
+          "descriptors": [
+            "quirky",
+            "uneven-tone"
+          ],
+          "match_tokens": [
+            "valved-brass",
+            "early"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cornopean_shanks",
+      "name": "Crooks and shanks",
+      "variants": [
+        {
+          "id": "cornopean_bflat",
+          "default": true,
+          "name": "B-flat shank (standard)",
+          "descriptors": [
+            "warm",
+            "singing"
+          ],
+          "match_tokens": [
+            "cornet",
+            "brass"
+          ]
+        },
+        {
+          "id": "cornopean_a",
+          "name": "A crook",
+          "descriptors": [
+            "darker",
+            "rounder"
+          ],
+          "match_tokens": [
+            "cornet"
+          ]
+        },
+        {
+          "id": "cornopean_c",
+          "name": "C shank",
+          "descriptors": [
+            "brighter",
+            "forward"
+          ],
+          "match_tokens": [
+            "cornet",
+            "bright-attack"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "cornopean_valves",
+      "name": "Valve system",
+      "variants": [
+        {
+          "id": "cornopean_stolzel",
+          "default": true,
+          "name": "Stölzel valves with shepherd's-crook wrap",
+          "descriptors": [
+            "mellow",
+            "veiled",
+            "conical"
+          ],
+          "match_tokens": [
+            "cornet",
+            "valved-brass",
+            "victorian"
+          ]
+        },
+        {
+          "id": "cornopean_clapper",
+          "name": "Clapper-key / disc-valve variant",
+          "descriptors": [
+            "quirky",
+            "uneven-tone"
+          ],
+          "match_tokens": [
+            "valved-brass",
+            "early"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cornopean_shanks",
+      "name": "Crooks and shanks",
+      "variants": [
+        {
+          "id": "cornopean_bflat",
+          "default": true,
+          "name": "B-flat shank (standard)",
+          "descriptors": [
+            "warm",
+            "singing"
+          ],
+          "match_tokens": [
+            "cornet",
+            "brass"
+          ]
+        },
+        {
+          "id": "cornopean_a",
+          "name": "A crook",
+          "descriptors": [
+            "darker",
+            "rounder"
+          ],
+          "match_tokens": [
+            "cornet"
+          ]
+        },
+        {
+          "id": "cornopean_c",
+          "name": "C shank",
+          "descriptors": [
+            "brighter",
+            "forward"
+          ],
+          "match_tokens": [
+            "cornet",
+            "bright-attack"
+          ]
+        }
+      ]
+    }
+  ]
+}

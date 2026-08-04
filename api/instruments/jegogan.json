@@ -1,0 +1,216 @@
+{
+  "id": "jegogan",
+  "name": "Jegogan (lowest bronze metallophone of the Balinese gong kebyar)",
+  "family": "percussion",
+  "class": "metallophone",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": -2,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "jegogan",
+  "parts": [
+    {
+      "id": "jegogan_build",
+      "name": "Build",
+      "variants": [
+        {
+          "id": "jegogan_bronze_bamboo_resonators",
+          "default": true,
+          "name": "Five thick bronze keys over tall bamboo tube resonators, carved frame (canonical)",
+          "descriptors": [
+            "deep-toned",
+            "booming",
+            "long-decay"
+          ],
+          "match_tokens": [
+            "metallophone",
+            "balinese"
+          ]
+        },
+        {
+          "id": "jegogan_iron_keys",
+          "name": "Iron keys (village or budget set)",
+          "descriptors": [
+            "dull",
+            "short-bloom"
+          ],
+          "match_tokens": [
+            "metallophone",
+            "balinese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jegogan_mallet",
+      "name": "Mallet",
+      "variants": [
+        {
+          "id": "jegogan_padded_disc",
+          "default": true,
+          "name": "Large padded disc panggul",
+          "descriptors": [
+            "soft-attack",
+            "round",
+            "swelling"
+          ],
+          "match_tokens": [
+            "struck",
+            "balinese"
+          ]
+        },
+        {
+          "id": "jegogan_hard_wood",
+          "name": "Harder wooden panggul",
+          "descriptors": [
+            "defined-attack",
+            "clangy"
+          ],
+          "match_tokens": [
+            "struck",
+            "balinese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jegogan_role",
+      "surface": false,
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "jegogan_pokok_skeleton",
+          "default": true,
+          "name": "Skeletal pokok reinforcement every fourth beat (canonical)",
+          "descriptors": [
+            "sparse",
+            "anchoring",
+            "sustained"
+          ],
+          "match_tokens": [
+            "gong-kebyar",
+            "balinese"
+          ]
+        },
+        {
+          "id": "jegogan_paired_ombak",
+          "name": "Paired pengumbang/pengisep beating (ombak shimmer)",
+          "descriptors": [
+            "beating-shimmer",
+            "pulsing"
+          ],
+          "match_tokens": [
+            "gong-kebyar",
+            "balinese"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "jegogan_build",
+      "name": "Build",
+      "variants": [
+        {
+          "id": "jegogan_bronze_bamboo_resonators",
+          "default": true,
+          "name": "Five thick bronze keys over tall bamboo tube resonators, carved frame (canonical)",
+          "descriptors": [
+            "deep-toned",
+            "booming",
+            "long-decay"
+          ],
+          "match_tokens": [
+            "metallophone",
+            "balinese"
+          ]
+        },
+        {
+          "id": "jegogan_iron_keys",
+          "name": "Iron keys (village or budget set)",
+          "descriptors": [
+            "dull",
+            "short-bloom"
+          ],
+          "match_tokens": [
+            "metallophone",
+            "balinese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jegogan_mallet",
+      "name": "Mallet",
+      "variants": [
+        {
+          "id": "jegogan_padded_disc",
+          "default": true,
+          "name": "Large padded disc panggul",
+          "descriptors": [
+            "soft-attack",
+            "round",
+            "swelling"
+          ],
+          "match_tokens": [
+            "struck",
+            "balinese"
+          ]
+        },
+        {
+          "id": "jegogan_hard_wood",
+          "name": "Harder wooden panggul",
+          "descriptors": [
+            "defined-attack",
+            "clangy"
+          ],
+          "match_tokens": [
+            "struck",
+            "balinese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jegogan_role",
+      "surface": false,
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "jegogan_pokok_skeleton",
+          "default": true,
+          "name": "Skeletal pokok reinforcement every fourth beat (canonical)",
+          "descriptors": [
+            "sparse",
+            "anchoring",
+            "sustained"
+          ],
+          "match_tokens": [
+            "gong-kebyar",
+            "balinese"
+          ]
+        },
+        {
+          "id": "jegogan_paired_ombak",
+          "name": "Paired pengumbang/pengisep beating (ombak shimmer)",
+          "descriptors": [
+            "beating-shimmer",
+            "pulsing"
+          ],
+          "match_tokens": [
+            "gong-kebyar",
+            "balinese"
+          ]
+        }
+      ]
+    }
+  ]
+}

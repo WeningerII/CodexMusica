@@ -1,0 +1,208 @@
+{
+  "id": "yaktaro",
+  "name": "Yaktaro (Sindhi one-string drone lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -1,
+    "range": -2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "yaktaro",
+  "parts": [
+    {
+      "id": "yaktaro_resonator",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "yaktaro_gourd",
+          "default": true,
+          "name": "Dried gourd resonator with skin face",
+          "descriptors": [
+            "droning",
+            "thumpy",
+            "earthy"
+          ],
+          "match_tokens": [
+            "one-string",
+            "drone-foundation",
+            "sindhi"
+          ]
+        },
+        {
+          "id": "yaktaro_wood",
+          "name": "Turned wooden bowl resonator",
+          "descriptors": [
+            "dry",
+            "clipped"
+          ],
+          "match_tokens": [
+            "one-string",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yaktaro_string",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "yaktaro_steel",
+          "default": true,
+          "name": "Steel wire string",
+          "descriptors": [
+            "bright-attack",
+            "twanging"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "yaktaro_gut",
+          "name": "Gut / cotton twist string",
+          "descriptors": [
+            "mellow",
+            "archaic"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yaktaro_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "yaktaro_faqir",
+          "default": true,
+          "name": "Wandering faqir song accompaniment",
+          "descriptors": [
+            "hypnotic",
+            "pulse-keeping"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "sufi"
+          ]
+        },
+        {
+          "id": "yaktaro_kafi",
+          "name": "Kafi / Shah Jo Raag repertoire",
+          "descriptors": [
+            "devotional",
+            "steady"
+          ],
+          "match_tokens": [
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "yaktaro_resonator",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "yaktaro_gourd",
+          "default": true,
+          "name": "Dried gourd resonator with skin face",
+          "descriptors": [
+            "droning",
+            "thumpy",
+            "earthy"
+          ],
+          "match_tokens": [
+            "one-string",
+            "drone-foundation",
+            "sindhi"
+          ]
+        },
+        {
+          "id": "yaktaro_wood",
+          "name": "Turned wooden bowl resonator",
+          "descriptors": [
+            "dry",
+            "clipped"
+          ],
+          "match_tokens": [
+            "one-string",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yaktaro_string",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "yaktaro_steel",
+          "default": true,
+          "name": "Steel wire string",
+          "descriptors": [
+            "bright-attack",
+            "twanging"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "yaktaro_gut",
+          "name": "Gut / cotton twist string",
+          "descriptors": [
+            "mellow",
+            "archaic"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yaktaro_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "yaktaro_faqir",
+          "default": true,
+          "name": "Wandering faqir song accompaniment",
+          "descriptors": [
+            "hypnotic",
+            "pulse-keeping"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "sufi"
+          ]
+        },
+        {
+          "id": "yaktaro_kafi",
+          "name": "Kafi / Shah Jo Raag repertoire",
+          "descriptors": [
+            "devotional",
+            "steady"
+          ],
+          "match_tokens": [
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ]
+}

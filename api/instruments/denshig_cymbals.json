@@ -1,0 +1,148 @@
+{
+  "id": "denshig_cymbals",
+  "name": "Denshig (Mongolian small ritual hand cymbals)",
+  "family": "percussion",
+  "class": "hand_cymbals",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 2,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "denshig",
+  "parts": [
+    {
+      "id": "denshig_size",
+      "name": "Size / form",
+      "variants": [
+        {
+          "id": "denshig_small",
+          "default": true,
+          "name": "Small flat denshig (tingsha-type)",
+          "descriptors": [
+            "shimmering",
+            "long-decay",
+            "high-pitched"
+          ],
+          "match_tokens": [
+            "cymbal",
+            "ritual",
+            "tibetan-buddhist"
+          ]
+        },
+        {
+          "id": "denshig_domed",
+          "name": "Domed bossed denshig",
+          "descriptors": [
+            "clangorous",
+            "splashy"
+          ],
+          "match_tokens": [
+            "cymbal",
+            "ritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "denshig_stroke",
+      "name": "Striking technique",
+      "variants": [
+        {
+          "id": "denshig_edge_tap",
+          "default": true,
+          "name": "Vertical edge tap (let ring)",
+          "descriptors": [
+            "bell-like",
+            "sustained-shimmer"
+          ],
+          "match_tokens": [
+            "cymbal",
+            "ritual"
+          ]
+        },
+        {
+          "id": "denshig_damped",
+          "name": "Damped clash (choked)",
+          "descriptors": [
+            "dry-clash",
+            "short"
+          ],
+          "match_tokens": [
+            "cymbal"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "denshig_size",
+      "name": "Size / form",
+      "variants": [
+        {
+          "id": "denshig_small",
+          "default": true,
+          "name": "Small flat denshig (tingsha-type)",
+          "descriptors": [
+            "shimmering",
+            "long-decay",
+            "high-pitched"
+          ],
+          "match_tokens": [
+            "cymbal",
+            "ritual",
+            "tibetan-buddhist"
+          ]
+        },
+        {
+          "id": "denshig_domed",
+          "name": "Domed bossed denshig",
+          "descriptors": [
+            "clangorous",
+            "splashy"
+          ],
+          "match_tokens": [
+            "cymbal",
+            "ritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "denshig_stroke",
+      "name": "Striking technique",
+      "variants": [
+        {
+          "id": "denshig_edge_tap",
+          "default": true,
+          "name": "Vertical edge tap (let ring)",
+          "descriptors": [
+            "bell-like",
+            "sustained-shimmer"
+          ],
+          "match_tokens": [
+            "cymbal",
+            "ritual"
+          ]
+        },
+        {
+          "id": "denshig_damped",
+          "name": "Damped clash (choked)",
+          "descriptors": [
+            "dry-clash",
+            "short"
+          ],
+          "match_tokens": [
+            "cymbal"
+          ]
+        }
+      ]
+    }
+  ]
+}

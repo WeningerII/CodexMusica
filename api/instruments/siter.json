@@ -1,0 +1,238 @@
+{
+  "id": "siter",
+  "name": "Siter (Javanese small plucked box zither)",
+  "family": "plucked_traditional",
+  "class": "plucked_box_zither",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "siter",
+  "parts": [
+    {
+      "id": "siter_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "siter_standard_box",
+          "default": true,
+          "name": "Small rectangular resonating box, wire strings both faces (canonical)",
+          "descriptors": [
+            "bright-attack",
+            "shimmering",
+            "fast-decay"
+          ],
+          "match_tokens": [
+            "box-zither",
+            "javanese"
+          ]
+        },
+        {
+          "id": "siter_penerus",
+          "name": "Siter penerus (smaller, higher, faster)",
+          "descriptors": [
+            "high-pitched",
+            "glittering"
+          ],
+          "match_tokens": [
+            "box-zither",
+            "javanese"
+          ]
+        },
+        {
+          "id": "siter_slenthem_size",
+          "name": "Large low siter (clempung-sized frame)",
+          "descriptors": [
+            "deep-toned",
+            "resonant"
+          ],
+          "match_tokens": [
+            "box-zither",
+            "javanese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "siter_tuning",
+      "name": "Tuning system",
+      "variants": [
+        {
+          "id": "siter_slendro",
+          "default": true,
+          "name": "Slendro face",
+          "descriptors": [
+            "slendro-tuned",
+            "even-spaced"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "javanese"
+          ]
+        },
+        {
+          "id": "siter_pelog",
+          "name": "Pelog face",
+          "descriptors": [
+            "pelog-tuned",
+            "unequal-intervals"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "javanese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "siter_technique",
+      "surface": false,
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "siter_thumbnail_damped",
+          "default": true,
+          "name": "Thumbnail pluck with immediate finger damping (canonical cengkok)",
+          "descriptors": [
+            "crisp",
+            "damped",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "plucked",
+            "gamelan"
+          ]
+        },
+        {
+          "id": "siter_undamped",
+          "name": "Ringing undamped strumming",
+          "descriptors": [
+            "ringing",
+            "blurred"
+          ],
+          "match_tokens": [
+            "plucked",
+            "gamelan"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "siter_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "siter_standard_box",
+          "default": true,
+          "name": "Small rectangular resonating box, wire strings both faces (canonical)",
+          "descriptors": [
+            "bright-attack",
+            "shimmering",
+            "fast-decay"
+          ],
+          "match_tokens": [
+            "box-zither",
+            "javanese"
+          ]
+        },
+        {
+          "id": "siter_penerus",
+          "name": "Siter penerus (smaller, higher, faster)",
+          "descriptors": [
+            "high-pitched",
+            "glittering"
+          ],
+          "match_tokens": [
+            "box-zither",
+            "javanese"
+          ]
+        },
+        {
+          "id": "siter_slenthem_size",
+          "name": "Large low siter (clempung-sized frame)",
+          "descriptors": [
+            "deep-toned",
+            "resonant"
+          ],
+          "match_tokens": [
+            "box-zither",
+            "javanese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "siter_tuning",
+      "name": "Tuning system",
+      "variants": [
+        {
+          "id": "siter_slendro",
+          "default": true,
+          "name": "Slendro face",
+          "descriptors": [
+            "slendro-tuned",
+            "even-spaced"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "javanese"
+          ]
+        },
+        {
+          "id": "siter_pelog",
+          "name": "Pelog face",
+          "descriptors": [
+            "pelog-tuned",
+            "unequal-intervals"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "javanese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "siter_technique",
+      "surface": false,
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "siter_thumbnail_damped",
+          "default": true,
+          "name": "Thumbnail pluck with immediate finger damping (canonical cengkok)",
+          "descriptors": [
+            "crisp",
+            "damped",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "plucked",
+            "gamelan"
+          ]
+        },
+        {
+          "id": "siter_undamped",
+          "name": "Ringing undamped strumming",
+          "descriptors": [
+            "ringing",
+            "blurred"
+          ],
+          "match_tokens": [
+            "plucked",
+            "gamelan"
+          ]
+        }
+      ]
+    }
+  ]
+}

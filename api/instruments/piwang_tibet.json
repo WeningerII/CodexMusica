@@ -1,0 +1,289 @@
+{
+  "id": "piwang_tibet",
+  "name": "Piwang (Tibetan two-string spike fiddle)",
+  "family": "bowed",
+  "class": "bowed_spike_fiddle",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 1,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "piwang",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "piwang_tibet_resonator",
+      "name": "Resonator body",
+      "variants": [
+        {
+          "id": "piwang_tibet_wood_skin",
+          "default": true,
+          "name": "Cylindrical wood body with snakeskin or goatskin belly (canonical)",
+          "descriptors": [
+            "nasal-tone",
+            "reedy",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "spike-fiddle",
+            "tibetan-tradition"
+          ]
+        },
+        {
+          "id": "piwang_tibet_yakhorn",
+          "name": "Yak-horn or hollowed-horn resonator",
+          "descriptors": [
+            "thin-toned",
+            "rasping",
+            "archaic"
+          ],
+          "match_tokens": [
+            "spike-fiddle",
+            "tibetan-tradition"
+          ]
+        },
+        {
+          "id": "piwang_tibet_metal_can",
+          "name": "Metal-can resonator (folk improvised)",
+          "descriptors": [
+            "brittle",
+            "clangy",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "spike-fiddle",
+            "folk-build"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "piwang_tibet_repertoire",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "piwang_tibet_nangma",
+          "default": true,
+          "name": "Nangma / toeshey court-song accompaniment",
+          "descriptors": [
+            "lilting",
+            "song-shadowing",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "bowed",
+            "lhasa-nangma"
+          ]
+        },
+        {
+          "id": "piwang_tibet_lhamo",
+          "name": "Ache Lhamo opera accompaniment",
+          "descriptors": [
+            "declamatory",
+            "piercing",
+            "theatrical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "tibetan-opera"
+          ]
+        },
+        {
+          "id": "piwang_tibet_solo",
+          "name": "Solo rubato melodic playing",
+          "descriptors": [
+            "rubato",
+            "sliding-portamento"
+          ],
+          "match_tokens": [
+            "bowed",
+            "expressive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "piwang_tibet_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "piwang_tibet_silk",
+          "default": true,
+          "name": "Silk or gut strings",
+          "descriptors": [
+            "warm",
+            "soft-edged"
+          ],
+          "match_tokens": [
+            "spike-fiddle"
+          ]
+        },
+        {
+          "id": "piwang_tibet_steel",
+          "name": "Steel strings (modern)",
+          "descriptors": [
+            "bright",
+            "projecting"
+          ],
+          "match_tokens": [
+            "spike-fiddle"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "piwang_tibet_resonator",
+      "name": "Resonator body",
+      "variants": [
+        {
+          "id": "piwang_tibet_wood_skin",
+          "default": true,
+          "name": "Cylindrical wood body with snakeskin or goatskin belly (canonical)",
+          "descriptors": [
+            "nasal-tone",
+            "reedy",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "spike-fiddle",
+            "tibetan-tradition"
+          ]
+        },
+        {
+          "id": "piwang_tibet_yakhorn",
+          "name": "Yak-horn or hollowed-horn resonator",
+          "descriptors": [
+            "thin-toned",
+            "rasping",
+            "archaic"
+          ],
+          "match_tokens": [
+            "spike-fiddle",
+            "tibetan-tradition"
+          ]
+        },
+        {
+          "id": "piwang_tibet_metal_can",
+          "name": "Metal-can resonator (folk improvised)",
+          "descriptors": [
+            "brittle",
+            "clangy",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "spike-fiddle",
+            "folk-build"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "piwang_tibet_repertoire",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "piwang_tibet_nangma",
+          "default": true,
+          "name": "Nangma / toeshey court-song accompaniment",
+          "descriptors": [
+            "lilting",
+            "song-shadowing",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "bowed",
+            "lhasa-nangma"
+          ]
+        },
+        {
+          "id": "piwang_tibet_lhamo",
+          "name": "Ache Lhamo opera accompaniment",
+          "descriptors": [
+            "declamatory",
+            "piercing",
+            "theatrical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "tibetan-opera"
+          ]
+        },
+        {
+          "id": "piwang_tibet_solo",
+          "name": "Solo rubato melodic playing",
+          "descriptors": [
+            "rubato",
+            "sliding-portamento"
+          ],
+          "match_tokens": [
+            "bowed",
+            "expressive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "piwang_tibet_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "piwang_tibet_silk",
+          "default": true,
+          "name": "Silk or gut strings",
+          "descriptors": [
+            "warm",
+            "soft-edged"
+          ],
+          "match_tokens": [
+            "spike-fiddle"
+          ]
+        },
+        {
+          "id": "piwang_tibet_steel",
+          "name": "Steel strings (modern)",
+          "descriptors": [
+            "bright",
+            "projecting"
+          ],
+          "match_tokens": [
+            "spike-fiddle"
+          ]
+        }
+      ]
+    }
+  ]
+}

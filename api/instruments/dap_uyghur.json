@@ -1,0 +1,150 @@
+{
+  "id": "dap_uyghur",
+  "name": "Dap (Uyghur ring-jingle frame drum)",
+  "family": "percussion",
+  "class": "frame_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "uyghur dap",
+  "parts": [
+    {
+      "id": "dap_uyghur_size",
+      "name": "Frame size",
+      "variants": [
+        {
+          "id": "dap_uyghur_large",
+          "default": true,
+          "name": "Large muqam dap (wide shallow hoop)",
+          "descriptors": [
+            "booming",
+            "jingling",
+            "resonant"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "uyghur",
+            "muqam"
+          ]
+        },
+        {
+          "id": "dap_uyghur_small",
+          "name": "Small dance dap",
+          "descriptors": [
+            "crisp",
+            "high-pitched"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "uyghur"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dap_uyghur_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "dap_uyghur_center_rim",
+          "default": true,
+          "name": "Center/rim alternation with finger rolls",
+          "descriptors": [
+            "driving",
+            "rattling"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "rhythm-cycle"
+          ]
+        },
+        {
+          "id": "dap_uyghur_shake",
+          "name": "Shaken jingle tremolo",
+          "descriptors": [
+            "sizzling",
+            "continuous"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "jingle-rings"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dap_uyghur_size",
+      "name": "Frame size",
+      "variants": [
+        {
+          "id": "dap_uyghur_large",
+          "default": true,
+          "name": "Large muqam dap (wide shallow hoop)",
+          "descriptors": [
+            "booming",
+            "jingling",
+            "resonant"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "uyghur",
+            "muqam"
+          ]
+        },
+        {
+          "id": "dap_uyghur_small",
+          "name": "Small dance dap",
+          "descriptors": [
+            "crisp",
+            "high-pitched"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "uyghur"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dap_uyghur_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "dap_uyghur_center_rim",
+          "default": true,
+          "name": "Center/rim alternation with finger rolls",
+          "descriptors": [
+            "driving",
+            "rattling"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "rhythm-cycle"
+          ]
+        },
+        {
+          "id": "dap_uyghur_shake",
+          "name": "Shaken jingle tremolo",
+          "descriptors": [
+            "sizzling",
+            "continuous"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "jingle-rings"
+          ]
+        }
+      ]
+    }
+  ]
+}

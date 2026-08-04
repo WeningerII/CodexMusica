@@ -1,0 +1,222 @@
+{
+  "id": "saenghwang",
+  "name": "Saenghwang (Korean gourd mouth organ)",
+  "family": "free_reed",
+  "class": "free_reed",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "saenghwang",
+  "parts": [
+    {
+      "id": "free_reed_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "free_reed_folk_first_position",
+          "default": true,
+          "name": "Folk first-position straight",
+          "descriptors": [
+            "straight",
+            "melodic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "folk",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "folk",
+            "singer-songwriter",
+            "country"
+          ]
+        },
+        {
+          "id": "free_reed_overblow_modern",
+          "name": "Overblow modern bending",
+          "descriptors": [
+            "overblown",
+            "fully-chromatic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "modern"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "saenghwang_windchest",
+      "name": "Wind chest material",
+      "variants": [
+        {
+          "id": "saenghwang_gourd",
+          "default": true,
+          "name": "Traditional gourd wind chest",
+          "descriptors": [
+            "breathy",
+            "sweet",
+            "organ-like"
+          ],
+          "match_tokens": [
+            "mouth-organ",
+            "free-reed",
+            "korean"
+          ]
+        },
+        {
+          "id": "saenghwang_wood",
+          "name": "Lacquered wood/metal wind chest (modern)",
+          "descriptors": [
+            "clean",
+            "stable",
+            "projecting"
+          ],
+          "match_tokens": [
+            "mouth-organ",
+            "free-reed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saenghwang_texture",
+      "name": "Playing texture",
+      "variants": [
+        {
+          "id": "saenghwang_cluster",
+          "default": true,
+          "name": "Sustained multi-pipe clusters",
+          "descriptors": [
+            "shimmering",
+            "chordal",
+            "sustained"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "saenghwang_single",
+          "name": "Single-pipe melodic line",
+          "descriptors": [
+            "thin",
+            "pure",
+            "reedy"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "melodic-lead"
+          ]
+        },
+        {
+          "id": "saenghwang_saengso",
+          "name": "Saengso duet with danso flute",
+          "descriptors": [
+            "airy",
+            "interlocking",
+            "refined"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "duet"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "saenghwang_windchest",
+      "name": "Wind chest material",
+      "variants": [
+        {
+          "id": "saenghwang_gourd",
+          "default": true,
+          "name": "Traditional gourd wind chest",
+          "descriptors": [
+            "breathy",
+            "sweet",
+            "organ-like"
+          ],
+          "match_tokens": [
+            "mouth-organ",
+            "free-reed",
+            "korean"
+          ]
+        },
+        {
+          "id": "saenghwang_wood",
+          "name": "Lacquered wood/metal wind chest (modern)",
+          "descriptors": [
+            "clean",
+            "stable",
+            "projecting"
+          ],
+          "match_tokens": [
+            "mouth-organ",
+            "free-reed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saenghwang_texture",
+      "name": "Playing texture",
+      "variants": [
+        {
+          "id": "saenghwang_cluster",
+          "default": true,
+          "name": "Sustained multi-pipe clusters",
+          "descriptors": [
+            "shimmering",
+            "chordal",
+            "sustained"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "saenghwang_single",
+          "name": "Single-pipe melodic line",
+          "descriptors": [
+            "thin",
+            "pure",
+            "reedy"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "melodic-lead"
+          ]
+        },
+        {
+          "id": "saenghwang_saengso",
+          "name": "Saengso duet with danso flute",
+          "descriptors": [
+            "airy",
+            "interlocking",
+            "refined"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "duet"
+          ]
+        }
+      ]
+    }
+  ]
+}

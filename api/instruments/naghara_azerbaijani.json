@@ -1,0 +1,168 @@
+{
+  "id": "naghara_azerbaijani",
+  "name": "Naghara (Azerbaijani cylindrical double-headed drum)",
+  "family": "percussion",
+  "class": "cylindrical_drum",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "naghara",
+  "parts": [
+    {
+      "id": "naghara_size",
+      "name": "Drum size",
+      "variants": [
+        {
+          "id": "naghara_bash",
+          "default": true,
+          "name": "Baş naghara (lead mid-size)",
+          "descriptors": [
+            "punchy",
+            "cracking",
+            "carrying"
+          ],
+          "match_tokens": [
+            "double-headed-drum",
+            "azerbaijani"
+          ]
+        },
+        {
+          "id": "naghara_boyuk",
+          "name": "Böyük naghara (large bass)",
+          "descriptors": [
+            "booming",
+            "deep-toned"
+          ],
+          "match_tokens": [
+            "double-headed-drum",
+            "low-register"
+          ]
+        },
+        {
+          "id": "naghara_cura",
+          "name": "Cürə naghara (small high)",
+          "descriptors": [
+            "tight",
+            "high-pitched"
+          ],
+          "match_tokens": [
+            "double-headed-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "naghara_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "naghara_hands",
+          "default": true,
+          "name": "Bare-hand playing (ensemble/indoor)",
+          "descriptors": [
+            "articulate",
+            "warm-thump"
+          ],
+          "match_tokens": [
+            "hand-drum"
+          ]
+        },
+        {
+          "id": "naghara_sticks",
+          "name": "Stick playing with zurna (outdoor)",
+          "descriptors": [
+            "loud",
+            "sharp-attack"
+          ],
+          "match_tokens": [
+            "double-headed-drum",
+            "outdoor"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "naghara_size",
+      "name": "Drum size",
+      "variants": [
+        {
+          "id": "naghara_bash",
+          "default": true,
+          "name": "Baş naghara (lead mid-size)",
+          "descriptors": [
+            "punchy",
+            "cracking",
+            "carrying"
+          ],
+          "match_tokens": [
+            "double-headed-drum",
+            "azerbaijani"
+          ]
+        },
+        {
+          "id": "naghara_boyuk",
+          "name": "Böyük naghara (large bass)",
+          "descriptors": [
+            "booming",
+            "deep-toned"
+          ],
+          "match_tokens": [
+            "double-headed-drum",
+            "low-register"
+          ]
+        },
+        {
+          "id": "naghara_cura",
+          "name": "Cürə naghara (small high)",
+          "descriptors": [
+            "tight",
+            "high-pitched"
+          ],
+          "match_tokens": [
+            "double-headed-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "naghara_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "naghara_hands",
+          "default": true,
+          "name": "Bare-hand playing (ensemble/indoor)",
+          "descriptors": [
+            "articulate",
+            "warm-thump"
+          ],
+          "match_tokens": [
+            "hand-drum"
+          ]
+        },
+        {
+          "id": "naghara_sticks",
+          "name": "Stick playing with zurna (outdoor)",
+          "descriptors": [
+            "loud",
+            "sharp-attack"
+          ],
+          "match_tokens": [
+            "double-headed-drum",
+            "outdoor"
+          ]
+        }
+      ]
+    }
+  ]
+}

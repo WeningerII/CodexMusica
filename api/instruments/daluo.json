@@ -1,0 +1,168 @@
+{
+  "id": "daluo",
+  "name": "Daluo (large Chinese gong with descending pitch)",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": -1,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "daluo",
+  "parts": [
+    {
+      "id": "daluo_type",
+      "name": "Gong type",
+      "variants": [
+        {
+          "id": "daluo_jingluo",
+          "default": true,
+          "name": "Jing daluo (Peking opera, falling pitch bend)",
+          "descriptors": [
+            "descending-glide",
+            "crashing",
+            "shimmering-decay"
+          ],
+          "match_tokens": [
+            "chinese-gong",
+            "opera-percussion"
+          ]
+        },
+        {
+          "id": "daluo_chaozhou",
+          "name": "Chaozhou deep gong (shengluo)",
+          "descriptors": [
+            "deep-toned",
+            "booming"
+          ],
+          "match_tokens": [
+            "chinese-gong",
+            "low-register"
+          ]
+        },
+        {
+          "id": "daluo_fengluo",
+          "name": "Fengluo / wind gong (flat, unpitched)",
+          "descriptors": [
+            "washing",
+            "roaring"
+          ],
+          "match_tokens": [
+            "chinese-gong",
+            "wash"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daluo_beater",
+      "name": "Beater",
+      "variants": [
+        {
+          "id": "daluo_padded",
+          "default": true,
+          "name": "Cloth-padded mallet",
+          "descriptors": [
+            "full-swell",
+            "rounded-attack"
+          ],
+          "match_tokens": [
+            "struck-metal"
+          ]
+        },
+        {
+          "id": "daluo_hard",
+          "name": "Hard wooden beater",
+          "descriptors": [
+            "sharp-attack",
+            "clangorous"
+          ],
+          "match_tokens": [
+            "struck-metal"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "daluo_type",
+      "name": "Gong type",
+      "variants": [
+        {
+          "id": "daluo_jingluo",
+          "default": true,
+          "name": "Jing daluo (Peking opera, falling pitch bend)",
+          "descriptors": [
+            "descending-glide",
+            "crashing",
+            "shimmering-decay"
+          ],
+          "match_tokens": [
+            "chinese-gong",
+            "opera-percussion"
+          ]
+        },
+        {
+          "id": "daluo_chaozhou",
+          "name": "Chaozhou deep gong (shengluo)",
+          "descriptors": [
+            "deep-toned",
+            "booming"
+          ],
+          "match_tokens": [
+            "chinese-gong",
+            "low-register"
+          ]
+        },
+        {
+          "id": "daluo_fengluo",
+          "name": "Fengluo / wind gong (flat, unpitched)",
+          "descriptors": [
+            "washing",
+            "roaring"
+          ],
+          "match_tokens": [
+            "chinese-gong",
+            "wash"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daluo_beater",
+      "name": "Beater",
+      "variants": [
+        {
+          "id": "daluo_padded",
+          "default": true,
+          "name": "Cloth-padded mallet",
+          "descriptors": [
+            "full-swell",
+            "rounded-attack"
+          ],
+          "match_tokens": [
+            "struck-metal"
+          ]
+        },
+        {
+          "id": "daluo_hard",
+          "name": "Hard wooden beater",
+          "descriptors": [
+            "sharp-attack",
+            "clangorous"
+          ],
+          "match_tokens": [
+            "struck-metal"
+          ]
+        }
+      ]
+    }
+  ]
+}

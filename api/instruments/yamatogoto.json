@@ -1,0 +1,148 @@
+{
+  "id": "yamatogoto",
+  "name": "Yamatogoto (azumagoto; the wagon under its ritual Shinto name)",
+  "family": "plucked_traditional",
+  "class": "plucked_box_zither",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -2
+  },
+  "short": "yamatogoto",
+  "parts": [
+    {
+      "id": "yamatogoto_context",
+      "name": "Ritual context",
+      "variants": [
+        {
+          "id": "yamatogoto_mikagura",
+          "default": true,
+          "name": "Mikagura shrine ritual accompaniment",
+          "descriptors": [
+            "solemn",
+            "sparse",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "shinto",
+            "zither",
+            "ritual"
+          ]
+        },
+        {
+          "id": "yamatogoto_azuma_asobi",
+          "name": "Azuma-asobi dance accompaniment",
+          "descriptors": [
+            "lilting",
+            "dance-supporting"
+          ],
+          "match_tokens": [
+            "zither",
+            "court-music"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yamatogoto_plectrum",
+      "name": "Plectrum",
+      "variants": [
+        {
+          "id": "yamatogoto_kotsume",
+          "default": true,
+          "name": "Kotsume (horn or bamboo sliver)",
+          "descriptors": [
+            "thin-toned",
+            "brushed"
+          ],
+          "match_tokens": [
+            "plucked",
+            "zither"
+          ]
+        },
+        {
+          "id": "yamatogoto_fingers",
+          "name": "Bare fingers",
+          "descriptors": [
+            "soft-attack",
+            "intimate"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "yamatogoto_context",
+      "name": "Ritual context",
+      "variants": [
+        {
+          "id": "yamatogoto_mikagura",
+          "default": true,
+          "name": "Mikagura shrine ritual accompaniment",
+          "descriptors": [
+            "solemn",
+            "sparse",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "shinto",
+            "zither",
+            "ritual"
+          ]
+        },
+        {
+          "id": "yamatogoto_azuma_asobi",
+          "name": "Azuma-asobi dance accompaniment",
+          "descriptors": [
+            "lilting",
+            "dance-supporting"
+          ],
+          "match_tokens": [
+            "zither",
+            "court-music"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yamatogoto_plectrum",
+      "name": "Plectrum",
+      "variants": [
+        {
+          "id": "yamatogoto_kotsume",
+          "default": true,
+          "name": "Kotsume (horn or bamboo sliver)",
+          "descriptors": [
+            "thin-toned",
+            "brushed"
+          ],
+          "match_tokens": [
+            "plucked",
+            "zither"
+          ]
+        },
+        {
+          "id": "yamatogoto_fingers",
+          "name": "Bare fingers",
+          "descriptors": [
+            "soft-attack",
+            "intimate"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

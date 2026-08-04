@@ -1,0 +1,146 @@
+{
+  "id": "geduk_drum",
+  "name": "Geduk (Kelantan barrel drum struck with sticks)",
+  "family": "percussion",
+  "class": "barrel_drum",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": -1,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "geduk",
+  "parts": [
+    {
+      "id": "geduk_pair",
+      "name": "Drum of the pair",
+      "variants": [
+        {
+          "id": "geduk_ibu",
+          "default": true,
+          "name": "Geduk ibu (larger, lower)",
+          "descriptors": [
+            "deep-toned",
+            "thudding"
+          ],
+          "match_tokens": [
+            "barrel-drum",
+            "kelantan"
+          ]
+        },
+        {
+          "id": "geduk_anak",
+          "name": "Geduk anak (smaller, higher)",
+          "descriptors": [
+            "sharp-crack",
+            "bright"
+          ],
+          "match_tokens": [
+            "barrel-drum",
+            "interlocking"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "geduk_context",
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "geduk_wayang",
+          "default": true,
+          "name": "Wayang kulit accompaniment",
+          "descriptors": [
+            "punctuating",
+            "dramatic"
+          ],
+          "match_tokens": [
+            "shadow-play",
+            "struck"
+          ]
+        },
+        {
+          "id": "geduk_silat",
+          "name": "Silat / martial display",
+          "descriptors": [
+            "driving",
+            "martial"
+          ],
+          "match_tokens": [
+            "struck",
+            "procession"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "geduk_pair",
+      "name": "Drum of the pair",
+      "variants": [
+        {
+          "id": "geduk_ibu",
+          "default": true,
+          "name": "Geduk ibu (larger, lower)",
+          "descriptors": [
+            "deep-toned",
+            "thudding"
+          ],
+          "match_tokens": [
+            "barrel-drum",
+            "kelantan"
+          ]
+        },
+        {
+          "id": "geduk_anak",
+          "name": "Geduk anak (smaller, higher)",
+          "descriptors": [
+            "sharp-crack",
+            "bright"
+          ],
+          "match_tokens": [
+            "barrel-drum",
+            "interlocking"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "geduk_context",
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "geduk_wayang",
+          "default": true,
+          "name": "Wayang kulit accompaniment",
+          "descriptors": [
+            "punctuating",
+            "dramatic"
+          ],
+          "match_tokens": [
+            "shadow-play",
+            "struck"
+          ]
+        },
+        {
+          "id": "geduk_silat",
+          "name": "Silat / martial display",
+          "descriptors": [
+            "driving",
+            "martial"
+          ],
+          "match_tokens": [
+            "struck",
+            "procession"
+          ]
+        }
+      ]
+    }
+  ]
+}

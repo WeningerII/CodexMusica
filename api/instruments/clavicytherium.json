@@ -1,0 +1,167 @@
+{
+  "id": "clavicytherium",
+  "name": "Clavicytherium (upright harpsichord)",
+  "family": "keyboard",
+  "class": "keyboard_acoustic",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 0,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "clavicytherium",
+  "parts": [
+    {
+      "id": "keyboard_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "keyboard_block_chord_pop",
+          "default": true,
+          "name": "Block-chord pop",
+          "descriptors": [
+            "block-chord"
+          ],
+          "match_tokens": [
+            "chordal",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "pop",
+            "singer-songwriter"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "clavicyth_size",
+      "name": "Instrument scale",
+      "variants": [
+        {
+          "id": "clavicyth_single",
+          "default": true,
+          "name": "Single-manual upright (8' choir)",
+          "descriptors": [
+            "bright-attack",
+            "forward-projecting"
+          ],
+          "match_tokens": [
+            "plucked-keyboard",
+            "harpsichord"
+          ]
+        },
+        {
+          "id": "clavicyth_double",
+          "name": "Large upright with 8'+4' choirs",
+          "descriptors": [
+            "brilliant",
+            "full-toned"
+          ],
+          "match_tokens": [
+            "plucked-keyboard",
+            "harpsichord"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clavicyth_plectra",
+      "surface": false,
+      "name": "Plectrum material",
+      "variants": [
+        {
+          "id": "clavicyth_quill",
+          "default": true,
+          "name": "Raven quill plectra",
+          "descriptors": [
+            "crisp-pluck",
+            "incisive"
+          ],
+          "match_tokens": [
+            "plucked-keyboard"
+          ]
+        },
+        {
+          "id": "clavicyth_leather",
+          "name": "Leather plectra",
+          "descriptors": [
+            "rounder",
+            "softer-attack"
+          ],
+          "match_tokens": [
+            "plucked-keyboard"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "clavicyth_size",
+      "name": "Instrument scale",
+      "variants": [
+        {
+          "id": "clavicyth_single",
+          "default": true,
+          "name": "Single-manual upright (8' choir)",
+          "descriptors": [
+            "bright-attack",
+            "forward-projecting"
+          ],
+          "match_tokens": [
+            "plucked-keyboard",
+            "harpsichord"
+          ]
+        },
+        {
+          "id": "clavicyth_double",
+          "name": "Large upright with 8'+4' choirs",
+          "descriptors": [
+            "brilliant",
+            "full-toned"
+          ],
+          "match_tokens": [
+            "plucked-keyboard",
+            "harpsichord"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clavicyth_plectra",
+      "surface": false,
+      "name": "Plectrum material",
+      "variants": [
+        {
+          "id": "clavicyth_quill",
+          "default": true,
+          "name": "Raven quill plectra",
+          "descriptors": [
+            "crisp-pluck",
+            "incisive"
+          ],
+          "match_tokens": [
+            "plucked-keyboard"
+          ]
+        },
+        {
+          "id": "clavicyth_leather",
+          "name": "Leather plectra",
+          "descriptors": [
+            "rounder",
+            "softer-attack"
+          ],
+          "match_tokens": [
+            "plucked-keyboard"
+          ]
+        }
+      ]
+    }
+  ]
+}

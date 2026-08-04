@@ -1,0 +1,148 @@
+{
+  "id": "klong_khaek",
+  "name": "Klong khaek (Thai long double-headed drum pair)",
+  "family": "percussion",
+  "class": "double_headed_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "klong khaek",
+  "parts": [
+    {
+      "id": "klong_khaek_pair",
+      "name": "Drum of the pair",
+      "variants": [
+        {
+          "id": "klong_khaek_tua_phu",
+          "default": true,
+          "name": "Tua phu (male, lower-pitched)",
+          "descriptors": [
+            "deep-toned",
+            "punchy"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "thai"
+          ]
+        },
+        {
+          "id": "klong_khaek_tua_mia",
+          "name": "Tua mia (female, higher-pitched)",
+          "descriptors": [
+            "high-pitched",
+            "snappy"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "thai"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "klong_khaek_context",
+      "surface": false,
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "klong_khaek_piphat",
+          "default": true,
+          "name": "Piphat / dance-drama accompaniment (canonical)",
+          "descriptors": [
+            "interlocking",
+            "driving"
+          ],
+          "match_tokens": [
+            "thai",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "klong_khaek_boxing",
+          "name": "Muay Thai boxing ensemble",
+          "descriptors": [
+            "accelerating",
+            "insistent"
+          ],
+          "match_tokens": [
+            "thai",
+            "processional"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "klong_khaek_pair",
+      "name": "Drum of the pair",
+      "variants": [
+        {
+          "id": "klong_khaek_tua_phu",
+          "default": true,
+          "name": "Tua phu (male, lower-pitched)",
+          "descriptors": [
+            "deep-toned",
+            "punchy"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "thai"
+          ]
+        },
+        {
+          "id": "klong_khaek_tua_mia",
+          "name": "Tua mia (female, higher-pitched)",
+          "descriptors": [
+            "high-pitched",
+            "snappy"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "thai"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "klong_khaek_context",
+      "surface": false,
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "klong_khaek_piphat",
+          "default": true,
+          "name": "Piphat / dance-drama accompaniment (canonical)",
+          "descriptors": [
+            "interlocking",
+            "driving"
+          ],
+          "match_tokens": [
+            "thai",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "klong_khaek_boxing",
+          "name": "Muay Thai boxing ensemble",
+          "descriptors": [
+            "accelerating",
+            "insistent"
+          ],
+          "match_tokens": [
+            "thai",
+            "processional"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,144 @@
+{
+  "id": "tagunggak",
+  "name": "Tagunggak (Sabah bamboo stamping tubes)",
+  "family": "percussion",
+  "class": "struck_idiophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": -1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "tagunggak",
+  "parts": [
+    {
+      "id": "tagunggak_set",
+      "name": "Set position",
+      "variants": [
+        {
+          "id": "tagunggak_low",
+          "default": true,
+          "name": "Long low tubes (bass line)",
+          "descriptors": [
+            "hollow",
+            "deep-thud"
+          ],
+          "match_tokens": [
+            "bamboo",
+            "stamping-tubes"
+          ]
+        },
+        {
+          "id": "tagunggak_high",
+          "name": "Short high tubes",
+          "descriptors": [
+            "clacking",
+            "bright"
+          ],
+          "match_tokens": [
+            "bamboo",
+            "interlocking"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tagunggak_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "tagunggak_struck",
+          "default": true,
+          "name": "Struck with wooden stick while walking",
+          "descriptors": [
+            "processional",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "bamboo",
+            "procession"
+          ]
+        },
+        {
+          "id": "tagunggak_stamped",
+          "name": "Stamped on the ground",
+          "descriptors": [
+            "thumping",
+            "earthy"
+          ],
+          "match_tokens": [
+            "stamping-tubes"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tagunggak_set",
+      "name": "Set position",
+      "variants": [
+        {
+          "id": "tagunggak_low",
+          "default": true,
+          "name": "Long low tubes (bass line)",
+          "descriptors": [
+            "hollow",
+            "deep-thud"
+          ],
+          "match_tokens": [
+            "bamboo",
+            "stamping-tubes"
+          ]
+        },
+        {
+          "id": "tagunggak_high",
+          "name": "Short high tubes",
+          "descriptors": [
+            "clacking",
+            "bright"
+          ],
+          "match_tokens": [
+            "bamboo",
+            "interlocking"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tagunggak_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "tagunggak_struck",
+          "default": true,
+          "name": "Struck with wooden stick while walking",
+          "descriptors": [
+            "processional",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "bamboo",
+            "procession"
+          ]
+        },
+        {
+          "id": "tagunggak_stamped",
+          "name": "Stamped on the ground",
+          "descriptors": [
+            "thumping",
+            "earthy"
+          ],
+          "match_tokens": [
+            "stamping-tubes"
+          ]
+        }
+      ]
+    }
+  ]
+}

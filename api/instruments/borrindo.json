@@ -1,0 +1,146 @@
+{
+  "id": "borrindo",
+  "name": "Borrindo (Sindhi clay globular flute)",
+  "family": "wind",
+  "class": "flute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": 2,
+    "register": 1,
+    "range": -2,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "borrindo",
+  "parts": [
+    {
+      "id": "borrindo_size",
+      "name": "Ball size",
+      "variants": [
+        {
+          "id": "borrindo_small",
+          "default": true,
+          "name": "Small clay ball (three or four holes, high voice)",
+          "descriptors": [
+            "pure-toned",
+            "breathy",
+            "hollow"
+          ],
+          "match_tokens": [
+            "vessel-flute",
+            "sindhi"
+          ]
+        },
+        {
+          "id": "borrindo_large",
+          "name": "Large clay ball (lower, softer)",
+          "descriptors": [
+            "deep-toned",
+            "muffled"
+          ],
+          "match_tokens": [
+            "vessel-flute",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "borrindo_clay",
+      "surface": false,
+      "name": "Clay and firing",
+      "variants": [
+        {
+          "id": "borrindo_unfired",
+          "default": true,
+          "name": "Sun-dried unfired river clay (village-made)",
+          "descriptors": [
+            "soft-toned",
+            "earthy"
+          ],
+          "match_tokens": [
+            "vessel-flute"
+          ]
+        },
+        {
+          "id": "borrindo_fired",
+          "name": "Kiln-fired terracotta",
+          "descriptors": [
+            "ringing",
+            "clearer"
+          ],
+          "match_tokens": [
+            "vessel-flute"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "borrindo_size",
+      "name": "Ball size",
+      "variants": [
+        {
+          "id": "borrindo_small",
+          "default": true,
+          "name": "Small clay ball (three or four holes, high voice)",
+          "descriptors": [
+            "pure-toned",
+            "breathy",
+            "hollow"
+          ],
+          "match_tokens": [
+            "vessel-flute",
+            "sindhi"
+          ]
+        },
+        {
+          "id": "borrindo_large",
+          "name": "Large clay ball (lower, softer)",
+          "descriptors": [
+            "deep-toned",
+            "muffled"
+          ],
+          "match_tokens": [
+            "vessel-flute",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "borrindo_clay",
+      "surface": false,
+      "name": "Clay and firing",
+      "variants": [
+        {
+          "id": "borrindo_unfired",
+          "default": true,
+          "name": "Sun-dried unfired river clay (village-made)",
+          "descriptors": [
+            "soft-toned",
+            "earthy"
+          ],
+          "match_tokens": [
+            "vessel-flute"
+          ]
+        },
+        {
+          "id": "borrindo_fired",
+          "name": "Kiln-fired terracotta",
+          "descriptors": [
+            "ringing",
+            "clearer"
+          ],
+          "match_tokens": [
+            "vessel-flute"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,276 @@
+{
+  "id": "sruti_pandal",
+  "name": "Sruti pandal (large Carnatic multi-reed drone box)",
+  "family": "free_reed",
+  "class": "free_reed",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": -1,
+    "range": -2,
+    "articulation": -2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "sruti pandal",
+  "parts": [
+    {
+      "id": "free_reed_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "free_reed_folk_first_position",
+          "default": true,
+          "name": "Folk first-position straight",
+          "descriptors": [
+            "straight",
+            "melodic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "folk",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "folk",
+            "singer-songwriter",
+            "country"
+          ]
+        },
+        {
+          "id": "free_reed_overblow_modern",
+          "name": "Overblow modern bending",
+          "descriptors": [
+            "overblown",
+            "fully-chromatic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "modern"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "sruti_pandal_tuning",
+      "name": "Drone tuning",
+      "variants": [
+        {
+          "id": "sruti_pandal_sa_pa",
+          "default": true,
+          "name": "Sa-Pa drone (tonic and fifth)",
+          "descriptors": [
+            "droning",
+            "stable",
+            "warm"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "free-reed"
+          ]
+        },
+        {
+          "id": "sruti_pandal_sa_ma",
+          "name": "Sa-Ma drone (tonic and fourth)",
+          "descriptors": [
+            "droning",
+            "open"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "free-reed"
+          ]
+        },
+        {
+          "id": "sruti_pandal_sa_only",
+          "name": "Tonic-only drone",
+          "descriptors": [
+            "plain",
+            "unwavering"
+          ],
+          "match_tokens": [
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sruti_pandal_size",
+      "name": "Box size / reed bank",
+      "variants": [
+        {
+          "id": "sruti_pandal_large",
+          "default": true,
+          "name": "Large concert pandal (wide reed bank)",
+          "descriptors": [
+            "full-bodied",
+            "enveloping",
+            "beating"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "concert"
+          ]
+        },
+        {
+          "id": "sruti_pandal_small",
+          "name": "Small portable sruti box",
+          "descriptors": [
+            "thin-toned",
+            "reedy",
+            "intimate"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "portable"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sruti_pandal_bellows",
+      "surface": false,
+      "name": "Air supply",
+      "variants": [
+        {
+          "id": "sruti_pandal_hand",
+          "default": true,
+          "name": "Hand-pumped bellows",
+          "descriptors": [
+            "breathing",
+            "subtly-pulsing"
+          ],
+          "match_tokens": [
+            "free-reed"
+          ]
+        },
+        {
+          "id": "sruti_pandal_electric",
+          "name": "Electric blower (electronic sruti unit)",
+          "descriptors": [
+            "unwavering",
+            "mechanical"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "electric"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sruti_pandal_tuning",
+      "name": "Drone tuning",
+      "variants": [
+        {
+          "id": "sruti_pandal_sa_pa",
+          "default": true,
+          "name": "Sa-Pa drone (tonic and fifth)",
+          "descriptors": [
+            "droning",
+            "stable",
+            "warm"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "free-reed"
+          ]
+        },
+        {
+          "id": "sruti_pandal_sa_ma",
+          "name": "Sa-Ma drone (tonic and fourth)",
+          "descriptors": [
+            "droning",
+            "open"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "free-reed"
+          ]
+        },
+        {
+          "id": "sruti_pandal_sa_only",
+          "name": "Tonic-only drone",
+          "descriptors": [
+            "plain",
+            "unwavering"
+          ],
+          "match_tokens": [
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sruti_pandal_size",
+      "name": "Box size / reed bank",
+      "variants": [
+        {
+          "id": "sruti_pandal_large",
+          "default": true,
+          "name": "Large concert pandal (wide reed bank)",
+          "descriptors": [
+            "full-bodied",
+            "enveloping",
+            "beating"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "concert"
+          ]
+        },
+        {
+          "id": "sruti_pandal_small",
+          "name": "Small portable sruti box",
+          "descriptors": [
+            "thin-toned",
+            "reedy",
+            "intimate"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "portable"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sruti_pandal_bellows",
+      "surface": false,
+      "name": "Air supply",
+      "variants": [
+        {
+          "id": "sruti_pandal_hand",
+          "default": true,
+          "name": "Hand-pumped bellows",
+          "descriptors": [
+            "breathing",
+            "subtly-pulsing"
+          ],
+          "match_tokens": [
+            "free-reed"
+          ]
+        },
+        {
+          "id": "sruti_pandal_electric",
+          "name": "Electric blower (electronic sruti unit)",
+          "descriptors": [
+            "unwavering",
+            "mechanical"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "electric"
+          ]
+        }
+      ]
+    }
+  ]
+}

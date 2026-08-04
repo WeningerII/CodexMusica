@@ -1,0 +1,152 @@
+{
+  "id": "junggeum",
+  "name": "Junggeum (medium Korean transverse bamboo flute)",
+  "family": "wind",
+  "class": "transverse_flute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "junggeum",
+  "parts": [
+    {
+      "id": "junggeum_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "junggeum_trad",
+          "default": true,
+          "name": "Traditional bamboo junggeum (middle of the samjuk trio)",
+          "descriptors": [
+            "mellow",
+            "reedy",
+            "mid-register"
+          ],
+          "match_tokens": [
+            "transverse-flute",
+            "korean",
+            "samjuk"
+          ]
+        },
+        {
+          "id": "junggeum_gaeryang",
+          "name": "Gaeryang (improved) junggeum",
+          "descriptors": [
+            "even-toned",
+            "modern",
+            "chromatic"
+          ],
+          "match_tokens": [
+            "transverse-flute",
+            "korean"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "junggeum_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "junggeum_court",
+          "default": true,
+          "name": "Court ensemble inner voice",
+          "descriptors": [
+            "blending",
+            "sustained"
+          ],
+          "match_tokens": [
+            "flute",
+            "court-music"
+          ]
+        },
+        {
+          "id": "junggeum_solo",
+          "name": "Solo melodic line",
+          "descriptors": [
+            "singing",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "flute",
+            "melodic-lead"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "junggeum_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "junggeum_trad",
+          "default": true,
+          "name": "Traditional bamboo junggeum (middle of the samjuk trio)",
+          "descriptors": [
+            "mellow",
+            "reedy",
+            "mid-register"
+          ],
+          "match_tokens": [
+            "transverse-flute",
+            "korean",
+            "samjuk"
+          ]
+        },
+        {
+          "id": "junggeum_gaeryang",
+          "name": "Gaeryang (improved) junggeum",
+          "descriptors": [
+            "even-toned",
+            "modern",
+            "chromatic"
+          ],
+          "match_tokens": [
+            "transverse-flute",
+            "korean"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "junggeum_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "junggeum_court",
+          "default": true,
+          "name": "Court ensemble inner voice",
+          "descriptors": [
+            "blending",
+            "sustained"
+          ],
+          "match_tokens": [
+            "flute",
+            "court-music"
+          ]
+        },
+        {
+          "id": "junggeum_solo",
+          "name": "Solo melodic line",
+          "descriptors": [
+            "singing",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "flute",
+            "melodic-lead"
+          ]
+        }
+      ]
+    }
+  ]
+}

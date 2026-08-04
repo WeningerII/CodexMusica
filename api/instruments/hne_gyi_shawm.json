@@ -1,0 +1,150 @@
+{
+  "id": "hne_gyi_shawm",
+  "name": "Hne gyi (Burmese large double-reed shawm)",
+  "family": "wind",
+  "class": "double_reed_shawm",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "hne gyi",
+  "parts": [
+    {
+      "id": "hne_gyi_build",
+      "name": "Build",
+      "variants": [
+        {
+          "id": "hne_gyi_wood_metal_bell",
+          "default": true,
+          "name": "Conical wooden body with flared metal bell (canonical)",
+          "descriptors": [
+            "deep-voiced",
+            "full-bodied",
+            "reedy"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "burmese"
+          ]
+        },
+        {
+          "id": "hne_gyi_lacquered",
+          "name": "Lacquered ceremonial body",
+          "descriptors": [
+            "commanding",
+            "projecting"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "ceremonial"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hne_gyi_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "hne_gyi_hsaing",
+          "default": true,
+          "name": "Hsaing waing melodic lead (canonical)",
+          "descriptors": [
+            "ornamented",
+            "ensemble-lead"
+          ],
+          "match_tokens": [
+            "burmese",
+            "hsaing-waing"
+          ]
+        },
+        {
+          "id": "hne_gyi_nat_pwe",
+          "name": "Nat pwe processional",
+          "descriptors": [
+            "loud",
+            "outdoor",
+            "celebratory"
+          ],
+          "match_tokens": [
+            "burmese",
+            "processional"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "hne_gyi_build",
+      "name": "Build",
+      "variants": [
+        {
+          "id": "hne_gyi_wood_metal_bell",
+          "default": true,
+          "name": "Conical wooden body with flared metal bell (canonical)",
+          "descriptors": [
+            "deep-voiced",
+            "full-bodied",
+            "reedy"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "burmese"
+          ]
+        },
+        {
+          "id": "hne_gyi_lacquered",
+          "name": "Lacquered ceremonial body",
+          "descriptors": [
+            "commanding",
+            "projecting"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "ceremonial"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hne_gyi_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "hne_gyi_hsaing",
+          "default": true,
+          "name": "Hsaing waing melodic lead (canonical)",
+          "descriptors": [
+            "ornamented",
+            "ensemble-lead"
+          ],
+          "match_tokens": [
+            "burmese",
+            "hsaing-waing"
+          ]
+        },
+        {
+          "id": "hne_gyi_nat_pwe",
+          "name": "Nat pwe processional",
+          "descriptors": [
+            "loud",
+            "outdoor",
+            "celebratory"
+          ],
+          "match_tokens": [
+            "burmese",
+            "processional"
+          ]
+        }
+      ]
+    }
+  ]
+}

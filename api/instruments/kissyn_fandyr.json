@@ -1,0 +1,167 @@
+{
+  "id": "kissyn_fandyr",
+  "name": "Kissyn-fandyr (Ossetian bowed spike fiddle)",
+  "family": "bowed",
+  "class": "bowed_spike_fiddle",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": -1,
+    "register": 1,
+    "range": -1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "kissyn-fandyr",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "kissyn_fandyr_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "kissyn_fandyr_two",
+          "default": true,
+          "name": "Two-string bowl-body kissyn-fandyr with skin belly",
+          "descriptors": [
+            "nasal",
+            "rasping",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed-fiddle",
+            "ossetian"
+          ]
+        },
+        {
+          "id": "kissyn_fandyr_three",
+          "name": "Three-string modernized kissyn-fandyr",
+          "descriptors": [
+            "fuller",
+            "smoother"
+          ],
+          "match_tokens": [
+            "bowed-fiddle"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kissyn_fandyr_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "kissyn_fandyr_horsehair",
+          "default": true,
+          "name": "Horsehair strings",
+          "descriptors": [
+            "husky",
+            "grainy"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        },
+        {
+          "id": "kissyn_fandyr_gut",
+          "name": "Gut strings",
+          "descriptors": [
+            "warm",
+            "singing"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kissyn_fandyr_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "kissyn_fandyr_two",
+          "default": true,
+          "name": "Two-string bowl-body kissyn-fandyr with skin belly",
+          "descriptors": [
+            "nasal",
+            "rasping",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed-fiddle",
+            "ossetian"
+          ]
+        },
+        {
+          "id": "kissyn_fandyr_three",
+          "name": "Three-string modernized kissyn-fandyr",
+          "descriptors": [
+            "fuller",
+            "smoother"
+          ],
+          "match_tokens": [
+            "bowed-fiddle"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kissyn_fandyr_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "kissyn_fandyr_horsehair",
+          "default": true,
+          "name": "Horsehair strings",
+          "descriptors": [
+            "husky",
+            "grainy"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        },
+        {
+          "id": "kissyn_fandyr_gut",
+          "name": "Gut strings",
+          "descriptors": [
+            "warm",
+            "singing"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ]
+}

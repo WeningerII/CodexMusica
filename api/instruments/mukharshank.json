@@ -1,0 +1,152 @@
+{
+  "id": "mukharshank",
+  "name": "Mukharshank (South Indian conch-belled reed pipe)",
+  "family": "wind",
+  "class": "double_reed",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "mukharshank",
+  "parts": [
+    {
+      "id": "mukharshank_bell",
+      "name": "Bell form",
+      "variants": [
+        {
+          "id": "mukharshank_conch_bell",
+          "default": true,
+          "name": "Conch-shell bell",
+          "descriptors": [
+            "nasal",
+            "piercing",
+            "ritual"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "temple-wind"
+          ]
+        },
+        {
+          "id": "mukharshank_metal_bell",
+          "name": "Metal flared bell",
+          "descriptors": [
+            "brassy",
+            "cutting"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "loud-projection"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mukharshank_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "mukharshank_temple",
+          "default": true,
+          "name": "Temple ritual signalling",
+          "descriptors": [
+            "ceremonial",
+            "sustained",
+            "droning"
+          ],
+          "match_tokens": [
+            "temple-wind",
+            "ritual"
+          ]
+        },
+        {
+          "id": "mukharshank_procession",
+          "name": "Procession melody with drums",
+          "descriptors": [
+            "driving",
+            "festive",
+            "loud"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "procession"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "mukharshank_bell",
+      "name": "Bell form",
+      "variants": [
+        {
+          "id": "mukharshank_conch_bell",
+          "default": true,
+          "name": "Conch-shell bell",
+          "descriptors": [
+            "nasal",
+            "piercing",
+            "ritual"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "temple-wind"
+          ]
+        },
+        {
+          "id": "mukharshank_metal_bell",
+          "name": "Metal flared bell",
+          "descriptors": [
+            "brassy",
+            "cutting"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "loud-projection"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mukharshank_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "mukharshank_temple",
+          "default": true,
+          "name": "Temple ritual signalling",
+          "descriptors": [
+            "ceremonial",
+            "sustained",
+            "droning"
+          ],
+          "match_tokens": [
+            "temple-wind",
+            "ritual"
+          ]
+        },
+        {
+          "id": "mukharshank_procession",
+          "name": "Procession melody with drums",
+          "descriptors": [
+            "driving",
+            "festive",
+            "loud"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "procession"
+          ]
+        }
+      ]
+    }
+  ]
+}

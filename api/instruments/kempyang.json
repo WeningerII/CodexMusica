@@ -1,0 +1,212 @@
+{
+  "id": "kempyang",
+  "name": "Kempyang (Javanese small horizontal kettle gong)",
+  "family": "percussion",
+  "class": "tuned_percussion",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "kempyang",
+  "parts": [
+    {
+      "id": "kempyang_build",
+      "name": "Kettle build",
+      "variants": [
+        {
+          "id": "kempyang_bronze",
+          "default": true,
+          "name": "Forged bronze kettle on cord-strung rack (canonical)",
+          "descriptors": [
+            "bright-ping",
+            "bell-like",
+            "short-decay"
+          ],
+          "match_tokens": [
+            "kettle-gong",
+            "javanese"
+          ]
+        },
+        {
+          "id": "kempyang_iron",
+          "name": "Iron kettle (village gamelan)",
+          "descriptors": [
+            "dull",
+            "clangy"
+          ],
+          "match_tokens": [
+            "kettle-gong",
+            "javanese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kempyang_tuning",
+      "name": "Tuning system",
+      "variants": [
+        {
+          "id": "kempyang_pelog",
+          "default": true,
+          "name": "Pelog tuning",
+          "descriptors": [
+            "pelog-tuned",
+            "unequal-intervals"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "javanese"
+          ]
+        },
+        {
+          "id": "kempyang_slendro",
+          "name": "Slendro tuning (paired with kethuk)",
+          "descriptors": [
+            "slendro-tuned",
+            "even-spaced"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "javanese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kempyang_role",
+      "surface": false,
+      "name": "Colotomic role",
+      "variants": [
+        {
+          "id": "kempyang_interpunctuating",
+          "default": true,
+          "name": "Interpunctuating off-beat marker (canonical)",
+          "descriptors": [
+            "marking",
+            "cyclic"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "colotomic"
+          ]
+        },
+        {
+          "id": "kempyang_dense_ladrang",
+          "name": "Dense subdivision in fast ladrang",
+          "descriptors": [
+            "driving",
+            "repetitive"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "colotomic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kempyang_build",
+      "name": "Kettle build",
+      "variants": [
+        {
+          "id": "kempyang_bronze",
+          "default": true,
+          "name": "Forged bronze kettle on cord-strung rack (canonical)",
+          "descriptors": [
+            "bright-ping",
+            "bell-like",
+            "short-decay"
+          ],
+          "match_tokens": [
+            "kettle-gong",
+            "javanese"
+          ]
+        },
+        {
+          "id": "kempyang_iron",
+          "name": "Iron kettle (village gamelan)",
+          "descriptors": [
+            "dull",
+            "clangy"
+          ],
+          "match_tokens": [
+            "kettle-gong",
+            "javanese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kempyang_tuning",
+      "name": "Tuning system",
+      "variants": [
+        {
+          "id": "kempyang_pelog",
+          "default": true,
+          "name": "Pelog tuning",
+          "descriptors": [
+            "pelog-tuned",
+            "unequal-intervals"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "javanese"
+          ]
+        },
+        {
+          "id": "kempyang_slendro",
+          "name": "Slendro tuning (paired with kethuk)",
+          "descriptors": [
+            "slendro-tuned",
+            "even-spaced"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "javanese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kempyang_role",
+      "surface": false,
+      "name": "Colotomic role",
+      "variants": [
+        {
+          "id": "kempyang_interpunctuating",
+          "default": true,
+          "name": "Interpunctuating off-beat marker (canonical)",
+          "descriptors": [
+            "marking",
+            "cyclic"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "colotomic"
+          ]
+        },
+        {
+          "id": "kempyang_dense_ladrang",
+          "name": "Dense subdivision in fast ladrang",
+          "descriptors": [
+            "driving",
+            "repetitive"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "colotomic"
+          ]
+        }
+      ]
+    }
+  ]
+}

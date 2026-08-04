@@ -1,0 +1,148 @@
+{
+  "id": "nafiri_trumpet",
+  "name": "Nafiri (Malay court long natural trumpet)",
+  "family": "wind",
+  "class": "natural_trumpet",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 2,
+    "register": 0,
+    "range": -1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "nafiri",
+  "parts": [
+    {
+      "id": "nafiri_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "nafiri_straight",
+          "default": true,
+          "name": "Straight silver court nafiri (nobat)",
+          "descriptors": [
+            "regal",
+            "overtone-based",
+            "sustained"
+          ],
+          "match_tokens": [
+            "natural-trumpet",
+            "nobat"
+          ]
+        },
+        {
+          "id": "nafiri_short",
+          "name": "Shorter brass nafiri",
+          "descriptors": [
+            "brassy",
+            "brighter"
+          ],
+          "match_tokens": [
+            "natural-trumpet",
+            "malay"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nafiri_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "nafiri_ceremonial",
+          "default": true,
+          "name": "Ceremonial sustained calls",
+          "descriptors": [
+            "solemn",
+            "long-tones"
+          ],
+          "match_tokens": [
+            "ceremonial",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "nafiri_signal",
+          "name": "Signal fanfare bursts",
+          "descriptors": [
+            "declamatory",
+            "piercing"
+          ],
+          "match_tokens": [
+            "fanfare",
+            "natural-trumpet"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "nafiri_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "nafiri_straight",
+          "default": true,
+          "name": "Straight silver court nafiri (nobat)",
+          "descriptors": [
+            "regal",
+            "overtone-based",
+            "sustained"
+          ],
+          "match_tokens": [
+            "natural-trumpet",
+            "nobat"
+          ]
+        },
+        {
+          "id": "nafiri_short",
+          "name": "Shorter brass nafiri",
+          "descriptors": [
+            "brassy",
+            "brighter"
+          ],
+          "match_tokens": [
+            "natural-trumpet",
+            "malay"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nafiri_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "nafiri_ceremonial",
+          "default": true,
+          "name": "Ceremonial sustained calls",
+          "descriptors": [
+            "solemn",
+            "long-tones"
+          ],
+          "match_tokens": [
+            "ceremonial",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "nafiri_signal",
+          "name": "Signal fanfare bursts",
+          "descriptors": [
+            "declamatory",
+            "piercing"
+          ],
+          "match_tokens": [
+            "fanfare",
+            "natural-trumpet"
+          ]
+        }
+      ]
+    }
+  ]
+}

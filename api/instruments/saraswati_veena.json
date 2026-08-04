@@ -1,0 +1,232 @@
+{
+  "id": "saraswati_veena",
+  "name": "Saraswati veena (South Indian fretted concert veena)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "saraswati veena",
+  "parts": [
+    {
+      "id": "saraswati_construction",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "saraswati_ekanda",
+          "default": true,
+          "name": "Ekanda veena (carved from single jackwood block)",
+          "descriptors": [
+            "rich",
+            "even-sustain",
+            "full-bodied"
+          ],
+          "match_tokens": [
+            "fretted-veena",
+            "carnatic"
+          ]
+        },
+        {
+          "id": "saraswati_jointed",
+          "name": "Jointed (sada) veena",
+          "descriptors": [
+            "bright",
+            "articulate"
+          ],
+          "match_tokens": [
+            "fretted-veena"
+          ]
+        },
+        {
+          "id": "saraswati_tanjore",
+          "name": "Tanjore-style with fiberglass resonator",
+          "descriptors": [
+            "projecting",
+            "modern"
+          ],
+          "match_tokens": [
+            "fretted-veena",
+            "concert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saraswati_style",
+      "name": "Playing style (bani)",
+      "variants": [
+        {
+          "id": "saraswati_thanjavur",
+          "default": true,
+          "name": "Thanjavur bani (gamaka-heavy pulling)",
+          "descriptors": [
+            "gamaka-rich",
+            "vocal",
+            "sinuous"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamental"
+          ]
+        },
+        {
+          "id": "saraswati_mysore",
+          "name": "Mysore bani (clean plucking, less pulling)",
+          "descriptors": [
+            "clear",
+            "crisp-attack"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saraswati_frets",
+      "surface": false,
+      "name": "Fret and string setup",
+      "variants": [
+        {
+          "id": "saraswati_24_fret",
+          "default": true,
+          "name": "24 brass frets in wax",
+          "descriptors": [
+            "metallic-ring",
+            "precise"
+          ],
+          "match_tokens": [
+            "fretted-veena"
+          ]
+        },
+        {
+          "id": "saraswati_steel_top",
+          "name": "Heavier steel-gauge main strings",
+          "descriptors": [
+            "deep-toned",
+            "powerful"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "saraswati_construction",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "saraswati_ekanda",
+          "default": true,
+          "name": "Ekanda veena (carved from single jackwood block)",
+          "descriptors": [
+            "rich",
+            "even-sustain",
+            "full-bodied"
+          ],
+          "match_tokens": [
+            "fretted-veena",
+            "carnatic"
+          ]
+        },
+        {
+          "id": "saraswati_jointed",
+          "name": "Jointed (sada) veena",
+          "descriptors": [
+            "bright",
+            "articulate"
+          ],
+          "match_tokens": [
+            "fretted-veena"
+          ]
+        },
+        {
+          "id": "saraswati_tanjore",
+          "name": "Tanjore-style with fiberglass resonator",
+          "descriptors": [
+            "projecting",
+            "modern"
+          ],
+          "match_tokens": [
+            "fretted-veena",
+            "concert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saraswati_style",
+      "name": "Playing style (bani)",
+      "variants": [
+        {
+          "id": "saraswati_thanjavur",
+          "default": true,
+          "name": "Thanjavur bani (gamaka-heavy pulling)",
+          "descriptors": [
+            "gamaka-rich",
+            "vocal",
+            "sinuous"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamental"
+          ]
+        },
+        {
+          "id": "saraswati_mysore",
+          "name": "Mysore bani (clean plucking, less pulling)",
+          "descriptors": [
+            "clear",
+            "crisp-attack"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saraswati_frets",
+      "surface": false,
+      "name": "Fret and string setup",
+      "variants": [
+        {
+          "id": "saraswati_24_fret",
+          "default": true,
+          "name": "24 brass frets in wax",
+          "descriptors": [
+            "metallic-ring",
+            "precise"
+          ],
+          "match_tokens": [
+            "fretted-veena"
+          ]
+        },
+        {
+          "id": "saraswati_steel_top",
+          "name": "Heavier steel-gauge main strings",
+          "descriptors": [
+            "deep-toned",
+            "powerful"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ]
+        }
+      ]
+    }
+  ]
+}

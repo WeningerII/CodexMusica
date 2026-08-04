@@ -1,0 +1,179 @@
+{
+  "id": "kyl_kyiak_fiddle",
+  "name": "Kyl kyiak (Kyrgyz two-string horsehair bowed fiddle)",
+  "family": "bowed",
+  "class": "bowed_spike_fiddle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "kyl kyiak",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "kyl_kyiak_body",
+      "name": "Body and skin belly",
+      "variants": [
+        {
+          "id": "kyl_kyiak_camel",
+          "default": true,
+          "name": "Apricot-wood bowl with camel-skin belly",
+          "descriptors": [
+            "breathy",
+            "husky",
+            "overtone-rich"
+          ],
+          "match_tokens": [
+            "bowed",
+            "horsehair-string",
+            "kyrgyz"
+          ]
+        },
+        {
+          "id": "kyl_kyiak_goat",
+          "name": "Goat-skin belly",
+          "descriptors": [
+            "thinner",
+            "nasal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "kyrgyz"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kyl_kyiak_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "kyl_kyiak_kuu",
+          "default": true,
+          "name": "Küü instrumental narrative",
+          "descriptors": [
+            "droning",
+            "expressive",
+            "rubato"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "kyl_kyiak_imitative",
+          "name": "Imitative (horse, birdcall) technique",
+          "descriptors": [
+            "whinnying",
+            "glissando",
+            "raw"
+          ],
+          "match_tokens": [
+            "bowed",
+            "imitative"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kyl_kyiak_body",
+      "name": "Body and skin belly",
+      "variants": [
+        {
+          "id": "kyl_kyiak_camel",
+          "default": true,
+          "name": "Apricot-wood bowl with camel-skin belly",
+          "descriptors": [
+            "breathy",
+            "husky",
+            "overtone-rich"
+          ],
+          "match_tokens": [
+            "bowed",
+            "horsehair-string",
+            "kyrgyz"
+          ]
+        },
+        {
+          "id": "kyl_kyiak_goat",
+          "name": "Goat-skin belly",
+          "descriptors": [
+            "thinner",
+            "nasal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "kyrgyz"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kyl_kyiak_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "kyl_kyiak_kuu",
+          "default": true,
+          "name": "Küü instrumental narrative",
+          "descriptors": [
+            "droning",
+            "expressive",
+            "rubato"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "kyl_kyiak_imitative",
+          "name": "Imitative (horse, birdcall) technique",
+          "descriptors": [
+            "whinnying",
+            "glissando",
+            "raw"
+          ],
+          "match_tokens": [
+            "bowed",
+            "imitative"
+          ]
+        }
+      ]
+    }
+  ]
+}

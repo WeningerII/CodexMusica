@@ -1,0 +1,236 @@
+{
+  "id": "mokugyo",
+  "name": "Mokugyo (Japanese carved wooden fish slit drum)",
+  "family": "percussion",
+  "class": "slit_gong",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": -1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "mokugyo",
+  "parts": [
+    {
+      "id": "mokugyo_size",
+      "name": "Size",
+      "variants": [
+        {
+          "id": "mokugyo_medium",
+          "default": true,
+          "name": "Medium temple mokugyo (about 20 cm)",
+          "descriptors": [
+            "hollow-thud",
+            "woody",
+            "dry"
+          ],
+          "match_tokens": [
+            "slit-drum",
+            "buddhist",
+            "japanese"
+          ]
+        },
+        {
+          "id": "mokugyo_small",
+          "name": "Small hand mokugyo",
+          "descriptors": [
+            "high-clop",
+            "clicking"
+          ],
+          "match_tokens": [
+            "slit-drum",
+            "buddhist"
+          ]
+        },
+        {
+          "id": "mokugyo_large",
+          "name": "Large hall mokugyo (50 cm and up)",
+          "descriptors": [
+            "deep-thud",
+            "cavernous"
+          ],
+          "match_tokens": [
+            "slit-drum",
+            "temple"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mokugyo_beater",
+      "name": "Beater head",
+      "variants": [
+        {
+          "id": "mokugyo_padded",
+          "default": true,
+          "name": "Leather/cloth-padded mallet",
+          "descriptors": [
+            "soft-attack",
+            "rounded"
+          ],
+          "match_tokens": [
+            "struck",
+            "slit-drum"
+          ]
+        },
+        {
+          "id": "mokugyo_bare_wood",
+          "name": "Bare wooden mallet",
+          "descriptors": [
+            "hard-clack",
+            "sharp"
+          ],
+          "match_tokens": [
+            "struck",
+            "slit-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mokugyo_tempo",
+      "name": "Chanting tempo",
+      "variants": [
+        {
+          "id": "mokugyo_steady",
+          "default": true,
+          "name": "Steady sutra pulse",
+          "descriptors": [
+            "hypnotic",
+            "even-pulse"
+          ],
+          "match_tokens": [
+            "buddhist",
+            "chant"
+          ]
+        },
+        {
+          "id": "mokugyo_accelerating",
+          "name": "Accelerating close of a sutra",
+          "descriptors": [
+            "accelerating",
+            "intensifying"
+          ],
+          "match_tokens": [
+            "buddhist",
+            "chant"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "mokugyo_size",
+      "name": "Size",
+      "variants": [
+        {
+          "id": "mokugyo_medium",
+          "default": true,
+          "name": "Medium temple mokugyo (about 20 cm)",
+          "descriptors": [
+            "hollow-thud",
+            "woody",
+            "dry"
+          ],
+          "match_tokens": [
+            "slit-drum",
+            "buddhist",
+            "japanese"
+          ]
+        },
+        {
+          "id": "mokugyo_small",
+          "name": "Small hand mokugyo",
+          "descriptors": [
+            "high-clop",
+            "clicking"
+          ],
+          "match_tokens": [
+            "slit-drum",
+            "buddhist"
+          ]
+        },
+        {
+          "id": "mokugyo_large",
+          "name": "Large hall mokugyo (50 cm and up)",
+          "descriptors": [
+            "deep-thud",
+            "cavernous"
+          ],
+          "match_tokens": [
+            "slit-drum",
+            "temple"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mokugyo_beater",
+      "name": "Beater head",
+      "variants": [
+        {
+          "id": "mokugyo_padded",
+          "default": true,
+          "name": "Leather/cloth-padded mallet",
+          "descriptors": [
+            "soft-attack",
+            "rounded"
+          ],
+          "match_tokens": [
+            "struck",
+            "slit-drum"
+          ]
+        },
+        {
+          "id": "mokugyo_bare_wood",
+          "name": "Bare wooden mallet",
+          "descriptors": [
+            "hard-clack",
+            "sharp"
+          ],
+          "match_tokens": [
+            "struck",
+            "slit-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mokugyo_tempo",
+      "name": "Chanting tempo",
+      "variants": [
+        {
+          "id": "mokugyo_steady",
+          "default": true,
+          "name": "Steady sutra pulse",
+          "descriptors": [
+            "hypnotic",
+            "even-pulse"
+          ],
+          "match_tokens": [
+            "buddhist",
+            "chant"
+          ]
+        },
+        {
+          "id": "mokugyo_accelerating",
+          "name": "Accelerating close of a sutra",
+          "descriptors": [
+            "accelerating",
+            "intensifying"
+          ],
+          "match_tokens": [
+            "buddhist",
+            "chant"
+          ]
+        }
+      ]
+    }
+  ]
+}

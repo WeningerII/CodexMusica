@@ -1,0 +1,228 @@
+{
+  "id": "doira_frame_drum",
+  "name": "Doira (Central Asian jingle frame drum)",
+  "family": "percussion",
+  "class": "frame_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "doira",
+  "parts": [
+    {
+      "id": "doira_jingles",
+      "name": "Jingle ring loading",
+      "variants": [
+        {
+          "id": "doira_heavy_rings",
+          "default": true,
+          "name": "Heavy interior ring chains (Uzbek/Tajik)",
+          "descriptors": [
+            "jingling",
+            "sizzling",
+            "crisp"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "jingle-rings",
+            "central-asia"
+          ]
+        },
+        {
+          "id": "doira_light_rings",
+          "name": "Light ring loading",
+          "descriptors": [
+            "dry",
+            "articulate"
+          ],
+          "match_tokens": [
+            "frame-drum"
+          ]
+        },
+        {
+          "id": "doira_ringless",
+          "name": "Ringless doira",
+          "descriptors": [
+            "clean-tone",
+            "punchy"
+          ],
+          "match_tokens": [
+            "frame-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "doira_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "doira_usul",
+          "default": true,
+          "name": "Usul cycle (bak/bum finger patterns)",
+          "descriptors": [
+            "driving",
+            "intricate"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "rhythm-cycle"
+          ]
+        },
+        {
+          "id": "doira_roll",
+          "name": "Rapid finger roll / shake",
+          "descriptors": [
+            "shimmering",
+            "continuous"
+          ],
+          "match_tokens": [
+            "frame-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "doira_head",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "doira_goatskin",
+          "default": true,
+          "name": "Goatskin head (heat-tuned)",
+          "descriptors": [
+            "warm",
+            "resonant"
+          ],
+          "match_tokens": [
+            "frame-drum"
+          ]
+        },
+        {
+          "id": "doira_synthetic",
+          "name": "Synthetic head",
+          "descriptors": [
+            "bright",
+            "stable"
+          ],
+          "match_tokens": [
+            "frame-drum"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "doira_jingles",
+      "name": "Jingle ring loading",
+      "variants": [
+        {
+          "id": "doira_heavy_rings",
+          "default": true,
+          "name": "Heavy interior ring chains (Uzbek/Tajik)",
+          "descriptors": [
+            "jingling",
+            "sizzling",
+            "crisp"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "jingle-rings",
+            "central-asia"
+          ]
+        },
+        {
+          "id": "doira_light_rings",
+          "name": "Light ring loading",
+          "descriptors": [
+            "dry",
+            "articulate"
+          ],
+          "match_tokens": [
+            "frame-drum"
+          ]
+        },
+        {
+          "id": "doira_ringless",
+          "name": "Ringless doira",
+          "descriptors": [
+            "clean-tone",
+            "punchy"
+          ],
+          "match_tokens": [
+            "frame-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "doira_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "doira_usul",
+          "default": true,
+          "name": "Usul cycle (bak/bum finger patterns)",
+          "descriptors": [
+            "driving",
+            "intricate"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "rhythm-cycle"
+          ]
+        },
+        {
+          "id": "doira_roll",
+          "name": "Rapid finger roll / shake",
+          "descriptors": [
+            "shimmering",
+            "continuous"
+          ],
+          "match_tokens": [
+            "frame-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "doira_head",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "doira_goatskin",
+          "default": true,
+          "name": "Goatskin head (heat-tuned)",
+          "descriptors": [
+            "warm",
+            "resonant"
+          ],
+          "match_tokens": [
+            "frame-drum"
+          ]
+        },
+        {
+          "id": "doira_synthetic",
+          "name": "Synthetic head",
+          "descriptors": [
+            "bright",
+            "stable"
+          ],
+          "match_tokens": [
+            "frame-drum"
+          ]
+        }
+      ]
+    }
+  ]
+}

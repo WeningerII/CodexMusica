@@ -1,0 +1,191 @@
+{
+  "id": "tangent_piano",
+  "name": "Tangent piano (Tangentenflügel)",
+  "family": "keyboard",
+  "class": "keyboard_acoustic",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 1,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "tangent piano",
+  "parts": [
+    {
+      "id": "keyboard_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "keyboard_block_chord_pop",
+          "default": true,
+          "name": "Block-chord pop",
+          "descriptors": [
+            "block-chord"
+          ],
+          "match_tokens": [
+            "chordal",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "pop",
+            "singer-songwriter"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "tangent_stops",
+      "name": "Stops / moderators",
+      "variants": [
+        {
+          "id": "tangent_plain",
+          "default": true,
+          "name": "Bare wooden tangents, undamped",
+          "descriptors": [
+            "silvery",
+            "percussive",
+            "harpsichord-like"
+          ],
+          "match_tokens": [
+            "struck-string",
+            "early-keyboard"
+          ]
+        },
+        {
+          "id": "tangent_moderator",
+          "name": "Cloth moderator engaged",
+          "descriptors": [
+            "veiled",
+            "gentle"
+          ],
+          "match_tokens": [
+            "struck-string",
+            "soft"
+          ]
+        },
+        {
+          "id": "tangent_damper_lift",
+          "name": "Dampers lifted (harp effect)",
+          "descriptors": [
+            "ringing",
+            "halo-like"
+          ],
+          "match_tokens": [
+            "struck-string",
+            "sustained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tangent_size",
+      "name": "Case size",
+      "variants": [
+        {
+          "id": "tangent_wing",
+          "default": true,
+          "name": "Wing-shaped grand case",
+          "descriptors": [
+            "projecting",
+            "clear"
+          ],
+          "match_tokens": [
+            "early-keyboard"
+          ]
+        },
+        {
+          "id": "tangent_square",
+          "name": "Square-cased tangent instrument",
+          "descriptors": [
+            "intimate",
+            "compact"
+          ],
+          "match_tokens": [
+            "early-keyboard"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tangent_stops",
+      "name": "Stops / moderators",
+      "variants": [
+        {
+          "id": "tangent_plain",
+          "default": true,
+          "name": "Bare wooden tangents, undamped",
+          "descriptors": [
+            "silvery",
+            "percussive",
+            "harpsichord-like"
+          ],
+          "match_tokens": [
+            "struck-string",
+            "early-keyboard"
+          ]
+        },
+        {
+          "id": "tangent_moderator",
+          "name": "Cloth moderator engaged",
+          "descriptors": [
+            "veiled",
+            "gentle"
+          ],
+          "match_tokens": [
+            "struck-string",
+            "soft"
+          ]
+        },
+        {
+          "id": "tangent_damper_lift",
+          "name": "Dampers lifted (harp effect)",
+          "descriptors": [
+            "ringing",
+            "halo-like"
+          ],
+          "match_tokens": [
+            "struck-string",
+            "sustained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tangent_size",
+      "name": "Case size",
+      "variants": [
+        {
+          "id": "tangent_wing",
+          "default": true,
+          "name": "Wing-shaped grand case",
+          "descriptors": [
+            "projecting",
+            "clear"
+          ],
+          "match_tokens": [
+            "early-keyboard"
+          ]
+        },
+        {
+          "id": "tangent_square",
+          "name": "Square-cased tangent instrument",
+          "descriptors": [
+            "intimate",
+            "compact"
+          ],
+          "match_tokens": [
+            "early-keyboard"
+          ]
+        }
+      ]
+    }
+  ]
+}

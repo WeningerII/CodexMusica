@@ -1,0 +1,146 @@
+{
+  "id": "komabue",
+  "name": "Komabue (Japanese gagaku komagaku transverse flute)",
+  "family": "wind",
+  "class": "transverse_flute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 2,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "komabue",
+  "parts": [
+    {
+      "id": "komabue_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "komabue_komagaku",
+          "default": true,
+          "name": "Komagaku ensemble melody",
+          "descriptors": [
+            "high-pitched",
+            "ceremonial",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "gagaku",
+            "transverse-flute"
+          ]
+        },
+        {
+          "id": "komabue_solo",
+          "name": "Solo netori prelude",
+          "descriptors": [
+            "breathy",
+            "free-rhythm"
+          ],
+          "match_tokens": [
+            "gagaku",
+            "rubato"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "komabue_bore",
+      "surface": false,
+      "name": "Bamboo and lacquer",
+      "variants": [
+        {
+          "id": "komabue_lacquered",
+          "default": true,
+          "name": "Cherry-bark bound lacquered bamboo",
+          "descriptors": [
+            "focused",
+            "bright"
+          ],
+          "match_tokens": [
+            "transverse-flute"
+          ]
+        },
+        {
+          "id": "komabue_plain",
+          "name": "Plain aged bamboo",
+          "descriptors": [
+            "airy",
+            "soft-edged"
+          ],
+          "match_tokens": [
+            "transverse-flute"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "komabue_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "komabue_komagaku",
+          "default": true,
+          "name": "Komagaku ensemble melody",
+          "descriptors": [
+            "high-pitched",
+            "ceremonial",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "gagaku",
+            "transverse-flute"
+          ]
+        },
+        {
+          "id": "komabue_solo",
+          "name": "Solo netori prelude",
+          "descriptors": [
+            "breathy",
+            "free-rhythm"
+          ],
+          "match_tokens": [
+            "gagaku",
+            "rubato"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "komabue_bore",
+      "surface": false,
+      "name": "Bamboo and lacquer",
+      "variants": [
+        {
+          "id": "komabue_lacquered",
+          "default": true,
+          "name": "Cherry-bark bound lacquered bamboo",
+          "descriptors": [
+            "focused",
+            "bright"
+          ],
+          "match_tokens": [
+            "transverse-flute"
+          ]
+        },
+        {
+          "id": "komabue_plain",
+          "name": "Plain aged bamboo",
+          "descriptors": [
+            "airy",
+            "soft-edged"
+          ],
+          "match_tokens": [
+            "transverse-flute"
+          ]
+        }
+      ]
+    }
+  ]
+}

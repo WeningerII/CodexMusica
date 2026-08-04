@@ -1,0 +1,198 @@
+{
+  "id": "zink",
+  "name": "Zink (cornett, lip-blown wooden horn)",
+  "family": "wind",
+  "class": "brass",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "zink",
+  "parts": [
+    {
+      "id": "zink_type",
+      "name": "Instrument type",
+      "variants": [
+        {
+          "id": "zink_curved",
+          "default": true,
+          "name": "Curved treble cornett (leather-covered)",
+          "descriptors": [
+            "vocal",
+            "bright-attack",
+            "singing"
+          ],
+          "match_tokens": [
+            "cornett",
+            "lip-blown",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "zink_mute",
+          "name": "Mute cornett (straight, integral mouthpiece)",
+          "descriptors": [
+            "veiled",
+            "soft-toned"
+          ],
+          "match_tokens": [
+            "cornett",
+            "muted"
+          ]
+        },
+        {
+          "id": "zink_tenor",
+          "name": "Tenor cornett (lysard)",
+          "descriptors": [
+            "mellow",
+            "reedy"
+          ],
+          "match_tokens": [
+            "cornett",
+            "low-register"
+          ]
+        },
+        {
+          "id": "zink_serpent",
+          "name": "Serpent (bass member)",
+          "descriptors": [
+            "woolly",
+            "deep-toned"
+          ],
+          "match_tokens": [
+            "serpent",
+            "lip-blown"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zink_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "zink_church",
+          "default": true,
+          "name": "Church cori spezzati / doubling voices",
+          "descriptors": [
+            "blended",
+            "liturgical"
+          ],
+          "match_tokens": [
+            "cornett",
+            "sacred"
+          ]
+        },
+        {
+          "id": "zink_virtuoso",
+          "name": "Virtuoso diminution solo",
+          "descriptors": [
+            "agile",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "cornett",
+            "expressive"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "zink_type",
+      "name": "Instrument type",
+      "variants": [
+        {
+          "id": "zink_curved",
+          "default": true,
+          "name": "Curved treble cornett (leather-covered)",
+          "descriptors": [
+            "vocal",
+            "bright-attack",
+            "singing"
+          ],
+          "match_tokens": [
+            "cornett",
+            "lip-blown",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "zink_mute",
+          "name": "Mute cornett (straight, integral mouthpiece)",
+          "descriptors": [
+            "veiled",
+            "soft-toned"
+          ],
+          "match_tokens": [
+            "cornett",
+            "muted"
+          ]
+        },
+        {
+          "id": "zink_tenor",
+          "name": "Tenor cornett (lysard)",
+          "descriptors": [
+            "mellow",
+            "reedy"
+          ],
+          "match_tokens": [
+            "cornett",
+            "low-register"
+          ]
+        },
+        {
+          "id": "zink_serpent",
+          "name": "Serpent (bass member)",
+          "descriptors": [
+            "woolly",
+            "deep-toned"
+          ],
+          "match_tokens": [
+            "serpent",
+            "lip-blown"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zink_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "zink_church",
+          "default": true,
+          "name": "Church cori spezzati / doubling voices",
+          "descriptors": [
+            "blended",
+            "liturgical"
+          ],
+          "match_tokens": [
+            "cornett",
+            "sacred"
+          ]
+        },
+        {
+          "id": "zink_virtuoso",
+          "name": "Virtuoso diminution solo",
+          "descriptors": [
+            "agile",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "cornett",
+            "expressive"
+          ]
+        }
+      ]
+    }
+  ]
+}

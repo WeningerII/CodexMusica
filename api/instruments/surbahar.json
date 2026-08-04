@@ -1,0 +1,210 @@
+{
+  "id": "surbahar",
+  "name": "Surbahar (Hindustani bass sitar)",
+  "family": "plucked_traditional",
+  "class": "long_neck_lute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 2,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "surbahar",
+  "parts": [
+    {
+      "id": "surbahar_tuning",
+      "name": "Tuning depth",
+      "variants": [
+        {
+          "id": "surbahar_fifth_below",
+          "default": true,
+          "name": "Tuned a fifth below sitar",
+          "descriptors": [
+            "deep-toned",
+            "sonorous",
+            "brooding"
+          ],
+          "match_tokens": [
+            "bass-sitar",
+            "low-register"
+          ]
+        },
+        {
+          "id": "surbahar_octave_below",
+          "name": "Tuned an octave below sitar",
+          "descriptors": [
+            "cavernous",
+            "slow-speaking"
+          ],
+          "match_tokens": [
+            "bass-sitar",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "surbahar_style",
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "surbahar_dhrupad_alap",
+          "default": true,
+          "name": "Dhrupad-ang alap (slow meend, no tabla)",
+          "descriptors": [
+            "meditative",
+            "gliding",
+            "austere"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "surbahar_jor_jhala",
+          "name": "Jor and jhala",
+          "descriptors": [
+            "pulsing",
+            "driving"
+          ],
+          "match_tokens": [
+            "plucked",
+            "rhythmic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "surbahar_gourd",
+      "surface": false,
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "surbahar_large_tumba",
+          "default": true,
+          "name": "Very large gourd tumba",
+          "descriptors": [
+            "booming",
+            "deep-resonance"
+          ],
+          "match_tokens": [
+            "gourd-resonated"
+          ]
+        },
+        {
+          "id": "surbahar_twin_tumba",
+          "name": "With secondary upper gourd",
+          "descriptors": [
+            "enveloping",
+            "extra-sustain"
+          ],
+          "match_tokens": [
+            "gourd-resonated"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "surbahar_tuning",
+      "name": "Tuning depth",
+      "variants": [
+        {
+          "id": "surbahar_fifth_below",
+          "default": true,
+          "name": "Tuned a fifth below sitar",
+          "descriptors": [
+            "deep-toned",
+            "sonorous",
+            "brooding"
+          ],
+          "match_tokens": [
+            "bass-sitar",
+            "low-register"
+          ]
+        },
+        {
+          "id": "surbahar_octave_below",
+          "name": "Tuned an octave below sitar",
+          "descriptors": [
+            "cavernous",
+            "slow-speaking"
+          ],
+          "match_tokens": [
+            "bass-sitar",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "surbahar_style",
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "surbahar_dhrupad_alap",
+          "default": true,
+          "name": "Dhrupad-ang alap (slow meend, no tabla)",
+          "descriptors": [
+            "meditative",
+            "gliding",
+            "austere"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "surbahar_jor_jhala",
+          "name": "Jor and jhala",
+          "descriptors": [
+            "pulsing",
+            "driving"
+          ],
+          "match_tokens": [
+            "plucked",
+            "rhythmic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "surbahar_gourd",
+      "surface": false,
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "surbahar_large_tumba",
+          "default": true,
+          "name": "Very large gourd tumba",
+          "descriptors": [
+            "booming",
+            "deep-resonance"
+          ],
+          "match_tokens": [
+            "gourd-resonated"
+          ]
+        },
+        {
+          "id": "surbahar_twin_tumba",
+          "name": "With secondary upper gourd",
+          "descriptors": [
+            "enveloping",
+            "extra-sustain"
+          ],
+          "match_tokens": [
+            "gourd-resonated"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "id": "bak_clapper",
+  "name": "Bak (Korean six-slat wooden clapper)",
+  "family": "percussion",
+  "class": "concussion_idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 0,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "bak",
+  "parts": [
+    {
+      "id": "bak_wood",
+      "name": "Slat wood",
+      "variants": [
+        {
+          "id": "bak_birch",
+          "default": true,
+          "name": "Hardwood (birch/boxwood) slats",
+          "descriptors": [
+            "sharp-crack",
+            "dry",
+            "woody"
+          ],
+          "match_tokens": [
+            "clapper",
+            "concussion",
+            "korean"
+          ]
+        },
+        {
+          "id": "bak_sandalwood",
+          "name": "Sandalwood slats (court instrument)",
+          "descriptors": [
+            "resonant-crack",
+            "refined"
+          ],
+          "match_tokens": [
+            "clapper",
+            "court-music"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bak_use",
+      "name": "Ritual function",
+      "variants": [
+        {
+          "id": "bak_start",
+          "default": true,
+          "name": "Single opening clap (piece start)",
+          "descriptors": [
+            "single-strike",
+            "announcing"
+          ],
+          "match_tokens": [
+            "clapper",
+            "cue-signal"
+          ]
+        },
+        {
+          "id": "bak_triple",
+          "name": "Triple clap ending signal",
+          "descriptors": [
+            "three-strokes",
+            "closing"
+          ],
+          "match_tokens": [
+            "clapper",
+            "cue-signal"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "bak_wood",
+      "name": "Slat wood",
+      "variants": [
+        {
+          "id": "bak_birch",
+          "default": true,
+          "name": "Hardwood (birch/boxwood) slats",
+          "descriptors": [
+            "sharp-crack",
+            "dry",
+            "woody"
+          ],
+          "match_tokens": [
+            "clapper",
+            "concussion",
+            "korean"
+          ]
+        },
+        {
+          "id": "bak_sandalwood",
+          "name": "Sandalwood slats (court instrument)",
+          "descriptors": [
+            "resonant-crack",
+            "refined"
+          ],
+          "match_tokens": [
+            "clapper",
+            "court-music"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bak_use",
+      "name": "Ritual function",
+      "variants": [
+        {
+          "id": "bak_start",
+          "default": true,
+          "name": "Single opening clap (piece start)",
+          "descriptors": [
+            "single-strike",
+            "announcing"
+          ],
+          "match_tokens": [
+            "clapper",
+            "cue-signal"
+          ]
+        },
+        {
+          "id": "bak_triple",
+          "name": "Triple clap ending signal",
+          "descriptors": [
+            "three-strokes",
+            "closing"
+          ],
+          "match_tokens": [
+            "clapper",
+            "cue-signal"
+          ]
+        }
+      ]
+    }
+  ]
+}

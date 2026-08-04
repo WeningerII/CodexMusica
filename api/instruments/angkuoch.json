@@ -1,0 +1,148 @@
+{
+  "id": "angkuoch",
+  "name": "Angkuoch (Khmer bamboo/metal jaw harp)",
+  "family": "plucked_traditional",
+  "class": "jaw_harp",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 0,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -2
+  },
+  "short": "angkuoch",
+  "parts": [
+    {
+      "id": "angkuoch_material",
+      "name": "Lamella material",
+      "variants": [
+        {
+          "id": "angkuoch_bamboo",
+          "default": true,
+          "name": "Split bamboo idioglot tongue (canonical village form)",
+          "descriptors": [
+            "buzzing-timbre",
+            "dry",
+            "soft-attack"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "khmer"
+          ]
+        },
+        {
+          "id": "angkuoch_brass",
+          "name": "Brass/bronze framed tongue",
+          "descriptors": [
+            "metallic-twang",
+            "ringing"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "khmer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "angkuoch_technique",
+      "name": "Excitation and shaping",
+      "variants": [
+        {
+          "id": "angkuoch_cord_pull",
+          "default": true,
+          "name": "Cord-jerk excitation with vowel shaping",
+          "descriptors": [
+            "pulsing",
+            "overtone-rich"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "plucked"
+          ]
+        },
+        {
+          "id": "angkuoch_finger_flick",
+          "name": "Direct finger flick",
+          "descriptors": [
+            "sharp-attack",
+            "clipped"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "angkuoch_material",
+      "name": "Lamella material",
+      "variants": [
+        {
+          "id": "angkuoch_bamboo",
+          "default": true,
+          "name": "Split bamboo idioglot tongue (canonical village form)",
+          "descriptors": [
+            "buzzing-timbre",
+            "dry",
+            "soft-attack"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "khmer"
+          ]
+        },
+        {
+          "id": "angkuoch_brass",
+          "name": "Brass/bronze framed tongue",
+          "descriptors": [
+            "metallic-twang",
+            "ringing"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "khmer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "angkuoch_technique",
+      "name": "Excitation and shaping",
+      "variants": [
+        {
+          "id": "angkuoch_cord_pull",
+          "default": true,
+          "name": "Cord-jerk excitation with vowel shaping",
+          "descriptors": [
+            "pulsing",
+            "overtone-rich"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "plucked"
+          ]
+        },
+        {
+          "id": "angkuoch_finger_flick",
+          "name": "Direct finger flick",
+          "descriptors": [
+            "sharp-attack",
+            "clipped"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

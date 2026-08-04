@@ -1,0 +1,148 @@
+{
+  "id": "sapera_been",
+  "name": "Sapera been (snake-charmer's gourd double clarinet)",
+  "family": "wind",
+  "class": "single_reed_double_clarinet",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": -1,
+    "register": 1,
+    "range": -1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "sapera been",
+  "parts": [
+    {
+      "id": "sapera_been_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "sapera_been_rajasthani",
+          "default": true,
+          "name": "Rajasthani sapera been (gourd chamber, melody + drone pipe)",
+          "descriptors": [
+            "nasal",
+            "droning",
+            "circular-breathed"
+          ],
+          "match_tokens": [
+            "gourd-clarinet",
+            "snake-charmer",
+            "double-pipe"
+          ]
+        },
+        {
+          "id": "sapera_been_sindhi",
+          "name": "Sindhi murli form",
+          "descriptors": [
+            "reedy",
+            "piercing"
+          ],
+          "match_tokens": [
+            "gourd-clarinet",
+            "sindhi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sapera_been_pipe",
+      "surface": false,
+      "name": "Pipe material",
+      "variants": [
+        {
+          "id": "sapera_been_cane",
+          "default": true,
+          "name": "Cane pipes with cut idioglot reeds",
+          "descriptors": [
+            "buzzing-timbre",
+            "raw"
+          ],
+          "match_tokens": [
+            "single-reed"
+          ]
+        },
+        {
+          "id": "sapera_been_bamboo",
+          "name": "Thin bamboo pipes",
+          "descriptors": [
+            "thinner",
+            "brighter"
+          ],
+          "match_tokens": [
+            "single-reed"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sapera_been_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "sapera_been_rajasthani",
+          "default": true,
+          "name": "Rajasthani sapera been (gourd chamber, melody + drone pipe)",
+          "descriptors": [
+            "nasal",
+            "droning",
+            "circular-breathed"
+          ],
+          "match_tokens": [
+            "gourd-clarinet",
+            "snake-charmer",
+            "double-pipe"
+          ]
+        },
+        {
+          "id": "sapera_been_sindhi",
+          "name": "Sindhi murli form",
+          "descriptors": [
+            "reedy",
+            "piercing"
+          ],
+          "match_tokens": [
+            "gourd-clarinet",
+            "sindhi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sapera_been_pipe",
+      "surface": false,
+      "name": "Pipe material",
+      "variants": [
+        {
+          "id": "sapera_been_cane",
+          "default": true,
+          "name": "Cane pipes with cut idioglot reeds",
+          "descriptors": [
+            "buzzing-timbre",
+            "raw"
+          ],
+          "match_tokens": [
+            "single-reed"
+          ]
+        },
+        {
+          "id": "sapera_been_bamboo",
+          "name": "Thin bamboo pipes",
+          "descriptors": [
+            "thinner",
+            "brighter"
+          ],
+          "match_tokens": [
+            "single-reed"
+          ]
+        }
+      ]
+    }
+  ]
+}

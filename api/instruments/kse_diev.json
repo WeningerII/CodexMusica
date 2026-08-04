@@ -1,0 +1,212 @@
+{
+  "id": "kse_diev",
+  "name": "Kse diev (Khmer gourd-resonated monochord stick zither)",
+  "family": "plucked_traditional",
+  "class": "stick_zither",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -2
+  },
+  "short": "kse diev",
+  "parts": [
+    {
+      "id": "kse_diev_resonator",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "kse_diev_half_gourd",
+          "default": true,
+          "name": "Half-gourd resonator pressed against the player's chest (canonical)",
+          "descriptors": [
+            "hollow",
+            "breathy-resonance",
+            "overtone-rich"
+          ],
+          "match_tokens": [
+            "monochord",
+            "khmer"
+          ]
+        },
+        {
+          "id": "kse_diev_coconut",
+          "name": "Coconut-shell resonator (substitute build)",
+          "descriptors": [
+            "tight",
+            "dry"
+          ],
+          "match_tokens": [
+            "monochord",
+            "khmer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kse_diev_string",
+      "name": "String and touch",
+      "variants": [
+        {
+          "id": "kse_diev_brass_harmonics",
+          "default": true,
+          "name": "Single brass string sounded in harmonics",
+          "descriptors": [
+            "flute-like",
+            "glassy",
+            "quiet"
+          ],
+          "match_tokens": [
+            "monochord",
+            "harmonics"
+          ]
+        },
+        {
+          "id": "kse_diev_stopped",
+          "name": "Stopped fundamental plucking",
+          "descriptors": [
+            "nasal",
+            "plucked-decay"
+          ],
+          "match_tokens": [
+            "monochord",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kse_diev_context",
+      "surface": false,
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "kse_diev_ritual",
+          "default": true,
+          "name": "Sacred/ritual solo and ancestral song (canonical)",
+          "descriptors": [
+            "meditative",
+            "rubato"
+          ],
+          "match_tokens": [
+            "khmer",
+            "ritual"
+          ]
+        },
+        {
+          "id": "kse_diev_courtship",
+          "name": "Courtship serenade",
+          "descriptors": [
+            "intimate",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "khmer"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kse_diev_resonator",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "kse_diev_half_gourd",
+          "default": true,
+          "name": "Half-gourd resonator pressed against the player's chest (canonical)",
+          "descriptors": [
+            "hollow",
+            "breathy-resonance",
+            "overtone-rich"
+          ],
+          "match_tokens": [
+            "monochord",
+            "khmer"
+          ]
+        },
+        {
+          "id": "kse_diev_coconut",
+          "name": "Coconut-shell resonator (substitute build)",
+          "descriptors": [
+            "tight",
+            "dry"
+          ],
+          "match_tokens": [
+            "monochord",
+            "khmer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kse_diev_string",
+      "name": "String and touch",
+      "variants": [
+        {
+          "id": "kse_diev_brass_harmonics",
+          "default": true,
+          "name": "Single brass string sounded in harmonics",
+          "descriptors": [
+            "flute-like",
+            "glassy",
+            "quiet"
+          ],
+          "match_tokens": [
+            "monochord",
+            "harmonics"
+          ]
+        },
+        {
+          "id": "kse_diev_stopped",
+          "name": "Stopped fundamental plucking",
+          "descriptors": [
+            "nasal",
+            "plucked-decay"
+          ],
+          "match_tokens": [
+            "monochord",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kse_diev_context",
+      "surface": false,
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "kse_diev_ritual",
+          "default": true,
+          "name": "Sacred/ritual solo and ancestral song (canonical)",
+          "descriptors": [
+            "meditative",
+            "rubato"
+          ],
+          "match_tokens": [
+            "khmer",
+            "ritual"
+          ]
+        },
+        {
+          "id": "kse_diev_courtship",
+          "name": "Courtship serenade",
+          "descriptors": [
+            "intimate",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "khmer"
+          ]
+        }
+      ]
+    }
+  ]
+}

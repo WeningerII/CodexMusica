@@ -1,0 +1,154 @@
+{
+  "id": "lituus",
+  "name": "Lituus (Roman/Baroque long J-shaped natural trumpet)",
+  "family": "wind",
+  "class": "ritual_trumpet",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 2,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "lituus",
+  "parts": [
+    {
+      "id": "lituus_form",
+      "name": "Historical form",
+      "variants": [
+        {
+          "id": "lituus_roman",
+          "default": true,
+          "name": "Roman bronze lituus (upturned J bell)",
+          "descriptors": [
+            "shrill",
+            "martial",
+            "archaic"
+          ],
+          "match_tokens": [
+            "natural-trumpet",
+            "ritual",
+            "roman"
+          ]
+        },
+        {
+          "id": "lituus_baroque",
+          "name": "Baroque long lituus (Bach, ~2.7 m)",
+          "descriptors": [
+            "mellow",
+            "hollow",
+            "distant"
+          ],
+          "match_tokens": [
+            "natural-trumpet",
+            "baroque"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lituus_use",
+      "name": "Sounding use",
+      "variants": [
+        {
+          "id": "lituus_signal",
+          "default": true,
+          "name": "Military / augural signal calls",
+          "descriptors": [
+            "clipped",
+            "far-carrying"
+          ],
+          "match_tokens": [
+            "signal-horn",
+            "fanfare"
+          ]
+        },
+        {
+          "id": "lituus_funeral",
+          "name": "Funerary motet part",
+          "descriptors": [
+            "solemn",
+            "sustained",
+            "veiled"
+          ],
+          "match_tokens": [
+            "ritual",
+            "processional"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "lituus_form",
+      "name": "Historical form",
+      "variants": [
+        {
+          "id": "lituus_roman",
+          "default": true,
+          "name": "Roman bronze lituus (upturned J bell)",
+          "descriptors": [
+            "shrill",
+            "martial",
+            "archaic"
+          ],
+          "match_tokens": [
+            "natural-trumpet",
+            "ritual",
+            "roman"
+          ]
+        },
+        {
+          "id": "lituus_baroque",
+          "name": "Baroque long lituus (Bach, ~2.7 m)",
+          "descriptors": [
+            "mellow",
+            "hollow",
+            "distant"
+          ],
+          "match_tokens": [
+            "natural-trumpet",
+            "baroque"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lituus_use",
+      "name": "Sounding use",
+      "variants": [
+        {
+          "id": "lituus_signal",
+          "default": true,
+          "name": "Military / augural signal calls",
+          "descriptors": [
+            "clipped",
+            "far-carrying"
+          ],
+          "match_tokens": [
+            "signal-horn",
+            "fanfare"
+          ]
+        },
+        {
+          "id": "lituus_funeral",
+          "name": "Funerary motet part",
+          "descriptors": [
+            "solemn",
+            "sustained",
+            "veiled"
+          ],
+          "match_tokens": [
+            "ritual",
+            "processional"
+          ]
+        }
+      ]
+    }
+  ]
+}

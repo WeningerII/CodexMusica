@@ -1,0 +1,146 @@
+{
+  "id": "tuiduk",
+  "name": "Tüýdük (Turkmen end-blown reed flute)",
+  "family": "wind",
+  "class": "end_blown_flute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 0,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "tuiduk",
+  "parts": [
+    {
+      "id": "tuiduk_tube",
+      "name": "Tube material",
+      "variants": [
+        {
+          "id": "tuiduk_cane",
+          "default": true,
+          "name": "Apricot-wood or cane tube",
+          "descriptors": [
+            "breathy",
+            "airy",
+            "pastoral"
+          ],
+          "match_tokens": [
+            "end-blown-flute",
+            "turkmen"
+          ]
+        },
+        {
+          "id": "tuiduk_metal",
+          "name": "Metal-lined modern tube",
+          "descriptors": [
+            "bright",
+            "focused"
+          ],
+          "match_tokens": [
+            "end-blown-flute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tuiduk_technique",
+      "name": "Blowing technique",
+      "variants": [
+        {
+          "id": "tuiduk_throat",
+          "default": true,
+          "name": "Throat-hum with flute tone (shepherd style)",
+          "descriptors": [
+            "droning",
+            "overtone-rich",
+            "haunting"
+          ],
+          "match_tokens": [
+            "overblown",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "tuiduk_plain",
+          "name": "Plain melodic blowing",
+          "descriptors": [
+            "clear",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "end-blown-flute"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tuiduk_tube",
+      "name": "Tube material",
+      "variants": [
+        {
+          "id": "tuiduk_cane",
+          "default": true,
+          "name": "Apricot-wood or cane tube",
+          "descriptors": [
+            "breathy",
+            "airy",
+            "pastoral"
+          ],
+          "match_tokens": [
+            "end-blown-flute",
+            "turkmen"
+          ]
+        },
+        {
+          "id": "tuiduk_metal",
+          "name": "Metal-lined modern tube",
+          "descriptors": [
+            "bright",
+            "focused"
+          ],
+          "match_tokens": [
+            "end-blown-flute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tuiduk_technique",
+      "name": "Blowing technique",
+      "variants": [
+        {
+          "id": "tuiduk_throat",
+          "default": true,
+          "name": "Throat-hum with flute tone (shepherd style)",
+          "descriptors": [
+            "droning",
+            "overtone-rich",
+            "haunting"
+          ],
+          "match_tokens": [
+            "overblown",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "tuiduk_plain",
+          "name": "Plain melodic blowing",
+          "descriptors": [
+            "clear",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "end-blown-flute"
+          ]
+        }
+      ]
+    }
+  ]
+}

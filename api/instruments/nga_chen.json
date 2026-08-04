@@ -1,0 +1,252 @@
+{
+  "id": "nga_chen",
+  "name": "Nga chen (Tibetan large monastic frame drum on pole)",
+  "family": "percussion",
+  "class": "frame_drum",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": -2,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "nga chen",
+  "parts": [
+    {
+      "id": "nga_chen_mount",
+      "name": "Mounting",
+      "variants": [
+        {
+          "id": "nga_chen_pole",
+          "default": true,
+          "name": "Large double-headed drum on carved pole stand (canonical)",
+          "descriptors": [
+            "booming",
+            "deep-toned",
+            "cavernous"
+          ],
+          "match_tokens": [
+            "monastic-drum",
+            "tibetan-tradition"
+          ]
+        },
+        {
+          "id": "nga_chen_hanging",
+          "name": "Hung in wooden frame in assembly hall",
+          "descriptors": [
+            "resonant",
+            "hall-filling"
+          ],
+          "match_tokens": [
+            "monastic-drum",
+            "tibetan-tradition"
+          ]
+        },
+        {
+          "id": "nga_chen_processional",
+          "name": "Carried processional nga",
+          "descriptors": [
+            "thudding",
+            "marching"
+          ],
+          "match_tokens": [
+            "monastic-drum",
+            "procession"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nga_chen_beater",
+      "name": "Beater and stroke",
+      "variants": [
+        {
+          "id": "nga_chen_curved_stick",
+          "default": true,
+          "name": "Long curved stick (nga rgyug), slow ritual strokes",
+          "descriptors": [
+            "slow-swelling",
+            "ominous"
+          ],
+          "match_tokens": [
+            "monastic-drum",
+            "ritual-pulse"
+          ]
+        },
+        {
+          "id": "nga_chen_roll",
+          "name": "Accelerating roll into cadence",
+          "descriptors": [
+            "rolling",
+            "building"
+          ],
+          "match_tokens": [
+            "monastic-drum"
+          ]
+        },
+        {
+          "id": "nga_chen_rim",
+          "name": "Rim and body strikes",
+          "descriptors": [
+            "woody",
+            "dry-clack"
+          ],
+          "match_tokens": [
+            "monastic-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nga_chen_head",
+      "surface": false,
+      "name": "Head skin",
+      "variants": [
+        {
+          "id": "nga_chen_yak",
+          "default": true,
+          "name": "Yak or ox hide head",
+          "descriptors": [
+            "thick",
+            "low-fundamental"
+          ],
+          "match_tokens": [
+            "monastic-drum"
+          ]
+        },
+        {
+          "id": "nga_chen_goat",
+          "name": "Goatskin head",
+          "descriptors": [
+            "tighter",
+            "more-attack"
+          ],
+          "match_tokens": [
+            "monastic-drum"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "nga_chen_mount",
+      "name": "Mounting",
+      "variants": [
+        {
+          "id": "nga_chen_pole",
+          "default": true,
+          "name": "Large double-headed drum on carved pole stand (canonical)",
+          "descriptors": [
+            "booming",
+            "deep-toned",
+            "cavernous"
+          ],
+          "match_tokens": [
+            "monastic-drum",
+            "tibetan-tradition"
+          ]
+        },
+        {
+          "id": "nga_chen_hanging",
+          "name": "Hung in wooden frame in assembly hall",
+          "descriptors": [
+            "resonant",
+            "hall-filling"
+          ],
+          "match_tokens": [
+            "monastic-drum",
+            "tibetan-tradition"
+          ]
+        },
+        {
+          "id": "nga_chen_processional",
+          "name": "Carried processional nga",
+          "descriptors": [
+            "thudding",
+            "marching"
+          ],
+          "match_tokens": [
+            "monastic-drum",
+            "procession"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nga_chen_beater",
+      "name": "Beater and stroke",
+      "variants": [
+        {
+          "id": "nga_chen_curved_stick",
+          "default": true,
+          "name": "Long curved stick (nga rgyug), slow ritual strokes",
+          "descriptors": [
+            "slow-swelling",
+            "ominous"
+          ],
+          "match_tokens": [
+            "monastic-drum",
+            "ritual-pulse"
+          ]
+        },
+        {
+          "id": "nga_chen_roll",
+          "name": "Accelerating roll into cadence",
+          "descriptors": [
+            "rolling",
+            "building"
+          ],
+          "match_tokens": [
+            "monastic-drum"
+          ]
+        },
+        {
+          "id": "nga_chen_rim",
+          "name": "Rim and body strikes",
+          "descriptors": [
+            "woody",
+            "dry-clack"
+          ],
+          "match_tokens": [
+            "monastic-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nga_chen_head",
+      "surface": false,
+      "name": "Head skin",
+      "variants": [
+        {
+          "id": "nga_chen_yak",
+          "default": true,
+          "name": "Yak or ox hide head",
+          "descriptors": [
+            "thick",
+            "low-fundamental"
+          ],
+          "match_tokens": [
+            "monastic-drum"
+          ]
+        },
+        {
+          "id": "nga_chen_goat",
+          "name": "Goatskin head",
+          "descriptors": [
+            "tighter",
+            "more-attack"
+          ],
+          "match_tokens": [
+            "monastic-drum"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,144 @@
+{
+  "id": "chiboni",
+  "name": "Chiboni (Georgian Adjarian mouth-blown bagpipe)",
+  "family": "wind",
+  "class": "mouth_blown_bagpipe",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": -1,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "chiboni",
+  "parts": [
+    {
+      "id": "chiboni_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "chiboni_adjara",
+          "default": true,
+          "name": "Adjarian chiboni (twin chanter in goatskin bag)",
+          "descriptors": [
+            "droning",
+            "reedy",
+            "continuous"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "georgian"
+          ]
+        },
+        {
+          "id": "chiboni_gudastviri",
+          "name": "Racha gudastviri (highland form)",
+          "descriptors": [
+            "archaic",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "highland"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chiboni_style",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "chiboni_dance",
+          "default": true,
+          "name": "Dance accompaniment (gandagana)",
+          "descriptors": [
+            "driving",
+            "circling"
+          ],
+          "match_tokens": [
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "chiboni_song",
+          "name": "Song accompaniment / heterophony",
+          "descriptors": [
+            "voice-shadowing",
+            "sustained"
+          ],
+          "match_tokens": [
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "chiboni_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "chiboni_adjara",
+          "default": true,
+          "name": "Adjarian chiboni (twin chanter in goatskin bag)",
+          "descriptors": [
+            "droning",
+            "reedy",
+            "continuous"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "georgian"
+          ]
+        },
+        {
+          "id": "chiboni_gudastviri",
+          "name": "Racha gudastviri (highland form)",
+          "descriptors": [
+            "archaic",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "highland"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chiboni_style",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "chiboni_dance",
+          "default": true,
+          "name": "Dance accompaniment (gandagana)",
+          "descriptors": [
+            "driving",
+            "circling"
+          ],
+          "match_tokens": [
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "chiboni_song",
+          "name": "Song accompaniment / heterophony",
+          "descriptors": [
+            "voice-shadowing",
+            "sustained"
+          ],
+          "match_tokens": [
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ]
+}

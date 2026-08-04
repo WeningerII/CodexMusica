@@ -1,0 +1,152 @@
+{
+  "id": "tromba_da_tirarsi",
+  "name": "Tromba da tirarsi (Baroque slide trumpet)",
+  "family": "wind",
+  "class": "brass",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 2,
+    "register": 1,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "tromba da tirarsi",
+  "parts": [
+    {
+      "id": "tdt_slide",
+      "name": "Slide mechanism",
+      "variants": [
+        {
+          "id": "tdt_single",
+          "default": true,
+          "name": "Single telescoping mouthpipe slide",
+          "descriptors": [
+            "noble",
+            "vocal",
+            "smooth"
+          ],
+          "match_tokens": [
+            "slide-trumpet",
+            "baroque",
+            "lip-blown"
+          ]
+        },
+        {
+          "id": "tdt_double",
+          "name": "Double (English) flat trumpet slide",
+          "descriptors": [
+            "agile",
+            "chromatic"
+          ],
+          "match_tokens": [
+            "slide-trumpet",
+            "brass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tdt_context",
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "tdt_chorale",
+          "default": true,
+          "name": "Cantata chorale-melody doubling",
+          "descriptors": [
+            "sustained",
+            "hymnic",
+            "blended"
+          ],
+          "match_tokens": [
+            "baroque",
+            "sacred"
+          ]
+        },
+        {
+          "id": "tdt_obbligato",
+          "name": "Obbligato aria line",
+          "descriptors": [
+            "singing",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "brass",
+            "expressive"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tdt_slide",
+      "name": "Slide mechanism",
+      "variants": [
+        {
+          "id": "tdt_single",
+          "default": true,
+          "name": "Single telescoping mouthpipe slide",
+          "descriptors": [
+            "noble",
+            "vocal",
+            "smooth"
+          ],
+          "match_tokens": [
+            "slide-trumpet",
+            "baroque",
+            "lip-blown"
+          ]
+        },
+        {
+          "id": "tdt_double",
+          "name": "Double (English) flat trumpet slide",
+          "descriptors": [
+            "agile",
+            "chromatic"
+          ],
+          "match_tokens": [
+            "slide-trumpet",
+            "brass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tdt_context",
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "tdt_chorale",
+          "default": true,
+          "name": "Cantata chorale-melody doubling",
+          "descriptors": [
+            "sustained",
+            "hymnic",
+            "blended"
+          ],
+          "match_tokens": [
+            "baroque",
+            "sacred"
+          ]
+        },
+        {
+          "id": "tdt_obbligato",
+          "name": "Obbligato aria line",
+          "descriptors": [
+            "singing",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "brass",
+            "expressive"
+          ]
+        }
+      ]
+    }
+  ]
+}

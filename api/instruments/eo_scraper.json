@@ -1,0 +1,150 @@
+{
+  "id": "eo_scraper",
+  "name": "Eo (Korean tiger-shaped wooden scraper)",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 0,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "eo",
+  "parts": [
+    {
+      "id": "eo_stroke",
+      "name": "Ritual stroke pattern",
+      "variants": [
+        {
+          "id": "eo_scrape",
+          "default": true,
+          "name": "Three head-strikes then a scrape down the 27 serrations",
+          "descriptors": [
+            "rattling-scrape",
+            "dry",
+            "ratcheting"
+          ],
+          "match_tokens": [
+            "scraper",
+            "korean",
+            "ritual"
+          ]
+        },
+        {
+          "id": "eo_headonly",
+          "name": "Head strikes only",
+          "descriptors": [
+            "hollow-knock",
+            "woody"
+          ],
+          "match_tokens": [
+            "struck",
+            "woodblock"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eo_beater",
+      "name": "Beater (jin)",
+      "variants": [
+        {
+          "id": "eo_split_bamboo",
+          "default": true,
+          "name": "Split-bamboo whisk beater",
+          "descriptors": [
+            "brushy",
+            "buzzing-rasp"
+          ],
+          "match_tokens": [
+            "scraped",
+            "bamboo"
+          ]
+        },
+        {
+          "id": "eo_stick",
+          "name": "Plain wooden stick",
+          "descriptors": [
+            "clacking",
+            "coarse"
+          ],
+          "match_tokens": [
+            "scraped",
+            "woody"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "eo_stroke",
+      "name": "Ritual stroke pattern",
+      "variants": [
+        {
+          "id": "eo_scrape",
+          "default": true,
+          "name": "Three head-strikes then a scrape down the 27 serrations",
+          "descriptors": [
+            "rattling-scrape",
+            "dry",
+            "ratcheting"
+          ],
+          "match_tokens": [
+            "scraper",
+            "korean",
+            "ritual"
+          ]
+        },
+        {
+          "id": "eo_headonly",
+          "name": "Head strikes only",
+          "descriptors": [
+            "hollow-knock",
+            "woody"
+          ],
+          "match_tokens": [
+            "struck",
+            "woodblock"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eo_beater",
+      "name": "Beater (jin)",
+      "variants": [
+        {
+          "id": "eo_split_bamboo",
+          "default": true,
+          "name": "Split-bamboo whisk beater",
+          "descriptors": [
+            "brushy",
+            "buzzing-rasp"
+          ],
+          "match_tokens": [
+            "scraped",
+            "bamboo"
+          ]
+        },
+        {
+          "id": "eo_stick",
+          "name": "Plain wooden stick",
+          "descriptors": [
+            "clacking",
+            "coarse"
+          ],
+          "match_tokens": [
+            "scraped",
+            "woody"
+          ]
+        }
+      ]
+    }
+  ]
+}

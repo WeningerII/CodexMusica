@@ -1,0 +1,189 @@
+{
+  "id": "square_piano",
+  "name": "Square piano (rectangular early fortepiano)",
+  "family": "keyboard",
+  "class": "keyboard_acoustic",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 1,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "square piano",
+  "parts": [
+    {
+      "id": "keyboard_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "keyboard_block_chord_pop",
+          "default": true,
+          "name": "Block-chord pop",
+          "descriptors": [
+            "block-chord"
+          ],
+          "match_tokens": [
+            "chordal",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "pop",
+            "singer-songwriter"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "square_era",
+      "name": "Period / action",
+      "variants": [
+        {
+          "id": "square_english_18c",
+          "default": true,
+          "name": "English single-action square (c.1770-1800)",
+          "descriptors": [
+            "silvery",
+            "fast-decay",
+            "intimate"
+          ],
+          "match_tokens": [
+            "fortepiano",
+            "struck-string"
+          ]
+        },
+        {
+          "id": "square_double_action",
+          "name": "Broadwood double-action square (c.1800-1820)",
+          "descriptors": [
+            "fuller",
+            "warmer"
+          ],
+          "match_tokens": [
+            "fortepiano"
+          ]
+        },
+        {
+          "id": "square_american_19c",
+          "name": "Heavy American square grand (mid-19th c.)",
+          "descriptors": [
+            "thick-toned",
+            "robust"
+          ],
+          "match_tokens": [
+            "piano",
+            "struck-string"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "square_stops",
+      "name": "Stops / pedals",
+      "variants": [
+        {
+          "id": "square_damper_lift",
+          "default": true,
+          "name": "Damper lift (hand stop or pedal)",
+          "descriptors": [
+            "ringing",
+            "blended"
+          ],
+          "match_tokens": [
+            "sustained"
+          ]
+        },
+        {
+          "id": "square_buff",
+          "name": "Buff / lute stop",
+          "descriptors": [
+            "muted",
+            "pizzicato-like"
+          ],
+          "match_tokens": [
+            "damped"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "square_era",
+      "name": "Period / action",
+      "variants": [
+        {
+          "id": "square_english_18c",
+          "default": true,
+          "name": "English single-action square (c.1770-1800)",
+          "descriptors": [
+            "silvery",
+            "fast-decay",
+            "intimate"
+          ],
+          "match_tokens": [
+            "fortepiano",
+            "struck-string"
+          ]
+        },
+        {
+          "id": "square_double_action",
+          "name": "Broadwood double-action square (c.1800-1820)",
+          "descriptors": [
+            "fuller",
+            "warmer"
+          ],
+          "match_tokens": [
+            "fortepiano"
+          ]
+        },
+        {
+          "id": "square_american_19c",
+          "name": "Heavy American square grand (mid-19th c.)",
+          "descriptors": [
+            "thick-toned",
+            "robust"
+          ],
+          "match_tokens": [
+            "piano",
+            "struck-string"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "square_stops",
+      "name": "Stops / pedals",
+      "variants": [
+        {
+          "id": "square_damper_lift",
+          "default": true,
+          "name": "Damper lift (hand stop or pedal)",
+          "descriptors": [
+            "ringing",
+            "blended"
+          ],
+          "match_tokens": [
+            "sustained"
+          ]
+        },
+        {
+          "id": "square_buff",
+          "name": "Buff / lute stop",
+          "descriptors": [
+            "muted",
+            "pizzicato-like"
+          ],
+          "match_tokens": [
+            "damped"
+          ]
+        }
+      ]
+    }
+  ]
+}

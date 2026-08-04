@@ -1,0 +1,152 @@
+{
+  "id": "nagak",
+  "name": "Nagak (Korean conch-shell trumpet)",
+  "family": "wind",
+  "class": "ritual_trumpet",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -2,
+    "range": -2,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "nagak",
+  "parts": [
+    {
+      "id": "nagak_shell",
+      "name": "Shell size",
+      "variants": [
+        {
+          "id": "nagak_large",
+          "default": true,
+          "name": "Large conch shell (deep signal tone)",
+          "descriptors": [
+            "booming",
+            "monotone",
+            "foghorn-like"
+          ],
+          "match_tokens": [
+            "conch",
+            "ritual-trumpet",
+            "korean"
+          ]
+        },
+        {
+          "id": "nagak_small",
+          "name": "Smaller shell (higher signal tone)",
+          "descriptors": [
+            "cutting",
+            "hoarse"
+          ],
+          "match_tokens": [
+            "conch",
+            "signal-call"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nagak_use",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "nagak_daechwita",
+          "default": true,
+          "name": "Daechwita military procession",
+          "descriptors": [
+            "processional",
+            "sustained-drone",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "procession",
+            "military-band"
+          ]
+        },
+        {
+          "id": "nagak_signal",
+          "name": "Isolated signal blast",
+          "descriptors": [
+            "single-blast",
+            "announcing"
+          ],
+          "match_tokens": [
+            "signal-call",
+            "ritual"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "nagak_shell",
+      "name": "Shell size",
+      "variants": [
+        {
+          "id": "nagak_large",
+          "default": true,
+          "name": "Large conch shell (deep signal tone)",
+          "descriptors": [
+            "booming",
+            "monotone",
+            "foghorn-like"
+          ],
+          "match_tokens": [
+            "conch",
+            "ritual-trumpet",
+            "korean"
+          ]
+        },
+        {
+          "id": "nagak_small",
+          "name": "Smaller shell (higher signal tone)",
+          "descriptors": [
+            "cutting",
+            "hoarse"
+          ],
+          "match_tokens": [
+            "conch",
+            "signal-call"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nagak_use",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "nagak_daechwita",
+          "default": true,
+          "name": "Daechwita military procession",
+          "descriptors": [
+            "processional",
+            "sustained-drone",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "procession",
+            "military-band"
+          ]
+        },
+        {
+          "id": "nagak_signal",
+          "name": "Isolated signal blast",
+          "descriptors": [
+            "single-blast",
+            "announcing"
+          ],
+          "match_tokens": [
+            "signal-call",
+            "ritual"
+          ]
+        }
+      ]
+    }
+  ]
+}

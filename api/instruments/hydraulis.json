@@ -1,0 +1,267 @@
+{
+  "id": "hydraulis",
+  "name": "Hydraulis (ancient Greco-Roman water organ)",
+  "family": "keyboard",
+  "class": "keyboard_acoustic",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "hydraulis",
+  "parts": [
+    {
+      "id": "keyboard_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "keyboard_block_chord_pop",
+          "default": true,
+          "name": "Block-chord pop",
+          "descriptors": [
+            "block-chord"
+          ],
+          "match_tokens": [
+            "chordal",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "pop",
+            "singer-songwriter"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "hydraulis_ranks",
+      "name": "Pipe ranks",
+      "variants": [
+        {
+          "id": "hydraulis_single",
+          "default": true,
+          "name": "Single rank of open bronze flue pipes",
+          "descriptors": [
+            "pure-toned",
+            "steady",
+            "flutey"
+          ],
+          "match_tokens": [
+            "water-organ",
+            "pipe-organ",
+            "ancient-greek"
+          ]
+        },
+        {
+          "id": "hydraulis_multi",
+          "name": "Multiple ranks with stop sliders",
+          "descriptors": [
+            "full-toned",
+            "layered",
+            "bright"
+          ],
+          "match_tokens": [
+            "water-organ",
+            "pipe-organ"
+          ]
+        },
+        {
+          "id": "hydraulis_reed",
+          "name": "Added reed rank",
+          "descriptors": [
+            "buzzing-timbre",
+            "nasal",
+            "biting"
+          ],
+          "match_tokens": [
+            "water-organ",
+            "reed-rank"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hydraulis_wind",
+      "surface": false,
+      "name": "Wind supply",
+      "variants": [
+        {
+          "id": "hydraulis_pnigeus",
+          "default": true,
+          "name": "Water-regulated pnigeus with hand pumps",
+          "descriptors": [
+            "rock-steady",
+            "unwavering"
+          ],
+          "match_tokens": [
+            "water-organ"
+          ]
+        },
+        {
+          "id": "hydraulis_bellows",
+          "name": "Later bellows organ (pneumatic)",
+          "descriptors": [
+            "breathing",
+            "slightly-uneven"
+          ],
+          "match_tokens": [
+            "pipe-organ",
+            "late-antique"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hydraulis_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "hydraulis_arena",
+          "default": true,
+          "name": "Amphitheatre and games",
+          "descriptors": [
+            "blaring",
+            "festive",
+            "loud"
+          ],
+          "match_tokens": [
+            "roman",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "hydraulis_banquet",
+          "name": "Banquet and villa entertainment",
+          "descriptors": [
+            "mellow",
+            "ornamented",
+            "intimate"
+          ],
+          "match_tokens": [
+            "roman",
+            "chamber"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "hydraulis_ranks",
+      "name": "Pipe ranks",
+      "variants": [
+        {
+          "id": "hydraulis_single",
+          "default": true,
+          "name": "Single rank of open bronze flue pipes",
+          "descriptors": [
+            "pure-toned",
+            "steady",
+            "flutey"
+          ],
+          "match_tokens": [
+            "water-organ",
+            "pipe-organ",
+            "ancient-greek"
+          ]
+        },
+        {
+          "id": "hydraulis_multi",
+          "name": "Multiple ranks with stop sliders",
+          "descriptors": [
+            "full-toned",
+            "layered",
+            "bright"
+          ],
+          "match_tokens": [
+            "water-organ",
+            "pipe-organ"
+          ]
+        },
+        {
+          "id": "hydraulis_reed",
+          "name": "Added reed rank",
+          "descriptors": [
+            "buzzing-timbre",
+            "nasal",
+            "biting"
+          ],
+          "match_tokens": [
+            "water-organ",
+            "reed-rank"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hydraulis_wind",
+      "surface": false,
+      "name": "Wind supply",
+      "variants": [
+        {
+          "id": "hydraulis_pnigeus",
+          "default": true,
+          "name": "Water-regulated pnigeus with hand pumps",
+          "descriptors": [
+            "rock-steady",
+            "unwavering"
+          ],
+          "match_tokens": [
+            "water-organ"
+          ]
+        },
+        {
+          "id": "hydraulis_bellows",
+          "name": "Later bellows organ (pneumatic)",
+          "descriptors": [
+            "breathing",
+            "slightly-uneven"
+          ],
+          "match_tokens": [
+            "pipe-organ",
+            "late-antique"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hydraulis_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "hydraulis_arena",
+          "default": true,
+          "name": "Amphitheatre and games",
+          "descriptors": [
+            "blaring",
+            "festive",
+            "loud"
+          ],
+          "match_tokens": [
+            "roman",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "hydraulis_banquet",
+          "name": "Banquet and villa entertainment",
+          "descriptors": [
+            "mellow",
+            "ornamented",
+            "intimate"
+          ],
+          "match_tokens": [
+            "roman",
+            "chamber"
+          ]
+        }
+      ]
+    }
+  ]
+}

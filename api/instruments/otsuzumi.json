@@ -1,0 +1,210 @@
+{
+  "id": "otsuzumi",
+  "name": "Otsuzumi (okawa; large hip hourglass drum of noh)",
+  "family": "percussion",
+  "class": "hourglass_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 0,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "otsuzumi",
+  "parts": [
+    {
+      "id": "otsuzumi_stroke",
+      "name": "Stroke type",
+      "variants": [
+        {
+          "id": "otsuzumi_chon",
+          "default": true,
+          "name": "Chon (hard cracking strike with thimbled fingers)",
+          "descriptors": [
+            "cracking",
+            "dry-attack",
+            "piercing"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "noh",
+            "japanese"
+          ]
+        },
+        {
+          "id": "otsuzumi_tsu",
+          "name": "Tsu (soft light stroke)",
+          "descriptors": [
+            "soft-tap",
+            "spacious"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "noh"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "otsuzumi_head_prep",
+      "name": "Head preparation",
+      "variants": [
+        {
+          "id": "otsuzumi_fire_dried",
+          "default": true,
+          "name": "Charcoal-dried head (traditional pre-performance)",
+          "descriptors": [
+            "bone-dry",
+            "brittle-toned",
+            "sharp"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "horsehide"
+          ]
+        },
+        {
+          "id": "otsuzumi_untreated",
+          "name": "Untreated head",
+          "descriptors": [
+            "fuller-toned",
+            "softer"
+          ],
+          "match_tokens": [
+            "hand-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "otsuzumi_finger_guards",
+      "surface": false,
+      "name": "Finger guards (yubikawa)",
+      "variants": [
+        {
+          "id": "otsuzumi_hard_guard",
+          "default": true,
+          "name": "Hardened papier-mache thimbles",
+          "descriptors": [
+            "hard-attack",
+            "loud"
+          ],
+          "match_tokens": [
+            "hand-drum"
+          ]
+        },
+        {
+          "id": "otsuzumi_bare_finger",
+          "name": "Bare fingers",
+          "descriptors": [
+            "softer-attack",
+            "warm"
+          ],
+          "match_tokens": [
+            "hand-drum"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "otsuzumi_stroke",
+      "name": "Stroke type",
+      "variants": [
+        {
+          "id": "otsuzumi_chon",
+          "default": true,
+          "name": "Chon (hard cracking strike with thimbled fingers)",
+          "descriptors": [
+            "cracking",
+            "dry-attack",
+            "piercing"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "noh",
+            "japanese"
+          ]
+        },
+        {
+          "id": "otsuzumi_tsu",
+          "name": "Tsu (soft light stroke)",
+          "descriptors": [
+            "soft-tap",
+            "spacious"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "noh"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "otsuzumi_head_prep",
+      "name": "Head preparation",
+      "variants": [
+        {
+          "id": "otsuzumi_fire_dried",
+          "default": true,
+          "name": "Charcoal-dried head (traditional pre-performance)",
+          "descriptors": [
+            "bone-dry",
+            "brittle-toned",
+            "sharp"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "horsehide"
+          ]
+        },
+        {
+          "id": "otsuzumi_untreated",
+          "name": "Untreated head",
+          "descriptors": [
+            "fuller-toned",
+            "softer"
+          ],
+          "match_tokens": [
+            "hand-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "otsuzumi_finger_guards",
+      "surface": false,
+      "name": "Finger guards (yubikawa)",
+      "variants": [
+        {
+          "id": "otsuzumi_hard_guard",
+          "default": true,
+          "name": "Hardened papier-mache thimbles",
+          "descriptors": [
+            "hard-attack",
+            "loud"
+          ],
+          "match_tokens": [
+            "hand-drum"
+          ]
+        },
+        {
+          "id": "otsuzumi_bare_finger",
+          "name": "Bare fingers",
+          "descriptors": [
+            "softer-attack",
+            "warm"
+          ],
+          "match_tokens": [
+            "hand-drum"
+          ]
+        }
+      ]
+    }
+  ]
+}

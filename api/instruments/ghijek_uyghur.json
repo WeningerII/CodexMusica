@@ -1,0 +1,197 @@
+{
+  "id": "ghijek_uyghur",
+  "name": "Ghijek (Uyghur sympathetic-string spike fiddle)",
+  "family": "bowed",
+  "class": "bowed_spike_fiddle",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "ghijek",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "ghijek_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "ghijek_kashgar",
+          "default": true,
+          "name": "Kashgar ghijek with sympathetic strings",
+          "descriptors": [
+            "ringing",
+            "nasal",
+            "halo-like"
+          ],
+          "match_tokens": [
+            "spike-fiddle",
+            "uyghur",
+            "sympathetic-strings"
+          ]
+        },
+        {
+          "id": "ghijek_qobuz",
+          "name": "Archaic bowl-bodied qobuz-type ghijek",
+          "descriptors": [
+            "husky",
+            "raw"
+          ],
+          "match_tokens": [
+            "spike-fiddle",
+            "bowed"
+          ]
+        },
+        {
+          "id": "ghijek_alto",
+          "name": "Alto/bass concert ghijek",
+          "descriptors": [
+            "deep-toned",
+            "broad"
+          ],
+          "match_tokens": [
+            "spike-fiddle",
+            "orchestral"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ghijek_bow",
+      "name": "Bow pressure",
+      "variants": [
+        {
+          "id": "ghijek_light",
+          "default": true,
+          "name": "Light ornamented muqam bowing",
+          "descriptors": [
+            "ornamented",
+            "singing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "muqam"
+          ]
+        },
+        {
+          "id": "ghijek_heavy",
+          "name": "Heavy pressed bowing",
+          "descriptors": [
+            "gritty",
+            "intense"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ghijek_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "ghijek_kashgar",
+          "default": true,
+          "name": "Kashgar ghijek with sympathetic strings",
+          "descriptors": [
+            "ringing",
+            "nasal",
+            "halo-like"
+          ],
+          "match_tokens": [
+            "spike-fiddle",
+            "uyghur",
+            "sympathetic-strings"
+          ]
+        },
+        {
+          "id": "ghijek_qobuz",
+          "name": "Archaic bowl-bodied qobuz-type ghijek",
+          "descriptors": [
+            "husky",
+            "raw"
+          ],
+          "match_tokens": [
+            "spike-fiddle",
+            "bowed"
+          ]
+        },
+        {
+          "id": "ghijek_alto",
+          "name": "Alto/bass concert ghijek",
+          "descriptors": [
+            "deep-toned",
+            "broad"
+          ],
+          "match_tokens": [
+            "spike-fiddle",
+            "orchestral"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ghijek_bow",
+      "name": "Bow pressure",
+      "variants": [
+        {
+          "id": "ghijek_light",
+          "default": true,
+          "name": "Light ornamented muqam bowing",
+          "descriptors": [
+            "ornamented",
+            "singing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "muqam"
+          ]
+        },
+        {
+          "id": "ghijek_heavy",
+          "name": "Heavy pressed bowing",
+          "descriptors": [
+            "gritty",
+            "intense"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ]
+}

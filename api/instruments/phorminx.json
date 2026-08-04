@@ -1,0 +1,156 @@
+{
+  "id": "phorminx",
+  "name": "Phorminx (Homeric bard's round-based lyre)",
+  "family": "plucked_traditional",
+  "class": "plucked_lyre",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "phorminx",
+  "parts": [
+    {
+      "id": "phorminx_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "phorminx_crescent",
+          "default": true,
+          "name": "Crescent-based four-string phorminx",
+          "descriptors": [
+            "archaic",
+            "plain-toned",
+            "ringing"
+          ],
+          "match_tokens": [
+            "lyre",
+            "ancient-greek",
+            "epic-recitation"
+          ]
+        },
+        {
+          "id": "phorminx_round",
+          "name": "Round-based seven-string phorminx (kitharis)",
+          "descriptors": [
+            "fuller",
+            "brighter",
+            "wider-ranged"
+          ],
+          "match_tokens": [
+            "lyre",
+            "ancient-greek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phorminx_use",
+      "name": "Playing role",
+      "variants": [
+        {
+          "id": "phorminx_aoidos",
+          "default": true,
+          "name": "Bardic epic recitation (aoidos)",
+          "descriptors": [
+            "declamatory",
+            "sparse",
+            "formulaic"
+          ],
+          "match_tokens": [
+            "epic-recitation",
+            "song-accompaniment"
+          ]
+        },
+        {
+          "id": "phorminx_dance",
+          "name": "Dance and paean accompaniment",
+          "descriptors": [
+            "lilting",
+            "rhythmic",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "strummed",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "phorminx_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "phorminx_crescent",
+          "default": true,
+          "name": "Crescent-based four-string phorminx",
+          "descriptors": [
+            "archaic",
+            "plain-toned",
+            "ringing"
+          ],
+          "match_tokens": [
+            "lyre",
+            "ancient-greek",
+            "epic-recitation"
+          ]
+        },
+        {
+          "id": "phorminx_round",
+          "name": "Round-based seven-string phorminx (kitharis)",
+          "descriptors": [
+            "fuller",
+            "brighter",
+            "wider-ranged"
+          ],
+          "match_tokens": [
+            "lyre",
+            "ancient-greek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phorminx_use",
+      "name": "Playing role",
+      "variants": [
+        {
+          "id": "phorminx_aoidos",
+          "default": true,
+          "name": "Bardic epic recitation (aoidos)",
+          "descriptors": [
+            "declamatory",
+            "sparse",
+            "formulaic"
+          ],
+          "match_tokens": [
+            "epic-recitation",
+            "song-accompaniment"
+          ]
+        },
+        {
+          "id": "phorminx_dance",
+          "name": "Dance and paean accompaniment",
+          "descriptors": [
+            "lilting",
+            "rhythmic",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "strummed",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ]
+}

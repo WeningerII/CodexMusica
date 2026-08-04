@@ -1,0 +1,229 @@
+{
+  "id": "kucho_fiddle",
+  "name": "Kucho (Mongolian khuuchir four-string spike fiddle)",
+  "family": "bowed",
+  "class": "bowed_spike_fiddle",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 1,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "kucho",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "kucho_body",
+      "name": "Resonator construction",
+      "variants": [
+        {
+          "id": "kucho_snakeskin",
+          "default": true,
+          "name": "Snakeskin-faced cylindrical resonator",
+          "descriptors": [
+            "nasal-tone",
+            "penetrating",
+            "reedy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "spike-fiddle",
+            "mongolian"
+          ]
+        },
+        {
+          "id": "kucho_wood",
+          "name": "Wood-faced hexagonal resonator",
+          "descriptors": [
+            "woody",
+            "warm",
+            "rounded"
+          ],
+          "match_tokens": [
+            "bowed",
+            "spike-fiddle"
+          ]
+        },
+        {
+          "id": "kucho_metal",
+          "name": "Metal-shell resonator (modern)",
+          "descriptors": [
+            "bright",
+            "edgy",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bright-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kucho_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "kucho_ensemble",
+          "default": true,
+          "name": "Ensemble melodic line",
+          "descriptors": [
+            "singing",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic-lead"
+          ]
+        },
+        {
+          "id": "kucho_urtiin",
+          "name": "Urtiin duu song accompaniment",
+          "descriptors": [
+            "rubato",
+            "voice-shadowing",
+            "melismatic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "expressive"
+          ]
+        },
+        {
+          "id": "kucho_dance",
+          "name": "Dance / short-song playing",
+          "descriptors": [
+            "driving",
+            "crisp-bowing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kucho_body",
+      "name": "Resonator construction",
+      "variants": [
+        {
+          "id": "kucho_snakeskin",
+          "default": true,
+          "name": "Snakeskin-faced cylindrical resonator",
+          "descriptors": [
+            "nasal-tone",
+            "penetrating",
+            "reedy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "spike-fiddle",
+            "mongolian"
+          ]
+        },
+        {
+          "id": "kucho_wood",
+          "name": "Wood-faced hexagonal resonator",
+          "descriptors": [
+            "woody",
+            "warm",
+            "rounded"
+          ],
+          "match_tokens": [
+            "bowed",
+            "spike-fiddle"
+          ]
+        },
+        {
+          "id": "kucho_metal",
+          "name": "Metal-shell resonator (modern)",
+          "descriptors": [
+            "bright",
+            "edgy",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bright-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kucho_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "kucho_ensemble",
+          "default": true,
+          "name": "Ensemble melodic line",
+          "descriptors": [
+            "singing",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic-lead"
+          ]
+        },
+        {
+          "id": "kucho_urtiin",
+          "name": "Urtiin duu song accompaniment",
+          "descriptors": [
+            "rubato",
+            "voice-shadowing",
+            "melismatic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "expressive"
+          ]
+        },
+        {
+          "id": "kucho_dance",
+          "name": "Dance / short-song playing",
+          "descriptors": [
+            "driving",
+            "crisp-bowing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ]
+}

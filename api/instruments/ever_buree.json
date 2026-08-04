@@ -1,0 +1,154 @@
+{
+  "id": "ever_buree",
+  "name": "Ever buree (Mongolian ox-horn signal trumpet)",
+  "family": "wind",
+  "class": "natural_trumpet",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -1,
+    "range": -2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "ever buree",
+  "parts": [
+    {
+      "id": "ever_buree_horn",
+      "name": "Horn body",
+      "variants": [
+        {
+          "id": "ever_buree_ox",
+          "default": true,
+          "name": "Natural ox-horn body",
+          "descriptors": [
+            "raw",
+            "braying",
+            "hoarse"
+          ],
+          "match_tokens": [
+            "horn-trumpet",
+            "mongolian",
+            "signal-call"
+          ]
+        },
+        {
+          "id": "ever_buree_wood",
+          "name": "Wood-and-horn composite body",
+          "descriptors": [
+            "fuller-toned",
+            "rounded"
+          ],
+          "match_tokens": [
+            "horn-trumpet",
+            "natural-trumpet"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ever_buree_use",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "ever_buree_signal",
+          "default": true,
+          "name": "Herding / hunting signal blasts",
+          "descriptors": [
+            "single-blast",
+            "far-carrying",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "signal-call",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "ever_buree_ritual",
+          "name": "Ritual / procession sustained calls",
+          "descriptors": [
+            "sustained",
+            "solemn",
+            "droning"
+          ],
+          "match_tokens": [
+            "ritual",
+            "procession"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ever_buree_horn",
+      "name": "Horn body",
+      "variants": [
+        {
+          "id": "ever_buree_ox",
+          "default": true,
+          "name": "Natural ox-horn body",
+          "descriptors": [
+            "raw",
+            "braying",
+            "hoarse"
+          ],
+          "match_tokens": [
+            "horn-trumpet",
+            "mongolian",
+            "signal-call"
+          ]
+        },
+        {
+          "id": "ever_buree_wood",
+          "name": "Wood-and-horn composite body",
+          "descriptors": [
+            "fuller-toned",
+            "rounded"
+          ],
+          "match_tokens": [
+            "horn-trumpet",
+            "natural-trumpet"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ever_buree_use",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "ever_buree_signal",
+          "default": true,
+          "name": "Herding / hunting signal blasts",
+          "descriptors": [
+            "single-blast",
+            "far-carrying",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "signal-call",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "ever_buree_ritual",
+          "name": "Ritual / procession sustained calls",
+          "descriptors": [
+            "sustained",
+            "solemn",
+            "droning"
+          ],
+          "match_tokens": [
+            "ritual",
+            "procession"
+          ]
+        }
+      ]
+    }
+  ]
+}

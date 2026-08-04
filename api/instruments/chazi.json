@@ -1,0 +1,166 @@
+{
+  "id": "chazi",
+  "name": "Chazi (small Chinese hand cymbals)",
+  "family": "percussion",
+  "class": "hand_cymbals",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 2,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "chazi",
+  "parts": [
+    {
+      "id": "chazi_stroke",
+      "name": "Stroke technique",
+      "variants": [
+        {
+          "id": "chazi_crash",
+          "default": true,
+          "name": "Open crash (full face contact)",
+          "descriptors": [
+            "shimmering",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "small-cymbals",
+            "chinese-percussion"
+          ]
+        },
+        {
+          "id": "chazi_damped",
+          "name": "Damped choke against the body",
+          "descriptors": [
+            "clipped",
+            "dry"
+          ],
+          "match_tokens": [
+            "small-cymbals",
+            "choked"
+          ]
+        },
+        {
+          "id": "chazi_edge",
+          "name": "Edge-brush glancing stroke",
+          "descriptors": [
+            "sizzling",
+            "thin"
+          ],
+          "match_tokens": [
+            "small-cymbals"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chazi_size",
+      "surface": false,
+      "name": "Size",
+      "variants": [
+        {
+          "id": "chazi_xiaocha",
+          "default": true,
+          "name": "Xiaocha (very small pair)",
+          "descriptors": [
+            "tinkling",
+            "high-pitched"
+          ],
+          "match_tokens": [
+            "small-cymbals"
+          ]
+        },
+        {
+          "id": "chazi_zhongcha",
+          "name": "Zhongcha (medium pair)",
+          "descriptors": [
+            "fuller",
+            "ringing"
+          ],
+          "match_tokens": [
+            "hand-cymbals"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "chazi_stroke",
+      "name": "Stroke technique",
+      "variants": [
+        {
+          "id": "chazi_crash",
+          "default": true,
+          "name": "Open crash (full face contact)",
+          "descriptors": [
+            "shimmering",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "small-cymbals",
+            "chinese-percussion"
+          ]
+        },
+        {
+          "id": "chazi_damped",
+          "name": "Damped choke against the body",
+          "descriptors": [
+            "clipped",
+            "dry"
+          ],
+          "match_tokens": [
+            "small-cymbals",
+            "choked"
+          ]
+        },
+        {
+          "id": "chazi_edge",
+          "name": "Edge-brush glancing stroke",
+          "descriptors": [
+            "sizzling",
+            "thin"
+          ],
+          "match_tokens": [
+            "small-cymbals"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chazi_size",
+      "surface": false,
+      "name": "Size",
+      "variants": [
+        {
+          "id": "chazi_xiaocha",
+          "default": true,
+          "name": "Xiaocha (very small pair)",
+          "descriptors": [
+            "tinkling",
+            "high-pitched"
+          ],
+          "match_tokens": [
+            "small-cymbals"
+          ]
+        },
+        {
+          "id": "chazi_zhongcha",
+          "name": "Zhongcha (medium pair)",
+          "descriptors": [
+            "fuller",
+            "ringing"
+          ],
+          "match_tokens": [
+            "hand-cymbals"
+          ]
+        }
+      ]
+    }
+  ]
+}

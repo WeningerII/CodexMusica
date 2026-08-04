@@ -1,0 +1,210 @@
+{
+  "id": "skor_daey",
+  "name": "Skor daey (Cambodian pair of small hand drums)",
+  "family": "percussion",
+  "class": "single_headed_hand_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "skor daey",
+  "parts": [
+    {
+      "id": "skor_daey_body",
+      "name": "Shell",
+      "variants": [
+        {
+          "id": "skor_daey_hardwood_pair",
+          "default": true,
+          "name": "Hollowed hardwood shells, single tacked calfskin head, played as a pair (canonical)",
+          "descriptors": [
+            "dry",
+            "woody",
+            "tight-slap"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "khmer"
+          ]
+        },
+        {
+          "id": "skor_daey_clay",
+          "name": "Fired-clay shell (older village build)",
+          "descriptors": [
+            "dark-toned",
+            "dull-thud"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "khmer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "skor_daey_stroke",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "skor_daey_bare_hands",
+          "default": true,
+          "name": "Bare-hand open and slap strokes",
+          "descriptors": [
+            "bright-attack",
+            "crisp"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "khmer"
+          ]
+        },
+        {
+          "id": "skor_daey_damped_fingers",
+          "name": "Damped fingertip patterning",
+          "descriptors": [
+            "muted",
+            "dry-tick"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "khmer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "skor_daey_context",
+      "surface": false,
+      "name": "Ensemble context",
+      "variants": [
+        {
+          "id": "skor_daey_mohori",
+          "default": true,
+          "name": "Mohori / phleng kar entertainment ensemble (canonical)",
+          "descriptors": [
+            "cyclic",
+            "timekeeping"
+          ],
+          "match_tokens": [
+            "khmer",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "skor_daey_ayai",
+          "name": "Ayai repartee-song accompaniment",
+          "descriptors": [
+            "sparse",
+            "responsive"
+          ],
+          "match_tokens": [
+            "khmer"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "skor_daey_body",
+      "name": "Shell",
+      "variants": [
+        {
+          "id": "skor_daey_hardwood_pair",
+          "default": true,
+          "name": "Hollowed hardwood shells, single tacked calfskin head, played as a pair (canonical)",
+          "descriptors": [
+            "dry",
+            "woody",
+            "tight-slap"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "khmer"
+          ]
+        },
+        {
+          "id": "skor_daey_clay",
+          "name": "Fired-clay shell (older village build)",
+          "descriptors": [
+            "dark-toned",
+            "dull-thud"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "khmer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "skor_daey_stroke",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "skor_daey_bare_hands",
+          "default": true,
+          "name": "Bare-hand open and slap strokes",
+          "descriptors": [
+            "bright-attack",
+            "crisp"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "khmer"
+          ]
+        },
+        {
+          "id": "skor_daey_damped_fingers",
+          "name": "Damped fingertip patterning",
+          "descriptors": [
+            "muted",
+            "dry-tick"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "khmer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "skor_daey_context",
+      "surface": false,
+      "name": "Ensemble context",
+      "variants": [
+        {
+          "id": "skor_daey_mohori",
+          "default": true,
+          "name": "Mohori / phleng kar entertainment ensemble (canonical)",
+          "descriptors": [
+            "cyclic",
+            "timekeeping"
+          ],
+          "match_tokens": [
+            "khmer",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "skor_daey_ayai",
+          "name": "Ayai repartee-song accompaniment",
+          "descriptors": [
+            "sparse",
+            "responsive"
+          ],
+          "match_tokens": [
+            "khmer"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,168 @@
+{
+  "id": "doli",
+  "name": "Doli (Georgian double-headed hand drum)",
+  "family": "percussion",
+  "class": "double_headed_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "doli",
+  "parts": [
+    {
+      "id": "doli_form",
+      "name": "Form / size",
+      "variants": [
+        {
+          "id": "doli_standard",
+          "default": true,
+          "name": "Standard doli (hand-played, wooden shell)",
+          "descriptors": [
+            "crisp-attack",
+            "dry"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "georgian"
+          ]
+        },
+        {
+          "id": "doli_large",
+          "name": "Large outdoor doli (stick-played)",
+          "descriptors": [
+            "booming",
+            "deep-toned"
+          ],
+          "match_tokens": [
+            "struck",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "doli_small",
+          "name": "Small high-tuned doli",
+          "descriptors": [
+            "tight",
+            "snappy"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "high-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "doli_head",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "doli_skin",
+          "default": true,
+          "name": "Goat / calfskin heads",
+          "descriptors": [
+            "warm",
+            "organic"
+          ],
+          "match_tokens": [
+            "hand-drum"
+          ]
+        },
+        {
+          "id": "doli_plastic",
+          "name": "Synthetic heads",
+          "descriptors": [
+            "bright-attack",
+            "even"
+          ],
+          "match_tokens": [
+            "hand-drum"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "doli_form",
+      "name": "Form / size",
+      "variants": [
+        {
+          "id": "doli_standard",
+          "default": true,
+          "name": "Standard doli (hand-played, wooden shell)",
+          "descriptors": [
+            "crisp-attack",
+            "dry"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "georgian"
+          ]
+        },
+        {
+          "id": "doli_large",
+          "name": "Large outdoor doli (stick-played)",
+          "descriptors": [
+            "booming",
+            "deep-toned"
+          ],
+          "match_tokens": [
+            "struck",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "doli_small",
+          "name": "Small high-tuned doli",
+          "descriptors": [
+            "tight",
+            "snappy"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "high-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "doli_head",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "doli_skin",
+          "default": true,
+          "name": "Goat / calfskin heads",
+          "descriptors": [
+            "warm",
+            "organic"
+          ],
+          "match_tokens": [
+            "hand-drum"
+          ]
+        },
+        {
+          "id": "doli_plastic",
+          "name": "Synthetic heads",
+          "descriptors": [
+            "bright-attack",
+            "even"
+          ],
+          "match_tokens": [
+            "hand-drum"
+          ]
+        }
+      ]
+    }
+  ]
+}

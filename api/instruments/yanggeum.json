@@ -1,0 +1,176 @@
+{
+  "id": "yanggeum",
+  "name": "Yanggeum (Korean hammered box zither)",
+  "family": "percussion",
+  "class": "tuned_percussion",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "yanggeum",
+  "parts": [
+    {
+      "id": "yanggeum_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "yanggeum_trad",
+          "default": true,
+          "name": "Traditional 14-course wire yanggeum",
+          "descriptors": [
+            "glassy",
+            "metallic",
+            "ringing"
+          ],
+          "match_tokens": [
+            "hammered-dulcimer",
+            "korean",
+            "wire-strung"
+          ]
+        },
+        {
+          "id": "yanggeum_gaeryang",
+          "name": "Gaeryang (enlarged, chromatic) yanggeum",
+          "descriptors": [
+            "wide-range",
+            "bright",
+            "modern"
+          ],
+          "match_tokens": [
+            "hammered-dulcimer",
+            "chromatic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yanggeum_beater",
+      "name": "Beater / touch",
+      "variants": [
+        {
+          "id": "yanggeum_bamboo",
+          "default": true,
+          "name": "Thin bamboo strike stick",
+          "descriptors": [
+            "crisp-attack",
+            "tinkling"
+          ],
+          "match_tokens": [
+            "struck",
+            "bright-attack"
+          ]
+        },
+        {
+          "id": "yanggeum_damped",
+          "name": "Damped / muted strokes",
+          "descriptors": [
+            "dry",
+            "short-decay"
+          ],
+          "match_tokens": [
+            "struck",
+            "muted"
+          ]
+        },
+        {
+          "id": "yanggeum_tremolo",
+          "name": "Rapid tremolo rolls",
+          "descriptors": [
+            "shimmering",
+            "continuous"
+          ],
+          "match_tokens": [
+            "tremolo",
+            "struck"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "yanggeum_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "yanggeum_trad",
+          "default": true,
+          "name": "Traditional 14-course wire yanggeum",
+          "descriptors": [
+            "glassy",
+            "metallic",
+            "ringing"
+          ],
+          "match_tokens": [
+            "hammered-dulcimer",
+            "korean",
+            "wire-strung"
+          ]
+        },
+        {
+          "id": "yanggeum_gaeryang",
+          "name": "Gaeryang (enlarged, chromatic) yanggeum",
+          "descriptors": [
+            "wide-range",
+            "bright",
+            "modern"
+          ],
+          "match_tokens": [
+            "hammered-dulcimer",
+            "chromatic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yanggeum_beater",
+      "name": "Beater / touch",
+      "variants": [
+        {
+          "id": "yanggeum_bamboo",
+          "default": true,
+          "name": "Thin bamboo strike stick",
+          "descriptors": [
+            "crisp-attack",
+            "tinkling"
+          ],
+          "match_tokens": [
+            "struck",
+            "bright-attack"
+          ]
+        },
+        {
+          "id": "yanggeum_damped",
+          "name": "Damped / muted strokes",
+          "descriptors": [
+            "dry",
+            "short-decay"
+          ],
+          "match_tokens": [
+            "struck",
+            "muted"
+          ]
+        },
+        {
+          "id": "yanggeum_tremolo",
+          "name": "Rapid tremolo rolls",
+          "descriptors": [
+            "shimmering",
+            "continuous"
+          ],
+          "match_tokens": [
+            "tremolo",
+            "struck"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "id": "chang_uzbek_dulcimer",
+  "name": "Chang (Uzbek struck box dulcimer)",
+  "family": "percussion",
+  "class": "tuned_percussion",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 1,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "uzbek chang",
+  "parts": [
+    {
+      "id": "chang_uzbek_mallets",
+      "name": "Mallet type",
+      "variants": [
+        {
+          "id": "chang_uzbek_bare_cane",
+          "default": true,
+          "name": "Bare cane sticks",
+          "descriptors": [
+            "bright-attack",
+            "glassy",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "hammered-dulcimer",
+            "struck-strings",
+            "central-asia"
+          ]
+        },
+        {
+          "id": "chang_uzbek_felted",
+          "name": "Felt-tipped hammers",
+          "descriptors": [
+            "mellow",
+            "rounded"
+          ],
+          "match_tokens": [
+            "hammered-dulcimer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chang_uzbek_size",
+      "name": "Instrument size / range",
+      "variants": [
+        {
+          "id": "chang_uzbek_standard",
+          "default": true,
+          "name": "Standard maqom chang",
+          "descriptors": [
+            "ringing",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "hammered-dulcimer",
+            "maqom"
+          ]
+        },
+        {
+          "id": "chang_uzbek_bass",
+          "name": "Extended bass chang (orchestral)",
+          "descriptors": [
+            "deep-toned",
+            "broad"
+          ],
+          "match_tokens": [
+            "hammered-dulcimer",
+            "orchestral"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "chang_uzbek_mallets",
+      "name": "Mallet type",
+      "variants": [
+        {
+          "id": "chang_uzbek_bare_cane",
+          "default": true,
+          "name": "Bare cane sticks",
+          "descriptors": [
+            "bright-attack",
+            "glassy",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "hammered-dulcimer",
+            "struck-strings",
+            "central-asia"
+          ]
+        },
+        {
+          "id": "chang_uzbek_felted",
+          "name": "Felt-tipped hammers",
+          "descriptors": [
+            "mellow",
+            "rounded"
+          ],
+          "match_tokens": [
+            "hammered-dulcimer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chang_uzbek_size",
+      "name": "Instrument size / range",
+      "variants": [
+        {
+          "id": "chang_uzbek_standard",
+          "default": true,
+          "name": "Standard maqom chang",
+          "descriptors": [
+            "ringing",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "hammered-dulcimer",
+            "maqom"
+          ]
+        },
+        {
+          "id": "chang_uzbek_bass",
+          "name": "Extended bass chang (orchestral)",
+          "descriptors": [
+            "deep-toned",
+            "broad"
+          ],
+          "match_tokens": [
+            "hammered-dulcimer",
+            "orchestral"
+          ]
+        }
+      ]
+    }
+  ]
+}

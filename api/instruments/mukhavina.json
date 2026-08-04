@@ -1,0 +1,238 @@
+{
+  "id": "mukhavina",
+  "name": "Mukhavina (South Indian small double-reed shawm)",
+  "family": "wind",
+  "class": "double_reed_shawm",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "mukhavina",
+  "parts": [
+    {
+      "id": "mukhavina_size",
+      "name": "Size / pitch",
+      "variants": [
+        {
+          "id": "mukhavina_small_high",
+          "default": true,
+          "name": "Small high-pitched mukhavina (canonical temple form)",
+          "descriptors": [
+            "piercing",
+            "nasal",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "shawm",
+            "south-indian"
+          ]
+        },
+        {
+          "id": "mukhavina_medium",
+          "name": "Medium-bore mukhavina",
+          "descriptors": [
+            "rounder",
+            "fuller",
+            "reedy"
+          ],
+          "match_tokens": [
+            "shawm",
+            "south-indian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mukhavina_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "mukhavina_temple",
+          "default": true,
+          "name": "Temple procession and ritual melody",
+          "descriptors": [
+            "outdoor-loud",
+            "ceremonial",
+            "carrying"
+          ],
+          "match_tokens": [
+            "shawm",
+            "temple-procession"
+          ]
+        },
+        {
+          "id": "mukhavina_dance",
+          "name": "Bharatanatyam / dance accompaniment",
+          "descriptors": [
+            "rhythmic",
+            "articulate",
+            "phrased"
+          ],
+          "match_tokens": [
+            "shawm",
+            "dance-accompaniment"
+          ]
+        },
+        {
+          "id": "mukhavina_raga",
+          "name": "Carnatic raga exposition",
+          "descriptors": [
+            "gamaka-rich",
+            "melismatic"
+          ],
+          "match_tokens": [
+            "shawm",
+            "carnatic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mukhavina_reed",
+      "surface": false,
+      "name": "Reed",
+      "variants": [
+        {
+          "id": "mukhavina_palm_reed",
+          "default": true,
+          "name": "Palm-leaf double reed",
+          "descriptors": [
+            "buzzing-timbre",
+            "bright-edge"
+          ],
+          "match_tokens": [
+            "double-reed"
+          ]
+        },
+        {
+          "id": "mukhavina_cane_reed",
+          "name": "Cane double reed",
+          "descriptors": [
+            "softer",
+            "warmer"
+          ],
+          "match_tokens": [
+            "double-reed"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "mukhavina_size",
+      "name": "Size / pitch",
+      "variants": [
+        {
+          "id": "mukhavina_small_high",
+          "default": true,
+          "name": "Small high-pitched mukhavina (canonical temple form)",
+          "descriptors": [
+            "piercing",
+            "nasal",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "shawm",
+            "south-indian"
+          ]
+        },
+        {
+          "id": "mukhavina_medium",
+          "name": "Medium-bore mukhavina",
+          "descriptors": [
+            "rounder",
+            "fuller",
+            "reedy"
+          ],
+          "match_tokens": [
+            "shawm",
+            "south-indian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mukhavina_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "mukhavina_temple",
+          "default": true,
+          "name": "Temple procession and ritual melody",
+          "descriptors": [
+            "outdoor-loud",
+            "ceremonial",
+            "carrying"
+          ],
+          "match_tokens": [
+            "shawm",
+            "temple-procession"
+          ]
+        },
+        {
+          "id": "mukhavina_dance",
+          "name": "Bharatanatyam / dance accompaniment",
+          "descriptors": [
+            "rhythmic",
+            "articulate",
+            "phrased"
+          ],
+          "match_tokens": [
+            "shawm",
+            "dance-accompaniment"
+          ]
+        },
+        {
+          "id": "mukhavina_raga",
+          "name": "Carnatic raga exposition",
+          "descriptors": [
+            "gamaka-rich",
+            "melismatic"
+          ],
+          "match_tokens": [
+            "shawm",
+            "carnatic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mukhavina_reed",
+      "surface": false,
+      "name": "Reed",
+      "variants": [
+        {
+          "id": "mukhavina_palm_reed",
+          "default": true,
+          "name": "Palm-leaf double reed",
+          "descriptors": [
+            "buzzing-timbre",
+            "bright-edge"
+          ],
+          "match_tokens": [
+            "double-reed"
+          ]
+        },
+        {
+          "id": "mukhavina_cane_reed",
+          "name": "Cane double reed",
+          "descriptors": [
+            "softer",
+            "warmer"
+          ],
+          "match_tokens": [
+            "double-reed"
+          ]
+        }
+      ]
+    }
+  ]
+}

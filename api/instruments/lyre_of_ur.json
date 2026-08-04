@@ -1,0 +1,244 @@
+{
+  "id": "lyre_of_ur",
+  "name": "Lyre of Ur (Sumerian bull-headed court lyre)",
+  "family": "plucked_traditional",
+  "class": "plucked_lyre",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "lyre of ur",
+  "parts": [
+    {
+      "id": "ur_form",
+      "name": "Instrument size",
+      "variants": [
+        {
+          "id": "ur_great",
+          "default": true,
+          "name": "Great bull lyre (large standing soundbox)",
+          "descriptors": [
+            "deep-toned",
+            "resonant",
+            "majestic"
+          ],
+          "match_tokens": [
+            "lyre",
+            "sumerian",
+            "low-register"
+          ]
+        },
+        {
+          "id": "ur_silver",
+          "name": "Silver lyre (boat-shaped)",
+          "descriptors": [
+            "bright",
+            "metallic-sheen",
+            "clear"
+          ],
+          "match_tokens": [
+            "lyre",
+            "sumerian"
+          ]
+        },
+        {
+          "id": "ur_queens",
+          "name": "Queen's lyre (smaller portable)",
+          "descriptors": [
+            "sweet",
+            "intimate",
+            "light"
+          ],
+          "match_tokens": [
+            "lyre",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ur_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "ur_gut",
+          "default": true,
+          "name": "Gut strings",
+          "descriptors": [
+            "warm",
+            "soft-decay"
+          ],
+          "match_tokens": [
+            "gut-strung"
+          ]
+        },
+        {
+          "id": "ur_silk_flax",
+          "name": "Twisted flax strings",
+          "descriptors": [
+            "dry",
+            "muted",
+            "archaic"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ur_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "ur_temple",
+          "default": true,
+          "name": "Temple hymn accompaniment",
+          "descriptors": [
+            "solemn",
+            "droning",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "ritual",
+            "song-accompaniment"
+          ]
+        },
+        {
+          "id": "ur_banquet",
+          "name": "Royal banquet music",
+          "descriptors": [
+            "ornate",
+            "lilting",
+            "festive"
+          ],
+          "match_tokens": [
+            "plucked",
+            "chamber"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ur_form",
+      "name": "Instrument size",
+      "variants": [
+        {
+          "id": "ur_great",
+          "default": true,
+          "name": "Great bull lyre (large standing soundbox)",
+          "descriptors": [
+            "deep-toned",
+            "resonant",
+            "majestic"
+          ],
+          "match_tokens": [
+            "lyre",
+            "sumerian",
+            "low-register"
+          ]
+        },
+        {
+          "id": "ur_silver",
+          "name": "Silver lyre (boat-shaped)",
+          "descriptors": [
+            "bright",
+            "metallic-sheen",
+            "clear"
+          ],
+          "match_tokens": [
+            "lyre",
+            "sumerian"
+          ]
+        },
+        {
+          "id": "ur_queens",
+          "name": "Queen's lyre (smaller portable)",
+          "descriptors": [
+            "sweet",
+            "intimate",
+            "light"
+          ],
+          "match_tokens": [
+            "lyre",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ur_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "ur_gut",
+          "default": true,
+          "name": "Gut strings",
+          "descriptors": [
+            "warm",
+            "soft-decay"
+          ],
+          "match_tokens": [
+            "gut-strung"
+          ]
+        },
+        {
+          "id": "ur_silk_flax",
+          "name": "Twisted flax strings",
+          "descriptors": [
+            "dry",
+            "muted",
+            "archaic"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ur_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "ur_temple",
+          "default": true,
+          "name": "Temple hymn accompaniment",
+          "descriptors": [
+            "solemn",
+            "droning",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "ritual",
+            "song-accompaniment"
+          ]
+        },
+        {
+          "id": "ur_banquet",
+          "name": "Royal banquet music",
+          "descriptors": [
+            "ornate",
+            "lilting",
+            "festive"
+          ],
+          "match_tokens": [
+            "plucked",
+            "chamber"
+          ]
+        }
+      ]
+    }
+  ]
+}

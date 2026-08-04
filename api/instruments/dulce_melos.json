@@ -1,0 +1,167 @@
+{
+  "id": "dulce_melos",
+  "name": "Dulce melos (15th-century struck-string keyboard)",
+  "family": "keyboard",
+  "class": "keyboard_acoustic",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 0,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "dulce melos",
+  "parts": [
+    {
+      "id": "keyboard_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "keyboard_block_chord_pop",
+          "default": true,
+          "name": "Block-chord pop",
+          "descriptors": [
+            "block-chord"
+          ],
+          "match_tokens": [
+            "chordal",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "pop",
+            "singer-songwriter"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "dulce_action",
+      "name": "Action type",
+      "variants": [
+        {
+          "id": "dulce_hammer",
+          "default": true,
+          "name": "Free-hammer (jack-thrown) action",
+          "descriptors": [
+            "percussive",
+            "clavichord-like"
+          ],
+          "match_tokens": [
+            "struck-string",
+            "early-keyboard"
+          ]
+        },
+        {
+          "id": "dulce_bridged",
+          "name": "Bridged fretted variant",
+          "descriptors": [
+            "soft-toned",
+            "intimate"
+          ],
+          "match_tokens": [
+            "struck-string",
+            "quiet"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dulce_strings",
+      "surface": false,
+      "name": "Stringing",
+      "variants": [
+        {
+          "id": "dulce_brass",
+          "default": true,
+          "name": "Brass wire",
+          "descriptors": [
+            "warm",
+            "short-sustain"
+          ],
+          "match_tokens": [
+            "struck-string"
+          ]
+        },
+        {
+          "id": "dulce_iron",
+          "name": "Iron wire",
+          "descriptors": [
+            "bright",
+            "clear"
+          ],
+          "match_tokens": [
+            "struck-string"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dulce_action",
+      "name": "Action type",
+      "variants": [
+        {
+          "id": "dulce_hammer",
+          "default": true,
+          "name": "Free-hammer (jack-thrown) action",
+          "descriptors": [
+            "percussive",
+            "clavichord-like"
+          ],
+          "match_tokens": [
+            "struck-string",
+            "early-keyboard"
+          ]
+        },
+        {
+          "id": "dulce_bridged",
+          "name": "Bridged fretted variant",
+          "descriptors": [
+            "soft-toned",
+            "intimate"
+          ],
+          "match_tokens": [
+            "struck-string",
+            "quiet"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dulce_strings",
+      "surface": false,
+      "name": "Stringing",
+      "variants": [
+        {
+          "id": "dulce_brass",
+          "default": true,
+          "name": "Brass wire",
+          "descriptors": [
+            "warm",
+            "short-sustain"
+          ],
+          "match_tokens": [
+            "struck-string"
+          ]
+        },
+        {
+          "id": "dulce_iron",
+          "name": "Iron wire",
+          "descriptors": [
+            "bright",
+            "clear"
+          ],
+          "match_tokens": [
+            "struck-string"
+          ]
+        }
+      ]
+    }
+  ]
+}

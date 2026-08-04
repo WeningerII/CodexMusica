@@ -1,0 +1,191 @@
+{
+  "id": "virginal_keyboard",
+  "name": "Virginal (rectangular single-strung harpsichord)",
+  "family": "keyboard",
+  "class": "keyboard_acoustic",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 0,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "virginal",
+  "parts": [
+    {
+      "id": "keyboard_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "keyboard_block_chord_pop",
+          "default": true,
+          "name": "Block-chord pop",
+          "descriptors": [
+            "block-chord"
+          ],
+          "match_tokens": [
+            "chordal",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "pop",
+            "singer-songwriter"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "virginal_form",
+      "name": "National form",
+      "variants": [
+        {
+          "id": "virginal_english",
+          "default": true,
+          "name": "English virginal (centre-left keyboard)",
+          "descriptors": [
+            "silvery",
+            "clear-pluck"
+          ],
+          "match_tokens": [
+            "plucked-keyboard",
+            "english"
+          ]
+        },
+        {
+          "id": "virginal_flemish_spinett",
+          "name": "Flemish spinett virginal (right-of-centre)",
+          "descriptors": [
+            "bright",
+            "nasal"
+          ],
+          "match_tokens": [
+            "plucked-keyboard",
+            "flemish"
+          ]
+        },
+        {
+          "id": "virginal_double",
+          "name": "Mother-and-child double virginal",
+          "descriptors": [
+            "octave-doubled",
+            "glittering"
+          ],
+          "match_tokens": [
+            "plucked-keyboard",
+            "flemish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "virginal_plectra",
+      "surface": false,
+      "name": "Plectrum material",
+      "variants": [
+        {
+          "id": "virginal_quill",
+          "default": true,
+          "name": "Quill plectra",
+          "descriptors": [
+            "crisp-pluck",
+            "bright"
+          ],
+          "match_tokens": [
+            "plucked-keyboard"
+          ]
+        },
+        {
+          "id": "virginal_delrin",
+          "name": "Delrin plectra (modern build)",
+          "descriptors": [
+            "even",
+            "robust"
+          ],
+          "match_tokens": [
+            "plucked-keyboard"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "virginal_form",
+      "name": "National form",
+      "variants": [
+        {
+          "id": "virginal_english",
+          "default": true,
+          "name": "English virginal (centre-left keyboard)",
+          "descriptors": [
+            "silvery",
+            "clear-pluck"
+          ],
+          "match_tokens": [
+            "plucked-keyboard",
+            "english"
+          ]
+        },
+        {
+          "id": "virginal_flemish_spinett",
+          "name": "Flemish spinett virginal (right-of-centre)",
+          "descriptors": [
+            "bright",
+            "nasal"
+          ],
+          "match_tokens": [
+            "plucked-keyboard",
+            "flemish"
+          ]
+        },
+        {
+          "id": "virginal_double",
+          "name": "Mother-and-child double virginal",
+          "descriptors": [
+            "octave-doubled",
+            "glittering"
+          ],
+          "match_tokens": [
+            "plucked-keyboard",
+            "flemish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "virginal_plectra",
+      "surface": false,
+      "name": "Plectrum material",
+      "variants": [
+        {
+          "id": "virginal_quill",
+          "default": true,
+          "name": "Quill plectra",
+          "descriptors": [
+            "crisp-pluck",
+            "bright"
+          ],
+          "match_tokens": [
+            "plucked-keyboard"
+          ]
+        },
+        {
+          "id": "virginal_delrin",
+          "name": "Delrin plectra (modern build)",
+          "descriptors": [
+            "even",
+            "robust"
+          ],
+          "match_tokens": [
+            "plucked-keyboard"
+          ]
+        }
+      ]
+    }
+  ]
+}

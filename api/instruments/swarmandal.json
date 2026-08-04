@@ -1,0 +1,204 @@
+{
+  "id": "swarmandal",
+  "name": "Swarmandal (Hindustani vocalist's box zither)",
+  "family": "plucked_traditional",
+  "class": "plucked_box_zither",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 1,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "swarmandal",
+  "parts": [
+    {
+      "id": "swarmandal_tuning",
+      "name": "Raga tuning",
+      "variants": [
+        {
+          "id": "swarmandal_raga_scale",
+          "default": true,
+          "name": "Tuned to the raga's scale (30-40 strings)",
+          "descriptors": [
+            "shimmering",
+            "cascading",
+            "raga-coloured"
+          ],
+          "match_tokens": [
+            "strummed-zither",
+            "hindustani"
+          ]
+        },
+        {
+          "id": "swarmandal_pentatonic",
+          "name": "Pentatonic / audava raga tuning",
+          "descriptors": [
+            "open",
+            "ringing"
+          ],
+          "match_tokens": [
+            "strummed-zither"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "swarmandal_stroke",
+      "name": "Stroke technique",
+      "variants": [
+        {
+          "id": "swarmandal_glissando",
+          "default": true,
+          "name": "Thumb glissando sweep between vocal phrases",
+          "descriptors": [
+            "cascading",
+            "glittering"
+          ],
+          "match_tokens": [
+            "strummed-zither",
+            "ornamental"
+          ]
+        },
+        {
+          "id": "swarmandal_plectrum",
+          "name": "Wire plectrum single-note picking",
+          "descriptors": [
+            "bright-attack",
+            "pointed"
+          ],
+          "match_tokens": [
+            "plucked-zither"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "swarmandal_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "swarmandal_steel",
+          "default": true,
+          "name": "Steel wire strings",
+          "descriptors": [
+            "bright",
+            "metallic"
+          ],
+          "match_tokens": [
+            "plucked-zither"
+          ]
+        },
+        {
+          "id": "swarmandal_brass",
+          "name": "Brass wire strings",
+          "descriptors": [
+            "warm",
+            "golden"
+          ],
+          "match_tokens": [
+            "plucked-zither"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "swarmandal_tuning",
+      "name": "Raga tuning",
+      "variants": [
+        {
+          "id": "swarmandal_raga_scale",
+          "default": true,
+          "name": "Tuned to the raga's scale (30-40 strings)",
+          "descriptors": [
+            "shimmering",
+            "cascading",
+            "raga-coloured"
+          ],
+          "match_tokens": [
+            "strummed-zither",
+            "hindustani"
+          ]
+        },
+        {
+          "id": "swarmandal_pentatonic",
+          "name": "Pentatonic / audava raga tuning",
+          "descriptors": [
+            "open",
+            "ringing"
+          ],
+          "match_tokens": [
+            "strummed-zither"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "swarmandal_stroke",
+      "name": "Stroke technique",
+      "variants": [
+        {
+          "id": "swarmandal_glissando",
+          "default": true,
+          "name": "Thumb glissando sweep between vocal phrases",
+          "descriptors": [
+            "cascading",
+            "glittering"
+          ],
+          "match_tokens": [
+            "strummed-zither",
+            "ornamental"
+          ]
+        },
+        {
+          "id": "swarmandal_plectrum",
+          "name": "Wire plectrum single-note picking",
+          "descriptors": [
+            "bright-attack",
+            "pointed"
+          ],
+          "match_tokens": [
+            "plucked-zither"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "swarmandal_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "swarmandal_steel",
+          "default": true,
+          "name": "Steel wire strings",
+          "descriptors": [
+            "bright",
+            "metallic"
+          ],
+          "match_tokens": [
+            "plucked-zither"
+          ]
+        },
+        {
+          "id": "swarmandal_brass",
+          "name": "Brass wire strings",
+          "descriptors": [
+            "warm",
+            "golden"
+          ],
+          "match_tokens": [
+            "plucked-zither"
+          ]
+        }
+      ]
+    }
+  ]
+}

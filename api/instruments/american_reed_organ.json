@@ -1,0 +1,291 @@
+{
+  "id": "american_reed_organ",
+  "name": "American reed organ (pump organ / parlor harmonium)",
+  "family": "keyboard",
+  "class": "free_reed",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "reed organ",
+  "parts": [
+    {
+      "id": "keyboard_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "keyboard_block_chord_pop",
+          "default": true,
+          "name": "Block-chord pop",
+          "descriptors": [
+            "block-chord"
+          ],
+          "match_tokens": [
+            "chordal",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "pop",
+            "singer-songwriter"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "reed_organ_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "reed_organ_parlor",
+          "default": true,
+          "name": "Parlor suction reed organ (two-manual-less, knee swell)",
+          "descriptors": [
+            "reedy",
+            "warm-sustain",
+            "breathy"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "pump-organ",
+            "parlor"
+          ]
+        },
+        {
+          "id": "reed_organ_chapel",
+          "name": "Chapel / vocalion model (larger case, multiple ranks)",
+          "descriptors": [
+            "full-toned",
+            "churchy",
+            "layered"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "chapel-organ"
+          ]
+        },
+        {
+          "id": "reed_organ_folding",
+          "name": "Folding field / missionary organ",
+          "descriptors": [
+            "thin-toned",
+            "nasal",
+            "portable"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "portable"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reed_organ_stops",
+      "name": "Stop registration",
+      "variants": [
+        {
+          "id": "reed_organ_diapason",
+          "default": true,
+          "name": "8' diapason single rank",
+          "descriptors": [
+            "plain",
+            "singing"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "sustained"
+          ]
+        },
+        {
+          "id": "reed_organ_full",
+          "name": "Full organ (coupled 4'+8'+16')",
+          "descriptors": [
+            "thick",
+            "buzzing-timbre",
+            "reedy"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "full-registration"
+          ]
+        },
+        {
+          "id": "reed_organ_vox",
+          "name": "Vox humana / tremolo fan",
+          "descriptors": [
+            "wavering",
+            "tremulant",
+            "haunting"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reed_organ_bellows",
+      "surface": false,
+      "name": "Bellows technique",
+      "variants": [
+        {
+          "id": "reed_organ_steady",
+          "default": true,
+          "name": "Steady pedaling",
+          "descriptors": [
+            "even",
+            "sustained"
+          ],
+          "match_tokens": [
+            "free-reed"
+          ]
+        },
+        {
+          "id": "reed_organ_pumped",
+          "name": "Hard-pumped swell",
+          "descriptors": [
+            "surging",
+            "dynamic"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "expressive"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "reed_organ_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "reed_organ_parlor",
+          "default": true,
+          "name": "Parlor suction reed organ (two-manual-less, knee swell)",
+          "descriptors": [
+            "reedy",
+            "warm-sustain",
+            "breathy"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "pump-organ",
+            "parlor"
+          ]
+        },
+        {
+          "id": "reed_organ_chapel",
+          "name": "Chapel / vocalion model (larger case, multiple ranks)",
+          "descriptors": [
+            "full-toned",
+            "churchy",
+            "layered"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "chapel-organ"
+          ]
+        },
+        {
+          "id": "reed_organ_folding",
+          "name": "Folding field / missionary organ",
+          "descriptors": [
+            "thin-toned",
+            "nasal",
+            "portable"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "portable"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reed_organ_stops",
+      "name": "Stop registration",
+      "variants": [
+        {
+          "id": "reed_organ_diapason",
+          "default": true,
+          "name": "8' diapason single rank",
+          "descriptors": [
+            "plain",
+            "singing"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "sustained"
+          ]
+        },
+        {
+          "id": "reed_organ_full",
+          "name": "Full organ (coupled 4'+8'+16')",
+          "descriptors": [
+            "thick",
+            "buzzing-timbre",
+            "reedy"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "full-registration"
+          ]
+        },
+        {
+          "id": "reed_organ_vox",
+          "name": "Vox humana / tremolo fan",
+          "descriptors": [
+            "wavering",
+            "tremulant",
+            "haunting"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reed_organ_bellows",
+      "surface": false,
+      "name": "Bellows technique",
+      "variants": [
+        {
+          "id": "reed_organ_steady",
+          "default": true,
+          "name": "Steady pedaling",
+          "descriptors": [
+            "even",
+            "sustained"
+          ],
+          "match_tokens": [
+            "free-reed"
+          ]
+        },
+        {
+          "id": "reed_organ_pumped",
+          "name": "Hard-pumped swell",
+          "descriptors": [
+            "surging",
+            "dynamic"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "expressive"
+          ]
+        }
+      ]
+    }
+  ]
+}

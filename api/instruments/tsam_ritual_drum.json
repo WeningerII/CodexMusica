@@ -1,0 +1,150 @@
+{
+  "id": "tsam_ritual_drum",
+  "name": "Tsam drum (Mongolian masked-dance ritual frame drum)",
+  "family": "percussion",
+  "class": "frame_drum",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "tsam drum",
+  "parts": [
+    {
+      "id": "tsam_drum_form",
+      "name": "Drum form",
+      "variants": [
+        {
+          "id": "tsam_drum_handled",
+          "default": true,
+          "name": "Handled frame drum on staff (khengereg-type)",
+          "descriptors": [
+            "booming",
+            "hollow",
+            "processional"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "ritual",
+            "mongolian"
+          ]
+        },
+        {
+          "id": "tsam_drum_damaru",
+          "name": "Small double-headed damaru pair",
+          "descriptors": [
+            "rattling",
+            "dry",
+            "fluttering"
+          ],
+          "match_tokens": [
+            "ritual",
+            "hand-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tsam_drum_beater",
+      "name": "Beater",
+      "variants": [
+        {
+          "id": "tsam_drum_curved",
+          "default": true,
+          "name": "Curved padded ritual beater",
+          "descriptors": [
+            "deep-toned",
+            "soft-attack"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "ritual"
+          ]
+        },
+        {
+          "id": "tsam_drum_bare",
+          "name": "Bare cane stick",
+          "descriptors": [
+            "sharp-attack",
+            "cracking"
+          ],
+          "match_tokens": [
+            "frame-drum"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tsam_drum_form",
+      "name": "Drum form",
+      "variants": [
+        {
+          "id": "tsam_drum_handled",
+          "default": true,
+          "name": "Handled frame drum on staff (khengereg-type)",
+          "descriptors": [
+            "booming",
+            "hollow",
+            "processional"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "ritual",
+            "mongolian"
+          ]
+        },
+        {
+          "id": "tsam_drum_damaru",
+          "name": "Small double-headed damaru pair",
+          "descriptors": [
+            "rattling",
+            "dry",
+            "fluttering"
+          ],
+          "match_tokens": [
+            "ritual",
+            "hand-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tsam_drum_beater",
+      "name": "Beater",
+      "variants": [
+        {
+          "id": "tsam_drum_curved",
+          "default": true,
+          "name": "Curved padded ritual beater",
+          "descriptors": [
+            "deep-toned",
+            "soft-attack"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "ritual"
+          ]
+        },
+        {
+          "id": "tsam_drum_bare",
+          "name": "Bare cane stick",
+          "descriptors": [
+            "sharp-attack",
+            "cracking"
+          ],
+          "match_tokens": [
+            "frame-drum"
+          ]
+        }
+      ]
+    }
+  ]
+}

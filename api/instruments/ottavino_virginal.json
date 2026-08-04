@@ -1,0 +1,169 @@
+{
+  "id": "ottavino_virginal",
+  "name": "Ottavino (octave virginal at 4' pitch)",
+  "family": "keyboard",
+  "class": "keyboard_acoustic",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 2,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -2
+  },
+  "short": "ottavino virginal",
+  "parts": [
+    {
+      "id": "keyboard_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "keyboard_block_chord_pop",
+          "default": true,
+          "name": "Block-chord pop",
+          "descriptors": [
+            "block-chord"
+          ],
+          "match_tokens": [
+            "chordal",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "pop",
+            "singer-songwriter"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "ottavino_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "ottavino_standalone",
+          "default": true,
+          "name": "Standalone Italian ottavino",
+          "descriptors": [
+            "tinkling",
+            "brilliant",
+            "short-decay"
+          ],
+          "match_tokens": [
+            "plucked-keyboard",
+            "octave-pitch"
+          ]
+        },
+        {
+          "id": "ottavino_child",
+          "name": "Child instrument of a double virginal",
+          "descriptors": [
+            "glittering",
+            "coupled"
+          ],
+          "match_tokens": [
+            "plucked-keyboard",
+            "flemish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ottavino_case",
+      "surface": false,
+      "name": "Case construction",
+      "variants": [
+        {
+          "id": "ottavino_cypress",
+          "default": true,
+          "name": "Thin cypress case (Italian)",
+          "descriptors": [
+            "quick-speaking",
+            "bright"
+          ],
+          "match_tokens": [
+            "plucked-keyboard"
+          ]
+        },
+        {
+          "id": "ottavino_poplar",
+          "name": "Poplar case with painted lid",
+          "descriptors": [
+            "rounder",
+            "softer"
+          ],
+          "match_tokens": [
+            "plucked-keyboard"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ottavino_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "ottavino_standalone",
+          "default": true,
+          "name": "Standalone Italian ottavino",
+          "descriptors": [
+            "tinkling",
+            "brilliant",
+            "short-decay"
+          ],
+          "match_tokens": [
+            "plucked-keyboard",
+            "octave-pitch"
+          ]
+        },
+        {
+          "id": "ottavino_child",
+          "name": "Child instrument of a double virginal",
+          "descriptors": [
+            "glittering",
+            "coupled"
+          ],
+          "match_tokens": [
+            "plucked-keyboard",
+            "flemish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ottavino_case",
+      "surface": false,
+      "name": "Case construction",
+      "variants": [
+        {
+          "id": "ottavino_cypress",
+          "default": true,
+          "name": "Thin cypress case (Italian)",
+          "descriptors": [
+            "quick-speaking",
+            "bright"
+          ],
+          "match_tokens": [
+            "plucked-keyboard"
+          ]
+        },
+        {
+          "id": "ottavino_poplar",
+          "name": "Poplar case with painted lid",
+          "descriptors": [
+            "rounder",
+            "softer"
+          ],
+          "match_tokens": [
+            "plucked-keyboard"
+          ]
+        }
+      ]
+    }
+  ]
+}

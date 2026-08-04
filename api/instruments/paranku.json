@@ -1,0 +1,174 @@
+{
+  "id": "paranku",
+  "name": "Paranku (Jeju Island small handheld frame drum)",
+  "family": "percussion",
+  "class": "frame_drum",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "paranku",
+  "parts": [
+    {
+      "id": "paranku_size",
+      "name": "Frame size",
+      "variants": [
+        {
+          "id": "paranku_small",
+          "default": true,
+          "name": "Small hand-held frame (approx. 25 cm)",
+          "descriptors": [
+            "dry-thud",
+            "light",
+            "nimble"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "jeju",
+            "handheld"
+          ]
+        },
+        {
+          "id": "paranku_large",
+          "name": "Larger frame (approx. 35 cm)",
+          "descriptors": [
+            "fuller-tone",
+            "resonant"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "korean"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "paranku_stroke",
+      "name": "Striking technique",
+      "variants": [
+        {
+          "id": "paranku_stick",
+          "default": true,
+          "name": "Thin bamboo beater strokes",
+          "descriptors": [
+            "bright-attack",
+            "clicking"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum"
+          ]
+        },
+        {
+          "id": "paranku_hand",
+          "name": "Bare-hand slapping",
+          "descriptors": [
+            "soft-thud",
+            "muted"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "frame-drum"
+          ]
+        },
+        {
+          "id": "paranku_rim",
+          "name": "Rim-and-head alternation",
+          "descriptors": [
+            "clacking",
+            "rhythmic-contrast"
+          ],
+          "match_tokens": [
+            "struck",
+            "rim-shot"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "paranku_size",
+      "name": "Frame size",
+      "variants": [
+        {
+          "id": "paranku_small",
+          "default": true,
+          "name": "Small hand-held frame (approx. 25 cm)",
+          "descriptors": [
+            "dry-thud",
+            "light",
+            "nimble"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "jeju",
+            "handheld"
+          ]
+        },
+        {
+          "id": "paranku_large",
+          "name": "Larger frame (approx. 35 cm)",
+          "descriptors": [
+            "fuller-tone",
+            "resonant"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "korean"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "paranku_stroke",
+      "name": "Striking technique",
+      "variants": [
+        {
+          "id": "paranku_stick",
+          "default": true,
+          "name": "Thin bamboo beater strokes",
+          "descriptors": [
+            "bright-attack",
+            "clicking"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum"
+          ]
+        },
+        {
+          "id": "paranku_hand",
+          "name": "Bare-hand slapping",
+          "descriptors": [
+            "soft-thud",
+            "muted"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "frame-drum"
+          ]
+        },
+        {
+          "id": "paranku_rim",
+          "name": "Rim-and-head alternation",
+          "descriptors": [
+            "clacking",
+            "rhythmic-contrast"
+          ],
+          "match_tokens": [
+            "struck",
+            "rim-shot"
+          ]
+        }
+      ]
+    }
+  ]
+}

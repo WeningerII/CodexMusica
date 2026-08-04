@@ -1,0 +1,154 @@
+{
+  "id": "sogeum",
+  "name": "Sogeum (small Korean transverse bamboo flute)",
+  "family": "wind",
+  "class": "transverse_flute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 2,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "sogeum",
+  "parts": [
+    {
+      "id": "sogeum_bore",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "sogeum_trad",
+          "default": true,
+          "name": "Traditional bamboo sogeum (six finger holes)",
+          "descriptors": [
+            "bright",
+            "airy",
+            "piercing"
+          ],
+          "match_tokens": [
+            "transverse-flute",
+            "korean",
+            "high-register"
+          ]
+        },
+        {
+          "id": "sogeum_gaeryang",
+          "name": "Gaeryang (improved) keyed sogeum",
+          "descriptors": [
+            "even-toned",
+            "chromatic",
+            "modern"
+          ],
+          "match_tokens": [
+            "transverse-flute",
+            "korean"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sogeum_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "sogeum_jeongak",
+          "default": true,
+          "name": "Jeongak court style (sustained, restrained)",
+          "descriptors": [
+            "serene",
+            "long-breathed"
+          ],
+          "match_tokens": [
+            "flute",
+            "court-music"
+          ]
+        },
+        {
+          "id": "sogeum_sinawi",
+          "name": "Sinawi / folk style (heavy nonghyeon vibrato)",
+          "descriptors": [
+            "wide-vibrato",
+            "expressive",
+            "bending"
+          ],
+          "match_tokens": [
+            "flute",
+            "folk"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sogeum_bore",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "sogeum_trad",
+          "default": true,
+          "name": "Traditional bamboo sogeum (six finger holes)",
+          "descriptors": [
+            "bright",
+            "airy",
+            "piercing"
+          ],
+          "match_tokens": [
+            "transverse-flute",
+            "korean",
+            "high-register"
+          ]
+        },
+        {
+          "id": "sogeum_gaeryang",
+          "name": "Gaeryang (improved) keyed sogeum",
+          "descriptors": [
+            "even-toned",
+            "chromatic",
+            "modern"
+          ],
+          "match_tokens": [
+            "transverse-flute",
+            "korean"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sogeum_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "sogeum_jeongak",
+          "default": true,
+          "name": "Jeongak court style (sustained, restrained)",
+          "descriptors": [
+            "serene",
+            "long-breathed"
+          ],
+          "match_tokens": [
+            "flute",
+            "court-music"
+          ]
+        },
+        {
+          "id": "sogeum_sinawi",
+          "name": "Sinawi / folk style (heavy nonghyeon vibrato)",
+          "descriptors": [
+            "wide-vibrato",
+            "expressive",
+            "bending"
+          ],
+          "match_tokens": [
+            "flute",
+            "folk"
+          ]
+        }
+      ]
+    }
+  ]
+}

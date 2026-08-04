@@ -1,0 +1,146 @@
+{
+  "id": "tudi_drum",
+  "name": "Tudi (Tamil small hourglass waist drum)",
+  "family": "percussion",
+  "class": "hourglass_drum",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "tudi",
+  "parts": [
+    {
+      "id": "tudi_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "tudi_folk",
+          "default": true,
+          "name": "Village folk tudi (small wooden waist)",
+          "descriptors": [
+            "dry-crack",
+            "talkative"
+          ],
+          "match_tokens": [
+            "hourglass-drum",
+            "tamil-folk"
+          ]
+        },
+        {
+          "id": "tudi_thudi_kerala",
+          "name": "Kerala thudi (temple ritual form)",
+          "descriptors": [
+            "ritual",
+            "sharp-attack"
+          ],
+          "match_tokens": [
+            "hourglass-drum",
+            "temple-ritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tudi_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "tudi_stick",
+          "default": true,
+          "name": "Curved stick on one head",
+          "descriptors": [
+            "sharp-attack",
+            "clicking"
+          ],
+          "match_tokens": [
+            "hourglass-drum",
+            "stick-struck"
+          ]
+        },
+        {
+          "id": "tudi_hand_squeeze",
+          "name": "Hand strike with waist squeeze",
+          "descriptors": [
+            "bending-pitch",
+            "speech-like"
+          ],
+          "match_tokens": [
+            "hourglass-drum",
+            "tension-squeeze"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tudi_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "tudi_folk",
+          "default": true,
+          "name": "Village folk tudi (small wooden waist)",
+          "descriptors": [
+            "dry-crack",
+            "talkative"
+          ],
+          "match_tokens": [
+            "hourglass-drum",
+            "tamil-folk"
+          ]
+        },
+        {
+          "id": "tudi_thudi_kerala",
+          "name": "Kerala thudi (temple ritual form)",
+          "descriptors": [
+            "ritual",
+            "sharp-attack"
+          ],
+          "match_tokens": [
+            "hourglass-drum",
+            "temple-ritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tudi_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "tudi_stick",
+          "default": true,
+          "name": "Curved stick on one head",
+          "descriptors": [
+            "sharp-attack",
+            "clicking"
+          ],
+          "match_tokens": [
+            "hourglass-drum",
+            "stick-struck"
+          ]
+        },
+        {
+          "id": "tudi_hand_squeeze",
+          "name": "Hand strike with waist squeeze",
+          "descriptors": [
+            "bending-pitch",
+            "speech-like"
+          ],
+          "match_tokens": [
+            "hourglass-drum",
+            "tension-squeeze"
+          ]
+        }
+      ]
+    }
+  ]
+}

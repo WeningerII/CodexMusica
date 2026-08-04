@@ -1,0 +1,150 @@
+{
+  "id": "pi_mon",
+  "name": "Pi mon (Mon-Thai large double-reed shawm)",
+  "family": "wind",
+  "class": "double_reed_shawm",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "pi mon",
+  "parts": [
+    {
+      "id": "pi_mon_build",
+      "name": "Build",
+      "variants": [
+        {
+          "id": "pi_mon_wood_metal_bell",
+          "default": true,
+          "name": "Wooden body with detached flaring metal bell on cord (canonical)",
+          "descriptors": [
+            "nasal-reedy",
+            "piercing",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "mon-tradition"
+          ]
+        },
+        {
+          "id": "pi_mon_all_wood",
+          "name": "All-wood bell",
+          "descriptors": [
+            "mellower",
+            "woody-reed"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "shawm"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pi_mon_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "pi_mon_funeral",
+          "default": true,
+          "name": "Piphat mon funeral ensemble lead (canonical)",
+          "descriptors": [
+            "mournful",
+            "melismatic",
+            "sustained"
+          ],
+          "match_tokens": [
+            "mon-tradition",
+            "lament"
+          ]
+        },
+        {
+          "id": "pi_mon_circular",
+          "name": "Circular-breathing continuous solo",
+          "descriptors": [
+            "unbroken-line",
+            "droning"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "sustained"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "pi_mon_build",
+      "name": "Build",
+      "variants": [
+        {
+          "id": "pi_mon_wood_metal_bell",
+          "default": true,
+          "name": "Wooden body with detached flaring metal bell on cord (canonical)",
+          "descriptors": [
+            "nasal-reedy",
+            "piercing",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "mon-tradition"
+          ]
+        },
+        {
+          "id": "pi_mon_all_wood",
+          "name": "All-wood bell",
+          "descriptors": [
+            "mellower",
+            "woody-reed"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "shawm"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pi_mon_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "pi_mon_funeral",
+          "default": true,
+          "name": "Piphat mon funeral ensemble lead (canonical)",
+          "descriptors": [
+            "mournful",
+            "melismatic",
+            "sustained"
+          ],
+          "match_tokens": [
+            "mon-tradition",
+            "lament"
+          ]
+        },
+        {
+          "id": "pi_mon_circular",
+          "name": "Circular-breathing continuous solo",
+          "descriptors": [
+            "unbroken-line",
+            "droning"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "sustained"
+          ]
+        }
+      ]
+    }
+  ]
+}

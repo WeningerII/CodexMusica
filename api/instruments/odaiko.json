@@ -1,0 +1,236 @@
+{
+  "id": "odaiko",
+  "name": "Odaiko (great nailed-head Japanese barrel drum)",
+  "family": "percussion",
+  "class": "barrel_drum",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -2,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "odaiko",
+  "parts": [
+    {
+      "id": "odaiko_mounting",
+      "name": "Mounting / orientation",
+      "variants": [
+        {
+          "id": "odaiko_yagura",
+          "default": true,
+          "name": "Yagura-mounted, struck side-on",
+          "descriptors": [
+            "thunderous",
+            "deep-toned",
+            "full-body"
+          ],
+          "match_tokens": [
+            "taiko",
+            "japanese",
+            "big-drum"
+          ]
+        },
+        {
+          "id": "odaiko_miyadaiko_stand",
+          "name": "Slanted miyadaiko stand",
+          "descriptors": [
+            "booming",
+            "ensemble-anchoring"
+          ],
+          "match_tokens": [
+            "taiko",
+            "japanese"
+          ]
+        },
+        {
+          "id": "odaiko_suspended",
+          "name": "Rope-suspended temple drum",
+          "descriptors": [
+            "ceremonial",
+            "enveloping",
+            "slow-decaying"
+          ],
+          "match_tokens": [
+            "taiko",
+            "temple"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "odaiko_bachi",
+      "name": "Bachi (beater)",
+      "variants": [
+        {
+          "id": "odaiko_heavy_bachi",
+          "default": true,
+          "name": "Heavy hinoki/kashi bachi",
+          "descriptors": [
+            "deep-impact",
+            "weighty"
+          ],
+          "match_tokens": [
+            "struck",
+            "taiko"
+          ]
+        },
+        {
+          "id": "odaiko_padded_bachi",
+          "name": "Padded / felt-wrapped beater",
+          "descriptors": [
+            "soft-attack",
+            "rumbling"
+          ],
+          "match_tokens": [
+            "struck",
+            "taiko"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "odaiko_shell",
+      "surface": false,
+      "name": "Shell construction",
+      "variants": [
+        {
+          "id": "odaiko_keyaki",
+          "default": true,
+          "name": "Single hollowed keyaki (zelkova) log",
+          "descriptors": [
+            "rich-overtoned",
+            "resonant"
+          ],
+          "match_tokens": [
+            "taiko"
+          ]
+        },
+        {
+          "id": "odaiko_stave",
+          "name": "Stave-built shell",
+          "descriptors": [
+            "focused",
+            "drier"
+          ],
+          "match_tokens": [
+            "taiko"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "odaiko_mounting",
+      "name": "Mounting / orientation",
+      "variants": [
+        {
+          "id": "odaiko_yagura",
+          "default": true,
+          "name": "Yagura-mounted, struck side-on",
+          "descriptors": [
+            "thunderous",
+            "deep-toned",
+            "full-body"
+          ],
+          "match_tokens": [
+            "taiko",
+            "japanese",
+            "big-drum"
+          ]
+        },
+        {
+          "id": "odaiko_miyadaiko_stand",
+          "name": "Slanted miyadaiko stand",
+          "descriptors": [
+            "booming",
+            "ensemble-anchoring"
+          ],
+          "match_tokens": [
+            "taiko",
+            "japanese"
+          ]
+        },
+        {
+          "id": "odaiko_suspended",
+          "name": "Rope-suspended temple drum",
+          "descriptors": [
+            "ceremonial",
+            "enveloping",
+            "slow-decaying"
+          ],
+          "match_tokens": [
+            "taiko",
+            "temple"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "odaiko_bachi",
+      "name": "Bachi (beater)",
+      "variants": [
+        {
+          "id": "odaiko_heavy_bachi",
+          "default": true,
+          "name": "Heavy hinoki/kashi bachi",
+          "descriptors": [
+            "deep-impact",
+            "weighty"
+          ],
+          "match_tokens": [
+            "struck",
+            "taiko"
+          ]
+        },
+        {
+          "id": "odaiko_padded_bachi",
+          "name": "Padded / felt-wrapped beater",
+          "descriptors": [
+            "soft-attack",
+            "rumbling"
+          ],
+          "match_tokens": [
+            "struck",
+            "taiko"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "odaiko_shell",
+      "surface": false,
+      "name": "Shell construction",
+      "variants": [
+        {
+          "id": "odaiko_keyaki",
+          "default": true,
+          "name": "Single hollowed keyaki (zelkova) log",
+          "descriptors": [
+            "rich-overtoned",
+            "resonant"
+          ],
+          "match_tokens": [
+            "taiko"
+          ]
+        },
+        {
+          "id": "odaiko_stave",
+          "name": "Stave-built shell",
+          "descriptors": [
+            "focused",
+            "drier"
+          ],
+          "match_tokens": [
+            "taiko"
+          ]
+        }
+      ]
+    }
+  ]
+}

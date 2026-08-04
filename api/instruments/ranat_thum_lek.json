@@ -1,0 +1,148 @@
+{
+  "id": "ranat_thum_lek",
+  "name": "Ranat thum lek (Thai low metal-keyed xylophone)",
+  "family": "percussion",
+  "class": "metallophone",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "ranat thum lek",
+  "parts": [
+    {
+      "id": "ranat_thum_lek_keys",
+      "name": "Key metal",
+      "variants": [
+        {
+          "id": "ranat_thum_lek_iron",
+          "default": true,
+          "name": "Iron/steel keys (canonical)",
+          "descriptors": [
+            "ringing",
+            "metallic",
+            "sustained"
+          ],
+          "match_tokens": [
+            "metallophone",
+            "thai-piphat"
+          ]
+        },
+        {
+          "id": "ranat_thum_lek_bronze",
+          "name": "Bronze keys",
+          "descriptors": [
+            "warm-metallic",
+            "gong-like"
+          ],
+          "match_tokens": [
+            "metallophone",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ranat_thum_lek_mallets",
+      "name": "Mallets",
+      "variants": [
+        {
+          "id": "ranat_thum_lek_padded",
+          "default": true,
+          "name": "Padded leather mallets",
+          "descriptors": [
+            "soft-attack",
+            "warm-ring"
+          ],
+          "match_tokens": [
+            "mallet",
+            "mellow"
+          ]
+        },
+        {
+          "id": "ranat_thum_lek_hard",
+          "name": "Hard mallets",
+          "descriptors": [
+            "clangorous",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "mallet",
+            "bright-attack"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ranat_thum_lek_keys",
+      "name": "Key metal",
+      "variants": [
+        {
+          "id": "ranat_thum_lek_iron",
+          "default": true,
+          "name": "Iron/steel keys (canonical)",
+          "descriptors": [
+            "ringing",
+            "metallic",
+            "sustained"
+          ],
+          "match_tokens": [
+            "metallophone",
+            "thai-piphat"
+          ]
+        },
+        {
+          "id": "ranat_thum_lek_bronze",
+          "name": "Bronze keys",
+          "descriptors": [
+            "warm-metallic",
+            "gong-like"
+          ],
+          "match_tokens": [
+            "metallophone",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ranat_thum_lek_mallets",
+      "name": "Mallets",
+      "variants": [
+        {
+          "id": "ranat_thum_lek_padded",
+          "default": true,
+          "name": "Padded leather mallets",
+          "descriptors": [
+            "soft-attack",
+            "warm-ring"
+          ],
+          "match_tokens": [
+            "mallet",
+            "mellow"
+          ]
+        },
+        {
+          "id": "ranat_thum_lek_hard",
+          "name": "Hard mallets",
+          "descriptors": [
+            "clangorous",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "mallet",
+            "bright-attack"
+          ]
+        }
+      ]
+    }
+  ]
+}

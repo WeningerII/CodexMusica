@@ -1,0 +1,170 @@
+{
+  "id": "muyu",
+  "name": "Muyu (Chinese wooden fish temple block)",
+  "family": "percussion",
+  "class": "slit_gong",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 0,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "muyu",
+  "parts": [
+    {
+      "id": "muyu_size",
+      "name": "Size",
+      "variants": [
+        {
+          "id": "muyu_small",
+          "default": true,
+          "name": "Small hand-held muyu",
+          "descriptors": [
+            "dry-knock",
+            "clicky",
+            "high-pitched"
+          ],
+          "match_tokens": [
+            "woodblock",
+            "buddhist-ritual"
+          ]
+        },
+        {
+          "id": "muyu_large",
+          "name": "Large floor-standing temple muyu",
+          "descriptors": [
+            "hollow",
+            "deep-toned",
+            "woody"
+          ],
+          "match_tokens": [
+            "woodblock",
+            "temple-percussion"
+          ]
+        },
+        {
+          "id": "muyu_set",
+          "name": "Graduated set (orchestral temple blocks)",
+          "descriptors": [
+            "pitched-sequence",
+            "hollow"
+          ],
+          "match_tokens": [
+            "woodblock",
+            "tuned-set"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "muyu_beater",
+      "name": "Beater",
+      "variants": [
+        {
+          "id": "muyu_wood_beater",
+          "default": true,
+          "name": "Bare wooden stick",
+          "descriptors": [
+            "sharp-attack",
+            "dry"
+          ],
+          "match_tokens": [
+            "struck-wood"
+          ]
+        },
+        {
+          "id": "muyu_padded_beater",
+          "name": "Cloth-wrapped beater",
+          "descriptors": [
+            "soft-attack",
+            "muted"
+          ],
+          "match_tokens": [
+            "struck-wood"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "muyu_size",
+      "name": "Size",
+      "variants": [
+        {
+          "id": "muyu_small",
+          "default": true,
+          "name": "Small hand-held muyu",
+          "descriptors": [
+            "dry-knock",
+            "clicky",
+            "high-pitched"
+          ],
+          "match_tokens": [
+            "woodblock",
+            "buddhist-ritual"
+          ]
+        },
+        {
+          "id": "muyu_large",
+          "name": "Large floor-standing temple muyu",
+          "descriptors": [
+            "hollow",
+            "deep-toned",
+            "woody"
+          ],
+          "match_tokens": [
+            "woodblock",
+            "temple-percussion"
+          ]
+        },
+        {
+          "id": "muyu_set",
+          "name": "Graduated set (orchestral temple blocks)",
+          "descriptors": [
+            "pitched-sequence",
+            "hollow"
+          ],
+          "match_tokens": [
+            "woodblock",
+            "tuned-set"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "muyu_beater",
+      "name": "Beater",
+      "variants": [
+        {
+          "id": "muyu_wood_beater",
+          "default": true,
+          "name": "Bare wooden stick",
+          "descriptors": [
+            "sharp-attack",
+            "dry"
+          ],
+          "match_tokens": [
+            "struck-wood"
+          ]
+        },
+        {
+          "id": "muyu_padded_beater",
+          "name": "Cloth-wrapped beater",
+          "descriptors": [
+            "soft-attack",
+            "muted"
+          ],
+          "match_tokens": [
+            "struck-wood"
+          ]
+        }
+      ]
+    }
+  ]
+}

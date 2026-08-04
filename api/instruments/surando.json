@@ -1,0 +1,235 @@
+{
+  "id": "surando",
+  "name": "Surando (Sindhi bowed lute)",
+  "family": "bowed",
+  "class": "bowed_lute",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "surando",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "surando_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "surando_thar",
+          "default": true,
+          "name": "Tharparkar surando (five melody strings, sympathetic set)",
+          "descriptors": [
+            "droning",
+            "reedy-resonant",
+            "sympathetic-shimmer"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sindhi",
+            "folk-fiddle"
+          ]
+        },
+        {
+          "id": "surando_kachchh",
+          "name": "Kachchhi surando (Rajasthan/Kutch border form)",
+          "descriptors": [
+            "nasal-tone",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "kutch"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "surando_face",
+      "name": "Soundboard covering",
+      "variants": [
+        {
+          "id": "surando_skin",
+          "default": true,
+          "name": "Goatskin belly over carved bowl",
+          "descriptors": [
+            "warm",
+            "buzzy-edge"
+          ],
+          "match_tokens": [
+            "bowed",
+            "skin-belly"
+          ]
+        },
+        {
+          "id": "surando_wood",
+          "name": "Wooden soundboard",
+          "descriptors": [
+            "focused",
+            "brighter"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "surando_context",
+      "surface": false,
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "surando_sufi",
+          "default": true,
+          "name": "Sufi devotional song accompaniment",
+          "descriptors": [
+            "voice-shadowing",
+            "droning"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sufi"
+          ]
+        },
+        {
+          "id": "surando_ballad",
+          "name": "Solo folk-ballad interlude",
+          "descriptors": [
+            "rubato",
+            "melismatic"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "surando_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "surando_thar",
+          "default": true,
+          "name": "Tharparkar surando (five melody strings, sympathetic set)",
+          "descriptors": [
+            "droning",
+            "reedy-resonant",
+            "sympathetic-shimmer"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sindhi",
+            "folk-fiddle"
+          ]
+        },
+        {
+          "id": "surando_kachchh",
+          "name": "Kachchhi surando (Rajasthan/Kutch border form)",
+          "descriptors": [
+            "nasal-tone",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "kutch"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "surando_face",
+      "name": "Soundboard covering",
+      "variants": [
+        {
+          "id": "surando_skin",
+          "default": true,
+          "name": "Goatskin belly over carved bowl",
+          "descriptors": [
+            "warm",
+            "buzzy-edge"
+          ],
+          "match_tokens": [
+            "bowed",
+            "skin-belly"
+          ]
+        },
+        {
+          "id": "surando_wood",
+          "name": "Wooden soundboard",
+          "descriptors": [
+            "focused",
+            "brighter"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "surando_context",
+      "surface": false,
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "surando_sufi",
+          "default": true,
+          "name": "Sufi devotional song accompaniment",
+          "descriptors": [
+            "voice-shadowing",
+            "droning"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sufi"
+          ]
+        },
+        {
+          "id": "surando_ballad",
+          "name": "Solo folk-ballad interlude",
+          "descriptors": [
+            "rubato",
+            "melismatic"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ]
+}

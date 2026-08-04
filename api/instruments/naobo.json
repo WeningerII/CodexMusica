@@ -1,0 +1,168 @@
+{
+  "id": "naobo",
+  "name": "Naobo (large Chinese clash cymbals)",
+  "family": "percussion",
+  "class": "hand_cymbals",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "naobo",
+  "parts": [
+    {
+      "id": "naobo_type",
+      "name": "Cymbal type",
+      "variants": [
+        {
+          "id": "naobo_dabo",
+          "default": true,
+          "name": "Dabo (large flat-bossed pair)",
+          "descriptors": [
+            "roaring",
+            "splashy",
+            "long-ringing"
+          ],
+          "match_tokens": [
+            "clash-cymbals",
+            "chinese-percussion"
+          ]
+        },
+        {
+          "id": "naobo_nao",
+          "name": "Nao (high-domed pair)",
+          "descriptors": [
+            "clangorous",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "clash-cymbals"
+          ]
+        },
+        {
+          "id": "naobo_shuibo",
+          "name": "Shuibo (thin water cymbals, swirling clash)",
+          "descriptors": [
+            "washing",
+            "sizzling"
+          ],
+          "match_tokens": [
+            "clash-cymbals",
+            "swirled"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "naobo_stroke",
+      "name": "Stroke",
+      "variants": [
+        {
+          "id": "naobo_open_clash",
+          "default": true,
+          "name": "Open clash, held to ring",
+          "descriptors": [
+            "sustained-crash",
+            "huge"
+          ],
+          "match_tokens": [
+            "clash-cymbals"
+          ]
+        },
+        {
+          "id": "naobo_muffled",
+          "name": "Clash damped instantly against robes",
+          "descriptors": [
+            "choked",
+            "punchy"
+          ],
+          "match_tokens": [
+            "clash-cymbals",
+            "choked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "naobo_type",
+      "name": "Cymbal type",
+      "variants": [
+        {
+          "id": "naobo_dabo",
+          "default": true,
+          "name": "Dabo (large flat-bossed pair)",
+          "descriptors": [
+            "roaring",
+            "splashy",
+            "long-ringing"
+          ],
+          "match_tokens": [
+            "clash-cymbals",
+            "chinese-percussion"
+          ]
+        },
+        {
+          "id": "naobo_nao",
+          "name": "Nao (high-domed pair)",
+          "descriptors": [
+            "clangorous",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "clash-cymbals"
+          ]
+        },
+        {
+          "id": "naobo_shuibo",
+          "name": "Shuibo (thin water cymbals, swirling clash)",
+          "descriptors": [
+            "washing",
+            "sizzling"
+          ],
+          "match_tokens": [
+            "clash-cymbals",
+            "swirled"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "naobo_stroke",
+      "name": "Stroke",
+      "variants": [
+        {
+          "id": "naobo_open_clash",
+          "default": true,
+          "name": "Open clash, held to ring",
+          "descriptors": [
+            "sustained-crash",
+            "huge"
+          ],
+          "match_tokens": [
+            "clash-cymbals"
+          ]
+        },
+        {
+          "id": "naobo_muffled",
+          "name": "Clash damped instantly against robes",
+          "descriptors": [
+            "choked",
+            "punchy"
+          ],
+          "match_tokens": [
+            "clash-cymbals",
+            "choked"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "id": "tasha",
+  "name": "Tasha (South Asian shallow kettledrum played with canes)",
+  "family": "percussion",
+  "class": "single_headed_drum",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "tasha",
+  "parts": [
+    {
+      "id": "tasha_shell",
+      "name": "Shell material",
+      "variants": [
+        {
+          "id": "tasha_clay",
+          "default": true,
+          "name": "Fired clay bowl shell",
+          "descriptors": [
+            "dry-crack",
+            "cutting"
+          ],
+          "match_tokens": [
+            "kettledrum",
+            "procession"
+          ]
+        },
+        {
+          "id": "tasha_metal",
+          "name": "Steel or brass bowl shell",
+          "descriptors": [
+            "ringing-crack",
+            "brash"
+          ],
+          "match_tokens": [
+            "kettledrum",
+            "metal-shell"
+          ]
+        },
+        {
+          "id": "tasha_synthetic",
+          "name": "Modern synthetic-head tasha (tassa)",
+          "descriptors": [
+            "piercing",
+            "hard-tuned"
+          ],
+          "match_tokens": [
+            "kettledrum",
+            "tassa"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tasha_context",
+      "surface": false,
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "tasha_dhol_tasha",
+          "default": true,
+          "name": "Dhol-tasha procession ensemble",
+          "descriptors": [
+            "driving",
+            "festival-loud"
+          ],
+          "match_tokens": [
+            "procession",
+            "dhol-tasha"
+          ]
+        },
+        {
+          "id": "tasha_muharram",
+          "name": "Muharram / tassa drumming ensemble",
+          "descriptors": [
+            "solemn",
+            "rolling"
+          ],
+          "match_tokens": [
+            "procession",
+            "muharram"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tasha_shell",
+      "name": "Shell material",
+      "variants": [
+        {
+          "id": "tasha_clay",
+          "default": true,
+          "name": "Fired clay bowl shell",
+          "descriptors": [
+            "dry-crack",
+            "cutting"
+          ],
+          "match_tokens": [
+            "kettledrum",
+            "procession"
+          ]
+        },
+        {
+          "id": "tasha_metal",
+          "name": "Steel or brass bowl shell",
+          "descriptors": [
+            "ringing-crack",
+            "brash"
+          ],
+          "match_tokens": [
+            "kettledrum",
+            "metal-shell"
+          ]
+        },
+        {
+          "id": "tasha_synthetic",
+          "name": "Modern synthetic-head tasha (tassa)",
+          "descriptors": [
+            "piercing",
+            "hard-tuned"
+          ],
+          "match_tokens": [
+            "kettledrum",
+            "tassa"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tasha_context",
+      "surface": false,
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "tasha_dhol_tasha",
+          "default": true,
+          "name": "Dhol-tasha procession ensemble",
+          "descriptors": [
+            "driving",
+            "festival-loud"
+          ],
+          "match_tokens": [
+            "procession",
+            "dhol-tasha"
+          ]
+        },
+        {
+          "id": "tasha_muharram",
+          "name": "Muharram / tassa drumming ensemble",
+          "descriptors": [
+            "solemn",
+            "rolling"
+          ],
+          "match_tokens": [
+            "procession",
+            "muharram"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,144 @@
+{
+  "id": "paamonim",
+  "name": "Paamonim (biblical Hebrew ritual bells)",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": 2,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "paamonim",
+  "parts": [
+    {
+      "id": "paam_form",
+      "name": "Bell form",
+      "variants": [
+        {
+          "id": "paam_hem",
+          "default": true,
+          "name": "Small gold bells on priestly hem",
+          "descriptors": [
+            "tinkling",
+            "glinting"
+          ],
+          "match_tokens": [
+            "bells",
+            "ritual"
+          ]
+        },
+        {
+          "id": "paam_cluster",
+          "name": "Clustered bell string (shaken)",
+          "descriptors": [
+            "jangling",
+            "dense-shimmer"
+          ],
+          "match_tokens": [
+            "bells",
+            "shaken"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "paam_metal",
+      "surface": false,
+      "name": "Metal",
+      "variants": [
+        {
+          "id": "paam_gold",
+          "default": true,
+          "name": "Gold / brass alloy",
+          "descriptors": [
+            "sweet-ring",
+            "bright"
+          ],
+          "match_tokens": [
+            "bells"
+          ]
+        },
+        {
+          "id": "paam_bronze",
+          "name": "Bronze",
+          "descriptors": [
+            "darker-ring",
+            "clangorous"
+          ],
+          "match_tokens": [
+            "bells"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "paam_form",
+      "name": "Bell form",
+      "variants": [
+        {
+          "id": "paam_hem",
+          "default": true,
+          "name": "Small gold bells on priestly hem",
+          "descriptors": [
+            "tinkling",
+            "glinting"
+          ],
+          "match_tokens": [
+            "bells",
+            "ritual"
+          ]
+        },
+        {
+          "id": "paam_cluster",
+          "name": "Clustered bell string (shaken)",
+          "descriptors": [
+            "jangling",
+            "dense-shimmer"
+          ],
+          "match_tokens": [
+            "bells",
+            "shaken"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "paam_metal",
+      "surface": false,
+      "name": "Metal",
+      "variants": [
+        {
+          "id": "paam_gold",
+          "default": true,
+          "name": "Gold / brass alloy",
+          "descriptors": [
+            "sweet-ring",
+            "bright"
+          ],
+          "match_tokens": [
+            "bells"
+          ]
+        },
+        {
+          "id": "paam_bronze",
+          "name": "Bronze",
+          "descriptors": [
+            "darker-ring",
+            "clangorous"
+          ],
+          "match_tokens": [
+            "bells"
+          ]
+        }
+      ]
+    }
+  ]
+}

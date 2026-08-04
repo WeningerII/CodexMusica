@@ -1,0 +1,148 @@
+{
+  "id": "kalun_uyghur_zither",
+  "name": "Kalun (Uyghur plucked and slid box zither)",
+  "family": "plucked_traditional",
+  "class": "plucked_box_zither",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "kalun",
+  "parts": [
+    {
+      "id": "kalun_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "kalun_pluck_slide",
+          "default": true,
+          "name": "Plucked with pick while sliding a rod for pitch bends",
+          "descriptors": [
+            "sliding",
+            "ringing",
+            "microtonal"
+          ],
+          "match_tokens": [
+            "zither",
+            "uyghur",
+            "muqam"
+          ]
+        },
+        {
+          "id": "kalun_plain_pluck",
+          "name": "Plain plucking, no slide",
+          "descriptors": [
+            "clear",
+            "harp-like"
+          ],
+          "match_tokens": [
+            "zither",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kalun_strings",
+      "surface": false,
+      "name": "String courses",
+      "variants": [
+        {
+          "id": "kalun_double_course",
+          "default": true,
+          "name": "Doubled metal courses",
+          "descriptors": [
+            "shimmering",
+            "chorused"
+          ],
+          "match_tokens": [
+            "zither"
+          ]
+        },
+        {
+          "id": "kalun_single_course",
+          "name": "Single metal strings",
+          "descriptors": [
+            "focused",
+            "dry"
+          ],
+          "match_tokens": [
+            "zither"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kalun_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "kalun_pluck_slide",
+          "default": true,
+          "name": "Plucked with pick while sliding a rod for pitch bends",
+          "descriptors": [
+            "sliding",
+            "ringing",
+            "microtonal"
+          ],
+          "match_tokens": [
+            "zither",
+            "uyghur",
+            "muqam"
+          ]
+        },
+        {
+          "id": "kalun_plain_pluck",
+          "name": "Plain plucking, no slide",
+          "descriptors": [
+            "clear",
+            "harp-like"
+          ],
+          "match_tokens": [
+            "zither",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kalun_strings",
+      "surface": false,
+      "name": "String courses",
+      "variants": [
+        {
+          "id": "kalun_double_course",
+          "default": true,
+          "name": "Doubled metal courses",
+          "descriptors": [
+            "shimmering",
+            "chorused"
+          ],
+          "match_tokens": [
+            "zither"
+          ]
+        },
+        {
+          "id": "kalun_single_course",
+          "name": "Single metal strings",
+          "descriptors": [
+            "focused",
+            "dry"
+          ],
+          "match_tokens": [
+            "zither"
+          ]
+        }
+      ]
+    }
+  ]
+}

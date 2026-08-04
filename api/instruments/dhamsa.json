@@ -1,0 +1,210 @@
+{
+  "id": "dhamsa",
+  "name": "Dhamsa (large East Indian kettle drum of Jharkhand and Bengal)",
+  "family": "percussion",
+  "class": "single_headed_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -2,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "dhamsa",
+  "parts": [
+    {
+      "id": "dhamsa_size",
+      "name": "Shell size",
+      "variants": [
+        {
+          "id": "dhamsa_large",
+          "default": true,
+          "name": "Large iron kettle (chhau festival size)",
+          "descriptors": [
+            "booming",
+            "thunderous",
+            "deep-toned"
+          ],
+          "match_tokens": [
+            "kettle-drum",
+            "chhau"
+          ]
+        },
+        {
+          "id": "dhamsa_small",
+          "name": "Smaller portable dhamsa",
+          "descriptors": [
+            "punchy",
+            "tight"
+          ],
+          "match_tokens": [
+            "kettle-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dhamsa_technique",
+      "name": "Beating technique",
+      "variants": [
+        {
+          "id": "dhamsa_two_sticks",
+          "default": true,
+          "name": "Two heavy sticks (rolling ostinato)",
+          "descriptors": [
+            "rolling",
+            "driving",
+            "thunderous"
+          ],
+          "match_tokens": [
+            "struck",
+            "rhythmic"
+          ]
+        },
+        {
+          "id": "dhamsa_single_stick",
+          "name": "Single stick with hand damping",
+          "descriptors": [
+            "muted",
+            "articulate"
+          ],
+          "match_tokens": [
+            "struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dhamsa_head",
+      "surface": false,
+      "name": "Head",
+      "variants": [
+        {
+          "id": "dhamsa_buffalo",
+          "default": true,
+          "name": "Buffalo hide head",
+          "descriptors": [
+            "thick",
+            "dark"
+          ],
+          "match_tokens": [
+            "struck",
+            "membranophone"
+          ]
+        },
+        {
+          "id": "dhamsa_goat",
+          "name": "Goatskin head",
+          "descriptors": [
+            "brighter",
+            "snappy"
+          ],
+          "match_tokens": [
+            "struck",
+            "membranophone"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dhamsa_size",
+      "name": "Shell size",
+      "variants": [
+        {
+          "id": "dhamsa_large",
+          "default": true,
+          "name": "Large iron kettle (chhau festival size)",
+          "descriptors": [
+            "booming",
+            "thunderous",
+            "deep-toned"
+          ],
+          "match_tokens": [
+            "kettle-drum",
+            "chhau"
+          ]
+        },
+        {
+          "id": "dhamsa_small",
+          "name": "Smaller portable dhamsa",
+          "descriptors": [
+            "punchy",
+            "tight"
+          ],
+          "match_tokens": [
+            "kettle-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dhamsa_technique",
+      "name": "Beating technique",
+      "variants": [
+        {
+          "id": "dhamsa_two_sticks",
+          "default": true,
+          "name": "Two heavy sticks (rolling ostinato)",
+          "descriptors": [
+            "rolling",
+            "driving",
+            "thunderous"
+          ],
+          "match_tokens": [
+            "struck",
+            "rhythmic"
+          ]
+        },
+        {
+          "id": "dhamsa_single_stick",
+          "name": "Single stick with hand damping",
+          "descriptors": [
+            "muted",
+            "articulate"
+          ],
+          "match_tokens": [
+            "struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dhamsa_head",
+      "surface": false,
+      "name": "Head",
+      "variants": [
+        {
+          "id": "dhamsa_buffalo",
+          "default": true,
+          "name": "Buffalo hide head",
+          "descriptors": [
+            "thick",
+            "dark"
+          ],
+          "match_tokens": [
+            "struck",
+            "membranophone"
+          ]
+        },
+        {
+          "id": "dhamsa_goat",
+          "name": "Goatskin head",
+          "descriptors": [
+            "brighter",
+            "snappy"
+          ],
+          "match_tokens": [
+            "struck",
+            "membranophone"
+          ]
+        }
+      ]
+    }
+  ]
+}

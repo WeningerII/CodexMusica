@@ -1,0 +1,206 @@
+{
+  "id": "biwa_satsuma",
+  "name": "Satsuma-biwa (Japanese narrative lute of the Satsuma tradition)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "satsuma biwa",
+  "parts": [
+    {
+      "id": "biwa_satsuma_style",
+      "name": "Performance style",
+      "variants": [
+        {
+          "id": "biwa_satsuma_narrative",
+          "default": true,
+          "name": "Narrative chant accompaniment (katarimono)",
+          "descriptors": [
+            "declamatory",
+            "percussive-attack",
+            "dramatic"
+          ],
+          "match_tokens": [
+            "plucked-lute",
+            "japan"
+          ]
+        },
+        {
+          "id": "biwa_satsuma_solo",
+          "name": "Solo instrumental interlude",
+          "descriptors": [
+            "buzzing-timbre",
+            "virtuosic"
+          ],
+          "match_tokens": [
+            "plucked-lute",
+            "sawari"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "biwa_satsuma_plectrum",
+      "name": "Bachi plectrum",
+      "variants": [
+        {
+          "id": "biwa_satsuma_wide_bachi",
+          "default": true,
+          "name": "Wide fan-shaped bachi (struck across strings and body)",
+          "descriptors": [
+            "slapping",
+            "explosive-attack"
+          ],
+          "match_tokens": [
+            "plucked",
+            "struck-body"
+          ]
+        },
+        {
+          "id": "biwa_satsuma_narrow_bachi",
+          "name": "Narrower bachi",
+          "descriptors": [
+            "cleaner-attack",
+            "controlled"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "biwa_satsuma_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "biwa_satsuma_silk",
+          "default": true,
+          "name": "Silk strings",
+          "descriptors": [
+            "dry",
+            "gritty"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "biwa_satsuma_tetron",
+          "name": "Tetron strings",
+          "descriptors": [
+            "brighter",
+            "durable"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "biwa_satsuma_style",
+      "name": "Performance style",
+      "variants": [
+        {
+          "id": "biwa_satsuma_narrative",
+          "default": true,
+          "name": "Narrative chant accompaniment (katarimono)",
+          "descriptors": [
+            "declamatory",
+            "percussive-attack",
+            "dramatic"
+          ],
+          "match_tokens": [
+            "plucked-lute",
+            "japan"
+          ]
+        },
+        {
+          "id": "biwa_satsuma_solo",
+          "name": "Solo instrumental interlude",
+          "descriptors": [
+            "buzzing-timbre",
+            "virtuosic"
+          ],
+          "match_tokens": [
+            "plucked-lute",
+            "sawari"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "biwa_satsuma_plectrum",
+      "name": "Bachi plectrum",
+      "variants": [
+        {
+          "id": "biwa_satsuma_wide_bachi",
+          "default": true,
+          "name": "Wide fan-shaped bachi (struck across strings and body)",
+          "descriptors": [
+            "slapping",
+            "explosive-attack"
+          ],
+          "match_tokens": [
+            "plucked",
+            "struck-body"
+          ]
+        },
+        {
+          "id": "biwa_satsuma_narrow_bachi",
+          "name": "Narrower bachi",
+          "descriptors": [
+            "cleaner-attack",
+            "controlled"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "biwa_satsuma_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "biwa_satsuma_silk",
+          "default": true,
+          "name": "Silk strings",
+          "descriptors": [
+            "dry",
+            "gritty"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "biwa_satsuma_tetron",
+          "name": "Tetron strings",
+          "descriptors": [
+            "brighter",
+            "durable"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

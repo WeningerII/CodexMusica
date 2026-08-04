@@ -1,0 +1,260 @@
+{
+  "id": "zhongruan_lute",
+  "name": "Zhongruan (Chinese alto moon-shaped fretted lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "zhongruan",
+  "parts": [
+    {
+      "id": "zhongruan_lute_strings",
+      "name": "String type",
+      "variants": [
+        {
+          "id": "zhongruan_lute_steel",
+          "default": true,
+          "name": "Modern steel-wound strings",
+          "descriptors": [
+            "bright-attack",
+            "sustaining",
+            "projecting"
+          ],
+          "match_tokens": [
+            "plucked",
+            "moon-lute"
+          ]
+        },
+        {
+          "id": "zhongruan_lute_silk",
+          "name": "Silk strings (historical)",
+          "descriptors": [
+            "mellow",
+            "soft-attack",
+            "dry"
+          ],
+          "match_tokens": [
+            "plucked",
+            "silk-string"
+          ]
+        },
+        {
+          "id": "zhongruan_lute_nylon",
+          "name": "Nylon-wound strings",
+          "descriptors": [
+            "warm",
+            "rounded"
+          ],
+          "match_tokens": [
+            "plucked",
+            "moon-lute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zhongruan_lute_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "zhongruan_lute_lunzhi",
+          "default": true,
+          "name": "Lunzhi tremolo roll (plectrum)",
+          "descriptors": [
+            "shimmering",
+            "continuous-tone"
+          ],
+          "match_tokens": [
+            "tremolo",
+            "plucked"
+          ]
+        },
+        {
+          "id": "zhongruan_lute_tan",
+          "name": "Single-note tan/tiao picking",
+          "descriptors": [
+            "clear-attack",
+            "articulate"
+          ],
+          "match_tokens": [
+            "plucked",
+            "melodic-lead"
+          ]
+        },
+        {
+          "id": "zhongruan_lute_saoful",
+          "name": "Sao/fu strumming (chordal)",
+          "descriptors": [
+            "strummed",
+            "full-bodied"
+          ],
+          "match_tokens": [
+            "strummed",
+            "accompaniment"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zhongruan_lute_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "zhongruan_lute_orchestra",
+          "default": true,
+          "name": "Modern Chinese orchestra inner voice",
+          "descriptors": [
+            "blended",
+            "mid-range-warm"
+          ],
+          "match_tokens": [
+            "chinese-orchestra"
+          ]
+        },
+        {
+          "id": "zhongruan_lute_solo",
+          "name": "Solo concert repertoire",
+          "descriptors": [
+            "expressive",
+            "dynamic"
+          ],
+          "match_tokens": [
+            "solo",
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "zhongruan_lute_strings",
+      "name": "String type",
+      "variants": [
+        {
+          "id": "zhongruan_lute_steel",
+          "default": true,
+          "name": "Modern steel-wound strings",
+          "descriptors": [
+            "bright-attack",
+            "sustaining",
+            "projecting"
+          ],
+          "match_tokens": [
+            "plucked",
+            "moon-lute"
+          ]
+        },
+        {
+          "id": "zhongruan_lute_silk",
+          "name": "Silk strings (historical)",
+          "descriptors": [
+            "mellow",
+            "soft-attack",
+            "dry"
+          ],
+          "match_tokens": [
+            "plucked",
+            "silk-string"
+          ]
+        },
+        {
+          "id": "zhongruan_lute_nylon",
+          "name": "Nylon-wound strings",
+          "descriptors": [
+            "warm",
+            "rounded"
+          ],
+          "match_tokens": [
+            "plucked",
+            "moon-lute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zhongruan_lute_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "zhongruan_lute_lunzhi",
+          "default": true,
+          "name": "Lunzhi tremolo roll (plectrum)",
+          "descriptors": [
+            "shimmering",
+            "continuous-tone"
+          ],
+          "match_tokens": [
+            "tremolo",
+            "plucked"
+          ]
+        },
+        {
+          "id": "zhongruan_lute_tan",
+          "name": "Single-note tan/tiao picking",
+          "descriptors": [
+            "clear-attack",
+            "articulate"
+          ],
+          "match_tokens": [
+            "plucked",
+            "melodic-lead"
+          ]
+        },
+        {
+          "id": "zhongruan_lute_saoful",
+          "name": "Sao/fu strumming (chordal)",
+          "descriptors": [
+            "strummed",
+            "full-bodied"
+          ],
+          "match_tokens": [
+            "strummed",
+            "accompaniment"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zhongruan_lute_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "zhongruan_lute_orchestra",
+          "default": true,
+          "name": "Modern Chinese orchestra inner voice",
+          "descriptors": [
+            "blended",
+            "mid-range-warm"
+          ],
+          "match_tokens": [
+            "chinese-orchestra"
+          ]
+        },
+        {
+          "id": "zhongruan_lute_solo",
+          "name": "Solo concert repertoire",
+          "descriptors": [
+            "expressive",
+            "dynamic"
+          ],
+          "match_tokens": [
+            "solo",
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

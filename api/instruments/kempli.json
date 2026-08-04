@@ -1,0 +1,148 @@
+{
+  "id": "kempli",
+  "name": "Kempli (Balinese timekeeping knobbed gong)",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "kempli",
+  "parts": [
+    {
+      "id": "kempli_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "kempli_horizontal",
+          "default": true,
+          "name": "Horizontal knobbed kempli on rack",
+          "descriptors": [
+            "dry-thud",
+            "damped",
+            "metallic-click"
+          ],
+          "match_tokens": [
+            "knobbed-gong",
+            "balinese"
+          ]
+        },
+        {
+          "id": "kempli_kajar_style",
+          "name": "Kempli held on lap, damped by hand",
+          "descriptors": [
+            "choked",
+            "tight",
+            "pulse-keeping"
+          ],
+          "match_tokens": [
+            "knobbed-gong",
+            "timekeeping"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kempli_beater",
+      "name": "Beater",
+      "variants": [
+        {
+          "id": "kempli_wood_mallet",
+          "default": true,
+          "name": "Hard wooden mallet",
+          "descriptors": [
+            "bright-attack",
+            "clicky"
+          ],
+          "match_tokens": [
+            "struck",
+            "knobbed-gong"
+          ]
+        },
+        {
+          "id": "kempli_padded",
+          "name": "Cloth-padded beater",
+          "descriptors": [
+            "rounded",
+            "mellow"
+          ],
+          "match_tokens": [
+            "struck"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kempli_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "kempli_horizontal",
+          "default": true,
+          "name": "Horizontal knobbed kempli on rack",
+          "descriptors": [
+            "dry-thud",
+            "damped",
+            "metallic-click"
+          ],
+          "match_tokens": [
+            "knobbed-gong",
+            "balinese"
+          ]
+        },
+        {
+          "id": "kempli_kajar_style",
+          "name": "Kempli held on lap, damped by hand",
+          "descriptors": [
+            "choked",
+            "tight",
+            "pulse-keeping"
+          ],
+          "match_tokens": [
+            "knobbed-gong",
+            "timekeeping"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kempli_beater",
+      "name": "Beater",
+      "variants": [
+        {
+          "id": "kempli_wood_mallet",
+          "default": true,
+          "name": "Hard wooden mallet",
+          "descriptors": [
+            "bright-attack",
+            "clicky"
+          ],
+          "match_tokens": [
+            "struck",
+            "knobbed-gong"
+          ]
+        },
+        {
+          "id": "kempli_padded",
+          "name": "Cloth-padded beater",
+          "descriptors": [
+            "rounded",
+            "mellow"
+          ],
+          "match_tokens": [
+            "struck"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,285 @@
+{
+  "id": "gijak_turkmen",
+  "name": "Gijak (Turkmen spike fiddle)",
+  "family": "bowed",
+  "class": "bowed_spike_fiddle",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "gijak",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "gijak_body",
+      "name": "Resonator body",
+      "variants": [
+        {
+          "id": "gijak_gourd",
+          "default": true,
+          "name": "Gourd resonator with skin belly",
+          "descriptors": [
+            "nasal",
+            "buzzing-timbre",
+            "reedy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "spike-fiddle",
+            "central-asian"
+          ]
+        },
+        {
+          "id": "gijak_wood",
+          "name": "Carved wooden bowl resonator",
+          "descriptors": [
+            "warm",
+            "rounded"
+          ],
+          "match_tokens": [
+            "bowed",
+            "spike-fiddle"
+          ]
+        },
+        {
+          "id": "gijak_tin",
+          "name": "Metal tin resonator (village form)",
+          "descriptors": [
+            "metallic",
+            "piercing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bright-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gijak_strings",
+      "name": "String setup",
+      "variants": [
+        {
+          "id": "gijak_three",
+          "default": true,
+          "name": "Three metal strings with sympathetic ring",
+          "descriptors": [
+            "shimmering",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "metal-strung"
+          ]
+        },
+        {
+          "id": "gijak_four",
+          "name": "Four-string concert gijak",
+          "descriptors": [
+            "full-toned",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "concert"
+          ]
+        },
+        {
+          "id": "gijak_gut",
+          "name": "Gut/silk strings (archaic)",
+          "descriptors": [
+            "mellow",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-strung"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gijak_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "gijak_bagshy",
+          "default": true,
+          "name": "Bagshy song accompaniment",
+          "descriptors": [
+            "voice-shadowing",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "bowed",
+            "turkmen"
+          ]
+        },
+        {
+          "id": "gijak_solo",
+          "name": "Solo instrumental mukam",
+          "descriptors": [
+            "rubato",
+            "melismatic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "expressive"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "gijak_body",
+      "name": "Resonator body",
+      "variants": [
+        {
+          "id": "gijak_gourd",
+          "default": true,
+          "name": "Gourd resonator with skin belly",
+          "descriptors": [
+            "nasal",
+            "buzzing-timbre",
+            "reedy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "spike-fiddle",
+            "central-asian"
+          ]
+        },
+        {
+          "id": "gijak_wood",
+          "name": "Carved wooden bowl resonator",
+          "descriptors": [
+            "warm",
+            "rounded"
+          ],
+          "match_tokens": [
+            "bowed",
+            "spike-fiddle"
+          ]
+        },
+        {
+          "id": "gijak_tin",
+          "name": "Metal tin resonator (village form)",
+          "descriptors": [
+            "metallic",
+            "piercing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bright-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gijak_strings",
+      "name": "String setup",
+      "variants": [
+        {
+          "id": "gijak_three",
+          "default": true,
+          "name": "Three metal strings with sympathetic ring",
+          "descriptors": [
+            "shimmering",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "metal-strung"
+          ]
+        },
+        {
+          "id": "gijak_four",
+          "name": "Four-string concert gijak",
+          "descriptors": [
+            "full-toned",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "concert"
+          ]
+        },
+        {
+          "id": "gijak_gut",
+          "name": "Gut/silk strings (archaic)",
+          "descriptors": [
+            "mellow",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-strung"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gijak_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "gijak_bagshy",
+          "default": true,
+          "name": "Bagshy song accompaniment",
+          "descriptors": [
+            "voice-shadowing",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "bowed",
+            "turkmen"
+          ]
+        },
+        {
+          "id": "gijak_solo",
+          "name": "Solo instrumental mukam",
+          "descriptors": [
+            "rubato",
+            "melismatic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "expressive"
+          ]
+        }
+      ]
+    }
+  ]
+}

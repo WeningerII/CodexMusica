@@ -1,0 +1,148 @@
+{
+  "id": "nanthuni",
+  "name": "Nanthuni (Kerala Pulluvan stick-struck lute)",
+  "family": "plucked_traditional",
+  "class": "chordophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "nanthuni",
+  "parts": [
+    {
+      "id": "nanthuni_form",
+      "name": "Body form",
+      "variants": [
+        {
+          "id": "nanthuni_jackwood",
+          "default": true,
+          "name": "Jackwood body with parchment belly",
+          "descriptors": [
+            "nasal-timbre",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "stick-struck-lute",
+            "kerala"
+          ]
+        },
+        {
+          "id": "nanthuni_bamboo",
+          "name": "Light bamboo-necked village build",
+          "descriptors": [
+            "thin-toned",
+            "rustic"
+          ],
+          "match_tokens": [
+            "stick-struck-lute",
+            "folk-chordophone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nanthuni_context",
+      "surface": false,
+      "name": "Ritual repertoire",
+      "variants": [
+        {
+          "id": "nanthuni_pulluvan",
+          "default": true,
+          "name": "Pulluvan paattu serpent-grove song",
+          "descriptors": [
+            "droning",
+            "incantatory"
+          ],
+          "match_tokens": [
+            "ritual-song",
+            "kerala"
+          ]
+        },
+        {
+          "id": "nanthuni_thottam",
+          "name": "Thottam paattu invocation",
+          "descriptors": [
+            "recitative",
+            "hypnotic"
+          ],
+          "match_tokens": [
+            "ritual-song",
+            "invocation"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "nanthuni_form",
+      "name": "Body form",
+      "variants": [
+        {
+          "id": "nanthuni_jackwood",
+          "default": true,
+          "name": "Jackwood body with parchment belly",
+          "descriptors": [
+            "nasal-timbre",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "stick-struck-lute",
+            "kerala"
+          ]
+        },
+        {
+          "id": "nanthuni_bamboo",
+          "name": "Light bamboo-necked village build",
+          "descriptors": [
+            "thin-toned",
+            "rustic"
+          ],
+          "match_tokens": [
+            "stick-struck-lute",
+            "folk-chordophone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nanthuni_context",
+      "surface": false,
+      "name": "Ritual repertoire",
+      "variants": [
+        {
+          "id": "nanthuni_pulluvan",
+          "default": true,
+          "name": "Pulluvan paattu serpent-grove song",
+          "descriptors": [
+            "droning",
+            "incantatory"
+          ],
+          "match_tokens": [
+            "ritual-song",
+            "kerala"
+          ]
+        },
+        {
+          "id": "nanthuni_thottam",
+          "name": "Thottam paattu invocation",
+          "descriptors": [
+            "recitative",
+            "hypnotic"
+          ],
+          "match_tokens": [
+            "ritual-song",
+            "invocation"
+          ]
+        }
+      ]
+    }
+  ]
+}

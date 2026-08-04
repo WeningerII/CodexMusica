@@ -1,0 +1,146 @@
+{
+  "id": "tawak_gong",
+  "name": "Tawak (Bornean large hanging bossed gong)",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": -2,
+    "range": -2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "tawak",
+  "parts": [
+    {
+      "id": "tawak_size",
+      "name": "Gong size",
+      "variants": [
+        {
+          "id": "tawak_large",
+          "default": true,
+          "name": "Large deep-rimmed tawak",
+          "descriptors": [
+            "booming",
+            "long-decay",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "hanging-gong",
+            "borneo"
+          ]
+        },
+        {
+          "id": "tawak_medium",
+          "name": "Medium tawak / bebendai",
+          "descriptors": [
+            "clangorous",
+            "mid-toned"
+          ],
+          "match_tokens": [
+            "hanging-gong",
+            "sarawak"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tawak_beater",
+      "surface": false,
+      "name": "Beater",
+      "variants": [
+        {
+          "id": "tawak_padded",
+          "default": true,
+          "name": "Cloth-padded mallet",
+          "descriptors": [
+            "soft-attack",
+            "swelling"
+          ],
+          "match_tokens": [
+            "gong"
+          ]
+        },
+        {
+          "id": "tawak_hard",
+          "name": "Hard wooden beater",
+          "descriptors": [
+            "crashing",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "gong"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tawak_size",
+      "name": "Gong size",
+      "variants": [
+        {
+          "id": "tawak_large",
+          "default": true,
+          "name": "Large deep-rimmed tawak",
+          "descriptors": [
+            "booming",
+            "long-decay",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "hanging-gong",
+            "borneo"
+          ]
+        },
+        {
+          "id": "tawak_medium",
+          "name": "Medium tawak / bebendai",
+          "descriptors": [
+            "clangorous",
+            "mid-toned"
+          ],
+          "match_tokens": [
+            "hanging-gong",
+            "sarawak"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tawak_beater",
+      "surface": false,
+      "name": "Beater",
+      "variants": [
+        {
+          "id": "tawak_padded",
+          "default": true,
+          "name": "Cloth-padded mallet",
+          "descriptors": [
+            "soft-attack",
+            "swelling"
+          ],
+          "match_tokens": [
+            "gong"
+          ]
+        },
+        {
+          "id": "tawak_hard",
+          "name": "Hard wooden beater",
+          "descriptors": [
+            "crashing",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "gong"
+          ]
+        }
+      ]
+    }
+  ]
+}

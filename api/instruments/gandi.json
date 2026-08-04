@@ -1,0 +1,228 @@
+{
+  "id": "gandi",
+  "name": "Gandi (Buddhist monastic wooden beam gong)",
+  "family": "percussion",
+  "class": "slit_gong",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": -1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "gandi",
+  "parts": [
+    {
+      "id": "gandi_beam",
+      "name": "Beam form",
+      "variants": [
+        {
+          "id": "gandi_long_beam",
+          "default": true,
+          "name": "Long hardwood beam struck by monastic timekeeper (canonical)",
+          "descriptors": [
+            "woody",
+            "hollow-knock",
+            "dry-attack"
+          ],
+          "match_tokens": [
+            "wooden-beam",
+            "monastic-signal"
+          ]
+        },
+        {
+          "id": "gandi_short_slab",
+          "name": "Short thick slab (small vihara)",
+          "descriptors": [
+            "clipped",
+            "tight-knock"
+          ],
+          "match_tokens": [
+            "wooden-beam",
+            "monastic-signal"
+          ]
+        },
+        {
+          "id": "gandi_hung",
+          "name": "Suspended beam (free-ringing)",
+          "descriptors": [
+            "ringing-wood",
+            "longer-decay"
+          ],
+          "match_tokens": [
+            "wooden-beam"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gandi_pattern",
+      "name": "Striking pattern",
+      "variants": [
+        {
+          "id": "gandi_uposatha",
+          "default": true,
+          "name": "Uposatha assembly signal (accelerating strokes)",
+          "descriptors": [
+            "accelerating",
+            "announcing"
+          ],
+          "match_tokens": [
+            "wooden-beam",
+            "monastic-signal"
+          ]
+        },
+        {
+          "id": "gandi_single",
+          "name": "Isolated single strokes marking hours",
+          "descriptors": [
+            "sparse",
+            "punctuating"
+          ],
+          "match_tokens": [
+            "wooden-beam"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gandi_wood",
+      "surface": false,
+      "name": "Wood",
+      "variants": [
+        {
+          "id": "gandi_hard_dense",
+          "default": true,
+          "name": "Dense hardwood (sandal, teak)",
+          "descriptors": [
+            "bright-knock",
+            "pitched-wood"
+          ],
+          "match_tokens": [
+            "wooden-beam"
+          ]
+        },
+        {
+          "id": "gandi_soft",
+          "name": "Softer local wood",
+          "descriptors": [
+            "dull",
+            "thudding"
+          ],
+          "match_tokens": [
+            "wooden-beam"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "gandi_beam",
+      "name": "Beam form",
+      "variants": [
+        {
+          "id": "gandi_long_beam",
+          "default": true,
+          "name": "Long hardwood beam struck by monastic timekeeper (canonical)",
+          "descriptors": [
+            "woody",
+            "hollow-knock",
+            "dry-attack"
+          ],
+          "match_tokens": [
+            "wooden-beam",
+            "monastic-signal"
+          ]
+        },
+        {
+          "id": "gandi_short_slab",
+          "name": "Short thick slab (small vihara)",
+          "descriptors": [
+            "clipped",
+            "tight-knock"
+          ],
+          "match_tokens": [
+            "wooden-beam",
+            "monastic-signal"
+          ]
+        },
+        {
+          "id": "gandi_hung",
+          "name": "Suspended beam (free-ringing)",
+          "descriptors": [
+            "ringing-wood",
+            "longer-decay"
+          ],
+          "match_tokens": [
+            "wooden-beam"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gandi_pattern",
+      "name": "Striking pattern",
+      "variants": [
+        {
+          "id": "gandi_uposatha",
+          "default": true,
+          "name": "Uposatha assembly signal (accelerating strokes)",
+          "descriptors": [
+            "accelerating",
+            "announcing"
+          ],
+          "match_tokens": [
+            "wooden-beam",
+            "monastic-signal"
+          ]
+        },
+        {
+          "id": "gandi_single",
+          "name": "Isolated single strokes marking hours",
+          "descriptors": [
+            "sparse",
+            "punctuating"
+          ],
+          "match_tokens": [
+            "wooden-beam"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gandi_wood",
+      "surface": false,
+      "name": "Wood",
+      "variants": [
+        {
+          "id": "gandi_hard_dense",
+          "default": true,
+          "name": "Dense hardwood (sandal, teak)",
+          "descriptors": [
+            "bright-knock",
+            "pitched-wood"
+          ],
+          "match_tokens": [
+            "wooden-beam"
+          ]
+        },
+        {
+          "id": "gandi_soft",
+          "name": "Softer local wood",
+          "descriptors": [
+            "dull",
+            "thudding"
+          ],
+          "match_tokens": [
+            "wooden-beam"
+          ]
+        }
+      ]
+    }
+  ]
+}

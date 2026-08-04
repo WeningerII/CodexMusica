@@ -1,0 +1,156 @@
+{
+  "id": "epigonion",
+  "name": "Epigonion (ancient forty-string plucked psaltery)",
+  "family": "plucked_traditional",
+  "class": "plucked_box_zither",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 1,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "epigonion",
+  "parts": [
+    {
+      "id": "epigonion_stringing",
+      "name": "Stringing",
+      "variants": [
+        {
+          "id": "epigonion_forty",
+          "default": true,
+          "name": "Forty gut strings in courses",
+          "descriptors": [
+            "shimmering",
+            "dense",
+            "harp-like"
+          ],
+          "match_tokens": [
+            "psaltery",
+            "plucked",
+            "ancient-greek"
+          ]
+        },
+        {
+          "id": "epigonion_enharmonic",
+          "name": "Enharmonic/chromatic dense stringing",
+          "descriptors": [
+            "microtonal",
+            "glinting",
+            "complex"
+          ],
+          "match_tokens": [
+            "psaltery",
+            "microtonal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "epigonion_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "epigonion_fingers",
+          "default": true,
+          "name": "Both hands finger-plucked",
+          "descriptors": [
+            "rippling",
+            "arpeggiated",
+            "clear"
+          ],
+          "match_tokens": [
+            "finger-plucked",
+            "plucked"
+          ]
+        },
+        {
+          "id": "epigonion_plectra",
+          "name": "Twin plectra",
+          "descriptors": [
+            "bright-attack",
+            "percussive",
+            "incisive"
+          ],
+          "match_tokens": [
+            "plectrum",
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "epigonion_stringing",
+      "name": "Stringing",
+      "variants": [
+        {
+          "id": "epigonion_forty",
+          "default": true,
+          "name": "Forty gut strings in courses",
+          "descriptors": [
+            "shimmering",
+            "dense",
+            "harp-like"
+          ],
+          "match_tokens": [
+            "psaltery",
+            "plucked",
+            "ancient-greek"
+          ]
+        },
+        {
+          "id": "epigonion_enharmonic",
+          "name": "Enharmonic/chromatic dense stringing",
+          "descriptors": [
+            "microtonal",
+            "glinting",
+            "complex"
+          ],
+          "match_tokens": [
+            "psaltery",
+            "microtonal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "epigonion_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "epigonion_fingers",
+          "default": true,
+          "name": "Both hands finger-plucked",
+          "descriptors": [
+            "rippling",
+            "arpeggiated",
+            "clear"
+          ],
+          "match_tokens": [
+            "finger-plucked",
+            "plucked"
+          ]
+        },
+        {
+          "id": "epigonion_plectra",
+          "name": "Twin plectra",
+          "descriptors": [
+            "bright-attack",
+            "percussive",
+            "incisive"
+          ],
+          "match_tokens": [
+            "plectrum",
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,212 @@
+{
+  "id": "kyey_naung",
+  "name": "Kyey naung (Burmese tuned bronze gong circle)",
+  "family": "percussion",
+  "class": "tuned_percussion",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 1,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "kyey naung",
+  "parts": [
+    {
+      "id": "kyey_naung_set",
+      "name": "Gong set size",
+      "variants": [
+        {
+          "id": "kyey_naung_kyi_waing",
+          "default": true,
+          "name": "Kyi waing circle (18-19 bossed bronze gongs in circular frame)",
+          "descriptors": [
+            "bell-like",
+            "metallic-shimmer",
+            "clangorous"
+          ],
+          "match_tokens": [
+            "gong-circle",
+            "burmese"
+          ]
+        },
+        {
+          "id": "kyey_naung_maung_saing",
+          "name": "Maung saing rack of flat gongs (lower, fewer)",
+          "descriptors": [
+            "deep-toned",
+            "broad-decay"
+          ],
+          "match_tokens": [
+            "gong-rack",
+            "burmese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kyey_naung_mallet",
+      "name": "Mallet",
+      "variants": [
+        {
+          "id": "kyey_naung_hard_wood",
+          "default": true,
+          "name": "Hard wooden beaters (canonical)",
+          "descriptors": [
+            "bright-attack",
+            "clear-strike"
+          ],
+          "match_tokens": [
+            "gong-circle",
+            "struck"
+          ]
+        },
+        {
+          "id": "kyey_naung_padded",
+          "name": "Cloth-padded beaters",
+          "descriptors": [
+            "mellow",
+            "soft-attack"
+          ],
+          "match_tokens": [
+            "gong-circle",
+            "struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kyey_naung_role",
+      "surface": false,
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "kyey_naung_melodic_lead",
+          "default": true,
+          "name": "Melodic outline over hsaing waing (canonical)",
+          "descriptors": [
+            "ornamented",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "burmese",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "kyey_naung_punctuating",
+          "name": "Punctuating colotomic strokes",
+          "descriptors": [
+            "sparse",
+            "marking"
+          ],
+          "match_tokens": [
+            "burmese",
+            "colotomic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kyey_naung_set",
+      "name": "Gong set size",
+      "variants": [
+        {
+          "id": "kyey_naung_kyi_waing",
+          "default": true,
+          "name": "Kyi waing circle (18-19 bossed bronze gongs in circular frame)",
+          "descriptors": [
+            "bell-like",
+            "metallic-shimmer",
+            "clangorous"
+          ],
+          "match_tokens": [
+            "gong-circle",
+            "burmese"
+          ]
+        },
+        {
+          "id": "kyey_naung_maung_saing",
+          "name": "Maung saing rack of flat gongs (lower, fewer)",
+          "descriptors": [
+            "deep-toned",
+            "broad-decay"
+          ],
+          "match_tokens": [
+            "gong-rack",
+            "burmese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kyey_naung_mallet",
+      "name": "Mallet",
+      "variants": [
+        {
+          "id": "kyey_naung_hard_wood",
+          "default": true,
+          "name": "Hard wooden beaters (canonical)",
+          "descriptors": [
+            "bright-attack",
+            "clear-strike"
+          ],
+          "match_tokens": [
+            "gong-circle",
+            "struck"
+          ]
+        },
+        {
+          "id": "kyey_naung_padded",
+          "name": "Cloth-padded beaters",
+          "descriptors": [
+            "mellow",
+            "soft-attack"
+          ],
+          "match_tokens": [
+            "gong-circle",
+            "struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kyey_naung_role",
+      "surface": false,
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "kyey_naung_melodic_lead",
+          "default": true,
+          "name": "Melodic outline over hsaing waing (canonical)",
+          "descriptors": [
+            "ornamented",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "burmese",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "kyey_naung_punctuating",
+          "name": "Punctuating colotomic strokes",
+          "descriptors": [
+            "sparse",
+            "marking"
+          ],
+          "match_tokens": [
+            "burmese",
+            "colotomic"
+          ]
+        }
+      ]
+    }
+  ]
+}

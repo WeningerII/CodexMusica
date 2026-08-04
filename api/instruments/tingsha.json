@@ -1,0 +1,192 @@
+{
+  "id": "tingsha",
+  "name": "Tingsha (Himalayan paired ritual chimes)",
+  "family": "percussion",
+  "class": "concussion_idiophone",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 2,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "tingsha",
+  "parts": [
+    {
+      "id": "tingsha_form",
+      "name": "Cymbal form",
+      "variants": [
+        {
+          "id": "tingsha_thick_small",
+          "default": true,
+          "name": "Small thick discs on leather thong (canonical)",
+          "descriptors": [
+            "piercing-ping",
+            "long-sustain",
+            "beating-partials"
+          ],
+          "match_tokens": [
+            "ritual-chimes",
+            "tibetan-tradition"
+          ]
+        },
+        {
+          "id": "tingsha_thin_wide",
+          "name": "Wider thin discs",
+          "descriptors": [
+            "shimmering",
+            "airy",
+            "softer-attack"
+          ],
+          "match_tokens": [
+            "ritual-chimes",
+            "himalayan"
+          ]
+        },
+        {
+          "id": "tingsha_embossed",
+          "name": "Embossed dragon / mantra relief discs",
+          "descriptors": [
+            "complex-overtones",
+            "slightly-detuned"
+          ],
+          "match_tokens": [
+            "ritual-chimes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tingsha_strike",
+      "name": "Strike technique",
+      "variants": [
+        {
+          "id": "tingsha_edge_clash",
+          "default": true,
+          "name": "Edge-to-edge clash, let ring",
+          "descriptors": [
+            "clear-ping",
+            "fading-shimmer"
+          ],
+          "match_tokens": [
+            "ritual-chimes",
+            "meditative"
+          ]
+        },
+        {
+          "id": "tingsha_flat_clash",
+          "name": "Flat face clash (damped)",
+          "descriptors": [
+            "short",
+            "clicky"
+          ],
+          "match_tokens": [
+            "ritual-chimes"
+          ]
+        },
+        {
+          "id": "tingsha_rolling",
+          "name": "Rolling repeated strikes",
+          "descriptors": [
+            "dense-beating",
+            "hypnotic"
+          ],
+          "match_tokens": [
+            "ritual-chimes"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tingsha_form",
+      "name": "Cymbal form",
+      "variants": [
+        {
+          "id": "tingsha_thick_small",
+          "default": true,
+          "name": "Small thick discs on leather thong (canonical)",
+          "descriptors": [
+            "piercing-ping",
+            "long-sustain",
+            "beating-partials"
+          ],
+          "match_tokens": [
+            "ritual-chimes",
+            "tibetan-tradition"
+          ]
+        },
+        {
+          "id": "tingsha_thin_wide",
+          "name": "Wider thin discs",
+          "descriptors": [
+            "shimmering",
+            "airy",
+            "softer-attack"
+          ],
+          "match_tokens": [
+            "ritual-chimes",
+            "himalayan"
+          ]
+        },
+        {
+          "id": "tingsha_embossed",
+          "name": "Embossed dragon / mantra relief discs",
+          "descriptors": [
+            "complex-overtones",
+            "slightly-detuned"
+          ],
+          "match_tokens": [
+            "ritual-chimes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tingsha_strike",
+      "name": "Strike technique",
+      "variants": [
+        {
+          "id": "tingsha_edge_clash",
+          "default": true,
+          "name": "Edge-to-edge clash, let ring",
+          "descriptors": [
+            "clear-ping",
+            "fading-shimmer"
+          ],
+          "match_tokens": [
+            "ritual-chimes",
+            "meditative"
+          ]
+        },
+        {
+          "id": "tingsha_flat_clash",
+          "name": "Flat face clash (damped)",
+          "descriptors": [
+            "short",
+            "clicky"
+          ],
+          "match_tokens": [
+            "ritual-chimes"
+          ]
+        },
+        {
+          "id": "tingsha_rolling",
+          "name": "Rolling repeated strikes",
+          "descriptors": [
+            "dense-beating",
+            "hypnotic"
+          ],
+          "match_tokens": [
+            "ritual-chimes"
+          ]
+        }
+      ]
+    }
+  ]
+}

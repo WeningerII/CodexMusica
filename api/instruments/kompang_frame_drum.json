@@ -1,0 +1,168 @@
+{
+  "id": "kompang_frame_drum",
+  "name": "Kompang (Malay hand-held frame drum)",
+  "family": "percussion",
+  "class": "frame_drum",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 0,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "kompang",
+  "parts": [
+    {
+      "id": "kompang_stroke",
+      "name": "Stroke type",
+      "variants": [
+        {
+          "id": "kompang_bung",
+          "default": true,
+          "name": "Bung (open low stroke)",
+          "descriptors": [
+            "open-toned",
+            "round"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "malay"
+          ]
+        },
+        {
+          "id": "kompang_pak",
+          "name": "Pak (slap edge stroke)",
+          "descriptors": [
+            "sharp-slap",
+            "cracking"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "slap"
+          ]
+        },
+        {
+          "id": "kompang_melalu",
+          "name": "Melalu / interlocking group pattern",
+          "descriptors": [
+            "interlocking",
+            "processional"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "procession"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kompang_size",
+      "surface": false,
+      "name": "Frame size",
+      "variants": [
+        {
+          "id": "kompang_standard",
+          "default": true,
+          "name": "Standard 12-inch frame",
+          "descriptors": [
+            "bright",
+            "tight"
+          ],
+          "match_tokens": [
+            "frame-drum"
+          ]
+        },
+        {
+          "id": "kompang_large",
+          "name": "Large frame (lower pitch)",
+          "descriptors": [
+            "deeper",
+            "fuller"
+          ],
+          "match_tokens": [
+            "frame-drum"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kompang_stroke",
+      "name": "Stroke type",
+      "variants": [
+        {
+          "id": "kompang_bung",
+          "default": true,
+          "name": "Bung (open low stroke)",
+          "descriptors": [
+            "open-toned",
+            "round"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "malay"
+          ]
+        },
+        {
+          "id": "kompang_pak",
+          "name": "Pak (slap edge stroke)",
+          "descriptors": [
+            "sharp-slap",
+            "cracking"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "slap"
+          ]
+        },
+        {
+          "id": "kompang_melalu",
+          "name": "Melalu / interlocking group pattern",
+          "descriptors": [
+            "interlocking",
+            "processional"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "procession"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kompang_size",
+      "surface": false,
+      "name": "Frame size",
+      "variants": [
+        {
+          "id": "kompang_standard",
+          "default": true,
+          "name": "Standard 12-inch frame",
+          "descriptors": [
+            "bright",
+            "tight"
+          ],
+          "match_tokens": [
+            "frame-drum"
+          ]
+        },
+        {
+          "id": "kompang_large",
+          "name": "Large frame (lower pitch)",
+          "descriptors": [
+            "deeper",
+            "fuller"
+          ],
+          "match_tokens": [
+            "frame-drum"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,214 @@
+{
+  "id": "jublag",
+  "name": "Jublag (mid-low Balinese metallophone, calung)",
+  "family": "percussion",
+  "class": "metallophone",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 1,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": -1,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "jublag",
+  "parts": [
+    {
+      "id": "jublag_build",
+      "name": "Build",
+      "variants": [
+        {
+          "id": "jublag_bronze_calung",
+          "default": true,
+          "name": "Five bronze keys over bamboo resonators, one octave above jegogan (canonical)",
+          "descriptors": [
+            "warm",
+            "resonant",
+            "round"
+          ],
+          "match_tokens": [
+            "metallophone",
+            "balinese"
+          ]
+        },
+        {
+          "id": "jublag_iron_keys",
+          "name": "Iron-keyed set",
+          "descriptors": [
+            "dull",
+            "dry"
+          ],
+          "match_tokens": [
+            "metallophone",
+            "balinese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jublag_mallet",
+      "name": "Mallet",
+      "variants": [
+        {
+          "id": "jublag_padded",
+          "default": true,
+          "name": "Padded wooden disc panggul",
+          "descriptors": [
+            "soft-attack",
+            "mellow"
+          ],
+          "match_tokens": [
+            "struck",
+            "balinese"
+          ]
+        },
+        {
+          "id": "jublag_bare_wood",
+          "name": "Bare wooden panggul",
+          "descriptors": [
+            "bright-attack",
+            "clear-strike"
+          ],
+          "match_tokens": [
+            "struck",
+            "balinese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jublag_role",
+      "surface": false,
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "jublag_pokok",
+          "default": true,
+          "name": "Core pokok melody, damped on each new stroke (canonical)",
+          "descriptors": [
+            "steady",
+            "anchoring",
+            "damped"
+          ],
+          "match_tokens": [
+            "gong-kebyar",
+            "balinese"
+          ]
+        },
+        {
+          "id": "jublag_gender_wayang_pairing",
+          "name": "Semar pegulingan soft-style part",
+          "descriptors": [
+            "gentle",
+            "flowing"
+          ],
+          "match_tokens": [
+            "balinese",
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "jublag_build",
+      "name": "Build",
+      "variants": [
+        {
+          "id": "jublag_bronze_calung",
+          "default": true,
+          "name": "Five bronze keys over bamboo resonators, one octave above jegogan (canonical)",
+          "descriptors": [
+            "warm",
+            "resonant",
+            "round"
+          ],
+          "match_tokens": [
+            "metallophone",
+            "balinese"
+          ]
+        },
+        {
+          "id": "jublag_iron_keys",
+          "name": "Iron-keyed set",
+          "descriptors": [
+            "dull",
+            "dry"
+          ],
+          "match_tokens": [
+            "metallophone",
+            "balinese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jublag_mallet",
+      "name": "Mallet",
+      "variants": [
+        {
+          "id": "jublag_padded",
+          "default": true,
+          "name": "Padded wooden disc panggul",
+          "descriptors": [
+            "soft-attack",
+            "mellow"
+          ],
+          "match_tokens": [
+            "struck",
+            "balinese"
+          ]
+        },
+        {
+          "id": "jublag_bare_wood",
+          "name": "Bare wooden panggul",
+          "descriptors": [
+            "bright-attack",
+            "clear-strike"
+          ],
+          "match_tokens": [
+            "struck",
+            "balinese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jublag_role",
+      "surface": false,
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "jublag_pokok",
+          "default": true,
+          "name": "Core pokok melody, damped on each new stroke (canonical)",
+          "descriptors": [
+            "steady",
+            "anchoring",
+            "damped"
+          ],
+          "match_tokens": [
+            "gong-kebyar",
+            "balinese"
+          ]
+        },
+        {
+          "id": "jublag_gender_wayang_pairing",
+          "name": "Semar pegulingan soft-style part",
+          "descriptors": [
+            "gentle",
+            "flowing"
+          ],
+          "match_tokens": [
+            "balinese",
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ]
+}

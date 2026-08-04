@@ -1,0 +1,146 @@
+{
+  "id": "gopuz",
+  "name": "Gopuz (Turkmen/Azerbaijani jaw harp)",
+  "family": "plucked_traditional",
+  "class": "jaw_harp",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 0,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -2
+  },
+  "short": "gopuz",
+  "parts": [
+    {
+      "id": "gopuz_material",
+      "name": "Frame material",
+      "variants": [
+        {
+          "id": "gopuz_iron",
+          "default": true,
+          "name": "Forged iron frame with steel tongue",
+          "descriptors": [
+            "twanging",
+            "buzzing-timbre",
+            "metallic"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "plucked-lamella"
+          ]
+        },
+        {
+          "id": "gopuz_brass",
+          "name": "Brass frame",
+          "descriptors": [
+            "softer-toned",
+            "warm-buzz"
+          ],
+          "match_tokens": [
+            "jaw-harp"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gopuz_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "gopuz_vowel",
+          "default": true,
+          "name": "Vowel-shaping overtone melody",
+          "descriptors": [
+            "overtone-rich",
+            "talking"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "overtone"
+          ]
+        },
+        {
+          "id": "gopuz_rhythmic",
+          "name": "Rapid rhythmic plucking",
+          "descriptors": [
+            "pulsing",
+            "percussive"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "gopuz_material",
+      "name": "Frame material",
+      "variants": [
+        {
+          "id": "gopuz_iron",
+          "default": true,
+          "name": "Forged iron frame with steel tongue",
+          "descriptors": [
+            "twanging",
+            "buzzing-timbre",
+            "metallic"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "plucked-lamella"
+          ]
+        },
+        {
+          "id": "gopuz_brass",
+          "name": "Brass frame",
+          "descriptors": [
+            "softer-toned",
+            "warm-buzz"
+          ],
+          "match_tokens": [
+            "jaw-harp"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gopuz_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "gopuz_vowel",
+          "default": true,
+          "name": "Vowel-shaping overtone melody",
+          "descriptors": [
+            "overtone-rich",
+            "talking"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "overtone"
+          ]
+        },
+        {
+          "id": "gopuz_rhythmic",
+          "name": "Rapid rhythmic plucking",
+          "descriptors": [
+            "pulsing",
+            "percussive"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ]
+}

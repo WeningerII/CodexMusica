@@ -1,0 +1,180 @@
+{
+  "id": "sarunay",
+  "name": "Sarunay (Philippine small metal-keyed kulintang saronay)",
+  "family": "percussion",
+  "class": "metallophone",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": 1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "sarunay",
+  "parts": [
+    {
+      "id": "sarunay_keys",
+      "name": "Key material",
+      "variants": [
+        {
+          "id": "sarunay_brass",
+          "default": true,
+          "name": "Brass plate keys in wooden box",
+          "descriptors": [
+            "bright",
+            "clangy",
+            "short-decay"
+          ],
+          "match_tokens": [
+            "metallophone",
+            "maranao"
+          ]
+        },
+        {
+          "id": "sarunay_tin",
+          "name": "Tin / sheet-metal keys (folk build)",
+          "descriptors": [
+            "thin",
+            "tinny",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "metallophone",
+            "philippines"
+          ]
+        },
+        {
+          "id": "sarunay_bronze",
+          "name": "Bronze keys (finer build)",
+          "descriptors": [
+            "rounder",
+            "ringing",
+            "sweeter"
+          ],
+          "match_tokens": [
+            "metallophone",
+            "philippines"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sarunay_role",
+      "name": "Playing role",
+      "variants": [
+        {
+          "id": "sarunay_kulintang_substitute",
+          "default": true,
+          "name": "Portable kulintang substitute (melodic lead)",
+          "descriptors": [
+            "gong-like",
+            "rippling",
+            "leading"
+          ],
+          "match_tokens": [
+            "kulintang",
+            "struck"
+          ]
+        },
+        {
+          "id": "sarunay_teaching",
+          "name": "Teaching / practice instrument",
+          "descriptors": [
+            "light",
+            "simple",
+            "dry"
+          ],
+          "match_tokens": [
+            "metallophone",
+            "struck"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sarunay_keys",
+      "name": "Key material",
+      "variants": [
+        {
+          "id": "sarunay_brass",
+          "default": true,
+          "name": "Brass plate keys in wooden box",
+          "descriptors": [
+            "bright",
+            "clangy",
+            "short-decay"
+          ],
+          "match_tokens": [
+            "metallophone",
+            "maranao"
+          ]
+        },
+        {
+          "id": "sarunay_tin",
+          "name": "Tin / sheet-metal keys (folk build)",
+          "descriptors": [
+            "thin",
+            "tinny",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "metallophone",
+            "philippines"
+          ]
+        },
+        {
+          "id": "sarunay_bronze",
+          "name": "Bronze keys (finer build)",
+          "descriptors": [
+            "rounder",
+            "ringing",
+            "sweeter"
+          ],
+          "match_tokens": [
+            "metallophone",
+            "philippines"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sarunay_role",
+      "name": "Playing role",
+      "variants": [
+        {
+          "id": "sarunay_kulintang_substitute",
+          "default": true,
+          "name": "Portable kulintang substitute (melodic lead)",
+          "descriptors": [
+            "gong-like",
+            "rippling",
+            "leading"
+          ],
+          "match_tokens": [
+            "kulintang",
+            "struck"
+          ]
+        },
+        {
+          "id": "sarunay_teaching",
+          "name": "Teaching / practice instrument",
+          "descriptors": [
+            "light",
+            "simple",
+            "dry"
+          ],
+          "match_tokens": [
+            "metallophone",
+            "struck"
+          ]
+        }
+      ]
+    }
+  ]
+}
