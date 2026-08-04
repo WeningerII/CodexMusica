@@ -1,0 +1,151 @@
+{
+  "id": "weirdcore",
+  "name": "Weirdcore",
+  "family": "electronic",
+  "lineage": "Internet-native aesthetic-driven electronic style spreading through Tumblr, YouTube and TikTok from roughly 2020, soundtracking liminal-space and dreamcore imagery — slow 70-100 BPM loops built from degraded 1990s sample libraries and MIDI presets, pitch-warped and wow-flutter-detuned pads, sparse reverbed drum-machine hits and buried, unintelligible vocal fragments",
+  "recipe": "classic mid-1990s weirdcore, experimental Elec, retro aesthetic branch, ambient experimental electric, lofi experimental electric vaporwave chillwave. thick, breath veiled tone, slow rate, interlocked note trading. field textural sampler, tape replay keyboard, analog poly glitched textural granular synth, TR-909. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 422,
+  "score": 197.226,
+  "config": {
+    "traditions": [
+      "weirdcore",
+      "vaporwave",
+      "chillwave"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "emu_sp1200",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 12.94,
+          "sampler_archetypes": 1.9825,
+          "sampler_bit_depth": 1.7224999999999997,
+          "sampler_workflow": 13.768214285714283,
+          "sampler_classic_context": 21.514999999999997
+        }
+      },
+      {
+        "id": "tape_replay_keyboard",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "tape_voice": "brass_tape",
+          "tape_state": "aged_tape"
+        },
+        "scores": {
+          "keyboard_technique": 1.95,
+          "tape_voice": 0.32999999999999996,
+          "tape_state": 0.195
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 2.75,
+          "poly_archetypes": 0.65,
+          "poly_voices": 0.39,
+          "poly_maker_lineage": -0.7875000000000001
+        }
+      },
+      {
+        "id": "granular_synth",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "granular_use": "granular_idm",
+          "granular_synth_source": "granular_synth_field"
+        },
+        "scores": {
+          "electronic_technique": 12.94,
+          "granular_use": 0.39,
+          "granular_synth_source": 7.02
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 3.360000000000001,
+          "voice_quality": 3.9650000000000007,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.21,
+          "voice_articulation": 16.574999999999992,
+          "voice_microtone": 16.37999999999999,
+          "voice_tradition": 16.181785714285713,
+          "voice_mechanism_compound": 1.8199999999999998,
+          "voice_estill_quality": 1.6249999999999998,
+          "voice_speech_song": 19.499999999999993,
+          "voice_ensemble_config": 17.744999999999994,
+          "voice_ornament_system": 0.195,
+          "voice_pitch_organization": 3.1107142857142867,
+          "voice_processing_chain": 11.45,
+          "voice_multitrack_stack": 4.7125
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_hat",
+          "drum_machine_909_context": "drum_machine_909_techno",
+          "tr909_production_origin": "tr909_behringer_rd_9"
+        },
+        "scores": {
+          "tr909_voice": 0,
+          "drum_machine_909_context": 2.6650000000000005,
+          "tr909_production_origin": 0.15
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "mp3_lossy_modern"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "untreated_bedroom",
+    "chain_mic": "condenser_fet",
+    "chain_pre": "transformerless",
+    "chain_medium": "mp3_lossy_modern",
+    "chain_console": "console_in_the_box"
+  }
+}

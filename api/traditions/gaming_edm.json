@@ -1,0 +1,152 @@
+{
+  "id": "gaming_edm",
+  "name": "Gaming EDM",
+  "family": "electronic",
+  "lineage": "Copyright-free dance music built for streamers and gameplay video from about 2011 onward, centred on the NoCopyrightSounds, Monstercat and Trap Nation catalogues — 128-150 BPM electro house, future bass and melodic dubstep with a supersaw or vocal-chop build, a filtered eight-bar riser into a snare roll, and a wide detuned lead drop, produced entirely in the box by teenage and early-twenties producers and mastered loud for compressed video audio",
+  "recipe": "classic early-2010s gaming edm, electronic Dance, continental branch, hardstyle electronic dance, trance electronic dance, house electronic dance disco house float house. vocal fry, breath veiled tone, straight note core, interlocked note trading. low sub bass wavetable synth, low sub bass digital subtractive, TR-909, sampler drum machine, low sub bass monosynth acid bass. bedroom. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+  "recipe_chars": 519,
+  "score": 271.462,
+  "config": {
+    "traditions": [
+      "gaming_edm",
+      "disco_house",
+      "float_house"
+    ],
+    "instruments": [
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wt_position": "wt_morphing",
+          "wt_family": "wt_industrial",
+          "wt_polyphony": "wt_mono"
+        },
+        "scores": {
+          "electronic_technique": 7.8495,
+          "wt_position": 11.635000000000002,
+          "wt_family": 0.0495,
+          "wt_polyphony": 1.4949999999999999
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "novation_supernova",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 7.8495,
+          "va_archetypes": 1.755,
+          "digital_subtractive_context": 21.059999999999995
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_house",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 20,
+          "drum_machine_909_context": 1.3495,
+          "tr909_production_origin": 0.24
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 0.7,
+          "sample_bitdepth": 0.59,
+          "sample_swing": 22,
+          "sample_processing": 1.4949999999999999
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wave_acid": "saw_acid",
+          "filter_acid": "opening_acid",
+          "accent_acid": "heavy_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": 7.8495,
+          "wave_acid": 0.2895,
+          "filter_acid": 0.285,
+          "accent_acid": 0.45
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 3.835,
+          "voice_quality": 8.384999999999998,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.745,
+          "voice_articulation": 19.369999999999994,
+          "voice_microtone": 19.17499999999999,
+          "voice_tradition": 12.415,
+          "voice_mechanism_compound": 3.6399999999999997,
+          "voice_estill_quality": 4.095000000000001,
+          "voice_speech_song": 19.564999999999994,
+          "voice_ensemble_config": 20.539999999999992,
+          "voice_ornament_system": 1.2054999999999998,
+          "voice_pitch_organization": 3.5894999999999997,
+          "voice_processing_chain": 24.315,
+          "voice_multitrack_stack": 5.720000000000001
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_festival_edm_itb",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_pumping",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "untreated_bedroom",
+    "chain_mic": "condenser_fet",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_pumping",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "2010s alternative R&B subgenre emphasizing emotional-vulnerability, experimental-electronic production, atmospheric-vocal layering, and explicit indie-rock-aesthetic-influence over the broader commercial R&B mainstream. FKA twigs' EP1 (2012) and LP1 (2014) inaugurated the canonical British alt-R&B sound; Jhené Aiko, Banks, Kelela, Tinashe (early career), and the broader Top Dawg Entertainment and Atlantic Records alt-R&B rosters extended the genre.",
   "recipe": "classic alt-r&b, functional Song, soul R&B branch, ambient experimental electric witch house vaporwave aesthetic. thick, breath veiled tone, straight onset, interlocked note trading. pad like pad analog synth, TR-808, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 520,
-  "score": 171.986,
+  "score": 172.185,
   "config": {
     "traditions": [
       "alt_rnb",
@@ -38,17 +38,17 @@
           "voice_quality": 10.594999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.0475000000000003,
+          "voice_vibrato": 2.0250000000000004,
           "voice_articulation": 13.324999999999996,
           "voice_microtone": 13.129999999999992,
-          "voice_tradition": 17.179999999999996,
+          "voice_tradition": 17.509999999999998,
           "voice_mechanism_compound": 1.6899999999999997,
           "voice_estill_quality": 3.745,
           "voice_speech_song": 15.274999999999995,
           "voice_ensemble_config": 14.104999999999995,
           "voice_ornament_system": 1.4949999999999999,
           "voice_pitch_organization": 6.565000000000001,
-          "voice_processing_chain": 11.275,
+          "voice_processing_chain": 11.47,
           "voice_multitrack_stack": 12.349999999999994
         }
       },
@@ -78,7 +78,7 @@
         },
         "scores": {
           "tr808_voice": 1.0650000000000002,
-          "drum_machine_808_context": 5.069999999999999,
+          "drum_machine_808_context": 5.0249999999999995,
           "tr808_production_origin": 0.7150000000000001
         }
       },
@@ -96,8 +96,8 @@
         "scores": {
           "amp_make": 7.0550000000000015,
           "body_wood": 0.8700000000000001,
-          "pickup_config": 0.15,
-          "string_type": 5.404,
+          "pickup_config": 0.255,
+          "string_type": 5.039999999999999,
           "scale_length_b": 0.435,
           "fretted_or_not": 0,
           "bass_technique": 3.65

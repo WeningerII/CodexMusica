@@ -5,7 +5,7 @@
   "lineage": "Bengali-language children's play-song tradition continuous from premodern Bengali folk-play-song origins through 19th-20th century Bengali-Renaissance literary-elevation (Rabindranath Tagore's Sahaj Path 1930 children's-curriculum rhyme-and-text reader canonical) and Sukumar Ray's nonsense-verse Abol Tabol 1923 into modern continuous Bengali-and-Bangladeshi childhood-practice",
   "recipe": "classic early-1930s bengali chhōtōdēr chōṛā, nursery Rhyme, south Asian branch, south Asian lullaby, European nursery rhyme, indian bard ballad poetry cambodian chapei dang veng hindi lori. thick, breath veiled tone, straight onset, interlocked note trading. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 338,
-  "score": 130.317,
+  "score": 130.559,
   "config": {
     "traditions": [
       "bengali_chhotoder_chora",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 5.2250000000000005,
-          "voice_quality": 12.609999999999996,
+          "voice_quality": 12.527499999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.1525000000000003,
           "voice_articulation": 13.519999999999998,
           "voice_microtone": 14.722499999999997,
-          "voice_tradition": 18.31,
+          "voice_tradition": 18.084999999999997,
           "voice_mechanism_compound": 2.5999999999999996,
-          "voice_estill_quality": 5.070625,
+          "voice_estill_quality": 5.325625,
           "voice_speech_song": 21.1575,
           "voice_ensemble_config": 12.609999999999996,
           "voice_ornament_system": 8.844999999999999,
-          "voice_pitch_organization": 8.404999999999998,
-          "voice_processing_chain": 3.3406249999999997,
-          "voice_multitrack_stack": 5.060625
+          "voice_pitch_organization": 8.359999999999998,
+          "voice_processing_chain": 3.3799999999999994,
+          "voice_multitrack_stack": 5.360625
         }
       }
     ],

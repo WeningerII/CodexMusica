@@ -1,0 +1,171 @@
+{
+  "id": "american_metalcore",
+  "name": "American metalcore",
+  "family": "rock_punk",
+  "lineage": "New England and Mid-Atlantic hybrid of hardcore punk and Gothenburg melodic death metal, codified 1997–2004 by Converge, Shadows Fall and Killswitch Engage's Alive or Just Breathing: drop-tuned downpicked riffs and harmonised twin-guitar leads over 160–200 BPM double-kick and half-time breakdowns, screamed verse with sung octave-leaping chorus, and triggered click-forward kick drums in a heavily edited multitrack mix.",
+  "recipe": "classic North American mid-2000s american metalcore, distorted Rock, metal branch, punk distorted rock, death metal, emo distorted rock post-punk trancecore. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, chugging drop a seven string electric, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, brushes-and-sticks drum kit, double bass rapid double strokes bass drum. multi room 1985-2000 major-flagship multitrack flagship us 80s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 726,
+  "score": 364.567,
+  "config": {
+    "traditions": [
+      "american_metalcore",
+      "post_punk",
+      "trancecore"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_palm_muted_chug",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "maple_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_12_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 23.624999999999996,
+          "amp_make": 29.72225,
+          "body_wood": 9.034999999999998,
+          "neck_wood": 1.69,
+          "fretboard": 2.6,
+          "pickup_magnet": 1.3,
+          "pickup_winding": 0.21,
+          "string_material": 0.39,
+          "bridge": 1.69,
+          "scale_length": 6.24,
+          "string_gauge": 2.9899999999999998,
+          "finish": 1,
+          "string_tuning": 16.9
+        }
+      },
+      {
+        "id": "seven_string_electric",
+        "slots": {
+          "seven_string_tuning": "seven_string_drop_a",
+          "seven_string_technique": "seven_string_jazz_chord_melody"
+        },
+        "scores": {
+          "seven_string_tuning": 4.365625,
+          "seven_string_technique": 0.78
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 11.05,
+          "body_wood": 2.9899999999999998,
+          "pickup_config": 1.3,
+          "string_type": 24.863500000000002,
+          "scale_length_b": 1.69,
+          "fretted_or_not": 0.045,
+          "bass_technique": 31.419999999999998
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "double_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 20.052499999999995,
+          "drumhead": 1.69,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_gang_vocal_unison",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 20.579999999999995,
+          "voice_quality": 4.290000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.460000000000001,
+          "voice_articulation": 20.084999999999994,
+          "voice_microtone": 21.12499999999999,
+          "voice_tradition": 3.5750000000000006,
+          "voice_mechanism_compound": 30.01625,
+          "voice_estill_quality": 2.925000000000001,
+          "voice_speech_song": 21.384999999999994,
+          "voice_ensemble_config": 22.654,
+          "voice_ornament_system": 0.45499999999999996,
+          "voice_pitch_organization": 1.8432499999999998,
+          "voice_processing_chain": 5.654999999999999,
+          "voice_multitrack_stack": 5.07
+        }
+      },
+      {
+        "id": "bass_drum",
+        "slots": {
+          "bass_drum_size": "bass_drum_22_standard",
+          "bass_drum_beater": "bass_drum_double_pedal"
+        },
+        "scores": {
+          "bass_drum_size": 0,
+          "bass_drum_beater": 3.185
+        }
+      }
+    ],
+    "room": "studio_multitrack_flagship_us_80s",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "pre_api_312",
+      "console": "console_in_the_box",
+      "comp": "comp_1176_fet",
+      "eq": "eq_api_550",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+    "room": "studio_multitrack_flagship_us_80s",
+    "chain_mic": "mic_sm57_dynamic_shure",
+    "chain_pre": "pre_api_312",
+    "chain_comp": "comp_1176_fet",
+    "chain_eq": "eq_api_550",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

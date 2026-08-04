@@ -1,0 +1,168 @@
+{
+  "id": "lofi_beats",
+  "name": "Lo-fi beats",
+  "family": "electronic",
+  "lineage": "Internet-native instrumental hip-hop descended from J Dilla and Nujabes and consolidated 2015-2020 around YouTube livestreams and Bandcamp labels — 70-90 BPM unquantized boom-bap drums with pushed-back snares, dusty filtered jazz-piano and Rhodes samples, vinyl crackle and tape-wow layers, sub-heavy but soft-transient bass, ambient field-recording and anime dialogue interludes, arranged as 90-second loop-based sketches with almost no vocal or harmonic development.",
+  "recipe": "classic mid-2010s lo-fi beats, experimental Elec, lofi branch, ambient experimental electric, us hip hop east coast, retro aesthetic experimental electric vapor twitch drumless hip hop. field textural sampler, sampled chopped sampler drum machine, electric piano tine, prepared upright piano, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, sampled chopped turntable, sub bass analog poly synth, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ebonite continuous-airflow saxophone. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 652,
+  "score": 144.903,
+  "config": {
+    "traditions": [
+      "lofi_beats",
+      "vapor_twitch",
+      "drumless_hip_hop"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "emu_sp1200",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 12.865,
+          "sampler_archetypes": 8.535,
+          "sampler_bit_depth": 3.4900000000000007,
+          "sampler_workflow": 13.615,
+          "sampler_classic_context": 24.1475
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twelve_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 5.715,
+          "sample_bitdepth": 2.9250000000000003,
+          "sample_swing": 7.385,
+          "sample_processing": 0.39
+        }
+      },
+      {
+        "id": "electric_piano_tine",
+        "slots": {
+          "keyboard_technique": "keyboard_ostinato_groove",
+          "tine_voicing": "aggressive_tine",
+          "tine_effect": "phaser_tine"
+        },
+        "scores": {
+          "keyboard_technique": 2.375,
+          "tine_voicing": 0.255,
+          "tine_effect": 0.75
+        }
+      },
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_avant_prepared",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_spinet"
+        },
+        "scores": {
+          "keyboard_technique": 11.700000000000001,
+          "upright_use": 0.39,
+          "upright_piano_size": 0.15
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_walking"
+        },
+        "scores": {
+          "amp_make": 3.1050000000000004,
+          "body_wood": 1.69,
+          "pickup_config": 1.5550000000000002,
+          "string_type": 4.914999999999999,
+          "scale_length_b": 0.39,
+          "fretted_or_not": 0,
+          "bass_technique": 3.75
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_scratch"
+        },
+        "scores": {
+          "electronic_technique": 5.715,
+          "turntable_technique": 8.09
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_yamaha_cs"
+        },
+        "scores": {
+          "electronic_technique": 8.735,
+          "poly_archetypes": 0.32999999999999996,
+          "poly_voices": 0.32999999999999996,
+          "poly_maker_lineage": -0.875
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "tenor_sax",
+          "sax_reed": "hard_reed",
+          "sax_body_alloy": "phosphor_bronze_sax",
+          "sax_mouthpiece": "ebonite_vintage",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 2.57,
+          "sax_size": 1.5250000000000001,
+          "sax_reed": 1.11,
+          "sax_body_alloy": 3.84,
+          "sax_mouthpiece": 1.155,
+          "sax_technique": 3.75,
+          "sax_maker_school": 2.21
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_pumping",
+      "eq": null,
+      "amp": null,
+      "medium": "mp3_lossy_modern"
+    },
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "room": "untreated_bedroom",
+    "chain_mic": "condenser_fet",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_pumping",
+    "chain_medium": "mp3_lossy_modern",
+    "chain_console": "console_in_the_box"
+  }
+}

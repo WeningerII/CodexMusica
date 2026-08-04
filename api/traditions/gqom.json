@@ -3,12 +3,13 @@
   "name": "Gqom",
   "family": "global",
   "lineage": "South African Durban-Zulu late-2000s minimal-bass dance subgenre, codified through Naked Boys, DJ Lag, Citizen Boy, and Rudeboyz starting circa 2010 — characterized by repetitive 4/4 sub-bass-driven drum patterns at 120-130 BPM, sparse hi-hats, vocal chants in isiZulu, and the deliberately dark / minimal aesthetic distinguishing it from house and amapiano",
-  "recipe": "classic Southern African 2007-2009 gqom, electronic Dance, African dance branch, Afro-diasporic MC rhythm kwaito. vocal fry, breath veiled tone, straight onset, interlocked note trading. TR-808, sub bass monosynth acid bass, sub bass analog poly synth. live tracking. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
-  "recipe_chars": 351,
-  "score": 122.41,
+  "recipe": "classic Southern African 2007-2009 gqom, electronic Dance, African dance branch, Afro-diasporic MC rhythm funk consciente kwaito. vocal fry, breath veiled tone, straight onset, interlocked note trading. TR-808, sub bass monosynth acid bass, sub bass analog poly synth. live tracking. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
+  "recipe_chars": 367,
+  "score": 157.918,
   "config": {
     "traditions": [
       "gqom",
+      "funk_consciente",
       "kwaito"
     ],
     "instruments": [
@@ -33,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 2.292875,
-          "voice_quality": 4.875000000000001,
+          "voice_register": 2.48725,
+          "voice_quality": 8.255,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.8199999999999998,
-          "voice_articulation": 12.089999999999995,
-          "voice_microtone": 11.114999999999991,
-          "voice_tradition": 18.11975,
-          "voice_mechanism_compound": 1.625,
-          "voice_estill_quality": 2.3,
-          "voice_speech_song": 11.309999999999995,
-          "voice_ensemble_config": 12.414999999999994,
-          "voice_ornament_system": 2.4898750000000005,
-          "voice_pitch_organization": 1.705625,
-          "voice_processing_chain": 8.73325,
-          "voice_multitrack_stack": 5.395000000000001
+          "voice_vibrato": 1.81025,
+          "voice_articulation": 16.314999999999994,
+          "voice_microtone": 15.14499999999999,
+          "voice_tradition": 18.276,
+          "voice_mechanism_compound": 3.5100000000000002,
+          "voice_estill_quality": 2.9499999999999997,
+          "voice_speech_song": 15.534999999999995,
+          "voice_ensemble_config": 16.444999999999993,
+          "voice_ornament_system": 4.290000000000002,
+          "voice_pitch_organization": 1.777625,
+          "voice_processing_chain": 9.24025,
+          "voice_multitrack_stack": 6.695000000000002
         }
       },
       {
@@ -56,12 +57,12 @@
         "slots": {
           "tr808_voice": "tr808_kick_long",
           "drum_machine_808_context": "drum_machine_808_trap",
-          "tr808_production_origin": "tr808_behringer_clone"
+          "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 4.8378749999999995,
-          "drum_machine_808_context": 4.901,
-          "tr808_production_origin": 0.176625
+          "tr808_voice": 7.285125000000001,
+          "drum_machine_808_context": 6.760125,
+          "tr808_production_origin": 0.1515
         }
       },
       {
@@ -73,10 +74,10 @@
           "accent_acid": "no_accent_acid"
         },
         "scores": {
-          "electronic_technique": 4.741625,
-          "wave_acid": 0.339,
-          "filter_acid": 2.664,
-          "accent_acid": 2.3
+          "electronic_technique": 7.230125000000001,
+          "wave_acid": 0.3345,
+          "filter_acid": 2.8455000000000004,
+          "accent_acid": 2.9499999999999997
         }
       },
       {
@@ -88,10 +89,10 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 4.741625,
-          "poly_archetypes": 0.178125,
-          "poly_voices": 0.178125,
-          "poly_maker_lineage": -1.9847499999999998
+          "electronic_technique": 7.230125000000001,
+          "poly_archetypes": 0.173625,
+          "poly_voices": 0.173625,
+          "poly_maker_lineage": -1.9978749999999998
         }
       }
     ],

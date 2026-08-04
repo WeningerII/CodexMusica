@@ -5,7 +5,7 @@
   "lineage": "Czech drinking-song (pijácká píseň) tradition continuous from medieval Bohemian-tavern-song origins through 19th-century Czech-Republican-era Smetana-and-Dvořák-folk-collection era continuous through 20th-century Czechoslovak-and-Czech continuous pub-practice; foundational repertoire includes \"Pivo, pivo, pivo\" (Beer, beer, beer)",
   "recipe": "classic modern czech pijácká píseň, drinking Song, European branch, balkan drinking song, iberian functional song, Slavic bard ballad poetry georgian supra feast-singing macedonian-serbian kafana drinking song. thick, breath veiled tone, fast rate, interlocked note trading. steel castagnari Italian premium folk music straight accordion. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 412,
-  "score": 135.69,
+  "score": 135.585,
   "config": {
     "traditions": [
       "czech_pijacka",
@@ -34,18 +34,18 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 5.355,
+          "voice_register": 5.505000000000001,
           "voice_quality": 7.995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.69,
           "voice_articulation": 11.439999999999994,
           "voice_microtone": 12.47999999999999,
-          "voice_tradition": 27.009999999999998,
+          "voice_tradition": 26.814999999999998,
           "voice_mechanism_compound": 0.78,
           "voice_estill_quality": 0.585,
           "voice_speech_song": 26.389999999999993,
-          "voice_ensemble_config": 17.32,
+          "voice_ensemble_config": 17.02,
           "voice_ornament_system": 2.8149999999999995,
           "voice_pitch_organization": 8.17,
           "voice_processing_chain": 0.9749999999999996,
@@ -58,7 +58,7 @@
           "free_reed_technique": "free_reed_folk_first_position",
           "accordion_reed_material": "steel_reeds",
           "musette_offset": "scottish_musette",
-          "reed_config": "lmmm",
+          "reed_config": "lmmh",
           "bellows": "cardboard_leather",
           "voicing_chamber": "no_cassotto",
           "accordion_maker_school": "accordion_castagnari_italian"
@@ -67,7 +67,7 @@
           "free_reed_technique": 5.885000000000001,
           "accordion_reed_material": 1.69,
           "musette_offset": 1.69,
-          "reed_config": 0.105,
+          "reed_config": 0.345,
           "bellows": 0.09,
           "voicing_chamber": 1.69,
           "accordion_maker_school": 4.03

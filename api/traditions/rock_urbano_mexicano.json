@@ -1,0 +1,186 @@
+{
+  "id": "rock_urbano_mexicano",
+  "name": "Rock urbano mexicano",
+  "family": "rock",
+  "lineage": "Working-class Mexico City rock forged in the hoyos fonquis of the 1970s-80s by Alex Lora's Three Souls in My Mind and El Tri, then Banda Bostik, El Haragán y Compañía and Liran' Roll — blues-shuffle and mid-tempo hard-rock forms at 90-130 BPM with pentatonic guitar riffs, harmonica, plainspoken chorded Spanish shouted vocals, and lyrics about poverty, police, alcohol and barrio life sold on cassette outside the commercial industry.",
+  "recipe": "classic North American mid-1970s rock urbano mexicano, distorted Rock, regional branch, classic distorted rock, iberian Latin protest song acid rock garage rock. thick, breath veiled tone, wide pitch sway, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, sticks backbeat drum kit, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, Hammond b3 canonical 1955 1975 jazz gospel rock standard fast tremolo tonewheel organ. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 827,
+  "score": 507.91,
+  "config": {
+    "traditions": [
+      "rock_urbano_mexicano",
+      "acid_rock",
+      "garage_rock"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
+          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 38.895000000000024,
+          "voice_quality": 12.739999999999997,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 8.035,
+          "voice_articulation": 16.834999999999997,
+          "voice_microtone": 32.250000000000014,
+          "voice_tradition": 3.4450000000000003,
+          "voice_mechanism_compound": 9.23,
+          "voice_estill_quality": 2.5349999999999997,
+          "voice_speech_song": 18.33,
+          "voice_ensemble_config": 16.964999999999996,
+          "voice_ornament_system": 1.6999999999999997,
+          "voice_pitch_organization": 2.2850000000000006,
+          "voice_processing_chain": 8.06,
+          "voice_multitrack_stack": 4.16
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_11_hum",
+          "finish": "oil_satin_hum",
+          "string_tuning": "eb_standard"
+        },
+        "scores": {
+          "electric_technique": 10.530000000000001,
+          "amp_make": 20.214999999999996,
+          "body_wood": 2.9899999999999998,
+          "neck_wood": 1.95,
+          "fretboard": 1.885,
+          "pickup_magnet": 0.195,
+          "pickup_winding": 2.8600000000000003,
+          "string_material": 0.195,
+          "bridge": 1.95,
+          "scale_length": 1.95,
+          "string_gauge": 1.95,
+          "finish": 1.04,
+          "string_tuning": 21.45
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 17.81,
+          "body_wood": 1.95,
+          "pickup_config": 0.045,
+          "string_type": 40.305,
+          "scale_length_b": 1.95,
+          "fretted_or_not": 0,
+          "bass_technique": 33.885
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "double_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 32.59,
+          "drumhead": 1.95,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "harmonica",
+        "slots": {
+          "harmonica_type": "tremolo_harm",
+          "harmonica_comb": "pearwood_comb",
+          "harmonica_reed": "brass_harm",
+          "harmonica_technique": "harm_blues_cross",
+          "harmonica_maker_school": "harmonica_hohner_marine_band",
+          "harmonica_tuning": "harmonica_richter_canonical"
+        },
+        "scores": {
+          "harmonica_type": 0.845,
+          "harmonica_comb": 8.075000000000001,
+          "harmonica_reed": 8.335,
+          "harmonica_technique": 6.600000000000001,
+          "harmonica_maker_school": 6.175000000000001,
+          "harmonica_tuning": 3.1200000000000006
+        }
+      },
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "drawbar_setting": "rock_drawbars",
+          "rotary_speed": "fast_tremolo",
+          "percussion_setting": "percussion_on_long",
+          "tonewheel_model": "tonewheel_hammond_b3",
+          "leslie_cabinet_model": "leslie_122_canonical"
+        },
+        "scores": {
+          "keyboard_technique": 1.105,
+          "drawbar_setting": 32.635,
+          "rotary_speed": 32.45,
+          "percussion_setting": 16.9,
+          "tonewheel_model": 14.104999999999997,
+          "leslie_cabinet_model": 0.78
+        }
+      }
+    ],
+    "room": "studio_indie_commercial_us_80s",
+    "archetype": "arch_80s_indie_commercial_us",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "transformer_solid_state",
+      "console": "console_american_op_amp",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+    "room": "studio_indie_commercial_us_80s",
+    "chain_mic": "mic_sm57_dynamic_shure",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_american_op_amp"
+  }
+}

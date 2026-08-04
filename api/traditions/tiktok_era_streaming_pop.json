@@ -3,19 +3,20 @@
   "name": "TikTok-era streaming pop",
   "family": "vernacular",
   "lineage": "2020s short-form-platform-native pop crafted for algorithmic discovery on TikTok and Instagram Reels — characterized by hook-foregrounded sub-thirty-second song structures, mid-song genre-and-tempo pivots, viral-dance-and-challenge-targeted composition, and rapid-iteration release cycles — exemplars include Olivia Rodrigo (SOUR 2021), Lil Nas X (Old Town Road 2019), Doja Cat, PinkPantheress, Ice Spice, with the form representing a structural shift from album-era pop construction",
-  "recipe": "classic mid-2020s tiktok-era streaming pop, functional Song, pop rock branch, pop experimental experimental electric hyperpop. extended whistle, breath veiled tone, straight note core, interlocked note trading. field textural sampler, TR-808, plucked short envelope analog poly synth, ukulele. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 432,
-  "score": 212.162,
+  "recipe": "classic mid-2020s tiktok-era streaming pop, functional Song, pop rock branch, pop experimental experimental electric hyperpop sigilkore. thick, breath veiled tone, straight note core, interlocked note trading. field textural sampler, TR-808, plucked short envelope analog poly synth, ukulele. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 431,
+  "score": 264.083,
   "config": {
     "traditions": [
       "tiktok_era_streaming_pop",
-      "hyperpop"
+      "hyperpop",
+      "sigilkore"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "extended_whistle_register",
+          "voice_register": "chest_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -33,39 +34,39 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 26.3875,
-          "voice_quality": 3.835000000000001,
+          "voice_register": 28.106499999999997,
+          "voice_quality": 6.175000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.2999999999999998,
-          "voice_articulation": 9.294999999999998,
-          "voice_microtone": 25.424999999999997,
-          "voice_tradition": 27.43,
-          "voice_mechanism_compound": 1.885,
-          "voice_estill_quality": 1.6899999999999997,
-          "voice_speech_song": 15.274999999999995,
-          "voice_ensemble_config": 9.425,
-          "voice_ornament_system": 1.15,
-          "voice_pitch_organization": 1.3315000000000001,
-          "voice_processing_chain": 8.405000000000001,
-          "voice_multitrack_stack": 5.98
+          "voice_vibrato": 1.6574999999999995,
+          "voice_articulation": 15.599999999999998,
+          "voice_microtone": 27.874999999999996,
+          "voice_tradition": 29.8715,
+          "voice_mechanism_compound": 3.185,
+          "voice_estill_quality": 2.990000000000001,
+          "voice_speech_song": 22.424999999999997,
+          "voice_ensemble_config": 15.729999999999997,
+          "voice_ornament_system": 1.345,
+          "voice_pitch_organization": 1.5265,
+          "voice_processing_chain": 10.3565,
+          "voice_multitrack_stack": 7.410000000000001
         }
       },
       {
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_glitch_textural",
-          "sampler_archetypes": "roland_s750",
+          "sampler_archetypes": "mpc_modern",
           "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
           "sampler_workflow": "sampler_field_recordings",
           "sampler_classic_context": "sampler_classic_pop_production"
         },
         "scores": {
-          "electronic_technique": 7.2315,
-          "sampler_archetypes": 0.29400000000000004,
-          "sampler_bit_depth": 0.9314999999999999,
-          "sampler_workflow": 8.072999999999999,
-          "sampler_classic_context": 21.1365
+          "electronic_technique": 11.901499999999999,
+          "sampler_archetypes": 1.085,
+          "sampler_bit_depth": 1.0815,
+          "sampler_workflow": 12.9515,
+          "sampler_classic_context": 23.435000000000002
         }
       },
       {
@@ -76,9 +77,9 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 1.2815,
+          "tr808_voice": 2.3725,
           "drum_machine_808_context": 2.2749999999999995,
-          "tr808_production_origin": 0.1365
+          "tr808_production_origin": 0.45499999999999996
         }
       },
       {
@@ -90,9 +91,9 @@
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 23.925000000000004,
+          "electronic_technique": 26.645000000000003,
           "poly_archetypes": 2.6,
-          "poly_voices": 0.231,
+          "poly_voices": 0.195,
           "poly_maker_lineage": -0.7350000000000001
         }
       },
@@ -104,8 +105,8 @@
           "ukulele_wood": "ukulele_koa"
         },
         "scores": {
-          "ukulele_size": 0.9555,
-          "ukulele_style": 0.0315,
+          "ukulele_size": 1.0425,
+          "ukulele_style": 0.845,
           "ukulele_wood": 0.12999999999999998
         }
       }

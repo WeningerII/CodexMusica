@@ -5,7 +5,7 @@
   "lineage": "Hungarian magyar nóta (\"Hungarian song\") urban-popular song-form developing in nineteenth-century Hungarian cities as composed-popular-song with Hungarian-Gypsy-scale modal characteristics, performed by Roma cigányzenekar bands at coffee-houses, restaurants, and private parties. Distinguished from authentic peasant népdal folk-song (which Bartók and Kodály championed against magyar nóta as ethnographic-cultural-purity) by magyar nóta's composed-individual-author (vs anonymous-collective-folk) compositional framework. Performance: solo singer with cigányzenekar ensemble of first-violin (prímás), second-violin and viola accompaniment, cimbalom, clarinet, and double-bass. The genre remained dominant in twentieth-century Hungarian urban popular culture and continues today as a sentimental cultural form.",
   "recipe": "classic Central European early-1940s hungarian magyar nóta, functional Song, europop branch, chanson fado ballad poetry cape verdean batuko of santiago island morna. thick, breath veiled tone, slow rate, interlocked note trading. sitka spruce Baroque setup short neck shorter fingerboard lighter bass bar violin orchestral, concert pedal cimbalom large frame pedal damper hard wood bright percussive cimbalom, softer tone ebonite hard rubber klezmer tradition clarinet, traditional tarogato. prague state label studio 1948-present mid tier prague supraphon studio. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 687,
-  "score": 343.364,
+  "score": 343.798,
   "config": {
     "traditions": [
       "hungarian_magyar_nota",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
         },
         "scores": {
-          "voice_register": 7.3265,
+          "voice_register": 7.295,
           "voice_quality": 26.65,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -46,7 +46,7 @@
           "voice_estill_quality": 6.760000000000002,
           "voice_speech_song": 39.714999999999996,
           "voice_ensemble_config": 26.194999999999997,
-          "voice_ornament_system": 2.3249999999999997,
+          "voice_ornament_system": 2.34,
           "voice_pitch_organization": 2.795000000000001,
           "voice_processing_chain": 6.954999999999999,
           "voice_multitrack_stack": 5.135
@@ -102,20 +102,20 @@
         "scores": {
           "wind_articulation": 0.78,
           "clarinet_body": 3.445,
-          "clarinet_size": 4.015,
-          "clarinet_reed": 0.15,
+          "clarinet_size": 4.164999999999999,
+          "clarinet_reed": 0.3,
           "clarinet_articulation": 0
         }
       },
       {
         "id": "tarogato",
         "slots": {
-          "tarogato_type": "tarogato_schunda_soprano",
+          "tarogato_type": "tarogato_tenor",
           "tarogato_repertoire": "tarogato_magyar_nota",
           "tarogato_body_wood": "tarogato_plumwood"
         },
         "scores": {
-          "tarogato_type": 21.25,
+          "tarogato_type": 21.4,
           "tarogato_repertoire": 22.995,
           "tarogato_body_wood": 21.64
         }

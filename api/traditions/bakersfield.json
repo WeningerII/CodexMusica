@@ -3,13 +3,14 @@
   "name": "Bakersfield country",
   "family": "vernacular",
   "lineage": "California Central Valley honky-tonk-derived country tradition that emerged in 1950s-60s Bakersfield as a West Coast reaction against the smoother Nashville Sound — codified through Buck Owens (Capitol Records Bakersfield voice from 1959 onward, Together Again 1964) and Merle Haggard (post-Owens Bakersfield extension, Mama Tried 1968, Okie from Muskogee 1969), played by the Buckaroos (Owens band led by Don Rich) and the Strangers (Haggards band); built on Telecaster-and-pedal-steel-foreground arrangement, faster shuffle tempos than typical Nashville fare, and Dust-Bowl-migration cultural lineage",
-  "recipe": "classic Southern American mid-1950s bakersfield country, functional Song, honky tonk era branch, outlaw country. thick, breath veiled tone, straight note core, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright classic country brass pedal steel, Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, Fender tweed amp American 50s amp tweed breakup alder pyramid electric bass, ride-driven brushes-and-sticks drum kit, steel double stops fiddle. nashville music row defining 1957-present major-flagship nashville rca studio b quonset hut. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay spring reverb analog bucket-brigade delay.",
-  "recipe_chars": 812,
-  "score": 348.876,
+  "recipe": "classic Southern American mid-1950s bakersfield country, functional Song, honky tonk era branch, outlaw country redneck rock. thick, breath veiled tone, wide pitch sway, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, Fender tweed amp American 50s amp tweed breakup alder ernie ball slinky electric bass, ride-driven brushes-and-sticks drum kit, steel double stops fiddle. nashville music row defining 1957-present major-flagship nashville rca studio b quonset hut. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay spring reverb analog bucket-brigade delay.",
+  "recipe_chars": 832,
+  "score": 540.48,
   "config": {
     "traditions": [
       "bakersfield",
-      "outlaw_country"
+      "outlaw_country",
+      "redneck_rock"
     ],
     "instruments": [
       {
@@ -19,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "oscillating_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
@@ -29,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 20.099999999999994,
-          "voice_quality": 9.165000000000001,
+          "voice_register": 37.60000000000002,
+          "voice_quality": 11.699999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 17.018625,
-          "voice_articulation": 8.6205,
-          "voice_microtone": 8.550374999999999,
-          "voice_tradition": 2.9895,
-          "voice_mechanism_compound": 1.04,
-          "voice_estill_quality": 17.840125,
-          "voice_speech_song": 13.324999999999996,
-          "voice_ensemble_config": 9.906749999999995,
-          "voice_ornament_system": 1.2001249999999999,
+          "voice_vibrato": 26.592374999999997,
+          "voice_articulation": 13.714999999999996,
+          "voice_microtone": 12.869999999999994,
+          "voice_tradition": 5.525000000000001,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 27.740124999999995,
+          "voice_speech_song": 19.434999999999995,
+          "voice_ensemble_config": 14.689999999999996,
+          "voice_ornament_system": 1.4300000000000002,
           "voice_pitch_organization": 1.1049999999999998,
-          "voice_processing_chain": 4.569375,
-          "voice_multitrack_stack": 2.9176249999999997
+          "voice_processing_chain": 5.950499999999999,
+          "voice_multitrack_stack": 4.68
         }
       },
       {
@@ -58,20 +59,20 @@
           "amp_make": "amp_american_fender_blackface",
           "pickup_steel": "humbucker_steel",
           "string_setup": "standard_e9",
-          "bar_material": "brass_bar",
+          "bar_material": "steel_bar",
           "pedal_steel_brand": "sho_bud_classic",
           "pedal_steel_neck_config": "pedal_steel_single_neck_e9",
           "pedal_steel_strings": "pedal_steel_george_l_e9"
         },
         "scores": {
-          "electric_technique": 20.101125,
-          "amp_make": 17.355499999999996,
+          "electric_technique": 31.821125,
+          "amp_make": 26.636999999999993,
           "pickup_steel": 0.65,
-          "string_setup": 7.9624999999999995,
-          "bar_material": 1.95,
-          "pedal_steel_brand": 23.0055,
-          "pedal_steel_neck_config": 17.851625,
-          "pedal_steel_strings": 21.08125
+          "string_setup": 13.259999999999998,
+          "bar_material": 2.716125,
+          "pedal_steel_brand": 32.4505,
+          "pedal_steel_neck_config": 28.852125,
+          "pedal_steel_strings": 30.52625
         }
       },
       {
@@ -91,18 +92,18 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 19.5,
-          "amp_make": 17.355499999999996,
+          "electric_technique": 29.4,
+          "amp_make": 26.636999999999993,
           "body_wood": 1.95,
           "neck_wood": 1.95,
           "fretboard": 1.885,
           "pickup_magnet": 0.3,
-          "string_material": 1.885,
+          "string_material": 2.925,
           "string_gauge": 0.65,
-          "bridge": 0,
+          "bridge": 0.105,
           "scale_length": 1.95,
           "finish": 0.03712499999999999,
-          "string_tuning": 1.56
+          "string_tuning": 6.045
         }
       },
       {
@@ -111,19 +112,19 @@
           "amp_make": "amp_american_fender_tweed",
           "body_wood": "alder_b",
           "pickup_config": "split_coil",
-          "string_type": "pyramid_pure_nickel",
+          "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
           "bass_technique": "fingerpicked_country_b"
         },
         "scores": {
-          "amp_make": 16.9305,
+          "amp_make": 26.211999999999996,
           "body_wood": 1.95,
           "pickup_config": 0,
-          "string_type": 3.7700000000000005,
+          "string_type": 12.655,
           "scale_length_b": 0.65,
           "fretted_or_not": 0.04462499999999999,
-          "bass_technique": 16.3235
+          "bass_technique": 25.71
         }
       },
       {
@@ -134,7 +135,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 8.8515,
+          "drum_technique": 13.324999999999998,
           "drumhead": 0.95,
           "drum_kit_kick_pedal": 0
         }
@@ -149,9 +150,9 @@
           "fiddle_articulation": "sul_pont"
         },
         "scores": {
-          "bowed_technique": 16.05,
-          "fiddle_strings": 1.76275,
-          "fiddle_bow": 0,
+          "bowed_technique": 28.299999999999997,
+          "fiddle_strings": 2.80275,
+          "fiddle_bow": 0.195,
           "fiddle_mute": 0.195,
           "fiddle_articulation": 0.195
         }

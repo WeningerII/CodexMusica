@@ -1,0 +1,177 @@
+{
+  "id": "lagu_jawa",
+  "name": "Lagu Jawa (Javanese Popular Song)",
+  "family": "global",
+  "lineage": "Central Javanese popular song strand running from 1950s-70s langgam Jawa — Western-derived kroncong song form sung in Javanese over gamelan-imitating guitar, cello pizzicato and siter, codified by Gesang and Waldjinah — into 1990s campursari, where Manthous and later Didi Kempot fused slendro/pelog-tuned gamelan instruments with electric bass, keyboard and kendang-driven dangdut rhythm at 90-120 BPM.",
+  "recipe": "classic Southeast Asian mid-1950s lagu jawa, functional Song, east Asian pop branch, southeast Asian art music, Mediterranean ballad ballad poetry thai classical indonesian keroncong. thick, breath veiled tone, slow rate, interlocked note trading. gamelan javanese full, gamelan javanese teak premium javanese court buffalo hide rattan lacing canonical javanese kendang indonesian, heptatonic pelog tuning saron gamelan, gender, bamboo rattan band fipple canonical javanese balinese continuous-airflow legato suling, alder pyramid pure nickel bass British mid 60s era electric bass, singing lead digital subtractive. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 774,
+  "score": 308.052,
+  "config": {
+    "traditions": [
+      "lagu_jawa",
+      "thai_classical",
+      "indonesian_keroncong"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_carnatic_gamaka",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 10.799999999999999,
+          "voice_quality": 12.48,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 11.212499999999995,
+          "voice_articulation": 20.8,
+          "voice_microtone": 19.174999999999997,
+          "voice_tradition": 16.964999999999996,
+          "voice_mechanism_compound": 6.774999999999997,
+          "voice_estill_quality": 10.042499999999997,
+          "voice_speech_song": 27.429999999999996,
+          "voice_ensemble_config": 23.074999999999996,
+          "voice_ornament_system": 6.774999999999998,
+          "voice_pitch_organization": 30.009999999999998,
+          "voice_processing_chain": 5.785,
+          "voice_multitrack_stack": 5.330000000000001
+        }
+      },
+      {
+        "id": "gamelan_javanese_full",
+        "slots": {
+          "sections": "gj_rebab_voice",
+          "tuning": "gj_pelog"
+        },
+        "scores": {
+          "sections": 3.9649999999999985,
+          "tuning": 4.419999999999998
+        }
+      },
+      {
+        "id": "kendang_indonesian",
+        "slots": {
+          "kendang_size": "kendang_gendhing",
+          "kendang_context": "kendang_javanese",
+          "kendang_shell_wood": "kendang_teak",
+          "kendang_head": "kendang_buffalo_hide_canonical"
+        },
+        "scores": {
+          "kendang_size": 3.5749999999999993,
+          "kendang_context": 8.059999999999999,
+          "kendang_shell_wood": 7.149999999999999,
+          "kendang_head": 4.484999999999999
+        }
+      },
+      {
+        "id": "saron_gamelan",
+        "slots": {
+          "saron_size": "saron_barung",
+          "saron_tuning_system": "saron_pelog"
+        },
+        "scores": {
+          "saron_size": 0.78,
+          "saron_tuning_system": 3.705
+        }
+      },
+      {
+        "id": "gender",
+        "slots": {
+          "gender_use": "gender_javanese",
+          "gender_tuning": "gender_pelog"
+        },
+        "scores": {
+          "gender_use": 3.9649999999999985,
+          "gender_tuning": 4.419999999999998
+        }
+      },
+      {
+        "id": "suling",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "suling_use": "suling_gamelan",
+          "suling_tuning": "suling_pelog",
+          "suling_body_material": "suling_bamboo_canonical"
+        },
+        "scores": {
+          "wind_articulation": 7.019999999999998,
+          "suling_use": 3.9649999999999985,
+          "suling_tuning": 7.084999999999998,
+          "suling_body_material": 4.68
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "sub_bass_synth_blend"
+        },
+        "scores": {
+          "amp_make": 1.625,
+          "body_wood": 2.1449999999999996,
+          "pickup_config": 0.8449999999999999,
+          "string_type": 4.49,
+          "scale_length_b": 1.6449999999999998,
+          "fretted_or_not": 0.045,
+          "bass_technique": 0.9
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "va_archetypes": "novation_supernova",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 5.025,
+          "va_archetypes": 0.45499999999999996,
+          "digital_subtractive_context": 20.410000000000004
+        }
+      }
+    ],
+    "room": "jakarta_bangkok_southeast_asian_studio",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "console_soundcraft_3200_uk_80s",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "pelog_slendro_javanese",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "pelog_slendro_javanese",
+    "room": "jakarta_bangkok_southeast_asian_studio",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "transformer_solid_state",
+    "chain_medium": "cassette_medium",
+    "chain_console": "console_soundcraft_3200_uk_80s"
+  }
+}

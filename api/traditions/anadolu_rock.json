@@ -5,7 +5,7 @@
   "lineage": "Late-1960s-onward Turkish psychedelic-folk rock genre codified through Cem Karaca, Erkin Koray (whose 1974 Elektronik Türküler is the album), Barış Manço, the Moğollar band, the Mavi Çocuklar — fusing Turkish folk-saz repertoire and Anatolian regional song-traditions with electric instrumentation, rock rhythm-section foundation, and characteristic distorted-electric-saz lead-voice",
   "recipe": "classic Middle Eastern 1967-1969 anadolu rock, distorted Rock, regional branch, classic distorted rock britpop. thick, breath veiled tone, straight note core, interlocked note trading. marshall plexi amp British rock amp basswood soft down tuning power chord humbucker electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, mulberry bowl canonical anatolian nylon cura saz softer alevi cem saz baglama. istanbul recording canon 1955-present mid tier istanbul makam kilic ali pasha studio. large-diaphragm condenser, transformer-coupled solid-state pre, colored vintage console, vari-mu, passive program EQ. vinyl master cut tape echo spring reverb germanium fuzz wah / envelope filter.",
   "recipe_chars": 767,
-  "score": 299.819,
+  "score": 300.155,
   "config": {
     "traditions": [
       "anadolu_rock",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 31.96999999999999,
+          "voice_register": 32.11999999999999,
           "voice_quality": 3.5100000000000016,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.1414999999999997,
+          "voice_vibrato": 2.11,
           "voice_articulation": 11.244999999999996,
-          "voice_microtone": 23.904999999999998,
-          "voice_tradition": 9.091,
+          "voice_microtone": 23.799999999999997,
+          "voice_tradition": 9.099999999999998,
           "voice_mechanism_compound": 6.825000000000001,
           "voice_estill_quality": 1.885,
           "voice_speech_song": 12.544999999999996,
           "voice_ensemble_config": 12.479999999999995,
           "voice_ornament_system": 0.9099999999999997,
-          "voice_pitch_organization": 6.749999999999999,
+          "voice_pitch_organization": 6.8999999999999995,
           "voice_processing_chain": 4.355,
           "voice_multitrack_stack": 10.855
         }
@@ -103,7 +103,7 @@
           "string_type": 29.0875,
           "scale_length_b": 0.845,
           "fretted_or_not": 0.3,
-          "bass_technique": 22.4915
+          "bass_technique": 22.46
         }
       },
       {
@@ -130,8 +130,8 @@
           "saz_tradition": "saz_alevi_cem"
         },
         "scores": {
-          "plucked_traditional_technique": 8.129999999999999,
-          "saz_size": 2.78,
+          "plucked_traditional_technique": 8.28,
+          "saz_size": 2.8249999999999997,
           "saz_frets": 0.645,
           "saz_body_wood": 4.225,
           "saz_strings": 2.3,

@@ -1,0 +1,162 @@
+{
+  "id": "drill_francais",
+  "name": "Drill Français",
+  "family": "hip_hop",
+  "lineage": "French adaptation of UK drill emerging in Paris's 93 and 95 departments from 2019 (Gazo, Freeze corleone's circle, Ashe 22, Zola), built on 138-145 BPM half-time beats with sliding 808 glides, triplet and stuttered hi-hat patterns, sparse minor-key piano or flute leads from UK producers such as Ghosty and Chuki, and a flat, low-register conversational flow in verlan-heavy argot.",
+  "recipe": "classic Western European late-2010s drill français, mc Rhythm, drill branch, intl hip hop MC rhythm, us hip hop modern, uk soundsystem bass system pinoy trap desi trap. extended whistle, rap, straight note core, interlocked note trading. TR-808, sampled chopped sampler drum machine, low sub bass digital subtractive, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, low sub bass monosynth acid bass. paris marseille French rap 1989-present indie-commercial paris french rap studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 654,
+  "score": 245.74,
+  "config": {
+    "traditions": [
+      "drill_francais",
+      "pinoy_trap",
+      "desi_trap"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "inuit_katajjaq_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ventricular_subharmonic",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 2.8600000000000003,
+          "voice_quality": 18.525,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.6925,
+          "voice_articulation": 16.314999999999998,
+          "voice_microtone": 23.33499999999999,
+          "voice_tradition": 6.695,
+          "voice_mechanism_compound": 3.947500000000001,
+          "voice_estill_quality": 4.42,
+          "voice_speech_song": 17.495,
+          "voice_ensemble_config": 15.989999999999997,
+          "voice_ornament_system": 7.735000000000001,
+          "voice_pitch_organization": 2.405,
+          "voice_processing_chain": 9.095,
+          "voice_multitrack_stack": 4.745
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 7.3375,
+          "drum_machine_808_context": 3.5100000000000002,
+          "tr808_production_origin": 0.9099999999999999
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twenty_four_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 5.3500000000000005,
+          "sample_bitdepth": 2.7175000000000002,
+          "sample_swing": 9.36,
+          "sample_processing": 2.275
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 13.787500000000001,
+          "va_archetypes": 0.195,
+          "digital_subtractive_context": 15.86
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 1.2,
+          "grand_piano_size": 1.2025,
+          "grand_piano_brand": 2.0725,
+          "piano_hammer": 3.885,
+          "piano_rim": 3.9,
+          "piano_soundboard": 3.9549999999999996,
+          "piano_pinblock": 1.7499999999999998,
+          "piano_plate": 2.75,
+          "piano_pitch_standard": 7.6
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wave_acid": "saw_acid",
+          "filter_acid": "closed_acid",
+          "accent_acid": "no_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": 13.787500000000001,
+          "wave_acid": 0.39,
+          "filter_acid": 1.04,
+          "accent_acid": 1
+        }
+      }
+    ],
+    "room": "paris_french_rap_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "paris_french_rap_studio",
+    "chain_mic": "mic_sm7b_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

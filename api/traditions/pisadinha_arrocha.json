@@ -3,14 +3,14 @@
   "name": "Pisadinha and arrocha (northeastern romantic)",
   "family": "pop",
   "lineage": "Brazilian arrocha and pisadinha contemporary northeastern-Brazilian romantic-popular music genres. Arrocha (Bahian, 1990s-2000s) is a slow-tempo romantic ballad with Brazilian-pop-influenced harmonic-vocabulary. Pisadinha (Pernambuco/Bahia, 2010s-2020s) is the faster-tempo dance-derivative incorporating electronic-production. Both share the working-class northeastern-Brazilian cultural orientation distinct from sertanejo universitário's middle-class-university-targeting.",
-  "recipe": "classic Southern American mid-1990s pisadinha and arrocha, functional Song, Brazilian song branch, reggaeton MC rhythm moombahton. extended whistle, breath veiled tone, straight onset, interlocked note trading. strummed open chord ringing overtones dreadnought acoustic guitar, electric bass, TR-808. estudio rozenblit recife. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 456,
-  "score": 110.888,
+  "recipe": "classic Southern American mid-1990s pisadinha and arrocha, functional Song, Brazilian song branch, reggaeton MC rhythm moombahton urbano español. extended whistle, breath veiled tone, straight onset, interlocked note trading. strummed open chord ringing overtones dreadnought acoustic guitar, layered sub heavy electric bass, TR-808. estudio rozenblit recife. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 489,
+  "score": 127.565,
   "config": {
     "traditions": [
       "pisadinha_arrocha",
       "moombahton",
-      "reggaeton"
+      "urbano_espanol"
     ],
     "instruments": [
       {
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_processing_chain": "voice_processing_stutter_edit",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 8.1485,
-          "voice_quality": 8.645,
+          "voice_register": 6.63,
+          "voice_quality": 8.905,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.95075,
-          "voice_articulation": 7.280000000000001,
-          "voice_microtone": 7.735000000000001,
-          "voice_tradition": 10.720249999999998,
-          "voice_mechanism_compound": 3.5100000000000002,
-          "voice_estill_quality": 3.315000000000001,
-          "voice_speech_song": 11.179999999999996,
-          "voice_ensemble_config": 7.0200000000000005,
-          "voice_ornament_system": 4.355,
+          "voice_vibrato": 3,
+          "voice_articulation": 11.504999999999999,
+          "voice_microtone": 12.154999999999998,
+          "voice_tradition": 9.165,
+          "voice_mechanism_compound": 4.68,
+          "voice_estill_quality": 7.6375,
+          "voice_speech_song": 15.86,
+          "voice_ensemble_config": 11.439999999999998,
+          "voice_ornament_system": 4.420000000000001,
           "voice_pitch_organization": 2.3399999999999994,
-          "voice_processing_chain": 9.26025,
-          "voice_multitrack_stack": 8.190000000000001
+          "voice_processing_chain": 7.279999999999999,
+          "voice_multitrack_stack": 6.11
         }
       },
       {
@@ -57,37 +57,37 @@
         "slots": {
           "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "eb_standard",
-          "top_wood": "cedar",
+          "top_wood": "engelmann",
           "back_sides": "maple_bs",
-          "string_acoustic": "phosphor_bronze"
+          "string_acoustic": "coated_nano_acoustic"
         },
         "scores": {
-          "acoustic_technique": 7.461499999999999,
+          "acoustic_technique": 5.85,
           "string_tuning": 0.7149999999999999,
-          "top_wood": 0.32175,
-          "back_sides": 0.45499999999999996,
-          "string_acoustic": 0.6435
+          "top_wood": 0,
+          "back_sides": 0.21,
+          "string_acoustic": 0.38999999999999996
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_b15",
-          "body_wood": "mahogany_b",
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
           "pickup_config": "soapbar",
           "string_type": "la_bella_flats_motown",
-          "scale_length_b": "short_scale_b",
+          "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretless",
-          "bass_technique": "thumb_muted"
+          "bass_technique": "sub_bass_synth_blend"
         },
         "scores": {
           "amp_make": 0.585,
-          "body_wood": 0.6435,
-          "pickup_config": 0.41175,
+          "body_wood": 0,
+          "pickup_config": 0.65,
           "string_type": 0.52,
-          "scale_length_b": 0.195,
-          "fretted_or_not": 0.105,
-          "bass_technique": 0.35650000000000004
+          "scale_length_b": 0.15,
+          "fretted_or_not": 0.045,
+          "bass_technique": 1.2349999999999999
         }
       },
       {
@@ -95,12 +95,12 @@
         "slots": {
           "tr808_voice": "tr808_kick_long",
           "drum_machine_808_context": "drum_machine_808_rb",
-          "tr808_production_origin": "tr808_behringer_clone"
+          "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 0.585,
-          "drum_machine_808_context": 3.38,
-          "tr808_production_origin": 0.18525
+          "tr808_voice": 1.9825,
+          "drum_machine_808_context": 3.575,
+          "tr808_production_origin": 0.255
         }
       }
     ],

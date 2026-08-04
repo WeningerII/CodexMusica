@@ -3,65 +3,65 @@
   "name": "Genge (Kenyan)",
   "family": "global",
   "lineage": "Nairobi Sheng-language hip-hop subgenre codified through Jua Cali, Nonini, P-Unit, and the Calif Records ecosystem (founded by Clemo) starting circa 2003 — characterized by Sheng-slang lyrics (Nairobi Swahili-English code-mix), kapuka-beat foundation, and street-Nairobi lyrical subject matter",
-  "recipe": "classic early-2000s genge, mc Rhythm, us hip hop branch, intl hip hop MC rhythm, Afro-diasporic MC rhythm gengetone french rap. extended whistle, rap, breath pulsed, narrative. TR-808, chopped sampler, sub bass analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 374,
-  "score": 218.001,
+  "recipe": "classic early-2000s genge, mc Rhythm, us hip hop branch, intl hip hop MC rhythm, Afro-diasporic MC rhythm gengetone argentine hip hop. thick, rap, breath pulsed, interlocked note trading. TR-808, chopped sampler, sub bass analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 385,
+  "score": 198.508,
   "config": {
     "traditions": [
       "genge_kenyan",
       "gengetone",
-      "french_rap"
+      "argentine_hip_hop"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "extended_whistle_register",
+          "voice_register": "chest_voice",
           "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "diaphragm_vibrato",
-          "voice_articulation": "narrative_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "beatboxing_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_rhythmic_spoken_flow",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 2.0475,
-          "voice_quality": 25.044,
+          "voice_register": 2.8450000000000015,
+          "voice_quality": 22.89,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.5599999999999996,
-          "voice_articulation": 10.62,
-          "voice_microtone": 8.32,
-          "voice_tradition": 11.295,
-          "voice_mechanism_compound": 2.9899999999999998,
-          "voice_estill_quality": 0.8449999999999999,
-          "voice_speech_song": 23.11625,
-          "voice_ensemble_config": 10.724999999999994,
-          "voice_ornament_system": 6.695000000000003,
-          "voice_pitch_organization": 3.0550000000000015,
-          "voice_processing_chain": 15.545000000000002,
-          "voice_multitrack_stack": 5.525
+          "voice_vibrato": 2.405,
+          "voice_articulation": 9.294999999999998,
+          "voice_microtone": 9.75,
+          "voice_tradition": 9.6,
+          "voice_mechanism_compound": 2.145,
+          "voice_estill_quality": 1.0399999999999998,
+          "voice_speech_song": 21.115000000000002,
+          "voice_ensemble_config": 10.205,
+          "voice_ornament_system": 6.890000000000003,
+          "voice_pitch_organization": 2.0149999999999997,
+          "voice_processing_chain": 12.620000000000001,
+          "voice_multitrack_stack": 3.9325000000000006
         }
       },
       {
         "id": "drum_machine_808",
         "slots": {
           "tr808_voice": "tr808_kick_long",
-          "drum_machine_808_context": "drum_machine_808_rb",
+          "drum_machine_808_context": "drum_machine_808_miami",
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 11.025,
-          "drum_machine_808_context": 1.4299999999999997,
+          "tr808_voice": 9.48,
+          "drum_machine_808_context": 1.2349999999999999,
           "tr808_production_origin": 0.65
         }
       },
@@ -75,11 +75,11 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 10.674999999999999,
-          "sampler_archetypes": 19.857499999999998,
-          "sampler_bit_depth": 1.0150000000000001,
-          "sampler_workflow": 10.899999999999999,
-          "sampler_classic_context": 22.8475
+          "electronic_technique": 9.174999999999999,
+          "sampler_archetypes": 17.257499999999997,
+          "sampler_bit_depth": 1.075,
+          "sampler_workflow": 10.149999999999999,
+          "sampler_classic_context": 21.482499999999998
         }
       },
       {
@@ -91,8 +91,8 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 11.725,
-          "poly_archetypes": 0.042749999999999996,
+          "electronic_technique": 11.055,
+          "poly_archetypes": 0.65,
           "poly_voices": 0.435,
           "poly_maker_lineage": -1.435
         }

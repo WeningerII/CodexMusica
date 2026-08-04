@@ -1,0 +1,210 @@
+{
+  "id": "tejano",
+  "name": "Tejano (Tejano pop and orquesta)",
+  "family": "global",
+  "lineage": "Mexican-American popular music of South and Central Texas, running from the 1940s orquesta tejana of Beto Villa through the 1960s Sunny Ozuna era to the Tejano pop boom of 1985-1995 codified by La Mafia, Mazz, Emilio Navaira and Selena — polka-derived 2/4 and cumbia 4/4 at 100-140 BPM, accordion and bajo sexto set against horn-section or DX7-and-polysynth arrangements, a full drum kit and electric bass, and Spanish-language lead vocals with pop phrasing and close backing harmony.",
+  "recipe": "classic North American mid-1990s tejano, functional Song, tejano border branch, tejano border ranchera, Mexican functional song, Latin am groove percussion música mexicana. thick, full chest belt, slow rate, interlocked note trading. castagnari Italian premium folk music chordal accordion, nickel wound modern tejano bajo sexto, ampeg b15 amp American 60s bass amp flip top character pyramid pure nickel bass electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog poly synth, tenor yellow brass modern standard yamaha custom 875ex modern Japanese premium ensemble saxophone, yellow brass canonical 70 30 bach stradivarius schilke chicago lead bright unison shallow cup lead trumpet trumpet. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 936,
+  "score": 377.88,
+  "config": {
+    "traditions": [
+      "tejano",
+      "ranchera",
+      "musica_mexicana"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "full_chest_belt_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 15.069999999999995,
+          "voice_quality": 26.194999999999986,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.7225000000000001,
+          "voice_articulation": 23.92,
+          "voice_microtone": 23.725,
+          "voice_tradition": 15.462499999999999,
+          "voice_mechanism_compound": 4.225,
+          "voice_estill_quality": 13.079999999999998,
+          "voice_speech_song": 34.352500000000006,
+          "voice_ensemble_config": 27.3,
+          "voice_ornament_system": 2.535,
+          "voice_pitch_organization": 1.3649999999999998,
+          "voice_processing_chain": 8.0275,
+          "voice_multitrack_stack": 6.2725
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_chordal_chugging",
+          "accordion_reed_material": "machine_reeds",
+          "musette_offset": "italian_tuning",
+          "reed_config": "lmmh",
+          "bellows": "all_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 20.374999999999996,
+          "accordion_reed_material": 0.65,
+          "musette_offset": 0.195,
+          "reed_config": 1.4425,
+          "bellows": 0.195,
+          "voicing_chamber": 0.045,
+          "accordion_maker_school": 2.7299999999999995
+        }
+      },
+      {
+        "id": "bajo_sexto",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "bajo_courses": "twelve_string_bajo",
+          "bajo_top": "cedar_bj",
+          "bajo_strings": "bajo_nickel_wound",
+          "bajo_back_wood": "bajo_mahogany_back"
+        },
+        "scores": {
+          "plucked_traditional_technique": 1.755,
+          "bajo_courses": 20.07,
+          "bajo_top": 0.195,
+          "bajo_strings": 10.674999999999999,
+          "bajo_back_wood": 0
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "sub_bass_synth_blend"
+        },
+        "scores": {
+          "amp_make": 3.380000000000001,
+          "body_wood": 0.195,
+          "pickup_config": 2.7224999999999997,
+          "string_type": 5.2,
+          "scale_length_b": 1.4949999999999999,
+          "fretted_or_not": 0.65,
+          "bass_technique": 3.3249999999999997
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 23.985000000000003,
+          "drumhead": 14.07,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "prophet_5",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 14.469999999999999,
+          "poly_archetypes": 1.1949999999999998,
+          "poly_voices": 0.045,
+          "poly_maker_lineage": 0.975
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "tenor_sax",
+          "sax_reed": "medium_reed",
+          "sax_body_alloy": "yellow_brass_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_cool_lyrical",
+          "sax_maker_school": "sax_yamaha_custom"
+        },
+        "scores": {
+          "wind_articulation": 5.055000000000001,
+          "sax_size": 1.65,
+          "sax_reed": 0.195,
+          "sax_body_alloy": 4.6925,
+          "sax_mouthpiece": 0,
+          "sax_technique": -0.035,
+          "sax_maker_school": 1.4949999999999999
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_mariachi_unison",
+          "brass_size": "flugelhorn",
+          "trumpet_mouthpiece": "bach_trumpet_mp_10half_c",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_mariachi_unison",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_schilke"
+        },
+        "scores": {
+          "wind_articulation": 5.999999999999998,
+          "brass_size": 0.65,
+          "trumpet_mouthpiece": 4.42,
+          "brass_mute": 1.24,
+          "trumpet_technique": 5.999999999999998,
+          "trumpet_bell_metal": 1.04,
+          "trumpet_maker_school": 2.34
+        }
+      }
+    ],
+    "room": "studio_multitrack_flagship_us_80s",
+    "archetype": "arch_80s_late_analog_majorrock",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_neve_1073_input",
+      "console": "console_sony_mxp3000",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "ranchera_3_4_and_2_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "ranchera_3_4_and_2_4",
+    "room": "studio_multitrack_flagship_us_80s",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "digital_std",
+    "chain_console": "console_sony_mxp3000"
+  }
+}

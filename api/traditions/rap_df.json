@@ -1,0 +1,145 @@
+{
+  "id": "rap_df",
+  "name": "Rap DF",
+  "family": "hip_hop",
+  "lineage": "Mexico City hip-hop consolidated in the Distrito Federal barrios from the mid-1990s through the 2000s by Cartel de Santa's contemporaries, Control Machete's Monterrey rivals, Sociedad Café and the Neblinna City / Nezahualcóyotl crews — 85-95 BPM boom-bap breakbeats sampled from Mexican rock and bolero LPs, filtered upright-bass loops, turntable cuts on the hook, and a dense chilango slang delivery with clipped consonants and end-of-bar rhyme clusters",
+  "recipe": "classic 1994-1996 rap df, mc Rhythm, intl hip hop branch, us hip hop east coast, us hip hop conscious rap, iberian Latin protest song conscious hip-hop new jersey rap. thick, rap, straight onset, narrative. sampled chopped turntable, chopped sampler, sampled chopped sampler drum machine, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass. concrete basement. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 497,
+  "score": 413.415,
+  "config": {
+    "traditions": [
+      "rap_df",
+      "conscious_hip_hop",
+      "new_jersey_rap"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 14.045624999999998,
+          "voice_quality": 37.565625000000004,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 6.464374999999999,
+          "voice_articulation": 18.905,
+          "voice_microtone": 18.199999999999996,
+          "voice_tradition": 13.890000000000002,
+          "voice_mechanism_compound": 4.225,
+          "voice_estill_quality": 5.77,
+          "voice_speech_song": 35.760625,
+          "voice_ensemble_config": 18.33,
+          "voice_ornament_system": 7.345000000000002,
+          "voice_pitch_organization": 0.45500000000000007,
+          "voice_processing_chain": 26.54375,
+          "voice_multitrack_stack": 5.102500000000001
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_scratch"
+        },
+        "scores": {
+          "electronic_technique": 14.465,
+          "turntable_technique": 17.34
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 14.465,
+          "sampler_archetypes": 21.84,
+          "sampler_bit_depth": 2.7,
+          "sampler_workflow": 16.245,
+          "sampler_classic_context": 37.7975
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twelve_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 14.465,
+          "sample_bitdepth": 2.7,
+          "sample_swing": 22.490000000000002,
+          "sample_processing": 1.48
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "amp_make": 9.354999999999997,
+          "body_wood": 1.54,
+          "pickup_config": 1.105,
+          "string_type": 9.294999999999998,
+          "scale_length_b": 2.795,
+          "fretted_or_not": 0.845,
+          "bass_technique": 5.239999999999998
+        }
+      }
+    ],
+    "room": "concrete_basement",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "room": "concrete_basement",
+    "chain_mic": "mic_sm7b_dynamic_shure",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

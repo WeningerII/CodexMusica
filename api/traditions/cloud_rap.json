@@ -5,7 +5,7 @@
   "lineage": "Atmospheric-trap subgenre codified through early-2010s East Coast underground hip-hop — washed-out reverbed beats with extended ambient pads, hi-pass-filtered drums, atmospheric-vocal-treatment with heavy reverb-and-delay; A$AP Rocky’s LiveLoveA$AP (2011), Lil B, and the broader Soundcloud-era post-blog-rap aesthetic",
   "recipe": "classic Southern American 2010-2013 cloud rap, mc Rhythm, modern branch, ambient experimental electric witch house vaporwave aesthetic. thick, rap, straight onset, interlocked note trading. drum machine analog, pad like pad analog synth. tape echo chamber. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
   "recipe_chars": 381,
-  "score": 149.685,
+  "score": 150.152,
   "config": {
     "traditions": [
       "cloud_rap",
@@ -34,19 +34,19 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 4.4175,
-          "voice_quality": 13.431249999999999,
+          "voice_register": 4.41,
+          "voice_quality": 13.415,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.44875,
+          "voice_vibrato": 3.5250000000000004,
           "voice_articulation": 12.284999999999995,
           "voice_microtone": 12.089999999999991,
           "voice_tradition": 11.7,
           "voice_mechanism_compound": 5.459999999999999,
-          "voice_estill_quality": 4.70375,
-          "voice_speech_song": 13.37375,
+          "voice_estill_quality": 4.875,
+          "voice_speech_song": 13.364999999999998,
           "voice_ensemble_config": 13.064999999999994,
-          "voice_ornament_system": 1.2162499999999998,
+          "voice_ornament_system": 1.1999999999999997,
           "voice_pitch_organization": 4.485,
           "voice_processing_chain": 13.099999999999998,
           "voice_multitrack_stack": 12.187499999999998
@@ -61,10 +61,10 @@
           "shuffle_quantize": "shuffle_low"
         },
         "scores": {
-          "kick_voice": 1.675,
-          "snare_voice": 1.675,
+          "kick_voice": 1.755,
+          "snare_voice": 1.755,
           "hat_voice": 0,
-          "shuffle_quantize": 1.675
+          "shuffle_quantize": 1.755
         }
       },
       {
@@ -79,7 +79,7 @@
         "scores": {
           "electronic_technique": 10.034999999999998,
           "oscillator": 1.3,
-          "filter_topology": 0.06125,
+          "filter_topology": 0.09,
           "envelope": 5.329999999999999,
           "modulation": 0.045
         }

@@ -379,6 +379,168 @@
       "pair": ["boula", "boula_haitian"],
       "verdict": "distinct",
       "note": "two different drums that share a name across the Francophone Caribbean. The Guadeloupean gwoka boula is the steady low pulse under the marqueur; the Haitian Vodou boula is the smallest and highest of the three-drum battery. Different size, register and role, so the shared name is a coincidence of language rather than a duplicate. The Haitian record prints as \"vodou boula\" to keep short labels unique."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["latin_alternative", "rock_en_espanol"],
+      "verdict": "distinct",
+      "note": "rock en español is the guitar-band tradition from Argentina, Mexico and Spain; latin alternative is the later, broader category that also takes in electronic, hip-hop and folkloric fusion acts. Overlap at the rock end is real membership, not duplication."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["east_coast_hip_hop_classic", "nyc_rap"],
+      "verdict": "distinct",
+      "note": "the classic East Coast entry is the sample-based 1988-1998 sound; the NYC entry is the five-borough mainstream that continued past it into drill-adjacent and melodic production. Same city, different production era."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["melancholia_ambient", "compositional_ambient"],
+      "verdict": "distinct",
+      "note": "one is a mood-defined streaming category built on piano and string pads; the other is notated post-minimal composition. Different transmission (playlist versus score) and different authorship model."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["adoracao", "brazilian_gospel"],
+      "verdict": "distinct",
+      "note": "adoração is the congregational worship repertoire sung in church; Brazilian gospel is the recorded commercial industry around it, with pop and sertanejo production values. Source practice against staged practice."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["scorecore", "epicore"],
+      "verdict": "distinct",
+      "note": "scorecore is film-score-derived listening music; epicore is the trailer-music library idiom, written to a 90-second tension-and-release brief. Shared orchestral palette, different compositional constraint."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["turkce_slow", "turkish_pop"],
+      "verdict": "distinct",
+      "note": "Türkçe slow is the ballad wing with arabesk-derived string writing and free-tempo intros; Turkish pop is the up-tempo commercial format. Different tempo, arrangement and vocal delivery."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["chicago_blues", "electric_blues"],
+      "verdict": "distinct",
+      "note": "Chicago blues is one city scene with a specific band format and amplified harmonica; electric blues is the wider category that also covers Texas, Memphis and West Coast styles. Subset, not duplicate."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["pop_punk", "skate_punk"],
+      "verdict": "distinct",
+      "note": "skate punk runs at 180-230 BPM with a skank beat and gang harmonies; pop-punk sits far slower with a straight backbeat and single-voice hooks. The tempo and rhythmic density are the distinction."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["milonga", "folklore_argentino"],
+      "verdict": "distinct",
+      "note": "milonga is one specific song form; folklore argentino is the national umbrella covering chacarera, zamba, chamamé and more. The umbrella cannot be collapsed into one of its members."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["chacarera_argentina", "folklore_argentino"],
+      "verdict": "distinct",
+      "note": "same relationship — chacarera is a specific 6/8 dance form from Santiago del Estero inside the broader folklore argentino field."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["dream_pop", "gauze_pop"],
+      "verdict": "distinct",
+      "note": "gauze pop is the softer, more diffuse streaming-era descendant with no guitar-feedback layer; dream pop carries the 4AD guitar-and-reverb architecture. Related lineage, different texture."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["j_rock", "visual_kei"],
+      "verdict": "distinct",
+      "note": "visual kei is defined by a performance and visual practice with its own theatrical vocal delivery and glam-metal-derived arrangement; J-rock is the general Japanese rock field. Real subculture, not a relabelling."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["tiktok_era_streaming_pop", "social_media_pop"],
+      "verdict": "distinct",
+      "note": "the TikTok entry is platform-specific and structural — hook-first, sub-two-minute, sped-up-ready; the social-media entry is the wider influencer-driven pop field across platforms. Marginal but the song-form constraint differs."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["mizrahi_israeli", "israeli_pop"],
+      "verdict": "distinct",
+      "note": "mizrahi carries Middle Eastern maqam ornament, bouzouki and darbuka; Israeli pop is Western-structured. Distinct musical material, and for decades distinct industries."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["norteno", "corridos_clasicos"],
+      "verdict": "distinct",
+      "note": "norteño is the accordion-and-bajo-sexto ensemble; corridos clásicos is the narrative ballad repertoire, which is also sung by mariachi and banda. Ensemble against repertoire."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["southern_hip_hop_classic", "dirty_south_rap"],
+      "verdict": "distinct",
+      "note": "the classic entry is the Atlanta-Memphis 1990s foundation; dirty south is the later commercial wave with its own bounce-derived production. Overlapping geography, successive eras."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["southern_hip_hop_classic", "houston_rap"],
+      "verdict": "distinct",
+      "note": "Houston is a distinct production tradition — chopped and screwed tempo manipulation, Rap-A-Lot house style — inside the broader southern field."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["melodic_house", "float_house"],
+      "verdict": "distinct",
+      "note": "float house is the ambient-leaning, beatless-intro streaming variant; melodic house keeps the club arrangement and drop. Different arrangement function."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["festival_trap", "bass_trap"],
+      "verdict": "distinct",
+      "note": "festival trap is the big-room EDM hybrid with festival drops; bass trap is the sound-system-oriented sub-bass strain. Different low-end design and venue."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["liquid_dnb", "dancefloor_dnb"],
+      "verdict": "distinct",
+      "note": "liquid is the atmospheric, jazz-chord and vocal-led strain; dancefloor D&B is the rolling, DJ-tool-oriented club sound. Long-standing distinction inside the genre."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["french_touch", "disco_house"],
+      "verdict": "distinct",
+      "note": "French touch is the specific Paris filter-and-compression school; disco house is the wider loop-based category including Chicago and New York producers. Subset, not duplicate."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["urbano_latino", "trap_boricua"],
+      "verdict": "distinct",
+      "note": "urbano latino is the pan-Hispanic commercial umbrella; trap boricua is the Puerto Rican trap scene inside it, with its own slang and production circle."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["musica_mexicana", "corridos_tumbados"],
+      "verdict": "distinct",
+      "note": "música mexicana is the streaming-era umbrella over banda, norteño, sierreño and tumbados; corridos tumbados is one movement inside it with a specific acoustic-trio format and trap-adjacent mixing."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["contemporary_worship", "world_worship"],
+      "verdict": "distinct",
+      "note": "world worship is the non-Anglophone congregational field with local-language and local-instrument practice; contemporary worship is the Anglo-American Hillsong-derived format. Different rosters and rooms."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["urbano_chileno", "trap_chileno"],
+      "verdict": "distinct",
+      "note": "urbano chileno is the Chilean umbrella including reggaetón and R&B; trap chileno is the specific trap strain. Umbrella against member."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["turkce_drill", "turkish_trap"],
+      "verdict": "distinct",
+      "note": "drill and trap differ in tempo feel and drum programming — sliding 808 and half-time at 138-144 against straight trap. The Turkish qualifier does not collapse that."
+    },
+    {
+      "kind": "tradition",
+      "pair": ["dangdut", "javanese_dangdut"],
+      "verdict": "distinct",
+      "note": "Javanese dangdut (koplo) plays the kendang in double-time with a lurching pull against the beat and uses organ tunggal ensembles; national dangdut is slower and orchestral. Different rhythmic practice, per the rule that a place qualifier counts when the recipe changes."
     }
   ]
 }

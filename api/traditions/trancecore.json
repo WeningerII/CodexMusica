@@ -1,0 +1,156 @@
+{
+  "id": "trancecore",
+  "name": "Trancecore (electronicore)",
+  "family": "rock_punk",
+  "lineage": "Late-2000s American and British scene hybrid, codified by Attack Attack!'s Someday Came Suddenly (2008), Enter Shikari's Take to the Skies (2007) and I See Stars, welding metalcore breakdowns on drop-tuned seven-string guitars and blast-adjacent double-kick to full-blown supersaw trance leads and 140-BPM four-on-the-floor synth drops, alternating screamed verses with heavily pitch-corrected clean choruses.",
+  "recipe": "classic 2007-2009 trancecore, distorted Rock, emo branch, metal distorted rock, trance electronic dance, pop punk distorted rock post-metal medieval rock. thick, breath veiled tone, straight note core, interlocked note trading. drop a chord melody seven string electric, marshall plexi amp British rock amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, analog poly wavetable synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 571,
+  "score": 286.146,
+  "config": {
+    "traditions": [
+      "trancecore",
+      "post_metal",
+      "medieval_rock"
+    ],
+    "instruments": [
+      {
+        "id": "seven_string_electric",
+        "slots": {
+          "seven_string_tuning": "seven_string_drop_a",
+          "seven_string_technique": "seven_string_jazz_chord_melody"
+        },
+        "scores": {
+          "seven_string_tuning": 3.0549999999999997,
+          "seven_string_technique": 1.04
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 12.349999999999998,
+          "body_wood": 3.445,
+          "pickup_config": 2.24,
+          "string_type": 28.4875,
+          "scale_length_b": 0.855,
+          "fretted_or_not": 0.09,
+          "bass_technique": 24.035
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 21.65,
+          "drumhead": 2.3949999999999996,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_pluck_short",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 2.5,
+          "poly_archetypes": 11.375,
+          "poly_voices": 0.28500000000000003,
+          "poly_maker_lineage": -1.3450000000000002
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_pluck_short",
+          "wt_position": "wt_morphing",
+          "wt_family": "wt_industrial",
+          "wt_polyphony": "wt_poly"
+        },
+        "scores": {
+          "electronic_technique": 2.5,
+          "wt_position": 0.8687499999999999,
+          "wt_family": 0.595625,
+          "wt_polyphony": 1.2445
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 26.064499999999992,
+          "voice_quality": 9.23,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.34,
+          "voice_articulation": 15.989999999999997,
+          "voice_microtone": 23.399999999999995,
+          "voice_tradition": 7.279999999999999,
+          "voice_mechanism_compound": 28.634875,
+          "voice_estill_quality": 4.29,
+          "voice_speech_song": 16.769999999999996,
+          "voice_ensemble_config": 16.379999999999995,
+          "voice_ornament_system": 0.8449999999999999,
+          "voice_pitch_organization": 3.315,
+          "voice_processing_chain": 5.915,
+          "voice_multitrack_stack": 5.200000000000001
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "pre_api_312",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+    "room": "treated_studio",
+    "chain_mic": "mic_sm57_dynamic_shure",
+    "chain_pre": "pre_api_312",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

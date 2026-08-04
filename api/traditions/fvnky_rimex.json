@@ -1,0 +1,153 @@
+{
+  "id": "fvnky_rimex",
+  "name": "Fvnky Rimex",
+  "family": "electronic",
+  "lineage": "Indonesian bedroom-DJ remix idiom of the late 2010s and 2020s, spread through TikTok, SoundCloud and Joox by producers styling themselves 'DJ [name] fvnky' — descended from funkot and dangdut koplo, it runs 140-160 BPM with a hard four-on-the-floor kick, a stuttering sampled kendang or synthetic tom fill on the turnaround, a shrill sawtooth or FM lead riffing on the pop melody being remixed, and pitch-shifted vocal fragments cut from the source track",
+  "recipe": "classic 2017-2019 fvnky rimex, electronic Dance, continental branch, lofi house house, hardstyle electronic dance, retro aesthetic experimental electric synthwave vapor twitch. thick, breath veiled tone, straight onset, interlocked note trading. singing lead rompler workstation, sampler drum machine, paired kendang indonesian, monosynth acid bass, singing lead digital subtractive. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 491,
+  "score": 230.08,
+  "config": {
+    "traditions": [
+      "fvnky_rimex",
+      "synthwave",
+      "vapor_twitch"
+    ],
+    "instruments": [
+      {
+        "id": "rompler_workstation",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "rompler_preset_bank": "rompler_preset_piano_orchestral",
+          "rompler_context": "rompler_context_pop_workstation",
+          "rompler_lineage": "rompler_korg_pa_arranger"
+        },
+        "scores": {
+          "electronic_technique": 8.265,
+          "rompler_preset_bank": 7.425000000000001,
+          "rompler_context": 6.125,
+          "rompler_lineage": 0.195
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "one_shots_layered"
+        },
+        "scores": {
+          "electronic_technique": 1.5499999999999998,
+          "sample_bitdepth": 0.585,
+          "sample_swing": 15.5,
+          "sample_processing": 0.45499999999999996
+        }
+      },
+      {
+        "id": "kendang_indonesian",
+        "slots": {
+          "kendang_size": "kendang_ketipung",
+          "kendang_context": "kendang_balinese",
+          "kendang_shell_wood": "kendang_mahogany",
+          "kendang_head": "kendang_buffalo_hide_canonical"
+        },
+        "scores": {
+          "kendang_size": 3.9650000000000003,
+          "kendang_context": 0.195,
+          "kendang_shell_wood": 0.44999999999999996,
+          "kendang_head": 0.39
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 8,
+          "voice_quality": 9.555000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.645,
+          "voice_articulation": 20.474999999999998,
+          "voice_microtone": 18.589999999999993,
+          "voice_tradition": 8.825000000000001,
+          "voice_mechanism_compound": 3.51,
+          "voice_estill_quality": 3.1200000000000006,
+          "voice_speech_song": 22.619999999999994,
+          "voice_ensemble_config": 19.564999999999998,
+          "voice_ornament_system": 1.145,
+          "voice_pitch_organization": 5.385000000000001,
+          "voice_processing_chain": 20.325,
+          "voice_multitrack_stack": 9.977500000000001
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wave_acid": "saw_acid",
+          "filter_acid": "closed_acid",
+          "accent_acid": "heavy_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": 2.1775,
+          "wave_acid": 0.285,
+          "filter_acid": 0.345,
+          "accent_acid": 0.325
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "va_archetypes": "nord_lead",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 8.265,
+          "va_archetypes": 0.5850000000000001,
+          "digital_subtractive_context": 19.435
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "mp3_lossy_modern"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "untreated_bedroom",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformerless",
+    "chain_medium": "mp3_lossy_modern",
+    "chain_console": "console_in_the_box"
+  }
+}

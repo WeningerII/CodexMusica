@@ -1,0 +1,170 @@
+{
+  "id": "lounge_exotica",
+  "name": "Lounge (exotica-era easy listening)",
+  "family": "jazz",
+  "lineage": "American easy-listening instrumental style codified in Los Angeles and New York 1954-1965 by Martin Denny, Les Baxter, Esquivel and Henry Mancini for the new stereo hi-fi market — 80-120 BPM cocktail-tempo arrangements of standards and originals for vibraphone, muted brass, bongos and wordless choir, lush non-functional added-note harmony, exaggerated stereo ping-pong panning and bird calls or novelty percussion as ornament",
+  "recipe": "classic Los Angeles mid-1960s lounge, functional Song, crooners branch, American jazz smooth vocal, europop functional song torch song. vibraphone, cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, bongos, growly gut upright bass, brass yellow brass couesnon vintage canonical pre 1970 breath tone airy low dynamic level flugelhorn, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble, block chord celesta, Hammond b3 canonical 1955 1975 jazz gospel rock standard block chord tonewheel organ. compound architecture 1958-1970 indie-commercial small la chambers. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 843,
+  "score": 219.88,
+  "config": {
+    "traditions": [
+      "lounge_exotica",
+      "smooth_jazz_80s",
+      "torch_song"
+    ],
+    "instruments": [
+      {
+        "id": "vibraphone",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "vibe_motor": "vibe_slow",
+          "vibe_mallets": "vibe_soft_mallets"
+        },
+        "scores": {
+          "percussion_technique": 0.375,
+          "vibe_motor": 19.44,
+          "vibe_mallets": 17.75
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_441_japanese"
+        },
+        "scores": {
+          "keyboard_technique": 4.09,
+          "grand_piano_size": 1.8850000000000002,
+          "grand_piano_brand": 1.8850000000000002,
+          "piano_hammer": 5.785,
+          "piano_rim": 6.175,
+          "piano_soundboard": 3.7,
+          "piano_pinblock": -0.05,
+          "piano_plate": 0.12999999999999998,
+          "piano_pitch_standard": 3.8999999999999995
+        }
+      },
+      {
+        "id": "bongos",
+        "slots": {
+          "percussion_technique": "percussion_hands_layered",
+          "bongos_skin": "bongos_goatskin",
+          "bongos_context": "bongos_charanga",
+          "bongos_shell_wood": "bongos_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": 0.7,
+          "bongos_skin": 0,
+          "bongos_context": 0.195,
+          "bongos_shell_wood": 0
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "gut_wound_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "upright_strings": 17.75,
+          "upright_play": 17.75
+        }
+      },
+      {
+        "id": "flugelhorn",
+        "slots": {
+          "wind_articulation": "wind_breath_quiet",
+          "flugel_use": "flugel_brass_band",
+          "flugelhorn_pitch": "flugelhorn_bb",
+          "flugelhorn_bell_metal": "flugelhorn_yellow_brass",
+          "flugelhorn_maker_school": "flugelhorn_couesnon_vintage"
+        },
+        "scores": {
+          "wind_articulation": 4.175000000000001,
+          "flugel_use": 2.73,
+          "flugelhorn_pitch": 0,
+          "flugelhorn_bell_metal": 2.145,
+          "flugelhorn_maker_school": 17.7
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_polyrhythmic_layered",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
+        },
+        "scores": {
+          "choir_size": 5.004999999999999,
+          "choir_polyphonic_configuration": 3.7049999999999996,
+          "choir_regional_canonical_configuration": 3.7049999999999996,
+          "choir_ensemble_repertoire": 1.2
+        }
+      },
+      {
+        "id": "celesta",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "celesta_model": "celesta_schiedmayer",
+          "celesta_context": "celesta_orch"
+        },
+        "scores": {
+          "keyboard_technique": 4.09,
+          "celesta_model": 0.195,
+          "celesta_context": 2.34
+        }
+      },
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "drawbar_setting": "jazz_drawbars",
+          "rotary_speed": "fast_tremolo",
+          "percussion_setting": "percussion_on_short",
+          "tonewheel_model": "tonewheel_hammond_b3",
+          "leslie_cabinet_model": "leslie_760_solid_state"
+        },
+        "scores": {
+          "keyboard_technique": 4.09,
+          "drawbar_setting": 20.505,
+          "rotary_speed": 0.8249999999999998,
+          "percussion_setting": 18.095,
+          "tonewheel_model": 22.169999999999995,
+          "leslie_cabinet_model": 0.845
+        }
+      }
+    ],
+    "room": "studio_small_la_chambers",
+    "archetype": "arch_60s_la_smallroom_chambers",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_ua_610_tube",
+      "console": "console_quad_eight_la_70s",
+      "comp": "comp_fairchild_670_tube",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "jazz_swing_eighth_4_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "jazz_swing_eighth_4_4",
+    "room": "studio_small_la_chambers",
+    "chain_mic": "mic_u47_tube_neumann",
+    "chain_pre": "pre_ua_610_tube",
+    "chain_comp": "comp_fairchild_670_tube",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_quad_eight_la_70s"
+  }
+}

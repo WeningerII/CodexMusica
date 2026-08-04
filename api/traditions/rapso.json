@@ -5,7 +5,7 @@
   "lineage": "Trinidadian chantwell spoken-word over soca-derived rhythm bed — codified through Brother Resistance (Lutalo Masimba) and the Network Riddum Band starting late 1970s, then Brother Marvin and the broader 3 Canal collective bringing rapso into Trinidad’s carnival mainstream; characterized by oratorical-political rapso-flow delivery over Caribbean percussion-and-electronic-instrument production",
   "recipe": "classic Western European 1977-1979 rapso, ballad Poetry, anglo singer song branch, Afro-diasporic electric groove percussion afrobeat kompa. thick, breath veiled tone, straight onset, interlocked note trading. thomastik infeld low tension jazz warm walking fingerstyle electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, bell like soca engine room iron trinidadian iron, goat skin rope and fire canonical indo Trinidadian metal modern Caribbean carnival modern Trinidadian carnival fusion tassa drum, steelpan, Fender blackface amp American 60s amp spring reverb bright maple pau ferro single coil electric guitar, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble shallow cup lead trumpet trumpet, roland jupiter lineage canonical jupiter 8 1981 osaka analog poly synth. brent black community studio london.",
   "recipe_chars": 994,
-  "score": 258.536,
+  "score": 259.085,
   "config": {
     "traditions": [
       "rapso",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 5.5280000000000005,
+          "voice_register": 5.698,
           "voice_quality": 10.984999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.7215,
+          "voice_vibrato": 4.7665,
           "voice_articulation": 14.949999999999992,
           "voice_microtone": 15.92499999999999,
-          "voice_tradition": 11.004,
+          "voice_tradition": 11.0175,
           "voice_mechanism_compound": 4.81,
           "voice_estill_quality": 5.005000000000001,
           "voice_speech_song": 19.369999999999994,
           "voice_ensemble_config": 14.884999999999993,
-          "voice_ornament_system": 2.7165000000000012,
-          "voice_pitch_organization": 2.9325,
-          "voice_processing_chain": 11.1805,
+          "voice_ornament_system": 2.971500000000001,
+          "voice_pitch_organization": 2.7960000000000003,
+          "voice_processing_chain": 11.031500000000001,
           "voice_multitrack_stack": 5.817499999999999
         }
       },
@@ -68,8 +68,8 @@
           "body_wood": 0.975,
           "pickup_config": 0.195,
           "string_type": 3.0999999999999996,
-          "scale_length_b": 0.9,
-          "fretted_or_not": 0.3315,
+          "scale_length_b": 0.975,
+          "fretted_or_not": 0.3765,
           "bass_technique": 2.563
         }
       },
@@ -82,7 +82,7 @@
         },
         "scores": {
           "drum_technique": 18.524999999999995,
-          "drumhead": 3.194,
+          "drumhead": 3.1865,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -94,7 +94,7 @@
         },
         "scores": {
           "iron_source": 5.094999999999999,
-          "iron_pattern": 0.039
+          "iron_pattern": 0.0315
         }
       },
       {
@@ -107,7 +107,7 @@
         "scores": {
           "tassa_skin": 18.784999999999997,
           "tassa_shell": 2.8265,
-          "tassa_lineage": 4.4014999999999995
+          "tassa_lineage": 4.376499999999999
         }
       },
       {
@@ -140,7 +140,7 @@
         "scores": {
           "electric_technique": 7.425000000000001,
           "amp_make": 3.6125000000000003,
-          "body_wood": 0.975,
+          "body_wood": 0.9450000000000001,
           "neck_wood": 1.4949999999999999,
           "fretboard": 1.4949999999999999,
           "pickup_magnet": 1.4949999999999999,
@@ -148,7 +148,7 @@
           "string_gauge": 0.975,
           "bridge": 0.5265,
           "scale_length": 0.975,
-          "finish": 0.147,
+          "finish": 0,
           "string_tuning": 2.275
         }
       },
@@ -187,7 +187,7 @@
         "scores": {
           "wind_articulation": 3.1525000000000003,
           "brass_size": 1.4949999999999999,
-          "trumpet_mouthpiece": 3.706,
+          "trumpet_mouthpiece": 3.856,
           "brass_mute": 0.7215,
           "trumpet_technique": 3.1525000000000003,
           "trumpet_bell_metal": 1.7315,
@@ -203,7 +203,7 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 1.5214999999999999,
+          "electronic_technique": 1.8199999999999998,
           "poly_archetypes": 0.39,
           "poly_voices": 0.3045,
           "poly_maker_lineage": 2.34

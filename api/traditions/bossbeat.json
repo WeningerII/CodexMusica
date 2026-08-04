@@ -1,0 +1,176 @@
+{
+  "id": "bossbeat",
+  "name": "Bossbeat (programmed bossa-downtempo)",
+  "family": "electronic",
+  "lineage": "Producer-side fusion emerging in late-1990s Rio–London–Tokyo downtempo circles and consolidated by Bebel Gilberto's Tanto Tempo (2000) and the Ziriguiboom/Far Out labels, setting João Gilberto's nylon-string batida and extended-tertian bossa harmony against programmed 85–105 BPM breakbeats, filtered Rhodes pads, sampled pandeiro and shaker loops, and an unforced close-miked whisper vocal in Portuguese.",
+  "recipe": "classic 1997-1999 bossbeat, experimental Elec, lofi branch, Brazilian song functional song, Latin electric electronic dance electro latino cumbia 420. vocal fry, breath veiled tone, straight onset, interlocked note trading. cedar nylon classical nylon-string guitar, close pickup gap more bark dirt rhodes electric, stainless steel roundwound sub heavy electric bass, field textural sampler, hands layered pandeiro. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 523,
+  "score": 221.837,
+  "config": {
+    "traditions": [
+      "bossbeat",
+      "electro_latino",
+      "cumbia_420"
+    ],
+    "instruments": [
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "nylon_normal_cl",
+          "attack_technique_cl": "thumb_attack_cl"
+        },
+        "scores": {
+          "acoustic_technique": 0.8125,
+          "string_tuning": 0,
+          "top_wood_classical": 6.5,
+          "bracing_classical": 0.7350000000000001,
+          "string_classical": 1.4299999999999997,
+          "attack_technique_cl": 7.249999999999999
+        }
+      },
+      {
+        "id": "rhodes_electric",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "rhodes_model": "rhodes_mark2",
+          "rhodes_use": "rhodes_soul",
+          "rhodes_tine_material": "rhodes_mark7_modern_tine",
+          "rhodes_hammer_tip": "rhodes_felt_hammer_tip",
+          "rhodes_pickup_position": "rhodes_pickup_close_bark"
+        },
+        "scores": {
+          "keyboard_technique": 0.8124999999999999,
+          "rhodes_model": 2.695,
+          "rhodes_use": 2.73,
+          "rhodes_tine_material": 0.38999999999999996,
+          "rhodes_hammer_tip": -0.7350000000000001,
+          "rhodes_pickup_position": 1.69
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_british_orange",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_s",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "sub_bass_synth_blend"
+        },
+        "scores": {
+          "amp_make": 0.7799999999999998,
+          "body_wood": 0.195,
+          "pickup_config": 0.845,
+          "string_type": 1.285,
+          "scale_length_b": 0.195,
+          "fretted_or_not": 0.3,
+          "bass_technique": 1.445
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 3.7,
+          "sampler_archetypes": 0.75,
+          "sampler_bit_depth": 0.39,
+          "sampler_workflow": 4.435,
+          "sampler_classic_context": 31.264999999999997
+        }
+      },
+      {
+        "id": "pandeiro",
+        "slots": {
+          "percussion_technique": "percussion_hands_layered",
+          "pandeiro_size": "pandeiro_medio",
+          "pandeiro_context": "pandeiro_capoeira",
+          "pandeiro_head": "pandeiro_goatskin_canonical",
+          "pandeiro_shell_wood": "pandeiro_eucalyptus",
+          "pandeiro_jingles": "pandeiro_brass_platinelas"
+        },
+        "scores": {
+          "percussion_technique": 9.075,
+          "pandeiro_size": 2.0100000000000002,
+          "pandeiro_context": 1.7700000000000005,
+          "pandeiro_head": 0.9099999999999999,
+          "pandeiro_shell_wood": 0.9099999999999999,
+          "pandeiro_jingles": 0.9099999999999999
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_vocoder_32_band_carrier_saw",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 2.535,
+          "voice_quality": 20.214999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.5599999999999996,
+          "voice_articulation": 18.719999999999995,
+          "voice_microtone": 19.174999999999994,
+          "voice_tradition": 4.99,
+          "voice_mechanism_compound": 2.8599999999999994,
+          "voice_estill_quality": 2.4699999999999998,
+          "voice_speech_song": 20.734999999999992,
+          "voice_ensemble_config": 20.084999999999994,
+          "voice_ornament_system": 0.9399999999999998,
+          "voice_pitch_organization": 1.7949999999999997,
+          "voice_processing_chain": 14.720000000000002,
+          "voice_multitrack_stack": 6.2075000000000005
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "untreated_bedroom",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

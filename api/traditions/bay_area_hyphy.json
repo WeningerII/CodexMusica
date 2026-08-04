@@ -3,9 +3,9 @@
   "name": "Bay Area hyphy",
   "family": "hip_hop",
   "lineage": "Mid-2000s San Francisco Bay Area hip-hop subgenre characterized by hyperactive vocal-delivery, distinctive synth-heavy production with Roland 808 emphasis, and explicit Bay Area dance-culture-and-sideshow-cruising thematic content. E-40's My Ghetto Report Card (2006), Mac Dre's post-mortem catalog (Dre died 2004), and the broader Mistah F.A.B.-Federation-Keak da Sneak scene defined the canonical hyphy roster.",
-  "recipe": "classic Los Angeles 2004-2006 bay area hyphy, mc Rhythm, west coast branch, us hip hop gangsta. vocal fry, rap, slow rate, narrative. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, sub bass analog synth, orange amp British heavy crunch mahogany pyramid pure nickel bass electric bass. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
-  "recipe_chars": 518,
-  "score": 154.328,
+  "recipe": "classic Los Angeles 2004-2006 bay area hyphy, mc Rhythm, west coast branch, us hip hop gangsta. vocal fry, rap, slow rate, narrative. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, sub bass analog synth, orange amp British heavy crunch alder la bella flats Detroit soul bass canon electric bass. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
+  "recipe_chars": 529,
+  "score": 158.449,
   "config": {
     "traditions": [
       "bay_area_hyphy",
@@ -33,22 +33,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 1.9165,
-          "voice_quality": 16.996250000000003,
+          "voice_register": 1.97275,
+          "voice_quality": 18.158,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.8600000000000003,
           "voice_articulation": 11.456500000000002,
           "voice_microtone": 9.879999999999999,
-          "voice_tradition": 10.85725,
-          "voice_mechanism_compound": 2.404,
-          "voice_estill_quality": 2.449,
-          "voice_speech_song": 16.551000000000002,
+          "voice_tradition": 10.896250000000002,
+          "voice_mechanism_compound": 2.4699999999999998,
+          "voice_estill_quality": 2.4699999999999998,
+          "voice_speech_song": 17.334750000000003,
           "voice_ensemble_config": 10.204999999999997,
           "voice_ornament_system": 4.550000000000002,
           "voice_pitch_organization": 2.145,
-          "voice_processing_chain": 11.620000000000003,
-          "voice_multitrack_stack": 4.51125
+          "voice_processing_chain": 11.651500000000002,
+          "voice_multitrack_stack": 4.914000000000001
         }
       },
       {
@@ -59,7 +59,7 @@
           "tr808_production_origin": "tr808_roland_osaka_canonical"
         },
         "scores": {
-          "tr808_voice": 9.240000000000002,
+          "tr808_voice": 9.723000000000003,
           "drum_machine_808_context": 3.77,
           "tr808_production_origin": 1.7550000000000003
         }
@@ -71,33 +71,33 @@
           "oscillator": "sine_osc",
           "filter_topology": "transistor_ladder",
           "envelope": "pluck_env",
-          "modulation": "lfo_pitch"
+          "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 10.3465,
+          "electronic_technique": 10.829500000000001,
           "oscillator": 0.39,
           "filter_topology": 2.925,
           "envelope": 0.15375,
-          "modulation": 0
+          "modulation": 0.0315
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_british_orange",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "soapbar",
-          "string_type": "pyramid_pure_nickel",
+          "string_type": "la_bella_flats_motown",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "amp_make": 3.8420000000000005,
+          "amp_make": 4.115,
           "body_wood": 2.535,
           "pickup_config": 0.14625,
-          "string_type": 2.7950000000000004,
-          "scale_length_b": 2.442,
+          "string_type": 2.9899999999999998,
+          "scale_length_b": 2.535,
           "fretted_or_not": 0.0735,
           "bass_technique": 1.825
         }

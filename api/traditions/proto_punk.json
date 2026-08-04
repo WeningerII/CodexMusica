@@ -5,7 +5,7 @@
   "lineage": "Late-1960s-early-1970s American-and-European rock styles prefiguring punk's 1976-77 emergence. The Velvet Underground & Nico (1967), the Stooges (1969), the MC5 (1969), the New York Dolls (1973), and the Modern Lovers (recorded 1971-72) constitute the canonical American proto-punk core; the Detroit-MC5-Stooges nexus and the New York Velvet Underground-Dolls scene defined the principal geographic-cultural axes.",
   "recipe": "classic North American 1967-1969 proto-punk, distorted Rock, punk branch, classic distorted rock merseybeat. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. eighth street greenwich village 1970-present major-flagship electric lady studios nyc. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 652,
-  "score": 321.199,
+  "score": 320.355,
   "config": {
     "traditions": [
       "proto_punk",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 19.244999999999994,
+          "voice_register": 19.394999999999992,
           "voice_quality": 28.340000000000003,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -43,13 +43,13 @@
           "voice_microtone": 17.624999999999996,
           "voice_tradition": 2.21,
           "voice_mechanism_compound": 5.525000000000001,
-          "voice_estill_quality": 2.5730000000000004,
+          "voice_estill_quality": 2.5100000000000002,
           "voice_speech_song": 15.859999999999994,
           "voice_ensemble_config": 16.639999999999993,
           "voice_ornament_system": 0.845,
           "voice_pitch_organization": 8.71,
           "voice_processing_chain": 6.955000000000001,
-          "voice_multitrack_stack": 6.385000000000001
+          "voice_multitrack_stack": 6.07
         }
       },
       {
@@ -73,14 +73,14 @@
           "electric_technique": 12.7,
           "amp_make": 26.324999999999996,
           "body_wood": 3.965,
-          "neck_wood": 0.99,
-          "fretboard": 0.135,
+          "neck_wood": 0.885,
+          "fretboard": 0.18,
           "pickup_magnet": 0.195,
           "pickup_winding": 2.8600000000000003,
           "string_material": 0.195,
-          "bridge": 0.99,
+          "bridge": 0.885,
           "scale_length": 3.965,
-          "string_gauge": 0.99,
+          "string_gauge": 0.885,
           "finish": 0.435,
           "string_tuning": 15.34
         }
@@ -98,12 +98,12 @@
         },
         "scores": {
           "amp_make": 9.815,
-          "body_wood": 1.9800000000000002,
+          "body_wood": 1.7700000000000002,
           "pickup_config": 0,
           "string_type": 20.637499999999996,
-          "scale_length_b": 0.99,
+          "scale_length_b": 0.885,
           "fretted_or_not": 0,
-          "bass_technique": 28.791499999999996
+          "bass_technique": 28.759999999999998
         }
       },
       {

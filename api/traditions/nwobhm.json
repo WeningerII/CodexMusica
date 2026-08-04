@@ -5,7 +5,7 @@
   "lineage": "Late-1970s through mid-1980s UK metal revival movement that emerged in response to the punk-and-disco displacement of mid-1970s hard rock — codified through Iron Maiden (the NWOBHM founding band, Iron Maiden 1980, The Number of the Beast 1982, Powerslave 1984), Judas Priest (the older band that became NWOBHM-adjacent through British Steel 1980 and Screaming for Vengeance 1982), Saxon, Diamond Head (whose Lightning to the Nations 1980 directly influenced Metallica), Def Leppard (early album On Through the Night 1980 before their pop-metal commercial turn), Motörhead",
   "recipe": "classic Northern European 1977-1979 nwobhm, distorted Rock, nwobhm branch, classic distorted rock britpop. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. London major flagship studio 1968-1985 major-flagship uk 70s hard rock arena studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 659,
-  "score": 375.86,
+  "score": 376.662,
   "config": {
     "traditions": [
       "nwobhm",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 21.457499999999996,
+          "voice_register": 21.569999999999993,
           "voice_quality": 19.56499999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.7675,
+          "voice_vibrato": 3.685,
           "voice_articulation": 14.364999999999997,
           "voice_microtone": 19.799999999999997,
-          "voice_tradition": 4.25,
-          "voice_mechanism_compound": 23.732499999999998,
-          "voice_estill_quality": 3.5575,
+          "voice_tradition": 4.295,
+          "voice_mechanism_compound": 24.084999999999997,
+          "voice_estill_quality": 3.4600000000000004,
           "voice_speech_song": 13.974999999999994,
           "voice_ensemble_config": 15.469999999999994,
           "voice_ornament_system": 0.7799999999999996,
           "voice_pitch_organization": 5.265,
-          "voice_processing_chain": 15.100000000000001,
+          "voice_processing_chain": 15.325000000000001,
           "voice_multitrack_stack": 10.72
         }
       },
@@ -70,16 +70,16 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 27.54875,
+          "electric_technique": 27.83,
           "amp_make": 20.15,
-          "body_wood": 11.897499999999997,
+          "body_wood": 11.859999999999998,
           "neck_wood": 3.445,
           "fretboard": 3.38,
           "pickup_magnet": 0.39,
           "pickup_winding": 2.8600000000000003,
-          "string_material": 1.135,
+          "string_material": 1.18,
           "bridge": 3.445,
-          "scale_length": 8.542499999999999,
+          "scale_length": 8.549999999999999,
           "string_gauge": 3.445,
           "finish": 0.435,
           "string_tuning": 19.759999999999998
@@ -103,7 +103,7 @@
           "string_type": 20.637499999999996,
           "scale_length_b": 3.8349999999999995,
           "fretted_or_not": 0,
-          "bass_technique": 18.858749999999997
+          "bass_technique": 18.81
         }
       },
       {

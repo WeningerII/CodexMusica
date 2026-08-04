@@ -3,53 +3,53 @@
   "name": "Deep house (soulful)",
   "family": "global",
   "lineage": "Soulful-jazz house sub-style codified through 1990s New York and New Jersey production — Kerri Chandler, Masters at Work, Blaze, and Kenny Bobien (vocalist), extending the 1980s Chicago deep-house template of Larry Heard / Mr. Fingers — characterized by jazz-chord harmonic vocabulary, gospel-soul vocal performances, and warm analog-instrument production aesthetic",
-  "recipe": "classic Asian mid-1990s deep house, electronic Dance, deep house branch, soul R&B functional song doo-wop alt-r&b. thick, breath veiled tone, straight onset, interlocked note trading. centered tine pickup gap canonical balanced Rhodes voicing gospel runs rhodes electric, singing lead digital subtractive, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909, field sampler. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
-  "recipe_chars": 556,
-  "score": 326.96,
+  "recipe": "classic Asian mid-1990s deep house, electronic Dance, deep house branch, soul R&B functional song british soul doo-wop. thick, blues-shouter, straight onset, narrative. centered tine pickup gap canonical balanced Rhodes voicing gospel runs rhodes electric, singing lead digital subtractive, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909, sampler. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 535,
+  "score": 373.605,
   "config": {
     "traditions": [
       "deep_house_soulful",
-      "doo_wop",
-      "alt_rnb"
+      "british_soul",
+      "doo_wop"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "aspirated_voice",
+          "voice_quality": "blues_shouter_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "hocket_voice",
+          "voice_articulation": "narrative_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "gospel_pentecostal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 30.774999999999995,
-          "voice_quality": 17.03000000000001,
+          "voice_register": 38.300000000000004,
+          "voice_quality": 21.82499999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 8.614999999999998,
-          "voice_articulation": 16.639999999999997,
-          "voice_microtone": 16.639999999999993,
-          "voice_tradition": 18.169999999999998,
-          "voice_mechanism_compound": 1.95,
-          "voice_estill_quality": 16.444999999999993,
-          "voice_speech_song": 20.149999999999995,
-          "voice_ensemble_config": 16.574999999999992,
-          "voice_ornament_system": 1.4299999999999997,
-          "voice_pitch_organization": 2.925000000000001,
+          "voice_vibrato": 8.989999999999998,
+          "voice_articulation": 19.595,
+          "voice_microtone": 18.13499999999999,
+          "voice_tradition": 25.919999999999998,
+          "voice_mechanism_compound": 2.145,
+          "voice_estill_quality": 24.194999999999993,
+          "voice_speech_song": 22.099999999999994,
+          "voice_ensemble_config": 19.109999999999992,
+          "voice_ornament_system": 1.15,
+          "voice_pitch_organization": 2.5300000000000007,
           "voice_processing_chain": 10.004999999999999,
-          "voice_multitrack_stack": 7.15
+          "voice_multitrack_stack": 7.344999999999999
         }
       },
       {
@@ -59,15 +59,15 @@
           "rhodes_model": "rhodes_mark1_stage",
           "rhodes_use": "rhodes_soul",
           "rhodes_tine_material": "rhodes_torrington_tine",
-          "rhodes_hammer_tip": "rhodes_felt_hammer_tip",
+          "rhodes_hammer_tip": "rhodes_neoprene_hammer_tip",
           "rhodes_pickup_position": "rhodes_pickup_centered"
         },
         "scores": {
-          "keyboard_technique": 17.135,
-          "rhodes_model": 7.475,
-          "rhodes_use": 7.735,
+          "keyboard_technique": 25.035,
+          "rhodes_model": 8.649999999999999,
+          "rhodes_use": 8.969999999999999,
           "rhodes_tine_material": -0.525,
-          "rhodes_hammer_tip": 3.4278135885301707e-16,
+          "rhodes_hammer_tip": 0.6499999999999995,
           "rhodes_pickup_position": 1.8199999999999998
         }
       },
@@ -79,39 +79,39 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 4.974999999999999,
+          "electronic_technique": 5.3999999999999995,
           "va_archetypes": 1.24,
-          "digital_subtractive_context": 17.03
+          "digital_subtractive_context": 19.369999999999997
         }
       },
       {
         "id": "drum_machine_909",
         "slots": {
           "tr909_voice": "tr909_kick",
-          "drum_machine_909_context": "drum_machine_909_techno",
+          "drum_machine_909_context": "drum_machine_909_house",
           "tr909_production_origin": "tr909_roland_osaka_canonical"
         },
         "scores": {
           "tr909_voice": 18,
-          "drum_machine_909_context": 2.6750000000000003,
-          "tr909_production_origin": 2.0799999999999996
+          "drum_machine_909_context": 2.5799999999999996,
+          "tr909_production_origin": 1.2349999999999999
         }
       },
       {
         "id": "sampler_classic",
         "slots": {
-          "electronic_technique": "electronic_glitch_textural",
-          "sampler_archetypes": "ensoniq_asr10",
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "emu_emax",
           "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
-          "sampler_workflow": "sampler_field_recordings",
+          "sampler_workflow": "sampler_orchestral_library",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 2.45,
-          "sampler_archetypes": 2.775,
-          "sampler_bit_depth": 1.755,
-          "sampler_workflow": 3.7750000000000004,
-          "sampler_classic_context": 49.13999999999999
+          "electronic_technique": 0.37,
+          "sampler_archetypes": 1.24,
+          "sampler_bit_depth": 2.5999999999999996,
+          "sampler_workflow": 2.075,
+          "sampler_classic_context": 51.02499999999999
         }
       }
     ],

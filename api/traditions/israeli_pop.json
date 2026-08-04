@@ -1,0 +1,214 @@
+{
+  "id": "israeli_pop",
+  "name": "Israeli Pop",
+  "family": "pop",
+  "lineage": "Tel Aviv commercial song from the 1970s onward, formed when the Ashkenazi-European Shirei Eretz Yisrael tradition was overtaken by Mizrahi cassette culture from the Yemenite and Iraqi neighbourhoods — bouzouki and oud tremolo lines, darbuka doubling a rock kit, Hebrew lyric sung with Arabic-derived melisma, and 100-130 BPM verse-chorus forms.",
+  "recipe": "classic mid-1970s israeli pop, functional Song, mid east n African pop branch, Jewish ritual devotional, europop functional song chalga turbo-folk. thick, breath veiled tone, slow rate, interlocked note trading. mulberry eastern alternative strummed bouzouki, walnut ribs canonical mid tier Lebanese cedar eastern Mediterranean la bella oud, goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka, orange amp British heavy crunch mahogany rosewood clean single coil electric guitar, orange amp British heavy crunch mahogany pyramid pure nickel bass electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog poly synth. treated studio. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
+  "recipe_chars": 781,
+  "score": 283.252,
+  "config": {
+    "traditions": [
+      "israeli_pop",
+      "chalga",
+      "turbo_folk"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 22.504999999999995,
+          "voice_quality": 9.75,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.485,
+          "voice_articulation": 12.934999999999995,
+          "voice_microtone": 19.20749999999999,
+          "voice_tradition": 19.355,
+          "voice_mechanism_compound": 2.0799999999999996,
+          "voice_estill_quality": 1.6899999999999997,
+          "voice_speech_song": 21.384999999999994,
+          "voice_ensemble_config": 14.624999999999993,
+          "voice_ornament_system": 4.7,
+          "voice_pitch_organization": 3.8150000000000004,
+          "voice_processing_chain": 4.075,
+          "voice_multitrack_stack": 3.440000000000001
+        }
+      },
+      {
+        "id": "bouzouki",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "bouzouki_courses": "trichordo",
+          "bouzouki_pick": "bouzouki_thin",
+          "bouzouki_body_wood": "bouzouki_mulberry_bowl",
+          "bouzouki_strings": "bouzouki_steel_modern"
+        },
+        "scores": {
+          "plucked_traditional_technique": 5.37,
+          "bouzouki_courses": 0.8400000000000001,
+          "bouzouki_pick": 1.345,
+          "bouzouki_body_wood": 1.04,
+          "bouzouki_strings": 0.3
+        }
+      },
+      {
+        "id": "oud",
+        "slots": {
+          "plucked_traditional_technique": "plucked_ornamented_melodic",
+          "oud_school": "oud_arab_classic",
+          "oud_strings": "oud_thirteen",
+          "oud_pick": "risha_eagle_feather",
+          "oud_body_wood": "oud_walnut_body",
+          "oud_soundboard_wood": "oud_lebanese_cedar_face",
+          "oud_string_material": "oud_la_bella_nylon"
+        },
+        "scores": {
+          "plucked_traditional_technique": 1.345,
+          "oud_school": 4.095,
+          "oud_strings": 0.585,
+          "oud_pick": 3.48,
+          "oud_body_wood": 3.24,
+          "oud_soundboard_wood": 1.04,
+          "oud_string_material": 1.04
+        }
+      },
+      {
+        "id": "darbuka",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "darbuka_material": "darbuka_clay_traditional",
+          "darbuka_skin": "darbuka_goat_skin",
+          "darbuka_regional_style": "darbuka_egyptian_sombaty"
+        },
+        "scores": {
+          "percussion_technique": 0.52,
+          "darbuka_material": 0.765,
+          "darbuka_skin": 1.995,
+          "darbuka_regional_style": 5.195
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_orange",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_12",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 16.625,
+          "amp_make": 3.7350000000000008,
+          "body_wood": 3.435,
+          "neck_wood": 3.435,
+          "fretboard": 3.3850000000000002,
+          "pickup_magnet": 0.195,
+          "string_material": 0,
+          "string_gauge": 3.63,
+          "bridge": 0.585,
+          "scale_length": 3.705,
+          "finish": 0,
+          "string_tuning": 1.69
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_british_orange",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 3.7350000000000008,
+          "body_wood": 3.705,
+          "pickup_config": 0.39,
+          "string_type": 4.165,
+          "scale_length_b": 3.435,
+          "fretted_or_not": 0.195,
+          "bass_technique": 3.3500000000000005
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 12.804999999999994,
+          "drumhead": 15.225000000000003,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 15.045000000000002,
+          "poly_archetypes": 2.34,
+          "poly_voices": 0.135,
+          "poly_maker_lineage": -0.035
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_eastmed_cassette_kiosk",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "transformer_solid_state",
+      "console": "console_british_inline_80s",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "maqam_24edo",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "maqam_24edo",
+    "room": "treated_studio",
+    "chain_mic": "condenser_fet",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "cassette_medium",
+    "chain_console": "console_british_inline_80s"
+  }
+}

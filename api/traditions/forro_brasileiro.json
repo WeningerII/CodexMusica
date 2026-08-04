@@ -3,14 +3,14 @@
   "name": "Forró brasileiro",
   "family": "global",
   "lineage": "Brazilian Northeast accordion-led couple-dance tradition with three-instrument pé-de-serra canonical-ensemble: sanfona (accordion or button-accordion), zabumba (large two-headed flat-drum), and triângulo (steel triangle). Codified mid-20th-century by Pernambuco-and-Paraíba interior-rural-migration into urban-Recife and Rio-São-Paulo migrant-communities. The three canonical rhythmic-subforms — baião moderate-tempo with characteristic eighth-note zabumba dotted-pattern, xote slow-couple-dance derived from Czech schottische, xaxado fast-syncopated rural-bandit-cangaceiro dance — comprise the forró repertoire. The pé-de-serra traditional-style coexists with forró-eletrônico 1990s-onward electronic-bass-and-drum-machine variant centered in Bahia-and-Ceará.",
-  "recipe": "classic Southern American mid-1990s forró brasileiro, groove Percussion, Latin am branch, Brazilian groove percussion pagode baião. thick, breath veiled tone, slow rate, interlocked note trading. leather castagnari Italian premium folk music accordion, wood baião tradition low stick with high bacalhau buzz zabumba, forró tradition open closed alternation triangulo forro, cedar nylon classical nylon-string guitar, alder pyramid pure nickel bass British mid 60s era electric bass. estudio rozenblit recife. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 618,
-  "score": 184.507,
+  "recipe": "classic Southern American mid-1990s forró brasileiro, groove Percussion, Latin am branch, Brazilian groove percussion pagode velha guarda. thick, breath veiled tone, slow rate, interlocked note trading. leather castagnari Italian premium folk music accordion, wood baião tradition low stick with high bacalhau buzz zabumba, forró tradition open closed alternation triangulo forro, cedar nylon classical nylon-string guitar, alder pyramid pure nickel bass British mid 60s era electric bass. estudio rozenblit recife. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 625,
+  "score": 182.257,
   "config": {
     "traditions": [
       "forro_brasileiro",
       "pagode",
-      "baiao"
+      "velha_guarda"
     ],
     "instruments": [
       {
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_vedic_three_tone",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
           "voice_register": 2.1000000000000014,
-          "voice_quality": 27.917499999999993,
+          "voice_quality": 24.99249999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.96,
-          "voice_articulation": 18.265,
-          "voice_microtone": 17.029999999999994,
-          "voice_tradition": 5.720000000000001,
-          "voice_mechanism_compound": 6.37,
-          "voice_estill_quality": 6.175000000000001,
-          "voice_speech_song": 18.589999999999996,
-          "voice_ensemble_config": 15.404999999999998,
-          "voice_ornament_system": 2.4050000000000002,
+          "voice_vibrato": 3.46,
+          "voice_articulation": 18.33,
+          "voice_microtone": 17.744999999999994,
+          "voice_tradition": 6.37,
+          "voice_mechanism_compound": 7.215,
+          "voice_estill_quality": 7.0200000000000005,
+          "voice_speech_song": 18.654999999999998,
+          "voice_ensemble_config": 17.614999999999995,
+          "voice_ornament_system": 1.2999999999999994,
           "voice_pitch_organization": 2.4400000000000004,
-          "voice_processing_chain": 6.109999999999999,
-          "voice_multitrack_stack": 5.134999999999999
+          "voice_processing_chain": 5.22,
+          "voice_multitrack_stack": 5.362500000000001
         }
       },
       {
@@ -67,7 +67,7 @@
           "free_reed_technique": 2.85,
           "accordion_reed_material": 1.4949999999999999,
           "musette_offset": 1.24,
-          "reed_config": 0.845,
+          "reed_config": 0.195,
           "bellows": 1.24,
           "voicing_chamber": 0.24,
           "accordion_maker_school": 2.9899999999999998
@@ -91,14 +91,14 @@
           "triangulo_pattern": "triangulo_forro_pattern"
         },
         "scores": {
-          "triangulo_size": 1.6899999999999997,
-          "triangulo_pattern": 1.8849999999999996
+          "triangulo_size": 1.4949999999999999,
+          "triangulo_pattern": 1.6899999999999997
         }
       },
       {
         "id": "classical_nylon_string_guitar",
         "slots": {
-          "acoustic_technique": "acoustic_chord_melody",
+          "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "standard_tuning",
           "top_wood_classical": "cedar_cl",
           "bracing_classical": "fan_torres_cl",
@@ -106,10 +106,10 @@
           "attack_technique_cl": "fingertip_only_cl"
         },
         "scores": {
-          "acoustic_technique": 1.5925,
+          "acoustic_technique": 0.9099999999999999,
           "string_tuning": 0,
-          "top_wood_classical": 5.59,
-          "bracing_classical": 1.285,
+          "top_wood_classical": 4.29,
+          "bracing_classical": 1.4349999999999998,
           "string_classical": 1.4299999999999997,
           "attack_technique_cl": 1.345
         }
@@ -122,16 +122,16 @@
           "pickup_config": "humbucker_mm",
           "string_type": "pyramid_pure_nickel",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive"
         },
         "scores": {
           "amp_make": 2.0149999999999997,
           "body_wood": 2.6,
-          "pickup_config": 1.95,
+          "pickup_config": 1.3,
           "string_type": 2.68,
           "scale_length_b": 1.39,
-          "fretted_or_not": 0.15,
+          "fretted_or_not": 0.195,
           "bass_technique": 0.6099999999999999
         }
       }

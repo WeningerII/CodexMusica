@@ -1,0 +1,223 @@
+{
+  "id": "brazilian_gospel",
+  "name": "Brazilian Gospel",
+  "family": "blues_gospel",
+  "lineage": "Música gospel brasileira, industrialized from the early 1990s around São Paulo evangelical labels and the Universal and Assembleia de Deus congregations — 65-80 BPM power-ballad forms and 120 BPM congregational anthems with grand piano and pad foundations, stacked choir responses in Portuguese, belted modulating final choruses, and rock kit with electric guitar climaxes.",
+  "recipe": "classic 1990-1993 brazilian gospel, ritual Devotional, christian gospel branch, christian gospel pentecostal, Brazilian song functional song contemporary worship adoração. thick, declaimed, straight note core, leader call answered. a cappella small 3 to 8 one per part antiphonal double choir alternating sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, low-mid-thick articulate mahogany maple humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, analog poly synth, Hammond b3 canonical 1955 1975 jazz gospel rock standard gospel runs full spectrum fast tremolo tonewheel organ. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 938,
+  "score": 419.333,
+  "config": {
+    "traditions": [
+      "brazilian_gospel",
+      "contemporary_worship",
+      "adoracao"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "call_response_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_unison_double_take"
+        },
+        "scores": {
+          "voice_register": 27.914999999999996,
+          "voice_quality": 30.674999999999997,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.395,
+          "voice_articulation": 18.99,
+          "voice_microtone": 18.134999999999994,
+          "voice_tradition": 27.945,
+          "voice_mechanism_compound": 4.614999999999999,
+          "voice_estill_quality": 18.744999999999997,
+          "voice_speech_song": 22.489999999999995,
+          "voice_ensemble_config": 20.734999999999992,
+          "voice_ornament_system": 10.900000000000002,
+          "voice_pitch_organization": 3.2499999999999996,
+          "voice_processing_chain": 5.330000000000001,
+          "voice_multitrack_stack": 2.145
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_antiphonal_double_choir",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
+        },
+        "scores": {
+          "choir_size": 8.319999999999999,
+          "choir_polyphonic_configuration": 1.885,
+          "choir_regional_canonical_configuration": 5.135,
+          "choir_ensemble_repertoire": 1.5299999999999998
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 20.485,
+          "grand_piano_size": 0.65,
+          "grand_piano_brand": 0.845,
+          "piano_hammer": 2.1999999999999997,
+          "piano_rim": 3.25,
+          "piano_soundboard": 1.5750000000000002,
+          "piano_pinblock": -0.05,
+          "piano_plate": 0.45499999999999996,
+          "piano_pitch_standard": 5.720000000000001
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "mahogany_maple_cap",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_5_h",
+          "pickup_winding": "high_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_12_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 1.94,
+          "amp_make": 2.6999999999999997,
+          "body_wood": 1.4949999999999999,
+          "neck_wood": 0.65,
+          "fretboard": 0.585,
+          "pickup_magnet": 0.65,
+          "pickup_winding": 0.24,
+          "string_material": 0.195,
+          "bridge": 0.65,
+          "scale_length": 0.65,
+          "string_gauge": 1.885,
+          "finish": 0,
+          "string_tuning": 4.9399999999999995
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 3.185,
+          "body_wood": 0.65,
+          "pickup_config": 0.65,
+          "string_type": 5.3,
+          "scale_length_b": 0.65,
+          "fretted_or_not": 0.845,
+          "bass_technique": 4.95
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 18.394999999999996,
+          "drumhead": 1.7700000000000002,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_yamaha_cs"
+        },
+        "scores": {
+          "electronic_technique": 2.8925000000000005,
+          "poly_archetypes": 2.9899999999999998,
+          "poly_voices": 2.9450000000000003,
+          "poly_maker_lineage": -0.385
+        }
+      },
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "drawbar_setting": "gospel_drawbars",
+          "rotary_speed": "fast_tremolo",
+          "percussion_setting": "percussion_on_long",
+          "tonewheel_model": "tonewheel_hammond_b3",
+          "leslie_cabinet_model": "leslie_147_alt"
+        },
+        "scores": {
+          "keyboard_technique": 20.485,
+          "drawbar_setting": 19.529999999999998,
+          "rotary_speed": 23.945,
+          "percussion_setting": 2.6,
+          "tonewheel_model": 22.294999999999998,
+          "leslie_cabinet_model": 0.995
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

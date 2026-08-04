@@ -5,7 +5,7 @@
   "lineage": "2010s deliberately-degraded-aesthetic house revival codified through Mall Grab, Ross from Friends, DJ Boring, and the broader Soundcloud-and-Bandcamp ecosystem — characterized by tape-saturation simulation, sample-noise foregrounded, vintage-drum-machine reverence, and post-vaporwave nostalgic-aesthetic posture",
   "recipe": "classic mid-2010s lo-fi house, electronic Dance, lofi house branch, lofi experimental electric vaporwave chillwave. glitched textural sampler, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909, digital subtractive, mark 7 modern tine post 2007 reissue felt tipped hammers early Rhodes pre 1971 bell like rhodes electric. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 463,
-  "score": 119.37,
+  "score": 123.589,
   "config": {
     "traditions": [
       "lofi_house_aesthetic",
@@ -24,10 +24,10 @@
         },
         "scores": {
           "electronic_technique": 7.504500000000001,
-          "sampler_archetypes": 4.163,
-          "sampler_bit_depth": 2.8025,
+          "sampler_archetypes": 4.452500000000001,
+          "sampler_bit_depth": 2.9825000000000004,
           "sampler_workflow": 8.32875,
-          "sampler_classic_context": 40.42525
+          "sampler_classic_context": 43.28999999999999
         }
       },
       {
@@ -38,9 +38,9 @@
           "tr909_production_origin": "tr909_roland_osaka_canonical"
         },
         "scores": {
-          "tr909_voice": 17,
+          "tr909_voice": 17.15,
           "drum_machine_909_context": 3.4450000000000003,
-          "tr909_production_origin": 2.653125
+          "tr909_production_origin": 2.698125
         }
       },
       {
@@ -67,11 +67,11 @@
           "rhodes_pickup_position": "rhodes_pickup_centered"
         },
         "scores": {
-          "keyboard_technique": 1.95,
+          "keyboard_technique": 2.19,
           "rhodes_model": 0.6824999999999999,
           "rhodes_use": 1.8199999999999998,
           "rhodes_tine_material": 1.1604999999999999,
-          "rhodes_hammer_tip": 2.0762500000000004,
+          "rhodes_hammer_tip": 2.5262500000000006,
           "rhodes_pickup_position": 0.39
         }
       }

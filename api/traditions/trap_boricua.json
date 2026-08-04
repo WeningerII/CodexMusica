@@ -1,0 +1,152 @@
+{
+  "id": "trap_boricua",
+  "name": "Trap boricua (Puerto Rican trap)",
+  "family": "hip_hop",
+  "lineage": "Puerto Rican trap formed in San Juan, Carolina and Bayamón between 2014 and 2017 through Bad Bunny, Anuel AA, Bryant Myers, Ozuna and producers Hi Music Hi Flow and DJ Luian — Spanish-language melodic rap at 130-145 BPM half-time, 808 sub-glides, rolled triplet hi-hats, minor-key plucked synth motifs and heavily Auto-Tuned sung-rapped hooks distributed first through SoundCloud and YouTube.",
+  "recipe": "classic mid-2010s trap boricua, mc Rhythm, reggaeton branch, us hip hop southern, intl hip hop MC rhythm tagalog rap memphis hip-hop. extended whistle, rap, straight note core, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, sampled chopped sampler drum machine, low sub bass wavetable synth, low sub bass monosynth acid bass, 2010s melodyne microtuned stack hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack. professional grade domestic 1980-present auteur-home-pro auteur home pro. shure SM58, transformerless solid-state pre, pumping sidechain, parametric EQ. lossy MP3 autotune digital delay.",
+  "recipe_chars": 646,
+  "score": 247.506,
+  "config": {
+    "traditions": [
+      "trap_boricua",
+      "tagalog_rap",
+      "memphis_hip_hop_tape"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ventricular_subharmonic",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 1.56,
+          "voice_quality": 21.902,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.3125000000000004,
+          "voice_articulation": 21.384999999999998,
+          "voice_microtone": 26.909999999999993,
+          "voice_tradition": 7.800000000000001,
+          "voice_mechanism_compound": 2.745000000000001,
+          "voice_estill_quality": 1.4299999999999997,
+          "voice_speech_song": 21.839999999999996,
+          "voice_ensemble_config": 21.384999999999998,
+          "voice_ornament_system": 7.540000000000002,
+          "voice_pitch_organization": 2.990000000000001,
+          "voice_processing_chain": 11.145,
+          "voice_multitrack_stack": 4.062500000000001
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 8.635,
+          "drum_machine_808_context": 2.795,
+          "tr808_production_origin": 1.04
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twenty_four_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 7.8325000000000005,
+          "sample_bitdepth": 4.769,
+          "sample_swing": 11.05,
+          "sample_processing": 1.4949999999999999
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wt_position": "wt_morphing",
+          "wt_family": "wt_industrial",
+          "wt_polyphony": "wt_poly"
+        },
+        "scores": {
+          "electronic_technique": 21.055,
+          "wt_position": 0.315,
+          "wt_family": 0.195,
+          "wt_polyphony": 0.195
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wave_acid": "saw_acid",
+          "filter_acid": "closed_acid",
+          "accent_acid": "no_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": 21.055,
+          "wave_acid": 0.195,
+          "filter_acid": 1.3900000000000001,
+          "accent_acid": 0.65
+        }
+      },
+      {
+        "id": "multitrack_vocal_stack",
+        "slots": {
+          "multitrack_stack_density": "multitrack_density_octuple_plus",
+          "multitrack_stack_era_aesthetic": "multitrack_era_2010s_melodyne",
+          "multitrack_stack_processing": "multitrack_processing_tuned_perfect"
+        },
+        "scores": {
+          "multitrack_stack_density": 0.6,
+          "multitrack_stack_era_aesthetic": 1.9175,
+          "multitrack_stack_processing": 2.465
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_san_juan_reggaeton_mixtape",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_avalon_v737",
+      "console": "console_in_the_box",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_avalon_v737",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

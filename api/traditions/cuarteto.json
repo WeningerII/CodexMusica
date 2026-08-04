@@ -1,0 +1,223 @@
+{
+  "id": "cuarteto",
+  "name": "Cuarteto Cordobés",
+  "family": "global",
+  "lineage": "Argentine dance music born in Córdoba in 1943 with the Cuarteto Leo — accordion, violin, piano and double bass playing a relentless 2/4 'tunga-tunga' bass-and-piano alternation derived from Italian tarantella and Spanish paso doble — expanded from the 1970s by Carlos 'La Mona' Jiménez and Rodrigo Bueno with congas, timbales, brass and electric bass at 130-150 BPM under shouted, hoarse lead vocals and crowd chants.",
+  "recipe": "classic South American mid-1970s cuarteto cordobés, functional Song, tropical song branch, Latin am groove percussion, Latin am troubadour milonga cumbia chilena. thick, breath veiled tone, straight note core, interlocked note trading. brass castagnari Italian premium folk music bellows articulated accordion, no chemical hardener t rivet beech laminated maple laminated European tradition grand piano, carpathian spruce hard rock maple acer saccharum Baroque setup short neck violin orchestral, ampeg svt amp rock bass amp la bella flats Detroit soul bass canon electric bass, brass open slap hand drum timbales, lead open slap hand drum congas, red brass 90 10 darkest bach stradivarius 180 canonical American orchestral shallow cup lead trumpet trumpet. large tracking room 1920-1965 mid tier odeon rca buenos aires. RCA 44-BX, German V72 tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 888,
+  "score": 235.922,
+  "config": {
+    "traditions": [
+      "cuarteto",
+      "milonga",
+      "cumbia_chilena"
+    ],
+    "instruments": [
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_bellows_articulated",
+          "accordion_reed_material": "brass_reeds",
+          "musette_offset": "german_tuning",
+          "reed_config": "lmmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 8.199999999999996,
+          "accordion_reed_material": 2.9899999999999998,
+          "musette_offset": 0.39,
+          "reed_config": 0.195,
+          "bellows": 0.195,
+          "voicing_chamber": 0.09,
+          "accordion_maker_school": 4.42
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "fazioli",
+          "piano_hammer": "abel_hammer",
+          "piano_rim": "european_laminated_rim_beech_maple",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 0.375,
+          "grand_piano_size": 0.39,
+          "grand_piano_brand": 1.645,
+          "piano_hammer": 1.2674999999999998,
+          "piano_rim": 1.5924999999999998,
+          "piano_soundboard": 2.5149999999999997,
+          "piano_pinblock": 0.6249999999999999,
+          "piano_plate": 0.4225,
+          "piano_pitch_standard": 2.8925
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_bluegrass_double_stops",
+          "orch_strings": "silver_wound_lamb_gut_violin",
+          "orch_top_wood": "carpathian_spruce_violin",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_setup_period": "baroque_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "sul_pont_orch",
+          "orch_rosin": "bernardel_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 0.8999999999999998,
+          "orch_strings": 0.325,
+          "orch_top_wood": 1.49,
+          "orch_back_wood": 2.4589999999999996,
+          "orch_varnish": 0.37,
+          "orch_setup_period": 5.2,
+          "orch_bow": 3.12,
+          "orch_bow_stick": 0.35750000000000004,
+          "orch_articulation": 0.65,
+          "orch_rosin": 0.4875
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 5.265,
+          "body_wood": 0.975,
+          "pickup_config": 0.585,
+          "string_type": 7.8495,
+          "scale_length_b": 0.39,
+          "fretted_or_not": 0,
+          "bass_technique": 2.0250000000000004
+        }
+      },
+      {
+        "id": "timbales",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "timbales_shell": "timbales_brass",
+          "timbales_context": "timbales_salsa"
+        },
+        "scores": {
+          "percussion_technique": 10.33,
+          "timbales_shell": 1.0399999999999998,
+          "timbales_context": 0.3
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "quinto",
+          "conga_skin": "conga_mule_hide",
+          "conga_shell_wood": "conga_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": 10.33,
+          "conga_set": 1.3,
+          "conga_skin": 0.65,
+          "conga_shell_wood": 0.65
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_dixieland_lead",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "bach_trumpet_mp_10half_c",
+          "brass_mute": "straight_mute",
+          "trumpet_technique": "trumpet_dixieland_lead",
+          "trumpet_bell_metal": "trumpet_red_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 0.6499999999999999,
+          "brass_size": 0.09,
+          "trumpet_mouthpiece": 2.0799999999999996,
+          "brass_mute": 0.375,
+          "trumpet_technique": 0.6499999999999999,
+          "trumpet_bell_metal": 3.1294999999999997,
+          "trumpet_maker_school": 1.545
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 4.415,
+          "voice_quality": 9.424999999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.21,
+          "voice_articulation": 22.294999999999998,
+          "voice_microtone": 22.099999999999994,
+          "voice_tradition": 5.817500000000001,
+          "voice_mechanism_compound": 5.59,
+          "voice_estill_quality": 5.590000000000001,
+          "voice_speech_song": 28.014999999999997,
+          "voice_ensemble_config": 22.554999999999993,
+          "voice_ornament_system": 2.825,
+          "voice_pitch_organization": 2.08,
+          "voice_processing_chain": 5.7044999999999995,
+          "voice_multitrack_stack": 5.1025
+        }
+      }
+    ],
+    "room": "odeon_rca_buenos_aires",
+    "archetype": "arch_ba_tango_radio_orquesta",
+    "inline_chain": {
+      "mic": "mic_rca_77dx_ribbon",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "ranchera_3_4_and_2_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "ranchera_3_4_and_2_4",
+    "room": "odeon_rca_buenos_aires",
+    "chain_mic": "mic_rca_77dx_ribbon",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
+  }
+}

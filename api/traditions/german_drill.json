@@ -1,0 +1,153 @@
+{
+  "id": "german_drill",
+  "name": "German drill",
+  "family": "hip_hop",
+  "lineage": "German-language drill emerging in Berlin, Frankfurt and Hamburg from roughly 2019, importing the UK drill template through producers working in FL Studio — sliding 808 sub-bass, triplet and rolled hi-hats over a 138-144 BPM half-time feel, sparse minor-key bell, flute or plucked-string loops, and a flat, on-beat German delivery mixing Turkish, Arabic and Kiezdeutsch slang, tracked dry on a dynamic mic in home and project studios.",
+  "recipe": "classic late-2010s german drill, mc Rhythm, drill branch, intl hip hop MC rhythm, us hip hop modern, continental electronic dance desi trap frauenrap. extended whistle, rap, straight onset, interlocked note trading. TR-808, sampled chopped sampler drum machine, sub bass monosynth acid bass, sub bass analog poly synth, 2010s melodyne microtuned stack heavy bus compression glue post 2010 multitrack vocal stack. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
+  "recipe_chars": 611,
+  "score": 216.695,
+  "config": {
+    "traditions": [
+      "german_drill",
+      "desi_trap",
+      "frauenrap"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ventricular_subharmonic",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_turkish_makam_53_comma",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 2.8600000000000003,
+          "voice_quality": 20.019999999999996,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.7499999999999999,
+          "voice_articulation": 17.094999999999995,
+          "voice_microtone": 29.509999999999994,
+          "voice_tradition": 7.150000000000001,
+          "voice_mechanism_compound": 2.3025,
+          "voice_estill_quality": 1.1699999999999995,
+          "voice_speech_song": 19.255,
+          "voice_ensemble_config": 17.419999999999995,
+          "voice_ornament_system": 7.475000000000001,
+          "voice_pitch_organization": 2.75,
+          "voice_processing_chain": 11.1475,
+          "voice_multitrack_stack": 4.9725
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 8.24,
+          "drum_machine_808_context": 3.8024999999999998,
+          "tr808_production_origin": 0.85
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twenty_four_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "one_shots_layered"
+        },
+        "scores": {
+          "electronic_technique": 5.575,
+          "sample_bitdepth": 2.275,
+          "sample_swing": 9.75,
+          "sample_processing": 0.65
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wave_acid": "saw_acid",
+          "filter_acid": "closed_acid",
+          "accent_acid": "no_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": 12.939999999999998,
+          "wave_acid": 0.39,
+          "filter_acid": 1.5549999999999997,
+          "accent_acid": 1.2025
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "prophet_5",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 12.939999999999998,
+          "poly_archetypes": 0,
+          "poly_voices": 0.435,
+          "poly_maker_lineage": -1.435
+        }
+      },
+      {
+        "id": "multitrack_vocal_stack",
+        "slots": {
+          "multitrack_stack_density": "multitrack_density_octuple_plus",
+          "multitrack_stack_era_aesthetic": "multitrack_era_2010s_melodyne",
+          "multitrack_stack_processing": "multitrack_processing_compressed_glued"
+        },
+        "scores": {
+          "multitrack_stack_density": 0.78,
+          "multitrack_stack_era_aesthetic": 4.0625,
+          "multitrack_stack_processing": 1.68
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_atlanta_trap_2010s",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "mic_sm7b_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -3,14 +3,14 @@
   "name": "Brazilian MPB-era protest (música popular brasileira during dictatorship)",
   "family": "global",
   "lineage": "Brazilian Música Popular Brasileira (MPB) protest-song tradition continuous from 1964-1985 Brazilian-military-dictatorship-era political-songwriter scene; centered on Chico Buarque (the foundational figure whose subtle-allegorical anti-dictatorship songs evaded censorship most consistently), Caetano Veloso, Gilberto Gil, Geraldo Vandré, Milton Nascimento, Edu Lobo",
-  "recipe": "classic Southern American mid-1970s brazilian mpb-era protest, protest Song, iberian Latin branch, European protest song, Brazilian song functional song, Latin am troubadour ballad poetry milonga greek éntechno politicized. thick, breath veiled tone, slow rate, interlocked note trading. cedar fingerpicked classical nylon-string guitar, jacaranda rosewood canonical Portuguese strummed cavaquinho. estudios scatena sp. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
-  "recipe_chars": 555,
-  "score": 161.761,
+  "recipe": "classic Southern American mid-1970s brazilian mpb-era protest, protest Song, iberian Latin branch, European protest song, Brazilian song functional song, Latin am troubadour ballad poetry nova mpb milonga. thick, breath veiled tone, slow rate, interlocked note trading. cedar nylon fingerpicked classical nylon-string guitar, jacaranda rosewood canonical Portuguese strummed cavaquinho. estudios scatena sp. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
+  "recipe_chars": 543,
+  "score": 172.633,
   "config": {
     "traditions": [
       "brazilian_mpb_protest",
-      "milonga",
-      "greek_entechno_politicized"
+      "nova_mpb",
+      "milonga"
     ],
     "instruments": [
       {
@@ -23,7 +23,7 @@
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_tradition": "sean_nos_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 3.463214285714286,
-          "voice_quality": 21.124999999999996,
+          "voice_register": 6.140000000000001,
+          "voice_quality": 25.707499999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.2613392857142856,
-          "voice_articulation": 11.634999999999994,
-          "voice_microtone": 11.992499999999993,
-          "voice_tradition": 14.819999999999999,
-          "voice_mechanism_compound": 2.8599999999999994,
-          "voice_estill_quality": 2.6650000000000005,
-          "voice_speech_song": 22.81499999999999,
-          "voice_ensemble_config": 11.699999999999992,
-          "voice_ornament_system": 4.575,
-          "voice_pitch_organization": 4.225,
-          "voice_processing_chain": 1.885,
-          "voice_multitrack_stack": 7.54
+          "voice_vibrato": 0.725625,
+          "voice_articulation": 14.04,
+          "voice_microtone": 14.039999999999996,
+          "voice_tradition": 6.9225,
+          "voice_mechanism_compound": 3.12,
+          "voice_estill_quality": 3.1200000000000006,
+          "voice_speech_song": 24.894999999999996,
+          "voice_ensemble_config": 14.754999999999997,
+          "voice_ornament_system": 3.7,
+          "voice_pitch_organization": 1.885,
+          "voice_processing_chain": 2.34,
+          "voice_multitrack_stack": 3.3150000000000004
         }
       },
       {
@@ -58,17 +58,17 @@
           "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "standard_tuning",
           "top_wood_classical": "cedar_cl",
-          "bracing_classical": "double_top_cl",
+          "bracing_classical": "fan_torres_cl",
           "string_classical": "nylon_normal_cl",
           "attack_technique_cl": "thumb_attack_cl"
         },
         "scores": {
-          "acoustic_technique": 6.225,
+          "acoustic_technique": 7.200000000000001,
           "string_tuning": 0,
-          "top_wood_classical": 1.4300000000000002,
-          "bracing_classical": 0.78,
-          "string_classical": 0.5499999999999999,
-          "attack_technique_cl": 1.5
+          "top_wood_classical": 2.8599999999999994,
+          "bracing_classical": 0.5456249999999999,
+          "string_classical": 1.419375,
+          "attack_technique_cl": 3.125
         }
       },
       {
@@ -81,11 +81,11 @@
           "cavaquinho_strings": "cavaquinho_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 5.068928571428572,
-          "cavaquinho_origin": 3.8699999999999997,
-          "cavaquinho_context": 21.709999999999994,
-          "cavaquinho_body_wood": 1.2999999999999998,
-          "cavaquinho_strings": -0.56
+          "plucked_traditional_technique": 4.86,
+          "cavaquinho_origin": 3.8999999999999995,
+          "cavaquinho_context": 25.285000000000004,
+          "cavaquinho_body_wood": 1.95,
+          "cavaquinho_strings": -0.10500000000000007
         }
       }
     ],

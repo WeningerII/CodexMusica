@@ -3,12 +3,13 @@
   "name": "Folk punk (American 80s-90s)",
   "family": "rock_punk",
   "lineage": "Punk subgenre synthesizing folk-instrumentation (acoustic guitar, banjo, fiddle, accordion) with punk lyrical-and-attitudinal aesthetic. The Pogues (1983-onward) inaugurated the British-Irish strain; American folk-punk wave through Andrew Jackson Jihad, Defiance Ohio, Pat the Bunny, Mischief Brew, and the broader Plan-It-X Records roster constitutes the 2000s-2010s American development.",
-  "recipe": "classic modern folk punk, distorted Rock, punk branch, anglo singer song indie folk. thick, breath veiled tone, breath pulsed, interlocked note trading. narrative fingerpicked dreadnought acoustic guitar, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string, castagnari Italian premium folk music straight accordion, marshall plexi amp British rock amp ernie ball slinky electric bass, pre muffled edge muffled sticks drum kit. isolated rural 2005-present isolation diy isolation cabin diy. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 657,
-  "score": 246.93,
+  "recipe": "classic modern folk punk, distorted Rock, punk branch, anglo singer song indie folk stomp and holler. thick, breath veiled tone, breath pulsed, interlocked note trading. narrative fingerpicked dreadnought acoustic guitar, bronze 3 ply maple Gibson mastertone canon maple bluegrass canon banjo 5 string, castagnari Italian premium folk music straight accordion, Fender tweed amp American 50s amp tweed breakup ernie ball slinky electric bass, pre muffled edge muffled sticks drum kit. isolated rural 2005-present isolation diy isolation cabin diy. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 678,
+  "score": 333.949,
   "config": {
     "traditions": [
       "folk_punk",
+      "stomp_and_holler",
       "indie_folk_2000s"
     ],
     "instruments": [
@@ -21,10 +22,10 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "diaphragm_vibrato",
           "voice_articulation": "hocket_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "japanese_min_yo_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_gang_vocal_unison",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
@@ -33,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 26.807999999999993,
-          "voice_quality": 11.894999999999992,
+          "voice_register": 32.721500000000006,
+          "voice_quality": 15.469999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.2125,
-          "voice_articulation": 7.344999999999999,
-          "voice_microtone": 9.674999999999997,
-          "voice_tradition": 18.799249999999997,
-          "voice_mechanism_compound": 2.4699999999999998,
-          "voice_estill_quality": 2.2749999999999995,
-          "voice_speech_song": 9.684999999999999,
-          "voice_ensemble_config": 17.024749999999997,
-          "voice_ornament_system": 3.1680000000000006,
+          "voice_vibrato": 2.831,
+          "voice_articulation": 14.105,
+          "voice_microtone": 13.714999999999996,
+          "voice_tradition": 27.164749999999994,
+          "voice_mechanism_compound": 3.3149999999999995,
+          "voice_estill_quality": 4.160000000000001,
+          "voice_speech_song": 17.68,
+          "voice_ensemble_config": 18.259749999999997,
+          "voice_ornament_system": 3.5580000000000003,
           "voice_pitch_organization": 0.65,
-          "voice_processing_chain": 2.145,
-          "voice_multitrack_stack": 5.624750000000001
+          "voice_processing_chain": 3.23,
+          "voice_multitrack_stack": 5.26025
         }
       },
       {
@@ -57,42 +58,42 @@
           "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "standard_tuning",
           "top_wood": "cedar",
-          "back_sides": "maple_bs",
+          "back_sides": "koa_bs",
           "string_acoustic": "martin_lifespan"
         },
         "scores": {
-          "acoustic_technique": 19.345000000000002,
+          "acoustic_technique": 25.139999999999993,
           "string_tuning": 0,
-          "top_wood": 0.45825,
-          "back_sides": 0.45499999999999996,
-          "string_acoustic": 0.52125
+          "top_wood": 0.65,
+          "back_sides": 0.845,
+          "string_acoustic": 0.24825
         }
       },
       {
         "id": "banjo_5_string",
         "slots": {
-          "banjo_back": "resonator",
-          "tone_ring": "wood_ring",
+          "banjo_back": "open_back",
+          "tone_ring": "flathead",
           "banjo_head": "fiberskyn",
           "banjo_pot": "pot_11",
-          "banjo_play": "clawhammer",
-          "banjo_rim_wood": "banjo_walnut_rim",
-          "banjo_neck_wood": "banjo_walnut_neck",
-          "banjo_strings": "banjo_light_clawhammer",
-          "banjo_bridge": "banjo_compensated_bridge",
+          "banjo_play": "three_finger",
+          "banjo_rim_wood": "banjo_3_ply_maple_gibson",
+          "banjo_neck_wood": "banjo_maple_neck",
+          "banjo_strings": "banjo_medium_bluegrass",
+          "banjo_bridge": "banjo_maple_ebony_bridge",
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
-          "banjo_back": 0.063,
-          "tone_ring": 0.0315,
-          "banjo_head": 7.539999999999998,
+          "banjo_back": 0.845,
+          "tone_ring": 1.25,
+          "banjo_head": 14.105000000000002,
           "banjo_pot": 0.063,
-          "banjo_play": 0,
-          "banjo_rim_wood": 0.1575,
-          "banjo_neck_wood": 0.45825,
-          "banjo_strings": 0.105,
-          "banjo_bridge": 0.105,
-          "banjo_setup_period": 7.474999999999999
+          "banjo_play": 0.65,
+          "banjo_rim_wood": 1.571,
+          "banjo_neck_wood": 1.4,
+          "banjo_strings": 1.4,
+          "banjo_bridge": 1.4,
+          "banjo_setup_period": 15.730000000000002
         }
       },
       {
@@ -101,40 +102,40 @@
           "free_reed_technique": "free_reed_folk_first_position",
           "accordion_reed_material": "tipo_a_mano",
           "musette_offset": "italian_tuning",
-          "reed_config": "lmm",
+          "reed_config": "lmmm",
           "bellows": "cardboard_leather",
           "voicing_chamber": "no_cassotto",
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 16.813,
-          "accordion_reed_material": 0.6435,
+          "free_reed_technique": 21.237999999999996,
+          "accordion_reed_material": 0.5519999999999999,
           "musette_offset": 2.313,
-          "reed_config": 0.147,
+          "reed_config": 0.845,
           "bellows": 0,
-          "voicing_chamber": 0.38475000000000004,
-          "accordion_maker_school": 8.043
+          "voicing_chamber": 0.24825,
+          "accordion_maker_school": 10.204999999999998
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "amp_make": "amp_american_fender_tweed",
           "body_wood": "mahogany_b",
-          "pickup_config": "humbucker_mm",
+          "pickup_config": "split_coil",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 5.3950000000000005,
-          "body_wood": 0.9165000000000001,
-          "pickup_config": 0.273,
-          "string_type": 9.5875,
-          "scale_length_b": 0.45825,
+          "amp_make": 6.99,
+          "body_wood": 0.7334999999999999,
+          "pickup_config": 0,
+          "string_type": 11.7,
+          "scale_length_b": 0.36675,
           "fretted_or_not": 0.0315,
-          "bass_technique": 23.4065
+          "bass_technique": 25.226499999999998
         }
       },
       {
@@ -145,7 +146,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 16,
+          "drum_technique": 16.195,
           "drumhead": 2.45,
           "drum_kit_kick_pedal": 0
         }

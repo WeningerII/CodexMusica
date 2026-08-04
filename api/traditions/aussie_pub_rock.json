@@ -5,7 +5,7 @@
   "lineage": "1970s-and-1980s Australian rock subgenre developed through the working-class pub-circuit performance economy of Sydney, Melbourne, Adelaide, and Perth. Cold Chisel, the Angels, Rose Tattoo, Midnight Oil, and AC/DC (Sydney-formed) constitute the canonical roster; the Australian-Crawl and (later) INXS extended the genre into international circulation. Distinguished by tight-rhythm-section-and-melodic-vocal pub-band aesthetic and Australian-cultural-identity lyrical content.",
   "recipe": "classic Los Angeles mid-1970s aussie pub rock, distorted Rock, regional branch, classic distorted rock merseybeat. thick, breath veiled tone, straight note core, interlocked note trading. marshall plexi amp British rock amp basswood maple pau ferro humbucker electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, oil filled brushes-and-sticks drum kit. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
   "recipe_chars": 571,
-  "score": 323.314,
+  "score": 324.072,
   "config": {
     "traditions": [
       "aussie_pub_rock",
@@ -28,27 +28,27 @@
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 19.744999999999994,
+          "voice_register": 19.894999999999992,
           "voice_quality": 21.58,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.4665000000000004,
+          "voice_vibrato": 3.4350000000000005,
           "voice_articulation": 20.929999999999996,
           "voice_microtone": 20.734999999999992,
           "voice_tradition": 3.3150000000000004,
           "voice_mechanism_compound": 5.525000000000001,
-          "voice_estill_quality": 2.62175,
+          "voice_estill_quality": 2.5587500000000003,
           "voice_speech_song": 20.929999999999996,
           "voice_ensemble_config": 21.709999999999994,
-          "voice_ornament_system": 1.2999999999999998,
+          "voice_ornament_system": 1.3299999999999998,
           "voice_pitch_organization": 5.720000000000001,
-          "voice_processing_chain": 12.706249999999999,
+          "voice_processing_chain": 12.931249999999999,
           "voice_multitrack_stack": 6.630000000000001
         }
       },
@@ -73,13 +73,13 @@
           "electric_technique": 11.992499999999996,
           "amp_make": 11.114999999999998,
           "body_wood": 4.225,
-          "neck_wood": 1.435,
-          "fretboard": 1.435,
+          "neck_wood": 1.48,
+          "fretboard": 1.48,
           "pickup_magnet": 0.195,
           "pickup_winding": 2.8600000000000003,
-          "string_material": 1.435,
+          "string_material": 1.48,
           "bridge": 0.885,
-          "scale_length": 7.2524999999999995,
+          "scale_length": 7.4475,
           "string_gauge": 0.885,
           "finish": 0.435,
           "string_tuning": 16.64
@@ -103,7 +103,7 @@
           "string_type": 23.8875,
           "scale_length_b": 0.885,
           "fretted_or_not": 0,
-          "bass_technique": 18.4915
+          "bass_technique": 18.46
         }
       },
       {
@@ -115,7 +115,7 @@
         },
         "scores": {
           "drum_technique": 20.994999999999997,
-          "drumhead": 1.445,
+          "drumhead": 1.595,
           "drum_kit_kick_pedal": 0
         }
       }

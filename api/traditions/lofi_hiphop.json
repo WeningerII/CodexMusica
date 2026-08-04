@@ -3,13 +3,14 @@
   "name": "Lo-fi hip hop (chillhop)",
   "family": "global",
   "lineage": "Mid-2010s onward online-distributed instrumental-hip-hop genre characterized by tape-saturated downtempo beat-tape production, jazz-and-soul sample foundations, and study-and-relax-targeted use context — codified through Nujabes (Modal Soul 2005, posthumously canonical), J Dilla (Donuts 2006, the lineage-bearing predecessor), and developed through ChilledCow and Lofi Girl YouTube live-streams, with countless bedroom-producer contributors",
-  "recipe": "classic 2014-2016 lo-fi hip hop, experimental Elec, lofi branch, us hip hop modern cloud rap. chopped sampler, mark 7 modern tine post 2007 reissue centered tine pickup gap canonical balanced Rhodes voicing ostinato rhodes electric, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, roland tr 8s modern aira digital recreation TR-808, soft felt lacquer voiced 17 ply hard rock maple Asian spruce grand piano. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 560,
-  "score": 139.355,
+  "recipe": "classic 2014-2016 lo-fi hip hop, experimental Elec, lofi branch, us hip hop modern cloud rap pittsburgh rap. chopped sampler, mark 7 modern tine post 2007 reissue centered tine pickup gap canonical balanced Rhodes voicing ostinato rhodes electric, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, roland tr 8s modern aira digital recreation TR-808, soft felt lacquer voiced 17 ply hard rock maple Asian spruce grand piano. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 572,
+  "score": 199.696,
   "config": {
     "traditions": [
       "lofi_hiphop",
-      "cloud_rap"
+      "cloud_rap",
+      "pittsburgh_rap"
     ],
     "instruments": [
       {
@@ -17,16 +18,16 @@
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
           "sampler_archetypes": "emu_sp1200",
-          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_bit_depth": "sampler_sixteen_bit",
           "sampler_workflow": "sampler_chopped_breaks",
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 7.371249999999999,
-          "sampler_archetypes": 11.434999999999999,
-          "sampler_bit_depth": 2.0175,
-          "sampler_workflow": 7.821249999999999,
-          "sampler_classic_context": 18.303517857142854
+          "electronic_technique": 9.68275,
+          "sampler_archetypes": 16.605999999999998,
+          "sampler_bit_depth": 2.8600000000000003,
+          "sampler_workflow": 10.221249999999998,
+          "sampler_classic_context": 28.632499999999997
         }
       },
       {
@@ -36,23 +37,23 @@
           "rhodes_model": "rhodes_mark1_stage",
           "rhodes_use": "rhodes_soul",
           "rhodes_tine_material": "rhodes_mark7_modern_tine",
-          "rhodes_hammer_tip": "rhodes_felt_hammer_tip",
+          "rhodes_hammer_tip": "rhodes_neoprene_hammer_tip",
           "rhodes_pickup_position": "rhodes_pickup_centered"
         },
         "scores": {
-          "keyboard_technique": 5.7,
-          "rhodes_model": 4.3175,
+          "keyboard_technique": 7.325,
+          "rhodes_model": 5.974,
           "rhodes_use": 2.145,
-          "rhodes_tine_material": 2.5665,
-          "rhodes_hammer_tip": -0.4375,
-          "rhodes_pickup_position": 1.0045
+          "rhodes_tine_material": 3.705,
+          "rhodes_hammer_tip": 0.5325,
+          "rhodes_pickup_position": 2.145
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_b15",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "soapbar",
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "extra_long_b",
@@ -60,26 +61,26 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "amp_make": 7.4874375,
-          "body_wood": 1.135,
-          "pickup_config": 3.835,
-          "string_type": 6.354499999999999,
-          "scale_length_b": 1.738,
-          "fretted_or_not": 0.009,
-          "bass_technique": 5.6499999999999995
+          "amp_make": 10.0129375,
+          "body_wood": 1.4124999999999999,
+          "pickup_config": 4.8100000000000005,
+          "string_type": 8.77,
+          "scale_length_b": 3.5100000000000002,
+          "fretted_or_not": 0,
+          "bass_technique": 7.3065
         }
       },
       {
         "id": "drum_machine_808",
         "slots": {
           "tr808_voice": "tr808_kick_long",
-          "drum_machine_808_context": "drum_machine_808_rb",
+          "drum_machine_808_context": "drum_machine_808_trap",
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 7.057714285714285,
-          "drum_machine_808_context": 1.885,
-          "tr808_production_origin": 1.6749999999999998
+          "tr808_voice": 9.435,
+          "drum_machine_808_context": 2.8600000000000003,
+          "tr808_production_origin": 2.8600000000000003
         }
       },
       {
@@ -91,20 +92,20 @@
           "piano_hammer": "steinway_original_hammer",
           "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
           "piano_soundboard": "asian_spruce_soundboard",
-          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
           "piano_plate": "wet_sand_cast_plate",
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 5.699999999999999,
-          "grand_piano_size": 1.0675,
-          "grand_piano_brand": 1.0675,
-          "piano_hammer": 4.232187499999999,
-          "piano_rim": 4.077875,
-          "piano_soundboard": 4.14875,
-          "piano_pinblock": 3.625,
-          "piano_plate": 6.106276785714286,
-          "piano_pitch_standard": 6.8588125
+          "keyboard_technique": 7.324999999999999,
+          "grand_piano_size": 1.099,
+          "grand_piano_brand": 1.099,
+          "piano_hammer": 7.0886875,
+          "piano_rim": 5.984375000000001,
+          "piano_soundboard": 6.050750000000001,
+          "piano_pinblock": 6.345250000000001,
+          "piano_plate": 8.4340625,
+          "piano_pitch_standard": 11.964312500000002
         }
       }
     ],

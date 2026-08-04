@@ -3,9 +3,9 @@
   "name": "Sophisti-pop",
   "family": "global",
   "lineage": "1980s British adult-contemporary jazz-pop subgenre characterized by smooth chord-rich production, electric-piano-led harmonic foundation, atmospheric backing vocals — codified through Sade (Diamond Life 1984, Promise 1985), Everything But the Girl (Eden 1984), the Style Council (Café Bleu 1984), Prefab Sprout (Steve McQueen 1985), and the early Swing Out Sister releases",
-  "recipe": "classic North American mid-1980s sophisti-pop, functional Song, pop rock branch, crooners functional song great american songbook brill building pop. thick, breath veiled tone, straight onset, interlocked note trading. singing lead analog poly synth, marshall plexi amp British rock amp mahogany thomastik infeld low tension electric ampeg svt amp rock bass amp ebony unlined fusion fretless canon fretless bass, pre muffled edge muffled brushes-and-sticks drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris rubber continuous-airflow saxophone, torrington spring steel tine canonical Rhodes 1965 1984 centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric. treated studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 888,
-  "score": 344.492,
+  "recipe": "classic North American mid-1980s sophisti-pop, functional Song, pop rock branch, crooners functional song great american songbook brill building pop. thick, breath veiled tone, straight onset, interlocked note trading. singing lead analog poly synth, marshall plexi amp British rock amp alder thomastik infeld low tension electric ampeg svt amp rock bass amp ebony unlined fusion fretless canon fretless bass, pre muffled edge muffled brushes-and-sticks drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris rubber continuous-airflow saxophone, torrington spring steel tine canonical Rhodes 1965 1984 centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric. treated studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 885,
+  "score": 344.835,
   "config": {
     "traditions": [
       "sophisti_pop",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 30.07499999999999,
+          "voice_register": 30.11999999999999,
           "voice_quality": 8.905000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 13.8455,
+          "voice_vibrato": 13.715,
           "voice_articulation": 12.479999999999995,
-          "voice_microtone": 29.82999999999999,
-          "voice_tradition": 21.300499999999992,
+          "voice_microtone": 29.93499999999999,
+          "voice_tradition": 20.206999999999994,
           "voice_mechanism_compound": 0.975,
-          "voice_estill_quality": 4.375,
+          "voice_estill_quality": 4.36,
           "voice_speech_song": 19.369999999999994,
           "voice_ensemble_config": 12.414999999999994,
           "voice_ornament_system": 0.39,
-          "voice_pitch_organization": 1.765,
-          "voice_processing_chain": 5.691,
-          "voice_multitrack_stack": 4.485000000000001
+          "voice_pitch_organization": 1.75,
+          "voice_processing_chain": 5.313,
+          "voice_multitrack_stack": 4.248000000000001
         }
       },
       {
@@ -61,7 +61,7 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 16.001499999999997,
+          "electronic_technique": 15.969999999999995,
           "poly_archetypes": 2.795,
           "poly_voices": 2.2,
           "poly_maker_lineage": -0.035
@@ -71,7 +71,7 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_british_late_60s_marshall_plexi",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "soapbar",
           "string_type": "thomastik_jazz_bass_flat",
           "scale_length_b": "short_scale_b",
@@ -79,13 +79,13 @@
           "bass_technique": "fingerstyle_walking"
         },
         "scores": {
-          "amp_make": 4.355,
+          "amp_make": 4.271000000000001,
           "body_wood": 2.7299999999999995,
-          "pickup_config": 0.603,
-          "string_type": 9.77,
+          "pickup_config": 0.825,
+          "string_type": 10.37,
           "scale_length_b": 1.4299999999999997,
           "fretted_or_not": 0.3,
-          "bass_technique": 9.125
+          "bass_technique": 9.275
         }
       },
       {
@@ -97,7 +97,7 @@
         },
         "scores": {
           "drum_technique": 17.484999999999996,
-          "drumhead": 15.791499999999996,
+          "drumhead": 15.804999999999996,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -116,10 +116,10 @@
           "wind_articulation": 0.12999999999999998,
           "sax_size": 1.4299999999999997,
           "sax_reed": 0.39,
-          "sax_body_alloy": 9.1695,
+          "sax_body_alloy": 9.151499999999999,
           "sax_mouthpiece": 1,
           "sax_technique": 9.125,
-          "sax_maker_school": 7.824999999999999
+          "sax_maker_school": 8.424999999999999
         }
       },
       {
@@ -133,10 +133,10 @@
           "rhodes_pickup_position": "rhodes_pickup_centered"
         },
         "scores": {
-          "keyboard_technique": 17.032999999999998,
-          "rhodes_model": 10.8415,
+          "keyboard_technique": 16.864999999999995,
+          "rhodes_model": 11.155,
           "rhodes_use": 3.3149999999999995,
-          "rhodes_tine_material": 2.85,
+          "rhodes_tine_material": 2.925,
           "rhodes_hammer_tip": -0.42000000000000004,
           "rhodes_pickup_position": 1.04
         }
@@ -154,10 +154,10 @@
         "scores": {
           "electric_technique": 0.75,
           "amp_make": 3.3149999999999995,
-          "fretless_use": 2.6849999999999996,
+          "fretless_use": 2.7299999999999995,
           "fretless_bass_construction": 0.845,
-          "fretless_fingerboard_wood": 10.294999999999998,
-          "fretless_bass_strings": 9.77
+          "fretless_fingerboard_wood": 10.084999999999999,
+          "fretless_bass_strings": 10.325
         }
       }
     ],

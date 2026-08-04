@@ -1,0 +1,188 @@
+{
+  "id": "compositional_ambient",
+  "name": "Compositional ambient (notated post-minimal ambient)",
+  "family": "classical",
+  "lineage": "Compositional ambient emerged where post-minimalist concert writing met ambient production, from Harold Budd and Gavin Bryars in the late 1970s through Max Richter, Ólafur Arnalds, Nils Frahm and Hania Rani after 2000 — slow through-written string and piano writing in diatonic or Aeolian modes, notated parts rather than loops, close-miked felted piano with audible mechanism, long convolution and plate reverb tails, and pieces of 4-12 minutes built on gradual additive layering.",
+  "recipe": "classic 1977-1979 compositional ambient, experimental Elec, ambient branch, western modern art music, musique concrete experimental electric japanese soundtrack scoring musical impressionism. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, sitka spruce bigleaf maple western maple oil varnish amber tinted violin orchestral, synthetic engelmann spruce European maple sycamore maple oil varnish cello, sustained pad analog poly sustained pad modular synth, concert harp, legato celesta, mixed satb canonical 4 part western three voice polyphonic regional mbenga mbuti three voice ostinato hocket yodel choir ensemble. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 805,
+  "score": 307.51,
+  "config": {
+    "traditions": [
+      "compositional_ambient",
+      "japanese_soundtrack",
+      "impressionism"
+    ],
+    "instruments": [
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_avant_prepared",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "renner_standard_hammer",
+          "piano_rim": "european_laminated_rim_beech_maple",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 6.325000000000001,
+          "grand_piano_size": 1.95,
+          "grand_piano_brand": 1.3,
+          "piano_hammer": 13.541818181818181,
+          "piano_rim": 10.935,
+          "piano_soundboard": 12,
+          "piano_pinblock": 10.5,
+          "piano_plate": 14.060227272727275,
+          "piano_pitch_standard": 12.137954545454546
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "orch_strings": "plain_lamb_gut_violin",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "bigleaf_western_maple_violin",
+          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "modern_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "pirastro_gold_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 6.625,
+          "orch_strings": 0.78,
+          "orch_top_wood": 7.124090909090909,
+          "orch_back_wood": 11.115,
+          "orch_varnish": 10.5,
+          "orch_setup_period": 13.260227272727274,
+          "orch_bow": 0.78,
+          "orch_bow_stick": 11.95681818181818,
+          "orch_articulation": 1.105,
+          "orch_rosin": 12.955227272727273
+        }
+      },
+      {
+        "id": "cello",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "cello_strings": "cello_synthetic",
+          "cello_top_wood": "engelmann_spruce_cello",
+          "cello_back_wood": "european_maple_cello_back",
+          "cello_varnish": "oil_amber_varnish_cello",
+          "cello_setup_period": "modern_setup_cello",
+          "cello_bow_grip": "french_bow_grip",
+          "cello_rosin": "pirastro_cellisto_rosin",
+          "cello_bow_stick": "pernambuco_stick_cello"
+        },
+        "scores": {
+          "bowed_technique": 6.625,
+          "cello_strings": 3.9650000000000003,
+          "cello_top_wood": 5.5,
+          "cello_back_wood": 10.89,
+          "cello_varnish": 10.5,
+          "cello_setup_period": 13.260227272727274,
+          "cello_bow_grip": 2.6,
+          "cello_rosin": 10.695,
+          "cello_bow_stick": 11.95681818181818
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "poly_archetypes": "prophet_5",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 16.849999999999998,
+          "poly_archetypes": 1.105,
+          "poly_voices": 0.195,
+          "poly_maker_lineage": -0.7350000000000001
+        }
+      },
+      {
+        "id": "concert_harp",
+        "slots": {
+          "harp_strings": "harp_47_string",
+          "harp_pedals": "harp_double_pedal"
+        },
+        "scores": {
+          "harp_strings": 4.095,
+          "harp_pedals": 2.6
+        }
+      },
+      {
+        "id": "celesta",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "celesta_model": "celesta_yamaha",
+          "celesta_context": "celesta_film"
+        },
+        "scores": {
+          "keyboard_technique": 5,
+          "celesta_model": 1.7970454545454546,
+          "celesta_context": 2.8600000000000003
+        }
+      },
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "mod_voltage_source": "mod_sequencer",
+          "mod_patch_density": "mod_dense_patch",
+          "mod_lineage": "mod_doepfer_eurorack"
+        },
+        "scores": {
+          "electronic_technique": 16.849999999999998,
+          "mod_voltage_source": 0.39,
+          "mod_patch_density": 6.805,
+          "mod_lineage": 0.39
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "mixed_4_part_satb",
+          "choir_polyphonic_configuration": "choir_polyphony_three_voice_polyphonic",
+          "choir_regional_canonical_configuration": "choir_regional_mbenga_mbuti_three_voice_ostinato",
+          "choir_ensemble_repertoire": "choir_ensemble_contemporary"
+        },
+        "scores": {
+          "choir_size": 5.265,
+          "choir_polyphonic_configuration": 1.5600000000000003,
+          "choir_regional_canonical_configuration": 1.3,
+          "choir_ensemble_repertoire": 3.3150000000000004
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "tube_modern",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "tube_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

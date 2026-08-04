@@ -5,7 +5,7 @@
   "lineage": "Slowed-down Mexican cumbia variant emerging accidentally in Monterrey 1980s-1990s when sonidero DJs played records at slower speed, producing characteristically lowered-pitch hypnotic-droning. Deliberate cultural practice followed, with sound-systems and bedroom-producers crafting deliberately slowed versions. Intersected with 2010s \"tribal guarachero\" Monterrey electronic-cumbia.",
   "recipe": "classic Mexican mid-1980s cumbia rebajada, functional Song, Mexican branch, Latin electric electronic dance baile funk cumbia electrónica. thick, full chest belt, straight note core, interlocked note trading. petosa seattle American premium accordion, ampeg b15 amp American 60s bass amp flip top character pyramid pure nickel bass electric bass. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
   "recipe_chars": 526,
-  "score": 105.154,
+  "score": 105.535,
   "config": {
     "traditions": [
       "cumbia_rebajada",
@@ -28,7 +28,7 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_none",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_just_intonation",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
@@ -38,18 +38,18 @@
           "voice_quality": 13.349999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.885,
+          "voice_vibrato": 2.9899999999999998,
           "voice_articulation": 7.799999999999999,
           "voice_microtone": 6.954999999999999,
-          "voice_tradition": 2.0475000000000003,
+          "voice_tradition": 1.9050000000000002,
           "voice_mechanism_compound": 4.68,
           "voice_estill_quality": 3.835,
           "voice_speech_song": 11.634999999999994,
           "voice_ensemble_config": 7.734999999999999,
-          "voice_ornament_system": 0.214,
-          "voice_pitch_organization": 1.95,
-          "voice_processing_chain": 17.487999999999996,
-          "voice_multitrack_stack": 6.3675
+          "voice_ornament_system": 0.06500000000000002,
+          "voice_pitch_organization": 2.085,
+          "voice_processing_chain": 17.532999999999998,
+          "voice_multitrack_stack": 6.755
         }
       },
       {

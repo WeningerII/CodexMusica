@@ -1,0 +1,165 @@
+{
+  "id": "melancholia_ambient",
+  "name": "Melancholia (contemporary melancholic neoclassical-ambient)",
+  "family": "electronic",
+  "lineage": "Post-2005 European neoclassical-ambient current shaped in Reykjavík, Berlin and Leipzig by Jóhann Jóhannsson, Nils Frahm, Ólafur Arnalds and the Erased Tapes and Type catalogues — slow felted piano and close-miked string quartet writing over tape-saturated drones, 50-70 BPM or unpulsed, diatonic minor loops with suspended fourths, and mechanical noise (hammer felt, pedal, room hum) retained as a deliberate timbral layer",
+  "recipe": "classic mid-2000s melancholia, experimental Elec, ambient branch, western modern art music, lofi experimental electric japanese soundtrack scoring holy minimalism. prepared upright piano, sitka spruce bigleaf maple western maple oil varnish amber tinted violin orchestral, synthetic engelmann spruce European maple sycamore maple oil varnish cello, sustained pad granular sustained pad analog poly synth, mellotron m4000d modern digital reissue post 2007 mellotron, pedal resonant legato pump organ harmonium. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 655,
+  "score": 192.449,
+  "config": {
+    "traditions": [
+      "melancholia_ambient",
+      "japanese_soundtrack",
+      "holy_minimalism"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_avant_prepared",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_spinet"
+        },
+        "scores": {
+          "keyboard_technique": 6.325000000000001,
+          "upright_use": 1.69,
+          "upright_piano_size": 1.69
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "orch_strings": "synthetic_orch",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "bigleaf_western_maple_violin",
+          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "modern_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "magic_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 4.125,
+          "orch_strings": 0.9299999999999999,
+          "orch_top_wood": 6.58,
+          "orch_back_wood": 10.660000000000002,
+          "orch_varnish": 8,
+          "orch_setup_period": 10.13525,
+          "orch_bow": 0.78,
+          "orch_bow_stick": 9.3,
+          "orch_articulation": 1.04,
+          "orch_rosin": 10.465
+        }
+      },
+      {
+        "id": "cello",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "cello_strings": "cello_synthetic",
+          "cello_top_wood": "engelmann_spruce_cello",
+          "cello_back_wood": "european_maple_cello_back",
+          "cello_varnish": "oil_amber_varnish_cello",
+          "cello_setup_period": "modern_setup_cello",
+          "cello_bow_grip": "french_bow_grip",
+          "cello_rosin": "pirastro_cellisto_rosin",
+          "cello_bow_stick": "pernambuco_stick_cello"
+        },
+        "scores": {
+          "bowed_technique": 4.125,
+          "cello_strings": 3.5100000000000002,
+          "cello_top_wood": 5.5,
+          "cello_back_wood": 9.39,
+          "cello_varnish": 8,
+          "cello_setup_period": 10.13525,
+          "cello_bow_grip": 1.3,
+          "cello_rosin": 8.195,
+          "cello_bow_stick": 9.3
+        }
+      },
+      {
+        "id": "granular_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "granular_use": "granular_idm",
+          "granular_synth_source": "granular_synth_field"
+        },
+        "scores": {
+          "electronic_technique": 10.35,
+          "granular_use": 0.24225000000000002,
+          "granular_synth_source": 3.29625
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "poly_archetypes": "prophet_5",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_yamaha_cs"
+        },
+        "scores": {
+          "electronic_technique": 10.35,
+          "poly_archetypes": 0.65,
+          "poly_voices": 1.195,
+          "poly_maker_lineage": -0.1750000000000001
+        }
+      },
+      {
+        "id": "mellotron",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "mellotron_voice": "mellotron_strings",
+          "mellotron_context": "mellotron_indie",
+          "mellotron_model": "mellotron_m4000d_modern",
+          "mellotron_tape_material": "mellotron_polyester_tape_canonical"
+        },
+        "scores": {
+          "keyboard_technique": 1.1249999999999998,
+          "mellotron_voice": 0.585,
+          "mellotron_context": 1.79,
+          "mellotron_model": 4.16,
+          "mellotron_tape_material": 0.845
+        }
+      },
+      {
+        "id": "pump_organ_harmonium",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "pump_organ_construction": "pump_organ_late_19th_revival",
+          "pump_organ_stops": "pump_organ_bourdon_stop"
+        },
+        "scores": {
+          "keyboard_technique": 3.8,
+          "pump_organ_construction": 20.41,
+          "pump_organ_stops": 1.3
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

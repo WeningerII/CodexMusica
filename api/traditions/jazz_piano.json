@@ -1,0 +1,129 @@
+{
+  "id": "jazz_piano",
+  "name": "Jazz Piano (trio and solo idiom)",
+  "family": "jazz",
+  "lineage": "The piano-led American jazz idiom codified between the 1930s and 1960s by Art Tatum, Bud Powell, Bill Evans, and Thelonious Monk — left-hand rootless voicings and shell chords under a right-hand bebop line, swung eighths at anywhere from ballad rubato to 300 BPM, walking bass and brushed or ride-led drums in the trio format, and improvisation over 32-bar AABA standards and blues.",
+  "recipe": "classic North American mid-1930s jazz piano, improv On Frame, American jazz branch, American jazz bop, American jazz stride piano, American jazz hard bop. cold pressed wurzen felt oversize maple tension resonator European spruce grand foundational walking line jazz trio piano, venice catlin high twist renaissance bass Baroque setup lighter bass bar double growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. cedar and redwood vaulted ceiling 1959-2016 mid tier van gelder englewood cliffs. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 628,
+  "score": 294.914,
+  "config": {
+    "traditions": [
+      "jazz_piano",
+      "hard_bop",
+      "stride_piano"
+    ],
+    "instruments": [
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_stride_left_hand",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "yamaha_cfx",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_432_alternative"
+        },
+        "scores": {
+          "keyboard_technique": 5.790454545454545,
+          "grand_piano_size": 0.585,
+          "grand_piano_brand": 1.029,
+          "piano_hammer": 11.0825,
+          "piano_rim": 13.097500000000002,
+          "piano_soundboard": 2.5024999999999995,
+          "piano_pinblock": 0.3325,
+          "piano_plate": 0.325,
+          "piano_pitch_standard": 2.54225
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "bass_size": "bass_three_quarter",
+          "bass_strings": "venice_catlin_bass",
+          "bass_top_wood": "norway_spruce_alpine_bass",
+          "bass_back_wood": "european_maple_bass_back",
+          "bass_varnish": "oil_amber_varnish_bass",
+          "bass_setup_period": "baroque_setup_bass",
+          "bass_play": "bass_pizz",
+          "bass_rosin": "nyman_bass_rosin",
+          "bass_bow_stick": "pernambuco_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": 0.4225,
+          "bass_size": 0,
+          "bass_strings": 3.18125,
+          "bass_top_wood": 0.5220454545454545,
+          "bass_back_wood": 0.6249999999999999,
+          "bass_varnish": 0.325,
+          "bass_setup_period": 5.048465909090909,
+          "bass_play": 37.2715625,
+          "bass_rosin": 46.49366666666667,
+          "bass_bow_stick": 1.2024999999999997
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "vintage_ambassador_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 43.03,
+          "drumhead": 43.24616666666667,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "jazz_trio_piano",
+        "slots": {
+          "members": "pt_bass",
+          "era": "jazz_modern_trio"
+        },
+        "scores": {
+          "members": 2.8075454545454543,
+          "era": 2.5769545454545453
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "gut_wound_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "upright_strings": 36.5,
+          "upright_play": 36.5
+        }
+      }
+    ],
+    "room": "van_gelder_englewood_cliffs",
+    "archetype": "arch_van_gelder_hard_bop",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_ua_610_tube",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "bebop_complex_changes",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "bebop_complex_changes",
+    "room": "van_gelder_englewood_cliffs",
+    "chain_mic": "mic_u47_tube_neumann",
+    "chain_pre": "pre_ua_610_tube",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

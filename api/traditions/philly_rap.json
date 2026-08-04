@@ -1,0 +1,175 @@
+{
+  "id": "philly_rap",
+  "name": "Philadelphia rap",
+  "family": "hip_hop",
+  "lineage": "Built in North and West Philadelphia from the late 1980s through the 2010s by Schoolly D, DJ Jazzy Jeff & the Fresh Prince, the Roots, Beanie Sigel's State Property and later Meek Mill — 90-100 BPM tracks that alternate between live-band drum-and-Rhodes backing and hard sampled loops, with an aggressive, front-of-the-beat, breath-driven vocal attack and gospel-inflected sung hooks.",
+  "recipe": "classic North American 1987-1989 philadelphia rap, mc Rhythm, east coast branch, us hip hop conscious rap, experimental MC rhythm conscious hip-hop rage. thick, rap, straight onset, interlocked note trading. fiberskyn synthetic calf brushes-and-sticks drum kit, pitched chopped sampler, sampled chopped turntable, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, centered tine pickup gap canonical balanced Rhodes voicing gospel runs rhodes electric, late 1980s reverb saturated bus stack hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack. philadelphia 212 north 12th street 1968-2003 mid tier sigma sound studios philadelphia. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 819,
+  "score": 382.468,
+  "config": {
+    "traditions": [
+      "philly_rap",
+      "conscious_hip_hop",
+      "rage_rap"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 12.937999999999995,
+          "voice_quality": 32.64842857142857,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 7.892999999999999,
+          "voice_articulation": 21.58,
+          "voice_microtone": 21.384999999999994,
+          "voice_tradition": 12.227999999999998,
+          "voice_mechanism_compound": 2.8400000000000003,
+          "voice_estill_quality": 7.717999999999999,
+          "voice_speech_song": 30.308571428571426,
+          "voice_ensemble_config": 20.604999999999997,
+          "voice_ornament_system": 6.435000000000002,
+          "voice_pitch_organization": 0.39,
+          "voice_processing_chain": 23.184999999999995,
+          "voice_multitrack_stack": 11.602499999999996
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "fiberskyn_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 24.569999999999997,
+          "drumhead": 4.874999999999998,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 9.787999999999998,
+          "sampler_archetypes": 15.209999999999999,
+          "sampler_bit_depth": 0.845,
+          "sampler_workflow": 10.202999999999998,
+          "sampler_classic_context": 33.1825
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_scratch"
+        },
+        "scores": {
+          "electronic_technique": 9.787999999999998,
+          "turntable_technique": 11.895
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "amp_make": 7.154,
+          "body_wood": 1.24,
+          "pickup_config": 1.045,
+          "string_type": 7.3125,
+          "scale_length_b": 0.8449999999999999,
+          "fretted_or_not": 0.39,
+          "bass_technique": 4.574999999999999
+        }
+      },
+      {
+        "id": "rhodes_electric",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "rhodes_model": "rhodes_mark1_stage",
+          "rhodes_use": "rhodes_soul",
+          "rhodes_tine_material": "rhodes_mark7_modern_tine",
+          "rhodes_hammer_tip": "rhodes_harder_neoprene_late",
+          "rhodes_pickup_position": "rhodes_pickup_centered"
+        },
+        "scores": {
+          "keyboard_technique": 6.98,
+          "rhodes_model": 4.67692857142857,
+          "rhodes_use": 3.12,
+          "rhodes_tine_material": 0.45499999999999996,
+          "rhodes_hammer_tip": 0.5849999999999996,
+          "rhodes_pickup_position": 1.4949999999999999
+        }
+      },
+      {
+        "id": "multitrack_vocal_stack",
+        "slots": {
+          "multitrack_stack_density": "multitrack_density_3_part_third_fifth",
+          "multitrack_stack_era_aesthetic": "multitrack_era_late_1980s_reverb_bus",
+          "multitrack_stack_processing": "multitrack_processing_tuned_perfect"
+        },
+        "scores": {
+          "multitrack_stack_density": 0.39,
+          "multitrack_stack_era_aesthetic": 5.536499999999999,
+          "multitrack_stack_processing": 2.505
+        }
+      }
+    ],
+    "room": "sigma_sound_studios_philadelphia",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_neve_1073_input",
+      "console": "console_american_op_amp",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "room": "sigma_sound_studios_philadelphia",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "digital_std",
+    "chain_console": "console_american_op_amp"
+  }
+}

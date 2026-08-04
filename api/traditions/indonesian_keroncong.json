@@ -5,7 +5,7 @@
   "lineage": "Indonesian keroncong urban-folk genre emerging in sixteenth-seventeenth century Portuguese-trading-post communities of Tugu (north Jakarta) and Maluku from the Portuguese moresco and fado-precursor folk-music brought by Portuguese and Indo-Portuguese settlers, then absorbed into the Malay-Indonesian musical-cultural sphere over four centuries. Performance configuration centers on the cuk (small ukulele-like four-string lute) and cak (smaller four-string), plus violin, flute, cello (played pizzicato), and acoustic guitar. Vocal style features mid-tempo wide-vibrato male-or-female lead with characteristic Indonesian-Malay melodic-line aesthetic over Western-tonal-harmonic framework. The mid-twentieth-century Lokananta Records era anchored commercial-recording preservation.",
   "recipe": "classic Southeast Asian mid-1930s indonesian keroncong, art Music, southeast Asian branch, chanson fado ballad poetry cape verdean batuko of santiago island greek éntechno. thick, breath veiled tone, slow rate, interlocked note trading. cedar phosphor bronze bronze fingerpicked parlor acoustic guitar, bowl back Italian redwood phosphor bronze bronze indian rosewood mandolin, carpathian spruce European maple sycamore maple cremonese pre 1750 four layer system cello. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 637,
-  "score": 333.284,
+  "score": 332.42,
   "config": {
     "traditions": [
       "indonesian_keroncong",
@@ -41,13 +41,13 @@
           "voice_vibrato": 6.7924999999999995,
           "voice_articulation": 23.854999999999997,
           "voice_microtone": 24.40749999999999,
-          "voice_tradition": 33.090999999999994,
+          "voice_tradition": 32.754999999999995,
           "voice_mechanism_compound": 7.02,
           "voice_estill_quality": 9.197499999999998,
           "voice_speech_song": 27.982499999999998,
           "voice_ensemble_config": 28.014999999999997,
           "voice_ornament_system": 2.5999999999999996,
-          "voice_pitch_organization": 15.564999999999998,
+          "voice_pitch_organization": 14.619999999999997,
           "voice_processing_chain": 6.890000000000004,
           "voice_multitrack_stack": 6.76
         }
@@ -62,11 +62,11 @@
           "string_acoustic_parlor": "phosphor_p"
         },
         "scores": {
-          "acoustic_technique": 15.424999999999999,
+          "acoustic_technique": 15.319999999999999,
           "string_tuning": 0.7149999999999999,
-          "top_wood_parlor": 3.2449999999999997,
-          "back_sides_parlor": 0,
-          "string_acoustic_parlor": 3.3799999999999994
+          "top_wood_parlor": 3.3799999999999994,
+          "back_sides_parlor": 0.195,
+          "string_acoustic_parlor": 3.2899999999999996
         }
       },
       {
@@ -84,11 +84,11 @@
         "scores": {
           "acoustic_technique": 3.2500000000000004,
           "mandolin_shape": 6.655,
-          "mandolin_top": 3.1399999999999997,
-          "mandolin_back": 0,
+          "mandolin_top": 3.2899999999999996,
+          "mandolin_back": 0.24,
           "mandolin_bracing": 0.78,
-          "mandolin_strings": 3.3799999999999994,
-          "mandolin_fingerboard": 3.09,
+          "mandolin_strings": 3.2899999999999996,
+          "mandolin_fingerboard": 3.2399999999999998,
           "mandolin_pickup": 23.205000000000002
         }
       },
@@ -114,7 +114,7 @@
           "cello_setup_period": 2.88,
           "cello_bow_grip": 1.3,
           "cello_rosin": 5.835000000000001,
-          "cello_bow_stick": 4.543
+          "cello_bow_stick": 4.375
         }
       }
     ],

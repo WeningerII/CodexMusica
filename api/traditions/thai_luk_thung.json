@@ -5,7 +5,7 @@
   "lineage": "Thai lûk thûng (\"child of the field\") country-song genre emerging in mid-twentieth-century Thailand from the synthesis of Central Thai folk-music with Latin (Cuban, Mexican) rhythmic-influences imported through 1950s-1960s American military presence and Western commercial pop. Characterized by strong vibrato-laden vocal projection, slow-to-mid-tempo orchestral-with-electric-instruments arrangement, and rural-life-and-romantic-loss lyrical content addressing the experience of the rural-Thai migrant worker class. Suraphol Sombatcharoen (1930-1968) is considered the foundational artist; Pumpuang Duangjan (1961-1992) consolidated the modern form. Distinguished from Thai mor lam by lûk thûng's Central Thai (vs Isan northeastern) regional base.",
   "recipe": "classic Southeast Asian early-1930s thai lûk thûng, functional Song, east Asian pop branch, chanson fado ballad poetry cape verdean batuko of santiago island morna. thick, breath veiled tone, straight note core, interlocked note trading. Fender tweed amp American 50s amp tweed breakup mahogany maple humbucker electric guitar, pre muffled edge muffled brushes-and-sticks drum kit, Fender tweed amp American 50s amp tweed breakup mahogany fingerpicked electric bass, singing lead analog poly synth. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 725,
-  "score": 393.658,
+  "score": 394.748,
   "config": {
     "traditions": [
       "thai_luk_thung",
@@ -34,19 +34,19 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 21.855249999999998,
+          "voice_register": 21.669999999999998,
           "voice_quality": 36.4,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 11.00525,
+          "voice_vibrato": 10.82,
           "voice_articulation": 23.92,
           "voice_microtone": 24.245000000000005,
           "voice_tradition": 18.915,
           "voice_mechanism_compound": 7.865,
-          "voice_estill_quality": 15.700499999999998,
+          "voice_estill_quality": 15.569999999999999,
           "voice_speech_song": 31.622500000000002,
           "voice_ensemble_config": 22.815,
-          "voice_ornament_system": 3.325,
+          "voice_ornament_system": 3.535,
           "voice_pitch_organization": 21.759999999999994,
           "voice_processing_chain": 15.404999999999998,
           "voice_multitrack_stack": 7.67
@@ -72,15 +72,15 @@
         "scores": {
           "electric_technique": 9.5,
           "amp_make": 9.444999999999999,
-          "body_wood": 3.2899999999999996,
-          "neck_wood": 3.1399999999999997,
-          "fretboard": 3.09,
+          "body_wood": 3.3799999999999994,
+          "neck_wood": 3.2899999999999996,
+          "fretboard": 3.2399999999999998,
           "pickup_magnet": 0,
-          "pickup_winding": 0.6599999999999999,
+          "pickup_winding": 0.855,
           "string_material": 0.845,
-          "bridge": 3.1399999999999997,
+          "bridge": 3.2899999999999996,
           "scale_length": 3.3799999999999994,
-          "string_gauge": 5.675,
+          "string_gauge": 5.825,
           "finish": 0,
           "string_tuning": 2.145
         }
@@ -113,8 +113,8 @@
           "amp_make": 9.444999999999999,
           "body_wood": 3.3799999999999994,
           "pickup_config": 0,
-          "string_type": 4.829999999999999,
-          "scale_length_b": 3.1399999999999997,
+          "string_type": 4.9799999999999995,
+          "scale_length_b": 3.2899999999999996,
           "fretted_or_not": 1.4949999999999999,
           "bass_technique": 8.295
         }
@@ -129,7 +129,7 @@
         },
         "scores": {
           "electronic_technique": 8.229999999999999,
-          "poly_archetypes": 0.6599999999999999,
+          "poly_archetypes": 0.855,
           "poly_voices": 0.195,
           "poly_maker_lineage": 0.12999999999999998
         }

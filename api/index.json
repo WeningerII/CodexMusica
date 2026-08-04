@@ -3,7 +3,7 @@
   "description": "Pre-compiled recording recipes for recorded-music traditions. Each tradition resolves to a descriptor-stack \"recipe\" plus a structured arrangement. Static files only — open a URL and read the JSON. No server, no key.",
   "generated": "2026-08-04",
   "counts": {
-    "traditions": 1145,
+    "traditions": 1426,
     "instruments": 1406
   },
   "endpoints": {

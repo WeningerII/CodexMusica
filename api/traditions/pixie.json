@@ -1,0 +1,198 @@
+{
+  "id": "pixie",
+  "name": "Pixie (quirky indie pop)",
+  "family": "pop",
+  "lineage": "Anglo-American female-fronted twee-adjacent indie pop cluster of roughly 2004-2012, centred on London, New York and Los Angeles and defined by Regina Spektor, Kate Nash, Lily Allen and Ingrid Michaelson — mid-tempo 90-120 BPM piano or ukulele-led songs, brushed or programmed light kit, glockenspiel and handclap sweeteners, close-miked conversational girlish soprano with spoken asides, hiccup phrasing and diaristic first-person lyrics, arranged in tight verse-chorus pop forms with chamber-pop string or brass cameos.",
+  "recipe": "classic mid-2000s pixie, functional Song, pop rock branch, anglo singer song indie folk, alternative distorted rock permanent wave shimmer pop. thick, breath veiled tone, slow rate, interlocked note trading. block chord upright piano, melodic fingerpicked ukulele, cedar mahogany phosphor bronze bronze strummed parlor acoustic guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, mid attack plastic glockenspiel, hard rock maple acer saccharum carbon fiber composite modern alternative violin orchestral. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 729,
+  "score": 377.642,
+  "config": {
+    "traditions": [
+      "pixie",
+      "permanent_wave",
+      "shimmer_pop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 42.17000000000002,
+          "voice_quality": 8.58,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.965,
+          "voice_articulation": 17.679999999999993,
+          "voice_microtone": 38.800000000000004,
+          "voice_tradition": 25.474999999999998,
+          "voice_mechanism_compound": 4.484999999999999,
+          "voice_estill_quality": 4.095000000000001,
+          "voice_speech_song": 21.58,
+          "voice_ensemble_config": 17.744999999999994,
+          "voice_ornament_system": 1.1049999999999998,
+          "voice_pitch_organization": 1.755,
+          "voice_processing_chain": 6.175000000000001,
+          "voice_multitrack_stack": 3.8675
+        }
+      },
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_concert"
+        },
+        "scores": {
+          "keyboard_technique": 22.699999999999996,
+          "upright_use": 3.625,
+          "upright_piano_size": 0.045
+        }
+      },
+      {
+        "id": "ukulele",
+        "slots": {
+          "ukulele_size": "ukulele_baritone",
+          "ukulele_style": "ukulele_fingerstyle",
+          "ukulele_wood": "ukulele_mahogany"
+        },
+        "scores": {
+          "ukulele_size": 0.845,
+          "ukulele_style": 1.2349999999999999,
+          "ukulele_wood": 0
+        }
+      },
+      {
+        "id": "acoustic_guitar_parlor",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood_parlor": "cedar_p",
+          "back_sides_parlor": "mahogany_bs_p",
+          "string_acoustic_parlor": "phosphor_p"
+        },
+        "scores": {
+          "acoustic_technique": 22.499999999999996,
+          "string_tuning": 0,
+          "top_wood_parlor": 3.67,
+          "back_sides_parlor": 1.2349999999999999,
+          "string_acoustic_parlor": 3.82
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 9.49,
+          "body_wood": 3.8349999999999995,
+          "pickup_config": 0.435,
+          "string_type": 21.775,
+          "scale_length_b": 3.4299999999999997,
+          "fretted_or_not": 0,
+          "bass_technique": 16.745
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 17.549999999999997,
+          "drumhead": 22.349999999999994,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "glockenspiel",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "glockenspiel_size": "glockenspiel_orch_3",
+          "glockenspiel_mallet": "glockenspiel_plastic"
+        },
+        "scores": {
+          "percussion_technique": -0.05,
+          "glockenspiel_size": 0.65,
+          "glockenspiel_mallet": 3.085
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_sul_tasto",
+          "orch_strings": "rectified_gut_violin",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "french_polish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "carbon_fiber_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "magic_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 0.585,
+          "orch_strings": 0.585,
+          "orch_top_wood": 0.325,
+          "orch_back_wood": 10.594999999999999,
+          "orch_varnish": 0.585,
+          "orch_setup_period": 0.7149999999999999,
+          "orch_bow": 0.3,
+          "orch_bow_stick": 3.6399999999999997,
+          "orch_articulation": 1.3,
+          "orch_rosin": 0.39
+        }
+      }
+    ],
+    "room": "live_room",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "live_room",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

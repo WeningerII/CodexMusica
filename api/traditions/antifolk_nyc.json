@@ -5,7 +5,7 @@
   "lineage": "Late-1980s onward New York underground folk-revival movement positioning itself against the mainstream-Greenwich-Village folk tradition through deliberate amateurism, ironic-and-deadpan vocal delivery, and DIY anti-commercial cultural posture — codified through Lach (the AntiHoot open-mic series at the Sidewalk Café), Kimya Dawson and The Moldy Peaches, Beck (Mellow Gold 1994, an early commercial breakthrough), Adam Green, Jeffrey Lewis",
   "recipe": "classic 1987-1989 anti-folk, ballad Poetry, anti folk branch, lofi experimental electric bedroom pop hypnagogic pop. thick, breath veiled tone, straight onset, interlocked note trading. steel silk fingerpicked acoustic marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alnico single coil electric guitar. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 449,
-  "score": 172.771,
+  "score": 174.215,
   "config": {
     "traditions": [
       "antifolk_nyc",
@@ -23,7 +23,7 @@
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -38,18 +38,18 @@
           "voice_quality": 11.634999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.5832500000000005,
+          "voice_vibrato": 2.6650000000000005,
           "voice_articulation": 11.309999999999995,
           "voice_microtone": 11.764999999999992,
-          "voice_tradition": 18.271499999999996,
+          "voice_tradition": 19.323749999999997,
           "voice_mechanism_compound": 2.275,
           "voice_estill_quality": 3.7700000000000005,
           "voice_speech_song": 15.534999999999995,
           "voice_ensemble_config": 11.244999999999994,
-          "voice_ornament_system": 1.6931249999999998,
+          "voice_ornament_system": 1.6706249999999998,
           "voice_pitch_organization": 1.8725,
-          "voice_processing_chain": 8.136249999999999,
-          "voice_multitrack_stack": 11.678249999999998
+          "voice_processing_chain": 8.406249999999998,
+          "voice_multitrack_stack": 11.699999999999998
         }
       },
       {
@@ -66,7 +66,7 @@
           "top_wood": 0.195,
           "back_sides": 0.39,
           "string_acoustic": 1.1949999999999998,
-          "acoustic_om_technique": 20.968874999999997
+          "acoustic_om_technique": 20.964374999999997
         }
       },
       {
@@ -75,8 +75,8 @@
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "mahogany",
-          "neck_wood": "mahogany_neck",
-          "fretboard": "ebony_fb",
+          "neck_wood": "maple",
+          "fretboard": "pau_ferro_fb",
           "pickup_magnet": "alnico_3",
           "string_material": "pure_nickel",
           "string_gauge": "g_11",
@@ -89,10 +89,10 @@
           "electric_technique": 7.699999999999999,
           "amp_make": 3.12,
           "body_wood": 0.195,
-          "neck_wood": 0.195,
-          "fretboard": 0.195,
-          "pickup_magnet": 1.015,
-          "string_material": 0.8,
+          "neck_wood": 0.2025,
+          "fretboard": 0.2025,
+          "pickup_magnet": 1,
+          "string_material": 0.845,
           "string_gauge": 0.195,
           "bridge": 0.195,
           "scale_length": 0.39,

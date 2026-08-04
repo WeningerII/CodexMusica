@@ -5,7 +5,7 @@
   "lineage": "2015-2018 hip-hop wave defined less by sonic-stylistic conventions than by distribution-platform — the SoundCloud upload-and-share infrastructure that allowed bedroom-producers and amateur rappers to bypass traditional A&R gatekeeping. The wave produced Lil Pump, Smokepurpp, 6ix9ine, Ski Mask the Slump God, and the broader Florida-NYC-Chicago younger-generation rapper roster. Aesthetically marked by deliberately-amateurish vocal delivery, mumble-rap convention, face-tattoos, and explicit drug-and-violence lyrical content.",
   "recipe": "classic 2015-2018 soundcloud rap, mc Rhythm, southern branch, emo distorted rock post-hardcore emo revival. thick, breath veiled tone, straight onset, interlocked note trading. TR-808, sub bass analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
   "recipe_chars": 396,
-  "score": 147.614,
+  "score": 147.47,
   "config": {
     "traditions": [
       "soundcloud_rap",
@@ -34,16 +34,16 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 8.814999999999998,
+          "voice_register": 8.964999999999996,
           "voice_quality": 13.97499999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.7375,
           "voice_articulation": 15.014999999999993,
           "voice_microtone": 14.819999999999991,
-          "voice_tradition": 6.661,
-          "voice_mechanism_compound": 9.82,
-          "voice_estill_quality": 2.3115,
+          "voice_tradition": 6.432999999999999,
+          "voice_mechanism_compound": 9.977500000000001,
+          "voice_estill_quality": 2.34,
           "voice_speech_song": 15.014999999999993,
           "voice_ensemble_config": 15.794999999999993,
           "voice_ornament_system": 1.5599999999999996,
@@ -60,9 +60,9 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 4.847249999999999,
-          "drum_machine_808_context": 3.6474999999999995,
-          "tr808_production_origin": 0.63975
+          "tr808_voice": 4.710749999999999,
+          "drum_machine_808_context": 3.5109999999999997,
+          "tr808_production_origin": 0.42525
         }
       },
       {
@@ -75,9 +75,9 @@
           "modulation": "lfo_pitch"
         },
         "scores": {
-          "electronic_technique": 4.747249999999999,
-          "oscillator": 0.87225,
-          "filter_topology": 0.1365,
+          "electronic_technique": 4.6107499999999995,
+          "oscillator": 1.08075,
+          "filter_topology": 0.3,
           "envelope": 0.845,
           "modulation": 0
         }

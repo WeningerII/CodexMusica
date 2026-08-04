@@ -1,0 +1,187 @@
+{
+  "id": "levenslied",
+  "name": "Levenslied",
+  "family": "pop",
+  "lineage": "Dutch sentimental popular song of the Jordaan and Rotterdam working-class districts, commercialised on record from the 1930s and dominant on Dutch radio from the 1950s through Johnny Jordaan, Willy Alberti and later André Hazes — 3/4 waltz and slow 4/4 at 70-110 BPM, accordion and string-section accompaniment, plain major-key harmony with a chromatic passing turn, and a full-throated, heavily rubato Dutch-language vocal on themes of love, drink and loss.",
+  "recipe": "classic mid-1930s levenslied, functional Song, europop branch, chanson fado classic chanson, European drinking song french chansons à boire russian zastol'naya pesnya. thick, breath veiled tone, slow rate, interlocked note trading. castagnari Italian premium folk music straight accordion, upright bass, birch laminated maple laminated European spruce norway spruce European tradition grand piano, pre muffled edge muffled brushes-and-sticks drum kit, string machine, yellow brass modern standard continuous-airflow legato saxophone. live tracking. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 662,
+  "score": 238.2,
+  "config": {
+    "traditions": [
+      "levenslied",
+      "french_chansons_a_boire",
+      "russian_zastolnaya"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 5.575,
+          "voice_quality": 7.800000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.015,
+          "voice_articulation": 18.849999999999994,
+          "voice_microtone": 20.34499999999999,
+          "voice_tradition": 12.284999999999998,
+          "voice_mechanism_compound": 1.885,
+          "voice_estill_quality": 1.6899999999999997,
+          "voice_speech_song": 32.36999999999999,
+          "voice_ensemble_config": 21.319999999999993,
+          "voice_ornament_system": 0.825,
+          "voice_pitch_organization": 4.225,
+          "voice_processing_chain": 2.7950000000000004,
+          "voice_multitrack_stack": 2.7300000000000004
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "accordion_reed_material": "machine_reeds",
+          "musette_offset": "demi_swing",
+          "reed_config": "lmmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 3.33,
+          "accordion_reed_material": 1,
+          "musette_offset": 0.7,
+          "reed_config": 6.499999999999999,
+          "bellows": 0,
+          "voicing_chamber": 0.9099999999999999,
+          "accordion_maker_school": 2.8599999999999994
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "steel_upright",
+          "upright_play": "arco_upright"
+        },
+        "scores": {
+          "upright_strings": 0.15,
+          "upright_play": 0.195
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "renner_standard_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 2.45,
+          "grand_piano_size": 1.3,
+          "grand_piano_brand": 1.2349999999999999,
+          "piano_hammer": 7.475,
+          "piano_rim": 10.594999999999999,
+          "piano_soundboard": 6.369999999999999,
+          "piano_pinblock": 3.25,
+          "piano_plate": 4.2,
+          "piano_pitch_standard": 11.364999999999998
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 18.914999999999996,
+          "drumhead": 5.975,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "string_machine",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "sm_voice_count": "sm_full_poly",
+          "sm_chorus": "sm_chorus_lush",
+          "sm_voicing": "sm_cellos"
+        },
+        "scores": {
+          "electronic_technique": -0.1,
+          "sm_voice_count": 0,
+          "sm_chorus": 1.045,
+          "sm_voicing": 1.625
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "sax_size": "baritone_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "yellow_brass_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 4.095,
+          "sax_size": 0.585,
+          "sax_reed": 0.15,
+          "sax_body_alloy": 3.5100000000000002,
+          "sax_mouthpiece": 0.3,
+          "sax_technique": 4.159999999999999,
+          "sax_maker_school": 0.8449999999999999
+        }
+      }
+    ],
+    "room": "live_room",
+    "archetype": "arch_churubusco_ranchera_bolero",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_fairchild_670_tube",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "live_room",
+    "chain_mic": "mic_u47_tube_neumann",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_comp": "comp_fairchild_670_tube",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "id": "trap_funk",
+  "name": "Trap funk (Brazilian)",
+  "family": "hip_hop",
+  "lineage": "Brazilian hybrid consolidated from roughly 2017 in Sao Paulo and Rio as funk producers absorbed Atlanta trap, driven by MC Kevin o Chris, Ludmilla and producers around the trap-funk crossover circuit — 130-140 BPM tamborzao percussion layered over long 808 sub-slides and triplet hi-hat rolls, with sung-rapped autotuned hooks over two-chord minor loops",
+  "recipe": "classic late-2010s trap funk, mc Rhythm, intl hip hop branch, us hip hop southern, Latin electric electronic dance dirty south rap houston chopped and screwed. kargyraa, rap, wide pitch sway, interlocked note trading. TR-808, sampled chopped sampler drum machine, timbal brasileiro, sub bass analog poly synth, hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
+  "recipe_chars": 570,
+  "score": 218.157,
+  "config": {
+    "traditions": [
+      "trap_funk",
+      "dirty_south_rap",
+      "houston_chopped_screwed"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "kargyraa_register",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 1.15,
+          "voice_quality": 19.137,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.2675,
+          "voice_articulation": 18.265,
+          "voice_microtone": 20.604999999999997,
+          "voice_tradition": 12.2355,
+          "voice_mechanism_compound": 3.38,
+          "voice_estill_quality": 3.185000000000001,
+          "voice_speech_song": 18.265,
+          "voice_ensemble_config": 18.33,
+          "voice_ornament_system": 6.370000000000003,
+          "voice_pitch_organization": 2.7994999999999997,
+          "voice_processing_chain": 10.899999999999999,
+          "voice_multitrack_stack": 4.355
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 13.604,
+          "drum_machine_808_context": 4.55,
+          "tr808_production_origin": 0.65
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twenty_four_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "one_shots_layered"
+        },
+        "scores": {
+          "electronic_technique": 10.43,
+          "sample_bitdepth": 2.535,
+          "sample_swing": 14.3,
+          "sample_processing": 1.195
+        }
+      },
+      {
+        "id": "timbal_brasileiro",
+        "slots": {
+          "timbal_head": "timbal_synthetic",
+          "timbal_size": "timbal_slim",
+          "timbal_style": "timbal_solo"
+        },
+        "scores": {
+          "timbal_head": 0,
+          "timbal_size": 0.39,
+          "timbal_style": 1.4394999999999998
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 23.874,
+          "poly_archetypes": 0.3,
+          "poly_voices": 0.3,
+          "poly_maker_lineage": -0.9800000000000001
+        }
+      },
+      {
+        "id": "multitrack_vocal_stack",
+        "slots": {
+          "multitrack_stack_density": "multitrack_density_unison_double",
+          "multitrack_stack_era_aesthetic": "multitrack_era_2010s_melodyne",
+          "multitrack_stack_processing": "multitrack_processing_tuned_perfect"
+        },
+        "scores": {
+          "multitrack_stack_density": 0.65,
+          "multitrack_stack_era_aesthetic": 0.9099999999999999,
+          "multitrack_stack_processing": 1.44
+        }
+      }
+    ],
+    "room": "studio_distributed_production",
+    "archetype": "arch_atlanta_trap_2010s",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_distributed_production",
+    "chain_mic": "mic_sm7b_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

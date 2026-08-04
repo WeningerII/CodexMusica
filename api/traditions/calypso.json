@@ -3,9 +3,9 @@
   "name": "Calypso",
   "family": "global",
   "lineage": "Trinidadian narrative-and-topical song tradition emerging from post-1834 Emancipation kalinda stick-fighting chant, codified through the post-WWII commercial recording era — Mighty Sparrow (Slinger Francisco), Lord Kitchener (Aldwyn Roberts), Lord Invader, the Roaring Lion, Lord Melody, Calypso Rose; performed during the Trinidad and Tobago Carnival season (October-February preparation, with Carnival Monday-Tuesday peak) in calypso tent venues and competition contexts",
-  "recipe": "classic Caribbean mid-1830s calypso, groove Percussion, Caribbean branch, tropical song functional song, Caribbean carnival processional bachata merengue urbano. vocal fry, breath veiled tone, straight note core, interlocked note trading. dreadnought acoustic guitar, claves, pyramid pure nickel bass British mid 60s era sub heavy electric bass, steelpan, bach stradivarius 180 canonical American orchestral shallow cup lead trumpet ensemble trumpet, yellow brass modern standard yamaha custom 875ex modern Japanese premium rubber saxophone, steel orchestra. trinidad calypso panyard outdoor. sennheiser MD421, transformer-coupled solid-state pre, MCI JH-636 US 70s indie/jazz, dbx 160 VCA, parametric EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 751,
-  "score": 176.733,
+  "recipe": "classic Caribbean mid-1830s calypso, groove Percussion, Caribbean branch, tropical song functional song, Caribbean carnival processional bachata merengue urbano. vocal fry, breath veiled tone, straight note core, interlocked note trading. dreadnought acoustic guitar, claves, mahogany pyramid pure nickel bass British mid 60s era sub heavy electric bass, steelpan, schilke chicago lead bright shallow cup lead trumpet ensemble trumpet, yellow brass modern standard yamaha custom 875ex modern Japanese premium rubber saxophone, steel orchestra. trinidad calypso panyard outdoor. sennheiser MD421, transformer-coupled solid-state pre, MCI JH-636 US 70s indie/jazz, dbx 160 VCA, parametric EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 736,
+  "score": 177.068,
   "config": {
     "traditions": [
       "calypso",
@@ -29,7 +29,7 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
@@ -38,7 +38,7 @@
           "voice_quality": 8.06,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.2399999999999998,
+          "voice_vibrato": 1.2999999999999998,
           "voice_articulation": 19.239999999999995,
           "voice_microtone": 17.159999999999993,
           "voice_tradition": 7.345000000000001,
@@ -47,9 +47,9 @@
           "voice_speech_song": 28.664999999999996,
           "voice_ensemble_config": 17.679999999999996,
           "voice_ornament_system": 2.3399999999999994,
-          "voice_pitch_organization": 1.3649999999999998,
-          "voice_processing_chain": 7.170000000000001,
-          "voice_multitrack_stack": 6.929999999999999
+          "voice_pitch_organization": 0.7499999999999998,
+          "voice_processing_chain": 6.885000000000001,
+          "voice_multitrack_stack": 7.214999999999998
         }
       },
       {
@@ -57,14 +57,14 @@
         "slots": {
           "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "open_g",
-          "top_wood": "sitka",
+          "top_wood": "cedar",
           "back_sides": "maple_bs",
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
           "acoustic_technique": 2.9250000000000003,
           "string_tuning": 0.45500000000000007,
-          "top_wood": 0.435,
+          "top_wood": 0.69,
           "back_sides": 0.435,
           "string_acoustic": 0.65
         }
@@ -93,12 +93,12 @@
         },
         "scores": {
           "amp_make": 1.17,
-          "body_wood": 0.78,
+          "body_wood": 1.3800000000000001,
           "pickup_config": 0.65,
           "string_type": 2.4050000000000002,
           "scale_length_b": 0.65,
           "fretted_or_not": 0.3,
-          "bass_technique": 1.49
+          "bass_technique": 1.445
         }
       },
       {
@@ -109,7 +109,7 @@
         },
         "scores": {
           "steelpan_voice": 2.7299999999999995,
-          "steelpan_context": 3.77
+          "steelpan_context": 3.725
         }
       },
       {
@@ -121,16 +121,16 @@
           "brass_mute": "harmon_in",
           "trumpet_technique": "trumpet_punchy_ensemble",
           "trumpet_bell_metal": "trumpet_yellow_brass",
-          "trumpet_maker_school": "trumpet_bach_stradivarius"
+          "trumpet_maker_school": "trumpet_schilke"
         },
         "scores": {
-          "wind_articulation": 1.4299999999999997,
+          "wind_articulation": 1.3849999999999998,
           "brass_size": 0.435,
           "trumpet_mouthpiece": 1.365,
           "brass_mute": 0.65,
-          "trumpet_technique": 1.4299999999999997,
+          "trumpet_technique": 1.3849999999999998,
           "trumpet_bell_metal": 0.78,
-          "trumpet_maker_school": 1.2749999999999997
+          "trumpet_maker_school": 1.235
         }
       },
       {
@@ -145,8 +145,8 @@
           "sax_maker_school": "sax_yamaha_custom"
         },
         "scores": {
-          "wind_articulation": 1.4299999999999997,
-          "sax_size": 0.39,
+          "wind_articulation": 1.3849999999999998,
+          "sax_size": 0.69,
           "sax_reed": 0.435,
           "sax_body_alloy": 2.34,
           "sax_mouthpiece": 1.6899999999999997,

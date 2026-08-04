@@ -1,0 +1,154 @@
+{
+  "id": "barbadian_pop",
+  "name": "Barbadian pop",
+  "family": "pop",
+  "lineage": "Barbadian pop crystallised in Bridgetown and the transatlantic studio circuit from the mid-2000s, when Rihanna, Shontelle and Livvi Franc carried the island's bashment-soca and spouge rhythmic accents into mainstream radio production — mid-tempo 95-105 BPM dembow-and-soca hybrid drum programming, glossy synth pads, Bajan-inflected melisma and clipped consonant phrasing over four-bar loop forms.",
+  "recipe": "classic 2004-2006 barbadian pop, functional Song, tropical song branch, Caribbean carnival processional, soul R&B functional song, reggae diaspora bass system doo-wop. thick, breath veiled tone, slow rate, interlocked note trading. mid 1960s double tracking era 2 to 4 track heavy bus compression glue post 2010 multitrack vocal stack, behringer rd 8 modern clone analog circuit reproduction TR-808, singing lead analog poly synth, steelpan, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 729,
+  "score": 279.195,
+  "config": {
+    "traditions": [
+      "barbadian_pop",
+      "doo_wop",
+      "hip_pop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 28.299999999999997,
+          "voice_quality": 19.110000000000003,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.73,
+          "voice_articulation": 19.629999999999995,
+          "voice_microtone": 19.549999999999997,
+          "voice_tradition": 22.410625,
+          "voice_mechanism_compound": 3.0549999999999997,
+          "voice_estill_quality": 8.339999999999998,
+          "voice_speech_song": 29.184999999999995,
+          "voice_ensemble_config": 20.669999999999995,
+          "voice_ornament_system": 1.15,
+          "voice_pitch_organization": 1.3649999999999998,
+          "voice_processing_chain": 8.807500000000001,
+          "voice_multitrack_stack": 7.6049999999999995
+        }
+      },
+      {
+        "id": "multitrack_vocal_stack",
+        "slots": {
+          "multitrack_stack_density": "multitrack_density_3_part_third_fifth",
+          "multitrack_stack_era_aesthetic": "multitrack_era_mid_1960s_double_tracking",
+          "multitrack_stack_processing": "multitrack_processing_compressed_glued"
+        },
+        "scores": {
+          "multitrack_stack_density": 0.78,
+          "multitrack_stack_era_aesthetic": 3.9975,
+          "multitrack_stack_processing": 1.2674999999999998
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 4.64375,
+          "drum_machine_808_context": 3.8349999999999995,
+          "tr808_production_origin": 1.7550000000000001
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 17.854999999999997,
+          "poly_archetypes": 1.4949999999999999,
+          "poly_voices": 0.195,
+          "poly_maker_lineage": -0.7
+        }
+      },
+      {
+        "id": "steelpan",
+        "slots": {
+          "steelpan_voice": "cello_pan",
+          "steelpan_context": "steelpan_session"
+        },
+        "scores": {
+          "steelpan_voice": 4.515,
+          "steelpan_context": 0.585
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "amp_make": 13.368124999999997,
+          "body_wood": 2.795,
+          "pickup_config": 0.45499999999999996,
+          "string_type": 12.219999999999999,
+          "scale_length_b": 2.78,
+          "fretted_or_not": 0.195,
+          "bass_technique": 6.899999999999999
+        }
+      }
+    ],
+    "room": "studio_distributed_production",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "pre_avalon_v737",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "trinidad_calypso_soca_2_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "trinidad_calypso_soca_2_4",
+    "room": "studio_distributed_production",
+    "chain_mic": "mic_sm7b_dynamic_shure",
+    "chain_pre": "pre_avalon_v737",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

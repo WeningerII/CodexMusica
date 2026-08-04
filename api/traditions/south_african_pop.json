@@ -1,0 +1,171 @@
+{
+  "id": "south_african_pop",
+  "name": "South African Pop",
+  "family": "pop",
+  "lineage": "Johannesburg commercial pop from the 1980s Soweto 'bubblegum' boom of Brenda Fassie and Yvonne Chaka Chaka through post-1994 kwaito-pop, running 100-115 BPM four-on-the-floor synth-bass grooves with mbaqanga-derived lead guitar lines, gospel-thick group harmony in isiZulu and English, and drum-machine kits mixed over live bass.",
+  "recipe": "classic Southern African mid-1980s south african pop, functional Song, African pop branch, African pop isicathamiya, African dance electronic dance amapiano. thick, breath veiled tone, straight onset, interlocked note trading. a cappella small 3 to 8 one per part call response single leader group response sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble, singing lead analog poly synth, behringer rd 8 modern clone analog circuit reproduction TR-808, mbaqanga guitar, ampeg b15 amp American 60s bass amp flip top character mahogany pyramid electric bass, pre muffled edge muffled brushes-and-sticks drum kit. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
+  "recipe_chars": 823,
+  "score": 280.865,
+  "config": {
+    "traditions": [
+      "south_african_pop",
+      "isicathamiya",
+      "amapiano"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "southern_african_bantu_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 28.294999999999995,
+          "voice_quality": 13.584999999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.5515,
+          "voice_articulation": 12.869999999999996,
+          "voice_microtone": 22.717999999999996,
+          "voice_tradition": 34.23499999999999,
+          "voice_mechanism_compound": 2.4699999999999998,
+          "voice_estill_quality": 5.765000000000001,
+          "voice_speech_song": 17.289999999999996,
+          "voice_ensemble_config": 16.737499999999997,
+          "voice_ornament_system": 1.65,
+          "voice_pitch_organization": 1.745,
+          "voice_processing_chain": 6.825,
+          "voice_multitrack_stack": 7.8325000000000005
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_call_response_leader_group",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
+        },
+        "scores": {
+          "choir_size": 7.54,
+          "choir_polyphonic_configuration": 4.16,
+          "choir_regional_canonical_configuration": 2.9899999999999998,
+          "choir_ensemble_repertoire": 1.6899999999999997
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 22.031499999999998,
+          "poly_archetypes": 0.39,
+          "poly_voices": 0.24,
+          "poly_maker_lineage": -1.81
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 5.785,
+          "drum_machine_808_context": 6.044999999999999,
+          "tr808_production_origin": 1.04
+        }
+      },
+      {
+        "id": "mbaqanga_guitar",
+        "slots": {
+          "mbaqanga_guitar_role": "mbaqanga_lead",
+          "mbaqanga_guitar_tone": "mbaqanga_acoustic",
+          "mbaqanga_guitar_tuning": "mbaqanga_standard_tuning"
+        },
+        "scores": {
+          "mbaqanga_guitar_role": 0.24,
+          "mbaqanga_guitar_tone": 0.045,
+          "mbaqanga_guitar_tuning": 0
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerstyle_walking"
+        },
+        "scores": {
+          "amp_make": 5.720000000000001,
+          "body_wood": 1.885,
+          "pickup_config": 0.5399999999999999,
+          "string_type": 5.85,
+          "scale_length_b": 1.7065,
+          "fretted_or_not": 0.3315,
+          "bass_technique": 2
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 13.779999999999998,
+          "drumhead": 21.546499999999998,
+          "drum_kit_kick_pedal": 0
+        }
+      }
+    ],
+    "room": "johannesburg_gallo_african_studios",
+    "archetype": "arch_sa_township_digital",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "johannesburg_gallo_african_studios",
+    "chain_mic": "condenser_fet",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -1,0 +1,205 @@
+{
+  "id": "metropopolis",
+  "name": "Metropopolis",
+  "family": "electronic",
+  "lineage": "Algorithmically named 2010s internet-era style of sleek electro-funk pop, made largely in home studios across Los Angeles, Auckland and Tokyo-facing online scenes and shaped by Tuxedo, Yumi Zouma, Anderson .Paak's polished side and the Japanese city-pop and French-touch revivalists — 100-118 BPM programmed or tightly played funk kit with a clean sixteenth-note hi-hat, slap or synth-octave bass, glassy FM electric-piano and chorused clean guitar chords, and a light, close, often processed or vocoded lead vocal singing over lush major-seventh and ninth harmony.",
+  "recipe": "classic mid-2010s metropopolis, functional Song, synthpop branch, pop rock yacht rock, deep house house float house. thick, breath veiled tone, straight onset, interlocked note trading. singing lead analog poly yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, TR-808, vocoder, block chord electric piano tine, Fender blackface amp American 60s amp spring reverb bright mahogany maple single coil electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 711,
+  "score": 426.672,
+  "config": {
+    "traditions": [
+      "metropopolis",
+      "yacht_rock",
+      "float_house"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 38.60250000000002,
+          "voice_quality": 9.685,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 6.03975,
+          "voice_articulation": 21.319999999999997,
+          "voice_microtone": 37.22500000000001,
+          "voice_tradition": 20.960624999999997,
+          "voice_mechanism_compound": 4.3549999999999995,
+          "voice_estill_quality": 3.5750000000000006,
+          "voice_speech_song": 24.05,
+          "voice_ensemble_config": 21.125,
+          "voice_ornament_system": 0.8552499999999997,
+          "voice_pitch_organization": 1.455625,
+          "voice_processing_chain": 15.4455,
+          "voice_multitrack_stack": 11.007749999999998
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 19.849249999999998,
+          "poly_archetypes": 9.715499999999999,
+          "poly_voices": 1.235,
+          "poly_maker_lineage": 0.5200000000000002
+        }
+      },
+      {
+        "id": "fm_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "fm_algorithm": "fm_simple",
+          "fm_modulator_ratio": "fm_harmonic",
+          "fm_polyphony": "fm_mono",
+          "fm_model_lineage": "fm_yamaha_dx7"
+        },
+        "scores": {
+          "electronic_technique": 19.849249999999998,
+          "fm_algorithm": 3.3,
+          "fm_modulator_ratio": 0.009375,
+          "fm_polyphony": 2.0799999999999996,
+          "fm_model_lineage": 10.529999999999998
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 10.556249999999999,
+          "body_wood": 2.2750000000000004,
+          "pickup_config": 1.6315000000000002,
+          "string_type": 19.6405,
+          "scale_length_b": 1.235,
+          "fretted_or_not": 1,
+          "bass_technique": 17.7115
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 1.79725,
+          "drum_machine_808_context": 3.9965,
+          "tr808_production_origin": 0.8449999999999999
+        }
+      },
+      {
+        "id": "vocoder",
+        "slots": {
+          "voc_band_count": "voc_many_bands",
+          "voc_carrier": "voc_saw_carrier",
+          "voc_modulator": "voc_drum_mod"
+        },
+        "scores": {
+          "voc_band_count": 0.39,
+          "voc_carrier": 0.39,
+          "voc_modulator": 0.105
+        }
+      },
+      {
+        "id": "electric_piano_tine",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "tine_voicing": "aggressive_tine",
+          "tine_effect": "overdrive_tine"
+        },
+        "scores": {
+          "keyboard_technique": 17.999999999999996,
+          "tine_voicing": 0.3315,
+          "tine_effect": 9.165
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "maple_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_12",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_baritone",
+          "finish": "poly",
+          "string_tuning": "eb_standard"
+        },
+        "scores": {
+          "electric_technique": 19.249999999999996,
+          "amp_make": 9.781125,
+          "body_wood": 1.625,
+          "neck_wood": 1.625,
+          "fretboard": 1.92675,
+          "pickup_magnet": 0.39,
+          "string_material": 0.39,
+          "string_gauge": 1.8850000000000002,
+          "bridge": 0.33525,
+          "scale_length": 2.7299999999999995,
+          "finish": 1,
+          "string_tuning": 10.39825
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

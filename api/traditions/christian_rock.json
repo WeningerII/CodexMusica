@@ -1,0 +1,203 @@
+{
+  "id": "christian_rock",
+  "name": "Christian rock",
+  "family": "rock",
+  "lineage": "American evangelical rock idiom begun with the late-1960s Jesus Movement in Southern California through Larry Norman and Love Song, industrialized in Nashville from the 1980s by Petra, DC Talk and later Switchfoot and Skillet — conventional verse-chorus rock at 90-140 BPM with distorted power chords, layered piano and synth pads, four-on-the-floor or backbeat kit, and explicitly devotional lyrics sung in unison-friendly congregational range",
+  "recipe": "classic North American 1967-1969 christian rock, functional Song, pop rock branch, christian gospel pentecostal, alternative distorted rock permanent wave noise pop. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp basswood mahogany rosewood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, singing lead analog poly synth, a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody sardinian cantu a tenore oche mesu contra bassu choir ensemble. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 916,
+  "score": 487.93,
+  "config": {
+    "traditions": [
+      "christian_rock",
+      "permanent_wave",
+      "noise_pop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_gated_reverb",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 44.550000000000026,
+          "voice_quality": 10.919999999999991,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.8600000000000003,
+          "voice_articulation": 15.924999999999995,
+          "voice_microtone": 41.17500000000001,
+          "voice_tradition": 9.16,
+          "voice_mechanism_compound": 7.67,
+          "voice_estill_quality": 4.29,
+          "voice_speech_song": 19.824999999999996,
+          "voice_ensemble_config": 16.704999999999995,
+          "voice_ornament_system": 4.1499999999999995,
+          "voice_pitch_organization": 0.54,
+          "voice_processing_chain": 5.784999999999999,
+          "voice_multitrack_stack": 10.985
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_5_h",
+          "pickup_winding": "low_wind",
+          "string_material": "stainless_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_12_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 8.645,
+          "amp_make": 17.939999999999998,
+          "body_wood": 1.4949999999999999,
+          "neck_wood": 1.4949999999999999,
+          "fretboard": 1.4299999999999997,
+          "pickup_magnet": 0.15,
+          "pickup_winding": 0.39,
+          "string_material": 0.65,
+          "bridge": 1.4949999999999999,
+          "scale_length": 1.4949999999999999,
+          "string_gauge": 1.4949999999999999,
+          "finish": 0,
+          "string_tuning": 20.67
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 18.2,
+          "body_wood": 1.4949999999999999,
+          "pickup_config": 0.33,
+          "string_type": 39.475,
+          "scale_length_b": 1.4949999999999999,
+          "fretted_or_not": 0.24,
+          "bass_technique": 34.7
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 35.900000000000006,
+          "drumhead": 6.574999999999999,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_432_alternative"
+        },
+        "scores": {
+          "keyboard_technique": 7.2700000000000005,
+          "grand_piano_size": 1.4949999999999999,
+          "grand_piano_brand": 1.4949999999999999,
+          "piano_hammer": 17.939999999999998,
+          "piano_rim": 19.37,
+          "piano_soundboard": 6.574999999999999,
+          "piano_pinblock": 1.49,
+          "piano_plate": 0.26,
+          "piano_pitch_standard": 5.004999999999999
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 8.004999999999999,
+          "poly_archetypes": 18.07,
+          "poly_voices": 0.5,
+          "poly_maker_lineage": 0.12999999999999998
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_drone_plus_voices",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
+        },
+        "scores": {
+          "choir_size": 2.9249999999999994,
+          "choir_polyphonic_configuration": 1.885,
+          "choir_regional_canonical_configuration": 1.2999999999999998,
+          "choir_ensemble_repertoire": 0.54
+        }
+      }
+    ],
+    "room": "studio_multitrack_flagship_us_80s",
+    "archetype": "arch_80s_late_analog_majorrock",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_console_inline_strip",
+      "console": "console_british_inline_80s",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_multitrack_flagship_us_80s",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "digital_std",
+    "chain_console": "console_british_inline_80s"
+  }
+}

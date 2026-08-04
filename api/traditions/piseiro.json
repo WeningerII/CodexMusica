@@ -1,0 +1,156 @@
+{
+  "id": "piseiro",
+  "name": "Piseiro",
+  "family": "global",
+  "lineage": "Brazilian Northeastern dance-pop offshoot of forró that crystallized in Bahia and Pernambuco around 2015-2019 through Barões da Pisadinha, Zé Vaqueiro and João Gomes, built on a MIDI-keyboard 'pisadinha' groove at 95-115 BPM in which a programmed zabumba-and-triangle pattern lands hard on beat one under bright arpeggiated teclado hooks, sanfona countermelody, and plainspoken tenor vocals about rural romance and heartbreak.",
+  "recipe": "classic South American 2015-2019 piseiro, functional Song, Brazilian song branch, Brazilian groove percussion, tropical song functional song pagode velha guarda. extended whistle, breath veiled tone, straight onset, interlocked note trading. piano accordion, forró tradition baião tradition low stick with high bacalhau buzz zabumba, singing lead analog poly synth, electric bass, sampler drum machine. recife brazilian northeast forro house. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 541,
+  "score": 154.157,
+  "config": {
+    "traditions": [
+      "piseiro",
+      "pagode",
+      "velha_guarda"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 4.16,
+          "voice_quality": 23.43249999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.0149999999999997,
+          "voice_articulation": 19.369999999999994,
+          "voice_microtone": 19.17499999999999,
+          "voice_tradition": 5.784999999999999,
+          "voice_mechanism_compound": 3.7049999999999996,
+          "voice_estill_quality": 3.5100000000000002,
+          "voice_speech_song": 26.714999999999993,
+          "voice_ensemble_config": 20.34499999999999,
+          "voice_ornament_system": 1.8449999999999998,
+          "voice_pitch_organization": 0.9749999999999996,
+          "voice_processing_chain": 3.705,
+          "voice_multitrack_stack": 5.654999999999999
+        }
+      },
+      {
+        "id": "piano_accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_orchestral_ensemble",
+          "pa_size": "pa_72_bass",
+          "pa_use": "pa_polka"
+        },
+        "scores": {
+          "free_reed_technique": 1.7225000000000001,
+          "pa_size": 0.045,
+          "pa_use": 0.045
+        }
+      },
+      {
+        "id": "zabumba",
+        "slots": {
+          "zabumba_shell": "zabumba_wood_shallow",
+          "zabumba_technique": "zabumba_baiao_pattern"
+        },
+        "scores": {
+          "zabumba_shell": 0.585,
+          "zabumba_technique": 4.289999999999999
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_yamaha_cs"
+        },
+        "scores": {
+          "electronic_technique": 4.13,
+          "poly_archetypes": 0.585,
+          "poly_voices": 0.195,
+          "poly_maker_lineage": -1.225
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "thomastik_jazz_bass_flat",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 1.105,
+          "body_wood": 0.645,
+          "pickup_config": 0.645,
+          "string_type": 0.6824999999999999,
+          "scale_length_b": 0.195,
+          "fretted_or_not": 0.195,
+          "bass_technique": 0.6099999999999999
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": -0.1,
+          "sample_bitdepth": 0.195,
+          "sample_swing": 0,
+          "sample_processing": 0.195
+        }
+      }
+    ],
+    "room": "recife_brazilian_northeast_forro_house",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "mic_sm58_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "baiao_2_4_beat_one_bass",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "baiao_2_4_beat_one_bass",
+    "room": "recife_brazilian_northeast_forro_house",
+    "chain_mic": "mic_sm58_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

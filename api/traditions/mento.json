@@ -3,14 +3,14 @@
   "name": "Mento",
   "family": "global",
   "lineage": "Jamaican rural folk-and-dance music tradition that preceded ska as the dominant Jamaican popular music genre — codified through the post-WWII commercial recordings of Lord Flea, Count Lasher, the Jolly Boys, Stanley Beckford, Harold Richardson; built on a fusion of West African rhythmic foundations, European-derived quadrille dance forms, and Caribbean Spanish-influenced song structures",
-  "recipe": "classic Caribbean mid-1970s mento, groove Percussion, Caribbean branch, tropical song functional song bachata merengue urbano. thick, full chest belt, straight note core, interlocked note trading. alternating thumb travis picked parlor acoustic guitar, walnut warmer than maple mid tier scruggs stelling bluegrass setup banjo 5 string, traditional gourd calabash maracas, mento rhumba box repeating bass ostinato forged iron tongues marimbula. Kingston studio one defining 1959-2004 indie-commercial kingston studio one brentford road. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 639,
-  "score": 194.676,
+  "recipe": "classic Caribbean mid-1970s mento, groove Percussion, Caribbean branch, tropical song functional song bachata bachata dominicana. thick, full chest belt, straight note core, interlocked note trading. alternating thumb travis picked parlor acoustic guitar, walnut mid tier scruggs stelling bluegrass setup mastertone flathead banjo 5 string, maracas, mento rhumba box repeating bass ostinato forged iron tongues marimbula. Kingston studio one defining 1959-2004 indie-commercial kingston studio one brentford road. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 617,
+  "score": 187.705,
   "config": {
     "traditions": [
       "mento",
       "bachata",
-      "merengue_urbano"
+      "bachata_dominicana"
     ],
     "instruments": [
       {
@@ -23,33 +23,33 @@
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
-          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 7.925000000000001,
-          "voice_quality": 9.429999999999998,
+          "voice_register": 7.970000000000001,
+          "voice_quality": 11.749999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.4525,
-          "voice_articulation": 16.249999999999996,
-          "voice_microtone": 15.859999999999994,
-          "voice_tradition": 10.205,
-          "voice_mechanism_compound": 5.59,
-          "voice_estill_quality": 5.59,
-          "voice_speech_song": 26.064999999999998,
-          "voice_ensemble_config": 16.379999999999995,
-          "voice_ornament_system": 1.9499999999999993,
-          "voice_pitch_organization": 1.0399999999999998,
-          "voice_processing_chain": 6.585,
-          "voice_multitrack_stack": 5.8285
+          "voice_vibrato": 3.1800000000000006,
+          "voice_articulation": 14.949999999999998,
+          "voice_microtone": 14.754999999999995,
+          "voice_tradition": 10.985,
+          "voice_mechanism_compound": 4.745,
+          "voice_estill_quality": 5.785,
+          "voice_speech_song": 25.414999999999996,
+          "voice_ensemble_config": 15.079999999999997,
+          "voice_ornament_system": 1.8849999999999991,
+          "voice_pitch_organization": 1.1800000000000002,
+          "voice_processing_chain": 5.8100000000000005,
+          "voice_multitrack_stack": 6.045000000000002
         }
       },
       {
@@ -59,21 +59,21 @@
           "string_tuning": "open_g",
           "top_wood_parlor": "cedar_p",
           "back_sides_parlor": "mahogany_bs_p",
-          "string_acoustic_parlor": "eighty_twenty_p"
+          "string_acoustic_parlor": "phosphor_p"
         },
         "scores": {
-          "acoustic_technique": 4.335999999999999,
-          "string_tuning": 0.45500000000000007,
-          "top_wood_parlor": 0.39,
+          "acoustic_technique": 4.3,
+          "string_tuning": 1.1049999999999998,
+          "top_wood_parlor": 0.69,
           "back_sides_parlor": 0,
-          "string_acoustic_parlor": 0.54
+          "string_acoustic_parlor": 0.69
         }
       },
       {
         "id": "banjo_5_string",
         "slots": {
           "banjo_back": "resonator",
-          "tone_ring": "tubaphone",
+          "tone_ring": "wood_ring",
           "banjo_head": "fiberskyn",
           "banjo_pot": "pot_11",
           "banjo_play": "clawhammer",
@@ -84,27 +84,27 @@
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
-          "banjo_back": 0.54,
-          "tone_ring": 0,
-          "banjo_head": 16.25,
-          "banjo_pot": 1.6899999999999997,
-          "banjo_play": 0.3675,
-          "banjo_rim_wood": 1.04,
+          "banjo_back": 0.435,
+          "tone_ring": 0.045,
+          "banjo_head": 14.95,
+          "banjo_pot": 1.215,
+          "banjo_play": 0.345,
+          "banjo_rim_wood": 0.195,
           "banjo_neck_wood": 1.04,
           "banjo_strings": 0.15,
           "banjo_bridge": 0,
-          "banjo_setup_period": 16.185
+          "banjo_setup_period": 14.884999999999998
         }
       },
       {
         "id": "maracas",
         "slots": {
           "maracas_construction": "maracas_gourd",
-          "maracas_filling": "maracas_beads"
+          "maracas_filling": "maracas_seeds"
         },
         "scores": {
-          "maracas_construction": 1.6899999999999997,
-          "maracas_filling": 2.4699999999999998
+          "maracas_construction": 0.78,
+          "maracas_filling": 0.78
         }
       },
       {
@@ -115,9 +115,9 @@
           "marimbula_construction": "marimbula_build_forged_iron"
         },
         "scores": {
-          "marimbula_regional_form": 10.029,
-          "marimbula_playing_role": 9.2125,
-          "marimbula_construction": 2.9899999999999998
+          "marimbula_regional_form": 11.25,
+          "marimbula_playing_role": 7.93,
+          "marimbula_construction": 3.1849999999999996
         }
       }
     ],

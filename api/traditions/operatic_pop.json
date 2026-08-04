@@ -1,0 +1,239 @@
+{
+  "id": "operatic_pop",
+  "name": "Operatic Pop",
+  "family": "pop",
+  "lineage": "Cross-over idiom commercialized from Milan, London and Los Angeles in the mid-1990s by producers Mauro Malavasi, Frank Peterson, David Foster and Simon Cowell — classically trained legit or bel canto vocal production mounted on slow 6/8 and 4/4 pop-ballad harmony at 60-80 BPM, full studio string orchestra plus choir with sustained-pad reinforcement, key-lift final choruses, and Italian, Latin or pseudo-liturgical text sung with continuous vibrato over close-miked pop-scale dynamics.",
+  "recipe": "classic British 1994-1996 operatic pop, functional Song, europop branch, western common practice art music, crooners functional song, pop rock functional song new wave boy band. thick, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu choir ensemble, silver wound lamb gut core sitka spruce hard rock maple acer saccharum violin orchestral, silver wound lamb gut core engelmann spruce hard rock maple synthetic varnish cello, concert harp, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, timpani, french horn, wide horn like brass string machine, pre muffled edge muffled brushes-and-sticks drum kit. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
+  "recipe_chars": 862,
+  "score": 530.448,
+  "config": {
+    "traditions": [
+      "operatic_pop",
+      "new_wave",
+      "boy_band"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 47.250000000000014,
+          "voice_quality": 11.699999999999992,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.9650000000000003,
+          "voice_articulation": 20.409999999999993,
+          "voice_microtone": 50.2615625,
+          "voice_tradition": 34.714999999999996,
+          "voice_mechanism_compound": 4.7671875,
+          "voice_estill_quality": 4.5121875000000005,
+          "voice_speech_song": 28.339999999999993,
+          "voice_ensemble_config": 25.02499999999999,
+          "voice_ornament_system": 5.2,
+          "voice_pitch_organization": 1.695,
+          "voice_processing_chain": 7.507499999999999,
+          "voice_multitrack_stack": 6.510000000000001
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_polyrhythmic_layered",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_romantic"
+        },
+        "scores": {
+          "choir_size": 6.7221875,
+          "choir_polyphonic_configuration": 3.0421875000000003,
+          "choir_regional_canonical_configuration": 3.9384374999999996,
+          "choir_ensemble_repertoire": 2.8600000000000003
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "orch_strings": "silver_wound_lamb_gut_violin",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "french_polish_violin",
+          "orch_setup_period": "baroque_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "liebenzeller_metal_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 2.7,
+          "orch_strings": 1.985,
+          "orch_top_wood": 1.4625,
+          "orch_back_wood": 7.787812499999999,
+          "orch_varnish": 2.7749999999999995,
+          "orch_setup_period": 0.9099999999999999,
+          "orch_bow": 1.265625,
+          "orch_bow_stick": 1.3324999999999998,
+          "orch_articulation": 2.795,
+          "orch_rosin": 1.075
+        }
+      },
+      {
+        "id": "cello",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "cello_strings": "silver_wound_lamb_gut_cello",
+          "cello_top_wood": "engelmann_spruce_cello",
+          "cello_back_wood": "hard_rock_maple_cello_back",
+          "cello_varnish": "modern_synthetic_varnish_cello",
+          "cello_setup_period": "baroque_setup_cello",
+          "cello_bow_grip": "french_bow_grip",
+          "cello_rosin": "pirastro_cellisto_rosin",
+          "cello_bow_stick": "pernambuco_stick_cello"
+        },
+        "scores": {
+          "bowed_technique": 2.7,
+          "cello_strings": 1.985,
+          "cello_top_wood": 1.125,
+          "cello_back_wood": 6.524999999999999,
+          "cello_varnish": 2.425,
+          "cello_setup_period": 0.9099999999999999,
+          "cello_bow_grip": 2.6699999999999995,
+          "cello_rosin": 1.3975,
+          "cello_bow_stick": 1.3324999999999998
+        }
+      },
+      {
+        "id": "concert_harp",
+        "slots": {
+          "harp_strings": "harp_47_string",
+          "harp_pedals": "harp_double_pedal"
+        },
+        "scores": {
+          "harp_strings": 3.1200000000000006,
+          "harp_pedals": 2.679374999999999
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 33.195,
+          "grand_piano_size": 4.03,
+          "grand_piano_brand": 2.73,
+          "piano_hammer": 32.1428125,
+          "piano_rim": 34.135,
+          "piano_soundboard": 32.875,
+          "piano_pinblock": 2.5749999999999997,
+          "piano_plate": 2.465,
+          "piano_pitch_standard": 7.1834375
+        }
+      },
+      {
+        "id": "timpani",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "timpani_size": "timpani_4_drum_set",
+          "timpani_head": "timpani_calfskin"
+        },
+        "scores": {
+          "percussion_technique": 2.75,
+          "timpani_size": 1.4300000000000002,
+          "timpani_head": 0
+        }
+      },
+      {
+        "id": "french_horn",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "french_horn_bore": "french_horn_full",
+          "french_horn_metal": "horn_yellow_brass"
+        },
+        "scores": {
+          "wind_articulation": 1.44,
+          "french_horn_bore": 1.4300000000000002,
+          "french_horn_metal": 0.195
+        }
+      },
+      {
+        "id": "string_machine",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "sm_voice_count": "sm_full_poly",
+          "sm_chorus": "sm_chorus_lush",
+          "sm_voicing": "sm_brass"
+        },
+        "scores": {
+          "electronic_technique": 2.8500000000000005,
+          "sm_voice_count": 0,
+          "sm_chorus": 2.065,
+          "sm_voicing": 1.4221875
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 20.734999999999996,
+          "drumhead": 33.145,
+          "drum_kit_kick_pedal": 0
+        }
+      }
+    ],
+    "room": "concert_hall_shoebox",
+    "archetype": "arch_decca_sound_orchestral",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_avalon_v737",
+      "console": "console_british_inline_80s",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "concert_hall_shoebox",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_avalon_v737",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_british_inline_80s"
+  }
+}

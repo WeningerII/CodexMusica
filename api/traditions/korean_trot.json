@@ -3,9 +3,9 @@
   "name": "Korean trot (twentieth-century popular ballad)",
   "family": "pop",
   "lineage": "Korean trot (teuroteu) twentieth-century popular ballad genre emerging in 1920s-1930s colonial-period Korea from the synthesis of Japanese enka (then dominant on the colonial-Korean recording market) with native Korean folk vocal-inflection. Characterized by the canonical 2/4 \"trot rhythm\" (a swung syncopated pulse derived ultimately from foxtrot dance-band music), characteristic Korean vocal-vibrato called kkeokgi (\"bending\"), and emotionally direct sentimental-romantic-and-loss lyrical register. The genre survived multiple cycles of cultural-policy suppression (especially the 1965 anti-Japanese-influence purge) and remains a major mainstream Korean popular-music form today. The 2010s trot-revival under Korean cable-television trot-contests reinvigorated the genre with young audiences.",
-  "recipe": "classic East Asian mid-1920s korean trot, functional Song, east Asian pop branch, chanson fado ballad poetry cape verdean batuko of santiago island morna. thick, breath veiled tone, slow rate, interlocked note trading. mahogany maple ebony clean strummed humbucker electric guitar, pre muffled edge muffled brushes-and-sticks drum kit, low mid rich spectrum low-mid-thick mahogany electric bass. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
-  "recipe_chars": 579,
-  "score": 319.86,
+  "recipe": "classic East Asian mid-1920s korean trot, functional Song, east Asian pop branch, chanson fado ballad poetry cape verdean batuko of santiago island morna. thick, breath veiled tone, slow rate, interlocked note trading. ebony clean strummed humbucker electric guitar, pre muffled edge muffled brushes-and-sticks drum kit, low mid rich spectrum low-mid-thick mahogany electric bass. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 564,
+  "score": 317.905,
   "config": {
     "traditions": [
       "korean_trot",
@@ -41,15 +41,15 @@
           "voice_vibrato": 4.2575,
           "voice_articulation": 23.92,
           "voice_microtone": 25.935000000000002,
-          "voice_tradition": 38.38550000000001,
+          "voice_tradition": 38.01500000000001,
           "voice_mechanism_compound": 9.555,
           "voice_estill_quality": 6.760000000000002,
           "voice_speech_song": 28.275000000000006,
           "voice_ensemble_config": 22.815,
           "voice_ornament_system": 24.25,
-          "voice_pitch_organization": 4.03,
+          "voice_pitch_organization": 4.030000000000001,
           "voice_processing_chain": 9.3925,
-          "voice_multitrack_stack": 8.515
+          "voice_multitrack_stack": 8.5
         }
       },
       {
@@ -72,14 +72,14 @@
         "scores": {
           "electric_technique": 12,
           "amp_make": 1.1949999999999998,
-          "body_wood": 1.0604999999999998,
-          "neck_wood": 0.9105,
+          "body_wood": 0.84,
+          "neck_wood": 0.6900000000000001,
           "fretboard": 1.4949999999999999,
           "pickup_magnet": 0,
-          "pickup_winding": 0.6599999999999999,
+          "pickup_winding": 0.855,
           "string_material": 0.845,
-          "bridge": 0.9105,
-          "scale_length": 1.8209999999999997,
+          "bridge": 0.6900000000000001,
+          "scale_length": 1.38,
           "string_gauge": 1.235,
           "finish": 0,
           "string_tuning": 3.835
@@ -111,10 +111,10 @@
         },
         "scores": {
           "amp_make": 0.6499999999999999,
-          "body_wood": 1.8209999999999997,
+          "body_wood": 1.38,
           "pickup_config": 0,
           "string_type": 1.6899999999999997,
-          "scale_length_b": 0.9105,
+          "scale_length_b": 0.6900000000000001,
           "fretted_or_not": 1.4949999999999999,
           "bass_technique": 1.4299999999999997
         }

@@ -3,14 +3,14 @@
   "name": "Kapuka (Kenyan urban pop)",
   "family": "global",
   "lineage": "Kapuka Kenyan urban-pop genre emerging in early-2000s Nairobi from the Ogopa DJs and Calif Records production camps. Characterized by mid-tempo beat with Swahili-Sheng (Nairobi street-slang) and English lyrical content over R&B-influenced synthesizer-and-drum-machine production. Distinguished from parallel genge by kapuka's slower-tempo R&B-leaning (vs genge's faster-hardcore-hip-hop-leaning) aesthetic targeting middle-class urban-Nairobi commercial-radio. Producer Lucas Bikedo at Ogopa DJs formed the production-hub anchor.",
-  "recipe": "classic East African 2000-2003 kapuka, functional Song, African pop branch, intl hip hop MC rhythm uk grime french rap. extended whistle, rap, slow rate, interlocked note trading. TR-808, sub bass analog synth, mahogany pyramid pure nickel bass British mid 60s era sub heavy electric bass. dar es salaam zanzibar taarab culture club. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 463,
-  "score": 178.49,
+  "recipe": "classic East African 2000-2003 kapuka, functional Song, African pop branch, intl hip hop MC rhythm rap marocain uk grime. extended whistle, rap, slow rate, interlocked note trading. behringer rd 8 modern clone analog circuit reproduction TR-808, plucked short envelope analog synth, alder pyramid pure nickel bass British mid 60s era electric bass. dar es salaam zanzibar taarab culture club. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 522,
+  "score": 185.273,
   "config": {
     "traditions": [
       "kapuka_kenyan",
-      "uk_grime_classic",
-      "french_rap"
+      "rap_maroc",
+      "uk_grime_classic"
     ],
     "instruments": [
       {
@@ -24,9 +24,9 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "modern_pop_vocal_training",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
           "voice_estill_quality": "voice_estill_nasal_twang",
-          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 11.317499999999999,
-          "voice_quality": 18.849999999999998,
+          "voice_register": 11.674999999999999,
+          "voice_quality": 15.665000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.625,
-          "voice_articulation": 10.399999999999997,
-          "voice_microtone": 10.204999999999997,
-          "voice_tradition": 15.028999999999998,
-          "voice_mechanism_compound": 3.38,
-          "voice_estill_quality": 2.5350000000000006,
-          "voice_speech_song": 16.53175,
-          "voice_ensemble_config": 11.634999999999994,
-          "voice_ornament_system": 2.925000000000001,
-          "voice_pitch_organization": 3.5750000000000006,
-          "voice_processing_chain": 12.12,
-          "voice_multitrack_stack": 11.7
+          "voice_vibrato": 2.1,
+          "voice_articulation": 12.284999999999995,
+          "voice_microtone": 14.397499999999994,
+          "voice_tradition": 14.934999999999999,
+          "voice_mechanism_compound": 4.45,
+          "voice_estill_quality": 3.4450000000000003,
+          "voice_speech_song": 18.069999999999993,
+          "voice_ensemble_config": 12.219999999999994,
+          "voice_ornament_system": 3.575000000000001,
+          "voice_pitch_organization": 3.185000000000001,
+          "voice_processing_chain": 10.070000000000002,
+          "voice_multitrack_stack": 12.259999999999998
         }
       },
       {
@@ -60,25 +60,25 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 10.390749999999999,
-          "drum_machine_808_context": 7.344999999999999,
-          "tr808_production_origin": 0.65
+          "tr808_voice": 8.680000000000001,
+          "drum_machine_808_context": 6.699999999999999,
+          "tr808_production_origin": 1.105
         }
       },
       {
         "id": "analog_synth",
         "slots": {
-          "electronic_technique": "electronic_bass_sub",
+          "electronic_technique": "electronic_pluck_short",
           "oscillator": "sine_osc",
           "filter_topology": "transistor_ladder",
           "envelope": "sustain_env",
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 11.275999999999998,
+          "electronic_technique": 10.475,
           "oscillator": 0.9099999999999999,
-          "filter_topology": 2.6,
-          "envelope": 0.21,
+          "filter_topology": 3.1049999999999995,
+          "envelope": 0.255,
           "modulation": 0.21
         }
       },
@@ -86,21 +86,21 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_british_orange",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "soapbar",
           "string_type": "pyramid_pure_nickel",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretless",
+          "fretted_or_not": "fretted",
           "bass_technique": "sub_bass_synth_blend"
         },
         "scores": {
-          "amp_make": 1.3167499999999999,
-          "body_wood": 1.69,
-          "pickup_config": 0.65,
-          "string_type": 2.6650000000000005,
-          "scale_length_b": 1.51675,
-          "fretted_or_not": 0.0315,
-          "bass_technique": 1.25
+          "amp_make": 1.9500000000000004,
+          "body_wood": 2.3,
+          "pickup_config": 0.45499999999999996,
+          "string_type": 3.0949999999999998,
+          "scale_length_b": 2.15,
+          "fretted_or_not": 0.15,
+          "bass_technique": 0.8749999999999999
         }
       }
     ],

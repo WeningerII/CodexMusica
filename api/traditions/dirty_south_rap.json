@@ -1,0 +1,197 @@
+{
+  "id": "dirty_south_rap",
+  "name": "Dirty South Rap",
+  "family": "hip_hop",
+  "lineage": "Southern US rap consolidated in Atlanta, New Orleans, Memphis and Houston between 1993 and 2001 through Organized Noize and Goodie Mob, No Limit and Cash Money, and the Three 6 Mafia circle — 70-95 BPM half-time grooves with TR-808 kick-and-sub, live bass and Rhodes from the Dungeon Family sessions, Miami-bass-descended double-time hi-hats, chanted call-and-response hooks and drawled regional vernacular",
+  "recipe": "classic North American early-1990s dirty south rap, mc Rhythm, southern branch, us hip hop gangsta, funk percussive groove percussion. thick, rap, wide pitch sway, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, chopped sampler, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, centered tine pickup gap canonical balanced Rhodes voicing ostinato rhodes electric, Fender blackface amp American 60s amp spring reverb bright mahogany wenge single coil electric guitar, cowhide mid tier siam oak mid tier modern congas. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 798,
+  "score": 358.195,
+  "config": {
+    "traditions": [
+      "dirty_south_rap",
+      "gangsta_rap",
+      "funk"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 4.190000000000001,
+          "voice_quality": 23.974500000000003,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.273,
+          "voice_articulation": 26.585000000000004,
+          "voice_microtone": 27.430500000000002,
+          "voice_tradition": 11.101,
+          "voice_mechanism_compound": 2.6649999999999996,
+          "voice_estill_quality": 2.9000000000000004,
+          "voice_speech_song": 26.845000000000006,
+          "voice_ensemble_config": 24.830000000000002,
+          "voice_ornament_system": 5.7200000000000015,
+          "voice_pitch_organization": 1.8895,
+          "voice_processing_chain": 16.6515,
+          "voice_multitrack_stack": 4.7775
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 12.4755,
+          "drum_machine_808_context": 6.11,
+          "tr808_production_origin": 1.3
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 7.7410000000000005,
+          "sampler_archetypes": 12.74,
+          "sampler_bit_depth": 1.2999999999999998,
+          "sampler_workflow": 7.966,
+          "sampler_classic_context": 32.82500000000001
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "slap_pop"
+        },
+        "scores": {
+          "amp_make": 8.270500000000002,
+          "body_wood": 1.2349999999999999,
+          "pickup_config": 1.885,
+          "string_type": 6.7495,
+          "scale_length_b": 1.2349999999999999,
+          "fretted_or_not": 2.08,
+          "bass_technique": 9.3935
+        }
+      },
+      {
+        "id": "rhodes_electric",
+        "slots": {
+          "keyboard_technique": "keyboard_ostinato_groove",
+          "rhodes_model": "rhodes_mark1_stage",
+          "rhodes_use": "rhodes_soul",
+          "rhodes_tine_material": "rhodes_torrington_tine",
+          "rhodes_hammer_tip": "rhodes_neoprene_hammer_tip",
+          "rhodes_pickup_position": "rhodes_pickup_centered"
+        },
+        "scores": {
+          "keyboard_technique": 9.299999999999999,
+          "rhodes_model": 1.7224999999999997,
+          "rhodes_use": 2.0149999999999997,
+          "rhodes_tine_material": -0.03499999999999988,
+          "rhodes_hammer_tip": 0.325,
+          "rhodes_pickup_position": 1.69
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "wenge_neck",
+          "fretboard": "ebony_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_12",
+          "bridge": "locking_trem",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 9.825000000000001,
+          "amp_make": 11.3715,
+          "body_wood": 1.2349999999999999,
+          "neck_wood": 2.08,
+          "fretboard": 2.275,
+          "pickup_magnet": 0.65,
+          "string_material": 0.65,
+          "string_gauge": 1.625,
+          "bridge": 2.08,
+          "scale_length": 1.2349999999999999,
+          "finish": 0.195,
+          "string_tuning": 2.0799999999999996
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "tumba",
+          "conga_skin": "conga_cowhide",
+          "conga_shell_wood": "conga_siam_oak"
+        },
+        "scores": {
+          "percussion_technique": 1.4949999999999999,
+          "conga_set": 0.585,
+          "conga_skin": 1.2349999999999999,
+          "conga_shell_wood": 1.2349999999999999
+        }
+      }
+    ],
+    "room": "studio_multitrack_flagship_us_80s",
+    "archetype": "arch_80s_late_analog_majorrock",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_neve_1073_input",
+      "console": "console_sony_mxp3000",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "room": "studio_multitrack_flagship_us_80s",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "digital_std",
+    "chain_console": "console_sony_mxp3000"
+  }
+}

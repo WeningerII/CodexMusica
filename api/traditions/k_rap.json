@@ -3,66 +3,66 @@
   "name": "Korean rap",
   "family": "hip_hop",
   "lineage": "Korean hip-hop subgenre codified through Drunken Tiger (1999-onward), Tiger JK, Outsider, and the early-2000s Korean hip-hop scene that later expanded through Epik High, Verbal Jint, Dynamic Duo — characterized by Korean-language flows over US-and-Korean-hybrid production, the Show Me the Money television format as institutional vehicle",
-  "recipe": "classic modern korean rap, mc Rhythm, intl hip hop branch, east Asian pop functional song shidaiqu korean trot. thick, breath veiled tone, straight onset, interlocked note trading. TR-808, singing lead analog poly synth, sampled chopped sampler drum machine. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 403,
-  "score": 302.373,
+  "recipe": "classic modern korean rap, mc Rhythm, intl hip hop branch, east Asian pop functional song enka javanese dangdut. extended whistle, rap, straight note core, interlocked note trading. TR-808, singing lead analog poly synth, sampled chopped sampler drum machine. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 404,
+  "score": 267.25,
   "config": {
     "traditions": [
       "k_rap",
-      "shidaiqu",
-      "korean_trot"
+      "enka",
+      "javanese_dangdut"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
-          "voice_quality": "aspirated_voice",
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "korean_minsogak_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_pansori_sigimsae",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 19.399999999999995,
-          "voice_quality": 26.585000000000004,
+          "voice_register": 17.842499999999998,
+          "voice_quality": 13.855,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 8.304999999999998,
-          "voice_articulation": 17.94,
-          "voice_microtone": 18.919999999999998,
-          "voice_tradition": 38.67999999999999,
-          "voice_mechanism_compound": 4.614999999999999,
-          "voice_estill_quality": 3.575,
-          "voice_speech_song": 23.335,
-          "voice_ensemble_config": 20.02,
-          "voice_ornament_system": 32.3,
-          "voice_pitch_organization": 10.499999999999996,
+          "voice_vibrato": 3.835,
+          "voice_articulation": 21.970000000000002,
+          "voice_microtone": 22.619999999999997,
+          "voice_tradition": 29.679999999999996,
+          "voice_mechanism_compound": 1.625,
+          "voice_estill_quality": 3.5750000000000006,
+          "voice_speech_song": 28.600000000000005,
+          "voice_ensemble_config": 22.294999999999998,
+          "voice_ornament_system": 23.599999999999998,
+          "voice_pitch_organization": 3.9900000000000007,
           "voice_processing_chain": 11.899999999999999,
-          "voice_multitrack_stack": 10.757499999999999
+          "voice_multitrack_stack": 8.614999999999998
         }
       },
       {
         "id": "drum_machine_808",
         "slots": {
           "tr808_voice": "tr808_kick_long",
-          "drum_machine_808_context": "drum_machine_808_rb",
-          "tr808_production_origin": "tr808_roland_osaka_canonical"
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 8.384999999999998,
-          "drum_machine_808_context": 4.225,
-          "tr808_production_origin": 0.9749999999999996
+          "tr808_voice": 8.884999999999998,
+          "drum_machine_808_context": 6.4025,
+          "tr808_production_origin": 0.8
         }
       },
       {
@@ -74,25 +74,25 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 12.695000000000002,
-          "poly_archetypes": 0.6900000000000001,
-          "poly_voices": 0.52,
-          "poly_maker_lineage": -0.07000000000000003
+          "electronic_technique": 14.419999999999998,
+          "poly_archetypes": 0.195,
+          "poly_voices": 0.7150000000000001,
+          "poly_maker_lineage": -1.225
         }
       },
       {
         "id": "sampler_drum_machine",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sample_bitdepth": "twelve_bit",
+          "sample_bitdepth": "sixteen_bit",
           "sample_swing": "mid_swing",
           "sample_processing": "one_shots_layered"
         },
         "scores": {
           "electronic_technique": 7.899999999999999,
-          "sample_bitdepth": 0.44999999999999996,
+          "sample_bitdepth": 0.585,
           "sample_swing": 11.244999999999997,
-          "sample_processing": 1.15
+          "sample_processing": 1.65
         }
       }
     ],

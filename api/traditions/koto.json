@@ -5,7 +5,7 @@
   "lineage": "Japanese koto thirteen-string movable-bridge zither tradition with the sankyoku chamber-trio canonical-ensemble configuration (koto-shakuhachi-shamisen). Imported from Tang-dynasty Chinese guzheng via 8th-century Japanese-court transmission, refined through Edo-period (1603-1868) school-lineage codification by the Ikuta and Yamada schools, and modernized 20th-century-onward through Miyagi-school-and-Sawai-school neoclassical compositional expansion (including the seventeen-string bass-koto innovation). Repertoire layers honkyoku solo-canonical pieces, jiuta-sankyoku chamber-trio works with shamisen-derived song-lyrics, and 20th-century-onward shin-nihon-ongaku modern-Japanese-music compositions.",
   "recipe": "classic East Asian early-1600s koto, art Music, east Asian branch, string drone modal polish village fiddle hardanger fiddle. aizu paulownia regional koto, madake bamboo phyllostachys canonical Japanese root section kinko ryu canonical edo period concert continuous-airflow legato shakuhachi, dog skin ivory red sandalwood premium silk shamisen. tatami parlor japanese. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 485,
-  "score": 54.031,
+  "score": 53.485,
   "config": {
     "traditions": [
       "koto",
@@ -24,7 +24,7 @@
           "koto_bridge_material": "koto_ivory_bridges_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 3.479714285714286,
+          "plucked_traditional_technique": 3.4450000000000003,
           "koto_strings": 3.3149999999999995,
           "koto_picks": 3.38,
           "koto_body_wood": 2.08,
@@ -42,10 +42,10 @@
           "shakuhachi_lineage": "shakuhachi_kinko"
         },
         "scores": {
-          "wind_articulation": 3.864714285714286,
-          "shaku_length": 2.7297142857142855,
+          "wind_articulation": 3.8300000000000005,
+          "shaku_length": 2.695,
           "shaku_technique": 5.59,
-          "shakuhachi_body_material": 6.835571428571428,
+          "shakuhachi_body_material": 6.499999999999999,
           "shakuhachi_lineage": 5.545
         }
       },
@@ -61,13 +61,13 @@
           "shamisen_tradition": "shamisen_nagauta"
         },
         "scores": {
-          "plucked_traditional_technique": 3.479714285714286,
-          "shamisen_size": 1.4954285714285716,
+          "plucked_traditional_technique": 3.4450000000000003,
+          "shamisen_size": 1.495,
           "shamisen_skin": 1.69,
           "shamisen_pick": 1.625,
           "shamisen_neck_wood": 2.535,
           "shamisen_strings": 3.9,
-          "shamisen_tradition": 5.595714285714285
+          "shamisen_tradition": 5.5249999999999995
         }
       }
     ],

@@ -3,14 +3,14 @@
   "name": "Lovers' rock",
   "family": "global",
   "lineage": "UK Black-British soft-soul reggae subgenre that emerged from 1976 onward as the Black British response to Jamaican roots-reggae — codified through Louisa Mark (Caught You in a Lie 1975), Janet Kay (Silly Games 1979, the #2 UK chart breakthrough), Carroll Thompson, Sandra Cross, Brown Sugar, the Investigators production team (Dennis Bovell); female-vocal-led with softer mixing aesthetic and lyrical content centering on female romantic interiority",
-  "recipe": "classic Northern European mid-1970s lovers' rock, bass System, reggae diaspora branch, soul R&B functional song doo-wop dc go-go. thick, blues-shouter, slow rate, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright mahogany chicken-scratch single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, pre muffled edge muffled brushes-and-sticks drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative ostinato slow chorale tonewheel organ. London black British Caribbean 1976-1985 indie-commercial brixton uk lovers rock basement. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 785,
-  "score": 288.979,
+  "recipe": "classic Northern European mid-1970s lovers' rock, bass System, reggae diaspora branch, soul R&B functional song british soul doo-wop. thick, blues-shouter, slow rate, narrative. Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, pre muffled edge muffled sticks pocket drum kit, Hammond a 100 built in Leslie home spinet gospel runs slow chorale tonewheel organ. London black British Caribbean 1976-1985 indie-commercial brixton uk lovers rock basement. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 705,
+  "score": 356.552,
   "config": {
     "traditions": [
       "lovers_rock",
-      "doo_wop",
-      "dc_go_go"
+      "british_soul",
+      "doo_wop"
     ],
     "instruments": [
       {
@@ -21,7 +21,7 @@
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "hocket_voice",
+          "voice_articulation": "narrative_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "gospel_pentecostal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_talkbox",
-          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 19.549999999999997,
+          "voice_register": 29.999999999999993,
           "voice_quality": 5.619500000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.975,
-          "voice_articulation": 14.299999999999997,
-          "voice_microtone": 13.519999999999992,
-          "voice_tradition": 15.7395,
-          "voice_mechanism_compound": 3.3149999999999995,
-          "voice_estill_quality": 11.694999999999999,
-          "voice_speech_song": 17.809999999999995,
-          "voice_ensemble_config": 12.154999999999994,
-          "voice_ornament_system": 2.3449999999999998,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 8.188999999999998,
-          "voice_multitrack_stack": 6.239999999999998
+          "voice_vibrato": 1.17,
+          "voice_articulation": 18.0995,
+          "voice_microtone": 11.634999999999994,
+          "voice_tradition": 22.1895,
+          "voice_mechanism_compound": 2.6649999999999996,
+          "voice_estill_quality": 19.444999999999997,
+          "voice_speech_song": 16.379999999999995,
+          "voice_ensemble_config": 12.999999999999998,
+          "voice_ornament_system": 1.995,
+          "voice_pitch_organization": 0.8449999999999999,
+          "voice_processing_chain": 6.045,
+          "voice_multitrack_stack": 6.630000000000001
         }
       },
       {
@@ -63,24 +63,24 @@
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
           "string_gauge": "g_11",
-          "bridge": "locking_trem",
+          "bridge": "hardtail",
           "scale_length": "scale_gibson",
           "finish": "nitro",
-          "string_tuning": "drop_d"
+          "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 16.194499999999998,
-          "amp_make": 18.544,
-          "body_wood": 1.04,
-          "neck_wood": 1.04,
-          "fretboard": 0.975,
-          "pickup_magnet": 0.845,
-          "string_material": 0.845,
-          "string_gauge": 1.04,
-          "bridge": 0.45499999999999996,
-          "scale_length": 1.04,
+          "electric_technique": 18.194499999999998,
+          "amp_make": 20.844,
+          "body_wood": 1.235,
+          "neck_wood": 1.235,
+          "fretboard": 1.17,
+          "pickup_magnet": 0.345,
+          "string_material": 0.345,
+          "string_gauge": 1.235,
+          "bridge": 0.15,
+          "scale_length": 1.235,
           "finish": 0,
-          "string_tuning": 4.68
+          "string_tuning": 4.095
         }
       },
       {
@@ -91,49 +91,49 @@
           "pickup_config": "split_coil",
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "amp_make": 16.563,
-          "body_wood": 1.04,
+          "amp_make": 24.688000000000002,
+          "body_wood": 1.235,
           "pickup_config": 0,
-          "string_type": 17.485,
-          "scale_length_b": 1.04,
-          "fretted_or_not": 0.45499999999999996,
-          "bass_technique": 15.95
+          "string_type": 27.4625,
+          "scale_length_b": 1.235,
+          "fretted_or_not": 0.195,
+          "bass_technique": 17.95
         }
       },
       {
         "id": "drum_kit",
         "slots": {
-          "drum_technique": "brushes_and_sticks",
+          "drum_technique": "sticks_motown",
           "drumhead": "ec_pre_muffled_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 12.089999999999996,
-          "drumhead": 4.04,
+          "drum_technique": 18.375,
+          "drumhead": 4.914999999999999,
           "drum_kit_kick_pedal": 0
         }
       },
       {
         "id": "tonewheel_organ",
         "slots": {
-          "keyboard_technique": "keyboard_ostinato_groove",
+          "keyboard_technique": "keyboard_gospel_chord_runs",
           "drawbar_setting": "rock_drawbars",
           "rotary_speed": "slow_chorale",
           "percussion_setting": "percussion_on_long",
-          "tonewheel_model": "tonewheel_hammond_b3",
-          "leslie_cabinet_model": "leslie_760_solid_state"
+          "tonewheel_model": "tonewheel_hammond_a100",
+          "leslie_cabinet_model": "leslie_145_smaller"
         },
         "scores": {
-          "keyboard_technique": 16,
-          "drawbar_setting": 3.75,
-          "rotary_speed": 10.395,
-          "percussion_setting": 1.875,
-          "tonewheel_model": 5.590000000000001,
-          "leslie_cabinet_model": 1.04
+          "keyboard_technique": 20.299999999999997,
+          "drawbar_setting": 5,
+          "rotary_speed": 17.77,
+          "percussion_setting": 2.375,
+          "tonewheel_model": 7.54,
+          "leslie_cabinet_model": 0.585
         }
       }
     ],

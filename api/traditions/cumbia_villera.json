@@ -1,0 +1,188 @@
+{
+  "id": "cumbia_villera",
+  "name": "Cumbia villera",
+  "family": "global",
+  "lineage": "Greater Buenos Aires villa-miseria cumbia that emerged in 1999-2000 with Flor de Piedra, Yerba Brava, Damas Gratis (Pablo Lescano) and Pibes Chorros — 95-105 BPM cumbia paseo carried by cheap Korg/Roland preset organ and whistle patches, a driving synth-and-electric bass line, güiro and timbal on a stiff programmed grid, nasal shouted male lead with gang-chorus responses, and lurid first-person lyrics about drugs, theft, police and slum life.",
+  "recipe": "classic 1999-2000 cumbia villera, groove Percussion, Latin am branch, Latin electric electronic dance, intl hip hop MC rhythm cumbia 420 hawaiian hip hop. extended whistle, full chest belt, straight note core, interlocked note trading. sub bass analog poly synth, lead instrument elevated psychedelic foregrounded organ driven rock combo organ, ampeg svt amp rock bass amp la bella flats Detroit soul bass canon thumb muted electric bass, guiro, open slap hand drum timbales, lead open slap hand drum congas, drum machine analog. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 668,
+  "score": 196.962,
+  "config": {
+    "traditions": [
+      "cumbia_villera",
+      "cumbia_420",
+      "hawaiian_hip_hop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "full_chest_belt_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 1.17,
+          "voice_quality": 12.398249999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.6899999999999997,
+          "voice_articulation": 20.345,
+          "voice_microtone": 21.904999999999998,
+          "voice_tradition": 7.6049999999999995,
+          "voice_mechanism_compound": 4.29,
+          "voice_estill_quality": 5.98,
+          "voice_speech_song": 21.839999999999996,
+          "voice_ensemble_config": 19.629999999999995,
+          "voice_ornament_system": 3.445000000000001,
+          "voice_pitch_organization": 1.4949999999999999,
+          "voice_processing_chain": 6.8,
+          "voice_multitrack_stack": 7.5075
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "juno_60",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 10.3675,
+          "poly_archetypes": 0.09,
+          "poly_voices": 0,
+          "poly_maker_lineage": -0.81
+        }
+      },
+      {
+        "id": "combo_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "combo_organ_model": "vox_jaguar_combo",
+          "combo_organ_voicing": "combo_organ_all_stops_reedy",
+          "combo_organ_context": "combo_organ_doors_psych",
+          "amp_make": "amp_unspecified"
+        },
+        "scores": {
+          "keyboard_technique": -0.07,
+          "combo_organ_model": 2.795,
+          "combo_organ_voicing": 4.45,
+          "combo_organ_context": 3.3400000000000003,
+          "amp_make": 0
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "thumb_muted"
+        },
+        "scores": {
+          "amp_make": 3.3150000000000004,
+          "body_wood": 0.585,
+          "pickup_config": 0.845,
+          "string_type": 4.095000000000001,
+          "scale_length_b": 0.24,
+          "fretted_or_not": 0,
+          "bass_technique": 4.075
+        }
+      },
+      {
+        "id": "guiro",
+        "slots": {
+          "guiro_origin": "guiro_mexican_pvc",
+          "guiro_striker": "guiro_metal"
+        },
+        "scores": {
+          "guiro_origin": 0.73875,
+          "guiro_striker": 0.24
+        }
+      },
+      {
+        "id": "timbales",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "timbales_shell": "timbales_brass",
+          "timbales_context": "timbales_salsa"
+        },
+        "scores": {
+          "percussion_technique": 9.852500000000001,
+          "timbales_shell": 0.375,
+          "timbales_context": 1
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "quinto",
+          "conga_skin": "conga_synthetic_head",
+          "conga_shell_wood": "conga_fiberglass"
+        },
+        "scores": {
+          "percussion_technique": 9.852500000000001,
+          "conga_set": 2.34,
+          "conga_skin": 0.24,
+          "conga_shell_wood": 0.24
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "fm_pair_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
+        },
+        "scores": {
+          "kick_voice": 0.24,
+          "snare_voice": 0.24,
+          "hat_voice": 0.135,
+          "shuffle_quantize": 0.375
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "mic_sm58_dynamic_shure",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "cumbia_4_4_paseo",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "cumbia_4_4_paseo",
+    "room": "untreated_bedroom",
+    "chain_mic": "mic_sm58_dynamic_shure",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

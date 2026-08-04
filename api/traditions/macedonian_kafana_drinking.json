@@ -5,7 +5,7 @@
   "lineage": "Macedonian-Serbian-and-broader-Balkan kafana (tavern) drinking-song tradition continuous from Ottoman-era kafana-cafe-tavern song-tradition through 20th-century Balkan-Yugoslav continuous performance into modern Serbian-Macedonian-and-Balkan-diaspora kafana-practice; the kafana is the documented Balkan-Slavic tavern-context where extended drinking-songs span multi-hour evening performance",
   "recipe": "classic early-1950s macedonian-serbian kafana drinking song, drinking Song, balkan branch, European drinking song, European wedding, iberian functional song spanish canción pop galician kantautor and folk-pop. thick, breath veiled tone, straight onset, interlocked note trading. steel hohner gola canonical premium German concert straight accordion, synthetic magic rosin modern acrylic base drone like fiddle, clay pre modern traditional fish skin pre modern Egyptian traditional Egyptian sombaty canonical mid east darbuka. irish pub. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
   "recipe_chars": 603,
-  "score": 195.622,
+  "score": 196.034,
   "config": {
     "traditions": [
       "macedonian_kafana_drinking",
@@ -41,15 +41,15 @@
           "voice_vibrato": 3.2500000000000004,
           "voice_articulation": 12.349999999999993,
           "voice_microtone": 13.12999999999999,
-          "voice_tradition": 35.09649999999999,
+          "voice_tradition": 35.162499999999994,
           "voice_mechanism_compound": 1.7550000000000001,
-          "voice_estill_quality": 3.1536250000000003,
+          "voice_estill_quality": 2.9556250000000004,
           "voice_speech_song": 24.764999999999993,
-          "voice_ensemble_config": 20.897749999999995,
+          "voice_ensemble_config": 20.978749999999998,
           "voice_ornament_system": 9.875,
           "voice_pitch_organization": 3.5749999999999993,
           "voice_processing_chain": 5.5249999999999995,
-          "voice_multitrack_stack": 7.049375
+          "voice_multitrack_stack": 7.1825
         }
       },
       {
@@ -65,12 +65,12 @@
         },
         "scores": {
           "free_reed_technique": 5.86625,
-          "accordion_reed_material": 1.45,
-          "musette_offset": 1.5999999999999999,
+          "accordion_reed_material": 1.4949999999999999,
+          "musette_offset": 1.6449999999999998,
           "reed_config": 1.1099999999999997,
           "bellows": 0.3,
-          "voicing_chamber": 1.45,
-          "accordion_maker_school": 2.2462499999999994
+          "voicing_chamber": 1.4949999999999999,
+          "accordion_maker_school": 2.4262499999999996
         }
       },
       {
@@ -83,7 +83,7 @@
           "fiddle_articulation": "arco"
         },
         "scores": {
-          "bowed_technique": 5.533124999999999,
+          "bowed_technique": 5.368124999999999,
           "fiddle_strings": 2.34,
           "fiddle_bow": 5.85,
           "fiddle_mute": 0.9099999999999999,
@@ -102,7 +102,7 @@
           "percussion_technique": 1.5750000000000002,
           "darbuka_material": 2.73,
           "darbuka_skin": 2.73,
-          "darbuka_regional_style": 1.5262499999999997
+          "darbuka_regional_style": 1.7062499999999996
         }
       }
     ],

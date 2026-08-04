@@ -5,7 +5,7 @@
   "lineage": "Argentine-Uruguayan rural-pampas tango-precursor and parallel folk genre 1870s-onward with habanera-derived dotted-eighth-sixteenth ostinato bass and characteristic 2/4 milonga-clave. Originated in Rio-de-la-Plata gaucho-payada improvisatory-sung-poetry combined with Afro-Cuban habanera rhythm imported via 19th-century maritime ship-traffic between Buenos Aires and Havana. The milonga-campera rural form remains payada-derived (guitar-accompanied gaucho ballads), while the milonga-ciudadana urban form 1920s-onward fed directly into orquesta-típica tango via the 6/8-against-2/4 polyrhythmic dance variant played at faster tempo than mainline tango.",
   "recipe": "classic South American mid-1870s milonga, ballad Poetry, milonga branch, tropical song functional song bachata merengue urbano. thick, breath veiled tone, slow rate, interlocked note trading. cedar fingerpicked classical nylon-string guitar, tango virtuoso premier German tango premium alternative bellows articulated bandoneon, sitka spruce hard rock maple acer saccharum synthetic varnish polyurethane violin orchestral, upright bass. large tracking room 1920-1965 mid tier odeon rca buenos aires. RCA 44-BX, German V72 tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 567,
-  "score": 229.784,
+  "score": 231.465,
   "config": {
     "traditions": [
       "milonga",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 7.194375000000002,
+          "voice_register": 7.320000000000001,
           "voice_quality": 9.23,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.6,
-          "voice_articulation": 21.774999999999995,
-          "voice_microtone": 21.274374999999992,
-          "voice_tradition": 11.253875,
-          "voice_mechanism_compound": 7.283250000000001,
-          "voice_estill_quality": 6.58825,
+          "voice_articulation": 21.96999999999999,
+          "voice_microtone": 21.57999999999999,
+          "voice_tradition": 11.195,
+          "voice_mechanism_compound": 7.41,
+          "voice_estill_quality": 6.76,
           "voice_speech_song": 30.354999999999997,
           "voice_ensemble_config": 21.18999999999999,
-          "voice_ornament_system": 4.307500000000001,
+          "voice_ornament_system": 4.420000000000002,
           "voice_pitch_organization": 0.6499999999999999,
-          "voice_processing_chain": 6.225625000000001,
-          "voice_multitrack_stack": 6.808874999999999
+          "voice_processing_chain": 6.175000000000001,
+          "voice_multitrack_stack": 7.214999999999998
         }
       },
       {
@@ -63,7 +63,7 @@
           "attack_technique_cl": "fingertip_only_cl"
         },
         "scores": {
-          "acoustic_technique": 8.4375,
+          "acoustic_technique": 8.325,
           "string_tuning": 0,
           "top_wood_classical": 3.77,
           "bracing_classical": 1.6899999999999997,
@@ -82,9 +82,9 @@
         },
         "scores": {
           "free_reed_technique": 14.949999999999994,
-          "bandoneon_action": 6.299999999999998,
-          "bandoneon_use": 7.516374999999998,
-          "bandoneon_maker_school": 6.144999999999999,
+          "bandoneon_action": 6.389999999999998,
+          "bandoneon_use": 7.539999999999998,
+          "bandoneon_maker_school": 6.189999999999999,
           "bandoneon_reed_material": 0.39
         }
       },
@@ -105,12 +105,12 @@
         "scores": {
           "bowed_technique": 1.9499999999999997,
           "orch_strings": 0.78,
-          "orch_top_wood": 1.7506249999999999,
-          "orch_back_wood": 3.819125,
-          "orch_varnish": 3.3344999999999994,
+          "orch_top_wood": 1.79,
+          "orch_back_wood": 3.92,
+          "orch_varnish": 3.51,
           "orch_setup_period": 2.795,
           "orch_bow": 2.34,
-          "orch_bow_stick": 2.750625,
+          "orch_bow_stick": 2.745,
           "orch_articulation": 0.845,
           "orch_rosin": 2.6649999999999996
         }
@@ -122,7 +122,7 @@
           "upright_play": "slap_upright"
         },
         "scores": {
-          "upright_strings": 0.444,
+          "upright_strings": 0.435,
           "upright_play": 2.0799999999999996
         }
       }

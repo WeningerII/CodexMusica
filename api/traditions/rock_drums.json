@@ -1,0 +1,132 @@
+{
+  "id": "rock_drums",
+  "name": "Rock Drums (drum-feature instrumental)",
+  "family": "rock",
+  "lineage": "Anglo-American practice of the kit as lead voice, running from Sandy Nelson's 1959 tom-driven instrumental singles through the extended concert solos of Ginger Baker, John Bonham and Cozy Powell in 1966-1980 — large-shell kits tuned low and open, multi-mic close-and-room capture through transformer consoles to 15 ips tape, 4/4 backbeat frames at 100-160 BPM, and structured toms-and-cymbal improvisation over a minimal riff.",
+  "recipe": "classic British mid-1970s rock drums, distorted Rock, classic branch, American marching groove percussion, jam free improv on frame jam band american drumline. sticks backbeat drum kit, double bass rapid double strokes bass drum, concert projecting nickel silver nickel silver tambourine orch, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany humbucker electric guitar. live tracking. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 647,
+  "score": 108.235,
+  "config": {
+    "traditions": [
+      "rock_drums",
+      "jam_band",
+      "american_drumline"
+    ],
+    "instruments": [
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "double_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 14.563,
+          "drumhead": 3.0549999999999997,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "bass_drum",
+        "slots": {
+          "bass_drum_size": "bass_drum_22_standard",
+          "bass_drum_beater": "bass_drum_double_pedal"
+        },
+        "scores": {
+          "bass_drum_size": 1.45,
+          "bass_drum_beater": 1.04
+        }
+      },
+      {
+        "id": "tambourine_orch",
+        "slots": {
+          "tambourine_orch_jingle": "tambourine_orch_nickel",
+          "tambourine_orch_context": "tambourine_orch_orch"
+        },
+        "scores": {
+          "tambourine_orch_jingle": 1.3,
+          "tambourine_orch_context": 1.3
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "split_coil",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 8.19,
+          "body_wood": 1.69,
+          "pickup_config": 0,
+          "string_type": 17.369999999999997,
+          "scale_length_b": 1.69,
+          "fretted_or_not": 0.195,
+          "bass_technique": 14.039499999999999
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "mahogany_maple_cap",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "pau_ferro_fb_h",
+          "pickup_magnet": "alnico_5_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "string_thru",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_11_hum",
+          "finish": "oil_satin_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 2.275,
+          "amp_make": 7.15,
+          "body_wood": 1.69,
+          "neck_wood": 2.4345000000000003,
+          "fretboard": 2.4345000000000003,
+          "pickup_magnet": 0.585,
+          "pickup_winding": 2.4050000000000002,
+          "string_material": 2.4345000000000003,
+          "bridge": 2.6049999999999995,
+          "scale_length": 2.275,
+          "string_gauge": 1.69,
+          "finish": 0.3045,
+          "string_tuning": 11.244999999999997
+        }
+      }
+    ],
+    "room": "live_room",
+    "archetype": "arch_70s_uk_class_a_rock",
+    "inline_chain": {
+      "mic": "mic_coles_4038_ribbon",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_transformer_70s",
+      "comp": "comp_1176_fet",
+      "eq": "eq_api_550",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+    "room": "live_room",
+    "chain_mic": "mic_coles_4038_ribbon",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_1176_fet",
+    "chain_eq": "eq_api_550",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_british_transformer_70s"
+  }
+}

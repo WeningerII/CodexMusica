@@ -1,0 +1,212 @@
+{
+  "id": "japanese_teen_pop",
+  "name": "Japanese idol pop (aidoru kayō)",
+  "family": "pop",
+  "lineage": "Japanese teen-idol pop formalised by talent agencies and TV variety programming in Tokyo from the early 1970s — Momoe Yamaguchi and then Seiko Matsuda in the 1980s establishing the template, extended by Onyanko Club and later Morning Musume and AKB48 — bright 120-145 BPM major-key songs with Brill-Building-style key-change choruses, session-band backing with syncopated slap bass and gated snare, sweetened brass and synth-string beds, and a deliberately thin, high, unrehearsed-sounding solo or unison-group vocal recorded very close.",
+  "recipe": "classic East Asian 1970-1973 japanese idol pop, functional Song, east Asian pop branch, pop rock synthpop new wave yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. polychordal major seven nine eleven stack late 1980s reverb saturated bus stack natural blend light common bus EQ multitrack vocal stack, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, sequential lineage canonical prophet 5 1978 san jose ca lead analog poly synth, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, mid attack plastic glockenspiel. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. Neumann U87, console-strip pre, sony MXP-3000 series, dbx 160 VCA, SSL surgical EQ.",
+  "recipe_chars": 935,
+  "score": 727.877,
+  "config": {
+    "traditions": [
+      "japanese_teen_pop",
+      "new_wave",
+      "yacht_rock"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 58.75500000000002,
+          "voice_quality": 16.41249999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 8.58,
+          "voice_articulation": 20.604999999999997,
+          "voice_microtone": 56.849999999999994,
+          "voice_tradition": 42.445,
+          "voice_mechanism_compound": 3.9650000000000003,
+          "voice_estill_quality": 3.575000000000001,
+          "voice_speech_song": 28.275,
+          "voice_ensemble_config": 19.955,
+          "voice_ornament_system": 2.5850000000000004,
+          "voice_pitch_organization": 4.890000000000001,
+          "voice_processing_chain": 17.055,
+          "voice_multitrack_stack": 13.129999999999997
+        }
+      },
+      {
+        "id": "multitrack_vocal_stack",
+        "slots": {
+          "multitrack_stack_density": "multitrack_density_polychordal_7_9_11",
+          "multitrack_stack_era_aesthetic": "multitrack_era_late_1980s_reverb_bus",
+          "multitrack_stack_processing": "multitrack_processing_natural"
+        },
+        "scores": {
+          "multitrack_stack_density": 1.7550000000000001,
+          "multitrack_stack_era_aesthetic": 11.765,
+          "multitrack_stack_processing": 1.04
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 14.429999999999996,
+          "body_wood": 2.275,
+          "pickup_config": 0.345,
+          "string_type": 29.737499999999997,
+          "scale_length_b": 2.275,
+          "fretted_or_not": 0.345,
+          "bass_technique": 28.354999999999993
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 22.874999999999996,
+          "drumhead": 31.794999999999995,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "locking_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 33.50999999999999,
+          "amp_make": 16.899999999999995,
+          "body_wood": 2.275,
+          "neck_wood": 2.275,
+          "fretboard": 2.21,
+          "pickup_magnet": 1.585,
+          "string_material": 1.675,
+          "string_gauge": 2.925,
+          "bridge": 0.65,
+          "scale_length": 2.275,
+          "finish": 1.09,
+          "string_tuning": 15.534999999999998
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 33.724999999999994,
+          "poly_archetypes": 11.894999999999998,
+          "poly_voices": 1.4300000000000002,
+          "poly_maker_lineage": 2.795
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "standard_multi_laminate_pinblock",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_441_japanese"
+        },
+        "scores": {
+          "keyboard_technique": 32.404999999999994,
+          "grand_piano_size": 2.275,
+          "grand_piano_brand": 2.275,
+          "piano_hammer": 36.24999999999999,
+          "piano_rim": 35.82,
+          "piano_soundboard": 33.504999999999995,
+          "piano_pinblock": 1.755,
+          "piano_plate": 1.0074999999999998,
+          "piano_pitch_standard": 6.4025
+        }
+      },
+      {
+        "id": "glockenspiel",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "glockenspiel_size": "glockenspiel_orch_3",
+          "glockenspiel_mallet": "glockenspiel_plastic"
+        },
+        "scores": {
+          "percussion_technique": -0.05,
+          "glockenspiel_size": 2.0799999999999996,
+          "glockenspiel_mallet": 2.4699999999999998
+        }
+      }
+    ],
+    "room": "tokyo_studio_1970s_80s",
+    "archetype": "arch_tokyo_city_pop",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_console_inline_strip",
+      "console": "console_sony_mxp3000",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_30ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "tokyo_studio_1970s_80s",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "tape_30ips",
+    "chain_console": "console_sony_mxp3000"
+  }
+}

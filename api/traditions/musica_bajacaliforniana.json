@@ -1,0 +1,196 @@
+{
+  "id": "musica_bajacaliforniana",
+  "name": "Música Bajacaliforniana",
+  "family": "global",
+  "lineage": "Border-state regional-Mexican idiom of Tijuana, Mexicali and Ensenada consolidated from the 1980s onward as norteño conjunto absorbed banda brass and Sinaloan corrido repertoire, codified commercially by Los Tucanes de Tijuana and later Grupo Firme — diatonic button accordion and bajo sexto over tololoche or tuba bass, 2/4 polka and 3/4 vals subforms at 110-150 BPM, doubled saxophone lines, and paired baritone-tenor vocals delivering narrative corrido verse.",
+  "recipe": "classic mid-1980s música bajacaliforniana, functional Song, Mexican branch, tejano border corrido, tejano border ranchera corridos tumbados. vocal fry, full chest belt, wide pitch sway, interlocked note trading. brass castagnari Italian premium folk music chordal accordion, nickel wound modern tejano bajo sexto, tololoche, compact tuba brass yellow brass canonical orchestral besson sovereign British brass band tuba, tenor yellow brass modern standard saxophone, accordion and bajo duo corrido narrative texas tejano conjunto conjunto norteno, kevlar aramid extreme tension brushes-and-sticks drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 809,
+  "score": 316.026,
+  "config": {
+    "traditions": [
+      "musica_bajacaliforniana",
+      "ranchera",
+      "corridos_tumbados"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "full_chest_belt_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 1.3649999999999998,
+          "voice_quality": 19.06999999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.9099999999999999,
+          "voice_articulation": 20.735,
+          "voice_microtone": 20.539999999999996,
+          "voice_tradition": 5.134999999999999,
+          "voice_mechanism_compound": 4.159999999999999,
+          "voice_estill_quality": 12.325499999999998,
+          "voice_speech_song": 31.362500000000004,
+          "voice_ensemble_config": 22.814999999999998,
+          "voice_ornament_system": 2.4050000000000002,
+          "voice_pitch_organization": 0.845,
+          "voice_processing_chain": 5.2,
+          "voice_multitrack_stack": 7.085000000000001
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_chordal_chugging",
+          "accordion_reed_material": "brass_reeds",
+          "musette_offset": "german_tuning",
+          "reed_config": "lmmh",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 11.613499999999998,
+          "accordion_reed_material": 1.66075,
+          "musette_offset": 0.195,
+          "reed_config": 0.53775,
+          "bellows": 0.195,
+          "voicing_chamber": 0,
+          "accordion_maker_school": 1.625
+        }
+      },
+      {
+        "id": "bajo_sexto",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "bajo_courses": "twelve_string_bajo",
+          "bajo_top": "cedar_bj",
+          "bajo_strings": "bajo_nickel_wound",
+          "bajo_back_wood": "bajo_mahogany_back"
+        },
+        "scores": {
+          "plucked_traditional_technique": 2.925,
+          "bajo_courses": 10.3865,
+          "bajo_top": 0.3765,
+          "bajo_strings": 5.9799999999999995,
+          "bajo_back_wood": 0
+        }
+      },
+      {
+        "id": "tololoche",
+        "slots": {
+          "tololoche_size": "tololoche_three_string",
+          "tololoche_technique": "tololoche_polka_pump"
+        },
+        "scores": {
+          "tololoche_size": 2.81025,
+          "tololoche_technique": 0
+        }
+      },
+      {
+        "id": "tuba",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "tuba_pitch": "tuba_eb",
+          "tuba_context": "tuba_brass_band",
+          "tuba_bell_metal": "tuba_yellow_brass",
+          "tuba_valve_system": "tuba_rotary_german",
+          "tuba_maker_school": "tuba_besson_british"
+        },
+        "scores": {
+          "wind_articulation": 0.375,
+          "tuba_pitch": 2.718,
+          "tuba_context": 7.0200000000000005,
+          "tuba_bell_metal": 2.34,
+          "tuba_valve_system": 0.65,
+          "tuba_maker_school": 2.34
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "tenor_sax",
+          "sax_reed": "medium_reed",
+          "sax_body_alloy": "yellow_brass_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_cool_lyrical",
+          "sax_maker_school": "sax_yamaha_custom"
+        },
+        "scores": {
+          "wind_articulation": 1.885,
+          "sax_size": 1.6875,
+          "sax_reed": 0.195,
+          "sax_body_alloy": 4.8185,
+          "sax_mouthpiece": 0.195,
+          "sax_technique": -0.035,
+          "sax_maker_school": 0.65
+        }
+      },
+      {
+        "id": "conjunto_norteno",
+        "slots": {
+          "conjunto_norteno_lineup": "conjunto_norteno_lineup_duo",
+          "conjunto_norteno_repertoire": "conjunto_norteno_repertoire_corrido",
+          "conjunto_norteno_substyle": "conjunto_norteno_substyle_texas"
+        },
+        "scores": {
+          "conjunto_norteno_lineup": 31.720000000000002,
+          "conjunto_norteno_repertoire": 19.35275,
+          "conjunto_norteno_substyle": 21.391
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "kevlar_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 22.490000000000002,
+          "drumhead": 1.25,
+          "drum_kit_kick_pedal": 0
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "ranchera_3_4_and_2_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "ranchera_3_4_and_2_4",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

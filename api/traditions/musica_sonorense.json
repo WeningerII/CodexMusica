@@ -1,0 +1,166 @@
+{
+  "id": "musica_sonorense",
+  "name": "Música sonorense (Sonoran regional)",
+  "family": "global",
+  "lineage": "Regional-Mexican strain of the state of Sonora — norteño with alto saxophone and tambora on the Hermosillo-Ciudad Obregón corridor through the later twentieth century, then reoriented after 2019 by Hermosillo's Natanael Cano and Caborca's Luis R Conriquez into corridos tumbados: 80-110 BPM sierreño-style requinto and twelve-string acoustic guitar over tuba or tololoche bass, no drum kit, with speech-close narrative vocal delivery and trap-adjacent song lengths.",
+  "recipe": "classic late-2010s música sonorense, functional Song, tejano border branch, tejano border corrido, Mexican functional song corridos tumbados grupera. vocal fry, breath veiled tone, straight onset, interlocked note trading. snappy bronze dreadnought acoustic guitar, nickel wound modern tejano bajo sexto, compact tuba brass rotary valves canonical German orchestral miraphone canonical German orchestral tuba, tololoche, lyrical alto saxophone. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 648,
+  "score": 171.622,
+  "config": {
+    "traditions": [
+      "musica_sonorense",
+      "corridos_tumbados",
+      "grupera"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 1.946875,
+          "voice_quality": 12.544999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.0149999999999997,
+          "voice_articulation": 18.46,
+          "voice_microtone": 18.069999999999997,
+          "voice_tradition": 6.175000000000001,
+          "voice_mechanism_compound": 6.175,
+          "voice_estill_quality": 6.4350000000000005,
+          "voice_speech_song": 29.249999999999996,
+          "voice_ensemble_config": 18.589999999999996,
+          "voice_ornament_system": 2.4050000000000002,
+          "voice_pitch_organization": 0.9099999999999999,
+          "voice_processing_chain": 5.654999999999999,
+          "voice_multitrack_stack": 4.160000000000001
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood": "cedar",
+          "back_sides": "koa_bs",
+          "string_acoustic": "eighty_twenty"
+        },
+        "scores": {
+          "acoustic_technique": 0.9749999999999996,
+          "string_tuning": 0,
+          "top_wood": 0.435,
+          "back_sides": 0.195,
+          "string_acoustic": 1
+        }
+      },
+      {
+        "id": "bajo_sexto",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "bajo_courses": "twelve_string_bajo",
+          "bajo_top": "cedar_bj",
+          "bajo_strings": "bajo_nickel_wound",
+          "bajo_back_wood": "bajo_mahogany_back"
+        },
+        "scores": {
+          "plucked_traditional_technique": 2.275,
+          "bajo_courses": 9.32,
+          "bajo_top": 0.435,
+          "bajo_strings": 4.745,
+          "bajo_back_wood": 0
+        }
+      },
+      {
+        "id": "tuba",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "tuba_pitch": "tuba_eb",
+          "tuba_context": "tuba_brass_band",
+          "tuba_bell_metal": "tuba_yellow_brass",
+          "tuba_valve_system": "tuba_rotary_german",
+          "tuba_maker_school": "tuba_miraphone_german"
+        },
+        "scores": {
+          "wind_articulation": -0.05,
+          "tuba_pitch": 2.535,
+          "tuba_context": 3.965,
+          "tuba_bell_metal": 0.195,
+          "tuba_valve_system": 1.08,
+          "tuba_maker_school": 1.08
+        }
+      },
+      {
+        "id": "tololoche",
+        "slots": {
+          "tololoche_size": "tololoche_three_string",
+          "tololoche_technique": "tololoche_polka_pump"
+        },
+        "scores": {
+          "tololoche_size": 3.77,
+          "tololoche_technique": 0
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "alto_sax",
+          "sax_reed": "medium_reed",
+          "sax_body_alloy": "yellow_brass_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_cool_lyrical",
+          "sax_maker_school": "sax_yamaha_custom"
+        },
+        "scores": {
+          "wind_articulation": 0.39,
+          "sax_size": 1.145,
+          "sax_reed": 0,
+          "sax_body_alloy": 0.9099999999999999,
+          "sax_mouthpiece": 0.195,
+          "sax_technique": -0.035,
+          "sax_maker_school": 0.195
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "ranchera_3_4_and_2_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "ranchera_3_4_and_2_4",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

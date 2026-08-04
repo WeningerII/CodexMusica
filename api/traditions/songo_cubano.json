@@ -3,9 +3,9 @@
   "name": "Songo (Cuban 1970s fusion)",
   "family": "global",
   "lineage": "Cuban dance-music developed in 1970s-1980s Havana by Los Van Van under Juan Formell, synthesizing son montuno, changüí, North American funk, and Cuban folkloric rumba. Introduced drum-kit alongside canonical timbales and congas, electric-bass with funk-derived ostinato, extended sectional structures. Directly informed subsequent 1990s timba emergence.",
-  "recipe": "classic Caribbean songo, groove Percussion, son salsa branch, Brazilian song functional song lambada and carimbó forró pé-de-serra. extended whistle, breath veiled tone, fast rate, interlocked note trading. cold pressed wurzen felt birch laminated maple laminated Asian spruce grand piano, ampeg b15 amp American 60s bass amp flip top character pyramid pure nickel bass electric bass, brass open slap hand drum timbales, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, pre muffled edge muffled brushes-and-sticks drum kit, handheld montuno lift coro section cencerro. Cuban state recording 1962-present mid tier estudios areito havana. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 806,
-  "score": 158.63,
+  "recipe": "classic Caribbean songo, groove Percussion, son salsa branch, Brazilian song functional song lambada and carimbó forró pé-de-serra. extended whistle, breath veiled tone, fast rate, interlocked note trading. cold pressed wurzen felt birch laminated maple laminated Asian spruce grand piano, ampeg b15 amp American 60s bass amp flip top character mahogany pyramid electric bass, brass open slap hand drum timbales, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, pre muffled edge muffled brushes-and-sticks drum kit, montuno driving handheld cencerro. Cuban state recording 1962-present mid tier estudios areito havana. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 788,
+  "score": 156.577,
   "config": {
     "traditions": [
       "songo_cubano",
@@ -34,11 +34,11 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 3.7,
+          "voice_register": 3.7375000000000007,
           "voice_quality": 5.1675,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.5715,
+          "voice_vibrato": 1.585,
           "voice_articulation": 8.254999999999999,
           "voice_microtone": 7.215,
           "voice_tradition": 4.16,
@@ -46,10 +46,10 @@
           "voice_estill_quality": 1.4949999999999999,
           "voice_speech_song": 13.129999999999997,
           "voice_ensemble_config": 9.879999999999999,
-          "voice_ornament_system": 1.1949999999999998,
+          "voice_ornament_system": 1.24,
           "voice_pitch_organization": 3.185,
-          "voice_processing_chain": 18.529999999999998,
-          "voice_multitrack_stack": 4.15
+          "voice_processing_chain": 18.619999999999997,
+          "voice_multitrack_stack": 4.180000000000001
         }
       },
       {
@@ -66,13 +66,13 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 1.875,
+          "keyboard_technique": 1.77,
           "grand_piano_size": 0.845,
-          "grand_piano_brand": 1.345,
-          "piano_hammer": 2.186,
+          "grand_piano_brand": 1.3900000000000001,
+          "piano_hammer": 2.185,
           "piano_rim": 2.0475000000000003,
           "piano_soundboard": 1.5750000000000002,
-          "piano_pinblock": -0.035,
+          "piano_pinblock": -0.05,
           "piano_plate": 0.7149999999999999,
           "piano_pitch_standard": -0.035
         }
@@ -89,12 +89,12 @@
           "bass_technique": "slap_pop"
         },
         "scores": {
-          "amp_make": 3.7275000000000005,
-          "body_wood": 0.78,
+          "amp_make": 3.440000000000001,
+          "body_wood": 1.38,
           "pickup_config": 0.845,
           "string_type": 3.2500000000000004,
-          "scale_length_b": 0.39,
-          "fretted_or_not": 0.15,
+          "scale_length_b": 0.6900000000000001,
+          "fretted_or_not": 0.3,
           "bass_technique": 6.499999999999999
         }
       },
@@ -103,12 +103,12 @@
         "slots": {
           "percussion_technique": "percussion_open_slap",
           "timbales_shell": "timbales_brass",
-          "timbales_context": "timbales_son"
+          "timbales_context": "timbales_salsa"
         },
         "scores": {
-          "percussion_technique": 4.2015,
-          "timbales_shell": 1.95,
-          "timbales_context": 0.2265
+          "percussion_technique": 4.41,
+          "timbales_shell": 1.935,
+          "timbales_context": 0.15
         }
       },
       {
@@ -120,10 +120,10 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 4.2015,
+          "percussion_technique": 4.41,
           "conga_set": 0.845,
-          "conga_skin": 10.009999999999998,
-          "conga_shell_wood": 10.009999999999998
+          "conga_skin": 8.434999999999999,
+          "conga_shell_wood": 8.434999999999999
         }
       },
       {
@@ -143,11 +143,11 @@
         "id": "cencerro",
         "slots": {
           "cencerro_bell_type": "cencerro_bongo_bell",
-          "cencerro_context": "cencerro_montuno",
+          "cencerro_context": "cencerro_timba_songo",
           "cencerro_build": "cencerro_welded_steel"
         },
         "scores": {
-          "cencerro_bell_type": 1.5805,
+          "cencerro_bell_type": 1.45,
           "cencerro_context": 1.69,
           "cencerro_build": 0
         }

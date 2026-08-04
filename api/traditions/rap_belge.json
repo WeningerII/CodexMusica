@@ -1,0 +1,158 @@
+{
+  "id": "rap_belge",
+  "name": "Rap belge",
+  "family": "hip_hop",
+  "lineage": "Francophone Belgian rap centered on Brussels and Liège, internationally established from 2015 by Damso, Hamza, Roméo Elvis and Caballero & JeanJass — 70-100 BPM trap and cloud-rap production with cold synth pads and heavy 808 sub, a markedly slower and more nasal-conversational flow than Paris rap, Brussels-Congolese slang and dry gallows humor, plus a separate Dutch-language Flemish wing.",
+  "recipe": "classic Western European mid-2010s rap belge, mc Rhythm, intl hip hop branch, us hip hop modern, Afro-diasporic MC rhythm pittsburgh rap cloud rap. thick, rap, straight onset, interlocked note trading. octuple plus dense stack multi track instrument 2000s elastic pitch edited stack heavy bus compression glue post 2010 multitrack vocal stack, behringer rd 8 modern clone analog circuit reproduction TR-808, sub bass analog poly synth, sampled chopped sampler drum machine, la bella flats Detroit soul bass canon sub heavy electric bass. paris marseille French rap 1989-present indie-commercial paris french rap studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 749,
+  "score": 283.435,
+  "config": {
+    "traditions": [
+      "rap_belge",
+      "pittsburgh_rap",
+      "cloud_rap"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 3.9705000000000004,
+          "voice_quality": 34.467,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 5.719,
+          "voice_articulation": 17.289999999999996,
+          "voice_microtone": 18.979999999999997,
+          "voice_tradition": 11.402999999999999,
+          "voice_mechanism_compound": 4.615,
+          "voice_estill_quality": 5.525000000000001,
+          "voice_speech_song": 32.2645,
+          "voice_ensemble_config": 20.019999999999996,
+          "voice_ornament_system": 8.385000000000002,
+          "voice_pitch_organization": 1.3649999999999998,
+          "voice_processing_chain": 23.009999999999998,
+          "voice_multitrack_stack": 4.9725
+        }
+      },
+      {
+        "id": "multitrack_vocal_stack",
+        "slots": {
+          "multitrack_stack_density": "multitrack_density_octuple_plus",
+          "multitrack_stack_era_aesthetic": "multitrack_era_2000s_elastic_pitch",
+          "multitrack_stack_processing": "multitrack_processing_compressed_glued"
+        },
+        "scores": {
+          "multitrack_stack_density": 2.154,
+          "multitrack_stack_era_aesthetic": 2.044,
+          "multitrack_stack_processing": 2.6650000000000005
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 9.979,
+          "drum_machine_808_context": 4.16,
+          "tr808_production_origin": 2.8600000000000003
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_yamaha_cs"
+        },
+        "scores": {
+          "electronic_technique": 15.353999999999997,
+          "poly_archetypes": 0.195,
+          "poly_voices": 0.45499999999999996,
+          "poly_maker_lineage": -0.995
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 8.169999999999998,
+          "sample_bitdepth": 2.8600000000000003,
+          "sample_swing": 14.754999999999999,
+          "sample_processing": 0.5179999999999999
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_modern_modeling",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "sub_bass_synth_blend"
+        },
+        "scores": {
+          "amp_make": 2.7300000000000004,
+          "body_wood": 0.698,
+          "pickup_config": 3.5100000000000002,
+          "string_type": 3.9975,
+          "scale_length_b": 3.5100000000000002,
+          "fretted_or_not": 0,
+          "bass_technique": 8.454
+        }
+      }
+    ],
+    "room": "paris_french_rap_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "paris_french_rap_studio",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

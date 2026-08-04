@@ -1,0 +1,182 @@
+{
+  "id": "acid_rock",
+  "name": "Acid Rock",
+  "family": "rock",
+  "lineage": "San Francisco and Los Angeles psychedelic rock of 1966-1970 codified by the Grateful Dead, Jefferson Airplane, Blue Cheer and the 13th Floor Elevators — moderate-tempo blues-derived modal vamps stretched into long extemporised jams, saturated single-coil guitar through fuzz and spring reverb, heavy use of feedback and Leslie-treated organ, wailing declamatory vocals, and a rhythm section that swells and recedes rather than keeping fixed dynamics",
+  "recipe": "classic Los Angeles 1966-1970 acid rock, distorted Rock, classic branch, experimental distorted rock, doom metal, jam free improv on frame stoner metal. thick, larynx lowered, wide pitch sway, interlocked note trading. orange amp British heavy crunch maple pau ferro ceramic single coil electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, oil filled sticks backbeat drum kit, psychedelic foregrounded organ driven rock selmer amp British 60s amp combo Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative fast tremolo tonewheel organ. compound architecture 1958-1970 indie-commercial small la chambers. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 805,
+  "score": 518.822,
+  "config": {
+    "traditions": [
+      "acid_rock",
+      "doom",
+      "stoner_metal"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_british_orange",
+          "body_wood": "mahogany",
+          "neck_wood": "maple",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_12",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "d_standard"
+        },
+        "scores": {
+          "electric_technique": 23.705,
+          "amp_make": 26.305,
+          "body_wood": 0.585,
+          "neck_wood": 1.17,
+          "fretboard": 1.17,
+          "pickup_magnet": 1.17,
+          "string_material": 1.17,
+          "string_gauge": 0.975,
+          "bridge": 0.39,
+          "scale_length": 0.585,
+          "finish": 0,
+          "string_tuning": 20.085
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_british_orange",
+          "body_wood": "mahogany_b",
+          "pickup_config": "split_coil",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 26.305,
+          "body_wood": 0.585,
+          "pickup_config": 0,
+          "string_type": 35.64,
+          "scale_length_b": 0.975,
+          "fretted_or_not": 0.195,
+          "bass_technique": 29.57
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "hydraulic",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 29,
+          "drumhead": 1.295,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "combo_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "combo_organ_model": "vox_continental_combo",
+          "combo_organ_voicing": "combo_organ_16_pedal",
+          "combo_organ_context": "combo_organ_doors_psych",
+          "amp_make": "amp_british_60s_selmer"
+        },
+        "scores": {
+          "keyboard_technique": 1.6049999999999995,
+          "combo_organ_model": 2.665,
+          "combo_organ_voicing": 1.4300000000000002,
+          "combo_organ_context": 19.694999999999997,
+          "amp_make": 1.625
+        }
+      },
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "drawbar_setting": "rock_drawbars",
+          "rotary_speed": "fast_tremolo",
+          "percussion_setting": "percussion_on_long",
+          "tonewheel_model": "tonewheel_hammond_b3",
+          "leslie_cabinet_model": "leslie_760_solid_state"
+        },
+        "scores": {
+          "keyboard_technique": 1.6049999999999995,
+          "drawbar_setting": 29.195,
+          "rotary_speed": 28.95,
+          "percussion_setting": 15.08,
+          "tonewheel_model": 15.079999999999997,
+          "leslie_cabinet_model": 1.7349999999999999
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "lowered_larynx_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "baroque_ornamental_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 39.49500000000002,
+          "voice_quality": 20.724999999999998,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 8.235000000000001,
+          "voice_articulation": 17.874999999999993,
+          "voice_microtone": 29.279999999999998,
+          "voice_tradition": 4.225,
+          "voice_mechanism_compound": 24.05,
+          "voice_estill_quality": 2.0149999999999997,
+          "voice_speech_song": 18.849999999999994,
+          "voice_ensemble_config": 19.304999999999993,
+          "voice_ornament_system": 1.8199999999999996,
+          "voice_pitch_organization": 2.665000000000001,
+          "voice_processing_chain": 4.76,
+          "voice_multitrack_stack": 2.6325000000000003
+        }
+      }
+    ],
+    "room": "studio_small_la_chambers",
+    "archetype": "arch_60s_la_smallroom_chambers",
+    "inline_chain": {
+      "mic": "mic_u67_tube_neumann",
+      "pre": "pre_ua_610_tube",
+      "console": "console_quad_eight_la_70s",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+    "room": "studio_small_la_chambers",
+    "chain_mic": "mic_u67_tube_neumann",
+    "chain_pre": "pre_ua_610_tube",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_quad_eight_la_70s"
+  }
+}

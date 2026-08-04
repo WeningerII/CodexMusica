@@ -1,0 +1,212 @@
+{
+  "id": "shimmer_pop",
+  "name": "Shimmer pop",
+  "family": "pop_rock",
+  "lineage": "Reverb-saturated melodic indie pop that crystallized around 2009-2015 in Brooklyn, Los Angeles and Sydney — Beach House, Wild Nothing, DIIV and Alvvays working from the 4AD and Creation dream-pop template — built on chorus-and-tremolo clean electric guitar with long plate and shimmer reverb, sustained analog pad beds, steady mid-tempo 100-130 BPM kit or drum-machine patterns, root-heavy melodic bass, and airy breathy vocals mixed level with or below the guitars.",
+  "recipe": "classic Northern European mid-2010s shimmer pop, distorted Rock, alternative branch, ambient experimental electric, pop rock functional song new wave yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, roland jc120 amp solid state stereo chorus clean strummed twelve string electric, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, drum machine analog, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly synth, mellotron m400 canonical 1970 1980 prog rock standard 35 key polyester base quarter inch iron oxide canonical mellotron arpeggiated sustain rich overtones mellotron. UK 4ad and creation shoegaze 1986-1995 indie-commercial dream pop shoegaze 4ad studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ.",
+  "recipe_chars": 992,
+  "score": 618.097,
+  "config": {
+    "traditions": [
+      "shimmer_pop",
+      "new_wave",
+      "yacht_rock"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 54.01000000000001,
+          "voice_quality": 13.552499999999991,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 6.245,
+          "voice_articulation": 18.914999999999992,
+          "voice_microtone": 52.599999999999994,
+          "voice_tradition": 29.783928571428564,
+          "voice_mechanism_compound": 4.355,
+          "voice_estill_quality": 3.575000000000001,
+          "voice_speech_song": 24.11499999999999,
+          "voice_ensemble_config": 18.264999999999993,
+          "voice_ornament_system": 0.39,
+          "voice_pitch_organization": 0.6499999999999998,
+          "voice_processing_chain": 9.955000000000002,
+          "voice_multitrack_stack": 11.959999999999997
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "flatwound_elec",
+          "string_gauge": "g_11",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 27.824999999999992,
+          "amp_make": 14.882321428571426,
+          "body_wood": 3.8587499999999997,
+          "neck_wood": 3.8587499999999997,
+          "fretboard": 3.80875,
+          "pickup_magnet": 0.585,
+          "string_material": 1.11,
+          "string_gauge": 4.35875,
+          "bridge": 0.69,
+          "scale_length": 3.965,
+          "finish": 0,
+          "string_tuning": 14.599821428571428
+        }
+      },
+      {
+        "id": "twelve_string_electric",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_roland_jc120",
+          "twelve_string_electric_model": "twelve_string_electric_fender_xii",
+          "twelve_string_electric_context": "twelve_string_electric_arena",
+          "twelve_string_electric_strings": "twelve_string_electric_nickel_plated",
+          "twelve_string_electric_pickup": "twelve_string_fender_xii_split"
+        },
+        "scores": {
+          "electric_technique": 27.824999999999992,
+          "amp_make": 10.696964285714285,
+          "twelve_string_electric_model": 7.174999999999999,
+          "twelve_string_electric_context": 18.914999999999992,
+          "twelve_string_electric_strings": 0.5,
+          "twelve_string_electric_pickup": 0.5989285714285715
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 12.187499999999998,
+          "body_wood": 3.965,
+          "pickup_config": 0.37196428571428564,
+          "string_type": 26.208571428571428,
+          "scale_length_b": 3.8587499999999997,
+          "fretted_or_not": 0,
+          "bass_technique": 29.083928571428572
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 25.174999999999997,
+          "drumhead": 25.889999999999993,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "noise_only_snare",
+          "hat_voice": "noise_hat",
+          "shuffle_quantize": "shuffle_high"
+        },
+        "scores": {
+          "kick_voice": 1.7089285714285714,
+          "snare_voice": 1.0482142857142858,
+          "hat_voice": 0.16249999999999998,
+          "shuffle_quantize": 1.3432142857142857
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 25.583928571428565,
+          "poly_archetypes": 10.983571428571429,
+          "poly_voices": 2.63,
+          "poly_maker_lineage": 2.34
+        }
+      },
+      {
+        "id": "mellotron",
+        "slots": {
+          "keyboard_technique": "keyboard_arpeggio_sustain_rich",
+          "mellotron_voice": "mellotron_strings",
+          "mellotron_context": "mellotron_indie",
+          "mellotron_model": "mellotron_m400_canonical",
+          "mellotron_tape_material": "mellotron_polyester_tape_canonical"
+        },
+        "scores": {
+          "keyboard_technique": 26.683928571428567,
+          "mellotron_voice": 11.133571428571429,
+          "mellotron_context": 1.3649999999999998,
+          "mellotron_model": 10.903571428571428,
+          "mellotron_tape_material": 1.1700000000000002
+        }
+      }
+    ],
+    "room": "dream_pop_shoegaze_4ad_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "shoegaze_dream_pop_chromatic_modal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "shoegaze_dream_pop_chromatic_modal",
+    "room": "dream_pop_shoegaze_4ad_studio",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

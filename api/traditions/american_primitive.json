@@ -3,14 +3,12 @@
   "name": "American primitive guitar",
   "family": "vernacular",
   "lineage": "Instrumental fingerpicked steel-string solo-acoustic tradition pioneered by John Fahey on Blind Joe Death (1959, Takoma Records, Takoma Park MD) fusing Mississippi Delta blues, Appalachian hymnody, ragtime, Indian raga (especially via Robbie Basho who studied with Ali Akbar Khan), and 20th-century minimalist classical into a personal compositional vocabulary — extended through Leo Kottke (6 and 12 String Guitar, 1969), Peter Lang, Sandy Bull, Bola Sete; revived from the mid-2000s onward through Tompkins Square Records (Josh Rosenthal) via Jack Rose, William Tyler, James Blackshaw, Daniel Bachman, Glenn Jones, Sarah Louise",
-  "recipe": "classic North American 2004-2006 american primitive guitar, ballad Poetry, anglo singer song branch, indian classical improv improv on frame hindustani classical carnatic instrumental. open g tuning cedar indian rosewood rosewood steel dreadnought acoustic wood body spider bridge aluminum resonator national canon medium heavy resonator guitar, open tuning 12 string silk steel acoustic guitar 12 string. takoma home recording fahey. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 529,
-  "score": 46.1,
+  "recipe": "classic North American 2004-2006 american primitive guitar, ballad Poetry, anglo singer song branch, indian classical improv improv on frame. open g tuning cedar indian rosewood rosewood steel dreadnought acoustic metal body three cone system national steel national canon medium heavy resonator guitar, open tuning 12 string silk steel acoustic guitar 12 string. takoma home recording fahey. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 487,
+  "score": 43.395,
   "config": {
     "traditions": [
-      "american_primitive",
-      "hindustani_sarod",
-      "carnatic_instrumental"
+      "american_primitive"
     ],
     "instruments": [
       {
@@ -24,10 +22,10 @@
         },
         "scores": {
           "acoustic_technique": 5.6000000000000005,
-          "string_tuning": 6.140000000000001,
-          "top_wood": 1.585,
-          "back_sides": 7.280000000000001,
-          "string_acoustic": 1.93
+          "string_tuning": 5.340000000000001,
+          "top_wood": 1.2850000000000001,
+          "back_sides": 2.535,
+          "string_acoustic": 1.78
         }
       },
       {
@@ -38,20 +36,20 @@
           "twelve_string_strings": "silk_steel_12"
         },
         "scores": {
-          "twelve_string_body": 0.49499999999999994,
-          "twelve_string_tuning": 13.229999999999999,
-          "twelve_string_strings": 1.93
+          "twelve_string_body": 0.345,
+          "twelve_string_tuning": 11.479999999999999,
+          "twelve_string_strings": 1.78
         }
       },
       {
         "id": "resonator_guitar",
         "slots": {
-          "resonator_body": "resonator_dobro_wood_single_cone",
+          "resonator_body": "resonator_national_tricone_metal",
           "resonator_strings": "national_blues_set",
           "resonator_technique": "resonator_bottleneck_slide_fingerpicked"
         },
         "scores": {
-          "resonator_body": 4.615,
+          "resonator_body": 2.08,
           "resonator_strings": 3.65,
           "resonator_technique": 5.845
         }

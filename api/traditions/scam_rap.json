@@ -1,0 +1,147 @@
+{
+  "id": "scam_rap",
+  "name": "Scam Rap",
+  "family": "hip_hop",
+  "lineage": "Detroit and Flint microgenre that broke out in 2018-2019 through Teejayx6, Kasher Quon and Dank Demoss — rapid, unpunched conversational verses narrating step-by-step credit-card and bank fraud over cheap DAW beats at 130-150 BPM, with detuned bell or piano loops, rattling triplet hats, distorted 808 glides, no hook, and abrupt off-beat entries typical of the Detroit sample-flip style.",
+  "recipe": "classic 2018-2019 scam rap, mc Rhythm, modern branch, us hip hop southern, drill MC rhythm trap queen german drill. vocal fry, rap, straight onset, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, sampled chopped sampler drum machine, sub bass digital subtractive, no chemical hardener t rivet 17 ply hard rock maple Asian spruce grand piano. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 479,
+  "score": 265.991,
+  "config": {
+    "traditions": [
+      "scam_rap",
+      "trap_queen",
+      "german_drill"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_yodel_M1_M2_alternation",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 1.04,
+          "voice_quality": 19.911785714285717,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.9250000000000007,
+          "voice_articulation": 17.159999999999993,
+          "voice_microtone": 25.284999999999993,
+          "voice_tradition": 8.580714285714286,
+          "voice_mechanism_compound": 2.69,
+          "voice_estill_quality": 2.34,
+          "voice_speech_song": 20.831785714285715,
+          "voice_ensemble_config": 17.289999999999992,
+          "voice_ornament_system": 8.840000000000002,
+          "voice_pitch_organization": 2.798214285714286,
+          "voice_processing_chain": 10.580714285714286,
+          "voice_multitrack_stack": 4.095000000000001
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 8.26,
+          "drum_machine_808_context": 4.16,
+          "tr808_production_origin": 2.8600000000000003
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 6.58,
+          "sample_bitdepth": 2.8600000000000003,
+          "sample_swing": 10.4,
+          "sample_processing": 0.39
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 11.905,
+          "va_archetypes": 0,
+          "digital_subtractive_context": 16.054999999999996
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "grand_piano_size": "grand_5_foot",
+          "grand_piano_brand": "fazioli",
+          "piano_hammer": "abel_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": -0.05,
+          "grand_piano_size": 0.65,
+          "grand_piano_brand": 0.39,
+          "piano_hammer": 7.335,
+          "piano_rim": 6.350714285714287,
+          "piano_soundboard": 5.6000000000000005,
+          "piano_pinblock": 5.5,
+          "piano_plate": 7.280000000000001,
+          "piano_pitch_standard": 16.546785714285715
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "mp3_lossy_modern"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "untreated_bedroom",
+    "chain_mic": "mic_sm7b_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "mp3_lossy_modern",
+    "chain_console": "console_in_the_box"
+  }
+}

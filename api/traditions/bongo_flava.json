@@ -3,14 +3,14 @@
   "name": "Bongo flava (Tanzanian)",
   "family": "global",
   "lineage": "Tanzanian Swahili-language hip-hop and R&B hybrid tradition codified through Diamond Platnumz, Ali Kiba, Professor Jay, and Lady Jaydee — emerging late 1990s from Dar es Salaam street hip-hop scene, then evolving into mainstream Swahili-pop with R&B crossover; characterized by Swahili vocals over hip-hop and afropop production",
-  "recipe": "classic Southern African 1997-1999 bongo flava, functional Song, African pop branch, intl hip hop MC rhythm, Afro-diasporic MC rhythm gengetone french rap. extended whistle, rap, straight onset, narrative. TR-808, pitched chopped sampler, sub bass analog poly synth, sub heavy electric bass. live tracking. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
-  "recipe_chars": 390,
-  "score": 249.932,
+  "recipe": "classic Southern African 1997-1999 bongo flava, functional Song, African pop branch, intl hip hop MC rhythm, Afro-diasporic MC rhythm gengetone turkish hip hop. extended whistle, rap, straight onset, interlocked note trading. TR-808, chopped sampler, sub bass analog poly synth, electric bass. live tracking. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
+  "recipe_chars": 392,
+  "score": 235.868,
   "config": {
     "traditions": [
       "bongo_flava",
       "gengetone",
-      "french_rap"
+      "turkish_hip_hop"
     ],
     "instruments": [
       {
@@ -21,7 +21,7 @@
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "narrative_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 9.379000000000001,
-          "voice_quality": 24.3,
+          "voice_register": 10.424999999999999,
+          "voice_quality": 22.14,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.1365000000000003,
-          "voice_articulation": 11.37,
-          "voice_microtone": 10.399999999999995,
-          "voice_tradition": 17.68,
-          "voice_mechanism_compound": 3.38,
+          "voice_vibrato": 2.955,
+          "voice_articulation": 12.869999999999996,
+          "voice_microtone": 18.297499999999992,
+          "voice_tradition": 16.849999999999998,
+          "voice_mechanism_compound": 2.73,
           "voice_estill_quality": 2.5350000000000006,
-          "voice_speech_song": 22.446499999999997,
-          "voice_ensemble_config": 12.024999999999995,
-          "voice_ornament_system": 4.745000000000002,
+          "voice_speech_song": 20.365000000000002,
+          "voice_ensemble_config": 12.999999999999995,
+          "voice_ornament_system": 4.290000000000002,
           "voice_pitch_organization": 3.8350000000000013,
-          "voice_processing_chain": 16.295,
+          "voice_processing_chain": 12.77,
           "voice_multitrack_stack": 4.9725
         }
       },
@@ -57,12 +57,12 @@
         "slots": {
           "tr808_voice": "tr808_kick_long",
           "drum_machine_808_context": "drum_machine_808_rb",
-          "tr808_production_origin": "tr808_tr_8s_modern"
+          "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 11.775,
-          "drum_machine_808_context": 3.51,
-          "tr808_production_origin": 0.65
+          "tr808_voice": 9.255,
+          "drum_machine_808_context": 2.925,
+          "tr808_production_origin": 0.3
         }
       },
       {
@@ -71,15 +71,15 @@
           "electronic_technique": "electronic_sample_chopped",
           "sampler_archetypes": "emu_sp1200",
           "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
-          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_workflow": "sampler_chopped_breaks",
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 11.424999999999999,
-          "sampler_archetypes": 21.1575,
-          "sampler_bit_depth": 1.0465,
-          "sampler_workflow": 11.8515,
-          "sampler_classic_context": 25.902499999999996
+          "electronic_technique": 8.95,
+          "sampler_archetypes": 16.8675,
+          "sampler_bit_depth": 1.425,
+          "sampler_workflow": 9.7,
+          "sampler_classic_context": 25.61
         }
       },
       {
@@ -91,7 +91,7 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 12.475,
+          "electronic_technique": 10.455,
           "poly_archetypes": 0.3,
           "poly_voices": 0.435,
           "poly_maker_lineage": -1.435
@@ -100,22 +100,22 @@
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_modern_modeling",
-          "body_wood": "mahogany_b",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "alder_b",
           "pickup_config": "soapbar",
-          "string_type": "roundwound_s",
+          "string_type": "la_bella_flats_motown",
           "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretless",
+          "fretted_or_not": "fretted",
           "bass_technique": "sub_bass_synth_blend"
         },
         "scores": {
-          "amp_make": 0.7149999999999999,
-          "body_wood": 0.153,
-          "pickup_config": 1.4949999999999999,
-          "string_type": 0.65,
+          "amp_make": 0.7799999999999998,
+          "body_wood": 0.85,
+          "pickup_config": 0.845,
+          "string_type": 0.52,
           "scale_length_b": 0.65,
-          "fretted_or_not": 0.0315,
-          "bass_technique": 1.295
+          "fretted_or_not": 0,
+          "bass_technique": 0.45
         }
       }
     ],

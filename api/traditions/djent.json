@@ -3,14 +3,14 @@
   "name": "Djent (mid-2000s polymetric-down-tuned progressive metal)",
   "family": "rock_punk",
   "lineage": "Mid-2000s progressive-metal subgenre developed through Meshuggah-derived polymetric-rhythmic-and-down-tuned guitar production (the term \"djent\" is onomatopoeic for the distinctive percussive palm-muted heavily-distorted seven-or-eight-string guitar attack). Periphery (Misha Mansoor, founded 2005), Animals As Leaders (Tosin Abasi), TesseracT, Monuments, and the broader Sumerian Records and Basick Records label rosters anchor the canonical djent roster.",
-  "recipe": "classic djent, distorted Rock, thrash branch, western modern art music indeterminacy and aleatoric second viennese school. thick, breath veiled tone, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modeled amp modern rig alder ernie ball slinky sub heavy electric bass, pre muffled edge muffled brushes-and-sticks drum kit. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 641,
-  "score": 279.885,
+  "recipe": "classic djent, distorted Rock, thrash branch, western modern art music epicore indeterminacy and aleatoric. thick, breath veiled tone, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modeled amp modern rig alder ernie ball slinky sub heavy electric bass, pre muffled edge muffled brushes-and-sticks drum kit. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 626,
+  "score": 291.01,
   "config": {
     "traditions": [
       "djent",
-      "indeterminacy_aleatoric",
-      "second_viennese_school"
+      "epicore",
+      "indeterminacy_aleatoric"
     ],
     "instruments": [
       {
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 9.450000000000001,
-          "voice_quality": 12.284999999999995,
+          "voice_register": 10.325000000000001,
+          "voice_quality": 9.945,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.084999999999999,
-          "voice_articulation": 9.945,
-          "voice_microtone": 14.115000000000002,
+          "voice_vibrato": 7.734999999999999,
+          "voice_articulation": 9.75,
+          "voice_microtone": 14.989999999999998,
           "voice_tradition": 7.085000000000001,
-          "voice_mechanism_compound": 12.849999999999998,
-          "voice_estill_quality": 3.9650000000000003,
-          "voice_speech_song": 12.804999999999996,
-          "voice_ensemble_config": 9.879999999999999,
+          "voice_mechanism_compound": 14.449999999999998,
+          "voice_estill_quality": 5.87,
+          "voice_speech_song": 11.764999999999997,
+          "voice_ensemble_config": 10.919999999999996,
           "voice_ornament_system": 3.0300000000000002,
-          "voice_pitch_organization": 3.4400000000000004,
-          "voice_processing_chain": 5.330000000000001,
-          "voice_multitrack_stack": 8.415
+          "voice_pitch_organization": 2.7900000000000005,
+          "voice_processing_chain": 5.525000000000001,
+          "voice_multitrack_stack": 8.865
         }
       },
       {
@@ -62,7 +62,7 @@
           "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
-          "string_material": "nickel_plated_h",
+          "string_material": "stainless_h",
           "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_12_hum",
@@ -70,19 +70,19 @@
           "string_tuning": "drop_c"
         },
         "scores": {
-          "electric_technique": 14.549999999999999,
-          "amp_make": 25.245,
-          "body_wood": 15.86,
-          "neck_wood": 2.69,
-          "fretboard": 2.64,
+          "electric_technique": 16.675,
+          "amp_make": 25.745,
+          "body_wood": 16.315,
+          "neck_wood": 3.19,
+          "fretboard": 3.14,
           "pickup_magnet": 4.55,
           "pickup_winding": 2.8600000000000003,
-          "string_material": 0.9099999999999999,
-          "bridge": 2.69,
-          "scale_length": 11.18,
-          "string_gauge": 4.185,
+          "string_material": 0.6299999999999999,
+          "bridge": 3.19,
+          "scale_length": 11.634999999999998,
+          "string_gauge": 4.685,
           "finish": 0,
-          "string_tuning": 11.18
+          "string_tuning": 11.634999999999998
         }
       },
       {
@@ -98,12 +98,12 @@
         },
         "scores": {
           "amp_make": 16.795,
-          "body_wood": 5.529999999999999,
-          "pickup_config": 3.7700000000000005,
-          "string_type": 5.485,
-          "scale_length_b": 2.8600000000000003,
+          "body_wood": 5.135,
+          "pickup_config": 3.5100000000000002,
+          "string_type": 6.010000000000001,
+          "scale_length_b": 3.5100000000000002,
           "fretted_or_not": 1.3,
-          "bass_technique": 5.5
+          "bass_technique": 6.65
         }
       },
       {
@@ -114,8 +114,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 10.009999999999998,
-          "drumhead": 6.49,
+          "drum_technique": 9.815,
+          "drumhead": 6.790000000000001,
           "drum_kit_kick_pedal": 0
         }
       }

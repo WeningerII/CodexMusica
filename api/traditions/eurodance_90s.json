@@ -3,14 +3,14 @@
   "name": "90s eurodance",
   "family": "global",
   "lineage": "1990s pan-European mainstream dance-pop genre fusing house's four-on-the-floor with rap verses and pop choruses on a 120-130 bpm template — codified through Snap! (The Power 1990), 2 Unlimited (No Limit 1993), Ace of Base (The Sign 1993), Haddaway (What Is Love 1993), Real McCoy, Culture Beat, La Bouche, Captain Hollywood Project",
-  "recipe": "classic Asian mid-1990s 90s eurodance, electronic Dance, eurodance branch, continental electronic dance disco french touch / filter house. thick, chest mix belt, slow rate, interlocked note trading. singing lead digital subtractive, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, TR-909, sampler. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
-  "recipe_chars": 587,
-  "score": 277.232,
+  "recipe": "classic Asian mid-1990s 90s eurodance, electronic Dance, eurodance branch, continental electronic dance aussietronica disco. thick, chest mix belt, straight note core, interlocked note trading. singing lead digital subtractive, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, TR-909, melodic orchestral imitation pitched sampler. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 619,
+  "score": 238.897,
   "config": {
     "traditions": [
       "eurodance_90s",
-      "disco",
-      "french_touch"
+      "aussietronica",
+      "disco"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "voice_quality": "chest_mix_belt_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "modern_pop_vocal_training",
@@ -30,84 +30,84 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_just_intonation",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 12.47275,
-          "voice_quality": 7.755624999999999,
+          "voice_register": 13.542124999999995,
+          "voice_quality": 7.839999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.1200000000000006,
-          "voice_articulation": 20.605000000000008,
-          "voice_microtone": 20.410000000000004,
-          "voice_tradition": 10.457749999999999,
-          "voice_mechanism_compound": 6.045,
-          "voice_estill_quality": 5.850000000000001,
-          "voice_speech_song": 22.490000000000006,
-          "voice_ensemble_config": 23.790000000000006,
-          "voice_ornament_system": 2.3,
-          "voice_pitch_organization": 1.6192499999999999,
-          "voice_processing_chain": 16.36,
-          "voice_multitrack_stack": 5.98
+          "voice_vibrato": 1.9174999999999998,
+          "voice_articulation": 14.819999999999997,
+          "voice_microtone": 13.974999999999993,
+          "voice_tradition": 12.75625,
+          "voice_mechanism_compound": 3.25,
+          "voice_estill_quality": 2.8600000000000008,
+          "voice_speech_song": 16.509999999999994,
+          "voice_ensemble_config": 17.159999999999993,
+          "voice_ornament_system": 1.3,
+          "voice_pitch_organization": 1.5442499999999997,
+          "voice_processing_chain": 17.12425,
+          "voice_multitrack_stack": 4.225
         }
       },
       {
         "id": "digital_subtractive",
         "slots": {
           "electronic_technique": "electronic_lead_line",
-          "va_archetypes": "access_virus",
+          "va_archetypes": "novation_supernova",
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 8.989125,
-          "va_archetypes": 0.8711249999999999,
-          "digital_subtractive_context": 21.77500000000001
+          "electronic_technique": 12.628499999999999,
+          "va_archetypes": 0.9,
+          "digital_subtractive_context": 16.185
         }
       },
       {
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_lead_line",
-          "poly_archetypes": "prophet_5",
+          "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_5_voice",
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 8.989125,
-          "poly_archetypes": 0.195,
-          "poly_voices": 0.845,
-          "poly_maker_lineage": 1.17
+          "electronic_technique": 12.628499999999999,
+          "poly_archetypes": 1.3,
+          "poly_voices": 0.195,
+          "poly_maker_lineage": 1.8199999999999998
         }
       },
       {
         "id": "drum_machine_909",
         "slots": {
           "tr909_voice": "tr909_kick",
-          "drum_machine_909_context": "drum_machine_909_house",
-          "tr909_production_origin": "tr909_roland_osaka_canonical"
+          "drum_machine_909_context": "drum_machine_909_techno",
+          "tr909_production_origin": "tr909_tr_8s_modern"
         },
         "scores": {
-          "tr909_voice": 7.249999999999999,
-          "drum_machine_909_context": 1.885,
-          "tr909_production_origin": 0.78
+          "tr909_voice": 5.42,
+          "drum_machine_909_context": 1.4299999999999997,
+          "tr909_production_origin": 0.07424999999999998
         }
       },
       {
         "id": "sampler_classic",
         "slots": {
-          "electronic_technique": "electronic_sample_chopped",
-          "sampler_archetypes": "akai_s1000",
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "akai_mpc",
           "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
-          "sampler_workflow": "sampler_orchestral_library",
+          "sampler_workflow": "sampler_one_shot_pitched",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 0.9099999999999999,
-          "sampler_archetypes": 2.875,
-          "sampler_bit_depth": 3.9000000000000004,
-          "sampler_workflow": 2,
-          "sampler_classic_context": 33.351125
+          "electronic_technique": 1.7499999999999998,
+          "sampler_archetypes": 2.2749999999999995,
+          "sampler_bit_depth": 0.9099999999999999,
+          "sampler_workflow": 2.7950000000000004,
+          "sampler_classic_context": 26.584999999999994
         }
       },
       {
@@ -120,10 +120,10 @@
           "fm_model_lineage": "fm_yamaha_dx7"
         },
         "scores": {
-          "electronic_technique": 8.989125,
-          "fm_algorithm": 1.522125,
+          "electronic_technique": 12.628499999999999,
+          "fm_algorithm": 0.9099999999999999,
           "fm_modulator_ratio": 0.845,
-          "fm_polyphony": 0.975,
+          "fm_polyphony": 1.8199999999999998,
           "fm_model_lineage": 6.11
         }
       }

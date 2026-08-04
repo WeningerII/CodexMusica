@@ -1,0 +1,190 @@
+{
+  "id": "noise_pop",
+  "name": "Noise Pop",
+  "family": "rock",
+  "lineage": "Anglo-American indie style formed 1985-1992 (The Jesus and Mary Chain's Psychocandy, My Bloody Valentine, Yo La Tengo, Black Tambourine), setting 60s girl-group and Velvets-derived three-chord pop melodies at moderate 110-150 BPM under continuous fuzz, feedback and tremolo-arm detuning, with dry deadpan or breathy vocals mixed level with or beneath the guitar noise floor.",
+  "recipe": "classic Northern European mid-1980s noise pop, distorted Rock, alternative branch, noise rock distorted rock, experimental distorted rock, pop rock functional song new wave yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, tambourine orch. UK 4ad and creation shoegaze 1986-1995 indie-commercial dream pop shoegaze 4ad studio. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 829,
+  "score": 584.307,
+  "config": {
+    "traditions": [
+      "noise_pop",
+      "new_wave",
+      "yacht_rock"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "locking_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 23.484999999999996,
+          "amp_make": 22.359999999999992,
+          "body_wood": 2.6650000000000005,
+          "neck_wood": 2.6650000000000005,
+          "fretboard": 2.6000000000000005,
+          "pickup_magnet": 0.585,
+          "string_material": 0.585,
+          "string_gauge": 3.3150000000000004,
+          "bridge": 0.65,
+          "scale_length": 2.6650000000000005,
+          "finish": 0.09,
+          "string_tuning": 20.604999999999997
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "low_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_11_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 23.484999999999996,
+          "amp_make": 22.359999999999992,
+          "body_wood": 3.055,
+          "neck_wood": 2.6650000000000005,
+          "fretboard": 2.6000000000000005,
+          "pickup_magnet": 0.195,
+          "pickup_winding": 0.24,
+          "string_material": 0.585,
+          "bridge": 2.6650000000000005,
+          "scale_length": 2.6650000000000005,
+          "string_gauge": 3.3150000000000004,
+          "finish": 0.09,
+          "string_tuning": 20.604999999999997
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 17.289999999999996,
+          "body_wood": 2.6650000000000005,
+          "pickup_config": 0.195,
+          "string_type": 41.7705,
+          "scale_length_b": 2.6650000000000005,
+          "fretted_or_not": 0.045,
+          "bass_technique": 37.51
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 33.375,
+          "drumhead": 22.294999999999995,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 60.50000000000001,
+          "voice_quality": 13.812499999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 7.279999999999999,
+          "voice_articulation": 16.184999999999995,
+          "voice_microtone": 57.955,
+          "voice_tradition": 29.057999999999996,
+          "voice_mechanism_compound": 8.5455,
+          "voice_estill_quality": 3.9650000000000007,
+          "voice_speech_song": 21.384999999999994,
+          "voice_ensemble_config": 15.144999999999992,
+          "voice_ornament_system": 0.39,
+          "voice_pitch_organization": 1.38,
+          "voice_processing_chain": 10.3245,
+          "voice_multitrack_stack": 11.078999999999999
+        }
+      },
+      {
+        "id": "tambourine_orch",
+        "slots": {
+          "tambourine_orch_jingle": "tambourine_orch_mixed",
+          "tambourine_orch_context": "tambourine_orch_pop"
+        },
+        "scores": {
+          "tambourine_orch_jingle": 0.39,
+          "tambourine_orch_context": 0.6824999999999999
+        }
+      }
+    ],
+    "room": "dream_pop_shoegaze_4ad_studio",
+    "archetype": "arch_80s_indie_commercial_us",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_console_inline_strip",
+      "console": "console_soundcraft_3200_uk_80s",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "shoegaze_dream_pop_chromatic_modal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "shoegaze_dream_pop_chromatic_modal",
+    "room": "dream_pop_shoegaze_4ad_studio",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_soundcraft_3200_uk_80s"
+  }
+}

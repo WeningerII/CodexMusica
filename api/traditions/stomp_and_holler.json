@@ -1,0 +1,211 @@
+{
+  "id": "stomp_and_holler",
+  "name": "Stomp and Holler",
+  "family": "pop_rock",
+  "lineage": "Anglo-American indie-folk revival style of roughly 2008-2015 — Mumford & Sons, The Lumineers, Of Monsters and Men, Edward Sharpe and The Head and the Heart — built on strummed dreadnought guitar and clawhammer or rolled banjo at 100-140 BPM, a kick-drum-and-tambourine floor pulse played by the singers themselves, communal 'hey!' shouts and massed unison choruses, and a soft-verse-to-full-band-crescendo dynamic arc borrowed from post-rock and applied to acoustic instrumentation.",
+  "recipe": "classic mid-2010s stomp and holler, ballad Poetry, indie folk branch, americana country, bluegrass improv on frame kentucky roots gothic americana. thick, breath veiled tone, wide pitch sway, interlocked note trading. bronze 3 ply maple Gibson mastertone canon maple bluegrass canon banjo 5 string, cedar koa phosphor bronze modern martin travis picked dreadnought acoustic guitar, upright bass, double bass rapid double strokes bass drum, snappy to palm hand clap, Gibson f 5 loar scrolled carved adirondack red spruce loar canon mandolin, Hammond a 100 built in Leslie home spinet fast tremolo tonewheel organ, tambourine orch. isolated rural 2005-present isolation diy isolation cabin diy. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 822,
+  "score": 415.887,
+  "config": {
+    "traditions": [
+      "stomp_and_holler",
+      "kentucky_roots",
+      "gothic_americana"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 28.133624999999995,
+          "voice_quality": 15.144999999999992,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 14.026499999999999,
+          "voice_articulation": 20.605,
+          "voice_microtone": 20.669999999999998,
+          "voice_tradition": 19.357499999999998,
+          "voice_mechanism_compound": 4.225,
+          "voice_estill_quality": 14.058124999999999,
+          "voice_speech_song": 26.195000000000004,
+          "voice_ensemble_config": 23.075000000000003,
+          "voice_ornament_system": 2.21,
+          "voice_pitch_organization": 0.9999999999999999,
+          "voice_processing_chain": 9.071,
+          "voice_multitrack_stack": 5.135
+        }
+      },
+      {
+        "id": "banjo_5_string",
+        "slots": {
+          "banjo_back": "open_back",
+          "tone_ring": "flathead",
+          "banjo_head": "fiberskyn",
+          "banjo_pot": "pot_11",
+          "banjo_play": "three_finger",
+          "banjo_rim_wood": "banjo_3_ply_maple_gibson",
+          "banjo_neck_wood": "banjo_maple_neck",
+          "banjo_strings": "banjo_medium_bluegrass",
+          "banjo_bridge": "banjo_maple_ebony_bridge",
+          "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
+        },
+        "scores": {
+          "banjo_back": 1.7999999999999998,
+          "tone_ring": 6.375,
+          "banjo_head": 20.670000000000005,
+          "banjo_pot": 0.2445,
+          "banjo_play": 3.2849999999999997,
+          "banjo_rim_wood": 8.3095,
+          "banjo_neck_wood": 7.8095,
+          "banjo_strings": 7.8995,
+          "banjo_bridge": 7.8095,
+          "banjo_setup_period": 28.256500000000003
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_travis_picking",
+          "string_tuning": "dadgad",
+          "top_wood": "cedar",
+          "back_sides": "koa_bs",
+          "string_acoustic": "phosphor_bronze"
+        },
+        "scores": {
+          "acoustic_technique": 23.089999999999996,
+          "string_tuning": 1.65,
+          "top_wood": 1.0465,
+          "back_sides": 1.3645,
+          "string_acoustic": 1.6375
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "steel_upright",
+          "upright_play": "arco_upright"
+        },
+        "scores": {
+          "upright_strings": 0.28500000000000003,
+          "upright_play": 0.65
+        }
+      },
+      {
+        "id": "bass_drum",
+        "slots": {
+          "bass_drum_size": "bass_drum_22_standard",
+          "bass_drum_beater": "bass_drum_double_pedal"
+        },
+        "scores": {
+          "bass_drum_size": 0,
+          "bass_drum_beater": 1.69
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_room_natural"
+        },
+        "scores": {
+          "clap_technique": 2.80225,
+          "clap_capture": 0.0825
+        }
+      },
+      {
+        "id": "mandolin",
+        "slots": {
+          "acoustic_technique": "acoustic_flatpicked",
+          "mandolin_shape": "f_style",
+          "mandolin_top": "adirondack_m",
+          "mandolin_back": "european_maple_loar",
+          "mandolin_bracing": "mandolin_parallel_tone_bars_loar",
+          "mandolin_strings": "phosphor_m",
+          "mandolin_fingerboard": "mandolin_ebony_fb",
+          "mandolin_pickup": "mandolin_k_k_twin_internal"
+        },
+        "scores": {
+          "acoustic_technique": 6.6,
+          "mandolin_shape": 6.42,
+          "mandolin_top": 8.2645,
+          "mandolin_back": 7.087625,
+          "mandolin_bracing": 6.3945,
+          "mandolin_strings": 1.411,
+          "mandolin_fingerboard": 0.045,
+          "mandolin_pickup": 21.90500000000001
+        }
+      },
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "drawbar_setting": "rock_drawbars",
+          "rotary_speed": "fast_tremolo",
+          "percussion_setting": "percussion_on_long",
+          "tonewheel_model": "tonewheel_hammond_a100",
+          "leslie_cabinet_model": "leslie_145_smaller"
+        },
+        "scores": {
+          "keyboard_technique": 1.17,
+          "drawbar_setting": 6.3149999999999995,
+          "rotary_speed": 5.12,
+          "percussion_setting": 2.6649999999999996,
+          "tonewheel_model": 9.933749999999998,
+          "leslie_cabinet_model": 0.78
+        }
+      },
+      {
+        "id": "tambourine_orch",
+        "slots": {
+          "tambourine_orch_jingle": "tambourine_orch_nickel",
+          "tambourine_orch_context": "tambourine_orch_pop"
+        },
+        "scores": {
+          "tambourine_orch_jingle": 0,
+          "tambourine_orch_context": 1.3864999999999998
+        }
+      }
+    ],
+    "room": "studio_isolation_cabin_diy",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "open_tuning_singer_songwriter",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "open_tuning_singer_songwriter",
+    "room": "studio_isolation_cabin_diy",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

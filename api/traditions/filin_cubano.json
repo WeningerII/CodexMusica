@@ -3,9 +3,9 @@
   "name": "Filin (Cuban jazz-trova)",
   "family": "global",
   "lineage": "Cuban jazz-influenced song genre developed in late-1940s-early-1950s Havana. Young composer-performers (José Antonio Méndez, Cesar Portillo de la Luz, Frank Domínguez, Marta Valdés, Frank Emilio Flynn) integrated American-jazz extended-chord harmony, blue-note vocabulary, and intimate-confessional vocal-style with the older trova canon. Havana nightclub and bohemian-cafe contexts.",
-  "recipe": "classic Caribbean 1947-1949 filin, ballad Poetry, Latin am troubadour branch, American jazz smooth vocal cool jazz vocal. thick, breath veiled tone, straight onset, interlocked note trading. cold pressed wurzen felt birch laminated maple laminated Asian spruce grand piano, fingerpicked parlor acoustic guitar. Cuban state recording 1962-present mid tier estudios areito havana. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 488,
-  "score": 184.344,
+  "recipe": "classic Caribbean 1947-1949 filin, ballad Poetry, Latin am troubadour branch, American jazz smooth vocal cool jazz vocal. thick, breath veiled tone, straight onset, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, fingerpicked parlor acoustic guitar. Cuban state recording 1962-present mid tier estudios areito havana. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 489,
+  "score": 185.983,
   "config": {
     "traditions": [
       "filin_cubano",
@@ -38,16 +38,16 @@
           "voice_quality": 9.555,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 25.769,
+          "voice_vibrato": 26.068999999999996,
           "voice_articulation": 7.799999999999999,
           "voice_microtone": 27.974999999999994,
-          "voice_tradition": 25.631499999999996,
+          "voice_tradition": 27.071499999999997,
           "voice_mechanism_compound": 1.69,
           "voice_estill_quality": 1.4949999999999999,
           "voice_speech_song": 9.099999999999998,
           "voice_ensemble_config": 6.044999999999999,
           "voice_ornament_system": 1.2579999999999998,
-          "voice_pitch_organization": 1.4949999999999999,
+          "voice_pitch_organization": 1.1815,
           "voice_processing_chain": 5.265000000000001,
           "voice_multitrack_stack": 6.240000000000001
         }
@@ -59,22 +59,22 @@
           "grand_piano_size": "grand_7_foot",
           "grand_piano_brand": "bosendorfer",
           "piano_hammer": "ronsen_wurzen_hammer",
-          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_rim": "mason_hamlin_oversize_rim",
           "piano_soundboard": "asian_spruce_soundboard",
           "piano_pinblock": "asian_multi_laminate_pinblock",
           "piano_plate": "v_pro_vacuum_cast_plate",
           "piano_pitch_standard": "a_415_baroque"
         },
         "scores": {
-          "keyboard_technique": 5,
+          "keyboard_technique": 5.39,
           "grand_piano_size": 1.69,
           "grand_piano_brand": 1.69,
           "piano_hammer": 4.485,
-          "piano_rim": 5.005,
+          "piano_rim": 4.68,
           "piano_soundboard": 3.7,
           "piano_pinblock": -0.05,
-          "piano_plate": -0.05,
-          "piano_pitch_standard": 1.4729999999999999
+          "piano_plate": -0.035,
+          "piano_pitch_standard": 1.56
         }
       },
       {
@@ -91,7 +91,7 @@
           "string_tuning": 0.6499999999999999,
           "top_wood_parlor": 0.845,
           "back_sides_parlor": 0,
-          "string_acoustic_parlor": 1.3
+          "string_acoustic_parlor": 1.345
         }
       }
     ],

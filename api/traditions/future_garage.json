@@ -5,7 +5,7 @@
   "lineage": "Late-2000s and early-2010s UK electronic subgenre integrating UK garage 2-step rhythmic foundation with deep-bass production, atmospheric pads, and melodic-emotional content. Burial's Untrue (2007) inaugurated the canonical sound; Mount Kimbie, James Blake (early-career), and the broader Hyperdub label roster extended the genre into broader UK-electronic-cultural visibility.",
   "recipe": "classic British 2007-2009 future garage, bass System, uk soundsystem branch, ambient experimental electric vaporwave aesthetic hauntology. extended whistle, breath veiled tone, straight note core, interlocked note trading. TR-808, pad like pad analog synth. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 476,
-  "score": 155.437,
+  "score": 154.127,
   "config": {
     "traditions": [
       "future_garage",
@@ -38,7 +38,7 @@
           "voice_quality": 10.594999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.3065,
+          "voice_vibrato": 4.215,
           "voice_articulation": 12.479999999999997,
           "voice_microtone": 13.974999999999994,
           "voice_tradition": 11.115,
@@ -46,7 +46,7 @@
           "voice_estill_quality": 3.185,
           "voice_speech_song": 12.479999999999997,
           "voice_ensemble_config": 13.259999999999996,
-          "voice_ornament_system": 1.8525,
+          "voice_ornament_system": 1.695,
           "voice_pitch_organization": 7.41,
           "voice_processing_chain": 19.625,
           "voice_multitrack_stack": 10.789999999999996
@@ -60,8 +60,8 @@
           "tr808_production_origin": "tr808_roland_osaka_canonical"
         },
         "scores": {
-          "tr808_voice": 3.092,
-          "drum_machine_808_context": 5.2059999999999995,
+          "tr808_voice": 2.84,
+          "drum_machine_808_context": 4.869999999999999,
           "tr808_production_origin": 0.7150000000000001
         }
       },
@@ -76,8 +76,8 @@
         },
         "scores": {
           "electronic_technique": 5.735,
-          "oscillator": 3.142,
-          "filter_topology": 3.5004999999999997,
+          "oscillator": 2.8899999999999997,
+          "filter_topology": 3.28,
           "envelope": 2.8600000000000003,
           "modulation": 0.045
         }

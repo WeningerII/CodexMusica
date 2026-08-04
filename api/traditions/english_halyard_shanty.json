@@ -3,13 +3,13 @@
   "name": "English halyard shanty (Atlantic merchant-marine work-song)",
   "family": "global",
   "lineage": "English-Anglo-American halyard-shanty tradition continuous from 18th-19th-century Atlantic-merchant-marine work-song practice through the great-age-of-sail 1830s-1880s peak-shanty-period continuous into 20th-century revival (the Stan Hugill Shanties from the Seven Seas 1961 canonical scholarly-documentation) into modern Anglosphere folk-revival continuous practice; foundational repertoire includes \"Drunken Sailor,\" \"Blow the Man Down,\" \"Haul Away Joe\"",
-  "recipe": "classic mid-1830s english halyard shanty, sea Shanty, atlantic branch, American south field work, European drinking song, anglo singer song ballad poetry indie folk texas country-folk storyteller. thick, breath veiled tone, straight note core, interlocked note trading. Celtic Irish straight concertina. beach. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 385,
-  "score": 160.583,
+  "recipe": "classic mid-1830s english halyard shanty, sea Shanty, atlantic branch, American south field work, European drinking song, anglo singer song ballad poetry ectofolk texas country-folk storyteller. thick, breath veiled tone, straight note core, interlocked note trading. Celtic Irish straight concertina. beach. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 383,
+  "score": 163.118,
   "config": {
     "traditions": [
       "english_halyard_shanty",
-      "indie_folk_2000s",
+      "ectofolk",
       "texas_country_folk_storyteller"
     ],
     "instruments": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 24.82499999999999,
-          "voice_quality": 13.779999999999992,
+          "voice_register": 22.27499999999999,
+          "voice_quality": 12.67499999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.56,
-          "voice_articulation": 8.515,
-          "voice_microtone": 8.32,
-          "voice_tradition": 21.878124999999997,
-          "voice_mechanism_compound": 1.17,
-          "voice_estill_quality": 5.904999999999999,
-          "voice_speech_song": 17.159999999999997,
-          "voice_ensemble_config": 8.645,
-          "voice_ornament_system": 2.6650000000000005,
+          "voice_vibrato": 6.834999999999999,
+          "voice_articulation": 7.929999999999998,
+          "voice_microtone": 7.93,
+          "voice_tradition": 24.953124999999996,
+          "voice_mechanism_compound": 1.885,
+          "voice_estill_quality": 6.305,
+          "voice_speech_song": 17.029999999999994,
+          "voice_ensemble_config": 7.864999999999998,
+          "voice_ornament_system": 3.1650000000000005,
           "voice_pitch_organization": 5.265,
-          "voice_processing_chain": 5.2325,
-          "voice_multitrack_stack": 3.185
+          "voice_processing_chain": 5.265000000000001,
+          "voice_multitrack_stack": 6.8575
         }
       },
       {
@@ -60,9 +60,9 @@
           "concertina_reed_grade": "concertina_hybrid_accordion_reed"
         },
         "scores": {
-          "free_reed_technique": 20.859999999999996,
-          "concertina_type": 13,
-          "concertina_reed_grade": 0.7800000000000001
+          "free_reed_technique": 20.009999999999998,
+          "concertina_type": 14.3,
+          "concertina_reed_grade": 0.5850000000000002
         }
       }
     ],

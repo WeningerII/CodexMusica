@@ -1,0 +1,188 @@
+{
+  "id": "post_teen_pop",
+  "name": "Post-Teen Pop",
+  "family": "pop",
+  "lineage": "North American and British mainstream pop of the 2010s made by artists who graduated out of teen-idol machinery into adult authorship — Ariana Grande, Selena Gomez, Demi Lovato, Halsey and Shawn Mendes working with Max Martin, Ilya Salmanzadeh and Ryan Tedder — built at 90-110 BPM on trap-derived hi-hat rolls and 808 sub-bass under sparse keyboard-and-plucked-synth beds, with stacked, heavily comped, lightly retuned vocal arrangements and whisper-to-whistle-register dynamic staging replacing the four-on-the-floor of prior teen pop.",
+  "recipe": "classic mid-2010s post-teen pop, functional Song, pop rock branch, soul R&B functional song, us hip hop modern, pop rock synthpop metropopolis. thick, breath veiled tone, straight onset, interlocked note trading. behringer rd 8 modern clone analog circuit reproduction TR-808, singing lead analog poly singing lead wavetable synth, ampeg b15 amp American 60s bass amp flip top character ernie ball slinky electric bass, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, pitched chopped sampler. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 729,
+  "score": 558.523,
+  "config": {
+    "traditions": [
+      "post_teen_pop",
+      "metropopolis",
+      "hip_pop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 42.700000000000024,
+          "voice_quality": 10.269999999999996,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.9824999999999995,
+          "voice_articulation": 22.035,
+          "voice_microtone": 38.05000000000001,
+          "voice_tradition": 34.339999999999996,
+          "voice_mechanism_compound": 5.915,
+          "voice_estill_quality": 5.525,
+          "voice_speech_song": 28.6,
+          "voice_ensemble_config": 23.789999999999996,
+          "voice_ornament_system": 3.5100000000000016,
+          "voice_pitch_organization": 2.22,
+          "voice_processing_chain": 9.685,
+          "voice_multitrack_stack": 12.447499999999998
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 8.15,
+          "drum_machine_808_context": 6.995,
+          "tr808_production_origin": 1.56
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 29.724999999999998,
+          "poly_archetypes": 4.36,
+          "poly_voices": 0.24,
+          "poly_maker_lineage": -0.7350000000000001
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "wt_position": "wt_chaotic",
+          "wt_family": "wt_industrial",
+          "wt_polyphony": "wt_mono"
+        },
+        "scores": {
+          "electronic_technique": 29.724999999999998,
+          "wt_position": 1.56,
+          "wt_family": 1.56,
+          "wt_polyphony": 1.525
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 9.165000000000001,
+          "body_wood": 0.585,
+          "pickup_config": 3.795,
+          "string_type": 10.51,
+          "scale_length_b": 1.56,
+          "fretted_or_not": 0.545,
+          "bass_technique": 9.95
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_5_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 28.74,
+          "grand_piano_size": 1,
+          "grand_piano_brand": 0.81,
+          "piano_hammer": 32.2,
+          "piano_rim": 32.365,
+          "piano_soundboard": 31.25,
+          "piano_pinblock": 4.1,
+          "piano_plate": 5.46,
+          "piano_pitch_standard": 8.659999999999998
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "emu_sp1200",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_pop_production"
+        },
+        "scores": {
+          "electronic_technique": 3.495,
+          "sampler_archetypes": 5.6875,
+          "sampler_bit_depth": 2.8,
+          "sampler_workflow": 3.7199999999999998,
+          "sampler_classic_context": 29.989999999999995
+        }
+      }
+    ],
+    "room": "studio_distributed_production",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_avalon_v737",
+      "console": "console_in_the_box",
+      "comp": "comp_1176_fet",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_distributed_production",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_avalon_v737",
+    "chain_comp": "comp_1176_fet",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

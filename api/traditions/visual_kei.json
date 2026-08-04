@@ -1,0 +1,188 @@
+{
+  "id": "visual_kei",
+  "name": "Visual kei",
+  "family": "rock",
+  "lineage": "Japanese rock movement launched by X Japan's Blue Blood (1989) and consolidated in the mid-1990s by Luna Sea, Malice Mizer and Buck-Tick, pairing an androgynous costumed stage identity with speed-metal double-kick, harmonised lead guitar, symphonic keyboard and string-pad layers, abrupt tempo and metre shifts within single songs, and a theatrical Japanese-language vocal that swings between clean high tenor and scream.",
+  "recipe": "classic East Asian 1994-1996 visual kei, distorted Rock, glam rock branch, gothic rock distorted rock, symphonic metal, east Asian pop functional song enka. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly synth, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. Neumann U87, console-strip pre, SSL inline console, SMART research c1/c2, SSL surgical EQ. 16-bit digital eventide harmonizer TC electronic 2290 delay digital delay.",
+  "recipe_chars": 876,
+  "score": 540.48,
+  "config": {
+    "traditions": [
+      "visual_kei",
+      "gothic_rock",
+      "enka"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_pansori_sigimsae",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 39.09500000000003,
+          "voice_quality": 11.764999999999992,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.745,
+          "voice_articulation": 26.065000000000005,
+          "voice_microtone": 39.24000000000001,
+          "voice_tradition": 30.517500000000002,
+          "voice_mechanism_compound": 12.639999999999999,
+          "voice_estill_quality": 4.94,
+          "voice_speech_song": 31.265000000000004,
+          "voice_ensemble_config": 25.090000000000003,
+          "voice_ornament_system": 2.125,
+          "voice_pitch_organization": 2.1774999999999998,
+          "voice_processing_chain": 6.57,
+          "voice_multitrack_stack": 6.629999999999999
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_5_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_12_hum",
+          "finish": "oil_satin_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 13.11,
+          "amp_make": 18.595,
+          "body_wood": 6.305,
+          "neck_wood": 2.52,
+          "fretboard": 2.47,
+          "pickup_magnet": 1.435,
+          "pickup_winding": 0.195,
+          "string_material": 0.24,
+          "bridge": 2.52,
+          "scale_length": 4.16,
+          "string_gauge": 3.3,
+          "finish": 0.845,
+          "string_tuning": 19.630000000000003
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 16.24,
+          "body_wood": 2.73,
+          "pickup_config": 0.39,
+          "string_type": 31.46,
+          "scale_length_b": 2.565,
+          "fretted_or_not": 0.195,
+          "bass_technique": 33.41
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 28.820000000000004,
+          "drumhead": 9.669999999999998,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 10.489999999999997,
+          "poly_archetypes": 14.27,
+          "poly_voices": 2.68,
+          "poly_maker_lineage": 2.145
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_441_japanese"
+        },
+        "scores": {
+          "keyboard_technique": 9.429999999999996,
+          "grand_piano_size": 2.715,
+          "grand_piano_brand": 4.355,
+          "piano_hammer": 15.244999999999997,
+          "piano_rim": 17.844999999999995,
+          "piano_soundboard": 11.884999999999998,
+          "piano_pinblock": -0.035,
+          "piano_plate": 0.12999999999999998,
+          "piano_pitch_standard": 9.879999999999999
+        }
+      }
+    ],
+    "room": "tokyo_studio_1970s_80s",
+    "archetype": "arch_tokyo_jpop_hit_factory",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_console_inline_strip",
+      "console": "console_sony_mxp3000",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+    "room": "tokyo_studio_1970s_80s",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "digital_std",
+    "chain_console": "console_sony_mxp3000"
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "Eastern European Ashkenazi Jewish wedding-band tradition that was the central popular-celebratory music of the Yiddish-speaking world from the 16th-early-20th centuries before the Holocaust decimated its practitioner community; revived from the 1970s onward through The Klezmer Conservatory Band, Andy Statman, the Klezmatics, Brave Old World, and the Margot Leverett-Klezmer-Mountain-Boys lineage",
   "recipe": "classic Eastern European mid-1970s klezmer, improv On Frame, klezmer improv branch, string drone modal, European wedding maskandi greek gamílio glendí. ebonite hard rubber klezmer tradition clarinet, ornamented fiddle, leather castagnari Italian premium folk music bellows articulated accordion, bellows articulated piano accordion, upright bass, medium cup standard rim orchestral balance trumpet, klezmer ensemble, art music Italian alpine brescian tradition European maple drone like mandola, mellow traditional leather hammered dulcimer. klezmer simcha celebration hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 706,
-  "score": 114.322,
+  "score": 113.332,
   "config": {
     "traditions": [
       "klezmer",
@@ -23,8 +23,8 @@
           "clarinet_articulation": "glissando_clarinet"
         },
         "scores": {
-          "wind_articulation": 1.7287499999999996,
-          "clarinet_body": 17.93,
+          "wind_articulation": 1.5337499999999995,
+          "clarinet_body": 17.3,
           "clarinet_size": 0.21,
           "clarinet_reed": 0.345,
           "clarinet_articulation": 12
@@ -72,11 +72,11 @@
         "id": "upright_bass",
         "slots": {
           "upright_strings": "gut_upright",
-          "upright_play": "slap_upright"
+          "upright_play": "arco_upright"
         },
         "scores": {
           "upright_strings": 0.045,
-          "upright_play": 0.22499999999999998
+          "upright_play": 0.43500000000000005
         }
       },
       {
@@ -91,9 +91,9 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 1.7287499999999996,
-          "brass_size": 0.045,
-          "trumpet_mouthpiece": 2.34,
+          "wind_articulation": 1.5337499999999995,
+          "brass_size": 0.24,
+          "trumpet_mouthpiece": 2.385,
           "brass_mute": 0.15,
           "trumpet_technique": 0.585,
           "trumpet_bell_metal": 0.39,
@@ -126,7 +126,7 @@
           "mandola_size": 1.2349999999999999,
           "mandola_context": 8.385,
           "mandola_top": 3.575,
-          "mandola_back": 3.32,
+          "mandola_back": 2.9,
           "mandola_strings": 0.24
         }
       },

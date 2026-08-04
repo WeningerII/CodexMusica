@@ -1,0 +1,222 @@
+{
+  "id": "tollywood",
+  "name": "Tollywood Film Song (Telugu)",
+  "family": "global",
+  "lineage": "Telugu-language film song tradition centred on Madras studios and later Hyderabad's Ramoji complex from the 1950s onward, codified by Ghantasala, S. P. Kodandapani, K. V. Mahadevan, Ilaiyaraaja and M. M. Keeravani, combining Carnatic raga-derived melody and Telugu prosody with playback-singer delivery over hybrid orchestras of violin sections, flute, veena, mridangam and, from the 1980s, synthesizers and drum machines.",
+  "recipe": "classic South Asian mid-1950s tollywood film song, functional Song, south Asian pop branch, south Asian art music, hindu ritual devotional sinhala vannama telugu kirtana. thick, breath veiled tone, slow rate, interlocked note trading. synthetic core modern lalgudi lineage carnatic legato violin carnatic, low overtone rich kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, jackwood canonical thanjavur mysore steel bronze modern thanjavur canonical south indian ornamented veena, jackwood barrel canonical carnatic goat buffalo rice paste karanai palghat lineage canonical carnatic mridangam, indian rosewood rosewood copper tabla, low overtone rich vocal male harmonium indian, singing lead digital subtractive, pre muffled edge muffled brushes-and-sticks drum kit, goat skin syahi rope laced steel ring dholak. mumbai bombay filmi defining 1940-present major-flagship mumbai bombay filmi studio. large-diaphragm condenser.",
+  "recipe_chars": 987,
+  "score": 364.37,
+  "config": {
+    "traditions": [
+      "tollywood",
+      "sinhala_vannama",
+      "telugu_kirtana"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "carnatic_classical_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_carnatic_gamaka",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 5.050000000000002,
+          "voice_quality": 17.679999999999996,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 7.475,
+          "voice_articulation": 15.794999999999993,
+          "voice_microtone": 14.29999999999999,
+          "voice_tradition": 29.055000000000003,
+          "voice_mechanism_compound": 5.6499999999999995,
+          "voice_estill_quality": 8.075,
+          "voice_speech_song": 22.424999999999997,
+          "voice_ensemble_config": 15.274999999999993,
+          "voice_ornament_system": 25.119999999999997,
+          "voice_pitch_organization": 24.865000000000002,
+          "voice_processing_chain": 3.965,
+          "voice_multitrack_stack": 2.7900000000000005
+        }
+      },
+      {
+        "id": "violin_carnatic",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "violin_carnatic_tuning": "violin_carnatic_carnatic",
+          "violin_carnatic_posture": "violin_carnatic_seated_south",
+          "violin_carnatic_strings": "violin_carnatic_synthetic",
+          "violin_carnatic_lineage": "violin_carnatic_lalgudi"
+        },
+        "scores": {
+          "bowed_technique": 5.75,
+          "violin_carnatic_tuning": 20.344999999999995,
+          "violin_carnatic_posture": 2.08,
+          "violin_carnatic_strings": 3.3799999999999994,
+          "violin_carnatic_lineage": 8.45
+        }
+      },
+      {
+        "id": "bansuri",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "bansuri_length": "classical_bansuri",
+          "bansuri_ornament": "meend_bansuri",
+          "bansuri_body_material": "bansuri_kerala_bamboo",
+          "bansuri_lineage": "bansuri_hariprasad_maihar"
+        },
+        "scores": {
+          "wind_articulation": 5.744999999999999,
+          "bansuri_length": 2.535,
+          "bansuri_ornament": 6.0600000000000005,
+          "bansuri_body_material": 5.654999999999999,
+          "bansuri_lineage": 2.5349999999999997
+        }
+      },
+      {
+        "id": "veena",
+        "slots": {
+          "plucked_traditional_technique": "plucked_ornamented_melodic",
+          "veena_construction": "ottu",
+          "veena_resonator": "fiberglass_resonator",
+          "veena_pluck": "wire_plectrum_veena",
+          "veena_body_wood": "veena_jackwood_canonical",
+          "veena_strings": "veena_steel_bronze_modern",
+          "veena_lineage": "veena_thanjavur_canonical"
+        },
+        "scores": {
+          "plucked_traditional_technique": 6.82,
+          "veena_construction": 0.845,
+          "veena_resonator": 0.3,
+          "veena_pluck": 2.9899999999999998,
+          "veena_body_wood": 2.5349999999999997,
+          "veena_strings": 2.5349999999999997,
+          "veena_lineage": 8.189999999999998
+        }
+      },
+      {
+        "id": "mridangam",
+        "slots": {
+          "mridangam_heads": "mridangam_standard",
+          "mridangam_use": "mridangam_carnatic",
+          "mridangam_shell_wood": "mridangam_jackwood_canonical",
+          "mridangam_heads_material": "mridangam_goat_buffalo",
+          "mridangam_lineage": "mridangam_palghat"
+        },
+        "scores": {
+          "mridangam_heads": 2.9899999999999998,
+          "mridangam_use": 0,
+          "mridangam_shell_wood": 9.294999999999998,
+          "mridangam_heads_material": 2.5349999999999997,
+          "mridangam_lineage": 8.45
+        }
+      },
+      {
+        "id": "tabla",
+        "slots": {
+          "tabla_dayan": "shisham_dayan",
+          "tabla_bayan": "copper_bayan",
+          "tabla_syahi": "aged_syahi"
+        },
+        "scores": {
+          "tabla_dayan": 2.925,
+          "tabla_bayan": 2.9899999999999998,
+          "tabla_syahi": 0.845
+        }
+      },
+      {
+        "id": "harmonium_indian",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "harmonium_action": "harmonium_hand_pump",
+          "harmonium_voicing": "harmonium_male",
+          "harmonium_use": "harmonium_classical"
+        },
+        "scores": {
+          "free_reed_technique": 1.0399999999999998,
+          "harmonium_action": 0.39,
+          "harmonium_voicing": 1.2349999999999999,
+          "harmonium_use": 3.3799999999999994
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 4.135,
+          "va_archetypes": 0,
+          "digital_subtractive_context": 14.689999999999996
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 14.559999999999995,
+          "drumhead": 3.7,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "dholak",
+        "slots": {
+          "dholak_use": "dholak_classical",
+          "dholak_construction": "dholak_large",
+          "dholak_head": "dholak_goat_skin_canonical",
+          "dholak_tensioning": "dholak_rope_tuning"
+        },
+        "scores": {
+          "dholak_use": 1.19,
+          "dholak_construction": 0.9299999999999999,
+          "dholak_head": 2.5349999999999997,
+          "dholak_tensioning": 2.5349999999999997
+        }
+      }
+    ],
+    "room": "mumbai_bombay_filmi_studio",
+    "archetype": "arch_ilaiyaraaja_kollywood",
+    "inline_chain": {
+      "mic": "mic_u67_tube_neumann",
+      "pre": "pre_console_inline_strip",
+      "console": "console_mci_jh636",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "carnatic_72_melakarta_kriti_form",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "carnatic_72_melakarta_kriti_form",
+    "room": "mumbai_bombay_filmi_studio",
+    "chain_mic": "mic_u67_tube_neumann",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_mci_jh636"
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "Yugoslav-era and post-Yugoslav successor singer-poet tradition spanning Serbian, Croatian, Bosnian, Slovenian, Macedonian, and Montenegrin language traditions — codified through Đorđe Balašević (the Vojvodina Serbian kantautor, active 1978 until his death in 2021), Arsen Dedić (the Croatian voice), Bora Đorđević and Riblja Čorba (the rock-and-kantautor crossover), Vlatko Stefanovski (the Macedonian guitar-virtuoso continuation), and the post-Yugoslav diaspora extensions Branimir Štulić and Azra",
   "recipe": "classic Southern European late-1970s south slavic kantautor, ballad Poetry, Slavic bard branch, chanson fado ballad poetry morna cape verdean batuko of santiago island. thick, breath veiled tone, slow rate, interlocked note trading. martin lifespan fingerpicked acoustic guitar, cold pressed wurzen felt birch laminated maple laminated European spruce grand piano. balkan sevdalinka kafana tavern. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
   "recipe_chars": 485,
-  "score": 257.713,
+  "score": 258.263,
   "config": {
     "traditions": [
       "south_slavic_kantautor",
@@ -46,7 +46,7 @@
           "voice_estill_quality": 7.442500000000001,
           "voice_speech_song": 33.345,
           "voice_ensemble_config": 30.354999999999997,
-          "voice_ornament_system": 3.2575000000000007,
+          "voice_ornament_system": 3.4675000000000007,
           "voice_pitch_organization": 4.267500000000001,
           "voice_processing_chain": 6.4025,
           "voice_multitrack_stack": 5.525
@@ -63,7 +63,7 @@
         },
         "scores": {
           "string_tuning": 2.3850000000000002,
-          "top_wood": 0.5725,
+          "top_wood": 0.8725,
           "back_sides": 0.78,
           "string_acoustic": 1.3925,
           "acoustic_om_technique": 9.777500000000002
@@ -74,7 +74,7 @@
         "slots": {
           "keyboard_technique": "keyboard_jazz_comping",
           "grand_piano_size": "grand_7_foot",
-          "grand_piano_brand": "steinway_d",
+          "grand_piano_brand": "fazioli",
           "piano_hammer": "ronsen_wurzen_hammer",
           "piano_rim": "asian_laminated_rim_birch_maple",
           "piano_soundboard": "european_spruce_soundboard",
@@ -83,10 +83,10 @@
           "piano_pitch_standard": "a_432_alternative"
         },
         "scores": {
-          "keyboard_technique": 1.62,
-          "grand_piano_size": 0.5725,
-          "grand_piano_brand": 0.39,
-          "piano_hammer": 2.0974999999999997,
+          "keyboard_technique": 1.49,
+          "grand_piano_size": 0.7225,
+          "grand_piano_brand": 0.54,
+          "piano_hammer": 1.9674999999999998,
           "piano_rim": 5.720000000000001,
           "piano_soundboard": 5.2975,
           "piano_pinblock": 1.2149999999999999,

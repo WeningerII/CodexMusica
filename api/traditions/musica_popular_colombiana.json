@@ -1,0 +1,171 @@
+{
+  "id": "musica_popular_colombiana",
+  "name": "Musica popular colombiana (despecho)",
+  "family": "global",
+  "lineage": "Antioquian cantina song tradition grown from carrilera and Mexican ranchera in the Medellin and Eje Cafetero bars of the 1970s-80s and codified by Dario Gomez, the 'rey del despecho' — moderate 2/4 and 3/4 ranchera-derived rhythms, nylon guitar and requinto with mariachi-style trumpet fills, plain electric bass and kit, and a strained tenor delivering first-person songs of betrayal, drink and rural loss",
+  "recipe": "classic South American mid-1970s musica popular colombiana, drinking Song, americas branch, tejano border ranchera, Mexican functional song grupera. thick, full chest belt, slow rate, interlocked note trading. nylon alternative tiple, cedar plain gut lamb gut whole lamb method classical nylon-string guitar, pyramid pure nickel bass British mid 60s era sub heavy electric bass, schilke chicago lead bright unison shallow cup lead trumpet trumpet, pre muffled edge muffled brushes-and-sticks drum kit. colombian canon 1934-present mid tier discos fuentes medellin. shure SM57, transformer-coupled solid-state pre, colored vintage console, optical compressor. tape 15ips spring reverb.",
+  "recipe_chars": 684,
+  "score": 262.297,
+  "config": {
+    "traditions": [
+      "musica_popular_colombiana",
+      "ranchera",
+      "grupera"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "full_chest_belt_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 1.7199999999999995,
+          "voice_quality": 32.35571428571428,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.0725,
+          "voice_articulation": 24.180000000000007,
+          "voice_microtone": 23.790000000000006,
+          "voice_tradition": 7.605000000000002,
+          "voice_mechanism_compound": 5.265,
+          "voice_estill_quality": 20.111428571428572,
+          "voice_speech_song": 36.75750000000001,
+          "voice_ensemble_config": 24.765000000000004,
+          "voice_ornament_system": 0.39,
+          "voice_pitch_organization": 0.6499999999999999,
+          "voice_processing_chain": 8.594642857142858,
+          "voice_multitrack_stack": 7.962500000000002
+        }
+      },
+      {
+        "id": "tiple",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "tiple_region": "tiple_venezuelan",
+          "tiple_context": "tiple_fusion",
+          "tiple_body_wood": "tiple_cedar_canonical",
+          "tiple_strings": "tiple_nylon_alternative"
+        },
+        "scores": {
+          "plucked_traditional_technique": 1.755,
+          "tiple_region": 0.65,
+          "tiple_context": 1.04,
+          "tiple_body_wood": 0.65,
+          "tiple_strings": 1
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "double_top_cl",
+          "string_classical": "plain_lamb_gut_classical_guitar",
+          "attack_technique_cl": "apoyando_cl"
+        },
+        "scores": {
+          "acoustic_technique": 1.4882142857142855,
+          "string_tuning": 0,
+          "top_wood_classical": 4.355,
+          "bracing_classical": 0.195,
+          "string_classical": 1.2349999999999999,
+          "attack_technique_cl": 0.57
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "sub_bass_synth_blend"
+        },
+        "scores": {
+          "amp_make": 2.925,
+          "body_wood": 0.48,
+          "pickup_config": 0.15,
+          "string_type": 2.8600000000000003,
+          "scale_length_b": 0.24,
+          "fretted_or_not": 0.195,
+          "bass_technique": 1.9107142857142856
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_mariachi_unison",
+          "brass_size": "flugelhorn",
+          "trumpet_mouthpiece": "bach_trumpet_mp_10half_c",
+          "brass_mute": "straight_mute",
+          "trumpet_technique": "trumpet_mariachi_unison",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_schilke"
+        },
+        "scores": {
+          "wind_articulation": 8.5,
+          "brass_size": 0.15,
+          "trumpet_mouthpiece": 4.745,
+          "brass_mute": 0.375,
+          "trumpet_technique": 8.5,
+          "trumpet_bell_metal": 0.845,
+          "trumpet_maker_school": 1.4300000000000002
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 24.050000000000008,
+          "drumhead": 1.7089285714285714,
+          "drum_kit_kick_pedal": 0
+        }
+      }
+    ],
+    "room": "discos_fuentes_medellin",
+    "archetype": "arch_discos_fuentes_tropical",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformer_solid_state",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "ranchera_3_4_and_2_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "ranchera_3_4_and_2_4",
+    "room": "discos_fuentes_medellin",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformer_solid_state",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

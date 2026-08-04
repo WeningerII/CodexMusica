@@ -1,0 +1,192 @@
+{
+  "id": "panamanian_pop",
+  "name": "Panamanian Pop",
+  "family": "pop",
+  "lineage": "Panama City popular song shaped by the isthmus's West Indian labor migration, running from the 1980s Spanish-language dancehall of El General and Nando Boom through Ruben Blades' salsa-song crossover to the 2015-onward melodic urbano of Sech and Boza: 90-100 BPM dembow and reggae-derived one-drop patterns under sung hooks, tipico accordion and conga colorings, and Spanish lyrics delivered half-sung, half-toasted.",
+  "recipe": "classic modern panamanian pop, functional Song, tropical song branch, reggaeton MC rhythm trap triste. thick, breath veiled tone, straight note core, interlocked note trading. congas, castagnari Italian premium folk music chordal accordion, pyramid pure nickel bass British mid 60s era thumb muted electric bass, TR-808, plucked short envelope analog poly synth, pre modern classic salsa brass timbales, late 1980s reverb saturated bus stack hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack. professional grade domestic 1980-present auteur-home-pro auteur home pro. shure SM58, transformerless solid-state pre, pumping sidechain, parametric EQ. lossy MP3 autotune digital delay.",
+  "recipe_chars": 699,
+  "score": 178.66,
+  "config": {
+    "traditions": [
+      "panamanian_pop",
+      "trap_triste",
+      "reggaeton"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_ventricular_subharmonic",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_gated_reverb",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 10.114999999999993,
+          "voice_quality": 8.775,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.34,
+          "voice_articulation": 15.599999999999998,
+          "voice_microtone": 19.109999999999992,
+          "voice_tradition": 10.532499999999999,
+          "voice_mechanism_compound": 3.120000000000001,
+          "voice_estill_quality": 2.6650000000000005,
+          "voice_speech_song": 23.399999999999995,
+          "voice_ensemble_config": 14.754999999999995,
+          "voice_ornament_system": 4.160000000000001,
+          "voice_pitch_organization": 3.0550000000000006,
+          "voice_processing_chain": 5.4225,
+          "voice_multitrack_stack": 6.305000000000001
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_hands_layered",
+          "conga_set": "tumba",
+          "conga_skin": "conga_synthetic_head",
+          "conga_shell_wood": "conga_siam_oak"
+        },
+        "scores": {
+          "percussion_technique": 1.725,
+          "conga_set": 0.65,
+          "conga_skin": 0.45499999999999996,
+          "conga_shell_wood": 0.7725
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_chordal_chugging",
+          "accordion_reed_material": "tipo_a_mano",
+          "musette_offset": "demi_swing",
+          "reed_config": "lmmh",
+          "bellows": "all_leather",
+          "voicing_chamber": "cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 4.16,
+          "accordion_reed_material": 0.3,
+          "musette_offset": 0.45499999999999996,
+          "reed_config": 0.24,
+          "bellows": 0.195,
+          "voicing_chamber": 0,
+          "accordion_maker_school": 1.0799999999999998
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_modern_modeling",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "thumb_muted"
+        },
+        "scores": {
+          "amp_make": 0.9749999999999999,
+          "body_wood": 0.3,
+          "pickup_config": 1.3,
+          "string_type": 1.1049999999999998,
+          "scale_length_b": 0.49499999999999994,
+          "fretted_or_not": 0.195,
+          "bass_technique": 4.325
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 1.5274999999999999,
+          "drum_machine_808_context": 5.9399999999999995,
+          "tr808_production_origin": 0.45499999999999996
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_pluck_short",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 8.374999999999998,
+          "poly_archetypes": 0.195,
+          "poly_voices": 0.195,
+          "poly_maker_lineage": -0.9800000000000001
+        }
+      },
+      {
+        "id": "timbales",
+        "slots": {
+          "percussion_technique": "percussion_hands_layered",
+          "timbales_shell": "timbales_brass",
+          "timbales_context": "timbales_son"
+        },
+        "scores": {
+          "percussion_technique": 1.725,
+          "timbales_shell": 1.7725,
+          "timbales_context": 1.04
+        }
+      },
+      {
+        "id": "multitrack_vocal_stack",
+        "slots": {
+          "multitrack_stack_density": "multitrack_density_polychordal_7_9_11",
+          "multitrack_stack_era_aesthetic": "multitrack_era_late_1980s_reverb_bus",
+          "multitrack_stack_processing": "multitrack_processing_tuned_perfect"
+        },
+        "scores": {
+          "multitrack_stack_density": 0.39,
+          "multitrack_stack_era_aesthetic": 4.71,
+          "multitrack_stack_processing": 1.3324999999999998
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_san_juan_reggaeton_mixtape",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

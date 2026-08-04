@@ -1,0 +1,254 @@
+{
+  "id": "celtic_rock",
+  "name": "Celtic Rock",
+  "family": "rock",
+  "lineage": "Ireland and Scotland, 1970-1985, codified by Horslips, Moving Hearts, Runrig and the Pogues — traditional reel and jig melodies in Dorian and Mixolydian modes transferred to distorted twin electric guitars and uilleann pipes or fiddle in unison, bodhrán doubling a rock kit in cut-time 4/4 and 6/8 at 120-160 BPM, Hammond-style combo organ pads, and unornamented shouted-chorus singing of Irish- and Scots-language or ballad-derived texts.",
+  "recipe": "classic Northern European mid-1970s celtic rock, distorted Rock, regional branch, Celtic traditional improv on frame, pop rock folk rock, Celtic balladic ballad poetry asturian gaita. thick, breath veiled tone, straight note core, interlocked note trading. marshall plexi amp British rock amp mahogany maple soft down tuning humbucker electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, drone like fiddle, cane arundo donax canonical Irish leather canonical Irish bellows fed taylor egan philadelphia canonical wide bore Irish American melodic uilleann pipes, goat skin canonical Irish ash pre modern traditional Irish bodhran, brass tube plastic fipple canonical generation feadog clarke melodic tin whistle, psychedelic foregrounded organ driven rock block chord combo organ, bowl back Italian redwood hard rock maple phosphor bronze bronze mandolin.",
+  "recipe_chars": 946,
+  "score": 594.765,
+  "config": {
+    "traditions": [
+      "celtic_rock",
+      "folk_rock",
+      "asturian_gaita"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 48.37000000000002,
+          "voice_quality": 12.415,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.885000000000001,
+          "voice_articulation": 22.229999999999997,
+          "voice_microtone": 31.424999999999997,
+          "voice_tradition": 38.739999999999995,
+          "voice_mechanism_compound": 2.6500000000000004,
+          "voice_estill_quality": 4.517500000000001,
+          "voice_speech_song": 25.349999999999994,
+          "voice_ensemble_config": 23.20499999999999,
+          "voice_ornament_system": 17.194999999999997,
+          "voice_pitch_organization": 2.6699999999999995,
+          "voice_processing_chain": 5.470000000000001,
+          "voice_multitrack_stack": 5.015000000000001
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "mahogany_maple_cap",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_5_h",
+          "pickup_winding": "low_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_12_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "eb_standard"
+        },
+        "scores": {
+          "electric_technique": 4.7,
+          "amp_make": 13.039999999999997,
+          "body_wood": 2.34,
+          "neck_wood": 1.04,
+          "fretboard": 0.975,
+          "pickup_magnet": 0.195,
+          "pickup_winding": 0.135,
+          "string_material": 0.195,
+          "bridge": 1.04,
+          "scale_length": 1.04,
+          "string_gauge": 1.04,
+          "finish": 0,
+          "string_tuning": 16.334999999999997
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 13.039999999999997,
+          "body_wood": 1.04,
+          "pickup_config": 0.045,
+          "string_type": 28.915,
+          "scale_length_b": 1.04,
+          "fretted_or_not": 1.3,
+          "bass_technique": 27.77
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 27.625,
+          "drumhead": 4.34,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_rough_drone",
+          "fiddle_strings": "gut_wound",
+          "fiddle_bow": "dark_rosin",
+          "fiddle_mute": "rubber_mute",
+          "fiddle_articulation": "arco"
+        },
+        "scores": {
+          "bowed_technique": 14.079999999999997,
+          "fiddle_strings": 0.6950000000000001,
+          "fiddle_bow": 0.045,
+          "fiddle_mute": 0.65,
+          "fiddle_articulation": 0.285
+        }
+      },
+      {
+        "id": "uilleann_pipes",
+        "slots": {
+          "wind_articulation": "wind_folk_melodic",
+          "uilleann_set": "half_set",
+          "uilleann_pipes_pitch": "uilleann_pipes_csharp",
+          "uilleann_chanter_wood": "uilleann_african_blackwood",
+          "uilleann_reed": "uilleann_cane_canonical",
+          "uilleann_bag": "uilleann_leather_canonical",
+          "uilleann_lineage": "uilleann_taylor_egan"
+        },
+        "scores": {
+          "wind_articulation": 24.989999999999995,
+          "uilleann_set": 2.21,
+          "uilleann_pipes_pitch": 0.845,
+          "uilleann_chanter_wood": 0.9749999999999996,
+          "uilleann_reed": 2.9899999999999998,
+          "uilleann_bag": 2.9899999999999998,
+          "uilleann_lineage": 3.5749999999999993
+        }
+      },
+      {
+        "id": "bodhran",
+        "slots": {
+          "bodhran_play": "bodhran_kerry",
+          "bodhran_skin": "bodhran_goatskin",
+          "bodhran_shell_wood": "bodhran_ash_traditional"
+        },
+        "scores": {
+          "bodhran_play": 2.21,
+          "bodhran_skin": 6.89,
+          "bodhran_shell_wood": 1.5600000000000003
+        }
+      },
+      {
+        "id": "tin_whistle",
+        "slots": {
+          "wind_articulation": "wind_folk_melodic",
+          "whistle_key": "d_whistle",
+          "whistle_ornament": "no_ornament",
+          "whistle_body_material": "whistle_brass_canonical"
+        },
+        "scores": {
+          "wind_articulation": 24.989999999999995,
+          "whistle_key": 2.8899999999999997,
+          "whistle_ornament": 6.6949999999999985,
+          "whistle_body_material": 1.2999999999999998
+        }
+      },
+      {
+        "id": "combo_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "combo_organ_model": "farfisa_compact",
+          "combo_organ_voicing": "combo_organ_vibrato_on",
+          "combo_organ_context": "combo_organ_doors_psych",
+          "amp_make": "amp_british_60s_vox_ac"
+        },
+        "scores": {
+          "keyboard_technique": 4.45,
+          "combo_organ_model": 4.300000000000001,
+          "combo_organ_voicing": 6.520000000000001,
+          "combo_organ_context": 13.924999999999999,
+          "amp_make": 0.9749999999999999
+        }
+      },
+      {
+        "id": "mandolin",
+        "slots": {
+          "acoustic_technique": "acoustic_drone_modal",
+          "mandolin_shape": "flat_back",
+          "mandolin_top": "redwood_m",
+          "mandolin_back": "hard_rock_maple_mandolin",
+          "mandolin_bracing": "mandolin_parallel_tone_bars_loar",
+          "mandolin_strings": "phosphor_m",
+          "mandolin_fingerboard": "mandolin_indian_rosewood_fb",
+          "mandolin_pickup": "mandolin_k_k_twin_internal"
+        },
+        "scores": {
+          "acoustic_technique": 14.36,
+          "mandolin_shape": 8.904999999999998,
+          "mandolin_top": 1.04,
+          "mandolin_back": 12.294999999999998,
+          "mandolin_bracing": 0.9450000000000001,
+          "mandolin_strings": 1.04,
+          "mandolin_fingerboard": 0.975,
+          "mandolin_pickup": 24.505000000000003
+        }
+      }
+    ],
+    "room": "uk_70s_hard_rock_arena_studio",
+    "archetype": "arch_70s_uk_class_a_rock",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "pre_helios_uk_70s",
+      "console": "console_helios_uk_70s",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "room": "uk_70s_hard_rock_arena_studio",
+    "chain_mic": "mic_sm57_dynamic_shure",
+    "chain_pre": "pre_helios_uk_70s",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_helios_uk_70s"
+  }
+}

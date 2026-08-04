@@ -3,14 +3,14 @@
   "name": "Chalga",
   "family": "global",
   "lineage": "Bulgarian pop-folk industrialized by the Payner and Planeta label-TV complex from the mid-1990s — kyuchek-driven Romani-Turkish dance grooves under glossy club production and heavily ornamented pop vocals (Azis, Preslava, Galena)",
-  "recipe": "classic 1994-1996 chalga, functional Song, europop branch, mid east n African pop functional song, balkan drinking song mahraganat mizrahi. extended whistle, breath veiled tone, slow rate, interlocked note trading. korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits lead rompler workstation, grenadilla African blackwood traditional clarinet, spun aluminum Egyptian sombaty goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 648,
-  "score": 173.688,
+  "recipe": "classic 1994-1996 chalga, functional Song, europop branch, mid east n African pop functional song, balkan drinking song egyptian pop arab pop. extended whistle, breath veiled tone, slow rate, interlocked note trading. korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits lead rompler workstation, grenadilla African blackwood traditional clarinet, spun aluminum Egyptian sombaty goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 651,
+  "score": 241.95,
   "config": {
     "traditions": [
       "chalga",
-      "mahraganat",
-      "mizrahi_israeli"
+      "egyptian_pop",
+      "arab_pop"
     ],
     "instruments": [
       {
@@ -24,7 +24,7 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "modern_pop_vocal_training",
-          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 16.509999999999998,
-          "voice_quality": 6.37,
+          "voice_register": 22.544999999999998,
+          "voice_quality": 8.71,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.095000000000001,
-          "voice_articulation": 7.475000000000001,
-          "voice_microtone": 19.077499999999997,
-          "voice_tradition": 17.549999999999997,
-          "voice_mechanism_compound": 2.0700000000000003,
-          "voice_estill_quality": 0.6499999999999999,
-          "voice_speech_song": 13.194999999999999,
-          "voice_ensemble_config": 7.410000000000001,
-          "voice_ornament_system": 5.2,
-          "voice_pitch_organization": 5.125,
-          "voice_processing_chain": 5.005000000000001,
-          "voice_multitrack_stack": 3.770000000000001
+          "voice_vibrato": 5.3950000000000005,
+          "voice_articulation": 12.869999999999996,
+          "voice_microtone": 26.655000000000005,
+          "voice_tradition": 23.674999999999997,
+          "voice_mechanism_compound": 1.8850000000000002,
+          "voice_estill_quality": 2.34,
+          "voice_speech_song": 18.784999999999997,
+          "voice_ensemble_config": 12.804999999999994,
+          "voice_ornament_system": 5.265,
+          "voice_pitch_organization": 5.175,
+          "voice_processing_chain": 5.590000000000001,
+          "voice_multitrack_stack": 2.4700000000000006
         }
       },
       {
@@ -61,10 +61,10 @@
           "rompler_lineage": "rompler_korg_pa_arranger"
         },
         "scores": {
-          "electronic_technique": 12.7,
-          "rompler_preset_bank": 12.855,
-          "rompler_context": 12.795,
-          "rompler_lineage": 2.6
+          "electronic_technique": 18.075,
+          "rompler_preset_bank": 18.93,
+          "rompler_context": 18.470000000000002,
+          "rompler_lineage": 3.445
         }
       },
       {
@@ -77,11 +77,11 @@
           "clarinet_articulation": "tongued_clarinet"
         },
         "scores": {
-          "wind_articulation": 1.2099999999999997,
+          "wind_articulation": 0.8449999999999999,
           "clarinet_body": 2.665000000000001,
-          "clarinet_size": 1.69,
+          "clarinet_size": 1.8399999999999999,
           "clarinet_reed": 0.195,
-          "clarinet_articulation": 1.2599999999999998
+          "clarinet_articulation": 0.9099999999999999
         }
       },
       {
@@ -93,10 +93,10 @@
           "darbuka_regional_style": "darbuka_egyptian_sombaty"
         },
         "scores": {
-          "percussion_technique": -0.07,
-          "darbuka_material": 1.04,
-          "darbuka_skin": 1.885,
-          "darbuka_regional_style": 8.06
+          "percussion_technique": 0.7149999999999999,
+          "darbuka_material": 2.145,
+          "darbuka_skin": 3.575,
+          "darbuka_regional_style": 10.725
         }
       }
     ],

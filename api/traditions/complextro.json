@@ -1,0 +1,170 @@
+{
+  "id": "complextro",
+  "name": "Complextro",
+  "family": "electronic",
+  "lineage": "Late-2000s American and European festival-EDM subgenre codified circa 2010 by Porter Robinson, Wolfgang Gartner and Savant out of electro house — 128 BPM four-on-the-floor with hyper-detailed sixteenth-note bass-synth arpeggios chopped across many short wavetable and FM patches, staccato glitch edits, video-game timbres and drop-oriented arrangement rather than DJ-tool looping",
+  "recipe": "classic 2007-2009 complextro, electronic Dance, house branch, idm glitch experimental electric breakcore chiptune / 8-bit. breath veiled tone, straight onset, interlocked note trading, neutral third half flat. plucked short envelope analog poly glitched textural wavetable yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity short envelope fm synth, sampler drum machine, monosynth acid bass, talkbox. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+  "recipe_chars": 651,
+  "score": 168.478,
+  "config": {
+    "traditions": [
+      "complextro",
+      "breakcore",
+      "chiptune_8bit"
+    ],
+    "instruments": [
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_pluck_short",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 3.45,
+          "poly_archetypes": 0.45499999999999996,
+          "poly_voices": 0.195,
+          "poly_maker_lineage": 0.7149999999999994
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "wt_position": "wt_morphing",
+          "wt_family": "wt_industrial",
+          "wt_polyphony": "wt_mono"
+        },
+        "scores": {
+          "electronic_technique": 11.195,
+          "wt_position": 6.695,
+          "wt_family": 0.1365,
+          "wt_polyphony": 0.39
+        }
+      },
+      {
+        "id": "fm_synth",
+        "slots": {
+          "electronic_technique": "electronic_pluck_short",
+          "fm_algorithm": "fm_complex",
+          "fm_modulator_ratio": "fm_inharmonic",
+          "fm_polyphony": "fm_mono",
+          "fm_model_lineage": "fm_yamaha_dx7"
+        },
+        "scores": {
+          "electronic_technique": 3.45,
+          "fm_algorithm": 1.6899999999999997,
+          "fm_modulator_ratio": 0.1365,
+          "fm_polyphony": 0.39,
+          "fm_model_lineage": 2.0149999999999997
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "one_shots_layered"
+        },
+        "scores": {
+          "electronic_technique": 1.7449999999999999,
+          "sample_bitdepth": 0.1365,
+          "sample_swing": 12.875,
+          "sample_processing": 0.845
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wave_acid": "saw_acid",
+          "filter_acid": "opening_acid",
+          "accent_acid": "heavy_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": 2.535,
+          "wave_acid": 0.1365,
+          "filter_acid": 0.15,
+          "accent_acid": 1.625
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 0.3749999999999997,
+          "voice_quality": 8.775,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.25,
+          "voice_articulation": 15.859999999999994,
+          "voice_microtone": 13.974999999999993,
+          "voice_tradition": 7.15,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 1.1049999999999998,
+          "voice_speech_song": 13.779999999999994,
+          "voice_ensemble_config": 16.249999999999996,
+          "voice_ornament_system": 1.2999999999999998,
+          "voice_pitch_organization": 3.185,
+          "voice_processing_chain": 19.5015,
+          "voice_multitrack_stack": 7.708
+        }
+      },
+      {
+        "id": "talkbox",
+        "slots": {
+          "talkbox_use": "talkbox_rock",
+          "talkbox_construction": "talkbox_tube"
+        },
+        "scores": {
+          "talkbox_use": 0.8749999999999999,
+          "talkbox_construction": 0
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_festival_edm_itb",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_pumping",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "condenser_fet",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_pumping",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

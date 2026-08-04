@@ -1,0 +1,212 @@
+{
+  "id": "anison_anime_song",
+  "name": "Anison (anime song)",
+  "family": "pop",
+  "lineage": "Japanese screen-tied popular song formed with television animation in Tokyo from 1963 (Tetsuwan Atomu) and industrialized as a distinct chart category from the late 1970s through Columbia, Nippon Animation and later King Records — brisk 130-180 BPM major-key song forms with a compulsory 90-second edit, brass-and-string sweetened rock rhythm section, wide-interval anthemic choruses sung in bright forward head-voice, and modulating final choruses that lift a semitone or a whole tone",
+  "recipe": "classic East Asian 1977-1979 anison, functional Song, east Asian pop branch, western modern art music soundtrack epicore. thick, breath veiled tone, straight onset, interlocked note trading. polychordal major seven nine eleven stack 2000s elastic pitch edited stack hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack, mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky sub heavy electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog poly synth, wide horn like brass string machine, red brass 90 10 darkest yamaha xeno modern Japanese standard rim orchestral balance legato trumpet. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. Neumann U87, console-strip pre, SSL inline console, SMART research c1/c2, SSL surgical EQ.",
+  "recipe_chars": 933,
+  "score": 311.029,
+  "config": {
+    "traditions": [
+      "anison_anime_song",
+      "screen_soundtrack_hybrid",
+      "epicore"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 15.574999999999994,
+          "voice_quality": 7.865000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 5.265,
+          "voice_articulation": 16.184999999999995,
+          "voice_microtone": 21.333,
+          "voice_tradition": 16.339,
+          "voice_mechanism_compound": 5.329999999999999,
+          "voice_estill_quality": 7.129,
+          "voice_speech_song": 24.439999999999998,
+          "voice_ensemble_config": 19.044999999999995,
+          "voice_ornament_system": 2.6400000000000006,
+          "voice_pitch_organization": 3.3400000000000007,
+          "voice_processing_chain": 6.2090000000000005,
+          "voice_multitrack_stack": 8.71
+        }
+      },
+      {
+        "id": "multitrack_vocal_stack",
+        "slots": {
+          "multitrack_stack_density": "multitrack_density_polychordal_7_9_11",
+          "multitrack_stack_era_aesthetic": "multitrack_era_2000s_elastic_pitch",
+          "multitrack_stack_processing": "multitrack_processing_tuned_perfect"
+        },
+        "scores": {
+          "multitrack_stack_density": 1,
+          "multitrack_stack_era_aesthetic": 4.94,
+          "multitrack_stack_processing": 4.035
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_mesa_dual_rectifier",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "maple_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "high_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_11_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "drop_c"
+        },
+        "scores": {
+          "electric_technique": 9.554,
+          "amp_make": 5.005000000000001,
+          "body_wood": 5.005,
+          "neck_wood": 1.4949999999999999,
+          "fretboard": 1.48,
+          "pickup_magnet": 2.8600000000000003,
+          "pickup_winding": 3.055,
+          "string_material": 1.17,
+          "bridge": 1.885,
+          "scale_length": 4.355,
+          "string_gauge": 1.4949999999999999,
+          "finish": 0,
+          "string_tuning": 4.355
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "sub_bass_synth_blend"
+        },
+        "scores": {
+          "amp_make": 3.7700000000000005,
+          "body_wood": 1.4949999999999999,
+          "pickup_config": 3.055,
+          "string_type": 5.3625,
+          "scale_length_b": 3.705,
+          "fretted_or_not": 0,
+          "bass_technique": 8.28
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 16.899999999999995,
+          "drumhead": 13.424000000000001,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 7.2799999999999985,
+          "poly_archetypes": 3.2979999999999996,
+          "poly_voices": 1.04,
+          "poly_maker_lineage": -0.035
+        }
+      },
+      {
+        "id": "string_machine",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "sm_voice_count": "sm_full_poly",
+          "sm_chorus": "sm_chorus_lush",
+          "sm_voicing": "sm_brass"
+        },
+        "scores": {
+          "electronic_technique": 0.9749999999999999,
+          "sm_voice_count": 0,
+          "sm_chorus": 2.98,
+          "sm_voicing": 3.3
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "bach_trumpet_mp_3c",
+          "brass_mute": "straight_mute",
+          "trumpet_technique": "trumpet_classical_legato",
+          "trumpet_bell_metal": "trumpet_red_brass",
+          "trumpet_maker_school": "trumpet_yamaha_xeno"
+        },
+        "scores": {
+          "wind_articulation": 2.695,
+          "brass_size": 0.24,
+          "trumpet_mouthpiece": 8.65,
+          "brass_mute": 2.5,
+          "trumpet_technique": 2.695,
+          "trumpet_bell_metal": 3.1,
+          "trumpet_maker_school": 4.55
+        }
+      }
+    ],
+    "room": "tokyo_studio_1970s_80s",
+    "archetype": "arch_tokyo_jpop_hit_factory",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_console_inline_strip",
+      "console": "console_sony_mxp3000",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "tokyo_studio_1970s_80s",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "digital_std",
+    "chain_console": "console_sony_mxp3000"
+  }
+}

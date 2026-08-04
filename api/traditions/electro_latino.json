@@ -1,0 +1,187 @@
+{
+  "id": "electro_latino",
+  "name": "Electro latino",
+  "family": "electronic",
+  "lineage": "Spanish-language electro-house-and-reggaeton hybrid of roughly 2008-2014, made across Miami, San Juan, Madrid and Medellín by Dyland & Lenny, Sensato, Fito Blanko and the Pitbull-adjacent club circuit — 125-130 BPM four-on-the-floor kicks with sidechained saw-lead hooks and filter risers borrowed from Dutch big-room house, dembow accents dropped in on breakdowns, heavily autotuned melodic hooks over shouted club chants, produced entirely in the box for radio and festival PA.",
+  "recipe": "classic mid-2010s electro latino, electronic Dance, Latin electric branch, house electronic dance, reggaeton MC rhythm, eurodance electronic dance disco house chicago house. thick, breath veiled tone, straight note core, interlocked note trading. analog poly wavetable synth, TR-909, sampler drum machine, vocoder, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, bronze open slap hand drum timbales. no single room 2015-present distributed distributed production. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+  "recipe_chars": 644,
+  "score": 254.17,
+  "config": {
+    "traditions": [
+      "electro_latino",
+      "disco_house",
+      "chicago_house"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 5.315,
+          "voice_quality": 10.919999999999991,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.535,
+          "voice_articulation": 19.369999999999997,
+          "voice_microtone": 19.174999999999997,
+          "voice_tradition": 8.255,
+          "voice_mechanism_compound": 3.12,
+          "voice_estill_quality": 3.9750000000000005,
+          "voice_speech_song": 20.54,
+          "voice_ensemble_config": 23.074999999999996,
+          "voice_ornament_system": 0.7749999999999999,
+          "voice_pitch_organization": 1.6449999999999998,
+          "voice_processing_chain": 22.120625000000004,
+          "voice_multitrack_stack": 4.340000000000001
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "juno_60",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 2.3600000000000003,
+          "poly_archetypes": 0.27,
+          "poly_voices": 0.22499999999999998,
+          "poly_maker_lineage": -0.7350000000000001
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "wt_position": "wt_morphing",
+          "wt_family": "wt_industrial",
+          "wt_polyphony": "wt_mono"
+        },
+        "scores": {
+          "electronic_technique": 2.3600000000000003,
+          "wt_position": 9.880000000000003,
+          "wt_family": 0.195,
+          "wt_polyphony": 1.285
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_house",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 22.249999999999996,
+          "drum_machine_909_context": 8.384999999999998,
+          "tr909_production_origin": 0.78
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 1.17,
+          "sample_bitdepth": 0.65,
+          "sample_swing": 19.045000000000005,
+          "sample_processing": 2.145
+        }
+      },
+      {
+        "id": "vocoder",
+        "slots": {
+          "voc_band_count": "voc_many_bands",
+          "voc_carrier": "voc_noise_carrier",
+          "voc_modulator": "voc_drum_mod"
+        },
+        "scores": {
+          "voc_band_count": 0,
+          "voc_carrier": 0.65,
+          "voc_modulator": 0.65
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "amp_make": 3.250000000000001,
+          "body_wood": 2.145,
+          "pickup_config": 0.39,
+          "string_type": 3.1200000000000006,
+          "scale_length_b": 2.145,
+          "fretted_or_not": 0.135,
+          "bass_technique": 1.9450000000000003
+        }
+      },
+      {
+        "id": "timbales",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "timbales_shell": "timbales_bronze",
+          "timbales_context": "timbales_salsa"
+        },
+        "scores": {
+          "percussion_technique": 7.304375,
+          "timbales_shell": 1.04,
+          "timbales_context": 0.195
+        }
+      }
+    ],
+    "room": "studio_distributed_production",
+    "archetype": "arch_festival_edm_itb",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_avalon_v737",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_distributed_production",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_avalon_v737",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

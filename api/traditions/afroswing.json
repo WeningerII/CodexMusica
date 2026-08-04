@@ -1,0 +1,152 @@
+{
+  "id": "afroswing",
+  "name": "Afroswing",
+  "family": "hip_hop",
+  "lineage": "London-born fusion of Afrobeats, Jamaican dancehall and UK rap that broke between 2015 and 2018 through J Hus, Kojo Funds, Not3s and producers Jae5 and Steel Banglez — 100-108 BPM with a swung dancehall-derived kick-and-rim pattern, log-drum-adjacent percussion, clean plucked guitar and marimba-like synth motifs, and sing-rapped melodic hooks in London-Nigerian-Caribbean slang.",
+  "recipe": "classic mid-2010s afroswing, mc Rhythm, Afro-diasporic branch, drill MC rhythm, African pop functional song türkçe drill congolese rumba. thick, rap, straight onset, interlocked note trading. lead plus third fifth 3 part stack mid 1960s double tracking era 2 to 4 track multitrack vocal stack, TR-808, sampler drum machine, plucked short envelope analog poly synth, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 658,
+  "score": 224.612,
+  "config": {
+    "traditions": [
+      "afroswing",
+      "turkce_drill",
+      "congolese_rumba"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_turkish_makam_53_comma",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 10.389999999999997,
+          "voice_quality": 12.934999999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 5.4449999999999985,
+          "voice_articulation": 26.325000000000003,
+          "voice_microtone": 35.0025,
+          "voice_tradition": 15.1775,
+          "voice_mechanism_compound": 2.925,
+          "voice_estill_quality": 2.7300000000000004,
+          "voice_speech_song": 30.160000000000007,
+          "voice_ensemble_config": 26.065000000000005,
+          "voice_ornament_system": 5.200000000000002,
+          "voice_pitch_organization": 5.605,
+          "voice_processing_chain": 5.620000000000001,
+          "voice_multitrack_stack": 2.925
+        }
+      },
+      {
+        "id": "multitrack_vocal_stack",
+        "slots": {
+          "multitrack_stack_density": "multitrack_density_3_part_third_fifth",
+          "multitrack_stack_era_aesthetic": "multitrack_era_mid_1960s_double_tracking",
+          "multitrack_stack_processing": "multitrack_processing_compressed_glued"
+        },
+        "scores": {
+          "multitrack_stack_density": 1.4299999999999997,
+          "multitrack_stack_era_aesthetic": 2.9575,
+          "multitrack_stack_processing": 0.97
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 2.145,
+          "drum_machine_808_context": 1.4299999999999997,
+          "tr808_production_origin": 0.45499999999999996
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 1.8449999999999998,
+          "sample_bitdepth": 2.9899999999999998,
+          "sample_swing": 2.21,
+          "sample_processing": 2.275
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_pluck_short",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 6.994999999999999,
+          "poly_archetypes": 0.15,
+          "poly_voices": 0.15,
+          "poly_maker_lineage": -1.4200000000000002
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "quinto",
+          "conga_skin": "conga_mule_hide",
+          "conga_shell_wood": "conga_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": 5.5600000000000005,
+          "conga_set": 0.39,
+          "conga_skin": 2.2749999999999995,
+          "conga_shell_wood": 2.2749999999999995
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "mic_sm7b_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

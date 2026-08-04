@@ -1,0 +1,171 @@
+{
+  "id": "kindermusik",
+  "name": "Kindermusik",
+  "family": "vernacular",
+  "lineage": "Early-childhood music-and-movement pedagogy derived from West German Musikalische Früherziehung of the 1960s, brought to the United States in 1974 and formalized as a licensed curriculum from Greensboro, North Carolina in 1993, using short diatonic call-and-response songs at walking tempo (roughly 90-120 BPM), steady duple meter for locomotor play, adult-led unison singing in a comfortable child register, and unpitched hand percussion, resonator bells and glockenspiel handed to the children themselves.",
+  "recipe": "classic mid-1960s kindermusik, nursery Rhyme, americas branch, European nursery rhyme muziek voor kinderen barnmusik. extended whistle, breath veiled tone, straight note core, interlocked note trading. glockenspiel, snappy to palm hand clap, xylophone, ukulele, handbells diatonic martellato damped handbells, nickel bronze modern blend strummed open chord ringing overtones dreadnought acoustic guitar, naive celeste block chord toy piano. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 586,
+  "score": 149.089,
+  "config": {
+    "traditions": [
+      "kindermusik",
+      "muziek_voor_kinderen",
+      "barnmusik"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 5.9239999999999995,
+          "voice_quality": 6.37,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.6000000000000005,
+          "voice_articulation": 18.264999999999993,
+          "voice_microtone": 18.52499999999999,
+          "voice_tradition": 7.280000000000001,
+          "voice_mechanism_compound": 3.25,
+          "voice_estill_quality": 3.7365000000000004,
+          "voice_speech_song": 20.669999999999995,
+          "voice_ensemble_config": 19.044999999999995,
+          "voice_ornament_system": 0.26,
+          "voice_pitch_organization": 4.809,
+          "voice_processing_chain": 5.1675,
+          "voice_multitrack_stack": 5.7524999999999995
+        }
+      },
+      {
+        "id": "glockenspiel",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "glockenspiel_size": "glockenspiel_orch_3",
+          "glockenspiel_mallet": "glockenspiel_plastic"
+        },
+        "scores": {
+          "percussion_technique": -0.05,
+          "glockenspiel_size": 1.4299999999999997,
+          "glockenspiel_mallet": 0.045
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_room_natural"
+        },
+        "scores": {
+          "clap_technique": 2.7814999999999994,
+          "clap_capture": 0.39
+        }
+      },
+      {
+        "id": "xylophone",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "xylophone_size": "xylophone_orch_4",
+          "xylophone_bar": "xylophone_rosewood"
+        },
+        "scores": {
+          "percussion_technique": -0.05,
+          "xylophone_size": 1.4299999999999997,
+          "xylophone_bar": 0.44499999999999995
+        }
+      },
+      {
+        "id": "ukulele",
+        "slots": {
+          "ukulele_size": "ukulele_baritone",
+          "ukulele_style": "ukulele_campanella",
+          "ukulele_wood": "ukulele_koa"
+        },
+        "scores": {
+          "ukulele_size": 1.8850000000000002,
+          "ukulele_style": 0,
+          "ukulele_wood": 0.9399999999999998
+        }
+      },
+      {
+        "id": "handbells",
+        "slots": {
+          "handbells_set": "handbells_diatonic",
+          "handbells_technique": "handbells_martellato_damped"
+        },
+        "scores": {
+          "handbells_set": 2.9250000000000003,
+          "handbells_technique": 1.24
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "open_g",
+          "top_wood": "cedar",
+          "back_sides": "maple_bs",
+          "string_acoustic": "nickel_bronze"
+        },
+        "scores": {
+          "acoustic_technique": 4.119,
+          "string_tuning": 0.6499999999999999,
+          "top_wood": 0.045,
+          "back_sides": 0.45499999999999996,
+          "string_acoustic": 1.17
+        }
+      },
+      {
+        "id": "toy_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "toy_piano_type": "toy_piano_schoenhut_rods",
+          "toy_piano_aesthetic": "toy_piano_naive_celeste"
+        },
+        "scores": {
+          "keyboard_technique": 3.95,
+          "toy_piano_type": 0,
+          "toy_piano_aesthetic": 1.534
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

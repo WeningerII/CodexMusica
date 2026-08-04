@@ -1,0 +1,172 @@
+{
+  "id": "hawaiian_hip_hop",
+  "name": "Hawaiian hip hop",
+  "family": "hip_hop",
+  "lineage": "Oʻahu and Maui scene formed in the early 1990s as Honolulu MCs grafted local pidgin-English rhyming onto reggae-inflected boom-bap, codified by Sudden Rush's Hawaiian-language 'na mele paleoleo' records from 1995 onward and by the Jawaiian-adjacent island-rap circuit — 88-100 BPM half-time drums, one-drop and steppers bass patterns borrowed from roots reggae, ukulele and slack-key guitar samples or live overdubs, and a relaxed conversational flow that switches between English, Hawaiian Pidgin and ʻōlelo Hawaiʻi.",
+  "recipe": "classic 1990-1993 hawaiian hip hop, mc Rhythm, intl hip hop branch, reggae diaspora bass system, string drone modal huayno brazilian reggae. extended whistle, rap, slow rate, interlocked note trading. traditional koa ukulele, sampled chopped sampler drum machine, ampeg svt amp rock bass amp alder pyramid pure nickel bass electric bass, sampled chopped turntable, mahogany rosewood open string slide resonance clean strummed single coil electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 627,
+  "score": 245.937,
+  "config": {
+    "traditions": [
+      "hawaiian_hip_hop",
+      "andean_huayno",
+      "brazilian_reggae"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "polynesian_oli_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_oral_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 1.0725,
+          "voice_quality": 10.835,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.0799999999999996,
+          "voice_articulation": 20.214999999999996,
+          "voice_microtone": 24.959999999999994,
+          "voice_tradition": 13.894999999999998,
+          "voice_mechanism_compound": 5.005,
+          "voice_estill_quality": 2.8200000000000003,
+          "voice_speech_song": 22.554999999999996,
+          "voice_ensemble_config": 18.654999999999998,
+          "voice_ornament_system": 4.665,
+          "voice_pitch_organization": 3.4750000000000005,
+          "voice_processing_chain": 7.444999999999999,
+          "voice_multitrack_stack": 6.305000000000001
+        }
+      },
+      {
+        "id": "ukulele",
+        "slots": {
+          "ukulele_size": "ukulele_concert",
+          "ukulele_style": "ukulele_strum",
+          "ukulele_wood": "ukulele_koa"
+        },
+        "scores": {
+          "ukulele_size": 9.75,
+          "ukulele_style": 11.379999999999999,
+          "ukulele_wood": 10.229999999999999
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twelve_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 4.449999999999999,
+          "sample_bitdepth": 1.9500000000000002,
+          "sample_swing": 6.5,
+          "sample_processing": 1.4949999999999999
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "thumb_muted"
+        },
+        "scores": {
+          "amp_make": 4.8100000000000005,
+          "body_wood": 2.145,
+          "pickup_config": 0.545,
+          "string_type": 6.240000000000001,
+          "scale_length_b": 1.4949999999999999,
+          "fretted_or_not": 0.15,
+          "bass_technique": 12.54
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_backspin"
+        },
+        "scores": {
+          "electronic_technique": 4.449999999999999,
+          "turntable_technique": 4.529999999999999
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_mesa_dual_rectifier",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_3",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_12",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "open_g"
+        },
+        "scores": {
+          "electric_technique": 5.75,
+          "amp_make": 1.2999999999999998,
+          "body_wood": 1.4949999999999999,
+          "neck_wood": 1.4949999999999999,
+          "fretboard": 1.4299999999999997,
+          "pickup_magnet": 0,
+          "string_material": 0.19500000000000003,
+          "string_gauge": 1.4949999999999999,
+          "bridge": 0.545,
+          "scale_length": 1.4949999999999999,
+          "finish": 0.21,
+          "string_tuning": 3.185
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "caribbean_jamaican_riddim_one_drop_and_steppers",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "caribbean_jamaican_riddim_one_drop_and_steppers",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "mic_sm7b_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

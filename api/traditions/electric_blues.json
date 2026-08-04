@@ -1,0 +1,213 @@
+{
+  "id": "electric_blues",
+  "name": "Electric blues",
+  "family": "blues_gospel",
+  "lineage": "Amplified postwar blues codified in Chicago and Memphis from the late 1940s by Muddy Waters, Howlin' Wolf, Elmore James and Little Walter on Chess and Sun — Delta twelve-bar and one-chord vamps transferred to amplified single-coil guitar and slide, harmonica played through a bullet mic into an overdriven amp, walking or riffing bass, backbeat drum kit, and shouted rather than crooned vocals",
+  "recipe": "classic Midwestern American 1947-1949 electric blues, functional Song, blues electric branch, blues acoustic functional song, classic distorted rock piedmont blues acid rock. thick, blues-shouter, wide pitch sway, interlocked note trading. marshall plexi amp British rock amp lower tension down tuning overdriven single coil electric marshall plexi amp British rock amp open string slide resonance overdriven humbucker electric guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, upright bass, brushes-and-sticks drum kit, soft felt lacquer voiced 17 ply hard rock maple a 432 grand piano. 2120 south michigan avenue 1957-1975 indie-commercial chess studios chicago. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 828,
+  "score": 413.633,
+  "config": {
+    "traditions": [
+      "electric_blues",
+      "piedmont_blues",
+      "acid_rock"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "blues_shouter_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "bend_inflected",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 36.41000000000001,
+          "voice_quality": 14.029999999999992,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 25.21,
+          "voice_articulation": 19.695,
+          "voice_microtone": 24.265,
+          "voice_tradition": 12.96,
+          "voice_mechanism_compound": 4.290000000000001,
+          "voice_estill_quality": 3.7050000000000005,
+          "voice_speech_song": 23.075,
+          "voice_ensemble_config": 19.37,
+          "voice_ornament_system": 0.9099999999999997,
+          "voice_pitch_organization": 1.2349999999999997,
+          "voice_processing_chain": 3.7375,
+          "voice_multitrack_stack": 4.225000000000001
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_overdriven_lead",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "d_standard"
+        },
+        "scores": {
+          "electric_technique": 6.575,
+          "amp_make": 7.5725,
+          "body_wood": 0.885,
+          "neck_wood": 0.885,
+          "fretboard": 0.39,
+          "pickup_magnet": 0.39,
+          "string_material": 0.39,
+          "string_gauge": 0.885,
+          "bridge": 0,
+          "scale_length": 1.7700000000000002,
+          "finish": 0.435,
+          "string_tuning": 16.64
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_overdriven_lead",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "mahogany_maple_cap",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "pau_ferro_fb_h",
+          "pickup_magnet": "alnico_5_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_11_hum",
+          "finish": "oil_satin_hum",
+          "string_tuning": "open_g"
+        },
+        "scores": {
+          "electric_technique": 6.575,
+          "amp_make": 7.5725,
+          "body_wood": 0.885,
+          "neck_wood": 0.885,
+          "fretboard": 0.39,
+          "pickup_magnet": 0.39,
+          "pickup_winding": 1.885,
+          "string_material": 0.39,
+          "bridge": 0.885,
+          "scale_length": 1.7700000000000002,
+          "string_gauge": 0.885,
+          "finish": 0.435,
+          "string_tuning": 14.235000000000001
+        }
+      },
+      {
+        "id": "harmonica",
+        "slots": {
+          "harmonica_type": "tremolo_harm",
+          "harmonica_comb": "pearwood_comb",
+          "harmonica_reed": "brass_harm",
+          "harmonica_technique": "harm_blues_cross",
+          "harmonica_maker_school": "harmonica_hohner_marine_band",
+          "harmonica_tuning": "harmonica_richter_canonical"
+        },
+        "scores": {
+          "harmonica_type": 0.6950000000000001,
+          "harmonica_comb": 24.245,
+          "harmonica_reed": 23.46,
+          "harmonica_technique": 28.375,
+          "harmonica_maker_school": 24.88,
+          "harmonica_tuning": 11.765
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "steel_upright",
+          "upright_play": "arco_upright"
+        },
+        "scores": {
+          "upright_strings": 0.39,
+          "upright_play": 0.24
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "double_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 18.525,
+          "drumhead": 0.885,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_432_alternative"
+        },
+        "scores": {
+          "keyboard_technique": 1.8749999999999998,
+          "grand_piano_size": 0.9300000000000002,
+          "grand_piano_brand": 0.9750000000000001,
+          "piano_hammer": 4.745,
+          "piano_rim": 6.240000000000001,
+          "piano_soundboard": 0.78,
+          "piano_pinblock": -0.05,
+          "piano_plate": -0.035,
+          "piano_pitch_standard": 2.5949999999999998
+        }
+      }
+    ],
+    "room": "chess_studios_chicago",
+    "archetype": "arch_early_tape_us_commercial",
+    "inline_chain": {
+      "mic": "mic_rca_77dx_ribbon",
+      "pre": "tube_pre",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "rb_shuffle_swing_12_8",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "rb_shuffle_swing_12_8",
+    "room": "chess_studios_chicago",
+    "chain_mic": "mic_rca_77dx_ribbon",
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_vari_mu",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
+  }
+}

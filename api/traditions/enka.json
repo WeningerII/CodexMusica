@@ -3,9 +3,9 @@
   "name": "Enka",
   "family": "global",
   "lineage": "Japanese 20th-century sentimental popular-ballad genre derived from late-Meiji-period (1880s-1912) enka-shi street-political-protest-song tradition, transformed mid-Showa-period (1930s-1960s) into commercial recording-industry sentimental-vocal-pop. The vocal technique stresses kobushi melismatic-ornamental vibrato-and-microtonal-bend, koe-on chest-resonance projected-vocal, and pentatonic-yo minor-leaning melodic-vocabulary (often modulating through 4-cycle key changes per verse). Lyrical themes center on lost-love, distant-homeland, mother-and-rural-nostalgia, and ocean-and-port-imagery. The 1960s-1980s golden-age enka-orchestra featured strings-and-shamisen-and-shakuhachi hybrid-arrangement; 1990s-onward enka declined as a youth-genre but persists as a senior-audience-and-karaoke staple.",
-  "recipe": "classic East Asian mid-1880s enka, functional Song, enka branch, crooners functional song american barbershop quartet great american songbook. thick, breath veiled tone, slow rate, interlocked note trading. dog skin ivory mulberry kuwa mid tier traditional min yo shamisen, silk pre wwii canon koto, Fender tweed amp American 50s amp tweed breakup mahogany rosewood single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character alder pyramid electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog poly synth, string quartet inst. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
-  "recipe_chars": 769,
-  "score": 337.567,
+  "recipe": "classic East Asian mid-1880s enka, functional Song, enka branch, crooners functional song american barbershop quartet great american songbook. thick, breath veiled tone, straight note core, interlocked note trading. dog skin ivory mulberry kuwa mid tier traditional min yo shamisen, silk pre wwii canon koto, Fender tweed amp American 50s amp tweed breakup mahogany rosewood single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character alder pyramid electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog poly synth, string quartet inst. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 778,
+  "score": 344.988,
   "config": {
     "traditions": [
       "enka",
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "japanese_min_yo_tradition",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 20.42899999999999,
+          "voice_register": 20.569999999999993,
           "voice_quality": 8.839999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.07,
-          "voice_articulation": 20.306750000000008,
-          "voice_microtone": 20.91175000000001,
-          "voice_tradition": 31.93575,
+          "voice_vibrato": 5.1795,
+          "voice_articulation": 20.735000000000014,
+          "voice_microtone": 21.580000000000013,
+          "voice_tradition": 32.805749999999996,
           "voice_mechanism_compound": 2.015,
-          "voice_estill_quality": 4.8185,
+          "voice_estill_quality": 5.6225000000000005,
           "voice_speech_song": 31.59000000000001,
-          "voice_ensemble_config": 20.292250000000006,
-          "voice_ornament_system": 3.6025000000000014,
-          "voice_pitch_organization": 3.825,
-          "voice_processing_chain": 7.852999999999999,
-          "voice_multitrack_stack": 10.811749999999998
+          "voice_ensemble_config": 20.800000000000008,
+          "voice_ornament_system": 3.7435000000000014,
+          "voice_pitch_organization": 3.87,
+          "voice_processing_chain": 8.514999999999999,
+          "voice_multitrack_stack": 11.222749999999998
         }
       },
       {
@@ -66,11 +66,11 @@
         "scores": {
           "plucked_traditional_technique": 0.25,
           "shamisen_size": 0.345,
-          "shamisen_skin": 1.524,
+          "shamisen_skin": 1.5,
           "shamisen_pick": 2.47,
-          "shamisen_neck_wood": 4.07975,
+          "shamisen_neck_wood": 4.40075,
           "shamisen_strings": 0,
-          "shamisen_tradition": 10.749
+          "shamisen_tradition": 11.440000000000001
         }
       },
       {
@@ -85,8 +85,8 @@
         },
         "scores": {
           "plucked_traditional_technique": 0.25,
-          "koto_strings": 0.0255,
-          "koto_picks": 4.10525,
+          "koto_strings": 0,
+          "koto_picks": 4.40075,
           "koto_body_wood": 0.7800000000000001,
           "koto_strings_material": 1.04,
           "koto_bridge_material": 0.7149999999999999
@@ -100,7 +100,7 @@
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
           "fretboard": "rosewood_fb",
-          "pickup_magnet": "alnico_3",
+          "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
           "string_gauge": "g_11",
           "bridge": "hardtail",
@@ -114,11 +114,11 @@
           "body_wood": 2.535,
           "neck_wood": 2.535,
           "fretboard": 2.47,
-          "pickup_magnet": 0.045,
-          "string_material": 0.009,
+          "pickup_magnet": 0.15,
+          "string_material": 0.15,
           "string_gauge": 2.535,
           "bridge": 0,
-          "scale_length": 2.69,
+          "scale_length": 2.9899999999999998,
           "finish": 1,
           "string_tuning": 1.625
         }
@@ -141,7 +141,7 @@
           "string_type": 5.200000000000001,
           "scale_length_b": 2.535,
           "fretted_or_not": 1.3,
-          "bass_technique": 2.875
+          "bass_technique": 3.025
         }
       },
       {
@@ -152,8 +152,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 22.47525000000001,
-          "drumhead": 14.088749999999997,
+          "drum_technique": 22.88000000000001,
+          "drumhead": 14.133749999999997,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -169,7 +169,7 @@
           "electronic_technique": 15.003999999999996,
           "poly_archetypes": 0.78,
           "poly_voices": 1.1,
-          "poly_maker_lineage": 0.6265
+          "poly_maker_lineage": 0.7149999999999999
         }
       },
       {
@@ -181,7 +181,7 @@
         },
         "scores": {
           "bowed_technique": 0.25,
-          "quartet_school": 0.009,
+          "quartet_school": 0.15,
           "string_quartet_inst_era": 4.55
         }
       }

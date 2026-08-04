@@ -1,0 +1,192 @@
+{
+  "id": "uk_dance",
+  "name": "UK Dance",
+  "family": "electronic",
+  "lineage": "British commercial dance-pop consolidated in London and Manchester from the late 2000s as garage, house and drum-and-bass producers crossed into the singles chart — Duke Dumont, Disclosure, Rudimental, Gorgon City, Sigala and Chase & Status codifying a 120-128 BPM four-on-the-floor (or 174 BPM liquid D&B) template built on filtered piano-and-organ house stabs, sidechained sub-bass, chopped garage-swing hi-hats and a full-throated guest topline sung rather than rapped.",
+  "recipe": "classic 2007-2009 uk dance, electronic Dance, house branch, garage house u s house, uk soundsystem bass system, eurodance electronic dance hi-nrg. thick, breath veiled tone, straight note core, interlocked note trading. singing lead analog poly synth, TR-909, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, chopped sampler, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, Hammond a 100 built in Leslie home spinet Leslie 145 smaller 25w tube home club gospel runs full spectrum fast tremolo tonewheel organ. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 816,
+  "score": 311.68,
+  "config": {
+    "traditions": [
+      "uk_dance",
+      "hi_nrg",
+      "garage_house_paradise"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 13.554999999999996,
+          "voice_quality": 10.724999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.1200000000000006,
+          "voice_articulation": 16.834999999999997,
+          "voice_microtone": 16.834999999999994,
+          "voice_tradition": 8.889999999999999,
+          "voice_mechanism_compound": 1.8199999999999998,
+          "voice_estill_quality": 5.89,
+          "voice_speech_song": 18.719999999999995,
+          "voice_ensemble_config": 21.384999999999994,
+          "voice_ornament_system": 1.075,
+          "voice_pitch_organization": 1.4649999999999999,
+          "voice_processing_chain": 19.625,
+          "voice_multitrack_stack": 6.390000000000001
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "prophet_5",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 7.204999999999999,
+          "poly_archetypes": 1.3,
+          "poly_voices": 0,
+          "poly_maker_lineage": -0.31499999999999995
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_house",
+          "tr909_production_origin": "tr909_behringer_rd_9"
+        },
+        "scores": {
+          "tr909_voice": 21.875,
+          "drum_machine_909_context": 2.6649999999999996,
+          "tr909_production_origin": 0
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "amp_make": 10.0425,
+          "body_wood": 0.39,
+          "pickup_config": 3.535,
+          "string_type": 9.132500000000002,
+          "scale_length_b": 0.65,
+          "fretted_or_not": 0.045,
+          "bass_technique": 3.6449999999999996
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 1.14,
+          "sampler_archetypes": 0.42,
+          "sampler_bit_depth": 0.26,
+          "sampler_workflow": 1.0899999999999999,
+          "sampler_classic_context": 48.894999999999996
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "fazioli",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 5.785,
+          "grand_piano_size": 1.3,
+          "grand_piano_brand": 0.42,
+          "piano_hammer": 5.699999999999999,
+          "piano_rim": 5.699999999999999,
+          "piano_soundboard": 5.895,
+          "piano_pinblock": -0.05,
+          "piano_plate": 1.2,
+          "piano_pitch_standard": 4.9399999999999995
+        }
+      },
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "drawbar_setting": "gospel_drawbars",
+          "rotary_speed": "fast_tremolo",
+          "percussion_setting": "percussion_on_long",
+          "tonewheel_model": "tonewheel_hammond_a100",
+          "leslie_cabinet_model": "leslie_145_smaller"
+        },
+        "scores": {
+          "keyboard_technique": 5.785,
+          "drawbar_setting": 3.675,
+          "rotary_speed": 3.25,
+          "percussion_setting": 0.45499999999999996,
+          "tonewheel_model": 7.885,
+          "leslie_cabinet_model": 1.56
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

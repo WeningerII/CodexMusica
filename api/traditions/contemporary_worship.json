@@ -1,0 +1,218 @@
+{
+  "id": "contemporary_worship",
+  "name": "Contemporary Worship",
+  "family": "blues_gospel",
+  "lineage": "Congregational rock-band worship codified in Southern California through Calvary Chapel's Maranatha! Music in the 1970s, then internationally by Hillsong Sydney and Passion/Bethel from the 1990s — 68-80 BPM anthemic 4/4 with delay-drenched arpeggiated guitars, pad-and-piano beds, verse-chorus-bridge forms built for congregational singability in a narrow tenor range, and long unmetered spontaneous-worship sections recorded live in the auditorium",
+  "recipe": "classic mid-1970s contemporary worship, ritual Devotional, pentecostal branch, christian gospel black gospel, pop rock functional song new wave yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu choir ensemble, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric cedar phosphor bronze modern martin strummed open chord ringing overtones dreadnought acoustic guitar, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, sequential lineage canonical prophet 5 1978 san jose ca lead analog poly synth. gymnasium. shure SM57, helios UK-rock-recording pre, helios type 69, dbx 160 VCA. Studer 30ips tape hall reverb.",
+  "recipe_chars": 997,
+  "score": 576.615,
+  "config": {
+    "traditions": [
+      "contemporary_worship",
+      "new_wave",
+      "yacht_rock"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 53.07500000000001,
+          "voice_quality": 13.942499999999992,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 10.74,
+          "voice_articulation": 15.404999999999994,
+          "voice_microtone": 43.37500000000001,
+          "voice_tradition": 23.919999999999998,
+          "voice_mechanism_compound": 3.445,
+          "voice_estill_quality": 7.980000000000001,
+          "voice_speech_song": 20.604999999999993,
+          "voice_ensemble_config": 15.534999999999993,
+          "voice_ornament_system": 5.4,
+          "voice_pitch_organization": 1.3849999999999998,
+          "voice_processing_chain": 14.165000000000001,
+          "voice_multitrack_stack": 12.6425
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_polyrhythmic_layered",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_contemporary"
+        },
+        "scores": {
+          "choir_size": 5.265,
+          "choir_polyphonic_configuration": 1.235,
+          "choir_regional_canonical_configuration": 4.03,
+          "choir_ensemble_repertoire": 1.4300000000000002
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_5",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "locking_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 17.57,
+          "amp_make": 17.679999999999996,
+          "body_wood": 2.275,
+          "neck_wood": 2.275,
+          "fretboard": 2.21,
+          "pickup_magnet": 1,
+          "string_material": 0.585,
+          "string_gauge": 2.925,
+          "bridge": 0.65,
+          "scale_length": 2.275,
+          "finish": 0.09,
+          "string_tuning": 15.015
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "drop_d",
+          "top_wood": "cedar",
+          "back_sides": "maple_bs",
+          "string_acoustic": "phosphor_bronze"
+        },
+        "scores": {
+          "acoustic_technique": 17.43,
+          "string_tuning": 0.35749999999999993,
+          "top_wood": 2.4699999999999998,
+          "back_sides": 0.585,
+          "string_acoustic": 2.4699999999999998
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_arpeggio_sustain_rich",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "standard_multi_laminate_pinblock",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_432_alternative"
+        },
+        "scores": {
+          "keyboard_technique": 17.419999999999998,
+          "grand_piano_size": 2.275,
+          "grand_piano_brand": 2.275,
+          "piano_hammer": 17.13,
+          "piano_rim": 18.165,
+          "piano_soundboard": 16.545,
+          "piano_pinblock": 1.755,
+          "piano_plate": 1.0074999999999998,
+          "piano_pitch_standard": 4.875
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 12.61,
+          "body_wood": 2.275,
+          "pickup_config": 1.045,
+          "string_type": 29.79,
+          "scale_length_b": 2.275,
+          "fretted_or_not": 0.345,
+          "bass_technique": 28.465
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 24.375,
+          "drumhead": 16.695,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 17.379999999999995,
+          "poly_archetypes": 12.675,
+          "poly_voices": 2.08,
+          "poly_maker_lineage": 2.795
+        }
+      }
+    ],
+    "room": "gymnasium",
+    "archetype": "arch_mobile_remote_truck",
+    "inline_chain": {
+      "mic": "mic_sm58_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "gymnasium",
+    "chain_mic": "mic_sm58_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

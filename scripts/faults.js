@@ -287,11 +287,19 @@ record(
     'llms.txt',
   ]);
   const f = path.join(d, 'package.json');
-  fs.writeFileSync(f, fs.readFileSync(f, 'utf8').replace('1145-tradition', '1144-tradition'));
+  // Derive the count from the file rather than hardcoding it. A literal here
+  // rots the moment the catalog grows: the replace silently becomes a no-op,
+  // nothing gets planted, and the gate "passes" for the wrong reason — this
+  // class escaped exactly that way when the catalog went 1,145 -> 1,426.
+  const pkg = fs.readFileSync(f, 'utf8');
+  const m = pkg.match(/(\d+)-tradition/);
+  if (!m) throw new Error('faults: no "<n>-tradition" claim in package.json to perturb');
+  const off = String(Number(m[1]) - 1);
+  fs.writeFileSync(f, pkg.replace(m[0], off + '-tradition'));
   record(
     'count-drift -> check_docs.js',
     gate(d, ['scripts/check_docs.js']),
-    /1144|1145|drift|mismatch|count|expected/i
+    new RegExp(`${m[1]}|${off}|drift|mismatch|count|expected`, 'i')
   );
 }
 
