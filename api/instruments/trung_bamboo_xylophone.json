@@ -1,0 +1,210 @@
+{
+  "id": "trung_bamboo_xylophone",
+  "name": "T'rung (Vietnamese Central Highlands bamboo tube xylophone)",
+  "family": "percussion",
+  "class": "bamboo_xylophone",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "t'rung",
+  "parts": [
+    {
+      "id": "trung_size",
+      "name": "Size and range",
+      "variants": [
+        {
+          "id": "trung_traditional",
+          "default": true,
+          "name": "Traditional village t'rung (7-12 tubes, pentatonic)",
+          "descriptors": [
+            "hollow",
+            "woody",
+            "dry-attack"
+          ],
+          "match_tokens": [
+            "bamboo-xylophone",
+            "central-highlands"
+          ]
+        },
+        {
+          "id": "trung_concert",
+          "name": "Modern concert t'rung (extended chromatic frame)",
+          "descriptors": [
+            "bright",
+            "wide-ranged",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bamboo-xylophone",
+            "vietnamese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trung_mallet",
+      "name": "Beater",
+      "variants": [
+        {
+          "id": "trung_bamboo_stick",
+          "default": true,
+          "name": "Bare bamboo sticks",
+          "descriptors": [
+            "clicky",
+            "bright-attack",
+            "percussive"
+          ],
+          "match_tokens": [
+            "bamboo-xylophone"
+          ]
+        },
+        {
+          "id": "trung_padded",
+          "name": "Cloth-padded mallets",
+          "descriptors": [
+            "softer",
+            "rounded-tone"
+          ],
+          "match_tokens": [
+            "bamboo-xylophone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trung_context",
+      "surface": false,
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "trung_ede",
+          "default": true,
+          "name": "Ede/Jarai village ritual and field music",
+          "descriptors": [
+            "earthy",
+            "ritual",
+            "rustic"
+          ],
+          "match_tokens": [
+            "central-highlands"
+          ]
+        },
+        {
+          "id": "trung_ensemble",
+          "name": "National folk-orchestra arrangement",
+          "descriptors": [
+            "polished",
+            "ensemble-blended"
+          ],
+          "match_tokens": [
+            "vietnamese"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "trung_size",
+      "name": "Size and range",
+      "variants": [
+        {
+          "id": "trung_traditional",
+          "default": true,
+          "name": "Traditional village t'rung (7-12 tubes, pentatonic)",
+          "descriptors": [
+            "hollow",
+            "woody",
+            "dry-attack"
+          ],
+          "match_tokens": [
+            "bamboo-xylophone",
+            "central-highlands"
+          ]
+        },
+        {
+          "id": "trung_concert",
+          "name": "Modern concert t'rung (extended chromatic frame)",
+          "descriptors": [
+            "bright",
+            "wide-ranged",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bamboo-xylophone",
+            "vietnamese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trung_mallet",
+      "name": "Beater",
+      "variants": [
+        {
+          "id": "trung_bamboo_stick",
+          "default": true,
+          "name": "Bare bamboo sticks",
+          "descriptors": [
+            "clicky",
+            "bright-attack",
+            "percussive"
+          ],
+          "match_tokens": [
+            "bamboo-xylophone"
+          ]
+        },
+        {
+          "id": "trung_padded",
+          "name": "Cloth-padded mallets",
+          "descriptors": [
+            "softer",
+            "rounded-tone"
+          ],
+          "match_tokens": [
+            "bamboo-xylophone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trung_context",
+      "surface": false,
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "trung_ede",
+          "default": true,
+          "name": "Ede/Jarai village ritual and field music",
+          "descriptors": [
+            "earthy",
+            "ritual",
+            "rustic"
+          ],
+          "match_tokens": [
+            "central-highlands"
+          ]
+        },
+        {
+          "id": "trung_ensemble",
+          "name": "National folk-orchestra arrangement",
+          "descriptors": [
+            "polished",
+            "ensemble-blended"
+          ],
+          "match_tokens": [
+            "vietnamese"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -4,7 +4,7 @@
   "generated": "2026-08-04",
   "counts": {
     "traditions": 1145,
-    "instruments": 1392
+    "instruments": 1406
   },
   "endpoints": {
     "traditions_index": "traditions/index.json",

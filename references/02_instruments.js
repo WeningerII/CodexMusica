@@ -38283,4 +38283,324 @@ const INSTRUMENTS = [
       ] },
     ]
   },
+  {
+    id: 'reyong',
+    name: 'Reyong (Balinese row of tuned kettle gongs)',
+    family: 'percussion',
+    class: 'tuned_percussion',
+    axes: { pitchFix: 1, sustain: 0, polyphony: 1, harmonicity: 0, register: 1, range: 0, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'reyong',
+    parts: [
+      { id: 'reyong_form', name: 'Instrument form / gong row', variants: [
+        { id: 'reyong_gong_kebyar_twelve', default: true, name: 'Twelve-kettle gong kebyar reyong (four players)', descriptors: ['bright-attack', 'interlocking', 'shimmering'], match_tokens: ['kettle-gong', 'balinese', 'gamelan'] },
+        { id: 'reyong_angklung_four', name: 'Four-kettle reyong angklung (single player)', descriptors: ['compact', 'chiming', 'light'], match_tokens: ['kettle-gong', 'balinese'] },
+        { id: 'reyong_trompong', name: 'Trompong-style solo row (lyrical, single player)', descriptors: ['singing', 'melodic', 'open-ringing'], match_tokens: ['kettle-gong', 'balinese'] },
+      ] },
+      { id: 'reyong_technique', name: 'Playing technique', variants: [
+        { id: 'reyong_norot', default: true, name: 'Interlocking kotekan / norot figuration', descriptors: ['interlocking', 'rapid', 'glittering'], match_tokens: ['gamelan', 'interlocking'] },
+        { id: 'reyong_byong', name: 'Byong dampened cluster chords', descriptors: ['clangorous', 'crashing', 'noisy'], match_tokens: ['gamelan', 'percussive'] },
+        { id: 'reyong_kecek', name: 'Kecek rim-striking ostinato (panggul on boss rim)', descriptors: ['dry-click', 'rattling', 'rhythmic'], match_tokens: ['gamelan', 'rim-strike'] },
+      ] },
+      { id: 'reyong_tuning', surface: false, name: 'Tuning system', variants: [
+        { id: 'reyong_pelog_selisir', default: true, name: 'Pelog selisir five-tone', descriptors: ['pelog-tuned', 'beating-pairs'], match_tokens: ['gamelan', 'pelog'] },
+        { id: 'reyong_slendro', name: 'Slendro tuning (angklung/gender wayang sets)', descriptors: ['slendro-tuned', 'even-spaced'], match_tokens: ['gamelan', 'slendro'] },
+      ] },
+    ]
+  },
+  {
+    id: 'kempul',
+    name: 'Kempul (Javanese hanging colotomic gong)',
+    family: 'percussion',
+    class: 'tuned_idiophone',
+    axes: { pitchFix: 1, sustain: 2, polyphony: -1, harmonicity: -1, register: -1, range: -1, articulation: 0, transduction: -2, dynamics: 1 },
+    short: 'kempul',
+    parts: [
+      { id: 'kempul_build', name: 'Gong build', variants: [
+        { id: 'kempul_forged_bronze', default: true, name: 'Forged bronze hanging gong with raised boss (canonical)', descriptors: ['deep-toned', 'booming', 'long-decay'], match_tokens: ['hanging-gong', 'javanese'] },
+        { id: 'kempul_iron', name: 'Iron gong (village gamelan)', descriptors: ['clangy', 'short-decay', 'rough'], match_tokens: ['hanging-gong', 'javanese'] },
+        { id: 'kempul_balinese', name: 'Balinese kempur-style hanging gong', descriptors: ['bright-swell', 'ceremonial'], match_tokens: ['hanging-gong', 'balinese'] },
+      ] },
+      { id: 'kempul_tuning', name: 'Tuning system', variants: [
+        { id: 'kempul_slendro_set', default: true, name: 'Slendro set of hanging kempul', descriptors: ['slendro-tuned', 'cyclic-marker'], match_tokens: ['gamelan', 'slendro'] },
+        { id: 'kempul_pelog_set', name: 'Pelog set of hanging kempul', descriptors: ['pelog-tuned', 'unequal-intervals'], match_tokens: ['gamelan', 'pelog'] },
+      ] },
+      { id: 'kempul_role', surface: false, name: 'Colotomic role', variants: [
+        { id: 'kempul_midcycle', default: true, name: 'Mid-cycle phrase punctuation (canonical)', descriptors: ['punctuating', 'sustaining'], match_tokens: ['gamelan', 'colotomic'] },
+        { id: 'kempul_dense_srepegan', name: 'Dense marking in fast srepegan / sampak', descriptors: ['driving', 'insistent'], match_tokens: ['gamelan', 'colotomic'] },
+      ] },
+    ]
+  },
+  {
+    id: 'kethuk',
+    name: 'Kethuk (small Javanese kettle gong)',
+    family: 'percussion',
+    class: 'tuned_idiophone',
+    axes: { pitchFix: 1, sustain: -1, polyphony: -2, harmonicity: -1, register: 0, range: -2, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'kethuk',
+    parts: [
+      { id: 'kethuk_build', name: 'Kettle build', variants: [
+        { id: 'kethuk_bronze', default: true, name: 'Forged bronze kettle on cord-strung rack, damped strike (canonical)', descriptors: ['dry-thock', 'damped', 'short-decay'], match_tokens: ['kettle-gong', 'javanese'] },
+        { id: 'kethuk_iron', name: 'Iron kettle (village gamelan)', descriptors: ['dull', 'clangy'], match_tokens: ['kettle-gong', 'javanese'] },
+        { id: 'kethuk_kempyang_pair', name: 'Paired with kempyang on one rack', descriptors: ['alternating', 'interlocked-ping'], match_tokens: ['kettle-gong', 'gamelan'] },
+      ] },
+      { id: 'kethuk_tuning', name: 'Tuning system', variants: [
+        { id: 'kethuk_slendro', default: true, name: 'Slendro tuning', descriptors: ['slendro-tuned', 'even-spaced'], match_tokens: ['gamelan', 'slendro'] },
+        { id: 'kethuk_pelog', name: 'Pelog tuning', descriptors: ['pelog-tuned', 'unequal-intervals'], match_tokens: ['gamelan', 'pelog'] },
+      ] },
+      { id: 'kethuk_role', surface: false, name: 'Colotomic density', variants: [
+        { id: 'kethuk_kerep', default: true, name: 'Kethuk kerep (frequent subdivision)', descriptors: ['ticking', 'steady'], match_tokens: ['gamelan', 'colotomic'] },
+        { id: 'kethuk_arang', name: 'Kethuk arang (sparse, long-form gendhing)', descriptors: ['sparse', 'meditative'], match_tokens: ['gamelan', 'colotomic'] },
+      ] },
+    ]
+  },
+  {
+    id: 'ceng_ceng',
+    name: 'Ceng-ceng (Balinese cymbal set)',
+    family: 'percussion',
+    class: 'hand_cymbals',
+    axes: { pitchFix: -2, sustain: -1, polyphony: -2, harmonicity: -2, register: 2, range: -2, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'ceng-ceng',
+    parts: [
+      { id: 'ceng_ceng_form', name: 'Instrument form', variants: [
+        { id: 'ceng_ceng_ricik', default: true, name: 'Ceng-ceng ricik (small cymbals mounted on a turtle-shaped base)', descriptors: ['sizzling', 'crashing', 'rapid-chatter'], match_tokens: ['cymbals', 'balinese', 'gamelan'] },
+        { id: 'ceng_ceng_kopyak', name: 'Ceng-ceng kopyak (large hand-held marching cymbals)', descriptors: ['clashing', 'brash', 'loud'], match_tokens: ['cymbals', 'balinese', 'processional'] },
+        { id: 'ceng_ceng_angklung', name: 'Small angklung-ensemble cymbal pair', descriptors: ['light', 'tinkling'], match_tokens: ['cymbals', 'balinese'] },
+      ] },
+      { id: 'ceng_ceng_technique', name: 'Playing technique', variants: [
+        { id: 'ceng_ceng_kotekan', default: true, name: 'Interlocking kotekan patterns with kendang', descriptors: ['interlocking', 'driving', 'hissing'], match_tokens: ['cymbals', 'interlocking'] },
+        { id: 'ceng_ceng_accent', name: 'Kebyar accent crashes only', descriptors: ['explosive', 'punctuating'], match_tokens: ['cymbals', 'accent'] },
+        { id: 'ceng_ceng_damped', name: 'Damped closed strokes', descriptors: ['choked', 'dry-click'], match_tokens: ['cymbals', 'damped'] },
+      ] },
+      { id: 'ceng_ceng_alloy', surface: false, name: 'Bronze alloy', variants: [
+        { id: 'ceng_ceng_perunggu', default: true, name: 'Forged gamelan bronze (perunggu)', descriptors: ['complex-overtones', 'brilliant'], match_tokens: ['cymbals', 'bronze'] },
+        { id: 'ceng_ceng_brass', name: 'Brass cymbals (village sets)', descriptors: ['thin', 'harsh'], match_tokens: ['cymbals', 'brass'] },
+      ] },
+    ]
+  },
+  {
+    id: 'tololoche',
+    name: 'Tololoche (Mexican norteño three-quarter upright bass)',
+    family: 'acoustic_strings',
+    class: 'plucked_string_rhythm',
+    axes: { pitchFix: 0, sustain: 0, polyphony: -1, harmonicity: 1, register: -2, range: 0, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'tololoche',
+    parts: [
+      { id: 'tololoche_size', name: 'Body size / stringing', variants: [
+        { id: 'tololoche_three_string', default: true, name: 'Three-string 3/4 tololoche (traditional norteño)', descriptors: ['thumping', 'woody', 'dry-bass'], match_tokens: ['upright-bass', 'norteno', 'plucked'] },
+        { id: 'tololoche_four_string', name: 'Four-string half-size upright', descriptors: ['fuller-range', 'round-toned'], match_tokens: ['upright-bass', 'plucked'] },
+        { id: 'tololoche_gut_strung', name: 'Gut-strung antique tololoche', descriptors: ['muted', 'archaic', 'soft-attack'], match_tokens: ['upright-bass', 'vintage'] },
+      ] },
+      { id: 'tololoche_technique', name: 'Playing technique', variants: [
+        { id: 'tololoche_polka_pump', default: true, name: 'Root-fifth polka pumping bass', descriptors: ['pumping', 'danceable', 'steady'], match_tokens: ['plucked', 'bass-line', 'norteno'] },
+        { id: 'tololoche_slap', name: 'Slapped percussive bass', descriptors: ['slapping', 'percussive', 'snappy'], match_tokens: ['plucked', 'slap-bass'] },
+        { id: 'tololoche_bowed', name: 'Bowed sustained bass (rare, ranchera ballads)', descriptors: ['sustained', 'dark', 'singing'], match_tokens: ['bowed', 'low-register'] },
+      ] },
+    ]
+  },
+  {
+    id: 'archlute',
+    name: 'Archlute (extended-neck baroque lute with unstopped basses)',
+    family: 'plucked_traditional',
+    class: 'plucked_lute',
+    axes: { pitchFix: 1, sustain: 0, polyphony: 2, harmonicity: 1, register: 0, range: 2, articulation: 1, transduction: -2, dynamics: -1 },
+    short: 'archlute',
+    parts: [
+      { id: 'archlute_courses', name: 'Course layout', variants: [
+        { id: 'archlute_fourteen', default: true, name: 'Fourteen courses (six stopped, eight diapasons)', descriptors: ['resonant-basses', 'full-bodied'], match_tokens: ['lute', 'baroque', 'plucked'] },
+        { id: 'archlute_thirteen', name: 'Thirteen-course Italian arciliuto', descriptors: ['balanced', 'lyrical'], match_tokens: ['lute', 'italian'] },
+        { id: 'archlute_liuto_attiorbato', name: 'Liuto attiorbato (short extension, on-body basses)', descriptors: ['compact', 'warm', 'intimate'], match_tokens: ['lute', 'plucked'] },
+      ] },
+      { id: 'archlute_stringing', name: 'String material', variants: [
+        { id: 'archlute_gut', default: true, name: 'Plain and loaded gut strings', descriptors: ['mellow', 'period-authentic', 'quick-decay'], match_tokens: ['gut-strung', 'baroque'] },
+        { id: 'archlute_wound_bass', name: 'Wound bass courses (late baroque)', descriptors: ['deep-toned', 'sustaining'], match_tokens: ['lute', 'wound-strings'] },
+        { id: 'archlute_nylgut', name: 'Modern synthetic (nylgut) stringing', descriptors: ['bright-attack', 'projecting'], match_tokens: ['lute', 'modern-strung'] },
+      ] },
+      { id: 'archlute_role', name: 'Playing role', variants: [
+        { id: 'archlute_continuo', default: true, name: 'Basso continuo realization', descriptors: ['chordal', 'supporting', 'arpeggiated'], match_tokens: ['continuo', 'baroque', 'plucked'] },
+        { id: 'archlute_solo', name: 'Solo repertoire (suites, toccatas)', descriptors: ['contrapuntal', 'delicate', 'expressive'], match_tokens: ['lute', 'solo'] },
+      ] },
+    ]
+  },
+  {
+    id: 'regal',
+    name: 'Regal (portable Renaissance beating-reed organ)',
+    family: 'keyboard',
+    class: 'keyboard_acoustic',
+    axes: { pitchFix: 2, sustain: 1, polyphony: 2, harmonicity: -1, register: 0, range: 0, articulation: 1, transduction: -2, dynamics: -1 },
+    short: 'regal',
+    parts: [
+      { id: 'regal_form', name: 'Instrument form', variants: [
+        { id: 'regal_bible', default: true, name: 'Bible regal (folding bellows, table-top)', descriptors: ['snarling-reed', 'nasal', 'buzzing-timbre', 'portable'], match_tokens: ['reed-organ', 'renaissance'] },
+        { id: 'regal_stationary', name: 'Stationary chest regal (larger case)', descriptors: ['fuller-toned', 'reedy', 'church-continuo'], match_tokens: ['reed-organ', 'continuo'] },
+      ] },
+      { id: 'regal_resonator', name: 'Reed resonator shape', variants: [
+        { id: 'regal_short_boot', default: true, name: 'Short boot resonators (canonical snarl)', descriptors: ['rasping', 'piercing', 'harmonically-dense'], match_tokens: ['beating-reed'] },
+        { id: 'regal_funnel', name: 'Funnel/cup resonators', descriptors: ['rounder', 'hollow-toned'], match_tokens: ['beating-reed'] },
+      ] },
+      { id: 'regal_context', surface: false, name: 'Performance context', variants: [
+        { id: 'regal_continuo', default: true, name: 'Basso continuo in early-Baroque consort', descriptors: ['continuo-support', 'cutting'], match_tokens: ['renaissance', 'continuo'] },
+        { id: 'regal_processional', name: 'Processional/ceremonial use', descriptors: ['outdoor-projecting', 'strident'], match_tokens: ['renaissance'] },
+      ] },
+    ]
+  },
+  {
+    id: 'prepared_piano',
+    name: 'Prepared piano (piano with objects placed on the strings)',
+    family: 'keyboard',
+    class: 'keyboard_acoustic',
+    axes: { pitchFix: 0, sustain: 0, polyphony: 2, harmonicity: -2, register: 0, range: 2, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'prepared piano',
+    parts: [
+      { id: 'prepared_piano_object', name: 'Preparation object', variants: [
+        { id: 'prepared_piano_bolts', default: true, name: 'Bolts and screws between strings (Cage canonical)', descriptors: ['metallic-clang', 'gamelan-like', 'inharmonic', 'bright-attack'], match_tokens: ['prepared-piano', 'percussive-keyboard'] },
+        { id: 'prepared_piano_rubber', name: 'Rubber wedges and erasers', descriptors: ['muted-thud', 'dry', 'damped'], match_tokens: ['prepared-piano', 'muted'] },
+        { id: 'prepared_piano_felt', name: 'Felt strips / cloth mute', descriptors: ['soft-toned', 'hushed', 'warm'], match_tokens: ['felt-piano', 'intimate'] },
+        { id: 'prepared_piano_paper', name: 'Paper, plastic and coins on strings', descriptors: ['buzzing-timbre', 'rattling', 'noisy'], match_tokens: ['prepared-piano', 'buzzing'] },
+      ] },
+      { id: 'prepared_piano_zone', name: 'Prepared register zone', variants: [
+        { id: 'prepared_piano_middle', default: true, name: 'Middle-register octaves prepared only', descriptors: ['mixed-timbre', 'contrasting'], match_tokens: ['prepared-piano'] },
+        { id: 'prepared_piano_full', name: 'Full compass prepared', descriptors: ['uniformly-percussive', 'inharmonic'], match_tokens: ['prepared-piano'] },
+        { id: 'prepared_piano_bass', name: 'Bass strings prepared', descriptors: ['deep-toned', 'gong-like', 'booming'], match_tokens: ['prepared-piano', 'low-register'] },
+      ] },
+      { id: 'prepared_piano_instrument', surface: false, name: 'Host instrument', variants: [
+        { id: 'prepared_piano_grand', default: true, name: 'Concert grand', descriptors: ['resonant', 'long-decay'], match_tokens: ['piano'] },
+        { id: 'prepared_piano_upright', name: 'Upright piano', descriptors: ['boxy', 'close-toned'], match_tokens: ['piano'] },
+      ] },
+    ]
+  },
+  {
+    id: 'chamberlin',
+    name: 'Chamberlin (tape-replay keyboard, precursor of the Mellotron)',
+    family: 'keyboard',
+    class: 'keyboard_acoustic',
+    axes: { pitchFix: 1, sustain: 0, polyphony: 1, harmonicity: 1, register: 0, range: 1, articulation: 0, transduction: 1, dynamics: 0 },
+    short: 'chamberlin',
+    parts: [
+      { id: 'chamberlin_voice', name: 'Tape voice bank', variants: [
+        { id: 'chamberlin_strings', default: true, name: 'String section tapes', descriptors: ['wavering', 'lo-fi', 'warm', 'tape-saturated'], match_tokens: ['tape-keyboard', 'string-pad'] },
+        { id: 'chamberlin_flute', name: 'Flute tapes', descriptors: ['breathy', 'hollow', 'nostalgic'], match_tokens: ['tape-keyboard', 'flute-pad'] },
+        { id: 'chamberlin_brass', name: 'Brass tapes', descriptors: ['brash', 'compressed', 'vintage'], match_tokens: ['tape-keyboard', 'brass-pad'] },
+        { id: 'chamberlin_rhythm', name: 'Rhythm/drum loop tapes', descriptors: ['lo-fi', 'shuffling', 'dated'], match_tokens: ['tape-keyboard', 'loop'] },
+      ] },
+      { id: 'chamberlin_model', name: 'Model', variants: [
+        { id: 'chamberlin_m1', default: true, name: 'Music Master 600 (two-manual)', descriptors: ['vintage', 'unstable-pitch'], match_tokens: ['tape-keyboard'] },
+        { id: 'chamberlin_m4', name: 'M-4 later single-manual', descriptors: ['cleaner', 'refined'], match_tokens: ['tape-keyboard'] },
+      ] },
+      { id: 'chamberlin_condition', surface: false, name: 'Tape condition', variants: [
+        { id: 'chamberlin_worn', default: true, name: 'Aged tapes with wow and flutter', descriptors: ['wobbling', 'dropout-prone', 'haunted'], match_tokens: ['tape-keyboard', 'lo-fi'] },
+        { id: 'chamberlin_fresh', name: 'Freshly re-loaded tape frames', descriptors: ['clearer', 'stable'], match_tokens: ['tape-keyboard'] },
+      ] },
+    ]
+  },
+  {
+    id: 'schwyzerorgeli',
+    name: 'Schwyzerörgeli (Swiss diatonic button accordion)',
+    family: 'free_reed',
+    class: 'free_reed',
+    axes: { pitchFix: 2, sustain: 1, polyphony: 2, harmonicity: 1, register: 0, range: 1, articulation: 1, transduction: -2, dynamics: 1 },
+    short: 'schwyzerörgeli',
+    parts: [
+      { id: 'schwyzerorgeli_rows', name: 'Keyboard layout', variants: [
+        { id: 'schwyzerorgeli_three_row', default: true, name: 'Three-row 18-bass Langnauerli-style (canonical)', descriptors: ['bright', 'chordal', 'dance-driving'], match_tokens: ['button-accordion', 'swiss-ländler'] },
+        { id: 'schwyzerorgeli_two_row', name: 'Two-row older form', descriptors: ['archaic', 'simpler', 'rustic'], match_tokens: ['button-accordion', 'swiss-ländler'] },
+      ] },
+      { id: 'schwyzerorgeli_tuning', name: 'Reed tuning', variants: [
+        { id: 'schwyzerorgeli_tremolo', default: true, name: 'Wet tremolo (two reeds detuned)', descriptors: ['shimmering', 'beating-tremolo', 'folk-warm'], match_tokens: ['free-reed', 'tremolo'] },
+        { id: 'schwyzerorgeli_dry', name: 'Dry single-reed tuning', descriptors: ['clean', 'focused'], match_tokens: ['free-reed'] },
+      ] },
+      { id: 'schwyzerorgeli_context', surface: false, name: 'Repertoire', variants: [
+        { id: 'schwyzerorgeli_laendler', default: true, name: 'Ländler / Schottisch dance sets', descriptors: ['lilting', 'dance-rhythm'], match_tokens: ['swiss-ländler'] },
+        { id: 'schwyzerorgeli_march', name: 'Marsch and Polka', descriptors: ['punchy', 'marching'], match_tokens: ['swiss-ländler'] },
+      ] },
+    ]
+  },
+  {
+    id: 'arpa_paraguaya',
+    name: 'Arpa paraguaya (Paraguayan diatonic folk harp)',
+    family: 'acoustic_strings',
+    class: 'plucked_harp',
+    axes: { pitchFix: 2, sustain: 1, polyphony: 2, harmonicity: 2, register: 0, range: 2, articulation: 1, transduction: -2, dynamics: 1 },
+    short: 'arpa paraguaya',
+    parts: [
+      { id: 'arpa_paraguaya_strings', name: 'String material', variants: [
+        { id: 'arpa_paraguaya_nylon', default: true, name: 'Nylon strings (modern canonical)', descriptors: ['silvery', 'clear', 'ringing'], match_tokens: ['folk-harp', 'paraguayan'] },
+        { id: 'arpa_paraguaya_gut', name: 'Gut strings (older builds)', descriptors: ['warm', 'mellow', 'archaic'], match_tokens: ['folk-harp', 'paraguayan'] },
+      ] },
+      { id: 'arpa_paraguaya_technique', name: 'Playing technique', variants: [
+        { id: 'arpa_paraguaya_fingernail', default: true, name: 'Fingernail plucking (uña) with glissando runs', descriptors: ['bright-attack', 'cascading', 'percussive-pluck'], match_tokens: ['folk-harp', 'glissando'] },
+        { id: 'arpa_paraguaya_pulp', name: 'Fingertip pulp plucking', descriptors: ['soft-toned', 'rounded'], match_tokens: ['folk-harp'] },
+        { id: 'arpa_paraguaya_trino', name: 'Trino / tremolo repeated-note style', descriptors: ['shimmering', 'fluttering'], match_tokens: ['folk-harp', 'tremolo'] },
+      ] },
+      { id: 'arpa_paraguaya_body', surface: false, name: 'Soundbox wood', variants: [
+        { id: 'arpa_paraguaya_cedar', default: true, name: 'Cedar soundboard, light build', descriptors: ['resonant', 'projecting'], match_tokens: ['folk-harp'] },
+        { id: 'arpa_paraguaya_pine', name: 'Pine soundboard', descriptors: ['bright', 'crisp'], match_tokens: ['folk-harp'] },
+      ] },
+    ]
+  },
+  {
+    id: 'arpa_grande',
+    name: 'Arpa grande (Mexican Tierra Caliente large folk harp)',
+    family: 'acoustic_strings',
+    class: 'plucked_harp',
+    axes: { pitchFix: 2, sustain: 1, polyphony: 2, harmonicity: 1, register: -1, range: 2, articulation: 1, transduction: -2, dynamics: 1 },
+    short: 'arpa grande',
+    parts: [
+      { id: 'arpa_grande_role', name: 'Ensemble role', variants: [
+        { id: 'arpa_grande_bass', default: true, name: 'Bass line plus tamboreo (box-slapping) rhythm', descriptors: ['deep-toned', 'percussive-thump', 'driving'], match_tokens: ['mexican-harp', 'tierra-caliente'] },
+        { id: 'arpa_grande_melody', name: 'Melodic right-hand lead', descriptors: ['ringing', 'florid', 'bright-attack'], match_tokens: ['mexican-harp', 'lead'] },
+      ] },
+      { id: 'arpa_grande_form', name: 'Regional build', variants: [
+        { id: 'arpa_grande_michoacana', default: true, name: 'Michoacán arpa grande (deep wide box)', descriptors: ['booming', 'full-bodied'], match_tokens: ['mexican-harp', 'michoacan'] },
+        { id: 'arpa_grande_jalisciense', name: 'Jalisco mariachi harp (slimmer box)', descriptors: ['tighter', 'clearer'], match_tokens: ['mexican-harp', 'mariachi'] },
+      ] },
+      { id: 'arpa_grande_strings', surface: false, name: 'String material', variants: [
+        { id: 'arpa_grande_nylon', default: true, name: 'Nylon strings', descriptors: ['clear', 'modern'], match_tokens: ['mexican-harp'] },
+        { id: 'arpa_grande_gut', name: 'Gut strings', descriptors: ['warm', 'archaic'], match_tokens: ['mexican-harp'] },
+      ] },
+    ]
+  },
+  {
+    id: 'kyl_kiyak',
+    name: 'Kyl kiyak (Kyrgyz Naryn-highland horsehair bowed fiddle, kiyak form)',
+    family: 'bowed',
+    class: 'bowed_spike_fiddle',
+    axes: { pitchFix: -2, sustain: 2, polyphony: 0, harmonicity: -1, register: 0, range: 0, articulation: 0, transduction: -2, dynamics: -1 },
+    short: 'kiyak',
+    parts: [
+      { id: 'kyl_kiyak_belly', name: 'Belly membrane', variants: [
+        { id: 'kyl_kiyak_camel_skin', default: true, name: 'Camel-skin belly on juniper bowl (highland build)', descriptors: ['husky', 'breathy', 'overtone-rich'], match_tokens: ['horsehair-bow', 'kyrgyz'] },
+        { id: 'kyl_kiyak_horse_skin', name: 'Horse-hide belly', descriptors: ['darker', 'dry-toned'], match_tokens: ['horsehair-bow', 'kyrgyz'] },
+      ] },
+      { id: 'kyl_kiyak_style', name: 'Playing style', variants: [
+        { id: 'kyl_kiyak_kuu', default: true, name: 'Küü instrumental narrative', descriptors: ['droning', 'rubato', 'mournful'], match_tokens: ['kyrgyz', 'drone-foundation'] },
+        { id: 'kyl_kiyak_epic', name: 'Manas epic recitation accompaniment', descriptors: ['declamatory', 'sustained', 'archaic'], match_tokens: ['kyrgyz', 'epic-accompaniment'] },
+      ] },
+      { id: 'kyl_kiyak_strings', surface: false, name: 'String bundle', variants: [
+        { id: 'kyl_kiyak_horsehair', default: true, name: 'Twisted horsehair strings (traditional)', descriptors: ['raspy', 'noisy-bow', 'organic'], match_tokens: ['horsehair-string'] },
+        { id: 'kyl_kiyak_nylon', name: 'Nylon replacement strings (modern)', descriptors: ['smoother', 'cleaner'], match_tokens: ['kyrgyz'] },
+      ] },
+    ]
+  },
+  {
+    id: 'trung_bamboo_xylophone',
+    name: 'T\'rung (Vietnamese Central Highlands bamboo tube xylophone)',
+    family: 'percussion',
+    class: 'bamboo_xylophone',
+    axes: { pitchFix: 1, sustain: -1, polyphony: 0, harmonicity: 0, register: 1, range: 1, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 't\'rung',
+    parts: [
+      { id: 'trung_size', name: 'Size and range', variants: [
+        { id: 'trung_traditional', default: true, name: 'Traditional village t\'rung (7-12 tubes, pentatonic)', descriptors: ['hollow', 'woody', 'dry-attack'], match_tokens: ['bamboo-xylophone', 'central-highlands'] },
+        { id: 'trung_concert', name: 'Modern concert t\'rung (extended chromatic frame)', descriptors: ['bright', 'wide-ranged', 'projecting'], match_tokens: ['bamboo-xylophone', 'vietnamese'] },
+      ] },
+      { id: 'trung_mallet', name: 'Beater', variants: [
+        { id: 'trung_bamboo_stick', default: true, name: 'Bare bamboo sticks', descriptors: ['clicky', 'bright-attack', 'percussive'], match_tokens: ['bamboo-xylophone'] },
+        { id: 'trung_padded', name: 'Cloth-padded mallets', descriptors: ['softer', 'rounded-tone'], match_tokens: ['bamboo-xylophone'] },
+      ] },
+      { id: 'trung_context', surface: false, name: 'Performance context', variants: [
+        { id: 'trung_ede', default: true, name: 'Ede/Jarai village ritual and field music', descriptors: ['earthy', 'ritual', 'rustic'], match_tokens: ['central-highlands'] },
+        { id: 'trung_ensemble', name: 'National folk-orchestra arrangement', descriptors: ['polished', 'ensemble-blended'], match_tokens: ['vietnamese'] },
+      ] },
+    ]
+  },
 ];

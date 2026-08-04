@@ -1,0 +1,250 @@
+{
+  "id": "schwyzerorgeli",
+  "name": "Schwyzerörgeli (Swiss diatonic button accordion)",
+  "family": "free_reed",
+  "class": "free_reed",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 1,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "schwyzerörgeli",
+  "parts": [
+    {
+      "id": "free_reed_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "free_reed_folk_first_position",
+          "default": true,
+          "name": "Folk first-position straight",
+          "descriptors": [
+            "straight",
+            "melodic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "folk",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "folk",
+            "singer-songwriter",
+            "country"
+          ]
+        },
+        {
+          "id": "free_reed_overblow_modern",
+          "name": "Overblow modern bending",
+          "descriptors": [
+            "overblown",
+            "fully-chromatic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "modern"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "schwyzerorgeli_rows",
+      "name": "Keyboard layout",
+      "variants": [
+        {
+          "id": "schwyzerorgeli_three_row",
+          "default": true,
+          "name": "Three-row 18-bass Langnauerli-style (canonical)",
+          "descriptors": [
+            "bright",
+            "chordal",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "button-accordion",
+            "swiss-ländler"
+          ]
+        },
+        {
+          "id": "schwyzerorgeli_two_row",
+          "name": "Two-row older form",
+          "descriptors": [
+            "archaic",
+            "simpler",
+            "rustic"
+          ],
+          "match_tokens": [
+            "button-accordion",
+            "swiss-ländler"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "schwyzerorgeli_tuning",
+      "name": "Reed tuning",
+      "variants": [
+        {
+          "id": "schwyzerorgeli_tremolo",
+          "default": true,
+          "name": "Wet tremolo (two reeds detuned)",
+          "descriptors": [
+            "shimmering",
+            "beating-tremolo",
+            "folk-warm"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "schwyzerorgeli_dry",
+          "name": "Dry single-reed tuning",
+          "descriptors": [
+            "clean",
+            "focused"
+          ],
+          "match_tokens": [
+            "free-reed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "schwyzerorgeli_context",
+      "surface": false,
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "schwyzerorgeli_laendler",
+          "default": true,
+          "name": "Ländler / Schottisch dance sets",
+          "descriptors": [
+            "lilting",
+            "dance-rhythm"
+          ],
+          "match_tokens": [
+            "swiss-ländler"
+          ]
+        },
+        {
+          "id": "schwyzerorgeli_march",
+          "name": "Marsch and Polka",
+          "descriptors": [
+            "punchy",
+            "marching"
+          ],
+          "match_tokens": [
+            "swiss-ländler"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "schwyzerorgeli_rows",
+      "name": "Keyboard layout",
+      "variants": [
+        {
+          "id": "schwyzerorgeli_three_row",
+          "default": true,
+          "name": "Three-row 18-bass Langnauerli-style (canonical)",
+          "descriptors": [
+            "bright",
+            "chordal",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "button-accordion",
+            "swiss-ländler"
+          ]
+        },
+        {
+          "id": "schwyzerorgeli_two_row",
+          "name": "Two-row older form",
+          "descriptors": [
+            "archaic",
+            "simpler",
+            "rustic"
+          ],
+          "match_tokens": [
+            "button-accordion",
+            "swiss-ländler"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "schwyzerorgeli_tuning",
+      "name": "Reed tuning",
+      "variants": [
+        {
+          "id": "schwyzerorgeli_tremolo",
+          "default": true,
+          "name": "Wet tremolo (two reeds detuned)",
+          "descriptors": [
+            "shimmering",
+            "beating-tremolo",
+            "folk-warm"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "schwyzerorgeli_dry",
+          "name": "Dry single-reed tuning",
+          "descriptors": [
+            "clean",
+            "focused"
+          ],
+          "match_tokens": [
+            "free-reed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "schwyzerorgeli_context",
+      "surface": false,
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "schwyzerorgeli_laendler",
+          "default": true,
+          "name": "Ländler / Schottisch dance sets",
+          "descriptors": [
+            "lilting",
+            "dance-rhythm"
+          ],
+          "match_tokens": [
+            "swiss-ländler"
+          ]
+        },
+        {
+          "id": "schwyzerorgeli_march",
+          "name": "Marsch and Polka",
+          "descriptors": [
+            "punchy",
+            "marching"
+          ],
+          "match_tokens": [
+            "swiss-ländler"
+          ]
+        }
+      ]
+    }
+  ]
+}

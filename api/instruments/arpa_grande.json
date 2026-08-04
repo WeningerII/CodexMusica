@@ -1,0 +1,210 @@
+{
+  "id": "arpa_grande",
+  "name": "Arpa grande (Mexican Tierra Caliente large folk harp)",
+  "family": "acoustic_strings",
+  "class": "plucked_harp",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 1,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "arpa grande",
+  "parts": [
+    {
+      "id": "arpa_grande_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "arpa_grande_bass",
+          "default": true,
+          "name": "Bass line plus tamboreo (box-slapping) rhythm",
+          "descriptors": [
+            "deep-toned",
+            "percussive-thump",
+            "driving"
+          ],
+          "match_tokens": [
+            "mexican-harp",
+            "tierra-caliente"
+          ]
+        },
+        {
+          "id": "arpa_grande_melody",
+          "name": "Melodic right-hand lead",
+          "descriptors": [
+            "ringing",
+            "florid",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "mexican-harp",
+            "lead"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arpa_grande_form",
+      "name": "Regional build",
+      "variants": [
+        {
+          "id": "arpa_grande_michoacana",
+          "default": true,
+          "name": "Michoacán arpa grande (deep wide box)",
+          "descriptors": [
+            "booming",
+            "full-bodied"
+          ],
+          "match_tokens": [
+            "mexican-harp",
+            "michoacan"
+          ]
+        },
+        {
+          "id": "arpa_grande_jalisciense",
+          "name": "Jalisco mariachi harp (slimmer box)",
+          "descriptors": [
+            "tighter",
+            "clearer"
+          ],
+          "match_tokens": [
+            "mexican-harp",
+            "mariachi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arpa_grande_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "arpa_grande_nylon",
+          "default": true,
+          "name": "Nylon strings",
+          "descriptors": [
+            "clear",
+            "modern"
+          ],
+          "match_tokens": [
+            "mexican-harp"
+          ]
+        },
+        {
+          "id": "arpa_grande_gut",
+          "name": "Gut strings",
+          "descriptors": [
+            "warm",
+            "archaic"
+          ],
+          "match_tokens": [
+            "mexican-harp"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "arpa_grande_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "arpa_grande_bass",
+          "default": true,
+          "name": "Bass line plus tamboreo (box-slapping) rhythm",
+          "descriptors": [
+            "deep-toned",
+            "percussive-thump",
+            "driving"
+          ],
+          "match_tokens": [
+            "mexican-harp",
+            "tierra-caliente"
+          ]
+        },
+        {
+          "id": "arpa_grande_melody",
+          "name": "Melodic right-hand lead",
+          "descriptors": [
+            "ringing",
+            "florid",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "mexican-harp",
+            "lead"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arpa_grande_form",
+      "name": "Regional build",
+      "variants": [
+        {
+          "id": "arpa_grande_michoacana",
+          "default": true,
+          "name": "Michoacán arpa grande (deep wide box)",
+          "descriptors": [
+            "booming",
+            "full-bodied"
+          ],
+          "match_tokens": [
+            "mexican-harp",
+            "michoacan"
+          ]
+        },
+        {
+          "id": "arpa_grande_jalisciense",
+          "name": "Jalisco mariachi harp (slimmer box)",
+          "descriptors": [
+            "tighter",
+            "clearer"
+          ],
+          "match_tokens": [
+            "mexican-harp",
+            "mariachi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arpa_grande_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "arpa_grande_nylon",
+          "default": true,
+          "name": "Nylon strings",
+          "descriptors": [
+            "clear",
+            "modern"
+          ],
+          "match_tokens": [
+            "mexican-harp"
+          ]
+        },
+        {
+          "id": "arpa_grande_gut",
+          "name": "Gut strings",
+          "descriptors": [
+            "warm",
+            "archaic"
+          ],
+          "match_tokens": [
+            "mexican-harp"
+          ]
+        }
+      ]
+    }
+  ]
+}

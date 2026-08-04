@@ -1,0 +1,268 @@
+{
+  "id": "ceng_ceng",
+  "name": "Ceng-ceng (Balinese cymbal set)",
+  "family": "percussion",
+  "class": "hand_cymbals",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 2,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "ceng-ceng",
+  "parts": [
+    {
+      "id": "ceng_ceng_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "ceng_ceng_ricik",
+          "default": true,
+          "name": "Ceng-ceng ricik (small cymbals mounted on a turtle-shaped base)",
+          "descriptors": [
+            "sizzling",
+            "crashing",
+            "rapid-chatter"
+          ],
+          "match_tokens": [
+            "cymbals",
+            "balinese",
+            "gamelan"
+          ]
+        },
+        {
+          "id": "ceng_ceng_kopyak",
+          "name": "Ceng-ceng kopyak (large hand-held marching cymbals)",
+          "descriptors": [
+            "clashing",
+            "brash",
+            "loud"
+          ],
+          "match_tokens": [
+            "cymbals",
+            "balinese",
+            "processional"
+          ]
+        },
+        {
+          "id": "ceng_ceng_angklung",
+          "name": "Small angklung-ensemble cymbal pair",
+          "descriptors": [
+            "light",
+            "tinkling"
+          ],
+          "match_tokens": [
+            "cymbals",
+            "balinese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ceng_ceng_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "ceng_ceng_kotekan",
+          "default": true,
+          "name": "Interlocking kotekan patterns with kendang",
+          "descriptors": [
+            "interlocking",
+            "driving",
+            "hissing"
+          ],
+          "match_tokens": [
+            "cymbals",
+            "interlocking"
+          ]
+        },
+        {
+          "id": "ceng_ceng_accent",
+          "name": "Kebyar accent crashes only",
+          "descriptors": [
+            "explosive",
+            "punctuating"
+          ],
+          "match_tokens": [
+            "cymbals",
+            "accent"
+          ]
+        },
+        {
+          "id": "ceng_ceng_damped",
+          "name": "Damped closed strokes",
+          "descriptors": [
+            "choked",
+            "dry-click"
+          ],
+          "match_tokens": [
+            "cymbals",
+            "damped"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ceng_ceng_alloy",
+      "surface": false,
+      "name": "Bronze alloy",
+      "variants": [
+        {
+          "id": "ceng_ceng_perunggu",
+          "default": true,
+          "name": "Forged gamelan bronze (perunggu)",
+          "descriptors": [
+            "complex-overtones",
+            "brilliant"
+          ],
+          "match_tokens": [
+            "cymbals",
+            "bronze"
+          ]
+        },
+        {
+          "id": "ceng_ceng_brass",
+          "name": "Brass cymbals (village sets)",
+          "descriptors": [
+            "thin",
+            "harsh"
+          ],
+          "match_tokens": [
+            "cymbals",
+            "brass"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ceng_ceng_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "ceng_ceng_ricik",
+          "default": true,
+          "name": "Ceng-ceng ricik (small cymbals mounted on a turtle-shaped base)",
+          "descriptors": [
+            "sizzling",
+            "crashing",
+            "rapid-chatter"
+          ],
+          "match_tokens": [
+            "cymbals",
+            "balinese",
+            "gamelan"
+          ]
+        },
+        {
+          "id": "ceng_ceng_kopyak",
+          "name": "Ceng-ceng kopyak (large hand-held marching cymbals)",
+          "descriptors": [
+            "clashing",
+            "brash",
+            "loud"
+          ],
+          "match_tokens": [
+            "cymbals",
+            "balinese",
+            "processional"
+          ]
+        },
+        {
+          "id": "ceng_ceng_angklung",
+          "name": "Small angklung-ensemble cymbal pair",
+          "descriptors": [
+            "light",
+            "tinkling"
+          ],
+          "match_tokens": [
+            "cymbals",
+            "balinese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ceng_ceng_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "ceng_ceng_kotekan",
+          "default": true,
+          "name": "Interlocking kotekan patterns with kendang",
+          "descriptors": [
+            "interlocking",
+            "driving",
+            "hissing"
+          ],
+          "match_tokens": [
+            "cymbals",
+            "interlocking"
+          ]
+        },
+        {
+          "id": "ceng_ceng_accent",
+          "name": "Kebyar accent crashes only",
+          "descriptors": [
+            "explosive",
+            "punctuating"
+          ],
+          "match_tokens": [
+            "cymbals",
+            "accent"
+          ]
+        },
+        {
+          "id": "ceng_ceng_damped",
+          "name": "Damped closed strokes",
+          "descriptors": [
+            "choked",
+            "dry-click"
+          ],
+          "match_tokens": [
+            "cymbals",
+            "damped"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ceng_ceng_alloy",
+      "surface": false,
+      "name": "Bronze alloy",
+      "variants": [
+        {
+          "id": "ceng_ceng_perunggu",
+          "default": true,
+          "name": "Forged gamelan bronze (perunggu)",
+          "descriptors": [
+            "complex-overtones",
+            "brilliant"
+          ],
+          "match_tokens": [
+            "cymbals",
+            "bronze"
+          ]
+        },
+        {
+          "id": "ceng_ceng_brass",
+          "name": "Brass cymbals (village sets)",
+          "descriptors": [
+            "thin",
+            "harsh"
+          ],
+          "match_tokens": [
+            "cymbals",
+            "brass"
+          ]
+        }
+      ]
+    }
+  ]
+}

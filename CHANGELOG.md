@@ -6,6 +6,40 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Added — the last 14 instruments; catalog now 1,406
+
+Re-screening all 1,331 probe candidates against the merged catalog showed the
+probe lists are exhausted: **836 present, 335 near-matches, 160 still reported
+new** — but 134 of those 160 have their base name already in the catalog
+(`nay egyptian` against `ney`, `dombra kazakh` against `dombyra`), leaving 26.
+Twelve of the 26 are deliberate non-gaps already reasoned through — `bagpipe`
+is covered by four specific pipes, `moog` and `hammond organ` are correctly
+variants rather than instruments, `washboard` is `frottoir`, `jaw harp` is
+`khomus` and `morsing`.
+
+That left 14, now authored. Four of them fix an inconsistency introduced in
+wave 3: `gender`, `saron`, `jegogan`, `kantilan`, `ugal`, `bonang` and `kenong`
+were authored as separate gamelan instruments while `reyong`, `kempul`,
+`kethuk` and `ceng-ceng` were left out for no principled reason — they fell
+outside a bucket boundary. The other ten are `tololoche`, `archlute`, `regal`,
+`prepared piano`, `chamberlin`, `schwyzerörgeli`, `arpa paraguaya`,
+`arpa grande`, `kyl kiyak` and `t'rung`.
+
+Zero records were rejected on merge — the first batch in four waves to validate
+clean on the first pass.
+
+**Exhausted means exhausted of the probe lists, not of the instrument
+universe.** The three probes missed at 55%, 54% and 80%, so the universe is
+much larger than what recall can enumerate. Sizing the remaining gap needs an
+external instrument list.
+
+### Known debt carried forward
+
+The 335 near-match pairs from the final screen were never adjudicated. Most are
+transliteration variants the catalog now absorbs, but some will be real
+distinctions the similarity score blurred — the `violoncello piccolo` against
+`violino piccolo` shape. A cleanup pass, not a blocker.
+
 ### Added — 229 more instruments, catalog now 1,392
 
 Wave 3, run as two concurrent workflows of eight agents each. The probe moved
