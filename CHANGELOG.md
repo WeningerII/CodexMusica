@@ -6,6 +6,37 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Added — 185 instruments, catalog now 1,056
+
+The instrument catalog was not as complete as an earlier screen suggested. That
+screen used a list of famous instrument names, which a catalog already carrying
+83 fiddle-family entries was always going to answer well. A deliberately
+obscure 401-name probe told a different story: **97 present, 79 near-matches,
+225 new** — and after removing 32 that were an artefact of the probe's own
+qualifiers (`tar arabic` against the catalog's `tār`), **193 genuine gaps**.
+
+Those 193 are now authored. Eight parallel agents wrote ~25 records each, and
+the merge was validated against the live catalog before insertion: id and short
+label collisions, family/class agreement, and exactly one default per part
+type. Eight records were dropped at the gate as duplicates of entries that
+already existed or of each other — `bata_drum` against `batá`, `nay_egyptian`
+and `ney_turkish` against `ney`, `dombra_kazakh` against `dombyra`, plus
+`likembe`, `defi`, `cura_lute` and `dan_day_catru`. Net **+185**.
+
+Where the gaps were: percussion (83), plucked (67), wind (48), bowed (20),
+free reed (7). Bowed was thinnest precisely because the catalog was already
+deepest there. The additions are concentrated in the regional tails — Indian
+(`pulluvan veena`, `villadi vadyam`, `mizhavu`, `thimila`, `edakka`), Central
+Asian (`chatkhan`, `zhetygen`, `sherter`, `adyrna`, `sybyzgy`), Iberian and
+Italian (`viola amarantina`, `viola campanica`, `chitarra battente`,
+`colascione`, `friscalettu`), West African (`gyil`, `atumpan`, `fontomfrom`,
+`prempensua`, `bolon`) and Nordic keyed fiddles (`moraharpa`,
+`silverbasharpa`, `kontrabasharpa`).
+
+`torban` and `tiorba` are ruled distinct: both are large plucked lutes, so the
+gate pairs them, but the Ukrainian torban is a Cossack court bass lute with
+off-fingerboard trebles and the tiorba is the Italian continuo theorbo.
+
 ### Added — screened external genre corpus
 
 Two external genre lists (musicgenreslist.com, curated; everynoise.com,

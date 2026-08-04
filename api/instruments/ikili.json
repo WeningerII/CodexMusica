@@ -1,0 +1,171 @@
+{
+  "id": "ikili",
+  "name": "Ikili (Tuvan two-string horsehair bowed lute)",
+  "family": "bowed",
+  "class": "bowed_lute",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 0,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "ikili",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "ikili_body",
+      "name": "Body / face",
+      "variants": [
+        {
+          "id": "ikili_skin",
+          "default": true,
+          "name": "Carved wooden box with goatskin face, horse-head scroll",
+          "descriptors": [
+            "raspy",
+            "husky",
+            "archaic"
+          ],
+          "match_tokens": [
+            "tuvan",
+            "horsehair-fiddle"
+          ]
+        },
+        {
+          "id": "ikili_wood",
+          "name": "Wood-topped modern ikili",
+          "descriptors": [
+            "clear",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ikili_context",
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "ikili_throat",
+          "default": true,
+          "name": "Khoomei throat-singing accompaniment",
+          "descriptors": [
+            "droning",
+            "overtone-shadowing"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "throat-singing"
+          ]
+        },
+        {
+          "id": "ikili_solo",
+          "name": "Solo herding melody",
+          "descriptors": [
+            "plaintive",
+            "rubato"
+          ],
+          "match_tokens": [
+            "bowed",
+            "expressive"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ikili_body",
+      "name": "Body / face",
+      "variants": [
+        {
+          "id": "ikili_skin",
+          "default": true,
+          "name": "Carved wooden box with goatskin face, horse-head scroll",
+          "descriptors": [
+            "raspy",
+            "husky",
+            "archaic"
+          ],
+          "match_tokens": [
+            "tuvan",
+            "horsehair-fiddle"
+          ]
+        },
+        {
+          "id": "ikili_wood",
+          "name": "Wood-topped modern ikili",
+          "descriptors": [
+            "clear",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ikili_context",
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "ikili_throat",
+          "default": true,
+          "name": "Khoomei throat-singing accompaniment",
+          "descriptors": [
+            "droning",
+            "overtone-shadowing"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "throat-singing"
+          ]
+        },
+        {
+          "id": "ikili_solo",
+          "name": "Solo herding melody",
+          "descriptors": [
+            "plaintive",
+            "rubato"
+          ],
+          "match_tokens": [
+            "bowed",
+            "expressive"
+          ]
+        }
+      ]
+    }
+  ]
+}

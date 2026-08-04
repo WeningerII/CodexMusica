@@ -1,0 +1,146 @@
+{
+  "id": "mbube_drum",
+  "name": "Mbube drum (Zulu deep ceremonial drum)",
+  "family": "percussion",
+  "class": "single_headed_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -2,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "mbube drum",
+  "parts": [
+    {
+      "id": "mbube_drum_body",
+      "name": "Shell construction",
+      "variants": [
+        {
+          "id": "mbube_drum_carved",
+          "default": true,
+          "name": "Carved hardwood shell, pegged cowhide head",
+          "descriptors": [
+            "booming",
+            "deep-toned",
+            "earthy"
+          ],
+          "match_tokens": [
+            "zulu",
+            "struck-drum"
+          ]
+        },
+        {
+          "id": "mbube_drum_barrel",
+          "name": "Repurposed barrel shell",
+          "descriptors": [
+            "boomy",
+            "raw"
+          ],
+          "match_tokens": [
+            "struck-drum",
+            "southern-african"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mbube_drum_technique",
+      "name": "Striking technique",
+      "variants": [
+        {
+          "id": "mbube_drum_sticks",
+          "default": true,
+          "name": "Heavy sticks, floor-standing",
+          "descriptors": [
+            "hard-attack",
+            "thunderous"
+          ],
+          "match_tokens": [
+            "struck",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "mbube_drum_hands",
+          "name": "Open-hand slaps",
+          "descriptors": [
+            "slapping",
+            "punchy"
+          ],
+          "match_tokens": [
+            "hand-struck"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "mbube_drum_body",
+      "name": "Shell construction",
+      "variants": [
+        {
+          "id": "mbube_drum_carved",
+          "default": true,
+          "name": "Carved hardwood shell, pegged cowhide head",
+          "descriptors": [
+            "booming",
+            "deep-toned",
+            "earthy"
+          ],
+          "match_tokens": [
+            "zulu",
+            "struck-drum"
+          ]
+        },
+        {
+          "id": "mbube_drum_barrel",
+          "name": "Repurposed barrel shell",
+          "descriptors": [
+            "boomy",
+            "raw"
+          ],
+          "match_tokens": [
+            "struck-drum",
+            "southern-african"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mbube_drum_technique",
+      "name": "Striking technique",
+      "variants": [
+        {
+          "id": "mbube_drum_sticks",
+          "default": true,
+          "name": "Heavy sticks, floor-standing",
+          "descriptors": [
+            "hard-attack",
+            "thunderous"
+          ],
+          "match_tokens": [
+            "struck",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "mbube_drum_hands",
+          "name": "Open-hand slaps",
+          "descriptors": [
+            "slapping",
+            "punchy"
+          ],
+          "match_tokens": [
+            "hand-struck"
+          ]
+        }
+      ]
+    }
+  ]
+}

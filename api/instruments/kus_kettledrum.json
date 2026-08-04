@@ -1,0 +1,154 @@
+{
+  "id": "kus_kettledrum",
+  "name": "Kus (giant Persian-Ottoman ceremonial kettledrum)",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": -2,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "kus",
+  "parts": [
+    {
+      "id": "kus_context",
+      "name": "Ceremonial use",
+      "variants": [
+        {
+          "id": "kus_military",
+          "default": true,
+          "name": "Military/battle signalling",
+          "descriptors": [
+            "thunderous",
+            "terrifying",
+            "slow-boom"
+          ],
+          "match_tokens": [
+            "kettledrum",
+            "persian",
+            "war-drum"
+          ]
+        },
+        {
+          "id": "kus_court",
+          "name": "Court naqqarakhaneh fanfare",
+          "descriptors": [
+            "imposing",
+            "ceremonial",
+            "measured"
+          ],
+          "match_tokens": [
+            "ottoman",
+            "ceremonial"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kus_mount",
+      "surface": false,
+      "name": "Mounting",
+      "variants": [
+        {
+          "id": "kus_camel",
+          "default": true,
+          "name": "Camel-mounted pair",
+          "descriptors": [
+            "rolling",
+            "processional"
+          ],
+          "match_tokens": [
+            "procession",
+            "war-drum"
+          ]
+        },
+        {
+          "id": "kus_ground",
+          "name": "Ground-mounted single",
+          "descriptors": [
+            "deep-toned",
+            "stationary"
+          ],
+          "match_tokens": [
+            "kettledrum",
+            "low-register"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kus_context",
+      "name": "Ceremonial use",
+      "variants": [
+        {
+          "id": "kus_military",
+          "default": true,
+          "name": "Military/battle signalling",
+          "descriptors": [
+            "thunderous",
+            "terrifying",
+            "slow-boom"
+          ],
+          "match_tokens": [
+            "kettledrum",
+            "persian",
+            "war-drum"
+          ]
+        },
+        {
+          "id": "kus_court",
+          "name": "Court naqqarakhaneh fanfare",
+          "descriptors": [
+            "imposing",
+            "ceremonial",
+            "measured"
+          ],
+          "match_tokens": [
+            "ottoman",
+            "ceremonial"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kus_mount",
+      "surface": false,
+      "name": "Mounting",
+      "variants": [
+        {
+          "id": "kus_camel",
+          "default": true,
+          "name": "Camel-mounted pair",
+          "descriptors": [
+            "rolling",
+            "processional"
+          ],
+          "match_tokens": [
+            "procession",
+            "war-drum"
+          ]
+        },
+        {
+          "id": "kus_ground",
+          "name": "Ground-mounted single",
+          "descriptors": [
+            "deep-toned",
+            "stationary"
+          ],
+          "match_tokens": [
+            "kettledrum",
+            "low-register"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "id": "njari",
+  "name": "Njari (Shona lamellophone with wide key range)",
+  "family": "percussion",
+  "class": "plucked_idiophone",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "njari",
+  "parts": [
+    {
+      "id": "njari_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "njari_huru",
+          "default": true,
+          "name": "Njari huru (large four-manual board)",
+          "descriptors": [
+            "cascading",
+            "shimmering",
+            "dense"
+          ],
+          "match_tokens": [
+            "lamellophone",
+            "shona"
+          ]
+        },
+        {
+          "id": "njari_karanga",
+          "name": "Karanga njari (smaller, higher)",
+          "descriptors": [
+            "bright",
+            "nimble"
+          ],
+          "match_tokens": [
+            "lamellophone",
+            "high-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "njari_buzzers",
+      "name": "Buzzers",
+      "variants": [
+        {
+          "id": "njari_shell",
+          "default": true,
+          "name": "Shell buzzers on board and deze",
+          "descriptors": [
+            "buzzing-timbre",
+            "hazy"
+          ],
+          "match_tokens": [
+            "buzz-timbre",
+            "gourd-resonator"
+          ]
+        },
+        {
+          "id": "njari_clean",
+          "name": "No buzzers",
+          "descriptors": [
+            "bell-like",
+            "clear"
+          ],
+          "match_tokens": [
+            "clean-tone"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "njari_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "njari_huru",
+          "default": true,
+          "name": "Njari huru (large four-manual board)",
+          "descriptors": [
+            "cascading",
+            "shimmering",
+            "dense"
+          ],
+          "match_tokens": [
+            "lamellophone",
+            "shona"
+          ]
+        },
+        {
+          "id": "njari_karanga",
+          "name": "Karanga njari (smaller, higher)",
+          "descriptors": [
+            "bright",
+            "nimble"
+          ],
+          "match_tokens": [
+            "lamellophone",
+            "high-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "njari_buzzers",
+      "name": "Buzzers",
+      "variants": [
+        {
+          "id": "njari_shell",
+          "default": true,
+          "name": "Shell buzzers on board and deze",
+          "descriptors": [
+            "buzzing-timbre",
+            "hazy"
+          ],
+          "match_tokens": [
+            "buzz-timbre",
+            "gourd-resonator"
+          ]
+        },
+        {
+          "id": "njari_clean",
+          "name": "No buzzers",
+          "descriptors": [
+            "bell-like",
+            "clear"
+          ],
+          "match_tokens": [
+            "clean-tone"
+          ]
+        }
+      ]
+    }
+  ]
+}

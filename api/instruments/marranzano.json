@@ -1,0 +1,144 @@
+{
+  "id": "marranzano",
+  "name": "Marranzano (Sicilian jaw harp)",
+  "family": "plucked_traditional",
+  "class": "jaw_harp",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 0,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -2
+  },
+  "short": "marranzano",
+  "parts": [
+    {
+      "id": "marranzano_tuning",
+      "name": "Frame pitch",
+      "variants": [
+        {
+          "id": "marranzano_standard",
+          "default": true,
+          "name": "Standard Sicilian forged frame",
+          "descriptors": [
+            "buzzing-timbre",
+            "nasal-drone"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "sicilian"
+          ]
+        },
+        {
+          "id": "marranzano_bass",
+          "name": "Heavy low-tuned frame",
+          "descriptors": [
+            "growling",
+            "deep-toned"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marranzano_use",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "marranzano_accompaniment",
+          "default": true,
+          "name": "Accompaniment to Sicilian song / tarantella",
+          "descriptors": [
+            "rhythmic",
+            "droning"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "marranzano_solo",
+          "name": "Solo overtone improvisation",
+          "descriptors": [
+            "overtone-rich",
+            "hypnotic"
+          ],
+          "match_tokens": [
+            "jaw-harp"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "marranzano_tuning",
+      "name": "Frame pitch",
+      "variants": [
+        {
+          "id": "marranzano_standard",
+          "default": true,
+          "name": "Standard Sicilian forged frame",
+          "descriptors": [
+            "buzzing-timbre",
+            "nasal-drone"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "sicilian"
+          ]
+        },
+        {
+          "id": "marranzano_bass",
+          "name": "Heavy low-tuned frame",
+          "descriptors": [
+            "growling",
+            "deep-toned"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marranzano_use",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "marranzano_accompaniment",
+          "default": true,
+          "name": "Accompaniment to Sicilian song / tarantella",
+          "descriptors": [
+            "rhythmic",
+            "droning"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "marranzano_solo",
+          "name": "Solo overtone improvisation",
+          "descriptors": [
+            "overtone-rich",
+            "hypnotic"
+          ],
+          "match_tokens": [
+            "jaw-harp"
+          ]
+        }
+      ]
+    }
+  ]
+}

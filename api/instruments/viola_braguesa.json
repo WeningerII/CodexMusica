@@ -1,0 +1,144 @@
+{
+  "id": "viola_braguesa",
+  "name": "Viola braguesa (Portuguese ten-string folk guitar of Braga)",
+  "family": "acoustic_strings",
+  "class": "plucked_string_rhythm",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 0,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "braguesa",
+  "parts": [
+    {
+      "id": "braguesa_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "braguesa_rasgado",
+          "default": true,
+          "name": "Rasgado strumming (chord accompaniment)",
+          "descriptors": [
+            "jangly",
+            "driving"
+          ],
+          "match_tokens": [
+            "strummed",
+            "portuguese"
+          ]
+        },
+        {
+          "id": "braguesa_ponteado",
+          "name": "Ponteado (fingerpicked melody)",
+          "descriptors": [
+            "crisp",
+            "chiming"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "braguesa_strings",
+      "surface": false,
+      "name": "String courses",
+      "variants": [
+        {
+          "id": "braguesa_steel",
+          "default": true,
+          "name": "Steel strings, five double courses",
+          "descriptors": [
+            "bright-attack",
+            "ringing"
+          ],
+          "match_tokens": [
+            "steel-strung"
+          ]
+        },
+        {
+          "id": "braguesa_octave",
+          "name": "Octave-paired courses",
+          "descriptors": [
+            "shimmering",
+            "wide-spectrum"
+          ],
+          "match_tokens": [
+            "strummed"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "braguesa_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "braguesa_rasgado",
+          "default": true,
+          "name": "Rasgado strumming (chord accompaniment)",
+          "descriptors": [
+            "jangly",
+            "driving"
+          ],
+          "match_tokens": [
+            "strummed",
+            "portuguese"
+          ]
+        },
+        {
+          "id": "braguesa_ponteado",
+          "name": "Ponteado (fingerpicked melody)",
+          "descriptors": [
+            "crisp",
+            "chiming"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "braguesa_strings",
+      "surface": false,
+      "name": "String courses",
+      "variants": [
+        {
+          "id": "braguesa_steel",
+          "default": true,
+          "name": "Steel strings, five double courses",
+          "descriptors": [
+            "bright-attack",
+            "ringing"
+          ],
+          "match_tokens": [
+            "steel-strung"
+          ]
+        },
+        {
+          "id": "braguesa_octave",
+          "name": "Octave-paired courses",
+          "descriptors": [
+            "shimmering",
+            "wide-spectrum"
+          ],
+          "match_tokens": [
+            "strummed"
+          ]
+        }
+      ]
+    }
+  ]
+}

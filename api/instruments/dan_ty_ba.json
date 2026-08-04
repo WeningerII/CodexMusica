@@ -1,0 +1,240 @@
+{
+  "id": "dan_ty_ba",
+  "name": "Đàn tỳ bà (Vietnamese pear-shaped four-string lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "dan ty ba",
+  "parts": [
+    {
+      "id": "dantyba_style",
+      "name": "Repertoire / style",
+      "variants": [
+        {
+          "id": "dantyba_nhac_tai_tu",
+          "default": true,
+          "name": "Đờn ca tài tử chamber style",
+          "descriptors": [
+            "ornamented",
+            "bending",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "vietnamese",
+            "chamber"
+          ]
+        },
+        {
+          "id": "dantyba_nha_nhac",
+          "name": "Nhã nhạc court ensemble",
+          "descriptors": [
+            "stately",
+            "clear-attack",
+            "formal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "court"
+          ]
+        },
+        {
+          "id": "dantyba_tremolo",
+          "name": "Tremolo (vê) solo playing",
+          "descriptors": [
+            "shimmering",
+            "sustained-roll",
+            "brilliant"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dantyba_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "dantyba_nylon",
+          "default": true,
+          "name": "Nylon strings with plectrum",
+          "descriptors": [
+            "bright",
+            "crisp"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "dantyba_silk",
+          "name": "Silk strings, finger-plucked",
+          "descriptors": [
+            "soft",
+            "warm",
+            "archaic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "silk-strung"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dantyba_frets",
+      "surface": false,
+      "name": "Fret height",
+      "variants": [
+        {
+          "id": "dantyba_high",
+          "default": true,
+          "name": "Tall bamboo frets (deep bends)",
+          "descriptors": [
+            "bending",
+            "vocal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "glissando"
+          ]
+        },
+        {
+          "id": "dantyba_low",
+          "name": "Low frets",
+          "descriptors": [
+            "clean",
+            "precise"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dantyba_style",
+      "name": "Repertoire / style",
+      "variants": [
+        {
+          "id": "dantyba_nhac_tai_tu",
+          "default": true,
+          "name": "Đờn ca tài tử chamber style",
+          "descriptors": [
+            "ornamented",
+            "bending",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "vietnamese",
+            "chamber"
+          ]
+        },
+        {
+          "id": "dantyba_nha_nhac",
+          "name": "Nhã nhạc court ensemble",
+          "descriptors": [
+            "stately",
+            "clear-attack",
+            "formal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "court"
+          ]
+        },
+        {
+          "id": "dantyba_tremolo",
+          "name": "Tremolo (vê) solo playing",
+          "descriptors": [
+            "shimmering",
+            "sustained-roll",
+            "brilliant"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dantyba_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "dantyba_nylon",
+          "default": true,
+          "name": "Nylon strings with plectrum",
+          "descriptors": [
+            "bright",
+            "crisp"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "dantyba_silk",
+          "name": "Silk strings, finger-plucked",
+          "descriptors": [
+            "soft",
+            "warm",
+            "archaic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "silk-strung"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dantyba_frets",
+      "surface": false,
+      "name": "Fret height",
+      "variants": [
+        {
+          "id": "dantyba_high",
+          "default": true,
+          "name": "Tall bamboo frets (deep bends)",
+          "descriptors": [
+            "bending",
+            "vocal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "glissando"
+          ]
+        },
+        {
+          "id": "dantyba_low",
+          "name": "Low frets",
+          "descriptors": [
+            "clean",
+            "precise"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

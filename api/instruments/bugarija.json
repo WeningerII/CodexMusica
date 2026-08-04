@@ -1,0 +1,206 @@
+{
+  "id": "bugarija",
+  "name": "Bugarija (Croatian tamburica rhythm chord lute)",
+  "family": "acoustic_strings",
+  "class": "plucked_string_rhythm",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "bugarija",
+  "parts": [
+    {
+      "id": "bugarija_form",
+      "name": "Size / tuning form",
+      "variants": [
+        {
+          "id": "bugarija_kontra_e",
+          "default": true,
+          "name": "Kontra bugarija in E (standard offbeat chord instrument)",
+          "descriptors": [
+            "chordal-chop",
+            "dry-attack",
+            "offbeat-driving"
+          ],
+          "match_tokens": [
+            "strummed",
+            "tamburica"
+          ]
+        },
+        {
+          "id": "bugarija_brac_tuned",
+          "name": "Larger brač-sized bugarija",
+          "descriptors": [
+            "fuller-bodied",
+            "warm-chordal"
+          ],
+          "match_tokens": [
+            "strummed",
+            "tamburica"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bugarija_plectrum",
+      "name": "Plectrum / stroke",
+      "variants": [
+        {
+          "id": "bugarija_horn_pick_downstroke",
+          "default": true,
+          "name": "Horn plectrum, damped downstroke chords",
+          "descriptors": [
+            "percussive-strum",
+            "clipped-decay"
+          ],
+          "match_tokens": [
+            "strummed",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "bugarija_soft_pick",
+          "name": "Soft plectrum, ringing strum",
+          "descriptors": [
+            "ringing-strum",
+            "open-toned"
+          ],
+          "match_tokens": [
+            "strummed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bugarija_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "bugarija_steel",
+          "default": true,
+          "name": "Steel strings (modern)",
+          "descriptors": [
+            "bright-attack",
+            "metallic-sheen"
+          ],
+          "match_tokens": [
+            "strummed"
+          ]
+        },
+        {
+          "id": "bugarija_gut",
+          "name": "Gut strings (archaic)",
+          "descriptors": [
+            "mellow-tone",
+            "archaic"
+          ],
+          "match_tokens": [
+            "strummed"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "bugarija_form",
+      "name": "Size / tuning form",
+      "variants": [
+        {
+          "id": "bugarija_kontra_e",
+          "default": true,
+          "name": "Kontra bugarija in E (standard offbeat chord instrument)",
+          "descriptors": [
+            "chordal-chop",
+            "dry-attack",
+            "offbeat-driving"
+          ],
+          "match_tokens": [
+            "strummed",
+            "tamburica"
+          ]
+        },
+        {
+          "id": "bugarija_brac_tuned",
+          "name": "Larger brač-sized bugarija",
+          "descriptors": [
+            "fuller-bodied",
+            "warm-chordal"
+          ],
+          "match_tokens": [
+            "strummed",
+            "tamburica"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bugarija_plectrum",
+      "name": "Plectrum / stroke",
+      "variants": [
+        {
+          "id": "bugarija_horn_pick_downstroke",
+          "default": true,
+          "name": "Horn plectrum, damped downstroke chords",
+          "descriptors": [
+            "percussive-strum",
+            "clipped-decay"
+          ],
+          "match_tokens": [
+            "strummed",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "bugarija_soft_pick",
+          "name": "Soft plectrum, ringing strum",
+          "descriptors": [
+            "ringing-strum",
+            "open-toned"
+          ],
+          "match_tokens": [
+            "strummed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bugarija_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "bugarija_steel",
+          "default": true,
+          "name": "Steel strings (modern)",
+          "descriptors": [
+            "bright-attack",
+            "metallic-sheen"
+          ],
+          "match_tokens": [
+            "strummed"
+          ]
+        },
+        {
+          "id": "bugarija_gut",
+          "name": "Gut strings (archaic)",
+          "descriptors": [
+            "mellow-tone",
+            "archaic"
+          ],
+          "match_tokens": [
+            "strummed"
+          ]
+        }
+      ]
+    }
+  ]
+}

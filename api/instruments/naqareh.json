@@ -1,0 +1,152 @@
+{
+  "id": "naqareh",
+  "name": "Naqareh (Persian-Indian small paired kettledrums)",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": -1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "naqareh",
+  "parts": [
+    {
+      "id": "naqareh_size",
+      "name": "Pair size",
+      "variants": [
+        {
+          "id": "naqareh_small",
+          "default": true,
+          "name": "Small paired kettledrums (stick-played)",
+          "descriptors": [
+            "cracking",
+            "tight",
+            "chattering"
+          ],
+          "match_tokens": [
+            "kettledrum",
+            "persian",
+            "paired-drums"
+          ]
+        },
+        {
+          "id": "naqareh_naqareh_khaneh",
+          "name": "Large naqqarakhaneh ceremonial drums",
+          "descriptors": [
+            "booming",
+            "ceremonial",
+            "imposing"
+          ],
+          "match_tokens": [
+            "kettledrum",
+            "ceremonial",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "naqareh_shell",
+      "surface": false,
+      "name": "Bowl material",
+      "variants": [
+        {
+          "id": "naqareh_metal",
+          "default": true,
+          "name": "Copper bowls",
+          "descriptors": [
+            "ringing",
+            "projecting"
+          ],
+          "match_tokens": [
+            "metal-shell"
+          ]
+        },
+        {
+          "id": "naqareh_clay",
+          "name": "Clay bowls",
+          "descriptors": [
+            "dry",
+            "earthy"
+          ],
+          "match_tokens": [
+            "clay-shell"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "naqareh_size",
+      "name": "Pair size",
+      "variants": [
+        {
+          "id": "naqareh_small",
+          "default": true,
+          "name": "Small paired kettledrums (stick-played)",
+          "descriptors": [
+            "cracking",
+            "tight",
+            "chattering"
+          ],
+          "match_tokens": [
+            "kettledrum",
+            "persian",
+            "paired-drums"
+          ]
+        },
+        {
+          "id": "naqareh_naqareh_khaneh",
+          "name": "Large naqqarakhaneh ceremonial drums",
+          "descriptors": [
+            "booming",
+            "ceremonial",
+            "imposing"
+          ],
+          "match_tokens": [
+            "kettledrum",
+            "ceremonial",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "naqareh_shell",
+      "surface": false,
+      "name": "Bowl material",
+      "variants": [
+        {
+          "id": "naqareh_metal",
+          "default": true,
+          "name": "Copper bowls",
+          "descriptors": [
+            "ringing",
+            "projecting"
+          ],
+          "match_tokens": [
+            "metal-shell"
+          ]
+        },
+        {
+          "id": "naqareh_clay",
+          "name": "Clay bowls",
+          "descriptors": [
+            "dry",
+            "earthy"
+          ],
+          "match_tokens": [
+            "clay-shell"
+          ]
+        }
+      ]
+    }
+  ]
+}

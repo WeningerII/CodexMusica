@@ -1,0 +1,146 @@
+{
+  "id": "morchang",
+  "name": "Morchang (Rajasthani iron jaw harp)",
+  "family": "plucked_traditional",
+  "class": "jaw_harp",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "morchang",
+  "parts": [
+    {
+      "id": "morchang_size",
+      "name": "Frame size",
+      "variants": [
+        {
+          "id": "morchang_std",
+          "default": true,
+          "name": "Standard iron frame",
+          "descriptors": [
+            "twanging",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "rajasthani"
+          ]
+        },
+        {
+          "id": "morchang_low",
+          "name": "Heavy low-tongued frame",
+          "descriptors": [
+            "deep-buzz",
+            "thick"
+          ],
+          "match_tokens": [
+            "low-register",
+            "jaw-harp"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "morchang_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "morchang_konnakol_style",
+          "default": true,
+          "name": "Carnatic tala-based phrasing",
+          "descriptors": [
+            "crisp",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "carnatic",
+            "rhythmic-solo"
+          ]
+        },
+        {
+          "id": "morchang_folk",
+          "name": "Rajasthani folk accompaniment",
+          "descriptors": [
+            "loping",
+            "droning"
+          ],
+          "match_tokens": [
+            "folk-rhythm",
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "morchang_size",
+      "name": "Frame size",
+      "variants": [
+        {
+          "id": "morchang_std",
+          "default": true,
+          "name": "Standard iron frame",
+          "descriptors": [
+            "twanging",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "rajasthani"
+          ]
+        },
+        {
+          "id": "morchang_low",
+          "name": "Heavy low-tongued frame",
+          "descriptors": [
+            "deep-buzz",
+            "thick"
+          ],
+          "match_tokens": [
+            "low-register",
+            "jaw-harp"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "morchang_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "morchang_konnakol_style",
+          "default": true,
+          "name": "Carnatic tala-based phrasing",
+          "descriptors": [
+            "crisp",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "carnatic",
+            "rhythmic-solo"
+          ]
+        },
+        {
+          "id": "morchang_folk",
+          "name": "Rajasthani folk accompaniment",
+          "descriptors": [
+            "loping",
+            "droning"
+          ],
+          "match_tokens": [
+            "folk-rhythm",
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,241 @@
+{
+  "id": "mayuri_veena",
+  "name": "Mayuri veena (North Indian peacock-bodied bowed lute)",
+  "family": "bowed",
+  "class": "bowed_lute",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "mayuri veena",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "mayuri_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "mayuri_esraj_style",
+          "default": true,
+          "name": "Fretted peacock body with sympathetic set",
+          "descriptors": [
+            "shimmering",
+            "vocal",
+            "meend-rich"
+          ],
+          "match_tokens": [
+            "bowed",
+            "hindustani",
+            "sympathetic-strings"
+          ]
+        },
+        {
+          "id": "mayuri_court",
+          "name": "Ornate court mayuri (feathered, inlaid)",
+          "descriptors": [
+            "mellow",
+            "refined",
+            "reverberant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "hindustani"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mayuri_style",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "mayuri_alap",
+          "default": true,
+          "name": "Alap and slow gat (raga exposition)",
+          "descriptors": [
+            "sustained",
+            "gliding",
+            "meditative"
+          ],
+          "match_tokens": [
+            "bowed",
+            "raga",
+            "expressive"
+          ]
+        },
+        {
+          "id": "mayuri_accompaniment",
+          "name": "Vocal / dhrupad accompaniment",
+          "descriptors": [
+            "voice-shadowing",
+            "supporting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "hindustani"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mayuri_bow",
+      "surface": false,
+      "name": "Bow pressure",
+      "variants": [
+        {
+          "id": "mayuri_light",
+          "default": true,
+          "name": "Light bow, singing tone",
+          "descriptors": [
+            "silky",
+            "soft-attack"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        },
+        {
+          "id": "mayuri_heavy",
+          "name": "Heavy bow, gritty attack",
+          "descriptors": [
+            "grainy",
+            "incisive"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "mayuri_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "mayuri_esraj_style",
+          "default": true,
+          "name": "Fretted peacock body with sympathetic set",
+          "descriptors": [
+            "shimmering",
+            "vocal",
+            "meend-rich"
+          ],
+          "match_tokens": [
+            "bowed",
+            "hindustani",
+            "sympathetic-strings"
+          ]
+        },
+        {
+          "id": "mayuri_court",
+          "name": "Ornate court mayuri (feathered, inlaid)",
+          "descriptors": [
+            "mellow",
+            "refined",
+            "reverberant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "hindustani"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mayuri_style",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "mayuri_alap",
+          "default": true,
+          "name": "Alap and slow gat (raga exposition)",
+          "descriptors": [
+            "sustained",
+            "gliding",
+            "meditative"
+          ],
+          "match_tokens": [
+            "bowed",
+            "raga",
+            "expressive"
+          ]
+        },
+        {
+          "id": "mayuri_accompaniment",
+          "name": "Vocal / dhrupad accompaniment",
+          "descriptors": [
+            "voice-shadowing",
+            "supporting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "hindustani"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mayuri_bow",
+      "surface": false,
+      "name": "Bow pressure",
+      "variants": [
+        {
+          "id": "mayuri_light",
+          "default": true,
+          "name": "Light bow, singing tone",
+          "descriptors": [
+            "silky",
+            "soft-attack"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        },
+        {
+          "id": "mayuri_heavy",
+          "name": "Heavy bow, gritty attack",
+          "descriptors": [
+            "grainy",
+            "incisive"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ]
+}

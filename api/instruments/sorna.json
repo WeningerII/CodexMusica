@@ -1,0 +1,178 @@
+{
+  "id": "sorna",
+  "name": "Sorna (Persian conical double-reed shawm)",
+  "family": "wind",
+  "class": "double_reed_shawm",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "sorna",
+  "parts": [
+    {
+      "id": "sorna_region",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "sorna_kurdish",
+          "default": true,
+          "name": "Kurdish sorna (with dohol)",
+          "descriptors": [
+            "piercing",
+            "microtonal",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "kurdish",
+            "shawm",
+            "outdoor"
+          ]
+        },
+        {
+          "id": "sorna_khorasan",
+          "name": "Khorasani sorna",
+          "descriptors": [
+            "nasal",
+            "ornamented",
+            "ritual"
+          ],
+          "match_tokens": [
+            "persian",
+            "khorasan"
+          ]
+        },
+        {
+          "id": "sorna_bakhtiari",
+          "name": "Bakhtiari/Lori sorna",
+          "descriptors": [
+            "plaintive",
+            "reedy"
+          ],
+          "match_tokens": [
+            "lori",
+            "persian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sorna_breath",
+      "name": "Breath technique",
+      "variants": [
+        {
+          "id": "sorna_circular",
+          "default": true,
+          "name": "Circular breathing (continuous tone)",
+          "descriptors": [
+            "unbroken",
+            "droning",
+            "relentless"
+          ],
+          "match_tokens": [
+            "circular-breathing",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "sorna_phrased",
+          "name": "Phrased breathing",
+          "descriptors": [
+            "articulated",
+            "song-like"
+          ],
+          "match_tokens": [
+            "shawm",
+            "melodic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sorna_region",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "sorna_kurdish",
+          "default": true,
+          "name": "Kurdish sorna (with dohol)",
+          "descriptors": [
+            "piercing",
+            "microtonal",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "kurdish",
+            "shawm",
+            "outdoor"
+          ]
+        },
+        {
+          "id": "sorna_khorasan",
+          "name": "Khorasani sorna",
+          "descriptors": [
+            "nasal",
+            "ornamented",
+            "ritual"
+          ],
+          "match_tokens": [
+            "persian",
+            "khorasan"
+          ]
+        },
+        {
+          "id": "sorna_bakhtiari",
+          "name": "Bakhtiari/Lori sorna",
+          "descriptors": [
+            "plaintive",
+            "reedy"
+          ],
+          "match_tokens": [
+            "lori",
+            "persian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sorna_breath",
+      "name": "Breath technique",
+      "variants": [
+        {
+          "id": "sorna_circular",
+          "default": true,
+          "name": "Circular breathing (continuous tone)",
+          "descriptors": [
+            "unbroken",
+            "droning",
+            "relentless"
+          ],
+          "match_tokens": [
+            "circular-breathing",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "sorna_phrased",
+          "name": "Phrased breathing",
+          "descriptors": [
+            "articulated",
+            "song-like"
+          ],
+          "match_tokens": [
+            "shawm",
+            "melodic"
+          ]
+        }
+      ]
+    }
+  ]
+}

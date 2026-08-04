@@ -1,0 +1,144 @@
+{
+  "id": "qraqeb",
+  "name": "Qraqeb (Maghrebi iron castanets, Algerian/Diwan form)",
+  "family": "percussion",
+  "class": "concussion_idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "qraqeb",
+  "parts": [
+    {
+      "id": "qraqeb_tradition",
+      "name": "Regional tradition",
+      "variants": [
+        {
+          "id": "qraqeb_diwan",
+          "default": true,
+          "name": "Algerian Diwan qraqeb (Sidi Bilal ritual)",
+          "descriptors": [
+            "clanging",
+            "trance-inducing"
+          ],
+          "match_tokens": [
+            "diwan",
+            "iron-castanets"
+          ]
+        },
+        {
+          "id": "qraqeb_stambeli",
+          "name": "Tunisian Stambeli shqashiq form",
+          "descriptors": [
+            "shimmering-clatter",
+            "ritual"
+          ],
+          "match_tokens": [
+            "stambeli",
+            "iron-castanets"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qraqeb_build",
+      "name": "Plate build",
+      "variants": [
+        {
+          "id": "qraqeb_forged",
+          "default": true,
+          "name": "Hand-forged iron plates on a cord",
+          "descriptors": [
+            "rough-metal",
+            "clattering"
+          ],
+          "match_tokens": [
+            "metal-idiophone"
+          ]
+        },
+        {
+          "id": "qraqeb_steel",
+          "name": "Polished steel plates (modern)",
+          "descriptors": [
+            "bright-clang",
+            "ringing"
+          ],
+          "match_tokens": [
+            "metal-idiophone",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "qraqeb_tradition",
+      "name": "Regional tradition",
+      "variants": [
+        {
+          "id": "qraqeb_diwan",
+          "default": true,
+          "name": "Algerian Diwan qraqeb (Sidi Bilal ritual)",
+          "descriptors": [
+            "clanging",
+            "trance-inducing"
+          ],
+          "match_tokens": [
+            "diwan",
+            "iron-castanets"
+          ]
+        },
+        {
+          "id": "qraqeb_stambeli",
+          "name": "Tunisian Stambeli shqashiq form",
+          "descriptors": [
+            "shimmering-clatter",
+            "ritual"
+          ],
+          "match_tokens": [
+            "stambeli",
+            "iron-castanets"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qraqeb_build",
+      "name": "Plate build",
+      "variants": [
+        {
+          "id": "qraqeb_forged",
+          "default": true,
+          "name": "Hand-forged iron plates on a cord",
+          "descriptors": [
+            "rough-metal",
+            "clattering"
+          ],
+          "match_tokens": [
+            "metal-idiophone"
+          ]
+        },
+        {
+          "id": "qraqeb_steel",
+          "name": "Polished steel plates (modern)",
+          "descriptors": [
+            "bright-clang",
+            "ringing"
+          ],
+          "match_tokens": [
+            "metal-idiophone",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

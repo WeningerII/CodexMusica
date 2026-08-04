@@ -1,0 +1,181 @@
+{
+  "id": "viola_pomposa",
+  "name": "Viola pomposa (five-string Baroque shoulder viola)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 2,
+    "register": 0,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "viola pomposa",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "pomposa_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "pomposa_fivestring",
+          "default": true,
+          "name": "Five-string shoulder viola pomposa",
+          "descriptors": [
+            "warm",
+            "wide-compass",
+            "singing"
+          ],
+          "match_tokens": [
+            "baroque",
+            "bowed",
+            "five-string"
+          ]
+        },
+        {
+          "id": "pomposa_violoncello_piccolo",
+          "name": "Violoncello piccolo form (held between knees)",
+          "descriptors": [
+            "rich",
+            "tenor-toned",
+            "resonant"
+          ],
+          "match_tokens": [
+            "baroque",
+            "bowed",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pomposa_setup",
+      "name": "Setup and bow",
+      "variants": [
+        {
+          "id": "pomposa_baroque",
+          "default": true,
+          "name": "Gut strings with Baroque bow",
+          "descriptors": [
+            "soft-attack",
+            "airy",
+            "period-toned"
+          ],
+          "match_tokens": [
+            "baroque",
+            "bowed"
+          ]
+        },
+        {
+          "id": "pomposa_modern",
+          "name": "Modern strings and bow",
+          "descriptors": [
+            "even",
+            "projecting",
+            "bright"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "pomposa_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "pomposa_fivestring",
+          "default": true,
+          "name": "Five-string shoulder viola pomposa",
+          "descriptors": [
+            "warm",
+            "wide-compass",
+            "singing"
+          ],
+          "match_tokens": [
+            "baroque",
+            "bowed",
+            "five-string"
+          ]
+        },
+        {
+          "id": "pomposa_violoncello_piccolo",
+          "name": "Violoncello piccolo form (held between knees)",
+          "descriptors": [
+            "rich",
+            "tenor-toned",
+            "resonant"
+          ],
+          "match_tokens": [
+            "baroque",
+            "bowed",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pomposa_setup",
+      "name": "Setup and bow",
+      "variants": [
+        {
+          "id": "pomposa_baroque",
+          "default": true,
+          "name": "Gut strings with Baroque bow",
+          "descriptors": [
+            "soft-attack",
+            "airy",
+            "period-toned"
+          ],
+          "match_tokens": [
+            "baroque",
+            "bowed"
+          ]
+        },
+        {
+          "id": "pomposa_modern",
+          "name": "Modern strings and bow",
+          "descriptors": [
+            "even",
+            "projecting",
+            "bright"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ]
+}

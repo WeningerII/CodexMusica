@@ -1,0 +1,206 @@
+{
+  "id": "guembri",
+  "name": "Guembri (Gnawa three-string bass lute)",
+  "family": "plucked_traditional",
+  "class": "bass_lamellophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": -2,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "guembri",
+  "parts": [
+    {
+      "id": "guembri_size",
+      "name": "Size / register",
+      "variants": [
+        {
+          "id": "guembri_hajhouj",
+          "default": true,
+          "name": "Large Moroccan hajhouj (deep bass)",
+          "descriptors": [
+            "deep-toned",
+            "thumping",
+            "hypnotic"
+          ],
+          "match_tokens": [
+            "gnawa",
+            "bass-lute"
+          ]
+        },
+        {
+          "id": "guembri_small",
+          "name": "Smaller sintir (higher, more melodic)",
+          "descriptors": [
+            "mid-toned",
+            "articulate"
+          ],
+          "match_tokens": [
+            "plucked-lute",
+            "moroccan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guembri_sersera",
+      "name": "Metal buzzer (sersara)",
+      "variants": [
+        {
+          "id": "guembri_sersara_on",
+          "default": true,
+          "name": "Ringed metal sersara on the neck",
+          "descriptors": [
+            "buzzing-timbre",
+            "rattling"
+          ],
+          "match_tokens": [
+            "buzz-timbre",
+            "gnawa"
+          ]
+        },
+        {
+          "id": "guembri_sersara_off",
+          "name": "No sersara",
+          "descriptors": [
+            "clean-tone",
+            "round"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guembri_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "guembri_gut",
+          "default": true,
+          "name": "Goat-gut strings",
+          "descriptors": [
+            "thuddy",
+            "warm"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "guembri_nylon",
+          "name": "Nylon strings",
+          "descriptors": [
+            "bright",
+            "sustaining"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "guembri_size",
+      "name": "Size / register",
+      "variants": [
+        {
+          "id": "guembri_hajhouj",
+          "default": true,
+          "name": "Large Moroccan hajhouj (deep bass)",
+          "descriptors": [
+            "deep-toned",
+            "thumping",
+            "hypnotic"
+          ],
+          "match_tokens": [
+            "gnawa",
+            "bass-lute"
+          ]
+        },
+        {
+          "id": "guembri_small",
+          "name": "Smaller sintir (higher, more melodic)",
+          "descriptors": [
+            "mid-toned",
+            "articulate"
+          ],
+          "match_tokens": [
+            "plucked-lute",
+            "moroccan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guembri_sersera",
+      "name": "Metal buzzer (sersara)",
+      "variants": [
+        {
+          "id": "guembri_sersara_on",
+          "default": true,
+          "name": "Ringed metal sersara on the neck",
+          "descriptors": [
+            "buzzing-timbre",
+            "rattling"
+          ],
+          "match_tokens": [
+            "buzz-timbre",
+            "gnawa"
+          ]
+        },
+        {
+          "id": "guembri_sersara_off",
+          "name": "No sersara",
+          "descriptors": [
+            "clean-tone",
+            "round"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guembri_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "guembri_gut",
+          "default": true,
+          "name": "Goat-gut strings",
+          "descriptors": [
+            "thuddy",
+            "warm"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "guembri_nylon",
+          "name": "Nylon strings",
+          "descriptors": [
+            "bright",
+            "sustaining"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,205 @@
+{
+  "id": "viola_bastarda",
+  "name": "Viola bastarda (Italian division viol)",
+  "family": "bowed",
+  "class": "bowed",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 2,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "viola bastarda",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "bastarda_style",
+      "name": "Playing idiom",
+      "variants": [
+        {
+          "id": "bastarda_diminution",
+          "default": true,
+          "name": "Madrigal diminution (all-voices division)",
+          "descriptors": [
+            "florid",
+            "range-leaping",
+            "virtuosic"
+          ],
+          "match_tokens": [
+            "renaissance",
+            "viol",
+            "divisions"
+          ]
+        },
+        {
+          "id": "bastarda_recercar",
+          "name": "Free ricercar / passaggi",
+          "descriptors": [
+            "improvisatory",
+            "rhetorical",
+            "supple"
+          ],
+          "match_tokens": [
+            "viol",
+            "expressive"
+          ]
+        },
+        {
+          "id": "bastarda_chordal",
+          "name": "Chordal lyra-way playing",
+          "descriptors": [
+            "chordal",
+            "reedy",
+            "polyphonic"
+          ],
+          "match_tokens": [
+            "viol",
+            "polyphonic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bastarda_setup",
+      "name": "Stringing",
+      "variants": [
+        {
+          "id": "bastarda_sixstring",
+          "default": true,
+          "name": "Six gut strings, fretted",
+          "descriptors": [
+            "gut-strung",
+            "fret-buzzed",
+            "warm"
+          ],
+          "match_tokens": [
+            "viol",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "bastarda_sympathetic",
+          "name": "With sympathetic wire strings (viola d'amore-like)",
+          "descriptors": [
+            "shimmering",
+            "halo-toned"
+          ],
+          "match_tokens": [
+            "viol",
+            "sympathetic-strings"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "bastarda_style",
+      "name": "Playing idiom",
+      "variants": [
+        {
+          "id": "bastarda_diminution",
+          "default": true,
+          "name": "Madrigal diminution (all-voices division)",
+          "descriptors": [
+            "florid",
+            "range-leaping",
+            "virtuosic"
+          ],
+          "match_tokens": [
+            "renaissance",
+            "viol",
+            "divisions"
+          ]
+        },
+        {
+          "id": "bastarda_recercar",
+          "name": "Free ricercar / passaggi",
+          "descriptors": [
+            "improvisatory",
+            "rhetorical",
+            "supple"
+          ],
+          "match_tokens": [
+            "viol",
+            "expressive"
+          ]
+        },
+        {
+          "id": "bastarda_chordal",
+          "name": "Chordal lyra-way playing",
+          "descriptors": [
+            "chordal",
+            "reedy",
+            "polyphonic"
+          ],
+          "match_tokens": [
+            "viol",
+            "polyphonic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bastarda_setup",
+      "name": "Stringing",
+      "variants": [
+        {
+          "id": "bastarda_sixstring",
+          "default": true,
+          "name": "Six gut strings, fretted",
+          "descriptors": [
+            "gut-strung",
+            "fret-buzzed",
+            "warm"
+          ],
+          "match_tokens": [
+            "viol",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "bastarda_sympathetic",
+          "name": "With sympathetic wire strings (viola d'amore-like)",
+          "descriptors": [
+            "shimmering",
+            "halo-toned"
+          ],
+          "match_tokens": [
+            "viol",
+            "sympathetic-strings"
+          ]
+        }
+      ]
+    }
+  ]
+}

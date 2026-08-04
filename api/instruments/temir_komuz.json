@@ -1,0 +1,166 @@
+{
+  "id": "temir_komuz",
+  "name": "Temir komuz (Kyrgyz metal jaw harp)",
+  "family": "plucked_traditional",
+  "class": "jaw_harp",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 0,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "temir komuz",
+  "parts": [
+    {
+      "id": "temir_komuz_size",
+      "name": "Frame size / pitch",
+      "variants": [
+        {
+          "id": "temir_komuz_std",
+          "default": true,
+          "name": "Standard steel frame",
+          "descriptors": [
+            "buzzing-timbre",
+            "twanging"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "kyrgyz"
+          ]
+        },
+        {
+          "id": "temir_komuz_large",
+          "name": "Large low-tongued frame",
+          "descriptors": [
+            "deep-buzz",
+            "slow-decay"
+          ],
+          "match_tokens": [
+            "low-register",
+            "jaw-harp"
+          ]
+        },
+        {
+          "id": "temir_komuz_small",
+          "name": "Small high-pitched frame",
+          "descriptors": [
+            "bright-attack",
+            "chirping"
+          ],
+          "match_tokens": [
+            "high-pitched",
+            "jaw-harp"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "temir_komuz_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "temir_komuz_rhythmic",
+          "default": true,
+          "name": "Rapid rhythmic plucking with vowel shaping",
+          "descriptors": [
+            "pulsing",
+            "formant-shifting"
+          ],
+          "match_tokens": [
+            "overtone-melody"
+          ]
+        },
+        {
+          "id": "temir_komuz_breath",
+          "name": "Breath-pulsed drone with throat accents",
+          "descriptors": [
+            "droning",
+            "whispered"
+          ],
+          "match_tokens": [
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "temir_komuz_size",
+      "name": "Frame size / pitch",
+      "variants": [
+        {
+          "id": "temir_komuz_std",
+          "default": true,
+          "name": "Standard steel frame",
+          "descriptors": [
+            "buzzing-timbre",
+            "twanging"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "kyrgyz"
+          ]
+        },
+        {
+          "id": "temir_komuz_large",
+          "name": "Large low-tongued frame",
+          "descriptors": [
+            "deep-buzz",
+            "slow-decay"
+          ],
+          "match_tokens": [
+            "low-register",
+            "jaw-harp"
+          ]
+        },
+        {
+          "id": "temir_komuz_small",
+          "name": "Small high-pitched frame",
+          "descriptors": [
+            "bright-attack",
+            "chirping"
+          ],
+          "match_tokens": [
+            "high-pitched",
+            "jaw-harp"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "temir_komuz_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "temir_komuz_rhythmic",
+          "default": true,
+          "name": "Rapid rhythmic plucking with vowel shaping",
+          "descriptors": [
+            "pulsing",
+            "formant-shifting"
+          ],
+          "match_tokens": [
+            "overtone-melody"
+          ]
+        },
+        {
+          "id": "temir_komuz_breath",
+          "name": "Breath-pulsed drone with throat accents",
+          "descriptors": [
+            "droning",
+            "whispered"
+          ],
+          "match_tokens": [
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ]
+}

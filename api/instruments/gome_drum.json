@@ -1,0 +1,146 @@
+{
+  "id": "gome_drum",
+  "name": "Gome (Ga frame box drum of Ghana)",
+  "family": "percussion",
+  "class": "frame_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -2,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "gome",
+  "parts": [
+    {
+      "id": "gome_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "gome_heel_pitch",
+          "default": true,
+          "name": "Seated, heels pressing the skin for pitch bends",
+          "descriptors": [
+            "bending-bass",
+            "boomy",
+            "dubby"
+          ],
+          "match_tokens": [
+            "box-drum",
+            "ghanaian"
+          ]
+        },
+        {
+          "id": "gome_open_hands",
+          "name": "Open-hand slaps without heel pressure",
+          "descriptors": [
+            "thumping",
+            "flat-toned"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "frame-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gome_size",
+      "name": "Box size",
+      "variants": [
+        {
+          "id": "gome_large",
+          "default": true,
+          "name": "Large bass gome box",
+          "descriptors": [
+            "deep-toned",
+            "subsonic"
+          ],
+          "match_tokens": [
+            "bass-drum",
+            "box-drum"
+          ]
+        },
+        {
+          "id": "gome_small",
+          "name": "Smaller supporting gome",
+          "descriptors": [
+            "tighter",
+            "mid-toned"
+          ],
+          "match_tokens": [
+            "box-drum"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "gome_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "gome_heel_pitch",
+          "default": true,
+          "name": "Seated, heels pressing the skin for pitch bends",
+          "descriptors": [
+            "bending-bass",
+            "boomy",
+            "dubby"
+          ],
+          "match_tokens": [
+            "box-drum",
+            "ghanaian"
+          ]
+        },
+        {
+          "id": "gome_open_hands",
+          "name": "Open-hand slaps without heel pressure",
+          "descriptors": [
+            "thumping",
+            "flat-toned"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "frame-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gome_size",
+      "name": "Box size",
+      "variants": [
+        {
+          "id": "gome_large",
+          "default": true,
+          "name": "Large bass gome box",
+          "descriptors": [
+            "deep-toned",
+            "subsonic"
+          ],
+          "match_tokens": [
+            "bass-drum",
+            "box-drum"
+          ]
+        },
+        {
+          "id": "gome_small",
+          "name": "Smaller supporting gome",
+          "descriptors": [
+            "tighter",
+            "mid-toned"
+          ],
+          "match_tokens": [
+            "box-drum"
+          ]
+        }
+      ]
+    }
+  ]
+}

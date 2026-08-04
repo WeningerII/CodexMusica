@@ -1,0 +1,152 @@
+{
+  "id": "mazhar",
+  "name": "Mazhar (Egyptian large heavy jingled frame drum)",
+  "family": "percussion",
+  "class": "frame_drum",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": -2,
+    "register": 0,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "mazhar",
+  "parts": [
+    {
+      "id": "mazhar_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "mazhar_zaffa",
+          "default": true,
+          "name": "Zaffa wedding procession",
+          "descriptors": [
+            "thunderous",
+            "crashing-jingles",
+            "celebratory"
+          ],
+          "match_tokens": [
+            "egyptian",
+            "frame-drum",
+            "procession"
+          ]
+        },
+        {
+          "id": "mazhar_inshad",
+          "name": "Sufi inshad accompaniment",
+          "descriptors": [
+            "deep-boom",
+            "measured",
+            "devotional"
+          ],
+          "match_tokens": [
+            "sufi",
+            "egyptian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mazhar_head",
+      "surface": false,
+      "name": "Head and jingles",
+      "variants": [
+        {
+          "id": "mazhar_fishskin",
+          "default": true,
+          "name": "Fish/goat skin with heavy brass rings",
+          "descriptors": [
+            "heavy-ring",
+            "dark-toned"
+          ],
+          "match_tokens": [
+            "skin-head",
+            "jingles"
+          ]
+        },
+        {
+          "id": "mazhar_synthetic",
+          "name": "Synthetic head",
+          "descriptors": [
+            "bright",
+            "cracking"
+          ],
+          "match_tokens": [
+            "synthetic-head"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "mazhar_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "mazhar_zaffa",
+          "default": true,
+          "name": "Zaffa wedding procession",
+          "descriptors": [
+            "thunderous",
+            "crashing-jingles",
+            "celebratory"
+          ],
+          "match_tokens": [
+            "egyptian",
+            "frame-drum",
+            "procession"
+          ]
+        },
+        {
+          "id": "mazhar_inshad",
+          "name": "Sufi inshad accompaniment",
+          "descriptors": [
+            "deep-boom",
+            "measured",
+            "devotional"
+          ],
+          "match_tokens": [
+            "sufi",
+            "egyptian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mazhar_head",
+      "surface": false,
+      "name": "Head and jingles",
+      "variants": [
+        {
+          "id": "mazhar_fishskin",
+          "default": true,
+          "name": "Fish/goat skin with heavy brass rings",
+          "descriptors": [
+            "heavy-ring",
+            "dark-toned"
+          ],
+          "match_tokens": [
+            "skin-head",
+            "jingles"
+          ]
+        },
+        {
+          "id": "mazhar_synthetic",
+          "name": "Synthetic head",
+          "descriptors": [
+            "bright",
+            "cracking"
+          ],
+          "match_tokens": [
+            "synthetic-head"
+          ]
+        }
+      ]
+    }
+  ]
+}

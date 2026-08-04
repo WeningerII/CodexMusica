@@ -1,0 +1,176 @@
+{
+  "id": "karna_trumpet",
+  "name": "Karna (Persian long straight natural trumpet)",
+  "family": "wind",
+  "class": "natural_trumpet",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": -1,
+    "range": -1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "karna",
+  "parts": [
+    {
+      "id": "karna_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "karna_straight",
+          "default": true,
+          "name": "Long straight metal karna",
+          "descriptors": [
+            "blaring",
+            "droning",
+            "imposing"
+          ],
+          "match_tokens": [
+            "natural-trumpet",
+            "persian",
+            "ceremonial"
+          ]
+        },
+        {
+          "id": "karna_curved",
+          "name": "Curved/S-bent regional karnay",
+          "descriptors": [
+            "braying",
+            "raw"
+          ],
+          "match_tokens": [
+            "central-asia",
+            "karnay"
+          ]
+        },
+        {
+          "id": "karna_wooden",
+          "name": "Wooden-bodied mountain karna",
+          "descriptors": [
+            "woody",
+            "husky",
+            "archaic"
+          ],
+          "match_tokens": [
+            "wooden-horn",
+            "archaic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "karna_use",
+      "name": "Playing use",
+      "variants": [
+        {
+          "id": "karna_signal",
+          "default": true,
+          "name": "Signal blasts and sustained calls",
+          "descriptors": [
+            "long-tones",
+            "announcing"
+          ],
+          "match_tokens": [
+            "ceremonial",
+            "fanfare"
+          ]
+        },
+        {
+          "id": "karna_ensemble",
+          "name": "With surna and dohol outdoors",
+          "descriptors": [
+            "drone-foundation",
+            "massive"
+          ],
+          "match_tokens": [
+            "outdoor",
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "karna_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "karna_straight",
+          "default": true,
+          "name": "Long straight metal karna",
+          "descriptors": [
+            "blaring",
+            "droning",
+            "imposing"
+          ],
+          "match_tokens": [
+            "natural-trumpet",
+            "persian",
+            "ceremonial"
+          ]
+        },
+        {
+          "id": "karna_curved",
+          "name": "Curved/S-bent regional karnay",
+          "descriptors": [
+            "braying",
+            "raw"
+          ],
+          "match_tokens": [
+            "central-asia",
+            "karnay"
+          ]
+        },
+        {
+          "id": "karna_wooden",
+          "name": "Wooden-bodied mountain karna",
+          "descriptors": [
+            "woody",
+            "husky",
+            "archaic"
+          ],
+          "match_tokens": [
+            "wooden-horn",
+            "archaic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "karna_use",
+      "name": "Playing use",
+      "variants": [
+        {
+          "id": "karna_signal",
+          "default": true,
+          "name": "Signal blasts and sustained calls",
+          "descriptors": [
+            "long-tones",
+            "announcing"
+          ],
+          "match_tokens": [
+            "ceremonial",
+            "fanfare"
+          ]
+        },
+        {
+          "id": "karna_ensemble",
+          "name": "With surna and dohol outdoors",
+          "descriptors": [
+            "drone-foundation",
+            "massive"
+          ],
+          "match_tokens": [
+            "outdoor",
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ]
+}

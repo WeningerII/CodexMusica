@@ -1,0 +1,146 @@
+{
+  "id": "tsuur",
+  "name": "Tsuur (Mongolian three-hole overtone end-blown flute)",
+  "family": "wind",
+  "class": "overtone_flute",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 2,
+    "register": 1,
+    "range": 1,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "tsuur",
+  "parts": [
+    {
+      "id": "tsuur_material",
+      "name": "Tube material",
+      "variants": [
+        {
+          "id": "tsuur_larch",
+          "default": true,
+          "name": "Hollowed larch/willow tube",
+          "descriptors": [
+            "breathy",
+            "whistling",
+            "airy"
+          ],
+          "match_tokens": [
+            "overtone-flute",
+            "mongolian"
+          ]
+        },
+        {
+          "id": "tsuur_reed_grass",
+          "name": "Reed-grass tube (herder's field form)",
+          "descriptors": [
+            "thin",
+            "fragile"
+          ],
+          "match_tokens": [
+            "overtone-flute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tsuur_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "tsuur_drone_hum",
+          "default": true,
+          "name": "Simultaneous throat drone plus flute melody",
+          "descriptors": [
+            "droning",
+            "two-voiced",
+            "haunting"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "overtone"
+          ]
+        },
+        {
+          "id": "tsuur_plain",
+          "name": "Plain blown melody without vocal drone",
+          "descriptors": [
+            "pure-toned",
+            "airy"
+          ],
+          "match_tokens": [
+            "overtone-flute"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tsuur_material",
+      "name": "Tube material",
+      "variants": [
+        {
+          "id": "tsuur_larch",
+          "default": true,
+          "name": "Hollowed larch/willow tube",
+          "descriptors": [
+            "breathy",
+            "whistling",
+            "airy"
+          ],
+          "match_tokens": [
+            "overtone-flute",
+            "mongolian"
+          ]
+        },
+        {
+          "id": "tsuur_reed_grass",
+          "name": "Reed-grass tube (herder's field form)",
+          "descriptors": [
+            "thin",
+            "fragile"
+          ],
+          "match_tokens": [
+            "overtone-flute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tsuur_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "tsuur_drone_hum",
+          "default": true,
+          "name": "Simultaneous throat drone plus flute melody",
+          "descriptors": [
+            "droning",
+            "two-voiced",
+            "haunting"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "overtone"
+          ]
+        },
+        {
+          "id": "tsuur_plain",
+          "name": "Plain blown melody without vocal drone",
+          "descriptors": [
+            "pure-toned",
+            "airy"
+          ],
+          "match_tokens": [
+            "overtone-flute"
+          ]
+        }
+      ]
+    }
+  ]
+}

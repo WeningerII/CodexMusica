@@ -1,0 +1,142 @@
+{
+  "id": "viola_beiroa",
+  "name": "Viola beiroa (Portuguese Beira Baixa folk guitar)",
+  "family": "acoustic_strings",
+  "class": "plucked_string_rhythm",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 0,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "beiroa",
+  "parts": [
+    {
+      "id": "beiroa_courses",
+      "name": "String arrangement",
+      "variants": [
+        {
+          "id": "beiroa_requintas",
+          "default": true,
+          "name": "Five courses with high requinta pairs",
+          "descriptors": [
+            "jangly",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "portuguese",
+            "folk-guitar"
+          ]
+        },
+        {
+          "id": "beiroa_plain",
+          "name": "Plain unison courses",
+          "descriptors": [
+            "focused",
+            "even"
+          ],
+          "match_tokens": [
+            "strummed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "beiroa_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "beiroa_rasgado",
+          "default": true,
+          "name": "Rasgado dance strum",
+          "descriptors": [
+            "driving",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "strummed",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "beiroa_ponteado",
+          "name": "Ponteado melodic picking",
+          "descriptors": [
+            "chiming",
+            "articulate"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "beiroa_courses",
+      "name": "String arrangement",
+      "variants": [
+        {
+          "id": "beiroa_requintas",
+          "default": true,
+          "name": "Five courses with high requinta pairs",
+          "descriptors": [
+            "jangly",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "portuguese",
+            "folk-guitar"
+          ]
+        },
+        {
+          "id": "beiroa_plain",
+          "name": "Plain unison courses",
+          "descriptors": [
+            "focused",
+            "even"
+          ],
+          "match_tokens": [
+            "strummed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "beiroa_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "beiroa_rasgado",
+          "default": true,
+          "name": "Rasgado dance strum",
+          "descriptors": [
+            "driving",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "strummed",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "beiroa_ponteado",
+          "name": "Ponteado melodic picking",
+          "descriptors": [
+            "chiming",
+            "articulate"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

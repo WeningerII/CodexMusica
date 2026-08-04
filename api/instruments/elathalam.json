@@ -1,0 +1,150 @@
+{
+  "id": "elathalam",
+  "name": "Elathalam (Kerala thick bell-metal hand cymbals)",
+  "family": "percussion",
+  "class": "hand_cymbals",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 2,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "elathalam",
+  "parts": [
+    {
+      "id": "elathalam_stroke",
+      "name": "Cymbal stroke",
+      "variants": [
+        {
+          "id": "elathalam_closed",
+          "default": true,
+          "name": "Closed vertical clash (tala keeping)",
+          "descriptors": [
+            "clipped",
+            "piercing",
+            "metronomic"
+          ],
+          "match_tokens": [
+            "kerala",
+            "cymbals",
+            "timekeeper"
+          ]
+        },
+        {
+          "id": "elathalam_open",
+          "name": "Open ringing clash",
+          "descriptors": [
+            "shimmering",
+            "sustained-clang"
+          ],
+          "match_tokens": [
+            "kerala",
+            "cymbals"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "elathalam_ensemble",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "elathalam_panchavadyam",
+          "default": true,
+          "name": "Panchavadyam cycle-marking",
+          "descriptors": [
+            "interlocking",
+            "driving"
+          ],
+          "match_tokens": [
+            "kerala",
+            "temple-percussion"
+          ]
+        },
+        {
+          "id": "elathalam_melam",
+          "name": "Chenda melam accompaniment",
+          "descriptors": [
+            "dense",
+            "massed-clatter"
+          ],
+          "match_tokens": [
+            "kerala",
+            "melam"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "elathalam_stroke",
+      "name": "Cymbal stroke",
+      "variants": [
+        {
+          "id": "elathalam_closed",
+          "default": true,
+          "name": "Closed vertical clash (tala keeping)",
+          "descriptors": [
+            "clipped",
+            "piercing",
+            "metronomic"
+          ],
+          "match_tokens": [
+            "kerala",
+            "cymbals",
+            "timekeeper"
+          ]
+        },
+        {
+          "id": "elathalam_open",
+          "name": "Open ringing clash",
+          "descriptors": [
+            "shimmering",
+            "sustained-clang"
+          ],
+          "match_tokens": [
+            "kerala",
+            "cymbals"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "elathalam_ensemble",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "elathalam_panchavadyam",
+          "default": true,
+          "name": "Panchavadyam cycle-marking",
+          "descriptors": [
+            "interlocking",
+            "driving"
+          ],
+          "match_tokens": [
+            "kerala",
+            "temple-percussion"
+          ]
+        },
+        {
+          "id": "elathalam_melam",
+          "name": "Chenda melam accompaniment",
+          "descriptors": [
+            "dense",
+            "massed-clatter"
+          ],
+          "match_tokens": [
+            "kerala",
+            "melam"
+          ]
+        }
+      ]
+    }
+  ]
+}

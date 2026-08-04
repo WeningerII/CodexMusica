@@ -1,0 +1,150 @@
+{
+  "id": "salamiya",
+  "name": "Salamiya (Egyptian short high-pitched folk reed flute)",
+  "family": "wind",
+  "class": "end_blown_flute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 2,
+    "range": -1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "salamiya",
+  "parts": [
+    {
+      "id": "salamiya_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "salamiya_saidi",
+          "default": true,
+          "name": "Saidi upper-Egyptian folk band",
+          "descriptors": [
+            "shrill",
+            "reedy",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "egyptian",
+            "saidi",
+            "folk-flute"
+          ]
+        },
+        {
+          "id": "salamiya_solo",
+          "name": "Solo pastoral airs",
+          "descriptors": [
+            "airy",
+            "lonesome",
+            "rubato"
+          ],
+          "match_tokens": [
+            "egyptian",
+            "pastoral"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "salamiya_material",
+      "surface": false,
+      "name": "Tube material",
+      "variants": [
+        {
+          "id": "salamiya_cane",
+          "default": true,
+          "name": "Thin cane tube",
+          "descriptors": [
+            "thin-toned",
+            "breathy"
+          ],
+          "match_tokens": [
+            "cane-flute"
+          ]
+        },
+        {
+          "id": "salamiya_metal",
+          "name": "Metal-tube modern build",
+          "descriptors": [
+            "cutting",
+            "bright"
+          ],
+          "match_tokens": [
+            "metal-flute"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "salamiya_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "salamiya_saidi",
+          "default": true,
+          "name": "Saidi upper-Egyptian folk band",
+          "descriptors": [
+            "shrill",
+            "reedy",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "egyptian",
+            "saidi",
+            "folk-flute"
+          ]
+        },
+        {
+          "id": "salamiya_solo",
+          "name": "Solo pastoral airs",
+          "descriptors": [
+            "airy",
+            "lonesome",
+            "rubato"
+          ],
+          "match_tokens": [
+            "egyptian",
+            "pastoral"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "salamiya_material",
+      "surface": false,
+      "name": "Tube material",
+      "variants": [
+        {
+          "id": "salamiya_cane",
+          "default": true,
+          "name": "Thin cane tube",
+          "descriptors": [
+            "thin-toned",
+            "breathy"
+          ],
+          "match_tokens": [
+            "cane-flute"
+          ]
+        },
+        {
+          "id": "salamiya_metal",
+          "name": "Metal-tube modern build",
+          "descriptors": [
+            "cutting",
+            "bright"
+          ],
+          "match_tokens": [
+            "metal-flute"
+          ]
+        }
+      ]
+    }
+  ]
+}

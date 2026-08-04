@@ -1,0 +1,241 @@
+{
+  "id": "silverbasharpa",
+  "name": "Silverbasharpa (Swedish silverbass keyed fiddle)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "silverbasharpa",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "silverbas_form",
+      "name": "Historical pattern",
+      "variants": [
+        {
+          "id": "silverbas_1800",
+          "default": true,
+          "name": "Early nineteenth-century Uppland silverbas",
+          "descriptors": [
+            "silvery",
+            "droning",
+            "archaic"
+          ],
+          "match_tokens": [
+            "keyed-fiddle",
+            "swedish",
+            "sympathetic-strings"
+          ]
+        },
+        {
+          "id": "silverbas_revival",
+          "name": "Modern revival silverbasharpa",
+          "descriptors": [
+            "even-toned",
+            "resonant"
+          ],
+          "match_tokens": [
+            "keyed-fiddle",
+            "swedish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "silverbas_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "silverbas_polska",
+          "default": true,
+          "name": "Polska dance playing",
+          "descriptors": [
+            "lilting",
+            "dance-rhythm",
+            "droning"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "silverbas_hymn",
+          "name": "Hymn and slow-tune playing",
+          "descriptors": [
+            "sustained",
+            "solemn",
+            "halo-toned"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-strings"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "silverbas_drone",
+      "surface": false,
+      "name": "Drone-string setup",
+      "variants": [
+        {
+          "id": "silverbas_bassdrone",
+          "default": true,
+          "name": "Thick silver-wound bass drone",
+          "descriptors": [
+            "deep-drone",
+            "humming"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "silverbas_nodrone",
+          "name": "Drone damped off",
+          "descriptors": [
+            "clean",
+            "focused"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "silverbas_form",
+      "name": "Historical pattern",
+      "variants": [
+        {
+          "id": "silverbas_1800",
+          "default": true,
+          "name": "Early nineteenth-century Uppland silverbas",
+          "descriptors": [
+            "silvery",
+            "droning",
+            "archaic"
+          ],
+          "match_tokens": [
+            "keyed-fiddle",
+            "swedish",
+            "sympathetic-strings"
+          ]
+        },
+        {
+          "id": "silverbas_revival",
+          "name": "Modern revival silverbasharpa",
+          "descriptors": [
+            "even-toned",
+            "resonant"
+          ],
+          "match_tokens": [
+            "keyed-fiddle",
+            "swedish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "silverbas_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "silverbas_polska",
+          "default": true,
+          "name": "Polska dance playing",
+          "descriptors": [
+            "lilting",
+            "dance-rhythm",
+            "droning"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "silverbas_hymn",
+          "name": "Hymn and slow-tune playing",
+          "descriptors": [
+            "sustained",
+            "solemn",
+            "halo-toned"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-strings"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "silverbas_drone",
+      "surface": false,
+      "name": "Drone-string setup",
+      "variants": [
+        {
+          "id": "silverbas_bassdrone",
+          "default": true,
+          "name": "Thick silver-wound bass drone",
+          "descriptors": [
+            "deep-drone",
+            "humming"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "silverbas_nodrone",
+          "name": "Drone damped off",
+          "descriptors": [
+            "clean",
+            "focused"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ]
+}

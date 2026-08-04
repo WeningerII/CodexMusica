@@ -1,0 +1,212 @@
+{
+  "id": "jal_tarang",
+  "name": "Jal tarang (Indian tuned water-filled porcelain bowls)",
+  "family": "percussion",
+  "class": "tuned_idiophone",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": -1,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "jal tarang",
+  "parts": [
+    {
+      "id": "jal_tarang_bowls",
+      "name": "Bowl material",
+      "variants": [
+        {
+          "id": "jal_tarang_porcelain",
+          "default": true,
+          "name": "China porcelain bowls",
+          "descriptors": [
+            "glassy",
+            "bell-like",
+            "pure-toned"
+          ],
+          "match_tokens": [
+            "water-bowls",
+            "tuned-idiophone",
+            "indian"
+          ]
+        },
+        {
+          "id": "jal_tarang_bronze",
+          "name": "Bronze bowls (older form)",
+          "descriptors": [
+            "metallic",
+            "inharmonic-ring"
+          ],
+          "match_tokens": [
+            "water-bowls",
+            "bronze"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jal_tarang_set",
+      "name": "Set size / tuning span",
+      "variants": [
+        {
+          "id": "jal_tarang_raga_set",
+          "default": true,
+          "name": "Raga set (about 15 bowls)",
+          "descriptors": [
+            "melodic",
+            "liquid"
+          ],
+          "match_tokens": [
+            "indian-classical",
+            "raga"
+          ]
+        },
+        {
+          "id": "jal_tarang_full",
+          "name": "Full chromatic set (22 bowls)",
+          "descriptors": [
+            "wide-ranging",
+            "virtuosic"
+          ],
+          "match_tokens": [
+            "indian-classical",
+            "wide-range"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jal_tarang_technique",
+      "name": "Striking technique",
+      "variants": [
+        {
+          "id": "jal_tarang_bamboo",
+          "default": true,
+          "name": "Thin bamboo sticks",
+          "descriptors": [
+            "clear-attack",
+            "chiming"
+          ],
+          "match_tokens": [
+            "struck",
+            "water-bowls"
+          ]
+        },
+        {
+          "id": "jal_tarang_meend",
+          "name": "Water-swirl glide (meend)",
+          "descriptors": [
+            "bending-pitch",
+            "wavering"
+          ],
+          "match_tokens": [
+            "pitch-bend",
+            "indian-classical"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "jal_tarang_bowls",
+      "name": "Bowl material",
+      "variants": [
+        {
+          "id": "jal_tarang_porcelain",
+          "default": true,
+          "name": "China porcelain bowls",
+          "descriptors": [
+            "glassy",
+            "bell-like",
+            "pure-toned"
+          ],
+          "match_tokens": [
+            "water-bowls",
+            "tuned-idiophone",
+            "indian"
+          ]
+        },
+        {
+          "id": "jal_tarang_bronze",
+          "name": "Bronze bowls (older form)",
+          "descriptors": [
+            "metallic",
+            "inharmonic-ring"
+          ],
+          "match_tokens": [
+            "water-bowls",
+            "bronze"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jal_tarang_set",
+      "name": "Set size / tuning span",
+      "variants": [
+        {
+          "id": "jal_tarang_raga_set",
+          "default": true,
+          "name": "Raga set (about 15 bowls)",
+          "descriptors": [
+            "melodic",
+            "liquid"
+          ],
+          "match_tokens": [
+            "indian-classical",
+            "raga"
+          ]
+        },
+        {
+          "id": "jal_tarang_full",
+          "name": "Full chromatic set (22 bowls)",
+          "descriptors": [
+            "wide-ranging",
+            "virtuosic"
+          ],
+          "match_tokens": [
+            "indian-classical",
+            "wide-range"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jal_tarang_technique",
+      "name": "Striking technique",
+      "variants": [
+        {
+          "id": "jal_tarang_bamboo",
+          "default": true,
+          "name": "Thin bamboo sticks",
+          "descriptors": [
+            "clear-attack",
+            "chiming"
+          ],
+          "match_tokens": [
+            "struck",
+            "water-bowls"
+          ]
+        },
+        {
+          "id": "jal_tarang_meend",
+          "name": "Water-swirl glide (meend)",
+          "descriptors": [
+            "bending-pitch",
+            "wavering"
+          ],
+          "match_tokens": [
+            "pitch-bend",
+            "indian-classical"
+          ]
+        }
+      ]
+    }
+  ]
+}

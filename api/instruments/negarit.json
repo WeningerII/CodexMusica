@@ -1,0 +1,148 @@
+{
+  "id": "negarit",
+  "name": "Negarit (Ethiopian royal kettledrum)",
+  "family": "percussion",
+  "class": "single_headed_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -2,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "negarit",
+  "parts": [
+    {
+      "id": "negarit_size",
+      "name": "Bowl size / pitch",
+      "variants": [
+        {
+          "id": "negarit_large",
+          "default": true,
+          "name": "Large royal negarit (deep bass bowl)",
+          "descriptors": [
+            "booming",
+            "thunderous",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "kettledrum",
+            "ethiopian"
+          ]
+        },
+        {
+          "id": "negarit_pair",
+          "name": "Paired high/low negarit set",
+          "descriptors": [
+            "interlocking",
+            "announcing"
+          ],
+          "match_tokens": [
+            "kettledrum",
+            "paired-drums"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "negarit_beater",
+      "name": "Beater",
+      "variants": [
+        {
+          "id": "negarit_curved_stick",
+          "default": true,
+          "name": "Curved wooden sticks",
+          "descriptors": [
+            "hard-attack",
+            "cracking"
+          ],
+          "match_tokens": [
+            "struck",
+            "proclamation"
+          ]
+        },
+        {
+          "id": "negarit_padded",
+          "name": "Padded/leather-wrapped beaters",
+          "descriptors": [
+            "rounded-attack",
+            "deep-toned"
+          ],
+          "match_tokens": [
+            "struck",
+            "processional"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "negarit_size",
+      "name": "Bowl size / pitch",
+      "variants": [
+        {
+          "id": "negarit_large",
+          "default": true,
+          "name": "Large royal negarit (deep bass bowl)",
+          "descriptors": [
+            "booming",
+            "thunderous",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "kettledrum",
+            "ethiopian"
+          ]
+        },
+        {
+          "id": "negarit_pair",
+          "name": "Paired high/low negarit set",
+          "descriptors": [
+            "interlocking",
+            "announcing"
+          ],
+          "match_tokens": [
+            "kettledrum",
+            "paired-drums"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "negarit_beater",
+      "name": "Beater",
+      "variants": [
+        {
+          "id": "negarit_curved_stick",
+          "default": true,
+          "name": "Curved wooden sticks",
+          "descriptors": [
+            "hard-attack",
+            "cracking"
+          ],
+          "match_tokens": [
+            "struck",
+            "proclamation"
+          ]
+        },
+        {
+          "id": "negarit_padded",
+          "name": "Padded/leather-wrapped beaters",
+          "descriptors": [
+            "rounded-attack",
+            "deep-toned"
+          ],
+          "match_tokens": [
+            "struck",
+            "processional"
+          ]
+        }
+      ]
+    }
+  ]
+}

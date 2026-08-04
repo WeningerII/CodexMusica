@@ -1,0 +1,176 @@
+{
+  "id": "sgra_snyan",
+  "name": "Sgra-snyan (Tibetan classical dranyen of nangma-toeshey)",
+  "family": "plucked_traditional",
+  "class": "long_neck_lute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "sgra snyan",
+  "parts": [
+    {
+      "id": "sgrasnyan_repertoire",
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "sgrasnyan_nangma",
+          "default": true,
+          "name": "Nangma courtly song accompaniment",
+          "descriptors": [
+            "refined",
+            "strummed",
+            "lilting"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tibetan",
+            "nangma"
+          ]
+        },
+        {
+          "id": "sgrasnyan_toeshey",
+          "name": "Toeshey dance-song",
+          "descriptors": [
+            "driving",
+            "dance-rhythm",
+            "bright"
+          ],
+          "match_tokens": [
+            "strummed",
+            "tibetan"
+          ]
+        },
+        {
+          "id": "sgrasnyan_lhamo",
+          "name": "Ache Lhamo opera support",
+          "descriptors": [
+            "declamatory",
+            "supporting"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tibetan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sgrasnyan_build",
+      "name": "Body build",
+      "variants": [
+        {
+          "id": "sgrasnyan_skin",
+          "default": true,
+          "name": "Goatskin-bellied carved body",
+          "descriptors": [
+            "buzzing-timbre",
+            "dry",
+            "nasal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "skin-belly"
+          ]
+        },
+        {
+          "id": "sgrasnyan_wood",
+          "name": "Wooden-bellied build",
+          "descriptors": [
+            "woody",
+            "fuller-toned"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sgrasnyan_repertoire",
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "sgrasnyan_nangma",
+          "default": true,
+          "name": "Nangma courtly song accompaniment",
+          "descriptors": [
+            "refined",
+            "strummed",
+            "lilting"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tibetan",
+            "nangma"
+          ]
+        },
+        {
+          "id": "sgrasnyan_toeshey",
+          "name": "Toeshey dance-song",
+          "descriptors": [
+            "driving",
+            "dance-rhythm",
+            "bright"
+          ],
+          "match_tokens": [
+            "strummed",
+            "tibetan"
+          ]
+        },
+        {
+          "id": "sgrasnyan_lhamo",
+          "name": "Ache Lhamo opera support",
+          "descriptors": [
+            "declamatory",
+            "supporting"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tibetan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sgrasnyan_build",
+      "name": "Body build",
+      "variants": [
+        {
+          "id": "sgrasnyan_skin",
+          "default": true,
+          "name": "Goatskin-bellied carved body",
+          "descriptors": [
+            "buzzing-timbre",
+            "dry",
+            "nasal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "skin-belly"
+          ]
+        },
+        {
+          "id": "sgrasnyan_wood",
+          "name": "Wooden-bellied build",
+          "descriptors": [
+            "woody",
+            "fuller-toned"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

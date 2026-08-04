@@ -1,0 +1,182 @@
+{
+  "id": "livenka",
+  "name": "Livenka (Russian single-row diatonic button accordion)",
+  "family": "free_reed",
+  "class": "free_reed",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "livenka",
+  "parts": [
+    {
+      "id": "free_reed_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "free_reed_folk_first_position",
+          "default": true,
+          "name": "Folk first-position straight",
+          "descriptors": [
+            "straight",
+            "melodic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "folk",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "folk",
+            "singer-songwriter",
+            "country"
+          ]
+        },
+        {
+          "id": "free_reed_overblow_modern",
+          "name": "Overblow modern bending",
+          "descriptors": [
+            "overblown",
+            "fully-chromatic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "modern"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "livenka_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "livenka_long_bellows",
+          "default": true,
+          "name": "Classic long narrow bellows livenka (Livny type)",
+          "descriptors": [
+            "reedy-tone",
+            "sustained",
+            "nasal"
+          ],
+          "match_tokens": [
+            "button-accordion",
+            "russian-folk"
+          ]
+        },
+        {
+          "id": "livenka_short",
+          "name": "Short-bellows village build",
+          "descriptors": [
+            "punchy",
+            "clipped-decay"
+          ],
+          "match_tokens": [
+            "button-accordion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "livenka_tuning",
+      "name": "Reed tuning",
+      "variants": [
+        {
+          "id": "livenka_wet",
+          "default": true,
+          "name": "Wet (tremolo-detuned) reed banks",
+          "descriptors": [
+            "shimmering-beat",
+            "folk-tremolo"
+          ],
+          "match_tokens": [
+            "button-accordion"
+          ]
+        },
+        {
+          "id": "livenka_dry",
+          "name": "Dry single-reed tuning",
+          "descriptors": [
+            "clean-toned",
+            "focused"
+          ],
+          "match_tokens": [
+            "button-accordion"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "livenka_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "livenka_long_bellows",
+          "default": true,
+          "name": "Classic long narrow bellows livenka (Livny type)",
+          "descriptors": [
+            "reedy-tone",
+            "sustained",
+            "nasal"
+          ],
+          "match_tokens": [
+            "button-accordion",
+            "russian-folk"
+          ]
+        },
+        {
+          "id": "livenka_short",
+          "name": "Short-bellows village build",
+          "descriptors": [
+            "punchy",
+            "clipped-decay"
+          ],
+          "match_tokens": [
+            "button-accordion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "livenka_tuning",
+      "name": "Reed tuning",
+      "variants": [
+        {
+          "id": "livenka_wet",
+          "default": true,
+          "name": "Wet (tremolo-detuned) reed banks",
+          "descriptors": [
+            "shimmering-beat",
+            "folk-tremolo"
+          ],
+          "match_tokens": [
+            "button-accordion"
+          ]
+        },
+        {
+          "id": "livenka_dry",
+          "name": "Dry single-reed tuning",
+          "descriptors": [
+            "clean-toned",
+            "focused"
+          ],
+          "match_tokens": [
+            "button-accordion"
+          ]
+        }
+      ]
+    }
+  ]
+}

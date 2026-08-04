@@ -1,0 +1,148 @@
+{
+  "id": "berda",
+  "name": "Berda (Croatian tamburica bass)",
+  "family": "acoustic_strings",
+  "class": "plucked_string_rhythm",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": -2,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "berda",
+  "parts": [
+    {
+      "id": "berda_size",
+      "name": "Body size",
+      "variants": [
+        {
+          "id": "berda_full",
+          "default": true,
+          "name": "Full-size upright berda (tamburica orchestra bass)",
+          "descriptors": [
+            "deep-toned",
+            "woody-thump",
+            "foundational"
+          ],
+          "match_tokens": [
+            "plucked-bass",
+            "tamburica"
+          ]
+        },
+        {
+          "id": "berda_three_quarter",
+          "name": "Three-quarter travelling berda",
+          "descriptors": [
+            "compact-bass",
+            "punchy"
+          ],
+          "match_tokens": [
+            "plucked-bass",
+            "tamburica"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "berda_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "berda_pizzicato_root_fifth",
+          "default": true,
+          "name": "Pizzicato root-fifth dance bass",
+          "descriptors": [
+            "walking-pulse",
+            "dry-decay"
+          ],
+          "match_tokens": [
+            "plucked-bass",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "berda_sustained_pedal",
+          "name": "Sustained pedal notes under song",
+          "descriptors": [
+            "sustained-low",
+            "supporting"
+          ],
+          "match_tokens": [
+            "plucked-bass",
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "berda_size",
+      "name": "Body size",
+      "variants": [
+        {
+          "id": "berda_full",
+          "default": true,
+          "name": "Full-size upright berda (tamburica orchestra bass)",
+          "descriptors": [
+            "deep-toned",
+            "woody-thump",
+            "foundational"
+          ],
+          "match_tokens": [
+            "plucked-bass",
+            "tamburica"
+          ]
+        },
+        {
+          "id": "berda_three_quarter",
+          "name": "Three-quarter travelling berda",
+          "descriptors": [
+            "compact-bass",
+            "punchy"
+          ],
+          "match_tokens": [
+            "plucked-bass",
+            "tamburica"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "berda_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "berda_pizzicato_root_fifth",
+          "default": true,
+          "name": "Pizzicato root-fifth dance bass",
+          "descriptors": [
+            "walking-pulse",
+            "dry-decay"
+          ],
+          "match_tokens": [
+            "plucked-bass",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "berda_sustained_pedal",
+          "name": "Sustained pedal notes under song",
+          "descriptors": [
+            "sustained-low",
+            "supporting"
+          ],
+          "match_tokens": [
+            "plucked-bass",
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ]
+}

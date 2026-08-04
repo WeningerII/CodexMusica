@@ -1,0 +1,232 @@
+{
+  "id": "sao_truc",
+  "name": "Sáo trúc (Vietnamese bamboo transverse flute)",
+  "family": "wind",
+  "class": "transverse_flute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 2,
+    "register": 1,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "sao truc",
+  "parts": [
+    {
+      "id": "sao_truc_key",
+      "name": "Size / key",
+      "variants": [
+        {
+          "id": "sao_do",
+          "default": true,
+          "name": "Sáo in C (standard six-hole)",
+          "descriptors": [
+            "airy",
+            "sweet-toned"
+          ],
+          "match_tokens": [
+            "bamboo-flute",
+            "transverse"
+          ]
+        },
+        {
+          "id": "sao_la",
+          "name": "Sáo in A (lower, mellow)",
+          "descriptors": [
+            "breathy",
+            "warm"
+          ],
+          "match_tokens": [
+            "bamboo-flute",
+            "low-register"
+          ]
+        },
+        {
+          "id": "sao_bass",
+          "name": "Sáo bầu / bass bamboo flute",
+          "descriptors": [
+            "deep-toned",
+            "hollow"
+          ],
+          "match_tokens": [
+            "bamboo-flute",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sao_truc_style",
+      "name": "Ornament style",
+      "variants": [
+        {
+          "id": "sao_ru",
+          "default": true,
+          "name": "Rung / vỗ finger-vibrato lyricism",
+          "descriptors": [
+            "quavering",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "vibrato",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "sao_dance",
+          "name": "Fast tonguing dance tunes",
+          "descriptors": [
+            "bright-attack",
+            "agile"
+          ],
+          "match_tokens": [
+            "tongued",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sao_truc_membrane",
+      "surface": false,
+      "name": "Membrane hole",
+      "variants": [
+        {
+          "id": "sao_plain",
+          "default": true,
+          "name": "Plain (no mo membrane)",
+          "descriptors": [
+            "pure-toned",
+            "round"
+          ],
+          "match_tokens": [
+            "bamboo-flute"
+          ]
+        },
+        {
+          "id": "sao_membrane",
+          "name": "Membrane-fitted (dizi-influenced)",
+          "descriptors": [
+            "buzzing-timbre",
+            "reedy"
+          ],
+          "match_tokens": [
+            "bamboo-flute",
+            "buzzy"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sao_truc_key",
+      "name": "Size / key",
+      "variants": [
+        {
+          "id": "sao_do",
+          "default": true,
+          "name": "Sáo in C (standard six-hole)",
+          "descriptors": [
+            "airy",
+            "sweet-toned"
+          ],
+          "match_tokens": [
+            "bamboo-flute",
+            "transverse"
+          ]
+        },
+        {
+          "id": "sao_la",
+          "name": "Sáo in A (lower, mellow)",
+          "descriptors": [
+            "breathy",
+            "warm"
+          ],
+          "match_tokens": [
+            "bamboo-flute",
+            "low-register"
+          ]
+        },
+        {
+          "id": "sao_bass",
+          "name": "Sáo bầu / bass bamboo flute",
+          "descriptors": [
+            "deep-toned",
+            "hollow"
+          ],
+          "match_tokens": [
+            "bamboo-flute",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sao_truc_style",
+      "name": "Ornament style",
+      "variants": [
+        {
+          "id": "sao_ru",
+          "default": true,
+          "name": "Rung / vỗ finger-vibrato lyricism",
+          "descriptors": [
+            "quavering",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "vibrato",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "sao_dance",
+          "name": "Fast tonguing dance tunes",
+          "descriptors": [
+            "bright-attack",
+            "agile"
+          ],
+          "match_tokens": [
+            "tongued",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sao_truc_membrane",
+      "surface": false,
+      "name": "Membrane hole",
+      "variants": [
+        {
+          "id": "sao_plain",
+          "default": true,
+          "name": "Plain (no mo membrane)",
+          "descriptors": [
+            "pure-toned",
+            "round"
+          ],
+          "match_tokens": [
+            "bamboo-flute"
+          ]
+        },
+        {
+          "id": "sao_membrane",
+          "name": "Membrane-fitted (dizi-influenced)",
+          "descriptors": [
+            "buzzing-timbre",
+            "reedy"
+          ],
+          "match_tokens": [
+            "bamboo-flute",
+            "buzzy"
+          ]
+        }
+      ]
+    }
+  ]
+}

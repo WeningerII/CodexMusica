@@ -1,0 +1,265 @@
+{
+  "id": "politiki_lyra",
+  "name": "Politiki lyra (Constantinopolitan pear-shaped bowed lyra)",
+  "family": "bowed",
+  "class": "bowed_fiddle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "politiki lyra",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "politiki_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "politiki_classical",
+          "default": true,
+          "name": "Classical Istanbul lyra (three gut strings)",
+          "descriptors": [
+            "nasal-sweet",
+            "ornamented",
+            "vocal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ottoman",
+            "greek"
+          ]
+        },
+        {
+          "id": "politiki_sympathetic",
+          "name": "Lyra with sympathetic strings (armudi kemençe hybrid)",
+          "descriptors": [
+            "shimmering",
+            "halo-toned",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-strings"
+          ]
+        },
+        {
+          "id": "politiki_kemence",
+          "name": "Ottoman armudi kemençe form",
+          "descriptors": [
+            "reedy",
+            "plaintive",
+            "makam-inflected"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ottoman"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "politiki_technique",
+      "name": "Stopping technique",
+      "variants": [
+        {
+          "id": "politiki_nail",
+          "default": true,
+          "name": "Fingernail side-stopping",
+          "descriptors": [
+            "glassy",
+            "sliding",
+            "precise"
+          ],
+          "match_tokens": [
+            "bowed",
+            "glissando"
+          ]
+        },
+        {
+          "id": "politiki_pad",
+          "name": "Fingertip stopping",
+          "descriptors": [
+            "soft-toned",
+            "vibrato-rich"
+          ],
+          "match_tokens": [
+            "bowed",
+            "expressive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "politiki_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "politiki_gut",
+          "default": true,
+          "name": "Gut strings",
+          "descriptors": [
+            "warm",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        },
+        {
+          "id": "politiki_steel",
+          "name": "Steel strings",
+          "descriptors": [
+            "bright",
+            "cutting"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "politiki_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "politiki_classical",
+          "default": true,
+          "name": "Classical Istanbul lyra (three gut strings)",
+          "descriptors": [
+            "nasal-sweet",
+            "ornamented",
+            "vocal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ottoman",
+            "greek"
+          ]
+        },
+        {
+          "id": "politiki_sympathetic",
+          "name": "Lyra with sympathetic strings (armudi kemençe hybrid)",
+          "descriptors": [
+            "shimmering",
+            "halo-toned",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-strings"
+          ]
+        },
+        {
+          "id": "politiki_kemence",
+          "name": "Ottoman armudi kemençe form",
+          "descriptors": [
+            "reedy",
+            "plaintive",
+            "makam-inflected"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ottoman"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "politiki_technique",
+      "name": "Stopping technique",
+      "variants": [
+        {
+          "id": "politiki_nail",
+          "default": true,
+          "name": "Fingernail side-stopping",
+          "descriptors": [
+            "glassy",
+            "sliding",
+            "precise"
+          ],
+          "match_tokens": [
+            "bowed",
+            "glissando"
+          ]
+        },
+        {
+          "id": "politiki_pad",
+          "name": "Fingertip stopping",
+          "descriptors": [
+            "soft-toned",
+            "vibrato-rich"
+          ],
+          "match_tokens": [
+            "bowed",
+            "expressive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "politiki_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "politiki_gut",
+          "default": true,
+          "name": "Gut strings",
+          "descriptors": [
+            "warm",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        },
+        {
+          "id": "politiki_steel",
+          "name": "Steel strings",
+          "descriptors": [
+            "bright",
+            "cutting"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ]
+}

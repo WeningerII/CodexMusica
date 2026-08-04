@@ -1,0 +1,148 @@
+{
+  "id": "zhetygen",
+  "name": "Zhetygen (Kazakh seven-string trough zither)",
+  "family": "plucked_traditional",
+  "class": "trough_zither",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "zhetygen",
+  "parts": [
+    {
+      "id": "zhetygen_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "zhetygen_archaic",
+          "default": true,
+          "name": "Archaic trough form with asyk bone bridges",
+          "descriptors": [
+            "dark-toned",
+            "open-strung",
+            "archaic"
+          ],
+          "match_tokens": [
+            "kazakh",
+            "trough-zither"
+          ]
+        },
+        {
+          "id": "zhetygen_concert",
+          "name": "Reconstructed concert zhetygen (extended strings)",
+          "descriptors": [
+            "wide-ranging",
+            "resonant"
+          ],
+          "match_tokens": [
+            "zither",
+            "concert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zhetygen_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "zhetygen_pluck",
+          "default": true,
+          "name": "Finger-plucked with bridge-shifting bends",
+          "descriptors": [
+            "bent-tones",
+            "modal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "pitch-bend"
+          ]
+        },
+        {
+          "id": "zhetygen_strum",
+          "name": "Sweeping arpeggiated strums",
+          "descriptors": [
+            "shimmering",
+            "cascading"
+          ],
+          "match_tokens": [
+            "strummed",
+            "zither"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "zhetygen_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "zhetygen_archaic",
+          "default": true,
+          "name": "Archaic trough form with asyk bone bridges",
+          "descriptors": [
+            "dark-toned",
+            "open-strung",
+            "archaic"
+          ],
+          "match_tokens": [
+            "kazakh",
+            "trough-zither"
+          ]
+        },
+        {
+          "id": "zhetygen_concert",
+          "name": "Reconstructed concert zhetygen (extended strings)",
+          "descriptors": [
+            "wide-ranging",
+            "resonant"
+          ],
+          "match_tokens": [
+            "zither",
+            "concert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zhetygen_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "zhetygen_pluck",
+          "default": true,
+          "name": "Finger-plucked with bridge-shifting bends",
+          "descriptors": [
+            "bent-tones",
+            "modal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "pitch-bend"
+          ]
+        },
+        {
+          "id": "zhetygen_strum",
+          "name": "Sweeping arpeggiated strums",
+          "descriptors": [
+            "shimmering",
+            "cascading"
+          ],
+          "match_tokens": [
+            "strummed",
+            "zither"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,144 @@
+{
+  "id": "mi_gyaung",
+  "name": "Mi gyaung (Burmese Mon crocodile zither)",
+  "family": "plucked_traditional",
+  "class": "fretboard_zither",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "mi gyaung",
+  "parts": [
+    {
+      "id": "mi_gyaung_body",
+      "name": "Body carving",
+      "variants": [
+        {
+          "id": "mi_gyaung_crocodile",
+          "default": true,
+          "name": "Full crocodile-carved teak body",
+          "descriptors": [
+            "woody",
+            "dry",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "crocodile-zither",
+            "mon"
+          ]
+        },
+        {
+          "id": "mi_gyaung_plain",
+          "name": "Plain trough body (village form)",
+          "descriptors": [
+            "blunt",
+            "rustic"
+          ],
+          "match_tokens": [
+            "crocodile-zither"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mi_gyaung_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "mi_gyaung_mon",
+          "default": true,
+          "name": "Mon ceremonial song accompaniment",
+          "descriptors": [
+            "cyclic",
+            "supporting"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ceremonial"
+          ]
+        },
+        {
+          "id": "mi_gyaung_solo",
+          "name": "Solo instrumental",
+          "descriptors": [
+            "sparse",
+            "meditative"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "mi_gyaung_body",
+      "name": "Body carving",
+      "variants": [
+        {
+          "id": "mi_gyaung_crocodile",
+          "default": true,
+          "name": "Full crocodile-carved teak body",
+          "descriptors": [
+            "woody",
+            "dry",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "crocodile-zither",
+            "mon"
+          ]
+        },
+        {
+          "id": "mi_gyaung_plain",
+          "name": "Plain trough body (village form)",
+          "descriptors": [
+            "blunt",
+            "rustic"
+          ],
+          "match_tokens": [
+            "crocodile-zither"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mi_gyaung_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "mi_gyaung_mon",
+          "default": true,
+          "name": "Mon ceremonial song accompaniment",
+          "descriptors": [
+            "cyclic",
+            "supporting"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ceremonial"
+          ]
+        },
+        {
+          "id": "mi_gyaung_solo",
+          "name": "Solo instrumental",
+          "descriptors": [
+            "sparse",
+            "meditative"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

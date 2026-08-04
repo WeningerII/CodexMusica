@@ -1,0 +1,142 @@
+{
+  "id": "liuto_cantabile",
+  "name": "Liuto cantabile (Italian five-course tenor mandolin-family lute)",
+  "family": "acoustic_strings",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "liuto cantabile",
+  "parts": [
+    {
+      "id": "liuto_cant_courses",
+      "name": "Course layout",
+      "variants": [
+        {
+          "id": "liuto_cant_five",
+          "default": true,
+          "name": "Five double courses (extended low C)",
+          "descriptors": [
+            "wide-range",
+            "warm"
+          ],
+          "match_tokens": [
+            "mandolin-family",
+            "plucked"
+          ]
+        },
+        {
+          "id": "liuto_cant_four",
+          "name": "Four-course (mandoloncello tuning)",
+          "descriptors": [
+            "focused",
+            "tenor-voiced"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "liuto_cant_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "liuto_cant_tremolo",
+          "default": true,
+          "name": "Cantabile tremolo melody",
+          "descriptors": [
+            "singing",
+            "sustained-shimmer"
+          ],
+          "match_tokens": [
+            "tremolo",
+            "lyrical"
+          ]
+        },
+        {
+          "id": "liuto_cant_chordal",
+          "name": "Chordal / contrapuntal picking",
+          "descriptors": [
+            "articulate",
+            "polyphonic"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "liuto_cant_courses",
+      "name": "Course layout",
+      "variants": [
+        {
+          "id": "liuto_cant_five",
+          "default": true,
+          "name": "Five double courses (extended low C)",
+          "descriptors": [
+            "wide-range",
+            "warm"
+          ],
+          "match_tokens": [
+            "mandolin-family",
+            "plucked"
+          ]
+        },
+        {
+          "id": "liuto_cant_four",
+          "name": "Four-course (mandoloncello tuning)",
+          "descriptors": [
+            "focused",
+            "tenor-voiced"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "liuto_cant_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "liuto_cant_tremolo",
+          "default": true,
+          "name": "Cantabile tremolo melody",
+          "descriptors": [
+            "singing",
+            "sustained-shimmer"
+          ],
+          "match_tokens": [
+            "tremolo",
+            "lyrical"
+          ]
+        },
+        {
+          "id": "liuto_cant_chordal",
+          "name": "Chordal / contrapuntal picking",
+          "descriptors": [
+            "articulate",
+            "polyphonic"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

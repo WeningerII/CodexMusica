@@ -1,0 +1,144 @@
+{
+  "id": "ikembe",
+  "name": "Ikembe (Burundi/Rwanda lamellophone)",
+  "family": "percussion",
+  "class": "plucked_idiophone",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "ikembe",
+  "parts": [
+    {
+      "id": "ikembe_body",
+      "name": "Body / resonator",
+      "variants": [
+        {
+          "id": "ikembe_box",
+          "default": true,
+          "name": "Hollow wooden box body",
+          "descriptors": [
+            "woody",
+            "mellow-ping"
+          ],
+          "match_tokens": [
+            "lamellophone",
+            "burundi"
+          ]
+        },
+        {
+          "id": "ikembe_board_gourd",
+          "name": "Board on gourd resonator",
+          "descriptors": [
+            "boomy",
+            "resonant"
+          ],
+          "match_tokens": [
+            "lamellophone",
+            "gourd-resonator"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ikembe_buzz",
+      "name": "Buzzing attachments",
+      "variants": [
+        {
+          "id": "ikembe_plain",
+          "default": true,
+          "name": "Plain tongues (no rattles)",
+          "descriptors": [
+            "clean-ping",
+            "pure-toned"
+          ],
+          "match_tokens": [
+            "plucked-lamella"
+          ]
+        },
+        {
+          "id": "ikembe_rattled",
+          "name": "Bottle-cap / metal-ring buzzers",
+          "descriptors": [
+            "buzzing-timbre",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "buzz-timbre",
+            "lamellophone"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ikembe_body",
+      "name": "Body / resonator",
+      "variants": [
+        {
+          "id": "ikembe_box",
+          "default": true,
+          "name": "Hollow wooden box body",
+          "descriptors": [
+            "woody",
+            "mellow-ping"
+          ],
+          "match_tokens": [
+            "lamellophone",
+            "burundi"
+          ]
+        },
+        {
+          "id": "ikembe_board_gourd",
+          "name": "Board on gourd resonator",
+          "descriptors": [
+            "boomy",
+            "resonant"
+          ],
+          "match_tokens": [
+            "lamellophone",
+            "gourd-resonator"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ikembe_buzz",
+      "name": "Buzzing attachments",
+      "variants": [
+        {
+          "id": "ikembe_plain",
+          "default": true,
+          "name": "Plain tongues (no rattles)",
+          "descriptors": [
+            "clean-ping",
+            "pure-toned"
+          ],
+          "match_tokens": [
+            "plucked-lamella"
+          ]
+        },
+        {
+          "id": "ikembe_rattled",
+          "name": "Bottle-cap / metal-ring buzzers",
+          "descriptors": [
+            "buzzing-timbre",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "buzz-timbre",
+            "lamellophone"
+          ]
+        }
+      ]
+    }
+  ]
+}

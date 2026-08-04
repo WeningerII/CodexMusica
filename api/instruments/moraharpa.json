@@ -1,0 +1,235 @@
+{
+  "id": "moraharpa",
+  "name": "Moraharpa (earliest three-string Swedish keyed fiddle)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": -1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "moraharpa",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "moraharpa_build",
+      "name": "Build pattern",
+      "variants": [
+        {
+          "id": "moraharpa_1526",
+          "default": true,
+          "name": "Mora original copy (single key row, no sympathetics)",
+          "descriptors": [
+            "raspy",
+            "archaic",
+            "nasal"
+          ],
+          "match_tokens": [
+            "keyed-fiddle",
+            "medieval",
+            "swedish"
+          ]
+        },
+        {
+          "id": "moraharpa_extended",
+          "name": "Extended-key revival moraharpa",
+          "descriptors": [
+            "fuller-toned",
+            "even"
+          ],
+          "match_tokens": [
+            "keyed-fiddle",
+            "swedish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "moraharpa_tuning",
+      "name": "Tuning",
+      "variants": [
+        {
+          "id": "moraharpa_drone",
+          "default": true,
+          "name": "Melody string over two open drones",
+          "descriptors": [
+            "droning",
+            "modal",
+            "hurdy-gurdy-like"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "moraharpa_fifths",
+          "name": "Fifths tuning",
+          "descriptors": [
+            "open-voiced",
+            "ringing"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "moraharpa_bow",
+      "surface": false,
+      "name": "Bow type",
+      "variants": [
+        {
+          "id": "moraharpa_shortbow",
+          "default": true,
+          "name": "Short convex medieval bow",
+          "descriptors": [
+            "gritty",
+            "rhythmic-attack"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        },
+        {
+          "id": "moraharpa_modernbow",
+          "name": "Modern violin bow",
+          "descriptors": [
+            "smooth",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "moraharpa_build",
+      "name": "Build pattern",
+      "variants": [
+        {
+          "id": "moraharpa_1526",
+          "default": true,
+          "name": "Mora original copy (single key row, no sympathetics)",
+          "descriptors": [
+            "raspy",
+            "archaic",
+            "nasal"
+          ],
+          "match_tokens": [
+            "keyed-fiddle",
+            "medieval",
+            "swedish"
+          ]
+        },
+        {
+          "id": "moraharpa_extended",
+          "name": "Extended-key revival moraharpa",
+          "descriptors": [
+            "fuller-toned",
+            "even"
+          ],
+          "match_tokens": [
+            "keyed-fiddle",
+            "swedish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "moraharpa_tuning",
+      "name": "Tuning",
+      "variants": [
+        {
+          "id": "moraharpa_drone",
+          "default": true,
+          "name": "Melody string over two open drones",
+          "descriptors": [
+            "droning",
+            "modal",
+            "hurdy-gurdy-like"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "moraharpa_fifths",
+          "name": "Fifths tuning",
+          "descriptors": [
+            "open-voiced",
+            "ringing"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "moraharpa_bow",
+      "surface": false,
+      "name": "Bow type",
+      "variants": [
+        {
+          "id": "moraharpa_shortbow",
+          "default": true,
+          "name": "Short convex medieval bow",
+          "descriptors": [
+            "gritty",
+            "rhythmic-attack"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        },
+        {
+          "id": "moraharpa_modernbow",
+          "name": "Modern violin bow",
+          "descriptors": [
+            "smooth",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,144 @@
+{
+  "id": "sherter",
+  "name": "Sherter (Kazakh short-necked fretless plucked lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "sherter",
+  "parts": [
+    {
+      "id": "sherter_body",
+      "name": "Body / soundboard",
+      "variants": [
+        {
+          "id": "sherter_skin",
+          "default": true,
+          "name": "Hollowed wood body with camel/goat-skin face",
+          "descriptors": [
+            "thumpy",
+            "muted",
+            "archaic"
+          ],
+          "match_tokens": [
+            "kazakh",
+            "plucked-lute"
+          ]
+        },
+        {
+          "id": "sherter_wood",
+          "name": "Wooden soundboard (revival build)",
+          "descriptors": [
+            "clearer",
+            "ringing"
+          ],
+          "match_tokens": [
+            "plucked-lute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sherter_strings",
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "sherter_gut",
+          "default": true,
+          "name": "Two gut/sinew strings",
+          "descriptors": [
+            "soft-toned",
+            "dull-warm"
+          ],
+          "match_tokens": [
+            "plucked",
+            "gut-strung"
+          ]
+        },
+        {
+          "id": "sherter_three",
+          "name": "Three-string revival tuning",
+          "descriptors": [
+            "fuller",
+            "resonant"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sherter_body",
+      "name": "Body / soundboard",
+      "variants": [
+        {
+          "id": "sherter_skin",
+          "default": true,
+          "name": "Hollowed wood body with camel/goat-skin face",
+          "descriptors": [
+            "thumpy",
+            "muted",
+            "archaic"
+          ],
+          "match_tokens": [
+            "kazakh",
+            "plucked-lute"
+          ]
+        },
+        {
+          "id": "sherter_wood",
+          "name": "Wooden soundboard (revival build)",
+          "descriptors": [
+            "clearer",
+            "ringing"
+          ],
+          "match_tokens": [
+            "plucked-lute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sherter_strings",
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "sherter_gut",
+          "default": true,
+          "name": "Two gut/sinew strings",
+          "descriptors": [
+            "soft-toned",
+            "dull-warm"
+          ],
+          "match_tokens": [
+            "plucked",
+            "gut-strung"
+          ]
+        },
+        {
+          "id": "sherter_three",
+          "name": "Three-string revival tuning",
+          "descriptors": [
+            "fuller",
+            "resonant"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

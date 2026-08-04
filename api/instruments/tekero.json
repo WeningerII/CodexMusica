@@ -1,0 +1,229 @@
+{
+  "id": "tekero",
+  "name": "Tekerő (Hungarian hurdy-gurdy, tekerőlant)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "tekero",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "tekero_recsego",
+      "name": "Buzzing bridge (recsegő)",
+      "variants": [
+        {
+          "id": "tekero_recsego_active",
+          "default": true,
+          "name": "Active recsegő buzzing bridge (rhythmic wrist articulation)",
+          "descriptors": [
+            "buzzing-timbre",
+            "rhythmic-rasp"
+          ],
+          "match_tokens": [
+            "hurdy-gurdy",
+            "hungarian-folk"
+          ]
+        },
+        {
+          "id": "tekero_recsego_muted",
+          "name": "Muted buzzing bridge (smooth drone only)",
+          "descriptors": [
+            "smooth-drone",
+            "sustained"
+          ],
+          "match_tokens": [
+            "hurdy-gurdy",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tekero_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "tekero_alfold",
+          "default": true,
+          "name": "Great Plain (Alföld) tekerő with carved head",
+          "descriptors": [
+            "nasal-tone",
+            "reedy"
+          ],
+          "match_tokens": [
+            "hurdy-gurdy",
+            "hungarian-folk"
+          ]
+        },
+        {
+          "id": "tekero_szeged",
+          "name": "Szeged school tekerő (larger box body)",
+          "descriptors": [
+            "fuller-bodied",
+            "resonant"
+          ],
+          "match_tokens": [
+            "hurdy-gurdy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tekero_wheel",
+      "surface": false,
+      "name": "Wheel rosining",
+      "variants": [
+        {
+          "id": "tekero_rosin_standard",
+          "default": true,
+          "name": "Standard rosined wheel with cotton-wrapped strings",
+          "descriptors": [
+            "even-bowing",
+            "steady-drone"
+          ],
+          "match_tokens": [
+            "hurdy-gurdy"
+          ]
+        },
+        {
+          "id": "tekero_rosin_heavy",
+          "name": "Heavily rosined wheel",
+          "descriptors": [
+            "gritty-attack",
+            "raw-tone"
+          ],
+          "match_tokens": [
+            "hurdy-gurdy"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tekero_recsego",
+      "name": "Buzzing bridge (recsegő)",
+      "variants": [
+        {
+          "id": "tekero_recsego_active",
+          "default": true,
+          "name": "Active recsegő buzzing bridge (rhythmic wrist articulation)",
+          "descriptors": [
+            "buzzing-timbre",
+            "rhythmic-rasp"
+          ],
+          "match_tokens": [
+            "hurdy-gurdy",
+            "hungarian-folk"
+          ]
+        },
+        {
+          "id": "tekero_recsego_muted",
+          "name": "Muted buzzing bridge (smooth drone only)",
+          "descriptors": [
+            "smooth-drone",
+            "sustained"
+          ],
+          "match_tokens": [
+            "hurdy-gurdy",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tekero_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "tekero_alfold",
+          "default": true,
+          "name": "Great Plain (Alföld) tekerő with carved head",
+          "descriptors": [
+            "nasal-tone",
+            "reedy"
+          ],
+          "match_tokens": [
+            "hurdy-gurdy",
+            "hungarian-folk"
+          ]
+        },
+        {
+          "id": "tekero_szeged",
+          "name": "Szeged school tekerő (larger box body)",
+          "descriptors": [
+            "fuller-bodied",
+            "resonant"
+          ],
+          "match_tokens": [
+            "hurdy-gurdy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tekero_wheel",
+      "surface": false,
+      "name": "Wheel rosining",
+      "variants": [
+        {
+          "id": "tekero_rosin_standard",
+          "default": true,
+          "name": "Standard rosined wheel with cotton-wrapped strings",
+          "descriptors": [
+            "even-bowing",
+            "steady-drone"
+          ],
+          "match_tokens": [
+            "hurdy-gurdy"
+          ]
+        },
+        {
+          "id": "tekero_rosin_heavy",
+          "name": "Heavily rosined wheel",
+          "descriptors": [
+            "gritty-attack",
+            "raw-tone"
+          ],
+          "match_tokens": [
+            "hurdy-gurdy"
+          ]
+        }
+      ]
+    }
+  ]
+}

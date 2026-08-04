@@ -1,0 +1,144 @@
+{
+  "id": "spilapipa",
+  "name": "Spilåpipa (Swedish keyless wooden duct flute)",
+  "family": "wind",
+  "class": "duct_flute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 2,
+    "register": 2,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "spilapipa",
+  "parts": [
+    {
+      "id": "spilapipa_material",
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "spilapipa_willow",
+          "default": true,
+          "name": "Willow or juniper tube",
+          "descriptors": [
+            "soft-toned",
+            "airy-tone",
+            "woody"
+          ],
+          "match_tokens": [
+            "duct-flute",
+            "swedish-folk"
+          ]
+        },
+        {
+          "id": "spilapipa_birch",
+          "name": "Birch or fruitwood tube",
+          "descriptors": [
+            "bright-attack",
+            "focused"
+          ],
+          "match_tokens": [
+            "duct-flute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "spilapipa_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "spilapipa_polska",
+          "default": true,
+          "name": "Polska dance playing with ornament flicks",
+          "descriptors": [
+            "lilting",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "duct-flute",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "spilapipa_vallat",
+          "name": "Herding tune (vallåt) free rhythm",
+          "descriptors": [
+            "free-rhythm",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "duct-flute"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "spilapipa_material",
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "spilapipa_willow",
+          "default": true,
+          "name": "Willow or juniper tube",
+          "descriptors": [
+            "soft-toned",
+            "airy-tone",
+            "woody"
+          ],
+          "match_tokens": [
+            "duct-flute",
+            "swedish-folk"
+          ]
+        },
+        {
+          "id": "spilapipa_birch",
+          "name": "Birch or fruitwood tube",
+          "descriptors": [
+            "bright-attack",
+            "focused"
+          ],
+          "match_tokens": [
+            "duct-flute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "spilapipa_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "spilapipa_polska",
+          "default": true,
+          "name": "Polska dance playing with ornament flicks",
+          "descriptors": [
+            "lilting",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "duct-flute",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "spilapipa_vallat",
+          "name": "Herding tune (vallåt) free rhythm",
+          "descriptors": [
+            "free-rhythm",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "duct-flute"
+          ]
+        }
+      ]
+    }
+  ]
+}

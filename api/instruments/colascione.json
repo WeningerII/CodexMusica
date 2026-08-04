@@ -1,0 +1,204 @@
+{
+  "id": "colascione",
+  "name": "Colascione (Italian long-necked bass lute)",
+  "family": "plucked_traditional",
+  "class": "long_neck_lute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": -2,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "colascione",
+  "parts": [
+    {
+      "id": "colascione_size",
+      "name": "Size / register",
+      "variants": [
+        {
+          "id": "colascione_grande",
+          "default": true,
+          "name": "Large colascione (very long neck, deep bass)",
+          "descriptors": [
+            "deep-toned",
+            "booming"
+          ],
+          "match_tokens": [
+            "long-neck-lute",
+            "low-register"
+          ]
+        },
+        {
+          "id": "colascione_mezzo",
+          "name": "Mezzo colascino (smaller, tenor)",
+          "descriptors": [
+            "nimble",
+            "mid-voiced"
+          ],
+          "match_tokens": [
+            "long-neck-lute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "colascione_strings",
+      "name": "Stringing",
+      "variants": [
+        {
+          "id": "colascione_gut",
+          "default": true,
+          "name": "Two or three gut courses",
+          "descriptors": [
+            "mellow",
+            "thumping"
+          ],
+          "match_tokens": [
+            "plucked",
+            "gut-strung"
+          ]
+        },
+        {
+          "id": "colascione_wire",
+          "name": "Wire-strung courses",
+          "descriptors": [
+            "ringing",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "plucked",
+            "steel-strung"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "colascione_role",
+      "surface": false,
+      "name": "Musical role",
+      "variants": [
+        {
+          "id": "colascione_basso",
+          "default": true,
+          "name": "Continuo bass line",
+          "descriptors": [
+            "grounding",
+            "sparse"
+          ],
+          "match_tokens": [
+            "bass-line"
+          ]
+        },
+        {
+          "id": "colascione_melody",
+          "name": "Melodic solo playing",
+          "descriptors": [
+            "articulate",
+            "song-like"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "colascione_size",
+      "name": "Size / register",
+      "variants": [
+        {
+          "id": "colascione_grande",
+          "default": true,
+          "name": "Large colascione (very long neck, deep bass)",
+          "descriptors": [
+            "deep-toned",
+            "booming"
+          ],
+          "match_tokens": [
+            "long-neck-lute",
+            "low-register"
+          ]
+        },
+        {
+          "id": "colascione_mezzo",
+          "name": "Mezzo colascino (smaller, tenor)",
+          "descriptors": [
+            "nimble",
+            "mid-voiced"
+          ],
+          "match_tokens": [
+            "long-neck-lute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "colascione_strings",
+      "name": "Stringing",
+      "variants": [
+        {
+          "id": "colascione_gut",
+          "default": true,
+          "name": "Two or three gut courses",
+          "descriptors": [
+            "mellow",
+            "thumping"
+          ],
+          "match_tokens": [
+            "plucked",
+            "gut-strung"
+          ]
+        },
+        {
+          "id": "colascione_wire",
+          "name": "Wire-strung courses",
+          "descriptors": [
+            "ringing",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "plucked",
+            "steel-strung"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "colascione_role",
+      "surface": false,
+      "name": "Musical role",
+      "variants": [
+        {
+          "id": "colascione_basso",
+          "default": true,
+          "name": "Continuo bass line",
+          "descriptors": [
+            "grounding",
+            "sparse"
+          ],
+          "match_tokens": [
+            "bass-line"
+          ]
+        },
+        {
+          "id": "colascione_melody",
+          "name": "Melodic solo playing",
+          "descriptors": [
+            "articulate",
+            "song-like"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

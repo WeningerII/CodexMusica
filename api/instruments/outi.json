@@ -1,0 +1,182 @@
+{
+  "id": "outi",
+  "name": "Outi (Greek oud of Smyrneiko and rebetiko)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "outi",
+  "parts": [
+    {
+      "id": "outi_school",
+      "name": "Playing school",
+      "variants": [
+        {
+          "id": "outi_smyrneiko",
+          "default": true,
+          "name": "Smyrneiko café-aman style",
+          "descriptors": [
+            "ornamented",
+            "lyrical",
+            "modal"
+          ],
+          "match_tokens": [
+            "smyrneiko",
+            "greek-oud",
+            "rebetiko"
+          ]
+        },
+        {
+          "id": "outi_politiki",
+          "name": "Politiki (Constantinopolitan) style",
+          "descriptors": [
+            "refined",
+            "makam-ornamented",
+            "singing"
+          ],
+          "match_tokens": [
+            "politiki",
+            "greek-oud"
+          ]
+        },
+        {
+          "id": "outi_cretan",
+          "name": "Cretan accompaniment style",
+          "descriptors": [
+            "rhythmic",
+            "driving",
+            "supporting"
+          ],
+          "match_tokens": [
+            "cretan",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "outi_strings",
+      "name": "String setup",
+      "variants": [
+        {
+          "id": "outi_eleven",
+          "default": true,
+          "name": "Eleven strings (five courses plus bass)",
+          "descriptors": [
+            "resonant",
+            "full-bodied",
+            "warm"
+          ],
+          "match_tokens": [
+            "greek-oud",
+            "plucked"
+          ]
+        },
+        {
+          "id": "outi_twelve",
+          "name": "Twelve-string six-course setup",
+          "descriptors": [
+            "wider-range",
+            "brighter",
+            "projecting"
+          ],
+          "match_tokens": [
+            "greek-oud",
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "outi_school",
+      "name": "Playing school",
+      "variants": [
+        {
+          "id": "outi_smyrneiko",
+          "default": true,
+          "name": "Smyrneiko café-aman style",
+          "descriptors": [
+            "ornamented",
+            "lyrical",
+            "modal"
+          ],
+          "match_tokens": [
+            "smyrneiko",
+            "greek-oud",
+            "rebetiko"
+          ]
+        },
+        {
+          "id": "outi_politiki",
+          "name": "Politiki (Constantinopolitan) style",
+          "descriptors": [
+            "refined",
+            "makam-ornamented",
+            "singing"
+          ],
+          "match_tokens": [
+            "politiki",
+            "greek-oud"
+          ]
+        },
+        {
+          "id": "outi_cretan",
+          "name": "Cretan accompaniment style",
+          "descriptors": [
+            "rhythmic",
+            "driving",
+            "supporting"
+          ],
+          "match_tokens": [
+            "cretan",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "outi_strings",
+      "name": "String setup",
+      "variants": [
+        {
+          "id": "outi_eleven",
+          "default": true,
+          "name": "Eleven strings (five courses plus bass)",
+          "descriptors": [
+            "resonant",
+            "full-bodied",
+            "warm"
+          ],
+          "match_tokens": [
+            "greek-oud",
+            "plucked"
+          ]
+        },
+        {
+          "id": "outi_twelve",
+          "name": "Twelve-string six-course setup",
+          "descriptors": [
+            "wider-range",
+            "brighter",
+            "projecting"
+          ],
+          "match_tokens": [
+            "greek-oud",
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,156 @@
+{
+  "id": "toubeleki",
+  "name": "Toubeleki (Greek goblet hand drum)",
+  "family": "percussion",
+  "class": "single_headed_hand_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "toubeleki",
+  "parts": [
+    {
+      "id": "toubeleki_body",
+      "name": "Shell material",
+      "variants": [
+        {
+          "id": "toubeleki_clay",
+          "default": true,
+          "name": "Clay shell with glued skin head",
+          "descriptors": [
+            "warm",
+            "woody-thump",
+            "earthy"
+          ],
+          "match_tokens": [
+            "goblet-drum",
+            "greek",
+            "rebetiko"
+          ]
+        },
+        {
+          "id": "toubeleki_metal",
+          "name": "Spun metal shell (modern)",
+          "descriptors": [
+            "ringing",
+            "crisp-slap",
+            "bright"
+          ],
+          "match_tokens": [
+            "goblet-drum",
+            "hand-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "toubeleki_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "toubeleki_finger",
+          "default": true,
+          "name": "Finger doum-tek patterns",
+          "descriptors": [
+            "crisp",
+            "intricate",
+            "dance-rhythm"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "rebetiko"
+          ]
+        },
+        {
+          "id": "toubeleki_roll",
+          "name": "Rapid finger rolls and flourishes",
+          "descriptors": [
+            "rolling",
+            "shimmering",
+            "virtuosic"
+          ],
+          "match_tokens": [
+            "goblet-drum",
+            "hand-drum"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "toubeleki_body",
+      "name": "Shell material",
+      "variants": [
+        {
+          "id": "toubeleki_clay",
+          "default": true,
+          "name": "Clay shell with glued skin head",
+          "descriptors": [
+            "warm",
+            "woody-thump",
+            "earthy"
+          ],
+          "match_tokens": [
+            "goblet-drum",
+            "greek",
+            "rebetiko"
+          ]
+        },
+        {
+          "id": "toubeleki_metal",
+          "name": "Spun metal shell (modern)",
+          "descriptors": [
+            "ringing",
+            "crisp-slap",
+            "bright"
+          ],
+          "match_tokens": [
+            "goblet-drum",
+            "hand-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "toubeleki_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "toubeleki_finger",
+          "default": true,
+          "name": "Finger doum-tek patterns",
+          "descriptors": [
+            "crisp",
+            "intricate",
+            "dance-rhythm"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "rebetiko"
+          ]
+        },
+        {
+          "id": "toubeleki_roll",
+          "name": "Rapid finger rolls and flourishes",
+          "descriptors": [
+            "rolling",
+            "shimmering",
+            "virtuosic"
+          ],
+          "match_tokens": [
+            "goblet-drum",
+            "hand-drum"
+          ]
+        }
+      ]
+    }
+  ]
+}

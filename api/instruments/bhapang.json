@@ -1,0 +1,142 @@
+{
+  "id": "bhapang",
+  "name": "Bhapang (Mewati variable-tension plucked drum)",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "bhapang",
+  "parts": [
+    {
+      "id": "bhapang_body",
+      "name": "Body / string",
+      "variants": [
+        {
+          "id": "bhapang_gut",
+          "default": true,
+          "name": "Wooden shell with gut string through the head",
+          "descriptors": [
+            "wobbling",
+            "talking-tone"
+          ],
+          "match_tokens": [
+            "tension-drum",
+            "mewat"
+          ]
+        },
+        {
+          "id": "bhapang_wire",
+          "name": "Wire-strung variant",
+          "descriptors": [
+            "twanging",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "plucked-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bhapang_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "bhapang_comic",
+          "default": true,
+          "name": "Speech-mimicking bends with sung verses",
+          "descriptors": [
+            "swooping",
+            "vocal-like"
+          ],
+          "match_tokens": [
+            "pitch-bend",
+            "folk-song"
+          ]
+        },
+        {
+          "id": "bhapang_steady",
+          "name": "Steady rhythmic plucking",
+          "descriptors": [
+            "thumping",
+            "pulsing"
+          ],
+          "match_tokens": [
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "bhapang_body",
+      "name": "Body / string",
+      "variants": [
+        {
+          "id": "bhapang_gut",
+          "default": true,
+          "name": "Wooden shell with gut string through the head",
+          "descriptors": [
+            "wobbling",
+            "talking-tone"
+          ],
+          "match_tokens": [
+            "tension-drum",
+            "mewat"
+          ]
+        },
+        {
+          "id": "bhapang_wire",
+          "name": "Wire-strung variant",
+          "descriptors": [
+            "twanging",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "plucked-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bhapang_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "bhapang_comic",
+          "default": true,
+          "name": "Speech-mimicking bends with sung verses",
+          "descriptors": [
+            "swooping",
+            "vocal-like"
+          ],
+          "match_tokens": [
+            "pitch-bend",
+            "folk-song"
+          ]
+        },
+        {
+          "id": "bhapang_steady",
+          "name": "Steady rhythmic plucking",
+          "descriptors": [
+            "thumping",
+            "pulsing"
+          ],
+          "match_tokens": [
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ]
+}

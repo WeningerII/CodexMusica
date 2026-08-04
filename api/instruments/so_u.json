@@ -1,0 +1,173 @@
+{
+  "id": "so_u",
+  "name": "So u (Khmer/Thai coconut-body low two-string fiddle)",
+  "family": "bowed",
+  "class": "bowed_spike_fiddle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 0,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "so u",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "so_u_body",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "so_u_coconut",
+          "default": true,
+          "name": "Halved coconut shell with calfskin face",
+          "descriptors": [
+            "muffled",
+            "warm",
+            "husky"
+          ],
+          "match_tokens": [
+            "coconut-fiddle",
+            "low-register"
+          ]
+        },
+        {
+          "id": "so_u_carved",
+          "name": "Carved hardwood bowl (craft-shop form)",
+          "descriptors": [
+            "focused",
+            "even"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "so_u_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "so_u_mahori",
+          "default": true,
+          "name": "Mahori / khruang sai inner voice",
+          "descriptors": [
+            "mellow",
+            "heterophonic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "so_u_solo",
+          "name": "Slow solo lament",
+          "descriptors": [
+            "sighing",
+            "rubato"
+          ],
+          "match_tokens": [
+            "bowed",
+            "expressive"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "so_u_body",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "so_u_coconut",
+          "default": true,
+          "name": "Halved coconut shell with calfskin face",
+          "descriptors": [
+            "muffled",
+            "warm",
+            "husky"
+          ],
+          "match_tokens": [
+            "coconut-fiddle",
+            "low-register"
+          ]
+        },
+        {
+          "id": "so_u_carved",
+          "name": "Carved hardwood bowl (craft-shop form)",
+          "descriptors": [
+            "focused",
+            "even"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "so_u_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "so_u_mahori",
+          "default": true,
+          "name": "Mahori / khruang sai inner voice",
+          "descriptors": [
+            "mellow",
+            "heterophonic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "so_u_solo",
+          "name": "Slow solo lament",
+          "descriptors": [
+            "sighing",
+            "rubato"
+          ],
+          "match_tokens": [
+            "bowed",
+            "expressive"
+          ]
+        }
+      ]
+    }
+  ]
+}

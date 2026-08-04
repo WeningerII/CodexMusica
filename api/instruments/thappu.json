@@ -1,0 +1,142 @@
+{
+  "id": "thappu",
+  "name": "Thappu (Tamil parai-style frame drum)",
+  "family": "percussion",
+  "class": "frame_drum",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 0,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "thappu",
+  "parts": [
+    {
+      "id": "thappu_head",
+      "name": "Head / tuning",
+      "variants": [
+        {
+          "id": "thappu_fire",
+          "default": true,
+          "name": "Cowhide head heat-tightened before playing",
+          "descriptors": [
+            "cracking",
+            "brittle-bright"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "tamil"
+          ]
+        },
+        {
+          "id": "thappu_slack",
+          "name": "Cooler slack head",
+          "descriptors": [
+            "thuddy",
+            "dull"
+          ],
+          "match_tokens": [
+            "frame-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "thappu_stick",
+      "name": "Sticks",
+      "variants": [
+        {
+          "id": "thappu_two_stick",
+          "default": true,
+          "name": "Two sticks (thick and thin)",
+          "descriptors": [
+            "rattling",
+            "rapid-fire"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "parai"
+          ]
+        },
+        {
+          "id": "thappu_hand",
+          "name": "Hand-damped accents",
+          "descriptors": [
+            "muted",
+            "clipped"
+          ],
+          "match_tokens": [
+            "hand-played"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "thappu_head",
+      "name": "Head / tuning",
+      "variants": [
+        {
+          "id": "thappu_fire",
+          "default": true,
+          "name": "Cowhide head heat-tightened before playing",
+          "descriptors": [
+            "cracking",
+            "brittle-bright"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "tamil"
+          ]
+        },
+        {
+          "id": "thappu_slack",
+          "name": "Cooler slack head",
+          "descriptors": [
+            "thuddy",
+            "dull"
+          ],
+          "match_tokens": [
+            "frame-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "thappu_stick",
+      "name": "Sticks",
+      "variants": [
+        {
+          "id": "thappu_two_stick",
+          "default": true,
+          "name": "Two sticks (thick and thin)",
+          "descriptors": [
+            "rattling",
+            "rapid-fire"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "parai"
+          ]
+        },
+        {
+          "id": "thappu_hand",
+          "name": "Hand-damped accents",
+          "descriptors": [
+            "muted",
+            "clipped"
+          ],
+          "match_tokens": [
+            "hand-played"
+          ]
+        }
+      ]
+    }
+  ]
+}

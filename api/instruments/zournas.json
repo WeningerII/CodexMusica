@@ -1,0 +1,226 @@
+{
+  "id": "zournas",
+  "name": "Zournas (Greek/Anatolian conical double-reed shawm)",
+  "family": "wind",
+  "class": "double_reed_shawm",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "zournas",
+  "parts": [
+    {
+      "id": "zournas_size",
+      "name": "Size / pitch",
+      "variants": [
+        {
+          "id": "zournas_kaba",
+          "default": true,
+          "name": "Kaba zournas (large, lower-pitched)",
+          "descriptors": [
+            "strident",
+            "full-bodied",
+            "outdoor-loud"
+          ],
+          "match_tokens": [
+            "zurna",
+            "shawm",
+            "greek"
+          ]
+        },
+        {
+          "id": "zournas_cura",
+          "name": "Cura zournas (small, high, shrill)",
+          "descriptors": [
+            "shrill",
+            "piercing",
+            "brilliant"
+          ],
+          "match_tokens": [
+            "zurna",
+            "high-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zournas_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "zournas_lead",
+          "default": true,
+          "name": "Lead melody over daouli",
+          "descriptors": [
+            "ornamented",
+            "penetrating",
+            "festive"
+          ],
+          "match_tokens": [
+            "zurna",
+            "lead-line",
+            "procession"
+          ]
+        },
+        {
+          "id": "zournas_drone",
+          "name": "Second zournas holding drone (isokratis)",
+          "descriptors": [
+            "droning",
+            "circular-breathed",
+            "sustained"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "shawm"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zournas_reed",
+      "surface": false,
+      "name": "Reed",
+      "variants": [
+        {
+          "id": "zournas_cane_reed",
+          "default": true,
+          "name": "Hand-cut cane double reed",
+          "descriptors": [
+            "buzzing-timbre",
+            "raw",
+            "expressive"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "zurna"
+          ]
+        },
+        {
+          "id": "zournas_soft_reed",
+          "name": "Softer trimmed reed (indoor playing)",
+          "descriptors": [
+            "mellower",
+            "controlled",
+            "rounder"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "shawm"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "zournas_size",
+      "name": "Size / pitch",
+      "variants": [
+        {
+          "id": "zournas_kaba",
+          "default": true,
+          "name": "Kaba zournas (large, lower-pitched)",
+          "descriptors": [
+            "strident",
+            "full-bodied",
+            "outdoor-loud"
+          ],
+          "match_tokens": [
+            "zurna",
+            "shawm",
+            "greek"
+          ]
+        },
+        {
+          "id": "zournas_cura",
+          "name": "Cura zournas (small, high, shrill)",
+          "descriptors": [
+            "shrill",
+            "piercing",
+            "brilliant"
+          ],
+          "match_tokens": [
+            "zurna",
+            "high-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zournas_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "zournas_lead",
+          "default": true,
+          "name": "Lead melody over daouli",
+          "descriptors": [
+            "ornamented",
+            "penetrating",
+            "festive"
+          ],
+          "match_tokens": [
+            "zurna",
+            "lead-line",
+            "procession"
+          ]
+        },
+        {
+          "id": "zournas_drone",
+          "name": "Second zournas holding drone (isokratis)",
+          "descriptors": [
+            "droning",
+            "circular-breathed",
+            "sustained"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "shawm"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zournas_reed",
+      "surface": false,
+      "name": "Reed",
+      "variants": [
+        {
+          "id": "zournas_cane_reed",
+          "default": true,
+          "name": "Hand-cut cane double reed",
+          "descriptors": [
+            "buzzing-timbre",
+            "raw",
+            "expressive"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "zurna"
+          ]
+        },
+        {
+          "id": "zournas_soft_reed",
+          "name": "Softer trimmed reed (indoor playing)",
+          "descriptors": [
+            "mellower",
+            "controlled",
+            "rounder"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "shawm"
+          ]
+        }
+      ]
+    }
+  ]
+}

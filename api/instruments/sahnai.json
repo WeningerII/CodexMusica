@@ -1,0 +1,146 @@
+{
+  "id": "sahnai",
+  "name": "Sahnai (Nepali conical double-reed shawm)",
+  "family": "wind",
+  "class": "double_reed_shawm",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "sahnai",
+  "parts": [
+    {
+      "id": "sahnai_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "sahnai_damai",
+          "default": true,
+          "name": "Damai sahanai with flared metal bell",
+          "descriptors": [
+            "nasal",
+            "piercing"
+          ],
+          "match_tokens": [
+            "shawm",
+            "nepali"
+          ]
+        },
+        {
+          "id": "sahnai_small",
+          "name": "Small high-pitched sahanai",
+          "descriptors": [
+            "shrill",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "high-pitched"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sahnai_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "sahnai_mangal",
+          "default": true,
+          "name": "Mangal dhun auspicious melodies",
+          "descriptors": [
+            "ornamented",
+            "auspicious"
+          ],
+          "match_tokens": [
+            "ceremonial",
+            "melodic"
+          ]
+        },
+        {
+          "id": "sahnai_procession",
+          "name": "Loud outdoor processional blowing",
+          "descriptors": [
+            "blaring",
+            "sustained"
+          ],
+          "match_tokens": [
+            "processional",
+            "outdoor"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sahnai_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "sahnai_damai",
+          "default": true,
+          "name": "Damai sahanai with flared metal bell",
+          "descriptors": [
+            "nasal",
+            "piercing"
+          ],
+          "match_tokens": [
+            "shawm",
+            "nepali"
+          ]
+        },
+        {
+          "id": "sahnai_small",
+          "name": "Small high-pitched sahanai",
+          "descriptors": [
+            "shrill",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "high-pitched"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sahnai_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "sahnai_mangal",
+          "default": true,
+          "name": "Mangal dhun auspicious melodies",
+          "descriptors": [
+            "ornamented",
+            "auspicious"
+          ],
+          "match_tokens": [
+            "ceremonial",
+            "melodic"
+          ]
+        },
+        {
+          "id": "sahnai_procession",
+          "name": "Loud outdoor processional blowing",
+          "descriptors": [
+            "blaring",
+            "sustained"
+          ],
+          "match_tokens": [
+            "processional",
+            "outdoor"
+          ]
+        }
+      ]
+    }
+  ]
+}

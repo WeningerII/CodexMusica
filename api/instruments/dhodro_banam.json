@@ -1,0 +1,237 @@
+{
+  "id": "dhodro_banam",
+  "name": "Dhodro banam (Santal figure-carved bowed lute)",
+  "family": "bowed",
+  "class": "bowed_lute",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 1,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "dhodro banam",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "dhodrobanam_carving",
+      "name": "Body carving",
+      "variants": [
+        {
+          "id": "dhodrobanam_figures",
+          "default": true,
+          "name": "Ancestral figure-carved single-block body",
+          "descriptors": [
+            "hoarse",
+            "earthy",
+            "ancestral"
+          ],
+          "match_tokens": [
+            "bowed",
+            "santal",
+            "tribal-fiddle"
+          ]
+        },
+        {
+          "id": "dhodrobanam_plain",
+          "name": "Plain undecorated body",
+          "descriptors": [
+            "dry",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "tribal-fiddle"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dhodrobanam_string",
+      "name": "String and belly",
+      "variants": [
+        {
+          "id": "dhodrobanam_horsehair",
+          "default": true,
+          "name": "Horsehair string on hide belly",
+          "descriptors": [
+            "raspy",
+            "buzzing-timbre",
+            "nasal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "skin-belly"
+          ]
+        },
+        {
+          "id": "dhodrobanam_steel",
+          "name": "Steel string",
+          "descriptors": [
+            "bright",
+            "wiry"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dhodrobanam_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "dhodrobanam_song",
+          "default": true,
+          "name": "Santal song accompaniment",
+          "descriptors": [
+            "voice-shadowing",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "tribal"
+          ]
+        },
+        {
+          "id": "dhodrobanam_dance",
+          "name": "Festival dance playing",
+          "descriptors": [
+            "driving",
+            "repetitive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dhodrobanam_carving",
+      "name": "Body carving",
+      "variants": [
+        {
+          "id": "dhodrobanam_figures",
+          "default": true,
+          "name": "Ancestral figure-carved single-block body",
+          "descriptors": [
+            "hoarse",
+            "earthy",
+            "ancestral"
+          ],
+          "match_tokens": [
+            "bowed",
+            "santal",
+            "tribal-fiddle"
+          ]
+        },
+        {
+          "id": "dhodrobanam_plain",
+          "name": "Plain undecorated body",
+          "descriptors": [
+            "dry",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "tribal-fiddle"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dhodrobanam_string",
+      "name": "String and belly",
+      "variants": [
+        {
+          "id": "dhodrobanam_horsehair",
+          "default": true,
+          "name": "Horsehair string on hide belly",
+          "descriptors": [
+            "raspy",
+            "buzzing-timbre",
+            "nasal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "skin-belly"
+          ]
+        },
+        {
+          "id": "dhodrobanam_steel",
+          "name": "Steel string",
+          "descriptors": [
+            "bright",
+            "wiry"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dhodrobanam_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "dhodrobanam_song",
+          "default": true,
+          "name": "Santal song accompaniment",
+          "descriptors": [
+            "voice-shadowing",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "tribal"
+          ]
+        },
+        {
+          "id": "dhodrobanam_dance",
+          "name": "Festival dance playing",
+          "descriptors": [
+            "driving",
+            "repetitive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ]
+}

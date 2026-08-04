@@ -1,0 +1,173 @@
+{
+  "id": "so_duang",
+  "name": "So duang (Thai/Khmer hardwood high two-string fiddle)",
+  "family": "bowed",
+  "class": "bowed_spike_fiddle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 1,
+    "register": 2,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "so duang",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "so_duang_body",
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "so_duang_hardwood",
+          "default": true,
+          "name": "Turned hardwood cylinder, snakeskin face",
+          "descriptors": [
+            "piercing",
+            "nasal",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "spike-fiddle",
+            "high-register"
+          ]
+        },
+        {
+          "id": "so_duang_ivory",
+          "name": "Ivory/bone-turned heirloom body",
+          "descriptors": [
+            "glassy",
+            "brilliant"
+          ],
+          "match_tokens": [
+            "spike-fiddle",
+            "bright-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "so_duang_role",
+      "name": "Playing role",
+      "variants": [
+        {
+          "id": "so_duang_lead",
+          "default": true,
+          "name": "Lead melodic voice in khruang sai",
+          "descriptors": [
+            "leading",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "bowed",
+            "lead-line"
+          ]
+        },
+        {
+          "id": "so_duang_dance",
+          "name": "Fast dance accompaniment",
+          "descriptors": [
+            "driving",
+            "agile"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "so_duang_body",
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "so_duang_hardwood",
+          "default": true,
+          "name": "Turned hardwood cylinder, snakeskin face",
+          "descriptors": [
+            "piercing",
+            "nasal",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "spike-fiddle",
+            "high-register"
+          ]
+        },
+        {
+          "id": "so_duang_ivory",
+          "name": "Ivory/bone-turned heirloom body",
+          "descriptors": [
+            "glassy",
+            "brilliant"
+          ],
+          "match_tokens": [
+            "spike-fiddle",
+            "bright-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "so_duang_role",
+      "name": "Playing role",
+      "variants": [
+        {
+          "id": "so_duang_lead",
+          "default": true,
+          "name": "Lead melodic voice in khruang sai",
+          "descriptors": [
+            "leading",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "bowed",
+            "lead-line"
+          ]
+        },
+        {
+          "id": "so_duang_dance",
+          "name": "Fast dance accompaniment",
+          "descriptors": [
+            "driving",
+            "agile"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ]
+}

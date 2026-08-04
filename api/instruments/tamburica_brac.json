@@ -1,0 +1,182 @@
+{
+  "id": "tamburica_brac",
+  "name": "Brač (mid-register melody tamburica of the tambura orchestra)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "brac",
+  "parts": [
+    {
+      "id": "tamburica_brac_size",
+      "name": "Size within the brač group",
+      "variants": [
+        {
+          "id": "tamburica_brac_e",
+          "default": true,
+          "name": "E-brač (standard melody instrument)",
+          "descriptors": [
+            "warm-bright",
+            "singing",
+            "lead-capable"
+          ],
+          "match_tokens": [
+            "tamburica",
+            "brac",
+            "croatian"
+          ]
+        },
+        {
+          "id": "tamburica_brac_a",
+          "name": "A-brač (higher second voice)",
+          "descriptors": [
+            "brighter",
+            "supporting",
+            "agile"
+          ],
+          "match_tokens": [
+            "tamburica",
+            "plucked"
+          ]
+        },
+        {
+          "id": "tamburica_brac_bugarija_style",
+          "name": "Large basprim brač (lower voice)",
+          "descriptors": [
+            "fuller",
+            "darker",
+            "grounding"
+          ],
+          "match_tokens": [
+            "tamburica",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tamburica_brac_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "tamburica_brac_tremolo",
+          "default": true,
+          "name": "Plectrum tremolo melody",
+          "descriptors": [
+            "sustained",
+            "shimmering",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "tremolo",
+            "tamburica"
+          ]
+        },
+        {
+          "id": "tamburica_brac_chordal",
+          "name": "Chordal off-beat accompaniment",
+          "descriptors": [
+            "rhythmic",
+            "chugging",
+            "supporting"
+          ],
+          "match_tokens": [
+            "tamburica",
+            "rhythm-part"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tamburica_brac_size",
+      "name": "Size within the brač group",
+      "variants": [
+        {
+          "id": "tamburica_brac_e",
+          "default": true,
+          "name": "E-brač (standard melody instrument)",
+          "descriptors": [
+            "warm-bright",
+            "singing",
+            "lead-capable"
+          ],
+          "match_tokens": [
+            "tamburica",
+            "brac",
+            "croatian"
+          ]
+        },
+        {
+          "id": "tamburica_brac_a",
+          "name": "A-brač (higher second voice)",
+          "descriptors": [
+            "brighter",
+            "supporting",
+            "agile"
+          ],
+          "match_tokens": [
+            "tamburica",
+            "plucked"
+          ]
+        },
+        {
+          "id": "tamburica_brac_bugarija_style",
+          "name": "Large basprim brač (lower voice)",
+          "descriptors": [
+            "fuller",
+            "darker",
+            "grounding"
+          ],
+          "match_tokens": [
+            "tamburica",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tamburica_brac_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "tamburica_brac_tremolo",
+          "default": true,
+          "name": "Plectrum tremolo melody",
+          "descriptors": [
+            "sustained",
+            "shimmering",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "tremolo",
+            "tamburica"
+          ]
+        },
+        {
+          "id": "tamburica_brac_chordal",
+          "name": "Chordal off-beat accompaniment",
+          "descriptors": [
+            "rhythmic",
+            "chugging",
+            "supporting"
+          ],
+          "match_tokens": [
+            "tamburica",
+            "rhythm-part"
+          ]
+        }
+      ]
+    }
+  ]
+}

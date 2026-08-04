@@ -1,0 +1,146 @@
+{
+  "id": "kuzhal",
+  "name": "Kuzhal (Kerala temple double-reed shawm)",
+  "family": "wind",
+  "class": "double_reed_shawm",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 2,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "kuzhal",
+  "parts": [
+    {
+      "id": "kuzhal_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "kuzhal_short",
+          "default": true,
+          "name": "Short wooden kuzhal (panchavadyam/pandi melam)",
+          "descriptors": [
+            "shrill",
+            "nasal"
+          ],
+          "match_tokens": [
+            "shawm",
+            "kerala"
+          ]
+        },
+        {
+          "id": "kuzhal_kurum",
+          "name": "Kurumkuzhal with wider bore",
+          "descriptors": [
+            "reedy",
+            "fuller"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "temple-ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kuzhal_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "kuzhal_melam",
+          "default": true,
+          "name": "Melam melodic overlay above drums",
+          "descriptors": [
+            "piercing",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "temple-ensemble",
+            "melodic"
+          ]
+        },
+        {
+          "id": "kuzhal_pattu",
+          "name": "Kuzhal pattu solo passages",
+          "descriptors": [
+            "floating",
+            "melismatic"
+          ],
+          "match_tokens": [
+            "solo",
+            "ornamented"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kuzhal_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "kuzhal_short",
+          "default": true,
+          "name": "Short wooden kuzhal (panchavadyam/pandi melam)",
+          "descriptors": [
+            "shrill",
+            "nasal"
+          ],
+          "match_tokens": [
+            "shawm",
+            "kerala"
+          ]
+        },
+        {
+          "id": "kuzhal_kurum",
+          "name": "Kurumkuzhal with wider bore",
+          "descriptors": [
+            "reedy",
+            "fuller"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "temple-ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kuzhal_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "kuzhal_melam",
+          "default": true,
+          "name": "Melam melodic overlay above drums",
+          "descriptors": [
+            "piercing",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "temple-ensemble",
+            "melodic"
+          ]
+        },
+        {
+          "id": "kuzhal_pattu",
+          "name": "Kuzhal pattu solo passages",
+          "descriptors": [
+            "floating",
+            "melismatic"
+          ],
+          "match_tokens": [
+            "solo",
+            "ornamented"
+          ]
+        }
+      ]
+    }
+  ]
+}

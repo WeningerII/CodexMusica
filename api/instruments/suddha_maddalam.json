@@ -1,0 +1,142 @@
+{
+  "id": "suddha_maddalam",
+  "name": "Suddha maddalam (Kerala barrel drum of Kathakali)",
+  "family": "percussion",
+  "class": "barrel_drum",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": -2,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "suddha maddalam",
+  "parts": [
+    {
+      "id": "maddalam_head",
+      "name": "Head preparation",
+      "variants": [
+        {
+          "id": "maddalam_paste",
+          "default": true,
+          "name": "Rice-paste-loaded bass head, finger caps on right",
+          "descriptors": [
+            "booming",
+            "deep-toned"
+          ],
+          "match_tokens": [
+            "barrel-drum",
+            "kerala"
+          ]
+        },
+        {
+          "id": "maddalam_plain",
+          "name": "Unloaded heads",
+          "descriptors": [
+            "open-toned",
+            "dry"
+          ],
+          "match_tokens": [
+            "double-headed-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "maddalam_context",
+      "name": "Context",
+      "variants": [
+        {
+          "id": "maddalam_kathakali",
+          "default": true,
+          "name": "Kathakali dance-drama accompaniment",
+          "descriptors": [
+            "thunderous",
+            "dramatic"
+          ],
+          "match_tokens": [
+            "dance-accompaniment",
+            "kathakali"
+          ]
+        },
+        {
+          "id": "maddalam_panchavadyam",
+          "name": "Panchavadyam ensemble role",
+          "descriptors": [
+            "driving",
+            "cyclic"
+          ],
+          "match_tokens": [
+            "temple-ensemble"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "maddalam_head",
+      "name": "Head preparation",
+      "variants": [
+        {
+          "id": "maddalam_paste",
+          "default": true,
+          "name": "Rice-paste-loaded bass head, finger caps on right",
+          "descriptors": [
+            "booming",
+            "deep-toned"
+          ],
+          "match_tokens": [
+            "barrel-drum",
+            "kerala"
+          ]
+        },
+        {
+          "id": "maddalam_plain",
+          "name": "Unloaded heads",
+          "descriptors": [
+            "open-toned",
+            "dry"
+          ],
+          "match_tokens": [
+            "double-headed-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "maddalam_context",
+      "name": "Context",
+      "variants": [
+        {
+          "id": "maddalam_kathakali",
+          "default": true,
+          "name": "Kathakali dance-drama accompaniment",
+          "descriptors": [
+            "thunderous",
+            "dramatic"
+          ],
+          "match_tokens": [
+            "dance-accompaniment",
+            "kathakali"
+          ]
+        },
+        {
+          "id": "maddalam_panchavadyam",
+          "name": "Panchavadyam ensemble role",
+          "descriptors": [
+            "driving",
+            "cyclic"
+          ],
+          "match_tokens": [
+            "temple-ensemble"
+          ]
+        }
+      ]
+    }
+  ]
+}

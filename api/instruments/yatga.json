@@ -1,0 +1,170 @@
+{
+  "id": "yatga",
+  "name": "Yatga (Mongolian half-tube long zither)",
+  "family": "plucked_traditional",
+  "class": "plucked_box_zither",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "yatga",
+  "parts": [
+    {
+      "id": "yatga_size",
+      "name": "String count / size",
+      "variants": [
+        {
+          "id": "yatga_thirteen",
+          "default": true,
+          "name": "Thirteen-string court yatga",
+          "descriptors": [
+            "shimmering",
+            "pentatonic",
+            "gliding"
+          ],
+          "match_tokens": [
+            "long-zither",
+            "mongolian"
+          ]
+        },
+        {
+          "id": "yatga_twentyone",
+          "name": "Twenty-one-string concert yatga",
+          "descriptors": [
+            "wide-ranging",
+            "brilliant"
+          ],
+          "match_tokens": [
+            "long-zither",
+            "concert"
+          ]
+        },
+        {
+          "id": "yatga_masterpiece",
+          "name": "Small ten-string folk yatga",
+          "descriptors": [
+            "sparse",
+            "archaic"
+          ],
+          "match_tokens": [
+            "long-zither"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yatga_technique",
+      "name": "Right-hand technique",
+      "variants": [
+        {
+          "id": "yatga_nails",
+          "default": true,
+          "name": "Bare nails with left-hand pressure bends",
+          "descriptors": [
+            "bent-tones",
+            "expressive"
+          ],
+          "match_tokens": [
+            "plucked",
+            "pitch-bend"
+          ]
+        },
+        {
+          "id": "yatga_tremolo",
+          "name": "Two-hand tremolo washes",
+          "descriptors": [
+            "shimmering",
+            "sustained"
+          ],
+          "match_tokens": [
+            "tremolo",
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "yatga_size",
+      "name": "String count / size",
+      "variants": [
+        {
+          "id": "yatga_thirteen",
+          "default": true,
+          "name": "Thirteen-string court yatga",
+          "descriptors": [
+            "shimmering",
+            "pentatonic",
+            "gliding"
+          ],
+          "match_tokens": [
+            "long-zither",
+            "mongolian"
+          ]
+        },
+        {
+          "id": "yatga_twentyone",
+          "name": "Twenty-one-string concert yatga",
+          "descriptors": [
+            "wide-ranging",
+            "brilliant"
+          ],
+          "match_tokens": [
+            "long-zither",
+            "concert"
+          ]
+        },
+        {
+          "id": "yatga_masterpiece",
+          "name": "Small ten-string folk yatga",
+          "descriptors": [
+            "sparse",
+            "archaic"
+          ],
+          "match_tokens": [
+            "long-zither"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yatga_technique",
+      "name": "Right-hand technique",
+      "variants": [
+        {
+          "id": "yatga_nails",
+          "default": true,
+          "name": "Bare nails with left-hand pressure bends",
+          "descriptors": [
+            "bent-tones",
+            "expressive"
+          ],
+          "match_tokens": [
+            "plucked",
+            "pitch-bend"
+          ]
+        },
+        {
+          "id": "yatga_tremolo",
+          "name": "Two-hand tremolo washes",
+          "descriptors": [
+            "shimmering",
+            "sustained"
+          ],
+          "match_tokens": [
+            "tremolo",
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

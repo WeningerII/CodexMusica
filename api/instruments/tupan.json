@@ -1,0 +1,174 @@
+{
+  "id": "tupan",
+  "name": "Tupan (Balkan double-headed shoulder drum)",
+  "family": "percussion",
+  "class": "double_headed_drum",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": -2,
+    "register": -1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "tupan",
+  "parts": [
+    {
+      "id": "tupan_stroke",
+      "name": "Stroke technique",
+      "variants": [
+        {
+          "id": "tupan_kukuda_prachka",
+          "default": true,
+          "name": "Beater bass plus switch backbeat",
+          "descriptors": [
+            "booming",
+            "ticking-counterpoint",
+            "propulsive"
+          ],
+          "match_tokens": [
+            "balkan",
+            "double-headed-drum",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "tupan_rim",
+          "name": "Rim-and-shell accents",
+          "descriptors": [
+            "clacking",
+            "dry-accent"
+          ],
+          "match_tokens": [
+            "balkan",
+            "rim-shot"
+          ]
+        },
+        {
+          "id": "tupan_roll",
+          "name": "Rolling switch tremolo",
+          "descriptors": [
+            "rumbling",
+            "sustained-roll"
+          ],
+          "match_tokens": [
+            "balkan",
+            "drum-roll"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tupan_head",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "tupan_goatskin",
+          "default": true,
+          "name": "Goatskin heads",
+          "descriptors": [
+            "warm",
+            "slack-thump"
+          ],
+          "match_tokens": [
+            "skin-head",
+            "balkan"
+          ]
+        },
+        {
+          "id": "tupan_plastic",
+          "name": "Plastic heads (modern)",
+          "descriptors": [
+            "tight",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "synthetic-head"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tupan_stroke",
+      "name": "Stroke technique",
+      "variants": [
+        {
+          "id": "tupan_kukuda_prachka",
+          "default": true,
+          "name": "Beater bass plus switch backbeat",
+          "descriptors": [
+            "booming",
+            "ticking-counterpoint",
+            "propulsive"
+          ],
+          "match_tokens": [
+            "balkan",
+            "double-headed-drum",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "tupan_rim",
+          "name": "Rim-and-shell accents",
+          "descriptors": [
+            "clacking",
+            "dry-accent"
+          ],
+          "match_tokens": [
+            "balkan",
+            "rim-shot"
+          ]
+        },
+        {
+          "id": "tupan_roll",
+          "name": "Rolling switch tremolo",
+          "descriptors": [
+            "rumbling",
+            "sustained-roll"
+          ],
+          "match_tokens": [
+            "balkan",
+            "drum-roll"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tupan_head",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "tupan_goatskin",
+          "default": true,
+          "name": "Goatskin heads",
+          "descriptors": [
+            "warm",
+            "slack-thump"
+          ],
+          "match_tokens": [
+            "skin-head",
+            "balkan"
+          ]
+        },
+        {
+          "id": "tupan_plastic",
+          "name": "Plastic heads (modern)",
+          "descriptors": [
+            "tight",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "synthetic-head"
+          ]
+        }
+      ]
+    }
+  ]
+}

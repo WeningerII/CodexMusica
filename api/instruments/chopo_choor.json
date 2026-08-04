@@ -1,0 +1,168 @@
+{
+  "id": "chopo_choor",
+  "name": "Chopo choor (Kyrgyz clay ocarina-flute)",
+  "family": "wind",
+  "class": "end_blown_flute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 2,
+    "register": 1,
+    "range": -1,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "chopo choor",
+  "parts": [
+    {
+      "id": "chopo_choor_body",
+      "name": "Vessel material / size",
+      "variants": [
+        {
+          "id": "chopo_choor_clay",
+          "default": true,
+          "name": "Fired clay vessel (traditional)",
+          "descriptors": [
+            "hollow-toned",
+            "breathy"
+          ],
+          "match_tokens": [
+            "clay-flute",
+            "kyrgyz"
+          ]
+        },
+        {
+          "id": "chopo_choor_large",
+          "name": "Large low-voiced vessel",
+          "descriptors": [
+            "deep-toned",
+            "soft"
+          ],
+          "match_tokens": [
+            "low-register",
+            "vessel-flute"
+          ]
+        },
+        {
+          "id": "chopo_choor_wood",
+          "name": "Wooden sybyzgy-style choor",
+          "descriptors": [
+            "airy",
+            "reedy"
+          ],
+          "match_tokens": [
+            "end-blown",
+            "central-asia"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chopo_choor_style",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "chopo_choor_pastoral",
+          "default": true,
+          "name": "Pastoral melody with breath vibrato",
+          "descriptors": [
+            "plaintive",
+            "floating"
+          ],
+          "match_tokens": [
+            "shepherd-tune"
+          ]
+        },
+        {
+          "id": "chopo_choor_imitative",
+          "name": "Bird- and wind-imitation figures",
+          "descriptors": [
+            "fluttering",
+            "whistling"
+          ],
+          "match_tokens": [
+            "imitative",
+            "flute"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "chopo_choor_body",
+      "name": "Vessel material / size",
+      "variants": [
+        {
+          "id": "chopo_choor_clay",
+          "default": true,
+          "name": "Fired clay vessel (traditional)",
+          "descriptors": [
+            "hollow-toned",
+            "breathy"
+          ],
+          "match_tokens": [
+            "clay-flute",
+            "kyrgyz"
+          ]
+        },
+        {
+          "id": "chopo_choor_large",
+          "name": "Large low-voiced vessel",
+          "descriptors": [
+            "deep-toned",
+            "soft"
+          ],
+          "match_tokens": [
+            "low-register",
+            "vessel-flute"
+          ]
+        },
+        {
+          "id": "chopo_choor_wood",
+          "name": "Wooden sybyzgy-style choor",
+          "descriptors": [
+            "airy",
+            "reedy"
+          ],
+          "match_tokens": [
+            "end-blown",
+            "central-asia"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chopo_choor_style",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "chopo_choor_pastoral",
+          "default": true,
+          "name": "Pastoral melody with breath vibrato",
+          "descriptors": [
+            "plaintive",
+            "floating"
+          ],
+          "match_tokens": [
+            "shepherd-tune"
+          ]
+        },
+        {
+          "id": "chopo_choor_imitative",
+          "name": "Bird- and wind-imitation figures",
+          "descriptors": [
+            "fluttering",
+            "whistling"
+          ],
+          "match_tokens": [
+            "imitative",
+            "flute"
+          ]
+        }
+      ]
+    }
+  ]
+}

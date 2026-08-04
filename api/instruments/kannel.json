@@ -1,0 +1,230 @@
+{
+  "id": "kannel",
+  "name": "Kannel (Estonian plucked box zither)",
+  "family": "plucked_traditional",
+  "class": "plucked_box_zither",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "kannel",
+  "parts": [
+    {
+      "id": "kannel_form",
+      "name": "Form / size",
+      "variants": [
+        {
+          "id": "kannel_small_village",
+          "default": true,
+          "name": "Small village kannel (6-12 strings, carved from one block)",
+          "descriptors": [
+            "intimate",
+            "bell-like",
+            "archaic"
+          ],
+          "match_tokens": [
+            "box-zither",
+            "estonian"
+          ]
+        },
+        {
+          "id": "kannel_chromatic_concert",
+          "name": "Large chromatic concert kannel",
+          "descriptors": [
+            "wide-ranged",
+            "resonant",
+            "projecting"
+          ],
+          "match_tokens": [
+            "box-zither",
+            "estonian"
+          ]
+        },
+        {
+          "id": "kannel_hiiu_style",
+          "name": "Island (Hiiumaa) diatonic kannel",
+          "descriptors": [
+            "sweet-toned",
+            "modal"
+          ],
+          "match_tokens": [
+            "box-zither"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kannel_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "kannel_strum_damp",
+          "default": true,
+          "name": "Strum-and-damp chordal accompaniment",
+          "descriptors": [
+            "chordal-shimmer",
+            "damped-attack"
+          ],
+          "match_tokens": [
+            "box-zither",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "kannel_plucked_melody",
+          "name": "Finger-plucked melody",
+          "descriptors": [
+            "clear-plucked",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "box-zither"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kannel_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "kannel_steel",
+          "default": true,
+          "name": "Steel wire strings",
+          "descriptors": [
+            "bright-attack",
+            "ringing"
+          ],
+          "match_tokens": [
+            "box-zither"
+          ]
+        },
+        {
+          "id": "kannel_gut",
+          "name": "Gut or horsehair strings (archaic)",
+          "descriptors": [
+            "soft-toned",
+            "archaic"
+          ],
+          "match_tokens": [
+            "box-zither"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kannel_form",
+      "name": "Form / size",
+      "variants": [
+        {
+          "id": "kannel_small_village",
+          "default": true,
+          "name": "Small village kannel (6-12 strings, carved from one block)",
+          "descriptors": [
+            "intimate",
+            "bell-like",
+            "archaic"
+          ],
+          "match_tokens": [
+            "box-zither",
+            "estonian"
+          ]
+        },
+        {
+          "id": "kannel_chromatic_concert",
+          "name": "Large chromatic concert kannel",
+          "descriptors": [
+            "wide-ranged",
+            "resonant",
+            "projecting"
+          ],
+          "match_tokens": [
+            "box-zither",
+            "estonian"
+          ]
+        },
+        {
+          "id": "kannel_hiiu_style",
+          "name": "Island (Hiiumaa) diatonic kannel",
+          "descriptors": [
+            "sweet-toned",
+            "modal"
+          ],
+          "match_tokens": [
+            "box-zither"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kannel_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "kannel_strum_damp",
+          "default": true,
+          "name": "Strum-and-damp chordal accompaniment",
+          "descriptors": [
+            "chordal-shimmer",
+            "damped-attack"
+          ],
+          "match_tokens": [
+            "box-zither",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "kannel_plucked_melody",
+          "name": "Finger-plucked melody",
+          "descriptors": [
+            "clear-plucked",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "box-zither"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kannel_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "kannel_steel",
+          "default": true,
+          "name": "Steel wire strings",
+          "descriptors": [
+            "bright-attack",
+            "ringing"
+          ],
+          "match_tokens": [
+            "box-zither"
+          ]
+        },
+        {
+          "id": "kannel_gut",
+          "name": "Gut or horsehair strings (archaic)",
+          "descriptors": [
+            "soft-toned",
+            "archaic"
+          ],
+          "match_tokens": [
+            "box-zither"
+          ]
+        }
+      ]
+    }
+  ]
+}

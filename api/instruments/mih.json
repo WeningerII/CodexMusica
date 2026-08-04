@@ -1,0 +1,156 @@
+{
+  "id": "mih",
+  "name": "Mih (Istrian double-chanter goatskin bagpipe)",
+  "family": "wind",
+  "class": "mouth_blown_bagpipe",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -2,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "mih",
+  "parts": [
+    {
+      "id": "mih_chanter",
+      "name": "Chanter pair",
+      "variants": [
+        {
+          "id": "mih_istrian_scale",
+          "default": true,
+          "name": "Twin pipes in the Istrian scale (no drone)",
+          "descriptors": [
+            "beating-dissonance",
+            "narrow-interval",
+            "raw"
+          ],
+          "match_tokens": [
+            "istrian",
+            "bagpipe",
+            "double-chanter"
+          ]
+        },
+        {
+          "id": "mih_unison",
+          "name": "Near-unison tuned pipes",
+          "descriptors": [
+            "thick-unison",
+            "buzzing-timbre",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "croatian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mih_bag",
+      "name": "Bag",
+      "variants": [
+        {
+          "id": "mih_goatskin",
+          "default": true,
+          "name": "Whole goatskin bag, hair outward",
+          "descriptors": [
+            "continuous-tone",
+            "earthy",
+            "archaic"
+          ],
+          "match_tokens": [
+            "istrian",
+            "bagpipe"
+          ]
+        },
+        {
+          "id": "mih_synthetic",
+          "name": "Synthetic bag (modern revival)",
+          "descriptors": [
+            "stable-pitch",
+            "even",
+            "modern"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "croatian"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "mih_chanter",
+      "name": "Chanter pair",
+      "variants": [
+        {
+          "id": "mih_istrian_scale",
+          "default": true,
+          "name": "Twin pipes in the Istrian scale (no drone)",
+          "descriptors": [
+            "beating-dissonance",
+            "narrow-interval",
+            "raw"
+          ],
+          "match_tokens": [
+            "istrian",
+            "bagpipe",
+            "double-chanter"
+          ]
+        },
+        {
+          "id": "mih_unison",
+          "name": "Near-unison tuned pipes",
+          "descriptors": [
+            "thick-unison",
+            "buzzing-timbre",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "croatian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mih_bag",
+      "name": "Bag",
+      "variants": [
+        {
+          "id": "mih_goatskin",
+          "default": true,
+          "name": "Whole goatskin bag, hair outward",
+          "descriptors": [
+            "continuous-tone",
+            "earthy",
+            "archaic"
+          ],
+          "match_tokens": [
+            "istrian",
+            "bagpipe"
+          ]
+        },
+        {
+          "id": "mih_synthetic",
+          "name": "Synthetic bag (modern revival)",
+          "descriptors": [
+            "stable-pitch",
+            "even",
+            "modern"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "croatian"
+          ]
+        }
+      ]
+    }
+  ]
+}

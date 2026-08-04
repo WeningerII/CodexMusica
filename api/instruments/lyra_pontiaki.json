@@ -1,0 +1,251 @@
+{
+  "id": "lyra_pontiaki",
+  "name": "Pontic lyra (kemenche, bowed three-string box fiddle)",
+  "family": "bowed",
+  "class": "bowed_fiddle",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "pontic lyra",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "lyra_pontiaki_form",
+      "name": "Body form",
+      "variants": [
+        {
+          "id": "lyra_pontiaki_narrow",
+          "default": true,
+          "name": "Narrow bottle-shaped kemenche (classic Pontic)",
+          "descriptors": [
+            "nasal",
+            "piercing",
+            "double-stopped"
+          ],
+          "match_tokens": [
+            "pontic",
+            "kemenche",
+            "bowed-fiddle"
+          ]
+        },
+        {
+          "id": "lyra_pontiaki_wide",
+          "name": "Wider modern concert build",
+          "descriptors": [
+            "fuller",
+            "rounder",
+            "projecting"
+          ],
+          "match_tokens": [
+            "pontic",
+            "bowed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lyra_pontiaki_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "lyra_pontiaki_double_stop",
+          "default": true,
+          "name": "Parallel double-stop bowing (two strings at once)",
+          "descriptors": [
+            "drone-rich",
+            "raspy",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "double-stop",
+            "pontic",
+            "bowed"
+          ]
+        },
+        {
+          "id": "lyra_pontiaki_single",
+          "name": "Single-string melodic line",
+          "descriptors": [
+            "clear",
+            "lyrical",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "pontic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lyra_pontiaki_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "lyra_pontiaki_steel",
+          "default": true,
+          "name": "Steel strings",
+          "descriptors": [
+            "bright",
+            "cutting",
+            "metallic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "pontic"
+          ]
+        },
+        {
+          "id": "lyra_pontiaki_gut",
+          "name": "Gut strings (older setup)",
+          "descriptors": [
+            "warm",
+            "soft-edged",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-strung"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "lyra_pontiaki_form",
+      "name": "Body form",
+      "variants": [
+        {
+          "id": "lyra_pontiaki_narrow",
+          "default": true,
+          "name": "Narrow bottle-shaped kemenche (classic Pontic)",
+          "descriptors": [
+            "nasal",
+            "piercing",
+            "double-stopped"
+          ],
+          "match_tokens": [
+            "pontic",
+            "kemenche",
+            "bowed-fiddle"
+          ]
+        },
+        {
+          "id": "lyra_pontiaki_wide",
+          "name": "Wider modern concert build",
+          "descriptors": [
+            "fuller",
+            "rounder",
+            "projecting"
+          ],
+          "match_tokens": [
+            "pontic",
+            "bowed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lyra_pontiaki_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "lyra_pontiaki_double_stop",
+          "default": true,
+          "name": "Parallel double-stop bowing (two strings at once)",
+          "descriptors": [
+            "drone-rich",
+            "raspy",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "double-stop",
+            "pontic",
+            "bowed"
+          ]
+        },
+        {
+          "id": "lyra_pontiaki_single",
+          "name": "Single-string melodic line",
+          "descriptors": [
+            "clear",
+            "lyrical",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "pontic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lyra_pontiaki_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "lyra_pontiaki_steel",
+          "default": true,
+          "name": "Steel strings",
+          "descriptors": [
+            "bright",
+            "cutting",
+            "metallic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "pontic"
+          ]
+        },
+        {
+          "id": "lyra_pontiaki_gut",
+          "name": "Gut strings (older setup)",
+          "descriptors": [
+            "warm",
+            "soft-edged",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-strung"
+          ]
+        }
+      ]
+    }
+  ]
+}

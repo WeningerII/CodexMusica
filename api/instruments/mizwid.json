@@ -1,0 +1,224 @@
+{
+  "id": "mizwid",
+  "name": "Mizwid (Tunisian bagpipe with double single-reed chanter)",
+  "family": "wind",
+  "class": "mouth_blown_bagpipe",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": -1,
+    "register": 1,
+    "range": -1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "mizwid",
+  "parts": [
+    {
+      "id": "mizwid_chanter",
+      "name": "Chanter pair",
+      "variants": [
+        {
+          "id": "mizwid_parallel",
+          "default": true,
+          "name": "Twin parallel cane pipes with cow-horn bells",
+          "descriptors": [
+            "reedy-buzz",
+            "beating-unison",
+            "piercing"
+          ],
+          "match_tokens": [
+            "tunisian-bagpipe",
+            "double-chanter",
+            "mezoued"
+          ]
+        },
+        {
+          "id": "mizwid_offset",
+          "name": "Offset tuning (one pipe as drone)",
+          "descriptors": [
+            "droning",
+            "rough-harmony",
+            "hypnotic"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mizwid_bag",
+      "name": "Bag",
+      "variants": [
+        {
+          "id": "mizwid_goatskin",
+          "default": true,
+          "name": "Whole goatskin bag",
+          "descriptors": [
+            "continuous-tone",
+            "earthy",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "tunisian"
+          ]
+        },
+        {
+          "id": "mizwid_synthetic",
+          "name": "Synthetic bag (modern stage)",
+          "descriptors": [
+            "stable-pitch",
+            "even",
+            "modern"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "tunisian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mizwid_context",
+      "surface": false,
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "mizwid_dance",
+          "default": true,
+          "name": "Urban mezoued dance repertoire",
+          "descriptors": [
+            "driving",
+            "festive",
+            "rhythm-locked"
+          ],
+          "match_tokens": [
+            "mezoued",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "mizwid_sufi",
+          "name": "Sufi hadhra procession",
+          "descriptors": [
+            "trance",
+            "sustained",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "sufi",
+            "bagpipe"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "mizwid_chanter",
+      "name": "Chanter pair",
+      "variants": [
+        {
+          "id": "mizwid_parallel",
+          "default": true,
+          "name": "Twin parallel cane pipes with cow-horn bells",
+          "descriptors": [
+            "reedy-buzz",
+            "beating-unison",
+            "piercing"
+          ],
+          "match_tokens": [
+            "tunisian-bagpipe",
+            "double-chanter",
+            "mezoued"
+          ]
+        },
+        {
+          "id": "mizwid_offset",
+          "name": "Offset tuning (one pipe as drone)",
+          "descriptors": [
+            "droning",
+            "rough-harmony",
+            "hypnotic"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mizwid_bag",
+      "name": "Bag",
+      "variants": [
+        {
+          "id": "mizwid_goatskin",
+          "default": true,
+          "name": "Whole goatskin bag",
+          "descriptors": [
+            "continuous-tone",
+            "earthy",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "tunisian"
+          ]
+        },
+        {
+          "id": "mizwid_synthetic",
+          "name": "Synthetic bag (modern stage)",
+          "descriptors": [
+            "stable-pitch",
+            "even",
+            "modern"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "tunisian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mizwid_context",
+      "surface": false,
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "mizwid_dance",
+          "default": true,
+          "name": "Urban mezoued dance repertoire",
+          "descriptors": [
+            "driving",
+            "festive",
+            "rhythm-locked"
+          ],
+          "match_tokens": [
+            "mezoued",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "mizwid_sufi",
+          "name": "Sufi hadhra procession",
+          "descriptors": [
+            "trance",
+            "sustained",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "sufi",
+            "bagpipe"
+          ]
+        }
+      ]
+    }
+  ]
+}

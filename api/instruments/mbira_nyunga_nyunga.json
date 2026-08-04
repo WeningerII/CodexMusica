@@ -1,0 +1,142 @@
+{
+  "id": "mbira_nyunga_nyunga",
+  "name": "Nyunga nyunga (15-key Zimbabwean mbira)",
+  "family": "percussion",
+  "class": "plucked_idiophone",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": -1,
+    "register": 1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "nyunga nyunga",
+  "parts": [
+    {
+      "id": "nyunga_layout",
+      "name": "Key layout / register",
+      "variants": [
+        {
+          "id": "nyunga_15key",
+          "default": true,
+          "name": "Standard 15-key two-row board",
+          "descriptors": [
+            "bright-ping",
+            "lilting"
+          ],
+          "match_tokens": [
+            "lamellophone",
+            "zimbabwean"
+          ]
+        },
+        {
+          "id": "nyunga_extended",
+          "name": "Extended school-model with added low keys",
+          "descriptors": [
+            "fuller-toned",
+            "wide-ranged"
+          ],
+          "match_tokens": [
+            "lamellophone",
+            "pedagogical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nyunga_resonator",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "nyunga_bare",
+          "default": true,
+          "name": "Hand-held bare board",
+          "descriptors": [
+            "dry",
+            "crisp"
+          ],
+          "match_tokens": [
+            "lamellophone"
+          ]
+        },
+        {
+          "id": "nyunga_deze",
+          "name": "Set into a deze gourd",
+          "descriptors": [
+            "booming",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "gourd-resonator"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "nyunga_layout",
+      "name": "Key layout / register",
+      "variants": [
+        {
+          "id": "nyunga_15key",
+          "default": true,
+          "name": "Standard 15-key two-row board",
+          "descriptors": [
+            "bright-ping",
+            "lilting"
+          ],
+          "match_tokens": [
+            "lamellophone",
+            "zimbabwean"
+          ]
+        },
+        {
+          "id": "nyunga_extended",
+          "name": "Extended school-model with added low keys",
+          "descriptors": [
+            "fuller-toned",
+            "wide-ranged"
+          ],
+          "match_tokens": [
+            "lamellophone",
+            "pedagogical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nyunga_resonator",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "nyunga_bare",
+          "default": true,
+          "name": "Hand-held bare board",
+          "descriptors": [
+            "dry",
+            "crisp"
+          ],
+          "match_tokens": [
+            "lamellophone"
+          ]
+        },
+        {
+          "id": "nyunga_deze",
+          "name": "Set into a deze gourd",
+          "descriptors": [
+            "booming",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "gourd-resonator"
+          ]
+        }
+      ]
+    }
+  ]
+}

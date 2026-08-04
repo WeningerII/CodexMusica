@@ -1,0 +1,146 @@
+{
+  "id": "adyrna",
+  "name": "Adyrna (Kazakh angular multi-string harp)",
+  "family": "acoustic_strings",
+  "class": "arched_harp",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "adyrna",
+  "parts": [
+    {
+      "id": "adyrna_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "adyrna_reconstructed",
+          "default": true,
+          "name": "Reconstructed 13-string adyrna",
+          "descriptors": [
+            "harp-like",
+            "airy",
+            "ancient"
+          ],
+          "match_tokens": [
+            "kazakh-harp",
+            "plucked"
+          ]
+        },
+        {
+          "id": "adyrna_extended",
+          "name": "Extended concert adyrna",
+          "descriptors": [
+            "wide-ranging",
+            "ringing"
+          ],
+          "match_tokens": [
+            "harp",
+            "concert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "adyrna_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "adyrna_gut",
+          "default": true,
+          "name": "Gut / sinew strings",
+          "descriptors": [
+            "warm",
+            "soft-toned"
+          ],
+          "match_tokens": [
+            "gut-strung",
+            "plucked"
+          ]
+        },
+        {
+          "id": "adyrna_nylon",
+          "name": "Nylon strings",
+          "descriptors": [
+            "bright",
+            "clear"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "adyrna_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "adyrna_reconstructed",
+          "default": true,
+          "name": "Reconstructed 13-string adyrna",
+          "descriptors": [
+            "harp-like",
+            "airy",
+            "ancient"
+          ],
+          "match_tokens": [
+            "kazakh-harp",
+            "plucked"
+          ]
+        },
+        {
+          "id": "adyrna_extended",
+          "name": "Extended concert adyrna",
+          "descriptors": [
+            "wide-ranging",
+            "ringing"
+          ],
+          "match_tokens": [
+            "harp",
+            "concert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "adyrna_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "adyrna_gut",
+          "default": true,
+          "name": "Gut / sinew strings",
+          "descriptors": [
+            "warm",
+            "soft-toned"
+          ],
+          "match_tokens": [
+            "gut-strung",
+            "plucked"
+          ]
+        },
+        {
+          "id": "adyrna_nylon",
+          "name": "Nylon strings",
+          "descriptors": [
+            "bright",
+            "clear"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

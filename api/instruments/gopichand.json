@@ -1,0 +1,144 @@
+{
+  "id": "gopichand",
+  "name": "Gopichand (Bengali one-string plucked drum, gopiyantra)",
+  "family": "plucked_traditional",
+  "class": "chordophone",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "gopichand",
+  "parts": [
+    {
+      "id": "gopichand_size",
+      "name": "Size / register",
+      "variants": [
+        {
+          "id": "gopichand_std",
+          "default": true,
+          "name": "Standard bamboo-fork body with gut string",
+          "descriptors": [
+            "boinging",
+            "twanging"
+          ],
+          "match_tokens": [
+            "one-string",
+            "baul"
+          ]
+        },
+        {
+          "id": "gopichand_large",
+          "name": "Large deep-voiced ektara",
+          "descriptors": [
+            "deep-toned",
+            "thudding"
+          ],
+          "match_tokens": [
+            "low-register",
+            "plucked-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gopichand_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "gopichand_baul",
+          "default": true,
+          "name": "Baul song accompaniment (squeeze bends)",
+          "descriptors": [
+            "swooping",
+            "hypnotic"
+          ],
+          "match_tokens": [
+            "pitch-bend",
+            "devotional"
+          ]
+        },
+        {
+          "id": "gopichand_pulse",
+          "name": "Straight pulse drone",
+          "descriptors": [
+            "steady-pulse",
+            "droning"
+          ],
+          "match_tokens": [
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "gopichand_size",
+      "name": "Size / register",
+      "variants": [
+        {
+          "id": "gopichand_std",
+          "default": true,
+          "name": "Standard bamboo-fork body with gut string",
+          "descriptors": [
+            "boinging",
+            "twanging"
+          ],
+          "match_tokens": [
+            "one-string",
+            "baul"
+          ]
+        },
+        {
+          "id": "gopichand_large",
+          "name": "Large deep-voiced ektara",
+          "descriptors": [
+            "deep-toned",
+            "thudding"
+          ],
+          "match_tokens": [
+            "low-register",
+            "plucked-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gopichand_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "gopichand_baul",
+          "default": true,
+          "name": "Baul song accompaniment (squeeze bends)",
+          "descriptors": [
+            "swooping",
+            "hypnotic"
+          ],
+          "match_tokens": [
+            "pitch-bend",
+            "devotional"
+          ]
+        },
+        {
+          "id": "gopichand_pulse",
+          "name": "Straight pulse drone",
+          "descriptors": [
+            "steady-pulse",
+            "droning"
+          ],
+          "match_tokens": [
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ]
+}

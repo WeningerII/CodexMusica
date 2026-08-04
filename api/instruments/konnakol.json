@@ -1,0 +1,166 @@
+{
+  "id": "konnakol",
+  "name": "Konnakol (Carnatic vocal percussion syllables)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "konnakol",
+  "parts": [
+    {
+      "id": "konnakol_pace",
+      "name": "Speed / gati",
+      "variants": [
+        {
+          "id": "konnakol_chatusra",
+          "default": true,
+          "name": "Chatusra (four-based) recitation",
+          "descriptors": [
+            "crisp",
+            "articulate"
+          ],
+          "match_tokens": [
+            "vocal-percussion",
+            "carnatic"
+          ]
+        },
+        {
+          "id": "konnakol_tisra",
+          "name": "Tisra/khanda cross-rhythm recitation",
+          "descriptors": [
+            "lilting",
+            "cross-rhythmic"
+          ],
+          "match_tokens": [
+            "polyrhythm",
+            "tala"
+          ]
+        },
+        {
+          "id": "konnakol_fast",
+          "name": "High-speed (chaturasra thrikalam) delivery",
+          "descriptors": [
+            "rapid-fire",
+            "percussive"
+          ],
+          "match_tokens": [
+            "fast-tempo",
+            "rhythmic-solo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "konnakol_context",
+      "name": "Context",
+      "variants": [
+        {
+          "id": "konnakol_solo",
+          "default": true,
+          "name": "Solo recitation / tani exchange",
+          "descriptors": [
+            "declamatory",
+            "dry"
+          ],
+          "match_tokens": [
+            "rhythmic-solo"
+          ]
+        },
+        {
+          "id": "konnakol_teaching",
+          "name": "Teaching / accompaniment cueing",
+          "descriptors": [
+            "measured",
+            "spoken"
+          ],
+          "match_tokens": [
+            "timekeeping"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "konnakol_pace",
+      "name": "Speed / gati",
+      "variants": [
+        {
+          "id": "konnakol_chatusra",
+          "default": true,
+          "name": "Chatusra (four-based) recitation",
+          "descriptors": [
+            "crisp",
+            "articulate"
+          ],
+          "match_tokens": [
+            "vocal-percussion",
+            "carnatic"
+          ]
+        },
+        {
+          "id": "konnakol_tisra",
+          "name": "Tisra/khanda cross-rhythm recitation",
+          "descriptors": [
+            "lilting",
+            "cross-rhythmic"
+          ],
+          "match_tokens": [
+            "polyrhythm",
+            "tala"
+          ]
+        },
+        {
+          "id": "konnakol_fast",
+          "name": "High-speed (chaturasra thrikalam) delivery",
+          "descriptors": [
+            "rapid-fire",
+            "percussive"
+          ],
+          "match_tokens": [
+            "fast-tempo",
+            "rhythmic-solo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "konnakol_context",
+      "name": "Context",
+      "variants": [
+        {
+          "id": "konnakol_solo",
+          "default": true,
+          "name": "Solo recitation / tani exchange",
+          "descriptors": [
+            "declamatory",
+            "dry"
+          ],
+          "match_tokens": [
+            "rhythmic-solo"
+          ]
+        },
+        {
+          "id": "konnakol_teaching",
+          "name": "Teaching / accompaniment cueing",
+          "descriptors": [
+            "measured",
+            "spoken"
+          ],
+          "match_tokens": [
+            "timekeeping"
+          ]
+        }
+      ]
+    }
+  ]
+}

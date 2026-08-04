@@ -1,0 +1,168 @@
+{
+  "id": "harpa",
+  "name": "Harpa (Nordic diatonic folk harp)",
+  "family": "acoustic_strings",
+  "class": "plucked_harp",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 2,
+    "register": 1,
+    "range": 2,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "harpa",
+  "parts": [
+    {
+      "id": "harpa_size",
+      "name": "Size / range",
+      "variants": [
+        {
+          "id": "harpa_lap",
+          "default": true,
+          "name": "Small lap harpa (two octaves, gut strung)",
+          "descriptors": [
+            "intimate",
+            "sweet-toned",
+            "soft-decay"
+          ],
+          "match_tokens": [
+            "plucked-harp",
+            "nordic"
+          ]
+        },
+        {
+          "id": "harpa_floor",
+          "name": "Floor-standing harpa (extended bass)",
+          "descriptors": [
+            "resonant",
+            "wide-ranged",
+            "full-bodied"
+          ],
+          "match_tokens": [
+            "plucked-harp",
+            "nordic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "harpa_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "harpa_gut",
+          "default": true,
+          "name": "Gut strings",
+          "descriptors": [
+            "warm-plucked",
+            "soft-decay"
+          ],
+          "match_tokens": [
+            "plucked-harp"
+          ]
+        },
+        {
+          "id": "harpa_brass_wire",
+          "name": "Brass wire strings",
+          "descriptors": [
+            "bell-like",
+            "long-ringing"
+          ],
+          "match_tokens": [
+            "plucked-harp"
+          ]
+        },
+        {
+          "id": "harpa_horsehair",
+          "name": "Horsehair strings (archaic)",
+          "descriptors": [
+            "dry-toned",
+            "archaic"
+          ],
+          "match_tokens": [
+            "plucked-harp"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "harpa_size",
+      "name": "Size / range",
+      "variants": [
+        {
+          "id": "harpa_lap",
+          "default": true,
+          "name": "Small lap harpa (two octaves, gut strung)",
+          "descriptors": [
+            "intimate",
+            "sweet-toned",
+            "soft-decay"
+          ],
+          "match_tokens": [
+            "plucked-harp",
+            "nordic"
+          ]
+        },
+        {
+          "id": "harpa_floor",
+          "name": "Floor-standing harpa (extended bass)",
+          "descriptors": [
+            "resonant",
+            "wide-ranged",
+            "full-bodied"
+          ],
+          "match_tokens": [
+            "plucked-harp",
+            "nordic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "harpa_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "harpa_gut",
+          "default": true,
+          "name": "Gut strings",
+          "descriptors": [
+            "warm-plucked",
+            "soft-decay"
+          ],
+          "match_tokens": [
+            "plucked-harp"
+          ]
+        },
+        {
+          "id": "harpa_brass_wire",
+          "name": "Brass wire strings",
+          "descriptors": [
+            "bell-like",
+            "long-ringing"
+          ],
+          "match_tokens": [
+            "plucked-harp"
+          ]
+        },
+        {
+          "id": "harpa_horsehair",
+          "name": "Horsehair strings (archaic)",
+          "descriptors": [
+            "dry-toned",
+            "archaic"
+          ],
+          "match_tokens": [
+            "plucked-harp"
+          ]
+        }
+      ]
+    }
+  ]
+}

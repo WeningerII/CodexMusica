@@ -1,0 +1,156 @@
+{
+  "id": "duxianqin",
+  "name": "Duxianqin (Jing minority Chinese monochord zither)",
+  "family": "plucked_traditional",
+  "class": "plucked_box_zither",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 2,
+    "register": 0,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -1,
+    "dynamics": -1
+  },
+  "short": "duxianqin",
+  "parts": [
+    {
+      "id": "duxianqin_build",
+      "name": "Build",
+      "variants": [
+        {
+          "id": "duxianqin_bamboo",
+          "default": true,
+          "name": "Traditional bamboo trough with gourd-topped flex rod",
+          "descriptors": [
+            "glassy",
+            "harmonic-pure",
+            "gliding"
+          ],
+          "match_tokens": [
+            "monochord",
+            "harmonics",
+            "jing-minority"
+          ]
+        },
+        {
+          "id": "duxianqin_amplified",
+          "name": "Modern amplified wooden box",
+          "descriptors": [
+            "sustained",
+            "singing",
+            "electric-toned"
+          ],
+          "match_tokens": [
+            "monochord",
+            "amplified"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "duxianqin_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "duxianqin_harmonic",
+          "default": true,
+          "name": "Node-touch harmonics with lever bending",
+          "descriptors": [
+            "bell-like",
+            "bending",
+            "vocal"
+          ],
+          "match_tokens": [
+            "harmonics",
+            "glissando"
+          ]
+        },
+        {
+          "id": "duxianqin_vibrato",
+          "name": "Deep lever vibrato and portamento",
+          "descriptors": [
+            "wailing",
+            "expressive",
+            "sliding"
+          ],
+          "match_tokens": [
+            "glissando",
+            "expressive"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "duxianqin_build",
+      "name": "Build",
+      "variants": [
+        {
+          "id": "duxianqin_bamboo",
+          "default": true,
+          "name": "Traditional bamboo trough with gourd-topped flex rod",
+          "descriptors": [
+            "glassy",
+            "harmonic-pure",
+            "gliding"
+          ],
+          "match_tokens": [
+            "monochord",
+            "harmonics",
+            "jing-minority"
+          ]
+        },
+        {
+          "id": "duxianqin_amplified",
+          "name": "Modern amplified wooden box",
+          "descriptors": [
+            "sustained",
+            "singing",
+            "electric-toned"
+          ],
+          "match_tokens": [
+            "monochord",
+            "amplified"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "duxianqin_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "duxianqin_harmonic",
+          "default": true,
+          "name": "Node-touch harmonics with lever bending",
+          "descriptors": [
+            "bell-like",
+            "bending",
+            "vocal"
+          ],
+          "match_tokens": [
+            "harmonics",
+            "glissando"
+          ]
+        },
+        {
+          "id": "duxianqin_vibrato",
+          "name": "Deep lever vibrato and portamento",
+          "descriptors": [
+            "wailing",
+            "expressive",
+            "sliding"
+          ],
+          "match_tokens": [
+            "glissando",
+            "expressive"
+          ]
+        }
+      ]
+    }
+  ]
+}

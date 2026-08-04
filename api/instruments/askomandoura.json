@@ -1,0 +1,156 @@
+{
+  "id": "askomandoura",
+  "name": "Askomandoura (Cretan double-chanter mouth-blown bagpipe)",
+  "family": "wind",
+  "class": "mouth_blown_bagpipe",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": -1,
+    "register": 1,
+    "range": -2,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "askomandoura",
+  "parts": [
+    {
+      "id": "askomandoura_chanter",
+      "name": "Chanter pair",
+      "variants": [
+        {
+          "id": "askomandoura_parallel_cane",
+          "default": true,
+          "name": "Twin cane chanters, single idioglot reeds",
+          "descriptors": [
+            "reedy-buzz",
+            "beating-unison",
+            "rustic"
+          ],
+          "match_tokens": [
+            "cretan",
+            "bagpipe",
+            "double-chanter"
+          ]
+        },
+        {
+          "id": "askomandoura_melody_drone",
+          "name": "One melody pipe plus fixed-note pipe",
+          "descriptors": [
+            "droning",
+            "hypnotic",
+            "modal"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "askomandoura_bag",
+      "name": "Bag",
+      "variants": [
+        {
+          "id": "askomandoura_goatskin",
+          "default": true,
+          "name": "Whole goatskin bag",
+          "descriptors": [
+            "continuous-tone",
+            "earthy",
+            "pastoral"
+          ],
+          "match_tokens": [
+            "cretan",
+            "bagpipe"
+          ]
+        },
+        {
+          "id": "askomandoura_synthetic",
+          "name": "Synthetic bag",
+          "descriptors": [
+            "stable-pitch",
+            "even",
+            "modern"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "greek"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "askomandoura_chanter",
+      "name": "Chanter pair",
+      "variants": [
+        {
+          "id": "askomandoura_parallel_cane",
+          "default": true,
+          "name": "Twin cane chanters, single idioglot reeds",
+          "descriptors": [
+            "reedy-buzz",
+            "beating-unison",
+            "rustic"
+          ],
+          "match_tokens": [
+            "cretan",
+            "bagpipe",
+            "double-chanter"
+          ]
+        },
+        {
+          "id": "askomandoura_melody_drone",
+          "name": "One melody pipe plus fixed-note pipe",
+          "descriptors": [
+            "droning",
+            "hypnotic",
+            "modal"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "askomandoura_bag",
+      "name": "Bag",
+      "variants": [
+        {
+          "id": "askomandoura_goatskin",
+          "default": true,
+          "name": "Whole goatskin bag",
+          "descriptors": [
+            "continuous-tone",
+            "earthy",
+            "pastoral"
+          ],
+          "match_tokens": [
+            "cretan",
+            "bagpipe"
+          ]
+        },
+        {
+          "id": "askomandoura_synthetic",
+          "name": "Synthetic bag",
+          "descriptors": [
+            "stable-pitch",
+            "even",
+            "modern"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "greek"
+          ]
+        }
+      ]
+    }
+  ]
+}

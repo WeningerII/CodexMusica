@@ -1,0 +1,156 @@
+{
+  "id": "cura_sazi",
+  "name": "Cura sazı (smallest Turkish long-neck saz)",
+  "family": "plucked_traditional",
+  "class": "long_neck_lute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 2,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "cura sazi",
+  "parts": [
+    {
+      "id": "cura_sazi_size",
+      "name": "Body size",
+      "variants": [
+        {
+          "id": "cura_sazi_small",
+          "default": true,
+          "name": "Standard cura (tiny bowl, short scale)",
+          "descriptors": [
+            "treble",
+            "chirping",
+            "quick-decay"
+          ],
+          "match_tokens": [
+            "saz",
+            "treble-lute",
+            "turkish"
+          ]
+        },
+        {
+          "id": "cura_sazi_tambura_cura",
+          "name": "Cura-tambura (slightly larger)",
+          "descriptors": [
+            "fuller",
+            "mid-bright",
+            "balanced"
+          ],
+          "match_tokens": [
+            "saz",
+            "long-neck-lute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cura_sazi_frets",
+      "name": "Fretting",
+      "variants": [
+        {
+          "id": "cura_sazi_microtonal",
+          "default": true,
+          "name": "Microtonal perde tied for makam",
+          "descriptors": [
+            "makam-correct",
+            "microtonal-bend",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "microtonal",
+            "saz"
+          ]
+        },
+        {
+          "id": "cura_sazi_chromatic",
+          "name": "Chromatic frets",
+          "descriptors": [
+            "tempered",
+            "simplified",
+            "modern"
+          ],
+          "match_tokens": [
+            "saz",
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "cura_sazi_size",
+      "name": "Body size",
+      "variants": [
+        {
+          "id": "cura_sazi_small",
+          "default": true,
+          "name": "Standard cura (tiny bowl, short scale)",
+          "descriptors": [
+            "treble",
+            "chirping",
+            "quick-decay"
+          ],
+          "match_tokens": [
+            "saz",
+            "treble-lute",
+            "turkish"
+          ]
+        },
+        {
+          "id": "cura_sazi_tambura_cura",
+          "name": "Cura-tambura (slightly larger)",
+          "descriptors": [
+            "fuller",
+            "mid-bright",
+            "balanced"
+          ],
+          "match_tokens": [
+            "saz",
+            "long-neck-lute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cura_sazi_frets",
+      "name": "Fretting",
+      "variants": [
+        {
+          "id": "cura_sazi_microtonal",
+          "default": true,
+          "name": "Microtonal perde tied for makam",
+          "descriptors": [
+            "makam-correct",
+            "microtonal-bend",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "microtonal",
+            "saz"
+          ]
+        },
+        {
+          "id": "cura_sazi_chromatic",
+          "name": "Chromatic frets",
+          "descriptors": [
+            "tempered",
+            "simplified",
+            "modern"
+          ],
+          "match_tokens": [
+            "saz",
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

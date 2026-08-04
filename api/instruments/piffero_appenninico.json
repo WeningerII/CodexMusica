@@ -1,0 +1,166 @@
+{
+  "id": "piffero_appenninico",
+  "name": "Piffero (Apennine conical double-reed shawm of the Quattro Province)",
+  "family": "wind",
+  "class": "double_reed_shawm",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "piffero",
+  "parts": [
+    {
+      "id": "piffero_pairing",
+      "name": "Ensemble pairing",
+      "variants": [
+        {
+          "id": "piffero_musa",
+          "default": true,
+          "name": "Piffero e müsa (with small bagpipe drone)",
+          "descriptors": [
+            "reedy",
+            "droning"
+          ],
+          "match_tokens": [
+            "shawm",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "piffero_fisarmonica",
+          "name": "Piffero e fisarmonica (with accordion)",
+          "descriptors": [
+            "strident",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "shawm",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "piffero_solo",
+          "name": "Solo piffero",
+          "descriptors": [
+            "piercing",
+            "exposed-melody"
+          ],
+          "match_tokens": [
+            "shawm"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "piffero_reed",
+      "surface": false,
+      "name": "Reed strength",
+      "variants": [
+        {
+          "id": "piffero_hard",
+          "default": true,
+          "name": "Hard cane reed (loud outdoor tone)",
+          "descriptors": [
+            "strident",
+            "cutting"
+          ],
+          "match_tokens": [
+            "double-reed"
+          ]
+        },
+        {
+          "id": "piffero_soft",
+          "name": "Softer reed (indoor, sweeter)",
+          "descriptors": [
+            "sweeter",
+            "warm-reedy"
+          ],
+          "match_tokens": [
+            "double-reed"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "piffero_pairing",
+      "name": "Ensemble pairing",
+      "variants": [
+        {
+          "id": "piffero_musa",
+          "default": true,
+          "name": "Piffero e müsa (with small bagpipe drone)",
+          "descriptors": [
+            "reedy",
+            "droning"
+          ],
+          "match_tokens": [
+            "shawm",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "piffero_fisarmonica",
+          "name": "Piffero e fisarmonica (with accordion)",
+          "descriptors": [
+            "strident",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "shawm",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "piffero_solo",
+          "name": "Solo piffero",
+          "descriptors": [
+            "piercing",
+            "exposed-melody"
+          ],
+          "match_tokens": [
+            "shawm"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "piffero_reed",
+      "surface": false,
+      "name": "Reed strength",
+      "variants": [
+        {
+          "id": "piffero_hard",
+          "default": true,
+          "name": "Hard cane reed (loud outdoor tone)",
+          "descriptors": [
+            "strident",
+            "cutting"
+          ],
+          "match_tokens": [
+            "double-reed"
+          ]
+        },
+        {
+          "id": "piffero_soft",
+          "name": "Softer reed (indoor, sweeter)",
+          "descriptors": [
+            "sweeter",
+            "warm-reedy"
+          ],
+          "match_tokens": [
+            "double-reed"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "id": "onavillu",
+  "name": "Onavillu (Kerala ceremonial painted bow-zither)",
+  "family": "plucked_traditional",
+  "class": "stick_zither",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "onavillu",
+  "parts": [
+    {
+      "id": "onavillu_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "onavillu_ritual",
+          "default": true,
+          "name": "Painted ritual onavillu (Onam offering)",
+          "descriptors": [
+            "dry-plunk",
+            "ceremonial",
+            "archaic"
+          ],
+          "match_tokens": [
+            "struck-string",
+            "kerala",
+            "ritual"
+          ]
+        },
+        {
+          "id": "onavillu_playing",
+          "name": "Larger playing bow with gut string",
+          "descriptors": [
+            "twanging",
+            "resonant"
+          ],
+          "match_tokens": [
+            "struck-string",
+            "musical-bow"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "onavillu_technique",
+      "name": "Striking technique",
+      "variants": [
+        {
+          "id": "onavillu_stick",
+          "default": true,
+          "name": "Struck with a thin stick",
+          "descriptors": [
+            "sharp-attack",
+            "clicking"
+          ],
+          "match_tokens": [
+            "struck-string"
+          ]
+        },
+        {
+          "id": "onavillu_plucked",
+          "name": "Plucked by hand",
+          "descriptors": [
+            "soft-plucked",
+            "muted"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "onavillu_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "onavillu_ritual",
+          "default": true,
+          "name": "Painted ritual onavillu (Onam offering)",
+          "descriptors": [
+            "dry-plunk",
+            "ceremonial",
+            "archaic"
+          ],
+          "match_tokens": [
+            "struck-string",
+            "kerala",
+            "ritual"
+          ]
+        },
+        {
+          "id": "onavillu_playing",
+          "name": "Larger playing bow with gut string",
+          "descriptors": [
+            "twanging",
+            "resonant"
+          ],
+          "match_tokens": [
+            "struck-string",
+            "musical-bow"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "onavillu_technique",
+      "name": "Striking technique",
+      "variants": [
+        {
+          "id": "onavillu_stick",
+          "default": true,
+          "name": "Struck with a thin stick",
+          "descriptors": [
+            "sharp-attack",
+            "clicking"
+          ],
+          "match_tokens": [
+            "struck-string"
+          ]
+        },
+        {
+          "id": "onavillu_plucked",
+          "name": "Plucked by hand",
+          "descriptors": [
+            "soft-plucked",
+            "muted"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

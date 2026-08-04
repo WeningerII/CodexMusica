@@ -1,0 +1,169 @@
+{
+  "id": "sanfona_portuguesa",
+  "name": "Sanfona portuguesa (Portuguese hurdy-gurdy)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -2
+  },
+  "short": "sanfona portuguesa",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "sanfona_pt_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "sanfona_pt_tradicional",
+          "default": true,
+          "name": "Traditional lute-bodied sanfona",
+          "descriptors": [
+            "warm-drone",
+            "rustic"
+          ],
+          "match_tokens": [
+            "hurdy-gurdy",
+            "portuguese"
+          ]
+        },
+        {
+          "id": "sanfona_pt_moderna",
+          "name": "Modern revival sanfona (chromatic keyboard)",
+          "descriptors": [
+            "even-toned",
+            "projecting"
+          ],
+          "match_tokens": [
+            "hurdy-gurdy",
+            "chromatic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sanfona_pt_buzz",
+      "name": "Buzzing bridge use",
+      "variants": [
+        {
+          "id": "sanfona_pt_coup",
+          "default": true,
+          "name": "Coup de poignet rhythmic buzz",
+          "descriptors": [
+            "buzzing-timbre",
+            "percussive-drone"
+          ],
+          "match_tokens": [
+            "hurdy-gurdy",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "sanfona_pt_smooth",
+          "name": "Smooth wheel, no buzz",
+          "descriptors": [
+            "sustained",
+            "organ-like"
+          ],
+          "match_tokens": [
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sanfona_pt_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "sanfona_pt_tradicional",
+          "default": true,
+          "name": "Traditional lute-bodied sanfona",
+          "descriptors": [
+            "warm-drone",
+            "rustic"
+          ],
+          "match_tokens": [
+            "hurdy-gurdy",
+            "portuguese"
+          ]
+        },
+        {
+          "id": "sanfona_pt_moderna",
+          "name": "Modern revival sanfona (chromatic keyboard)",
+          "descriptors": [
+            "even-toned",
+            "projecting"
+          ],
+          "match_tokens": [
+            "hurdy-gurdy",
+            "chromatic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sanfona_pt_buzz",
+      "name": "Buzzing bridge use",
+      "variants": [
+        {
+          "id": "sanfona_pt_coup",
+          "default": true,
+          "name": "Coup de poignet rhythmic buzz",
+          "descriptors": [
+            "buzzing-timbre",
+            "percussive-drone"
+          ],
+          "match_tokens": [
+            "hurdy-gurdy",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "sanfona_pt_smooth",
+          "name": "Smooth wheel, no buzz",
+          "descriptors": [
+            "sustained",
+            "organ-like"
+          ],
+          "match_tokens": [
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ]
+}

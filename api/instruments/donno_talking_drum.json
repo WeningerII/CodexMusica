@@ -1,0 +1,144 @@
+{
+  "id": "donno_talking_drum",
+  "name": "Donno (Dagomba hourglass talking drum)",
+  "family": "percussion",
+  "class": "hourglass_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "donno",
+  "parts": [
+    {
+      "id": "donno_size",
+      "name": "Size / register",
+      "variants": [
+        {
+          "id": "donno_standard",
+          "default": true,
+          "name": "Standard donno (mid-register)",
+          "descriptors": [
+            "speech-mimicking",
+            "pitch-bending"
+          ],
+          "match_tokens": [
+            "talking-drum",
+            "dagbamba"
+          ]
+        },
+        {
+          "id": "donno_lunna",
+          "name": "Lunna lead drum (large)",
+          "descriptors": [
+            "deep-toned",
+            "declamatory"
+          ],
+          "match_tokens": [
+            "talking-drum",
+            "lead-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "donno_head",
+      "name": "Head and snare",
+      "variants": [
+        {
+          "id": "donno_plain",
+          "default": true,
+          "name": "Plain goatskin heads",
+          "descriptors": [
+            "clean-attack",
+            "vocal"
+          ],
+          "match_tokens": [
+            "tension-drum"
+          ]
+        },
+        {
+          "id": "donno_snared",
+          "name": "Gut snare across the head",
+          "descriptors": [
+            "buzzing-timbre",
+            "rasping"
+          ],
+          "match_tokens": [
+            "snared",
+            "tension-drum"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "donno_size",
+      "name": "Size / register",
+      "variants": [
+        {
+          "id": "donno_standard",
+          "default": true,
+          "name": "Standard donno (mid-register)",
+          "descriptors": [
+            "speech-mimicking",
+            "pitch-bending"
+          ],
+          "match_tokens": [
+            "talking-drum",
+            "dagbamba"
+          ]
+        },
+        {
+          "id": "donno_lunna",
+          "name": "Lunna lead drum (large)",
+          "descriptors": [
+            "deep-toned",
+            "declamatory"
+          ],
+          "match_tokens": [
+            "talking-drum",
+            "lead-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "donno_head",
+      "name": "Head and snare",
+      "variants": [
+        {
+          "id": "donno_plain",
+          "default": true,
+          "name": "Plain goatskin heads",
+          "descriptors": [
+            "clean-attack",
+            "vocal"
+          ],
+          "match_tokens": [
+            "tension-drum"
+          ]
+        },
+        {
+          "id": "donno_snared",
+          "name": "Gut snare across the head",
+          "descriptors": [
+            "buzzing-timbre",
+            "rasping"
+          ],
+          "match_tokens": [
+            "snared",
+            "tension-drum"
+          ]
+        }
+      ]
+    }
+  ]
+}

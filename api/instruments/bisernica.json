@@ -1,0 +1,156 @@
+{
+  "id": "bisernica",
+  "name": "Bisernica (smallest treble tamburica of Slavonian tambura bands)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -2,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 2,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "bisernica",
+  "parts": [
+    {
+      "id": "bisernica_courses",
+      "name": "Course layout",
+      "variants": [
+        {
+          "id": "bisernica_two_course",
+          "default": true,
+          "name": "Two-course samica-derived bisernica",
+          "descriptors": [
+            "tinkling",
+            "treble",
+            "quick-decay"
+          ],
+          "match_tokens": [
+            "tamburica",
+            "slavonian",
+            "treble-lute"
+          ]
+        },
+        {
+          "id": "bisernica_four_course",
+          "name": "Four-course orchestral bisernica",
+          "descriptors": [
+            "bright",
+            "fuller",
+            "projecting"
+          ],
+          "match_tokens": [
+            "tamburica",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bisernica_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "bisernica_tremolo",
+          "default": true,
+          "name": "Fast plectrum tremolo lead",
+          "descriptors": [
+            "shimmering",
+            "glittering",
+            "continuous"
+          ],
+          "match_tokens": [
+            "tremolo",
+            "tamburica"
+          ]
+        },
+        {
+          "id": "bisernica_picked",
+          "name": "Sharp single-note picking",
+          "descriptors": [
+            "crisp",
+            "percussive-attack",
+            "agile"
+          ],
+          "match_tokens": [
+            "tamburica",
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "bisernica_courses",
+      "name": "Course layout",
+      "variants": [
+        {
+          "id": "bisernica_two_course",
+          "default": true,
+          "name": "Two-course samica-derived bisernica",
+          "descriptors": [
+            "tinkling",
+            "treble",
+            "quick-decay"
+          ],
+          "match_tokens": [
+            "tamburica",
+            "slavonian",
+            "treble-lute"
+          ]
+        },
+        {
+          "id": "bisernica_four_course",
+          "name": "Four-course orchestral bisernica",
+          "descriptors": [
+            "bright",
+            "fuller",
+            "projecting"
+          ],
+          "match_tokens": [
+            "tamburica",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bisernica_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "bisernica_tremolo",
+          "default": true,
+          "name": "Fast plectrum tremolo lead",
+          "descriptors": [
+            "shimmering",
+            "glittering",
+            "continuous"
+          ],
+          "match_tokens": [
+            "tremolo",
+            "tamburica"
+          ]
+        },
+        {
+          "id": "bisernica_picked",
+          "name": "Sharp single-note picking",
+          "descriptors": [
+            "crisp",
+            "percussive-attack",
+            "agile"
+          ],
+          "match_tokens": [
+            "tamburica",
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

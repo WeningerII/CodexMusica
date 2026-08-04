@@ -1,0 +1,142 @@
+{
+  "id": "been_snake_charmer",
+  "name": "Been (Indian snake-charmer's gourd double clarinet)",
+  "family": "wind",
+  "class": "single_reed_double_clarinet",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": -1,
+    "register": 1,
+    "range": -1,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "been",
+  "parts": [
+    {
+      "id": "been_gourd",
+      "name": "Wind chamber",
+      "variants": [
+        {
+          "id": "been_gourd_natural",
+          "default": true,
+          "name": "Natural dried gourd wind chamber",
+          "descriptors": [
+            "reedy",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "gourd-clarinet",
+            "snake-charmer"
+          ]
+        },
+        {
+          "id": "been_gourd_wood",
+          "name": "Turned wooden chamber",
+          "descriptors": [
+            "focused",
+            "brighter"
+          ],
+          "match_tokens": [
+            "double-clarinet"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "been_drone",
+      "name": "Drone pipe tuning",
+      "variants": [
+        {
+          "id": "been_drone_fixed",
+          "default": true,
+          "name": "Fixed single drone against melody pipe",
+          "descriptors": [
+            "droning",
+            "hypnotic"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "circular-breath"
+          ]
+        },
+        {
+          "id": "been_drone_beating",
+          "name": "Slightly detuned drone (beating)",
+          "descriptors": [
+            "beating",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "detuned-drone"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "been_gourd",
+      "name": "Wind chamber",
+      "variants": [
+        {
+          "id": "been_gourd_natural",
+          "default": true,
+          "name": "Natural dried gourd wind chamber",
+          "descriptors": [
+            "reedy",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "gourd-clarinet",
+            "snake-charmer"
+          ]
+        },
+        {
+          "id": "been_gourd_wood",
+          "name": "Turned wooden chamber",
+          "descriptors": [
+            "focused",
+            "brighter"
+          ],
+          "match_tokens": [
+            "double-clarinet"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "been_drone",
+      "name": "Drone pipe tuning",
+      "variants": [
+        {
+          "id": "been_drone_fixed",
+          "default": true,
+          "name": "Fixed single drone against melody pipe",
+          "descriptors": [
+            "droning",
+            "hypnotic"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "circular-breath"
+          ]
+        },
+        {
+          "id": "been_drone_beating",
+          "name": "Slightly detuned drone (beating)",
+          "descriptors": [
+            "beating",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "detuned-drone"
+          ]
+        }
+      ]
+    }
+  ]
+}

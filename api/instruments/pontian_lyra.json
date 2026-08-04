@@ -1,0 +1,225 @@
+{
+  "id": "pontian_lyra",
+  "name": "Pontian lyra (kemenche of the Black Sea Greeks)",
+  "family": "bowed",
+  "class": "bowed_fiddle",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": 2,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "pontian lyra",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "pontian_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "pontian_tik",
+          "default": true,
+          "name": "Tik / horon dance playing (fast double-stops)",
+          "descriptors": [
+            "trembling",
+            "driving",
+            "shrill"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-rhythm",
+            "pontic"
+          ]
+        },
+        {
+          "id": "pontian_kathisto",
+          "name": "Kathisto seated song accompaniment",
+          "descriptors": [
+            "lyrical",
+            "vocal-shadowing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "expressive"
+          ]
+        },
+        {
+          "id": "pontian_tremoulo",
+          "name": "Tremoulo bow-shake technique",
+          "descriptors": [
+            "shivering",
+            "buzzing-attack",
+            "intense"
+          ],
+          "match_tokens": [
+            "bowed",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pontian_size",
+      "name": "Body size",
+      "variants": [
+        {
+          "id": "pontian_standard",
+          "default": true,
+          "name": "Standard narrow box lyra",
+          "descriptors": [
+            "piercing",
+            "high-pitched"
+          ],
+          "match_tokens": [
+            "bowed",
+            "pontic"
+          ]
+        },
+        {
+          "id": "pontian_zil",
+          "name": "Zil (small, high-tuned) lyra",
+          "descriptors": [
+            "shrill",
+            "brilliant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "high-register"
+          ]
+        },
+        {
+          "id": "pontian_kapan",
+          "name": "Kapan (large, low-tuned) lyra",
+          "descriptors": [
+            "fuller-toned",
+            "dark"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "pontian_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "pontian_tik",
+          "default": true,
+          "name": "Tik / horon dance playing (fast double-stops)",
+          "descriptors": [
+            "trembling",
+            "driving",
+            "shrill"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-rhythm",
+            "pontic"
+          ]
+        },
+        {
+          "id": "pontian_kathisto",
+          "name": "Kathisto seated song accompaniment",
+          "descriptors": [
+            "lyrical",
+            "vocal-shadowing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "expressive"
+          ]
+        },
+        {
+          "id": "pontian_tremoulo",
+          "name": "Tremoulo bow-shake technique",
+          "descriptors": [
+            "shivering",
+            "buzzing-attack",
+            "intense"
+          ],
+          "match_tokens": [
+            "bowed",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pontian_size",
+      "name": "Body size",
+      "variants": [
+        {
+          "id": "pontian_standard",
+          "default": true,
+          "name": "Standard narrow box lyra",
+          "descriptors": [
+            "piercing",
+            "high-pitched"
+          ],
+          "match_tokens": [
+            "bowed",
+            "pontic"
+          ]
+        },
+        {
+          "id": "pontian_zil",
+          "name": "Zil (small, high-tuned) lyra",
+          "descriptors": [
+            "shrill",
+            "brilliant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "high-register"
+          ]
+        },
+        {
+          "id": "pontian_kapan",
+          "name": "Kapan (large, low-tuned) lyra",
+          "descriptors": [
+            "fuller-toned",
+            "dark"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register"
+          ]
+        }
+      ]
+    }
+  ]
+}

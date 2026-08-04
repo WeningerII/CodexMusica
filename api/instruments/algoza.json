@@ -1,0 +1,146 @@
+{
+  "id": "algoza",
+  "name": "Algoza (Punjabi/Sindhi paired duct flutes)",
+  "family": "wind",
+  "class": "duct_flute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "algoza",
+  "parts": [
+    {
+      "id": "algoza_pair",
+      "name": "Pipe pairing",
+      "variants": [
+        {
+          "id": "algoza_melody_drone",
+          "default": true,
+          "name": "Melody pipe plus drone pipe",
+          "descriptors": [
+            "droning",
+            "airy"
+          ],
+          "match_tokens": [
+            "twin-flute",
+            "punjabi"
+          ]
+        },
+        {
+          "id": "algoza_unison",
+          "name": "Both pipes fingered in near-unison",
+          "descriptors": [
+            "beating",
+            "thickened"
+          ],
+          "match_tokens": [
+            "paired-flute",
+            "sindhi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "algoza_breath",
+      "name": "Breath technique",
+      "variants": [
+        {
+          "id": "algoza_circular",
+          "default": true,
+          "name": "Continuous circular breathing",
+          "descriptors": [
+            "unbroken",
+            "hypnotic"
+          ],
+          "match_tokens": [
+            "circular-breath",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "algoza_pulsed",
+          "name": "Rhythmically pulsed tonguing",
+          "descriptors": [
+            "dance-driving",
+            "chuffing"
+          ],
+          "match_tokens": [
+            "dance-rhythm",
+            "duct-flute"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "algoza_pair",
+      "name": "Pipe pairing",
+      "variants": [
+        {
+          "id": "algoza_melody_drone",
+          "default": true,
+          "name": "Melody pipe plus drone pipe",
+          "descriptors": [
+            "droning",
+            "airy"
+          ],
+          "match_tokens": [
+            "twin-flute",
+            "punjabi"
+          ]
+        },
+        {
+          "id": "algoza_unison",
+          "name": "Both pipes fingered in near-unison",
+          "descriptors": [
+            "beating",
+            "thickened"
+          ],
+          "match_tokens": [
+            "paired-flute",
+            "sindhi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "algoza_breath",
+      "name": "Breath technique",
+      "variants": [
+        {
+          "id": "algoza_circular",
+          "default": true,
+          "name": "Continuous circular breathing",
+          "descriptors": [
+            "unbroken",
+            "hypnotic"
+          ],
+          "match_tokens": [
+            "circular-breath",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "algoza_pulsed",
+          "name": "Rhythmically pulsed tonguing",
+          "descriptors": [
+            "dance-driving",
+            "chuffing"
+          ],
+          "match_tokens": [
+            "dance-rhythm",
+            "duct-flute"
+          ]
+        }
+      ]
+    }
+  ]
+}

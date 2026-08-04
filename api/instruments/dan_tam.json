@@ -1,0 +1,256 @@
+{
+  "id": "dan_tam",
+  "name": "Đàn tam (Vietnamese three-string snakeskin lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "dan tam",
+  "parts": [
+    {
+      "id": "dan_tam_size",
+      "name": "Size / register",
+      "variants": [
+        {
+          "id": "dan_tam_standard",
+          "default": true,
+          "name": "Standard đàn tam",
+          "descriptors": [
+            "dry-attack",
+            "fretless-glide",
+            "punchy"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fretless-lute"
+          ]
+        },
+        {
+          "id": "dan_tam_dai",
+          "name": "Đàn tam đại (large bass form)",
+          "descriptors": [
+            "deep-toned",
+            "thumpy"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ]
+        },
+        {
+          "id": "dan_tam_tieu",
+          "name": "Đàn tam tiểu (small high form)",
+          "descriptors": [
+            "bright-attack",
+            "nasal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "high-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dan_tam_context",
+      "name": "Ensemble context",
+      "variants": [
+        {
+          "id": "dan_tam_chau_van",
+          "default": true,
+          "name": "Chầu văn ritual song accompaniment",
+          "descriptors": [
+            "driving",
+            "incisive"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ritual"
+          ]
+        },
+        {
+          "id": "dan_tam_nhac_tai_tu",
+          "name": "Nhạc tài tử chamber playing",
+          "descriptors": [
+            "ornamented",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "chamber"
+          ]
+        },
+        {
+          "id": "dan_tam_tuong",
+          "name": "Tuồng / chèo theatre band",
+          "descriptors": [
+            "cutting",
+            "percussive"
+          ],
+          "match_tokens": [
+            "plucked",
+            "theatre"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dan_tam_head",
+      "surface": false,
+      "name": "Soundboard membrane",
+      "variants": [
+        {
+          "id": "dan_tam_snakeskin",
+          "default": true,
+          "name": "Python-skin soundboard",
+          "descriptors": [
+            "snappy",
+            "nasal-buzz"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "dan_tam_synthetic",
+          "name": "Synthetic membrane (modern)",
+          "descriptors": [
+            "even-toned",
+            "stable"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dan_tam_size",
+      "name": "Size / register",
+      "variants": [
+        {
+          "id": "dan_tam_standard",
+          "default": true,
+          "name": "Standard đàn tam",
+          "descriptors": [
+            "dry-attack",
+            "fretless-glide",
+            "punchy"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fretless-lute"
+          ]
+        },
+        {
+          "id": "dan_tam_dai",
+          "name": "Đàn tam đại (large bass form)",
+          "descriptors": [
+            "deep-toned",
+            "thumpy"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ]
+        },
+        {
+          "id": "dan_tam_tieu",
+          "name": "Đàn tam tiểu (small high form)",
+          "descriptors": [
+            "bright-attack",
+            "nasal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "high-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dan_tam_context",
+      "name": "Ensemble context",
+      "variants": [
+        {
+          "id": "dan_tam_chau_van",
+          "default": true,
+          "name": "Chầu văn ritual song accompaniment",
+          "descriptors": [
+            "driving",
+            "incisive"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ritual"
+          ]
+        },
+        {
+          "id": "dan_tam_nhac_tai_tu",
+          "name": "Nhạc tài tử chamber playing",
+          "descriptors": [
+            "ornamented",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "chamber"
+          ]
+        },
+        {
+          "id": "dan_tam_tuong",
+          "name": "Tuồng / chèo theatre band",
+          "descriptors": [
+            "cutting",
+            "percussive"
+          ],
+          "match_tokens": [
+            "plucked",
+            "theatre"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dan_tam_head",
+      "surface": false,
+      "name": "Soundboard membrane",
+      "variants": [
+        {
+          "id": "dan_tam_snakeskin",
+          "default": true,
+          "name": "Python-skin soundboard",
+          "descriptors": [
+            "snappy",
+            "nasal-buzz"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "dan_tam_synthetic",
+          "name": "Synthetic membrane (modern)",
+          "descriptors": [
+            "even-toned",
+            "stable"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}
